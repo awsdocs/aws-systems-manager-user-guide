@@ -1,0 +1,3 @@
+# AWS Systems Manager Activations<a name="activations"></a>
+
+To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you create a managed\-instance activation\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)\.
