@@ -11,7 +11,7 @@ aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-U
 Create an association for a managed instance named "ws\-0123456789012345"
 
 ```
-aws ssm create-association --name value --targets "Key=Instance Ids,Values=ws-0123456789"} --name AWS-UpdateSSMAgent --schedule "cron(0 0 2 ? * SUN *)"
+aws ssm create-association --name value --targets {"Key=Instance Ids,Values=ws-0123456789"} --name AWS-UpdateSSMAgent --schedule "cron(0 0 2 ? * SUN *)"
 ```
 
 **Note**  
