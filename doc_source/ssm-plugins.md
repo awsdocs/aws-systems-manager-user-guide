@@ -771,8 +771,8 @@ Run PowerShell scripts or specify the path to a script to run\. This plugin runs
     "action":"aws:runPowerShellScript",
     "name":"step name",
     "inputs":{
-      "timeoutSeconds":"Timeout in seconds",
-      "runCommand":"[Command to execute]"
+      "timeoutSeconds":Timeout in seconds,
+      "runCommand":[Command to execute]
     }
   }
 ]
