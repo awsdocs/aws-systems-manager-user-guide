@@ -766,16 +766,16 @@ Run PowerShell scripts or specify the path to a script to run\. This plugin runs
 **Syntax for 2\.2 SSM document**
 
 ```
-"mainSteps": [
-   {
-      "action":"aws:runPowerShellScript",
-      "name:":"step name",
-      "inputs":{
-         "timeoutSeconds":Timeout in seconds,
-         "runCommand:":[Command to execute]
-                }
+"mainSteps":[
+  {
+    "action":"aws:runPowerShellScript",
+    "name":"step name",
+    "inputs":{
+      "timeoutSeconds":"Timeout in seconds",
+      "runCommand":"[Command to execute]"
     }
-   ]
+  }
+]
 ```
 
 Here is a schemaVersion 2\.2 example:
