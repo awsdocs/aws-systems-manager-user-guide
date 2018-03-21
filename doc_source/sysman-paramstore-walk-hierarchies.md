@@ -68,7 +68,7 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
 1. Execute the following command to query for all parameters within a single level\. 
 
    ```
-   aws ssm describe-parameters --filters Key=Name,Values="/MyService/Test"
+   aws ssm get-parameters-by-path --path "/MyService/Test"
    ```
 
 1. Execute the following command to delete two parameters
