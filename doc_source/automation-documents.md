@@ -9,4 +9,4 @@ To view information about the actions or plugins that you can specify in a Syste
 
 
 + [Working with Predefined Automation Documents](automation-awsdocs.md)
-+ [Creating an Automation Document](automation-createdoc.md)
++ [Walkthrough: Create an Automation Document](automation-createdoc.md)

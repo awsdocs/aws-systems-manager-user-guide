@@ -15,7 +15,7 @@ The following table includes information to help you get started with Run Comman
 |  [Tutorial: Remotely Manage Your Amazon EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/tutorial_run_command.html) \(Amazon EC2 User Guide\)  |  \(Optional\) The tutorial shows you how to quickly send a command using Run Command with AWS Tools for Windows PowerShell or the AWS Command Line Interface \(AWS CLI\)\.  | 
 |  [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install the SSM Agent\.  | 
 |  [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so that you can manage them using Run Command\.  | 
-|  [Executing Commands Using Systems Manager Run Command](run-command.md)  |  Learn how to execute a command from the EC2 console and how to execute commands to a fleet of managed instances\.  | 
+|  [Running Commands Using Systems Manager Run Command](run-command.md)  |  Learn how to execute a command from the EC2 console and how to execute commands to a fleet of managed instances\.  | 
 |  [Run Command Walkthroughs](run-command-walkthroughs.md)  |  Learn how to execute commands using either AWS Tools for Windows PowerShell or the AWS CLI\.  | 
 
 **Components and Concepts**  
@@ -34,7 +34,7 @@ For information about Systems Manager limits, see [AWS Systems Manager Limits](h
 
 
 + [Setting Up Run Command](sysman-rc-setting-up.md)
-+ [Executing Commands Using Systems Manager Run Command](run-command.md)
++ [Running Commands Using Systems Manager Run Command](run-command.md)
 + [Understanding Command Statuses](monitor-commands.md)
 + [Run Command Walkthroughs](run-command-walkthroughs.md)
 + [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)
@@ -45,6 +45,6 @@ For information about Systems Manager limits, see [AWS Systems Manager Limits](h
 
 + [Installing and Configuring SSM Agent](ssm-agent.md)
 
-+ [Configure Run Command as a CloudWatch Events Target](sysman-rc-setting-up.md#rc-cwe-target)
++ [Configure Run Command as a CloudWatch Events Target](rc-cwe.md#rc-cwe-target)
 
 +  [Amazon EC2 Systems Manager API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/) 

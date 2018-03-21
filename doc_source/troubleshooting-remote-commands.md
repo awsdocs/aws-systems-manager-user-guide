@@ -2,6 +2,12 @@
 
 Run Command provides status details with each command execution\. For more information about the details of command statuses, see [Understanding Command Statuses](monitor-commands.md)\. You can also use the information in this topic to help troubleshoot problems with Run Command\.
 
+
++ [Where Are My Instances?](#where-are-instances)
++ [Getting Status Information on Windows Instances](#rc-healthapi-win)
++ [Getting Status Information on Linux Instances](#rc-healthapi-linux)
++ [Troubleshooting the SSM Agent](#ts-ssmagent-linux)
+
 ## Where Are My Instances?<a name="where-are-instances"></a>
 
 If you do not see the expected list of instances when you choose **Select Target instances** then verify the following\.

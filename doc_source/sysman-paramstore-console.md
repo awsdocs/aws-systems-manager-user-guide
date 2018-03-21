@@ -1,6 +1,6 @@
 # Walkthrough: Create and Use a Parameter in a Command \(Console\)<a name="sysman-paramstore-console"></a>
 
-The following procedure walks you through the process of creating a parameter in Parameter Store and then executing a Run Command command that uses this parameter\.
+The following procedure walks you through the process of creating a parameter in Parameter Store and then executing a command that uses this parameter\.
 
 **To create a parameter using Parameter Store**
 

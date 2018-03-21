@@ -9,7 +9,7 @@ Before you configure inventory collection, complete the following tasks\.
 
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
 
-+ \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with Custom Inventory](sysman-inventory-about.md#sysman-inventory-custom)\.
++ \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
 ## Configuring Collection<a name="sysman-inventory-config-collection"></a>
 
@@ -91,7 +91,7 @@ If you use tags, any instances created in the future with the same tag will also
      {"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\MachineImage","ValueNames":["AMIName"]}
      ```
 
-   For more information about collecting File and Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-about.md#sysman-inventory-file-and-registry)\.
+   For more information about collecting File and Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.
 
 1. In the **Advanced** section, choose **Sync inventory execution logs to an S3 bucket** if you want to store the association execution status in an Amazon S3 bucket\.
 
@@ -163,7 +163,7 @@ If you use tags, any instances created in the future with the same tag will also
      {"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\MachineImage","ValueNames":["AMIName"]}
      ```
 
-   For more information about collecting File and Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-about.md#sysman-inventory-file-and-registry)\.
+   For more information about collecting File and Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.
 
 1. In the **Advanced** section, choose **Write to S3** if you want to store the association execution status in an Amazon S3 bucket\.
 

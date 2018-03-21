@@ -9,13 +9,13 @@ On Windows systems:
 On Windows instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\.
 
 On Linux systems:  
-On Linux instances, the **AWS\-RunPatchBaseline** document downloads and invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type:   
+On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type:   
 
-+  Amazon Linux and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\. `python-requests` is installed automatically when **AWS\-RunPatchBaseline** runs if it is not already present on the system\. 
++  Amazon Linux and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
 
-+  Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. `python3-requests` and `python3-apt` are installed automatically when **AWS\-RunPatchBaseline** runs if they are not already present on the system\.
++  Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 
-+ SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires `python-zypp` version 0\.7\.2 or later\.
++ SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. For information about viewing patch compliance data, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
 

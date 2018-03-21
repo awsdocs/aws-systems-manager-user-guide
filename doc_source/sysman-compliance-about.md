@@ -3,9 +3,14 @@
 This section includes information about the different types of information, *compliance types*, that you can view by using Configuration Compliance\. Configuration Compliance currently supports Patch Manager patching data, State Manager associations, and custom compliance types\.
 
 
++ [About Instance Compliance](#sysman-compliance-instance-about)
 + [About Patch Compliance](#sysman-compliance-monitor-patch)
 + [About Association Compliance](#sysman-compliance-about-association)
 + [About Custom Compliance](#sysman-compliance-custom)
+
+## About Instance Compliance<a name="sysman-compliance-instance-about"></a>
+
+Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec Profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
 
 ## About Patch Compliance<a name="sysman-compliance-monitor-patch"></a>
 

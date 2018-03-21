@@ -5,3 +5,4 @@ You can use AWS Systems Manager with partner and product technologies such as Gi
 
 + [Running Scripts from GitHub and Amazon S3](integration-remote-scripts.md)
 + [Using Run Command to Take VSS\-Enabled Snapshots of EBS Volumes](integration-vss.md)
++ [Using Chef InSpec Profiles with Systems Manager Compliance](integration-chef-inspec.md)

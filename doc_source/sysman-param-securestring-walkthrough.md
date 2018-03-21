@@ -10,7 +10,7 @@ This walkthrough shows you how to join a Windows instance to a domain using Syst
    Write-SSMParameter -Name DNS-IP -Value a DNS IP address -Type String
    Write-SSMParameter -Name domainName -Value the domain name -Type String
    Write-SSMParameter -Name domainJoinUserName -Value a user name -Type String
-   Write-SSMParameter -Name domainJoinPassword -Value a password -Type SecureString
+   Write-SSMParameter -Name a-name-for-a-password -Value a password -Type SecureString
    ```
 **Important**  
 Only the value of the secure string parameter is encrypted\. The name of the parameter, description, and other properties are not encrypted\. For this reason, consider creating a naming system that avoids the word "password" in parameter names\. 

@@ -133,7 +133,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 sudo start amazon-ssm-agent
 ```
 
-Save your changes, and complete the wizard\. When the instance launches, the system copies SSM Agent to the instance and starts it\. When the instance is online, you can configure it using Run Command\. For more information, see [Executing Commands Using Systems Manager Run Command](run-command.md)\.
+Save your changes, and complete the wizard\. When the instance launches, the system copies SSM Agent to the instance and starts it\. When the instance is online, you can configure it using Run Command\. For more information, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
 
 **Note**  
 You can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.

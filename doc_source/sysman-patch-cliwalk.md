@@ -6,7 +6,7 @@ For a sample of other AWS CLI commands you might use for your Patch Manager conf
 
 **Before You Begin**
 
-Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Executing Commands from the Console](rc-console.md)\.
+Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.
 
 In addition, the following walkthrough executes patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
@@ -45,14 +45,14 @@ In addition, the following walkthrough executes patching during a Maintenance Wi
 
    ```
    {
-      "BaselineId":"pb-034cba5a84f030362"
+      "BaselineId":"pb-0c10e65780EXAMPLE""
    }
    ```
 
 1. Execute the following commands to register the "Production\-Baseline" patch baseline for three patch groups named "Production," "Database Servers," and "Front\-End Patch Group\."
 
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-034cba5a84f030362 --patch-group "Production"
+   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE" --patch-group "Production"
    ```
 
    The system returns information like the following\.
@@ -60,12 +60,12 @@ In addition, the following walkthrough executes patching during a Maintenance Wi
    ```
    {
       "PatchGroup":"Production",
-      "BaselineId":"pb-034cba5a84f030362"
+      "BaselineId":"pb-0c10e65780EXAMPLE""
    }
    ```
 
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-034cba5a84f030362 --patch-group "Database Servers"
+   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE" --patch-group "Database Servers"
    ```
 
    The system returns information like the following\.
@@ -73,7 +73,7 @@ In addition, the following walkthrough executes patching during a Maintenance Wi
    ```
    {
       "PatchGroup":"Database Servers",
-      "BaselineId":"pb-034cba5a84f030362"
+      "BaselineId":"pb-0c10e65780EXAMPLE""
    }
    ```
 

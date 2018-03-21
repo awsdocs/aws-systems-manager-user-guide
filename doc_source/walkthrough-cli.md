@@ -1,9 +1,16 @@
-# Systems Manager Run Command Walkthrough Using the AWS CLI<a name="walkthrough-cli"></a>
+# Walkthrough: Use the AWS CLI with Run Command<a name="walkthrough-cli"></a>
 
 The following sample walkthrough shows you how to use the AWS CLI to view information about commands and command parameters, how to execute commands, and how to view the status of those commands\. 
 
 **Important**  
 Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to execute any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+
+
++ [Step 1: Getting Started](#walkthrough-cli-settings)
++ [Step 2: Run Shell Scripts](#walkthrough-cli-run-scripts)
++ [Step 3: Send a Command Using the AWS\-RunShellScript document \- Example 1](#walkthrough-cli-example-1)
++ [Step 4: Send a Command Using the AWS\-RunShellScript document \- Example 2](#walkthrough-cli-example-2)
++ [Additional Examples](#walkthrough-cli-examples)
 
 ## Step 1: Getting Started<a name="walkthrough-cli-settings"></a>
 
@@ -50,7 +57,7 @@ To execute the commands in this walkthrough, you must replace the instance and c
    aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance ID
    ```
 
-## Step 2: Running Shell Scripts<a name="walkthrough-cli-run-scripts"></a>
+## Step 2: Run Shell Scripts<a name="walkthrough-cli-run-scripts"></a>
 
 Using Run Command and the AWS\-RunShellScript document, you can execute any command or script on an EC2 instance as if you were logged on locally\.
 
@@ -112,7 +119,7 @@ The following command returns the output of the original aws ssm send\-command f
 aws ssm list-command-invocations --instance-id instance ID --command-id $sh_command_id –-details
 ```
 
-## Step 5: Additional Examples<a name="walkthrough-cli-examples"></a>
+## Additional Examples<a name="walkthrough-cli-examples"></a>
 
 The following command returns the version of Python running on an instance\.
 

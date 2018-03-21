@@ -1,6 +1,6 @@
 # Simplify AMI Patching Using Automation, Lambda, and Parameter Store<a name="automation-simpatch"></a>
 
-The following example expands on how to update a Windows AMI, as described in [Creating an Automation Document](automation-createdoc.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
+The following example expands on how to update a Windows AMI, as described in [Walkthrough: Create an Automation Document](automation-createdoc.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
 
 The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 

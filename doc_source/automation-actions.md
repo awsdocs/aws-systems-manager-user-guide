@@ -583,7 +583,7 @@ For more information, see [CreateStack](http://docs.aws.amazon.com/AWSCloudForma
 
 ### Security Considerations<a name="automation-action-createstack-security"></a>
 
-Before you can use the `aws:createStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a Service Role for Automation](automation-setup.md#automation-role)\. 
+Before you can use the `aws:createStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\. 
 
 ```
 {
@@ -729,7 +729,7 @@ Required: Yes
 
 ### Security Considerations<a name="automation-action-deletestack-security"></a>
 
-Before you can use the `aws:deleteStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a Service Role for Automation](automation-setup.md#automation-role)\. 
+Before you can use the `aws:deleteStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\. 
 
 ```
 {
@@ -755,7 +755,7 @@ Executes a secondary Automation workflow by calling a secondary Automation docum
 The secondary Automation runs in the context of the user who initiated the primary Automation\. This means that the secondary Automation uses the same IAM role or user account as the user who started the first Automation\.
 
 **Important**  
-If you specify parameters in a secondary Automation that use an assume role \(a role that uses the iam:passRole policy\), then the user or role that initiated the primary Automation must have permission to pass the assume role specified in the secondary Automation\. For more information about setting up an assume role for Automation, see [Method 2: Using IAM to Configure Roles for Automation](automation-setup.md#automation-permissions)\.
+If you specify parameters in a secondary Automation that use an assume role \(a role that uses the iam:passRole policy\), then the user or role that initiated the primary Automation must have permission to pass the assume role specified in the secondary Automation\. For more information about setting up an assume role for Automation, see [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)\.
 
 **Input**
 

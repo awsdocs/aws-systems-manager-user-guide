@@ -7,7 +7,8 @@ You can use AWS Systems Manager Inventory to collect operating system \(OS\), ap
 + [About Systems Manager Inventory](sysman-inventory-about.md)
 + [Configuring Inventory Collection](sysman-inventory-configuring.md)
 + [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)
-+ [Querying Inventory Collection](sysman-inventory-query.md)
++ [Querying an Inventory Collection](sysman-inventory-query.md)
++ [Deleting Custom Inventory](sysman-inventory-delete.md)
 + [Systems Manager Inventory Manager Walkthroughs](sysman-inventory-walk.md)
 
 ## Getting Started with Inventory<a name="sysman-inventory-prereqs"></a>
@@ -20,4 +21,4 @@ To get started with Inventory, complete the following tasks\.
 | Task | For More Information | 
 | --- | --- | 
 |  Verify Systems Manager prerequisites\.  |  [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)  | 
-| Configure Inventory by creating a Systems Manager State Manager association\. | [Configuring Inventory Collection](sysman-inventory-configuring.md) \(Amazon EC2 console\)[Collecting Inventory by Using the AWS CLI](sysman-inventory-walk.md#sysman-inventory-cliwalk) | 
+| Configure Inventory by creating a Systems Manager State Manager association\. | [Configuring Inventory Collection](sysman-inventory-configuring.md) \(Amazon EC2 console\)[Walkthrough: Use the AWS CLI to Collect Inventory](sysman-inventory-cliwalk.md) | 

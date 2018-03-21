@@ -4,7 +4,7 @@ The following walkthrough describes how to patch a server environment in the Sys
 
 **Before You Begin**
 
-Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Executing Commands from the Console](rc-console.md)\.
+Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.
 
 In addition, the following walkthrough executes patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
@@ -63,9 +63,11 @@ If an approved patch is reported as missing, the option you choose in **Complian
 **Note**  
 For SUSE Linux Enterprise Server, it isn't necessary to select the check box because patches for security and non\-security issues are installed by default on SLES instances\. For more information, see the content for SLES in [How Security Patches Are Selected](patch-manager-how-it-works-selection.md)\.
 
-   For more information about working with approval rules in a custom patch baseline, see [Custom Baselines](sysman-patch-baselines.md#patch-manager-baselines-custom)\.
+   For more information about working with approval rules in a custom patch baseline, see [Custom Baselines](patch-manager-baselines.md#patch-manager-baselines-custom)\.
 
 1. In the **Patch exceptions** section, enter comma\-separated lists of patches you want to explicitly approve and reject for the baseline\. For approved patches, choose a corresponding compliance severity level\. 
+**Note**  
+For information about accepted formats for lists of approved patches and rejected patches, see [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
    If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed as well\. Applies to Linux instances only\.
 
@@ -119,6 +121,8 @@ If the **Welcome to EC2 Systems Manager \- Patch Baselines** page appears, choos
 If an approved patch is reported as missing, the option you choose in **Compliance level**, such as Critical or Medium, determines the severity of the compliance violation\.
 
 1. \(Optional\) In the **Patch Exceptions** section, enter comma\-separated lists of patches you want to explicitly approve and reject for the baseline\. For approved patches, choose a corresponding compliance severity level\. 
+**Note**  
+For information about accepted formats for lists of approved patches and rejected patches, see [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 1. Choose **Create Patch Baseline**, and then choose **Close**\.
 
@@ -214,7 +218,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. In the **Parameters** section:
 
@@ -280,7 +284,7 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
    + If you want to write command output and results to an Amazon S3 bucket, choose **Write to S3**\. Type the bucket and prefix names in the boxes\.
 
-   + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Register task**\.
 

@@ -1,6 +1,6 @@
 # Setting Up Notifications and Events for Systems Manager Parameters<a name="sysman-paramstore-cwe"></a>
 
-You can use Amazon CloudWatch Events and Amazon SNS to notify you about changes to Systems Manager Parameters\. You can be notified when a parameter is accessed, updated, or deleted\. You can also be notified when a parameter has *not* been updated or accessed for a period of time\. 
+You can use Amazon CloudWatch Events and Amazon SNS to notify you about changes to Systems Manager Parameters\. You can be notified when a parameter is created, updated, or deleted\. 
 
 You can also use CloudWatch to perform an action on a target for specific parameter events\. This means, for example, that you can execute an AWS Lambda function to recreate a parameter when it is deleted\. You can also set up a notification to trigger a Lambda function when your database password is updated\. The Lambda fuction can force your database connections to reset or reconnect with the new password\.
 

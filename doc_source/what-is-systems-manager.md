@@ -56,7 +56,17 @@ Systems Manager uses the following shared resources for managing and configuring
 
 ## Getting Started<a name="sysman-gstarted"></a>
 
-To get started with Systems Manager, verify prerequisites, configure roles and permissions, and install the SSM Agent on your instances\. If you want to manage your on\-premises servers and VMs with Systems Manager, then you must also create a managed instance activation\. These tasks are described in [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+To get started with Systems Manager, do the following:
+
++ Ensure you have completed the Systems Manager prerequisites
+
++ Configure roles and permissions
+
++ Install the SSM Agent on your instance
+
+If you want to manage your on\-premises servers and VMs with Systems Manager, then you must also create a managed instance activation\.
+
+These tasks are described in [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 ## Accessing Systems Manager<a name="access-methods"></a>
 

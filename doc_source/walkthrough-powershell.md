@@ -1,9 +1,21 @@
-# Systems Manager Run Command Walkthrough Using the AWS Tools for Windows PowerShell<a name="walkthrough-powershell"></a>
+# Walkthrough: Use eh AWS Tools for Windows PowerShell with Run Command<a name="walkthrough-powershell"></a>
 
 The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to execute commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
 
 **Important**  
 Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to execute any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+
+
++ [Configure AWS Tools for Windows PowerShell Session Settings](#walkthrough-powershell-settings)
++ [List all Available Documents](#walkthrough-powershell-all-documents)
++ [Run PowerShell Commands or Scripts](#walkthrough-powershell-run-script)
++ [Install an Application Using the AWS\-InstallApplication Document](#walkthrough-powershell-install-application)
++ [Install a PowerShell Module Using the AWS\-InstallPowerShellModule JSON Document](#walkthrough-powershell-install-module)
++ [Join an Instance to a Domain Using the AWS\-JoinDirectoryServiceDomain JSON Document](#walkthrough-powershell-domain-join)
++ [Send Windows Metrics to Amazon CloudWatch using the AWS\-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics)
++ [Enable/Disable Windows Automatic Update Using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
++ [Update EC2Config Using the AWS\-UpdateEC2Config Document](#walkthrough-powershell-update-ec2config)
++ [Manage Windows Updates Using Run Command](#walkthough-powershell-windows-updates)
 
 ## Configure AWS Tools for Windows PowerShell Session Settings<a name="walkthrough-powershell-settings"></a>
 

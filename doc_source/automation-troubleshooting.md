@@ -18,7 +18,7 @@ By default, when Automation runs either the AWS\-UpdateLinuxAmi document or the 
 
 VPC not defined 400
 
-To solve this problem, you must create a new Automation document that includes the subnet ID\. Copy a sample document below that includes the subnet ID parameter and create a new document\. For information about creating a document, see [Creating an Automation Document](automation-createdoc.md)\.
+To solve this problem, you must create a new Automation document that includes the subnet ID\. Copy a sample document below that includes the subnet ID parameter and create a new document\. For information about creating a document, see [Walkthrough: Create an Automation Document](automation-createdoc.md)\.
 
 **AWS\-UpdateLinuxAmi**
 
@@ -450,14 +450,14 @@ The following examples describe situations when an Automation execution failed t
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn is not authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-+ Possible cause 1: The IAM user attempting to start the Automation execution does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-setup.md#automation-passrole)\. 
++ Possible cause 1: The IAM user attempting to start the Automation execution does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-permissions.md#automation-passrole)\. 
 
-+ Possible cause 2: The IAM user attempting to start the Automation execution has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific Automation document\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-setup.md#automation-passrole)\.
++ Possible cause 2: The IAM user attempting to start the Automation execution has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific Automation document\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-permissions.md#automation-passrole)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
 **Error message**: `User: user arn is not authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-The IAM user attempting to start the Automation execution does not have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the Automation execution\. For more information, see [Task 3: Attach the iam:PassRole Policy to Your Automation Role](automation-setup.md#automation-passpolicy)\.
+The IAM user attempting to start the Automation execution does not have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the Automation execution\. For more information, see [Task 3: Attach the iam:PassRole Policy to Your Automation Role](automation-permissions.md#automation-passpolicy)\.
 
 ### Invalid Assume Role<a name="automation-trbl-ar"></a>
 
@@ -469,9 +469,9 @@ When you execute an Automation, an assume role is either provided in the documen
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-+ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting Up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a Service Role for Automation](automation-setup.md#automation-role)\.
++ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting Up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\.
 
-+ Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [Task 2: Add a Trust Relationship for Automation](automation-setup.md#automation-trust2)\. 
++ Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [Task 2: Add a Trust Relationship for Automation](automation-permissions.md#automation-trust2)\. 
 
 ## Execution Started, but Status is Failed<a name="automation-trbl-exstrt"></a>
 
@@ -491,7 +491,7 @@ The `aws:runInstances` action received input for an `ImageId` that doesn't exist
 **Assume Role Policy Doesn't Have Sufficient Permissions**  
 **Error message**: `Automation Step Execution fails when it is launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [You are not authorized to perform this operation. Encoded authorization failure message: xxxxxxx (Service: AmazonEC2; Status Code: 403; Error Code: UnauthorizedOperation; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-The assume role doesn't have sufficient permission to invoke the `RunInstances` API on Amazon EC2 instances\. To resolve this problem, attach an IAM policy to the assume role that has permission to invoke the `RunInstances` API\. For more information, see the [Method 2: Using IAM to Configure Roles for Automation](automation-setup.md#automation-permissions)\.
+The assume role doesn't have sufficient permission to invoke the `RunInstances` API on Amazon EC2 instances\. To resolve this problem, attach an IAM policy to the assume role that has permission to invoke the `RunInstances` API\. For more information, see the [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)\.
 
 **Unexpected State**  
 **Error message**: `Step fails when it is verifying launched instance(s) are ready to be used. Instance i-xxxxxxxxx entered unexpected state: shutting-down. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`

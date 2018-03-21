@@ -93,7 +93,7 @@ The following procedure walks you through the process of creating and storing a 
    aws ssm get-parameter-history --name "/Test/IAD/helloWorld"
    ```
 
-1. Execute the following command to use this parameter in a Run Command command\.
+1. Execute the following command to use this parameter in a command\.
 
    ```
    aws ssm send-command --document-name "AWS-RunShellScript" --parameters "commands=["echo {{ssm:/Test/IAD/helloWorld}}"]" --targets "Key=instance-ids,Values=the ID of an instance configured for Systems Manager"

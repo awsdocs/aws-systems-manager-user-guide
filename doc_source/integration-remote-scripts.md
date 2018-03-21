@@ -99,7 +99,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -145,7 +145,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
 
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -252,7 +252,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -302,7 +302,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
 
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -423,7 +423,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -469,7 +469,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
 
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -572,7 +572,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -618,7 +618,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
 
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](sysman-rc-setting-up.md#rc-sns-notifications)\.
+1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Run**\.
 

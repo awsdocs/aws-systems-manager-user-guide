@@ -4,6 +4,9 @@ You can use AWS Systems Manager Configuration Compliance to scan your fleet of m
 
 Configuration Compliance is offered at no additional charge\. You only pay for the AWS resources that you use\.
 
+**Note**  
+Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec Profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
+
 
 + [Getting Started with Configuration Compliance](sysman-compliance-prereqs.md)
 + [About Configuration Compliance](sysman-compliance-about.md)

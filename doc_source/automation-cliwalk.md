@@ -38,7 +38,7 @@ As you get started with Automation, note the following restrictions\.
 + Systems Manager and Automation have the following [service limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Before you begin**  
-Create an AWS Identity and Access Management \(IAM\) instance profile role and Automation service role \(or assume role\)\. For more information about these roles and how to quickly create them from an AWS CloudFormation template, see [Method 1: Using AWS CloudFormation to Configure Roles for Automation](automation-setup.md#automation-cf)\.
+Create an AWS Identity and Access Management \(IAM\) instance profile role and Automation service role \(or assume role\)\. For more information about these roles and how to quickly create them from an AWS CloudFormation template, see [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)\.
 
 We recommend that you also collect the source ID of the AMI to update\.
 

@@ -3,8 +3,8 @@
 The walkthroughs in this section show you how to execute commands with Run Command using either the AWS Command Line Interface or AWS Tools for Windows PowerShell\.
 
 
-+ [Systems Manager Run Command Walkthrough Using the AWS CLI](walkthrough-cli.md)
-+ [Systems Manager Run Command Walkthrough Using the AWS Tools for Windows PowerShell](walkthrough-powershell.md)
++ [Walkthrough: Use the AWS CLI with Run Command](walkthrough-cli.md)
++ [Walkthrough: Use eh AWS Tools for Windows PowerShell with Run Command](walkthrough-powershell.md)
 
 You can also view sample commands in the following references\.
 
