@@ -74,7 +74,7 @@ exec ./amazon-ssm-agent
    Environment="http_proxy=http://hostname:port"
    Environment="https_proxy=http://hostname:port"
    Environment="HTTP_PROXY=http://hostname:port"
-   Environment="HTTPS_PROXYy=http://hostname:port"
+   Environment="HTTPS_PROXY=http://hostname:port"
    ```
 
 1. Add the `no_proxy` setting to the file in the following format\. You must specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager and without this IP address calls to Systems Manager fail:
