@@ -788,7 +788,7 @@ Here is a schemaVersion 2\.2 example:
       "Salutation":{
          "type":"String",
          "description":"(Optional) This is an optional parameter that will be displayed in the output of the command if specified.",
-         "allowedPattern":"[a-zA-Z]",
+         "allowedPattern":"[a-zA-Z ]+",
          "default":"World"
       }
    },
