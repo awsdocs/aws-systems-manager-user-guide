@@ -81,6 +81,38 @@ This procedure created a new role from a pre\-existing IAM policy or *managed po
 
 For information about how to attach the role you just created to a new instance or an existing instance, see the next task\.
 
+**Note**  
+The access granted by the **AmazonEC2RoleforSSM** is very permissive, including read and write access to **all** of your S3 buckets\.  The minimum set of permissions required for Systems Manager to function are:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeAssociation",
+                "ec2messages:GetEndpoint",
+                "ec2messages:AcknowledgeMessage",
+                "ec2messages:GetMessages",
+                "ssm:PutConfigurePackageResult",
+                "ssm:ListInstanceAssociations",
+                "ssm:UpdateAssociationStatus",
+                "ec2messages:DeleteMessage",
+                "ssm:UpdateInstanceInformation",
+                "ec2messages:FailMessage",
+                "ssm:GetDocument",
+                "ec2messages:SendReply",
+                "ssm:ListAssociations",
+                "ssm:UpdateInstanceAssociationStatus"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Task 3: Create an Amazon EC2 Instance that Uses the Systems Manager Role<a name="sysman-create-instance-with-role"></a>
 
 This procedure describes how to launch an Amazon EC2 instance that uses the role you just created\. You can also attach the role to an existing instance\. For more information, see [Attaching an IAM Role to an Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
