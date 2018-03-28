@@ -29,7 +29,7 @@ You can create a hierarchy with a maximum of 15 levels\. We suggest that you cre
 + Your applications that use containers
 
   ```
-  /MyApp/.NET/Libaries/git-password
+  /MyApp/.NET/Libraries/git-password
   ```
 
 + Your business organization
