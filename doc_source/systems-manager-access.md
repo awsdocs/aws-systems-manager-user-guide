@@ -44,7 +44,7 @@ If you are configuring servers or virtual machines \(VMs\) in a hybrid environme
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\.
+1. On the **Select type of trusted entity** page, you'll see two highlited services: EC2 and Lambda. Don't chose this EC2 option, select EC2 from the grid bellow them.
 
 1. In the **Select your use case** section, choose **EC2 Role for Simple Systems Manager**, and then choose **Next: Permissions**\.
 
