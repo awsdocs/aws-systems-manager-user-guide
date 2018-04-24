@@ -1,11 +1,11 @@
-# Walkthrough: Use eh AWS Tools for Windows PowerShell with Run Command<a name="walkthrough-powershell"></a>
+# Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command<a name="walkthrough-powershell"></a>
 
 The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to execute commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
 
 **Important**  
 Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to execute any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
 
-
+**Topics**
 + [Configure AWS Tools for Windows PowerShell Session Settings](#walkthrough-powershell-settings)
 + [List all Available Documents](#walkthrough-powershell-all-documents)
 + [Run PowerShell Commands or Scripts](#walkthrough-powershell-run-script)
@@ -19,7 +19,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Configure AWS Tools for Windows PowerShell Session Settings<a name="walkthrough-powershell-settings"></a>
 
-Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
+Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 ```
 Set-AWSCredentials –AccessKey key_name –SecretKey key_name
@@ -352,11 +352,8 @@ Send-SSMCommand -InstanceId Instance-ID -DocumentName "AWS-UpdateEC2Config" -Par
 ## Manage Windows Updates Using Run Command<a name="walkthough-powershell-windows-updates"></a>
 
 Run Command includes three documents to help you manage updates for Amazon EC2 Windows instances\.
-
 + **AWS\-FindWindowsUpdates** — Scans an instance and determines which updates are missing\.
-
 + **AWS\-InstallMissingWindowsUpdates** — Installs missing updates on your EC2 instance\.
-
 + **AWS\-InstallSpecificUpdates** — Installs a specific update\.
 
 The following examples demonstrate how to perform the specified Windows Update management tasks\.

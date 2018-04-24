@@ -7,7 +7,7 @@ The following procedure shows how to automatically apply operating system \(OS\)
 **Before You Begin**  
 Configure Automation roles and, optionally, CloudWatch Events for Automation\. For more information, see [Setting Up Automation](automation-setup.md)\.
 
-
+**Topics**
 + [Task 1: Create a Parameter in Systems Manager Parameter Store](#automation-pet1)
 + [Task 2: Create an IAM Role for AWS Lambda](#automation-pet2)
 + [Task 3: Create an AWS Lambda Function](#automation-pet3)
@@ -16,9 +16,7 @@ Configure Automation roles and, optionally, CloudWatch Events for Automation\. F
 ## Task 1: Create a Parameter in Systems Manager Parameter Store<a name="automation-pet1"></a>
 
 Create a string parameter in Parameter Store that uses the following information:
-
 + **Name**: latestAmi\.
-
 + **Value**: a Windows AMI ID\. For example: ami\-188d6e0e\.
 
 For information about how to create a Parameter Store string parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.

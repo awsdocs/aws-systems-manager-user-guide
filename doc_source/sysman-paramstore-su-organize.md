@@ -11,7 +11,6 @@ You can use parameter hierarchies to help you organize and manage parameters\. A
 ```
 
 You can create a hierarchy with a maximum of 15 levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment, as shown in the following examples:
-
 + Your [Continuous integration](https://aws.amazon.com//devops/continuous-integration/) and [Continuous delivery](https://aws.amazon.com/devops/continuous-delivery/) environment \(CI/CD workflows\)
 
   ```
@@ -25,13 +24,11 @@ You can create a hierarchy with a maximum of 15 levels\. We suggest that you cre
   ```
   /Prod/DBServer/MySQL/db-string
   ```
-
 + Your applications that use containers
 
   ```
-  /MyApp/.NET/Libaries/git-password
+  /MyApp/.NET/Libraries/git-password
   ```
-
 + Your business organization
 
   ```

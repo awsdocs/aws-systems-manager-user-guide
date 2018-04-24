@@ -16,12 +16,12 @@ To get started with Patch Manager, complete the tasks described in the following
 
 | Task | For More Information | 
 | --- | --- | 
-|  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)  | 
+|  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
 |  Learn how to set up and configure patching  |  [Working with Patch Manager](sysman-patch-working.md)  | 
 | Configure permissions for Maintenance Windows\(Required if you intend to use this feature when patching\.\) | [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md) | 
 |  Create patch baselines, patch groups, and a Maintenance Window to execute patching in a test environment  |  [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)  | 
 
-
+**Topics**
 + [Operating Systems Supported by Patch Manager](patch-manager-supported-oses.md)
 + [How Patch Manager Operations Work](patch-manager-how-it-works.md)
 + [Overview of SSM Documents for Patching Instances](patch-manager-ssm-documents.md)

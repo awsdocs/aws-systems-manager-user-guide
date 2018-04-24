@@ -7,7 +7,7 @@ Systems Manager determines the actions to perform on a managed instance by readi
 **Note**  
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.
 
-
+**Topics**
 + [Top\-level Elements](#top-level)
 + [`type` Examples](#top-level-properties-type)
 + [aws:applications](#aws-applications)
@@ -46,25 +46,15 @@ Required: No
 `parameters` is a structure that contains one or more parameters to execute when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
-
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` Examples](#top-level-properties-type) in the next section\.
-
 + `description`: \(Optional\) A description of the parameter\.
-
 + `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
-
 + `allowedValues`: \(Optional\) Allowed values for the parameter\.
-
 + `allowedPattern`: \(Optional\) The regular expression the parameter must match\.
-
 + `displayType`: \(Optional\) Used to display either a `textfield` or a `textarea` in the AWS console\. `textfield` is a single\-line text box\. `textarea` is a multi\-line text area\.
-
 + `minItems`: \(Optional\) The minimum number of items allowed\.
-
 + `maxItems`: \(Optional\) The maximum number of items allowed\.
-
 + `minChars`: \(Optional\) The minimum number of parameter characters allowed\.
-
 + `maxChars`: \(Optional\) The maximum number of parameter characters allowed\.
 
 **runtimeConfig**  
@@ -119,7 +109,7 @@ Install, repair, or uninstall applications on an EC2 instance\. This plugin only
 **action**  
 The action to take\.  
 Type: Enum  
-Valid values: `Install` | `Repair` | `Uninstall`  
+Valid values: `Install` \| `Repair` \| `Uninstall`  
 Required: Yes
 
 **parameters**  
@@ -235,8 +225,8 @@ Required: No
 **Flows**  
 Each data type to upload, along with the destination for the data \(CloudWatch or CloudWatch Logs\)\. For example, to send a performance counter defined under `"Id": "PerformanceCounter"` to the CloudWatch destination defined under `"Id": "CloudWatch"`, enter **"PerformanceCounter,CloudWatch"**\. Similarly, to send the custom log, ETW log, and system log to the CloudWatch Logs destination defined under `"Id": "ETW"`, enter **"\(ETW\),CloudWatchLogs"**\. In addition, you can send the same performance counter or log file to more than one destination\. For example, to send the application log to two different destinations that you defined under `"Id": "CloudWatchLogs"` and `"Id": "CloudWatchLogs2"`, enter **"ApplicationEventLog,\(CloudWatchLogs, CloudWatchLogs2\)"**\.  
 Type: String  
-Valid values \(source\): `ApplicationEventLog` | `CustomLogs` | `ETW` | `PerformanceCounter` | `SystemEventLog` | `SecurityEventLog`   
-Valid values \(destination\): `CloudWatch` | `CloudWatchLogs` | `CloudWatch`*n* | `CloudWatchLogs`*n*   
+Valid values \(source\): `ApplicationEventLog` \| `CustomLogs` \| `ETW` \| `PerformanceCounter` \| `SystemEventLog` \| `SecurityEventLog`   
+Valid values \(destination\): `CloudWatch` \| `CloudWatchLogs` \| `CloudWatch`*n* \| `CloudWatchLogs`*n*   
 Required: Yes
 
 **FullName**  
@@ -258,11 +248,8 @@ Required: Yes
 The types of messages to send to Amazon CloudWatch\.  
 Type: String  
 Valid values:   
-
 + **1** \- Only error messages uploaded\.
-
 + **2** \- Only warning messages uploaded\.
-
 + **4** \- Only information messages uploaded\.
 Note that you can add values together to include more than one type of message\. For example, **3** means that error messages \(**1**\) and warning messages \(**2**\) are included\. A value of **7** means that error messages \(**1**\), warning messages \(**2**\), and informational messages \(**4**\) are included\.  
 Required: Yes  
@@ -292,13 +279,13 @@ The name of the log file\.
 
 1. In the **Create Custom View** dialog box, click the **XML** tab\. The **LogName** is in the <Select Path=> tag \(for example, `Microsoft-Windows-Backup`\)\. Copy this text into the **LogName** parameter\.
 Type: String  
-Valid values: `Application` | `Security` | `System` | `Microsoft-Windows-WinINet/Analytic`  
+Valid values: `Application` \| `Security` \| `System` \| `Microsoft-Windows-WinINet/Analytic`  
 Required: Yes
 
 **LogStream**  
 The destination log stream\. If you use **\{instance\_id\}**, the default, the instance ID of this instance is used as the log stream name\.  
 Type: String  
-Valid values: `{instance_id}` | `{hostname}` | `{ip_address}` *<log\_stream\_name>*  
+Valid values: `{instance_id}` \| `{hostname}` \| `{ip_address}` *<log\_stream\_name>*  
 If you enter a log stream name that doesn't already exist, CloudWatch Logs automatically creates it for you\. You can use a literal string or predefined variables \(**\{instance\_id\}**, **\{hostname\}**, **\{ip\_address\}**, or a combination of all three to define a log stream name\.  
 The log stream name specified in this parameter appears on the **Log Groups > Streams for *<YourLogStream>*** screen in the CloudWatch console\.  
 Required: Yes
@@ -323,7 +310,7 @@ Required: Yes
 **Region**  
 The Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: `us-east-1` | `us-west-2` | `eu-west-1` | `eu-central-1` | `ap-southeast-1` | `ap-southeast-2` | `ap-northeast-1`  
+Valid values: `us-east-1` \| `us-west-2` \| `eu-west-1` \| `eu-central-1` \| `ap-southeast-1` \| `ap-southeast-2` \| `ap-northeast-1`  
 Required: Yes
 
 **SecretKey**  
@@ -334,7 +321,7 @@ Required: No
 **startType**  
 Enable or disable CloudWatch on the instance\.  
 Type: String  
-Valid values: `Enabled` | `Disabled`  
+Valid values: `Enabled` \| `Disabled`  
 Required: Yes
 
 **TimestampFormat**  
@@ -345,13 +332,13 @@ Required: Yes
 **TimeZoneKind**  
 Provides time zone information when no time zone information is included in your log’s timestamp\. If this parameter is left blank and if your timestamp doesn’t include time zone information, CloudWatch Logs defaults to the local time zone\. This parameter is ignored if your timestamp already contains time zone information\.  
 Type: String  
-Valid values: `Local` | `UTC`  
+Valid values: `Local` \| `UTC`  
 Required: No
 
 **Unit**  
 The appropriate unit of measure for the metric\.  
 Type: String  
-Valid values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None  
+Valid values: Seconds \| Microseconds \| Milliseconds \| Bytes \| Kilobytes \| Megabytes \| Gigabytes \| Terabytes \| Bits \| Kilobits \| Megabits \| Gigabits \| Terabits \| Percent \| Count \| Bytes/Second \| Kilobytes/Second \| Megabytes/Second \| Gigabytes/Second \| Terabytes/Second \| Bits/Second \| Kilobits/Second \| Megabits/Second \| Gigabits/Second \| Terabits/Second \| Count/Second \| None  
 Required: Yes
 
 ## aws:configureDocker<a name="aws-configuredocker"></a>
@@ -377,7 +364,7 @@ Required: Yes
 **action**  
 The type of action to perform\.  
 Type: Enum  
-Valid values: `Install` | `Uninstall`  
+Valid values: `Install` \| `Uninstall`  
 Required: Yes
 
 ## aws:configurePackage<a name="aws-configurepackage"></a>
@@ -410,7 +397,7 @@ Required: Yes
 **action**  
 Install or uninstall a package\.  
 Type: Enum  
-Valid values: `Install` | `Uninstall`  
+Valid values: `Install` \| `Uninstall`  
 Required: Yes
 
 **version**  
@@ -497,23 +484,16 @@ The information required to retrieve the content from the required source\.
 Type: StringMap  
 Required: Yes  
 **For sourceType GitHub, specify the following:**  
-
 + owner: The repository owner\.
-
 + repository: The name of the repository\.
-
 + path: The path to the file or directory you want to download\.
-
 + getOptions: Extra options to retrieve content from a different branch or a different commit\. This parameter uses the following format:
-
   + branch:*branch\_name*
 
     The default is `master`\.
-
   + commitID:*commitID*
 
     The default is `head`\.
-
 + tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your access token information\.
 
 ```
@@ -527,7 +507,6 @@ Example syntax:
 }
 ```
 **For sourceType S3, specify the following:**  
-
 + path: The URL to the file or directory you want to download from Amazon S3\.
 
 ```
@@ -537,7 +516,6 @@ Example syntax:
 }
 ```
 **For sourceType SSMDocument, specify *one* of the following:**  
-
 + name: The name and version of the document in the following format: `name:version`\. Version is optional\. 
 
   ```
@@ -546,7 +524,6 @@ Example syntax:
   "name": "Example-RunPowerShellScript:3" 
   }
   ```
-
 + name: The ARN for the document in the following format: arn:aws:ssm:*region*:*account\_id*:document/*document\_name*
 
   ```
@@ -766,16 +743,16 @@ Run PowerShell scripts or specify the path to a script to run\. This plugin runs
 **Syntax for 2\.2 SSM document**
 
 ```
-"mainSteps":[
-  {
-    "action":"aws:runPowerShellScript",
-    "name":"step name",
-    "inputs":{
-      "timeoutSeconds":Timeout in seconds,
-      "runCommand":[Command to execute]
+"mainSteps": [
+   {
+      "action":"aws:runPowerShellScript",
+      "name:":"step name",
+      "inputs":{
+         "timeoutSeconds":"Timeout in seconds",
+         "runCommand:":"[Command to execute]"
+                }
     }
-  }
-]
+   ]
 ```
 
 Here is a schemaVersion 2\.2 example:
@@ -788,7 +765,7 @@ Here is a schemaVersion 2\.2 example:
       "Salutation":{
          "type":"String",
          "description":"(Optional) This is an optional parameter that will be displayed in the output of the command if specified.",
-         "allowedPattern":"[a-zA-Z ]+",
+         "allowedPattern":"[a-zA-Z]",
          "default":"World"
       }
    },

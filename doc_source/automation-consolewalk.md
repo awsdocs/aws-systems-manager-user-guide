@@ -32,28 +32,19 @@ After Automation successfully completes this workflow, the new AMI is available 
 If you use Automation to create an AMI from an instance, be aware that credentials, passwords, data, or other confidential information on the instance are recorded on the new image\. Use caution when creating an AMI from an instance\.
 
 As you get started with Automation, note the following restrictions\.
-
 + Automation does not perform resource clean\-up\. In the event your workflow stops before reaching the final instance\-termination step in the example workflow, you might need to stop instances manually or disable services that were started during the Automation workflow\.
-
 + If you use userdata with Automation, the userdata must be base\-64 encoded\.
-
 + Automation retains execution records for 30 days\.
-
 + Systems Manager and Automation have the following [service limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Before you begin**  
 Create an AWS Identity and Access Management \(IAM\) instance profile role and Automation service role \(or assume role\)\. For more information about these roles and how to quickly create them from an AWS CloudFormation template, see [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)\.
 
 We recommend that you also collect the following information before you begin\.
-
 + The source ID of the AMI to update\.
-
 + \(Optional\) The URL of a script to run before updates are applied\.
-
 + \(Optional\) The URL of a script to run after updates are applied\.
-
 + \(Optional\) The names of specific packages to update\. By default, Automation updates all packages\.
-
 + \(Optional\) The names of specific packages to exclude from updating\.
 
 **Note**  

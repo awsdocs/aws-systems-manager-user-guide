@@ -2,7 +2,7 @@
 
 Use the following information to help you troubleshoot problems with the Automation service\. This topic includes specific tasks to resolve issues based on Automation error messages\.
 
-
+**Topics**
 + [Common Automation Errors](#automation-trbl-common)
 + [Automation Execution Failed to Start](#automation-trbl-access)
 + [Execution Started, but Status is Failed](#automation-trbl-exstrt)
@@ -449,9 +449,7 @@ The following examples describe situations when an Automation execution failed t
 
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn is not authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-
 + Possible cause 1: The IAM user attempting to start the Automation execution does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-permissions.md#automation-passrole)\. 
-
 + Possible cause 2: The IAM user attempting to start the Automation execution has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific Automation document\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure User Access to Automation](automation-permissions.md#automation-passrole)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
@@ -468,9 +466,7 @@ When you execute an Automation, an assume role is either provided in the documen
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-
 + Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting Up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\.
-
 + Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [Task 2: Add a Trust Relationship for Automation](automation-permissions.md#automation-trust2)\. 
 
 ## Execution Started, but Status is Failed<a name="automation-trbl-exstrt"></a>
@@ -495,9 +491,7 @@ The assume role doesn't have sufficient permission to invoke the `RunInstances` 
 
 **Unexpected State**  
 **Error message**: `Step fails when it is verifying launched instance(s) are ready to be used. Instance i-xxxxxxxxx entered unexpected state: shutting-down. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
-
 + Possible cause 1: There is a problem with the instance or the Amazon EC2 service\. To resolve this problem, login to the instance or review the instance system log to understand why the instance started shutting down\.
-
 + Possible cause 2: The user data script specified for the `aws:runInstances` action has a problem or incorrect syntax\. Verify the syntax of the user data script\. Also, verify that the user data scripts doesn't shut down the instance, or invoke other scripts that shut down the instance\.
 
 **Action\-Specific Failures Reference**  

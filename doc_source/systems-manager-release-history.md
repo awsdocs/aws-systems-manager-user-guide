@@ -1,16 +1,18 @@
 # Systems Manager Documentation Update History<a name="systems-manager-release-history"></a>
 
 The following table describes important changes to the documentation since the preceding release of AWS Systems Manager\.
-
 + API version: 2014\-11\-06
-
-+ Last update: March 9, 2018
++ Last update: April 19, 2018
 
 
 ****  
 
 | Change | Description | Release Date | 
 | --- | --- | --- | 
+| New topic | The new topic [Deleting Custom Inventory](sysman-inventory-delete.md) describes how to delete custom Inventory data from Amazon S3 by using the AWS CLI\. The topic also describes how to use the `SchemaDeleteOption` to manage custom inventory by disabling or deleting a custom inventory type\. This new feature uses the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action\.  | April 19, 2018 | 
+| Amazon SNS Notifications for SSM Agent | You can subscribe to an Amazon SNS topic to receive notifications when a new version of SSM Agent is available\. For more information, see [Subscribing to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)\. | April 9, 2018 | 
+| CentOS patching support | Systems Manager now supports patching CentOS instances\. For information about supported CentOS versions, see [Operating Systems Supported by Patch Manager](patch-manager-supported-oses.md)\. For more information about how patching works, see [How Patch Manager Operations Work](patch-manager-how-it-works.md)\. | March 29, 2018 | 
+| New section | To provide a single source for reference information in the AWS Systems Manager User Guide, a new section has been introduced, [AWS Systems Manager Reference](reference.md)\. Additional content will be added to this section as it becomes available\.  | March 15, 2018 | 
 | New topic | The new topic [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md) details the package name formats you can enter in the lists of approved patches and rejected patches for a custom patch baseline\. Sample formats are provided for each operating system type supported by Patch Manager\. | March 9, 2018 | 
 | New topic |  Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec Profiles with Systems Manager Compliance](integration-chef-inspec.md)\.  | March 7, 2018 | 
 | New topic |  The new topic [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md) describes how to use an AWS Identity and Access Management \(IAM\) service\-linked role with Systems Manager\. Currently, service\-linked roles are only required when using Systems Manager Inventory to collect metadata about tags and Resource Groups\.   | February 27, 2018 | 

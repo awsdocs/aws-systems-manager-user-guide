@@ -10,11 +10,8 @@ On Windows instances, the **AWS\-RunPatchBaseline** document downloads and invok
 
 On Linux systems:  
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type:   
-
 +  Amazon Linux and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-
 +  Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
-
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. For information about viewing patch compliance data, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
@@ -23,7 +20,7 @@ After all approved and applicable updates have been installed, with reboots perf
 
 **AWS\-RunPatchBaseline** supports two parameters\. The `Operation` parameter is required\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a Maintenance Window, and let Patch Manager supply the value automatically when the document is run as part of a Maintenance Window operation\.
 
-
+**Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
 + [Parameter name: `Snapshot ID`](#patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id)
 
@@ -31,7 +28,7 @@ After all approved and applicable updates have been installed, with reboots perf
 
 **Usage**: Required\.
 
-**Options**: Scan | Install\. 
+**Options**: Scan \| Install\. 
 
 Scan  
 When you choose the Scan option, **AWS\-RunPatchBaseline** determines the patch compliance state of the instance and reports this information back to Patch Manager\. Scan does not prompt updates to be installed or instances to be rebooted\. Instead, the operation identifies where updates are missing that are approved and applicable to the instance\. 

@@ -5,7 +5,7 @@ The following procedure walks you through the process of creating a State Manage
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md)\.
 
 **Before You Begin**  
-Before you complete the following procedure, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+Before you complete the following procedure, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 **To create an association for automatically updating the SSM Agent**
 
@@ -32,7 +32,7 @@ Before you complete the following procedure, verify that you have at least one r
    aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 0 2 ? * SUN *)"
    ```
 **Note**  
-State Manager associations do not support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Working with Cron and Rate Expressions for Systems Manager](sysman-cron.md)\.
+State Manager associations do not support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
    If you want, you can also target multiple instances by specifying instances IDs in a comma\-separated list\.
 

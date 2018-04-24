@@ -22,11 +22,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
 
 1. \(Optional\) To write the command output to an Amazon S3 bucket, do the following in the **Output options** section: 
-
    + Choose **Enable writing output to S3**\.
-
    + In the **S3 bucket name** field, type the name of an S3 bucket you have write access to\.
-
    + \(Optional\) To write output to a folder in the bucket, type its name in the **S3 key prefix** field\. If no folder exists with the name you specify, State Manager creates it for you\.
 
 1. Choose **Edit association**\.

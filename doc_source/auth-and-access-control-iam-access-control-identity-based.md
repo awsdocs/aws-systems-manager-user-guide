@@ -7,7 +7,7 @@ An *account administrator* \(or administrator user\) is a user with administrato
 
 When granting permissions, the account administrator decides who gets the permissions, the resources that they get permissions for, and the specific actions that you want to allow on those resources\.
 
-
+**Topics**
 + [AWS Systems Manager Resources and Operations](#arn-formats)
 + [Understanding Resource Ownership](#understanding-resource-ownership)
 + [Managing Access to Resources](#managing-access-resources)
@@ -17,23 +17,14 @@ When granting permissions, the account administrator decides who gets the permis
 ## AWS Systems Manager Resources and Operations<a name="arn-formats"></a>
 
 Systems Manager includes several primary resources:
-
 + Automation definition
-
 + Automation execution
-
 + Document
-
 + Maintenance Window
-
 + Managed instance
-
 + Managed instance inventory
-
 + Parameter
-
 + Patch baseline
-
 + Resource data sync
 
 For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are, known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
@@ -96,11 +87,8 @@ For a list of Systems Manager operations that work with these resource types, se
 ## Understanding Resource Ownership<a name="understanding-resource-ownership"></a>
 
 A *resource owner* is the AWS account that created the resource, regardless of who in the account created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
-
 + If you use the root account credentials of your AWS account to create a rule, your AWS account is the owner of the Systems Manager resource\.
-
 + If you create an IAM user in your AWS account and grant permissions to create Systems Manager resources to that user, the user can create Systems Manager resources\. However, your AWS account, to which the user belongs, owns the Systems Manager resources\.
-
 + If you create an IAM role in your AWS account with permissions to create Systems Manager resources, anyone who can assume the role can create Systems Manager resources\. Your AWS account, to which the role belongs, owns the Systems Manager resources\.
 
 ## Managing Access to Resources<a name="managing-access-resources"></a>
@@ -112,16 +100,14 @@ This section discusses using IAM in the context of Systems Manager\. It doesn't 
 
 Policies attached to an IAM identity are referred to as *identity\-based policies* \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based policies*\. Systems Manager supports only identity\-based policies\.
 
-
+**Topics**
 + [Identity\-Based Policies \(IAM Policies\)](#identity-based-policies)
 + [Resource\-Based Policies](#resource-based-policies-overview)
 
 ### Identity\-Based Policies \(IAM Policies\)<a name="identity-based-policies"></a>
 
 You can attach policies to IAM identities\. By creating identity\-based IAM policies, you can restrict the calls and resources that users in your account have access to, and then attach those policies to IAM users\. For more information about how to create IAM roles and to explore example IAM policy statements for Systems Manager, see [Overview of Managing Access Permissions to Your AWS Systems Manager Resources](#auth-and-access-control-iam-access-control-identity-based)\. For example, you can do the following: 
-
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to view applications, deployment groups, and other Systems Manager resources in the AWS Systems Manager console, you can attach a permissions policy to a user or a group that the user belongs to\.
-
 + **Attach a permissions policy to a role \(grant cross\-account permissions\)** – To grant cross\-account permissions, you can attach an identity\-based permissions policy to an IAM role\. For example, the administrator in Account A can create a role to grant cross\-account permissions to another AWS account \(for example, Account B\) or an AWS service as follows:
 
    
@@ -164,13 +150,9 @@ Other AWS services, such as Amazon Simple Storage Service, also support resource
 For each Systems Manager resource, Systems Manager defines a set of applicable API operations\. To allow you to grant permissions for these API operations, Systems Manager defines a set of actions that you can specify in a policy\. Some API operations can require permissions for more than one action\. For more information about resources and API operations, see [AWS Systems Manager Resources and Operations](#arn-formats) and [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)\. For a list of actions, see [AWS Systems Manager Resources and Operations](#arn-formats) [Actions](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Operations.html)\.
 
 The following are the basic policy elements:
-
 + **Resource** – You use an Amazon Resource Name \(ARN\) to identify the resource that the policy applies to\. For Systems Manager resources, you can, use the wildcard character \(\*\) in IAMpolicies\. For more information, see [AWS Systems Manager Resources and Operations](#arn-formats)\.
-
 + **Action** – You use action keywords to identify resource operations that you want to allow or deny\. For example, the `ssm:GetDocument` permission allows the user permissions to perform the `GetDocument` operation\.
-
 + **Effect** – You specify the effect that occurs when the user requests the specific action, either allow or deny\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource, which you might do to make sure that a user cannot access it, even if a different policy grants access\.
-
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions\. Systems Manager supports only identity\-based policies\.
 
 To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.

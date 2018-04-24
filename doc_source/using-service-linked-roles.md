@@ -15,27 +15,16 @@ The AWSServiceRoleForAmazonSSM service\-linked role trusts only ssm\.amazonaws\.
 Only Systems Manager Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and Resource Groups\. 
 
 The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources:
-
 + `ssm:CancelCommand`
-
 + `ssm:GetCommandInvocation`
-
 + `ssm:ListCommandInvocations`
-
 + `ssm:ListCommands`
-
 + `ssm:SendCommand`
-
 + `ec2:DescribeInstanceAttribute`
-
 + `ec2:DescribeInstanceStatus`
-
 + `ec2:DescribeInstances`
-
 + `resource-groups:ListGroups`
-
 + `resource-groups:ListGroupResources`
-
 + `tag:GetResources`
 
 ## Creating a Service\-Linked Role for Systems Manager<a name="create-slr"></a>

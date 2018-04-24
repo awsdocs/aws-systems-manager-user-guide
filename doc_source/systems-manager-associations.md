@@ -4,7 +4,7 @@ In State Manager, an *association* is the result of binding configuration inform
 
 Use the following topics to help you create and manage associations in State Manager\.
 
-
+**Topics**
 + [Create an Association \(Console\)](sysman-state-assoc.md)
 + [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)
 + [Create an Association Using the 'Targets' Parameter \(CLI\)](sysman-state-targets.md)

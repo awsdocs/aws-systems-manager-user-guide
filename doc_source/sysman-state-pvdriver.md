@@ -5,7 +5,7 @@ Amazon Windows AMIs contain a set of drivers to permit access to virtualized har
 The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\.
 
 **Before You Begin**  
-Before you complete the following procedure, verify that you have at least one Amazon EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+Before you complete the following procedure, verify that you have at least one Amazon EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 **Note**  
 The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.
@@ -38,4 +38,4 @@ If you choose to target instances by using tags, and you specify tags that map t
 
 1. In the right corner of the **Association** page, choose the refresh button\. If you created the association on one or more EC2 Windows instances, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
 
-1. If the status is **Failed**, choose the **Instances** tab and verify that the association was successfully created on your EC2 Windows instances\. If Windows instances show a status of **Failed**, verify that the SSM Agent is running on the instance, and verify that the instance is configured with an IAM role for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
+1. If the status is **Failed**, choose the **Instances** tab and verify that the association was successfully created on your EC2 Windows instances\. If Windows instances show a status of **Failed**, verify that the SSM Agent is running on the instance, and verify that the instance is configured with an IAM role for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.

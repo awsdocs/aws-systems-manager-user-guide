@@ -4,6 +4,12 @@ AWS Systems Manager Agent is Amazon software that runs on your Amazon EC2 instan
 
 In addition, following the steps below, you can configure SSM Agent to send log data to Amazon CloudWatch Logs\. 
 
+**Important**  
+The unified CloudWatch Agent has replaced the SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. Support for using the SSM Agent to send log data will be deprecated in the near future\. We recommend that you begin using the unified CloudWatch Agent for your log collection processes as soon as possible\. For more information, see the following topics:  
+[Send Logs to CloudWatch Logs \(CloudWatch Agent\)](monitoring-cloudwatch-agent.md)
+[Migrate Windows Server Instance Log Collection to the CloudWatch Agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
+[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+
 **Before You Begin**  
 Create a log group in Amazon CloudWatch Logs\. For more information, see [Create a Log Group in CloudWatch Logs](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Create-Log-Group.html) in the *Amazon CloudWatch Logs User Guide*\.
 
@@ -46,8 +52,8 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
    	</outputs>
    ```
 
-1. Save your changes\.
+1. Save your changes, and then restart the SSM Agent or the instance\.
 
 1. Open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
 
-1. Choose **Logs**, and then choose your log group\. The log stream for SSM Agent log file data is organized by instance ID\.
+1. Choose **Logs**, and then choose your log group\. \(The log stream for SSM Agent log file data is organized by instance ID\.\)

@@ -8,7 +8,7 @@ You can also store agent configuration settings in the Systems Manager Parameter
 Currently, AWS Systems Manager supports migrating from the SSM Agent to the CloudWatch Agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch Agent on other operating systems, and for complete information about using the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
 You can use the CloudWatch Agent on other supported operating systems, but you will not be able to use Systems Manager to perform a tool migration\. 
 
-
+**Topics**
 + [Migrate Windows Server Instance Log Collection to the CloudWatch Agent](#monitoring-cloudwatch-agent-migrate)
 + [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)
 + [Roll Back to Log Collection with the SSM Agent](#monitoring-cloudwatch-agent-roll-back)
@@ -36,14 +36,11 @@ In these cases, it will be necessary to disable log collection in the SSM Agent 
 
 **Before You Begin**  
 Before you begin a migration to the CloudWatch Agent for log collection, ensure that the instances on which you will perform the migration meet these requirements:
-
 + The OS is a 64\-bit version of Windows Server\.
-
 + SSM Agent 2\.2\.93\.0 or later is installed on the instance\.
-
 + The SSM Agent is configured for monitoring on the instance\. 
 
-
+**Topics**
 + [Automatically Migrate to the CloudWatch Agent](#monitoring-cloudwatch-agent-migrate-auto)
 + [Manually Migrate to the CloudWatch Agent](#monitoring-cloudwatch-agent-migrate-manual)
 
@@ -78,7 +75,6 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 1. Choose **Run**\.
 
 **To automatically migrate to the CloudWatch Agent \(AWS CLI\)**
-
 + Run the following command:
 
   ```
@@ -118,7 +114,6 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 1. Choose **Run**\.
 
 **Two: Update Config Data JSON Format**
-
 + To update the JSON formatting of the existing config settings for the CloudWatch Agent, use AWS Systems Manager **Run Command** or log into the instance directly with an RDP connection to run the following Windows PowerShell commands on the instance, one at a time:
 
   ```

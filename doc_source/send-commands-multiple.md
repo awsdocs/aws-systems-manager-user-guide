@@ -7,7 +7,7 @@ You can also use the `targets` parameter to target a list of specific instance I
 
 To control command execution across hundreds or thousands of instances, Run Command also includes parameters for restricting how many instances can simultaneously process a request and how many errors can be thrown by a command before the command is terminated\.
 
-
+**Topics**
 + [Targeting Multiple Instances](#send-commands-targeting)
 + [Using Concurrency Controls](#send-commands-velocity)
 + [Using Error Controls](#send-commands-maxerrors)

@@ -1,21 +1,15 @@
 # Manually Install SSM Agent on Amazon EC2 Linux Instances<a name="sysman-manual-agent-install"></a>
 
 Use one of the following scripts to install SSM Agent on one of the following Linux instances\.
-
 + [Amazon Linux](#agent-install-al)
-
 + [Ubuntu Server](#agent-install-ubuntu)
-
 + [Red Hat Enterprise Linux \(RHEL\)](#agent-install-rhel)
-
 + [CentOS](#agent-install-centos)
-
 + [SUSE Linux Enterprise Server \(SLES\) 12](#agent-install-sles)
-
 + [Raspbian](#agent-install-raspbianjessie)
 
 **Note**  
-The URLs in the following scripts let you download the SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an approriate value\.  
+The URLs in the following scripts let you download the SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.  
 *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.  
 For example, to download the SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West 1 Region, use the following URL:  
 

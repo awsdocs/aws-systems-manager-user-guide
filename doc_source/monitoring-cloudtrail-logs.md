@@ -2,7 +2,7 @@
 
 AWS Systems Manager is integrated with CloudTrail, a service that captures API calls made by or on behalf of Systems Manager in your AWS account and delivers the log files to an Amazon S3 bucket you specify\. CloudTrail captures API calls from the Systems Manager console, from Systems Manager commands through the AWS CLI, from the AWS Tools for Windows PowerShell, or from Systems Manager APIs called directly\. Using the information collected by CloudTrail, you can determine which request was made to Systems Manager, the source IP address from which the request was made, who made the request, when it was made, and so on\. To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
-
+**Topics**
 + [Systems Manager Information in CloudTrail](#monitoring-cloudtrail-logs-log-entries-about)
 + [Understanding Systems Manager Log File Entries](#monitoring-cloudtrail-logs-log-entries-example)
 

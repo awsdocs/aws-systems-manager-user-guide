@@ -1,23 +1,18 @@
 # Running Documents from Remote Locations<a name="run-remote-documents"></a>
 
 You can run SSM documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports the following remote locations:
-
 + GitHub repositories \(public and private\)
-
 + Amazon S3
-
 + Documents saved in Systems Manager
 
 The following procedure describes how to run remote SSM documents by using the console\. This procedure shows how to run the remote document by using Run Command, but you can also run remote documents by using State Manager or Automation\.
 
 **Before You Begin**  
 Before you run a remote document, you must complete the following tasks\.
-
 + Create an SSM document and save it in a remote location\. For more information, see [Creating Systems Manager Documents](create-ssm-doc.md)
-
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
-
+**Topics**
 + [Run a Remote Document \(Console\)](#run-remote-documents-console)
 
 ## Run a Remote Document \(Console\)<a name="run-remote-documents-console"></a>
@@ -41,15 +36,12 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Source Type** list, choose an option\. 
-
    + If you choose **GitHub**, specify **Source Info** information in the following format:
 
      ```
@@ -61,7 +53,6 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
      ```
      {"owner":"TestUser1", "repository": "SSMTestDocsRepo", "path": "SSMDocs/mySSMdoc.yml", "tokenInfo":"{{ssm-secure:myAccessTokenParam}}" }
      ```
-
    + If you choose **S3**, specify **Source Info** information in the following format:
 
      ```
@@ -73,7 +64,6 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
      ```
      {"path":"https://s3.amazonaws.com/aws-executecommand-test/scripts/ruby/mySSMdoc.json"}
      ```
-
    + If you choose **SSMDocument**, specify **Source Info** information in the following format:
 
      ```
@@ -102,17 +92,13 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
    ```
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -142,7 +128,6 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Source Type** list, choose an option\. 
-
    + If you choose **GitHub**, specify **Source** information in the following format:
 
      ```
@@ -154,7 +139,6 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
      ```
      {"owner":"TestUser1", "repository": "SSMTestDocsRepo", "path": "SSMDocs/mySSMdoc.yml", "tokenInfo":"{{ssm-secure:myAccessTokenParam}}" }
      ```
-
    + If you choose **S3**, specify **Source** information in the following format:
 
      ```
@@ -166,7 +150,6 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
      ```
      {"path":"https://s3.amazonaws.com/aws-executecommand-test/scripts/ruby/mySSMdoc.json"}
      ```
-
    + If you choose **SSMDocument**, specify **Source** information in the following format:
 
      ```

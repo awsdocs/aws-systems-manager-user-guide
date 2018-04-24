@@ -6,7 +6,7 @@ Tagging is useful when you have many resources of the same type — you can quic
 
 For example, you can tag documents for specific environments, departments, users, groups, or periods\. After you tag a document, you can restrict access to it by creating an IAM policy that specifies the tags that a user can access\. For more information about restricting access to documents by using tags, see [Controlling Access to Documents Using Tags](#sysman-ssm-docs-tagging-access)\.
 
-
+**Topics**
 + [Tag a Document \(AWS CLI\)](#sysman-ssm-docs-tagging-cli)
 + [Tag a Document \(AWS Tools for Windows\)](#sysman-ssm-docs-tagging-tfw)
 + [Tag a Document \(Console\)](#sysman-ssm-docs-tagging-console)

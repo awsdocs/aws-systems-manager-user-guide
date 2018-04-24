@@ -1,13 +1,9 @@
 # Understanding Command Statuses<a name="monitor-commands"></a>
 
 Systems Manager Run Command reports detailed status information about the different states a command experiences during processing and for each instance that processed the command\. You can monitor command statuses using the following methods\.
-
 + Click the **Refresh** icon on the **Run Command** page in the Amazon EC2 console\.
-
 + Call [list\-commands](http://docs.aws.amazon.com/cli/latest/reference/ssm/list-commands.html) or [list\-command\-invocations](http://docs.aws.amazon.com/cli/latest/reference/ssm/list-command-invocations.html.html) using the AWS CLI\. Or call [Get\-SSMCommand](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommand.html) or [Get\-SSMCommandInvocation](http://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommandInvocation.html) using AWS Tools for Windows PowerShell\.
-
 + Configure CloudWatch Events to log status changes\.
-
 + Configure Amazon SNS to send notifications for all status changes or specific statuses like Failed or TimedOut\.
 
 ## Run Command Status<a name="monitor-about-status"></a>

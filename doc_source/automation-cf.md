@@ -2,12 +2,12 @@
 
 You can create an IAM instance profile role and a service role for Automation from an AWS CloudFormation template\.
 
-After you create the instance profile role, you must assign it to any instance that you plan to configure using Automation\. For information about how to assign the role to an existing instance, see [Attaching an IAM Role to an Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\. For information about how to assign the role when you create a new instance, see [Task 3: Create an Amazon EC2 Instance that Uses the Systems Manager Role](systems-manager-access.md#sysman-create-instance-with-role) in the **Configuring Access to Systems Manager** topic\.
+After you create the instance profile role, you must assign it to any instance that you plan to configure using Automation\. For information about how to assign the role to an existing instance, see [Attaching an IAM Role to an Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\. For information about how to assign the role when you create a new instance, see [Task 3: Create an Amazon EC2 Instance that Uses the Systems Manager Instance Profile](sysman-create-instance-with-role.md) in the **Configuring Access to Systems Manager** topic\.
 
 **Note**  
 You can also use these roles and their Amazon Resource Names \(ARNs\) in Automation documents, such as the AWS\-UpdateLinuxAmi document\. Using these roles or their ARNs in Automation documents enables Automation to perform actions on your managed instances, launch new instances, and perform actions on your behalf\. To view an example, see [Automation CLI Walkthrough: Patch a Linux AMI](automation-cliwalk.md)\.
 
-
+**Topics**
 + [Create the Instance Profile Role and Service Role Using AWS CloudFormation](#automation-cf-create)
 + [Copy Role Information for Automation](#automation-cf-copy)
 
@@ -37,7 +37,7 @@ AWS CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately t
 
 ## Copy Role Information for Automation<a name="automation-cf-copy"></a>
 
-Use the following procedure to copy information about the instance profile role and Automation service role from the AWS CloudFormation console\. You must specify these roles when you when you run an Automation document\.
+Use the following procedure to copy information about the instance profile role and Automation service role from the AWS CloudFormation console\. You must specify these roles when you run an Automation document\.
 
 **Note**  
 You do not need to copy role information using this procedure if you run the AWS\-UpdateLinuxAmi or AWS\-UpdateWindowsAmi documents\. These documents already have the required roles specified as default values\. The roles specified in these documents use IAM managed policies\. 

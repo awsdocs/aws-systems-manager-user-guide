@@ -1,13 +1,9 @@
 # Using Chef InSpec Profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
 Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
-
 + Check if specific ports are open or closed\.
-
 + Check if specific applications are running\.
-
 + Check if certain packages are installed\.
-
 + Check Windows Registry keys for specific properties\.
 
 You can create InSpec profiles for Amazon EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks to see if port 22 is open\.
@@ -95,7 +91,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ### Running an InSpec Compliance Scan with Run Command by Using the AWS CLI<a name="integration-chef-inspec-running-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -113,9 +109,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Execute one of the following commands to run an InSpec profile from either GitHub or Amazon S3\.
 
    The command takes the following parameters:
-
    + **sourceType**: GitHub or Amazon S3
-
    + **sourceInfo**: URL to the InSpec profile folder either in GitHub or an Amazon S3 bucket\. The folder must contain the base InSpec file \(\*\.yml\) and all related controls \(\*\.rb\)\.
 
    **GitHub**
@@ -156,7 +150,5 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 **Related AWS Services**  
 The following related services can help you assess Compliance and work with Chef\.
-
 + [Amazon Inspector](http://docs.aws.amazon.com/inspector/latest/APIReference/) lets you perform security assessments on your instances based on and common vulnerabilities described in Central Internet Security \(CIS\) standards\.
-
 + [AWS OpsWorks for Chef Automate](http://docs.aws.amazon.com/opsworks-cm/latest/APIReference/) lets you run a Chef Automate server in AWS\. 

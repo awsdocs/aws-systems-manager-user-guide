@@ -2,7 +2,7 @@
 
 This section describes how to organize, create, and tag parameters, and create different versions of parameters\.
 
-
+**Topics**
 + [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)
 + [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)
 + [Tagging Systems Manager Parameters](sysman-paramstore-su-tag.md)

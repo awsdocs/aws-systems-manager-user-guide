@@ -37,9 +37,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Save the file with a \.`json` file extension\.
 
 After you author the content of the document, you can add it to Systems Manager using any one of the following procedures\. 
-
 + [Add a Systems Manager Document \(Console\)](create-ssm-console.md)
-
 + [Create an SSM Document \(AWS CLI\)](create-ssm-document-cli.md)
-
 + [Create an SSM Document \(Tools for Windows PowerShell\)](create-ssm-document-ps.md)

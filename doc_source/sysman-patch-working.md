@@ -10,15 +10,12 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 
 1. Monitor patching to verify compliance and investigate failures\.
 
-
+**Topics**
 + [Verify Default Patch Baselines or Create a Custom Patch Baseline](sysman-patch-baselines.md)
 + [Organize Instances into Patch Groups](sysman-patch-patchgroups.md)
 + [Schedule Patch Updates Using a Maintenance Window](sysman-patch-scheduletasks.md)
 
 **Related Content**
-
 + To view an example of how to create a patch baseline, patch groups, and a Maintenance Window, see [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)\.
-
 + For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
-
 + For information about monitoring patch compliance, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.

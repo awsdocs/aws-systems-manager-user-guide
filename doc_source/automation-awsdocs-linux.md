@@ -1,11 +1,8 @@
 # Walkthrough: Customize and Update Linux AMIs Using AWS\-UpdateLinuxAmi<a name="automation-awsdocs-linux"></a>
 
 The AWS\-UpdateLinuxAmi document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the AWS\-UpdateLinuxAmi document to perform the following types of tasks\.
-
 + Upgrade all distribution packages and Amazon software on an Amazon Linux, Red Hat, Ubuntu, SLES, or Cent OS Amazon Machine Image \(AMI\)\. This is the default document behavior\.
-
 + Install the SSM Agent on an existing image to enable Systems Manager capabilities, such as remote command execution using Run Command or software inventory collection using Inventory\.
-
 + Install additional software packages\.
 
 **Before You Begin**  
@@ -36,13 +33,9 @@ This step launches an instance using Amazon EC2 userdata and an IAM instance pro
 
 **Step 2: updateOSSoftware \(aws:runCommand action\) **  
 This step executes the following commands on the launched instance:  
-
 + Downloads an update script from Amazon S3\.
-
 + Executes an optional pre\-update script\.
-
 + Updates distribution packages and Amazon software\.
-
 + Executes an optional post\-update script\.
 The execution log is stored in the /tmp folder for the user to view later\.  
 If you want to upgrade a specific set of packages, you can supply the list using the `IncludePackages` parameter\. When provided, the system attempts to update only these packages and their dependencies\. No other updates are performed\. By default, when no *include* packages are specified, the program updates all available packages\.  

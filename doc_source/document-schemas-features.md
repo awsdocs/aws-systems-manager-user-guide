@@ -1,13 +1,9 @@
 # SSM Document Schemas and Features<a name="document-schemas-features"></a>
 
 Systems Manager documents currently use the following schema versions\.
-
 + Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you are currently using schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.
-
 + Documents of type `Policy` must use schema version 2\.0 or later\.
-
 + Documents of type `Automation` must use schema version 0\.3\.
-
 + You can create documents in JSON or YAML\.
 
 By using the latest schema version for `Command` and `Policy` documents, you can take advantage of the following features\.

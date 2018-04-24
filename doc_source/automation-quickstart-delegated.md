@@ -12,13 +12,9 @@ You must specify a service role for Automations that you expect to run longer th
 Delegated administration ensures higher security and control of your AWS resources\. It also enables an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
 
 To properly illustrate how delegated administration can work in an organization, this topic walks you through the following tasks as though these tasks were performed by three different people in an organization:
-
 + Create a test IAM user account called AutomationRestrictedOperator \(Administrator\)
-
 + Create an IAM service role for Automation \(Administrator\)
-
 + Create a simple Automation document \(based on a preexisting Automation document\) that specifies the service role \(SSM Document Author\)
-
 + Execute the Automation as the test user \(Restricted Operator\)
 
 In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here can help you understand how delegated administration enables enhanced security in complex organizations\.
@@ -28,7 +24,7 @@ As a security best practice, we recommend that you always use a service role to 
 
 The procedures in this section link to topics in other AWS guides or other Systems Manager topics\. We recommend that you open links to other topics in a new tab in your web browser so you don't lose your place in this topic\.
 
-
+**Topics**
 + [Create a Test User Account](#automation-quickstart-delegated-operator)
 + [Create an IAM Service Role for Automation](#automation-quickstart-delegated-service-role)
 + [Create a custom Automation document](#automation-quickstart-delegated-document)

@@ -17,9 +17,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
 1. Choose the Maintenance Window that you want to update or delete, and then do one of the following:
-
    + Choose **Delete**\. The system prompts you to confirm your actions\. 
-
    + Choose **Edit**\. On the **Edit maintenance window** page, change the values and options that you want, and then choose **Edit maintenance window**\. 
 
 **To update or delete a Maintenance Window \(Amazon EC2 Systems Manager\)**
@@ -45,9 +43,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
 1. Choose the name of the Maintenance Window that you want to update, and then do one of the following:
-
    + To update targets, choose **Edit**\.
-
    + To delete targets, choose Deregister targets, and then choose the **Targets** tab\.
 
      Choose the target to delete, and then choose **Deregister target**\. In the **Deregister maintenance windows target** window, leave the **Safely deregister target** option selected if you want the system to check if the target is referenced by any tasks before deleting it\. If the target is referenced by a task, the system returns an error and doesn't delete the target\. Clear the **Safely deregister target** option if you want the system to delete the target even if it is referenced by a task\.

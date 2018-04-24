@@ -35,6 +35,6 @@ You can view the JSON for these document in the Systems Manager console\.
 |  AWSSupport\-ExecuteEC2Rescue  |  Use this document to diagnose and troubleshoot problems on Amazon EC2 Windows Server instances\. For more information, see [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.  | 
 |  AWSSupport\-ResetAccess  |  Use this document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances\. For more information, see [Reset the Local Administrator Password on Amazon EC2 Windows Instances](automation-ec2reset.md)\.  | 
 
-
+**Topics**
 + [Walkthrough: Customize and Update Linux AMIs Using AWS\-UpdateLinuxAmi](automation-awsdocs-linux.md)
 + [Walkthrough: Customize and Update Windows AMIs Using AWS\-UpdateWindowsAmi](automation-awsdocs-win.md)

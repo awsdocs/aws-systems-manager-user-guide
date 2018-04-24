@@ -103,3 +103,22 @@ On SUSE Linux Enterprise Server \(SLES\) instances, the patch installation workf
 1. The instance is rebooted if any updates were installed\. 
 
 ------
+#### [ CentOS ]
+
+On CentOS instances, the patch installation workflow is as follows:
+
+1.  Apply [GlobalFilters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
+
+1. Apply [ApprovalRules](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
+
+1. Apply [ApprovedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) as specified in the patch baseline\. The approved patches are approved for update even if they are discarded by [GlobalFilters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters) or if no approval rule specified in [ApprovalRules](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) grants it approval\.
+
+1. Apply [RejectedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) as specified in the patch baseline\. The rejected patches are removed from the list of approved patches and will not be applied\.
+
+1. If multiple versions of a patch are approved, the latest version is applied\.
+
+1. The YUM update API is applied to approved patches\.
+
+1. The instance is rebooted if any updates were installed\. 
+
+------

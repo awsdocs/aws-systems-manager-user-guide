@@ -5,7 +5,7 @@ When you configure Systems Manager Inventory, you specify the type of metadata t
 **Note**  
 Inventory only collects metadata\. It does not collect any personal or proprietary data\.
 
-
+**Topics**
 + [Configurable Data Types in Inventory Management](inventory-management-configurable-elements.md)
 + [Metadata Collected by Inventory](sysman-inventory-schema.md)
 + [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)

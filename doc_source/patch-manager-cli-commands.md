@@ -6,7 +6,7 @@ For an illustration of using the AWS CLI to patch a server environment by using 
 
 For more information about using the CLI forAWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
-
+**Topics**
 + [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline)
 + [Create a patch baseline with custom repositories for different OS versions](#patch-manager-cli-commands-create-patch-baseline-mult-sources)
 + [Update a patch baseline](#patch-manager-cli-commands-update-patch-baseline)

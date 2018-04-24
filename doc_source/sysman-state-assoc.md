@@ -3,7 +3,7 @@
 This section describes how to create a State Manager association by using the Amazon EC2 console\. The example in this section shows you how to create an association based on a custom SSM document\. If this is your first time creating an association, we recommend that you perform this procedure in a test environment\. For an example of creating an association using the AWS CLI, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 **Before You Begin**  
-Before you complete the following procedure, verify that you have at least one instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+Before you complete the following procedure, verify that you have at least one instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
@@ -24,9 +24,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Document type** list, choose **Command document**\.
 
 1. In the **Content** area:
-
    + Select the button next to **JSON**\.
-
    + Delete the pre\-populated brackets \{\} in the **Content **, and then copy and paste the following sample document into the **Content** field\. 
 
      This document includes one step that invokes the **aws:runPowerShellScript** plugin to return the instance host name\. This document can be run on Windows instances\.
@@ -64,11 +62,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. Disregard the **Output options** section\. Enabling the storage of command output in an S3 bucket is described in the next procedure, [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)\.

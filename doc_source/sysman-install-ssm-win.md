@@ -10,7 +10,7 @@ If you need to update SSM Agent, we recommend that you use State Manager to auto
 
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md)\.
 
-
+**Topics**
 + [Install and Configure SSM Agent on Windows Instances](sysman-install-win.md)
 + [View SSM Agent Logs on Windows Instances](sysman-agent-logs-win.md)
 + [Configure SSM Agent to Use a Proxy for Windows Instances](sysman-install-ssm-proxy.md)

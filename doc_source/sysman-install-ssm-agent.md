@@ -11,7 +11,7 @@ The source code for SSM Agent is available on [GitHub](https://github.com/aws/am
 **Note**  
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md)\.
 
-
+**Topics**
 + [Install SSM Agent on Amazon EC2 Linux Instances at Launch](sysman-install-startup-linux.md)
 + [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md)
 + [Configure SSM Agent to Use a Proxy](sysman-proxy-with-ssm-agent.md)

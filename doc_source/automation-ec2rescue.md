@@ -6,47 +6,32 @@ EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Windows 
 The **AWSSupport\-ExecuteEC2Rescue** document is currently not supported for Linux instances\. If you execute the automation on a Linux instance, the automation fails without making changes to your instance\.
 
 You can use Automation with the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate the following types of problems:
-
 + Misconfigured network adapter \(for example, incorrect static IP, DHCP disabled, and DHCP client disabled\)
-
 + Issues with the Remote Desktop Protocol \(RDP\) service \(for example, when the service is disabled or configured with a non\-default configuration\)
-
 + Issues with Windows Firewall \(for example, when the firewall is blocking RDP traffic\)
 
 ## How It Works<a name="automation-ec2rescue-how"></a>
 
 Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** document works as follows:
-
 + You specify the ID of the unreachable instance and execute the Automation workflow\.
-
 + The system creates a temporary VPC, and then executes a series of Lambda functions to configure the VPC\.
-
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
-
 + The system launches a temporary, SSM\-enabled Windows Server helper instance\.
-
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
-
 + The system uses Run Command to run EC2Rescue on the helper instance\. EC2Rescue identifies and attempts to fix issues on the attached, original root volume\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
-
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
 
 ## Before You Begin<a name="automation-ec2rescue-begin"></a>
 
 Before you execute the following Automation, do the following:
-
 + Copy the instance ID of the unreachable instance\. You will specify this ID in the procedure\.
-
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information, see [VPC and Subnets](http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/VPC_Appendix_Limits.html#vpc-limits-vpcs-subnets)\. 
-
 + Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who executed the automation\. For more information about creating roles for Automation, see [QuickStart \#2: Run an Automation Workflow by Using an IAM Service Role](automation-quickstart-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue Permissions to Perform Actions On Your Instances<a name="automation-ec2rescue-access"></a>
 
 EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to execute the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
-
 + [Granting Permissions By Using IAM Policies](#automation-ec2rescue-access-iam)
-
 + [Granting Permissions By Using An AWS CloudFormation Template](#automation-ec2rescue-access-cfn)
 
 #### Granting Permissions By Using IAM Policies<a name="automation-ec2rescue-access-iam"></a>

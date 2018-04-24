@@ -4,11 +4,8 @@ This section includes common uses cases for AWS Systems Manager Automation\.
 
 **Perform common IT tasks**  
 Automation can simplify common IT tasks such as changing the state of one or more instances \(using an approval workflow\) and managing instance states according to a schedule\. Here are some examples:
-
 + Use the AWS\-StopInstance document to request that one or more AWS Identity and Access Management \(IAM\) users approve the instance stop action\. After the approval is received, Automation stops the instance\.
-
 + Use the AWS\-StopInstance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a Maintenance Window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
-
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
 **Safely perform disruptive tasks in bulk**  
@@ -18,20 +15,15 @@ Use the AWS\-RestartInstanceWithApproval document to target an AWS Resource Grou
 
 **Simplify complex tasks**  
 Automation offers one\-click automations for simplifying complex tasks such as creating golden Amazon Machine Images \(AMIs\), and recovering unreachable EC2 instances\. Here are some examples:
-
 + Use the AWS\-UpdateLinuxAMI and AWS\-UpdateWindowsAMI documents to create golden AMIs from a source AMI\. You can run custom scripts before and after updates are applied\. You can also include or exclude specific packages from being installed\.
-
 + Use the AWSSupport\-ExecuteEC2Rescue document to recover impaired instances\. An instance can become unreachable for a variety of reasons, including network misconfigurations, RDP issues, or firewall settings\. Troubleshooting and regaining access to the instance previously required dozens of manual steps before you could regain access\. The AWSSupport\-ExecuteEC2Rescue document lets you regain access by specifying an instance ID and clicking a button\.
 
 **Enhance operations security**  
 Using delegated administration, you can restrict or elevate user permissions for various types of tasks\. 
 
 Delegated administration enables you to provide permissions for certain tasks on certain resource without having to give a user direct permission to access the resources\. This improves your overall security profile\. For example, assume that User1 doesn’t have permissions to restart EC2 instances, but you would like to authorize the user to do so\. Instead of allowing User1 direct permissions, you can: 
-
 + Create an IAM role with the permissions required to successfully stop and start EC2 instances\.
-
 + Create an Automation document and embed the role in the document\. \(The easiest way to do this is to customize the AWS\-RestartEC2Instance document and embed the role in the document instead of assigning an Automation service role \[or *assume* role\]\)\.
-
 + Modify IAM permissions for User1 and allow the user permission to execute the document\. Here is an example of how you would alter the document: 
 
   ```

@@ -4,7 +4,7 @@ You can reference Systems Manager parameters in your scripts, commands, and conf
 
 With Systems Manager capabilities, you can reference Systems Manager parameters in your AWS CLI or AWS Tools for Windows PowerShell commands or scripts\. You can also reference parameters in SSM documents\. For more information about SSM documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
-
+**Topics**
 + [Parameter Usage Examples](#parameter-store-about-examples)
 + [Use Secure String Parameters](#sysman-paramstore-securestring)
 
@@ -79,13 +79,9 @@ $cred = New-Object System.Management.Automation.PSCredential -argumentlist user 
 ## Use Secure String Parameters<a name="sysman-paramstore-securestring"></a>
 
 A Secure String parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in clear text, such as passwords or license keys, then create those parameters using the Secure String data type\. We recommend using Secure String parameters for the following scenarios\.
-
 + You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs\.
-
 + You want to control who has access to sensitive data\.
-
 + You want to be able to audit when sensitive data is accessed \(AWS CloudTrail\)\.
-
 + You want AWS\-level encryption for your sensitive data and you want to bring your own encryption keys to manage access\.
 
 If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
@@ -110,19 +106,15 @@ aws ssm put-parameter --name a_name --value "a value" --type SecureString
 ### Create a Secure String Parameter Using a Custom KMS CMK<a name="sysman-param-customkms"></a>
 
 If you want to use a custom KMS CMK instead of the default CMK assigned to your account, then you must specify the custom KMS CMK by using the `--key-id` parameter\. The parameter supports the following AWS KMS parameter formats\.
-
 + Key ARN example:
 
    `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012`
-
 + Alias ARN example:
 
   `arn:aws:kms:us-east-1:123456789012:alias/MyAliasName`
-
 + Globally Unique Key ID example:
 
   `12345678-1234-1234-1234-123456789012`
-
 + Alias Name example:
 
   `alias/MyAliasName`
@@ -169,9 +161,6 @@ def lambda_handler(event, context):
 
 **Related topics**  
 For an example of how to create and use a Secure String parameter, see [Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blogpost\.
-
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
-
 + [Use Parameter Store to Securely Access Secrets and Config Data in AWS CodeDeploy](https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
-
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)

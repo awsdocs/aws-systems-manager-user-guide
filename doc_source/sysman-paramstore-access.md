@@ -1,17 +1,11 @@
 # Controlling Access to Systems Manager Parameters<a name="sysman-paramstore-access"></a>
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
-
 + [DeleteParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
-
 + [DeleteParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html) \(to delete parameters by using the Amazon EC2 console\)
-
 + [DescribeParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)
-
 + [GetParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
-
 + [GetParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
-
 + [PutParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
 
 We recommend that you control access to Systems Manager parameters by creating restrictive IAM policies\. For example, the following policy allows you to call the `DescribeParameters` and `GetParameters` API operations for a specific resource\. This means that you can get information about and use all parameters that begin with prod\-\*\.
@@ -56,7 +50,7 @@ For trusted administrators, you could provide full access to all Systems Manager
 }
 ```
 
-
+**Topics**
 + [Allowing Only Specific Parameters to Run on Instances](#sysman-paramstore-access-inst)
 + [Controlling Access to Parameters Using Tags](#sysman-paramstore-access-tag)
 

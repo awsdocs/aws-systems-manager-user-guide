@@ -28,13 +28,9 @@ After Automation successfully completes this workflow, the new AMI is available 
 If you use Automation to create an AMI from an instance, be aware that credentials, passwords, data, or other confidential information on the instance are recorded on the new image\. Use caution when creating an AMI from an instance\.
 
 As you get started with Automation, note the following restrictions\.
-
 + Automation does not perform resource clean\-up\. In the event your workflow stops before reaching the final instance\-termination step in the example workflow, you might need to stop instances manually or disable services that were started during the Automation workflow\.
-
 + If you use userdata with Automation, the userdata must be base\-64 encoded\.
-
 + Automation retains execution records for 30 days\.
-
 + Systems Manager and Automation have the following [service limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Before you begin**  

@@ -2,7 +2,7 @@
 
 The rules in a patch baseline for Linux distributions operate differently based on the distribution type\. Unlike patch updates on Windows instances, rules are evaluated on each instance to take the configured repos on the instance into consideration\. Patch Manager uses the native package manager to drive the installation of patches approved by the patch baseline\.
 
-
+**Topics**
 + [How Patch Baseline Rules Work on Amazon Linux](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How Patch Baseline Rules Work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
 + [How Patch Baseline Rules Work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
@@ -70,45 +70,27 @@ name, priority, section, archive, candidate version
 ```
 
 For Ubuntu Server 14, the rules for package classification into the different compliance states are as follows:
-
 + **Installed**: Packages that are filtered through the patch baseline, with the candidate version appearing in `trusty-security`, and are not upgradable\.
-
 + **Missing**: Packages that are filtered through the baseline, with the candidate version appearing in `trusty-security`, and are upgradable\.
-
 + **Installed Other**: Packages that are not filtered through the baseline, with the candidate version appearing in `trusty-security`, and are not upgradable\. The compliance level for these packages is set to `UNSPECIFIED`\.
-
 + **NotApplicable**: Packages that are included in [ApprovedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) but are not installed on the system\.
-
 + **Failed**: Packages that failed to install during the patch operation\.
 
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 
 On SLES, each patch includes the following attributes that denote the properties of the packages in the patch:
-
 + **Category**: Corresponds to the value of the **Classification** key attribute in the patch baseline's [PatchFilter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the type of patch included in the update notice\. Available options include: 
-
   + Security
-
   + Recommended
-
   + Optional
-
   + Features
-
   + Document
-
   + Yast
-
 + **Severity**: Corresponds to the value of the **Severity** key attribute patch baseline's [PatchFilter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the severity of the patches\. Available options include: 
-
   + None
-
   + Low
-
   + Moderate
-
   + Important
-
   + Critical
 
 The product of the instance is determined by the SSM Agent\. This attribute corresponds to the value of the **Product** key attribute in the patch baseline's [PatchFilter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. 

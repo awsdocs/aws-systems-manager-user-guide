@@ -2,7 +2,7 @@
 
 Patch Manager provides pre\-defined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
 
-
+**Topics**
 + [Pre\-Defined Baselines](#patch-manager-baselines-pre-defined)
 + [Custom Baselines](#patch-manager-baselines-custom)
 
@@ -24,13 +24,9 @@ The following table describes the pre\-defined patch baselines provided with Pat
 ## Custom Baselines<a name="patch-manager-baselines-custom"></a>
 
 If you create your own patch baseline, you can choose which patches to auto\-approve by using the following categories\.
-
 + Operating system: Windows, Amazon Linux, Ubuntu Server, etc\.
-
 + Product name: For example, RHEL 6\.5, Amazon Linux 2014\.09, Windows Server 2012, Windows Server 2012 R2, etc\.
-
 + Classification: For example, critical updates, security updates, etc\.
-
 + Severity: For example, critical, important, etc\.
 
 For each auto\-approval rule that you create, you can specify an auto\-approval delay\. This delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the Critical Updates classification and configure it for seven days auto\-approval delay, then a new critical patch released on January 7 will automatically be approved on January 14\.
@@ -43,15 +39,10 @@ You can also specify a compliance severity level\. If an approved patch is repor
 By using multiple patch baselines with different auto\-approval delays, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines and auto\-approval delays for development and production environments\. This enables you to test patches in your development environment before they get deployed in your production environment\. 
 
 Keep the following in mind when you create a patch baseline:
-
 + Patch Manager provides a default patch baseline for each supported operating system\. You can instead create your own patch baseline and designate that as the default patch baseline for the corresponding operating system\.
-
 + For on\-premises or non\-Amazon EC2 instances, Patch Manager attempts to use your custom default patch baseline\. If no custom default patch baseline exists, the system uses the pre\-defined patch baseline for the corresponding operating system\.
-
 + If a patch is listed as both approved and rejected in the same patch baseline, the patch is rejected\.
-
 + An instance can have only one patch baseline defined for it\.
-
 + The formats of package names you can add to lists of approved patches and rejected patches for a patch baseline depend on the type of operating system you are patching\.
 
   For information about accepted formats for lists of approved patches and rejected patches, see [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.

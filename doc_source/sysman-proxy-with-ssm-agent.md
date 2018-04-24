@@ -5,7 +5,7 @@ You can configure SSM Agent to communicate through an HTTP proxy by adding the `
 **Note**  
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
 
-
+**Topics**
 + [Configure SSM Agent to Use a Proxy \(Upstart\)](#ssm-agent-proxy-upstart)
 + [Configure SSM Agent to Use a Proxy \(systemd\)](#ssm-agent-proxy-systemd)
 + [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)

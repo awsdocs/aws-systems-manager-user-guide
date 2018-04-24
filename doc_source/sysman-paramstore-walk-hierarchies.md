@@ -74,5 +74,5 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
 1. Execute the following command to delete two parameters
 
    ```
-   aws ssm delete-parameters --name "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
+   aws ssm delete-parameters --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
    ```

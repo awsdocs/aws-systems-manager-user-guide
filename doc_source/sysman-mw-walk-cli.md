@@ -6,7 +6,7 @@ The following walkthrough describes how to create and configure a Maintenance Wi
 
 1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
 
-1. Open the AWS CLI and run the following command to create a Maintenance Window that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets\. For more information about creating cron expressions for the `schedule` parameter, see [Working with Cron and Rate Expressions for Systems Manager](sysman-cron.md)\.
+1. Open the AWS CLI and run the following command to create a Maintenance Window that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets\. For more information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
    ```
    aws ssm create-maintenance-window --name "My-First-Maintenance-Window" --schedule "cron(0 16 ? * TUE *)" --duration 4 --cutoff 1 --allow-unassociated-targets
@@ -133,47 +133,28 @@ The following walkthrough describes how to create and configure a Maintenance Wi
    ```
 
 1. Execute the following command to register a task for the Maintenance Window\. The task in first example uses Systems Manager Run Command to run the `df` command using the AWS\-RunShellScript document\. You can also specify tasks that use Systems Manager Automation, AWS Lambda, and AWS Step Functions, as shown in the additional examples\. You can specify the following parameters when registering a task:
-
    + **`targets`**: Specify either Key=WindowTargetIds,Values=*IDs* to specify a target that is already registered with the Maintenance Window\. Or, specify Key=InstanceIds,Values=*IDs* to target individual instances that may or may not be registered with the Maintenance Window\. 
-
    + **`task-arn`**: The resource that the task uses during execution\. For RUN\_COMMAND and AUTOMATION task types, `TaskArn` is the SSM document name or ARN\. For LAMBDA tasks, it's the function name or ARN\. For STEP\_FUNCTION tasks, it's the state machine ARN\.
-
    + **`window-id`**: The ID of the target Maintenance Window\.
-
    + **`task-type`**: The type of task\. The type can be one of the following: `RUN_COMMAND`, `AUTOMATION`, `LAMBDA`, or `STEP_FUNCTION`\.
-
    + **`task-invocation-parameters`**: Required and optional parameters\. Some of the common `task-invocation-parameters` parameters are described in the next list\. 
-
    + **`max-concurrency`**: \(Optional\) The maximum number of instances that are allowed to run the command at the same time\. You can specify a number such as 10 or a percentage such as 10%\.
-
    + **`max-errors`**: \(Optional\) The maximum number of errors allowed without the command failing\. When the command fails one more time beyond the value of `MaxErrors`, the systems stops sending the command to additional targets\. You can specify a number such as 10 or a percentage such as 10%\.
-
    + **`priority`**: The priority of the task in the Maintenance Window\. The lower the number the higher the priority \(for example, 1 is highest priority\)\. Tasks in a Maintenance Window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\. 
 
    **Common parameters for task\-invocation\-parameters**
 
    The following list describes some of the common parameters that you can specify when using `task-invocation-parameters`\. You specify these parameters by using the `{{ PARAMETER_NAME }}` syntax, as shown in the examples in this section\.
-
    + **`TARGET_ID`**: The ID of the target\. If the target type is INSTANCE \(currently the only supported type\), then the target ID is the instance ID\.
-
    + **`TARGET_TYPE`**: The type of target\. Currently only INSTANCE is supported\.
-
    + **`WINDOW_ID`**: The ID of the target Maintenance Window\.
-
    + **`WINDOW_TASK_ID`**: The ID of the window task that is executing\.
-
    + **`WINDOW_TARGET_ID`**: The ID of the window target that includes the target \(target ID\)\.
-
    + **`LOGGING_S3_BUCKET_NAME`**: The Amazon S3 bucket name, if configured by using the `logging-info` parameter\.
-
    + **`LOGGING_S3_KEY_PREFIX`**: The Amazon S3 key prefix, if configured by using the `logging-info` parameter\.
-
    + **`LOGGING_S3_REGION`**: The Amazon S3 Region, if configured by using the `logging-info` parameter\.
-
    + **`WINDOW_EXECUTION_ID`**: The ID of the current window execution\.
-
    + **`TASK_EXECUTION_ID`**: The ID of the current task execution\.
-
    + **`INVOCATION_ID`**: The ID of the current invocation\.
 
    ```

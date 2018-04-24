@@ -2,7 +2,7 @@
 
 This section includes information about the different types of information, *compliance types*, that you can view by using Configuration Compliance\. Configuration Compliance currently supports Patch Manager patching data, State Manager associations, and custom compliance types\.
 
-
+**Topics**
 + [About Instance Compliance](#sysman-compliance-instance-about)
 + [About Patch Compliance](#sysman-compliance-monitor-patch)
 + [About Association Compliance](#sysman-compliance-about-association)
@@ -20,15 +20,10 @@ After you use Patch Manager to install patches on your instances, compliance sta
 If you want to assign a specific patch compliance status to an instance, you can use the [put\-compliance\-items](http://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) CLI command or the [PutComplianceItems](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance status is not supported in the Amazon EC2 console\.
 
 For each patch, one of the following compliance status values is reported: 
-
 + **Installed**: Either the patch was already installed, or Patch Manager installed it when the **AWS\-RunPatchBaseline** document was run on the instance\.
-
 + **Installed\_Other**: The patch is not in the baseline, but it is installed on the instance\. An individual might have installed it manually\.
-
 + **Missing**: The patch is approved in the baseline, but it's not installed on the instance\. If you configure the **AWS\-RunPatchBaseline** document task to scan \(instead of install\) the system reports this status for patches that were located during the scan, but have not been installed\.
-
 + **Not\_Applicable**: The patch is approved in the baseline, but the service or feature that uses the patch is not installed on the instance\. For example, a patch for a web server service would show Not\_Applicable if it was approved in the baseline, but the web service is not installed on the instance\.
-
 + **Failed**: The patch is approved in the baseline, but it could not be installed\. To troubleshoot this situation, review the command output for information that might help you understand the problem\. 
 
 ### View Patch Compliance Reports<a name="compliance-view-results"></a>
@@ -92,9 +87,7 @@ You can view association compliance details in the Amazon EC2 console on the **C
 
 **Note**  
 Currently, Configuration Compliance shows compliance statuses of `Compliant` or `Non-compliant` and severity of `Unspecified`\.
-
 + [ListComplianceSummaries](http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListComplianceSummaries.html): Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\.
-
 + [ListResourceComplianceSummaries](http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListResourceComplianceSummaries.html): Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and `Unspecified` counts, according to the filter criteria you specify\. 
 
 ## About Custom Compliance<a name="sysman-compliance-custom"></a>

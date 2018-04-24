@@ -23,11 +23,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **IAM Role** field, specify the Maintenance Windows ARN\. For more information about creating a Maintenance Windows ARN, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.

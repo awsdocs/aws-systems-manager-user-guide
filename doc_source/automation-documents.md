@@ -7,6 +7,6 @@ Automation documents are Systems Manager documents of type `Automation`, as oppo
 **Note**  
 To view information about the actions or plugins that you can specify in a Systems Manager Automation document, see [Systems Manager Automation Document Reference](automation-actions.md)\. To view information about the plugins for all other SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
 
-
+**Topics**
 + [Working with Predefined Automation Documents](automation-awsdocs.md)
 + [Walkthrough: Create an Automation Document](automation-createdoc.md)

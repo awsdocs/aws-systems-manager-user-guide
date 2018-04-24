@@ -8,7 +8,7 @@ Install or update the SSM Agent on your instances\. To patch Linux instances, yo
 
 In addition, the following walkthrough executes patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
-
+**Topics**
 + [Create a Default Patch Baseline](#sysman-patch-baseline-console)
 + [Add Instances to a Patch Group](#sysman-patch-tagging-console)
 + [Create a Maintenance Window for Patching](#sysman-patch-mw-console)
@@ -46,19 +46,13 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Operating system** list, choose an operating system, for example, Red Hat Enterprise Linux\.
 
 1. In the **Approval rules** section, use the fields to create one or more auto\-approval rules\.
-
    + **Product**: The version of the operating systems the approval rule applies to, such as RedhatEnterpriseLinux7\.4\. The default selection is All\.
-
    + **Classification**: The type of patches the approval rule applies to, such as Security\. The default selection is All\. 
-
    + **Severity**: The severity value of patches the rule is to apply to, such as Critical\. The default selection is All\. 
-
    + **Auto approval delay**: The number of days to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
-
    + \(Optional\) **Compliance level**: The severity level you want to assign to patches approved by the baseline, such as High\.
 **Note**  
 If an approved patch is reported as missing, the option you choose in **Compliance level**, such as Critical or Medium, determines the severity of the compliance violation\.
-
    + \(Linux only\) **Include non\-security updates**: Select the check box to install non\-security patches made available in the source repository, in addition to the security\-related patches\. 
 **Note**  
 For SUSE Linux Enterprise Server, it isn't necessary to select the check box because patches for security and non\-security issues are installed by default on SLES instances\. For more information, see the content for SLES in [How Security Patches Are Selected](patch-manager-how-it-works-selection.md)\.
@@ -72,11 +66,8 @@ For information about accepted formats for lists of approved patches and rejecte
    If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed as well\. Applies to Linux instances only\.
 
 1. \(Optional\) For Linux instances only: If you want to specify alternative patch repositories for different versions of an operating system, such as *AmazonLinux2016\.03* and *AmazonLinux2017\.09*, do the following for each product in the **Patch sources** section:
-
    + In **Name**, type a name to help you identify the source configuration\.
-
    + In **Product**, select the version of the operating systems the patch source repository is for, such as RedhatEnterpriseLinux7\.4\.
-
    + In **Configuration**, enter the value of the yum repository configuration to use\. For example:
 
      ```
@@ -203,11 +194,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, under **Target by**, choose choose the Maintenance Window target you created earlier in this procedure\.
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Role** section, enter the ARN of a IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
@@ -221,15 +210,11 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. In the **Parameters** section:
-
    + In the **Operation** list, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
 **Note**  
 The **Install** operation causes the instance to reboot \(if patches are installed\)\. The **Scan** operations does not cause a reboot\.
-
    + You don't need to specify anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
-
    + \(Optional\) In the **Comment** box, enter a tracking note or reminder about this command\.
-
    + In the Timeout \(seconds\) box, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 
 1. Choose **Register run command task**\.
@@ -281,9 +266,7 @@ The **Install** operation causes the instance to reboot \(if patches are install
 1. You don't need to specify anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
 
 1. In the **Advanced** section: 
-
    + If you want to write command output and results to an Amazon S3 bucket, choose **Write to S3**\. Type the bucket and prefix names in the boxes\.
-
    + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
 1. Choose **Register task**\.

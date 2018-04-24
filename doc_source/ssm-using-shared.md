@@ -5,7 +5,7 @@ When you share a Systems Manager document, the system generates an Amazon Resour
 **Note**  
 You are not required to specify ARNs for AWS public documents \(documents that begin with AWS\-\*\) or commands that you own\.
 
-
+**Topics**
 + [Use a Shared Systems Manager Document \(AWS CLI\)](#ssm-using-shared-cli)
 + [Use a Shared Systems Manager Document \(AWS Tools for Windows PowerShell\)](#ssm-using-shared-ps)
 

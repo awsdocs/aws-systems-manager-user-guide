@@ -41,7 +41,7 @@ You can reference specific parameter versions, including older versions, in comm
 
 The following procedures show you how to edit a parameter and then verify that a new version was created\.
 
-
+**Topics**
 + [Create a New Parameter Version \(Console\)](#sysman-paramstore-version-console)
 + [Create a New Parameter Version \(AWS CLI\)](#sysman-paramstore-version-cli)
 + [Create a New Parameter Version \(Windows PowerShell\)](#sysman-paramstore-version-powershell)
@@ -90,7 +90,7 @@ Parameters are only available in the Region where they were created\. If you don
 
 Use the following procedure to create a new version of a parameter by using the AWS CLI\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -143,7 +143,7 @@ Parameters are only available in the Region where they were created\. If you don
 
 Use the following procedure to create a new version of a parameter by using the AWS Tools for Windows PowerShell\.
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
+1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name

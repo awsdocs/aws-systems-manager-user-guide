@@ -14,7 +14,7 @@ When processing documents, instance associations are applied first, and next tag
 If you change the default version of an State Manager document, any association that uses the document will start using the new default version the next time Systems Manager applies the association to the instance\.
 If you create an SSM document for State Manager, you must associate the document with your managed instances after you add it the system\. For more information, see [Create an Association \(Console\)](sysman-state-assoc.md)\.
 
-
+**Topics**
 + [Copy a Document](copy-document.md)
 + [Add a Systems Manager Document \(Console\)](create-ssm-console.md)
 + [Create an SSM Document \(AWS CLI\)](create-ssm-document-cli.md)

@@ -2,7 +2,7 @@
 
 If you share a command, users can view and use that command until you either remove access to the Systems Manager document or delete the Systems Manager document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
 
-
+**Topics**
 + [Stop Sharing a Document \(Console\)](#unshare-using-console)
 + [Stop Sharing a Document \(AWS CLI\)](#unshare-using-cli)
 + [Stop Sharing a Document \(AWS Tools for Windows PowerShell\)](#unshare-using-ps)

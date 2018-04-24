@@ -7,15 +7,10 @@ Amazon SNS can deliver notifications as HTTP or HTTPS POST, email \(SMTP, either
 ## Configure Amazon SNS Notifications for Systems Manager<a name="rc-sns"></a>
 
 Run Command supports sending Amazon SNS notifications for commands that enter the following statuses\. For information about the conditions that cause a command to enter one of these statuses, see [Understanding Command Statuses](monitor-commands.md)\.
-
 + In Progress
-
 + Success
-
 + Failed
-
 + Timed Out
-
 + Canceled
 
 **Note**  
@@ -54,7 +49,7 @@ If you send a command to multiple instances, Amazon SNS can send messages about 
 
 To set up Amazon SNS notifications when a command changes status, you must complete the following tasks\.
 
-
+**Topics**
 + [Task 1: Create an IAM Role for Amazon SNS Notifications](#rc-iam-notifications)
 + [Task 2: Attach the iam:PassRole Policy to Your Amazon SNS Role](#rc-sns-passpolicy)
 + [Task 3: Create and Subscribe to an Amazon SNS](#rc-configure-sns)
@@ -103,7 +98,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
    }
    ```
 **Note**  
-You must add a comma after the existing entry\. "Service": "ec2\.amazonaws\.com"**,** or the JSON will not validate\.
+You must add a comma after the existing entry\. "Service": "ec2\.amazonaws\.com"****, or the JSON will not validate\.
 
 1. Choose **Update Trust Policy**\.
 
@@ -175,17 +170,13 @@ This section shows you how to send a command that is configured to return status
 1. In the **Command parameters** section, specify values for required parameters\.
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.

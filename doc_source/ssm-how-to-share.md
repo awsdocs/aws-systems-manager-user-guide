@@ -2,7 +2,7 @@
 
 You can share Systems Manager document by using the Amazon EC2 console, the AWS Systems Manager console, or by programmatically calling the `ModifyDocumentPermission` API operation using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
-
+**Topics**
 + [Share a Document \(Console\)](#share-using-console)
 + [Share a Document \(AWS CLI\)](#share-using-cli)
 + [Share a Document \(AWS Tools for Windows PowerShell\)](#share-using-ps)

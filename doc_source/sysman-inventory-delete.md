@@ -1,16 +1,12 @@
 # Deleting Custom Inventory<a name="sysman-inventory-delete"></a>
 
-You can use the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete custom inventory data\. When you call this API action by using the AWS CLI, you specify a custom inventory type such as Custom:RackSpace\. The system deletes all data for the inventory type from Amazon S3\.
-
-You can use the `SchemaDeleteOption` to manage custom inventory by disabling or deleting a custom inventory type\.
+You can use the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete your custom inventory data\. When you execute the delete\-inventory command by using the AWS CLI, you specify a custom inventory type such as Custom:RackSpace\. The system deletes all data for the inventory type from the Systems Manager Inventory service\. You can also delete a custom inventory type by using the `SchemaDeleteOption`\.
 
 **Note**  
 An inventory type is also called an inventory schema\.
 
-`SchemaDeleteOption` includes the following options:
-
+The `SchemaDeleteOption` parameter includes the following options:
 + **DisableSchema**: If you choose this option, the system ignores all data for the current version and any earlier versions of this inventory type\. You can enable this inventory type again by calling the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
-
 + **DeleteSchema**: This option deletes the specified custom type from the Inventory service\. You can recreate the schema later, if you want\.
 
 **To delete custom inventory by using the AWS CLI**
@@ -32,7 +28,7 @@ An inventory type is also called an inventory schema\.
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to use the `dry-run` option to see which data will be deleted from the system\. This command does not delete any data\.
+1. Execute the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --dry-run
@@ -69,12 +65,14 @@ An inventory type is also called an inventory schema\.
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name"
    ```
+**Note**  
+The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system has not deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress, as described later in this topic\.
 
    The system returns information like the following\.
 
    ```
    {
-      "DeletionId":"9a238622-5949-41b5-ad5f-a2ee78d262af",
+      "DeletionId":"system_generated_deletion_ID",
       "DeletionSummary":{
          "RemainingCount":3,
          "SummaryItems":[
@@ -95,9 +93,9 @@ An inventory type is also called an inventory schema\.
    }
    ```
 
-   All data for the specified custom inventory type is deleted from Amazon S3\. 
+   The system deletes all data for the specified custom inventory type from the Systems Manager Inventory service\. 
 
-1. Execute the following command to disable and ignore all data for the inventory type\. 
+1. Execute the following command\. The command performs the following actions for the current version of the inventory type: disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. 
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --schema-delete-option "DisableSchema"
@@ -107,7 +105,7 @@ An inventory type is also called an inventory schema\.
 
    ```
    {
-      "DeletionId":"9a238622-5949-41b5-ad5f-a2ee78d262af",
+      "DeletionId":"system_generated_deletion_ID",
       "DeletionSummary":{
          "RemainingCount":3,
          "SummaryItems":[
@@ -140,13 +138,13 @@ An inventory type is also called an inventory schema\.
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --schema-delete-option "DeleteSchema"
    ```
 
-   The system deletes the schema and all inventory for the specified custom type\.
+   The system deletes the schema and all inventory data for the specified custom type\.
 
    The system returns information like the following\.
 
    ```
    {
-      "DeletionId":"9a238622-5949-41b5-ad5f-a2ee78d262af",
+      "DeletionId":"system_generated_deletion_ID",
       "DeletionSummary":{
          "RemainingCount":3,
          "SummaryItems":[
@@ -165,6 +163,124 @@ An inventory type is also called an inventory schema\.
       },
       "TypeName":"Custom:custom_type_name"
    }
+   ```
+
+## Viewing the Deletion Status<a name="sysman-inventory-delete-status"></a>
+
+You can check the status of a delete operation by using the describe\-inventory\-deletions AWS CLI command\. You can specify a deletion ID to view the status of a specific delete operation\. Or, you can omit the deletion ID to view a list of all deletions executed in the last 30 days\.
+
+****
+
+1. Execute the following command to view the status of a deletion operation\. The system returned the deletion ID in the delete\-inventory summary\.
+
+   ```
+   aws ssm describe-inventory-deletions --deletion-id system_generated_deletion_ID
+   ```
+
+   The system returns the latest status\. The delete operation might not be finished yet\. The system returns information like the following\.
+
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "system_generated_deletion_ID", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 1, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 1, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "InProgress", 
+        "LastStatusMessage": "The Delete is in progress", 
+        "LastStatusUpdateTime": 1521744844, 
+        "TypeName": "Custom:custom_type_name"}
+     ]
+   }
+   ```
+
+   If the delete operation is successful, the `LastStatusMessage` states: Deletion is successful\.
+
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "system_generated_deletion_ID", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521745253, 
+        "TypeName": "Custom:custom_type_name"}
+     ]
+   }
+   ```
+
+1. Execute the following command to view a list of all deletions executed in the last 30 days\.
+
+   ```
+   aws ssm describe-inventory-deletions --max-results a number
+   ```
+
+   ```
+   {"InventoryDeletions": 
+     [
+       {"DeletionId": "system_generated_deletion_ID", 
+        "DeletionStartTime": 1521682552, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521682852, 
+        "TypeName": "Custom:custom_type_name"}, 
+       {"DeletionId": "system_generated_deletion_ID", 
+        "DeletionStartTime": 1521744844, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521745253, 
+        "TypeName": "Custom:custom_type_name"}, 
+       {"DeletionId": "system_generated_deletion_ID", 
+        "DeletionStartTime": 1521680145, 
+        "DeletionSummary": 
+         {"RemainingCount": 0, 
+          "SummaryItems": 
+           [
+             {"Count": 1, 
+              "RemainingCount": 0, 
+              "Version": "1.0"}
+           ], 
+          "TotalCount": 1}, 
+        "LastStatus": "Complete", 
+        "LastStatusMessage": "Deletion is successful", 
+        "LastStatusUpdateTime": 1521680471, 
+        "TypeName": "Custom:custom_type_name"}
+     ], 
+    "NextToken": "next-token"
    ```
 
 ## Understanding the Delete Inventory Summary<a name="sysman-inventory-delete-summary"></a>
@@ -229,7 +345,8 @@ The system returns information like the following\.
    "DeletionId":"1111-2222-333-444-66666",
    "DeletionSummary":{
       "RemainingCount":3,           
-      "TotalCount":3,             RemainingCount is the number of items that would be deleted if this was not a dry run. TotalCount is the number of items that were                                   deleted if this was not a dry run. These numbers are the same because the system didn't delete anything.
+      "TotalCount":3,             
+                TotalCount and RemainingCount are the number of items that would be deleted if this was not a dry run. These numbers are the same because the system didn't delete anything.
       "SummaryItems":[
          {
             "Count":2,             The system found two items that use SchemaVersion 1.0. Neither item was deleted.           
@@ -248,7 +365,10 @@ The system returns information like the following\.
 }
 ```
 
-The user executes the following command to delete the Custom:RackSpace inventory\.
+The user executes the following command to delete the Custom:RackSpace inventory\. 
+
+**Note**  
+The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system has not deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress\.
 
 ```
 aws ssm delete-inventory --type-name "Custom:RackSpace"
@@ -264,16 +384,16 @@ The system returns information like the following\.
       "SummaryItems":[
          {
             "Count":2,              The system found two items that use SchemaVersion 1.0.
-            "RemainingCount":0,     Both items were deleted. There are no items left of this version.
+            "RemainingCount":2,     
             "Version":"1.0"
          },
          {
             "Count":1,              The system found one item that uses SchemaVersion 2.0.
-            "RemainingCount":0,     The item was deleted. There are no items left of this version.
+            "RemainingCount":1,     
             "Version":"2.0"
          }
       ],
-      "TotalCount":3                Three items were deleted.
+      "TotalCount":3                
    },
    "TypeName":"RackSpace"
 }

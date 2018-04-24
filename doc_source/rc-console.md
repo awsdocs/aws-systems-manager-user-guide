@@ -3,7 +3,7 @@
 You can use Run Command from the console to configure instances without having to login to each instance\. This topic includes an example that shows how to [update the SSM Agent](#rc-console-agentexample) on an instance by using Run Command\.
 
 **Before You Begin**  
-Before you send a command using Run Command, verify that your instances meet Systems Manager [requirements](systems-manager-setting-up.md#systems-manager-prereqs)\.
+Before you send a command using Run Command, verify that your instances meet Systems Manager [requirements](systems-manager-prereqs.md)\.
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
@@ -24,17 +24,13 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command parameters** section, specify values for required parameters\.
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -120,17 +116,13 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
    1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of the SSM agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.

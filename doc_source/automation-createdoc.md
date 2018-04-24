@@ -1,17 +1,11 @@
 # Walkthrough: Create an Automation Document<a name="automation-createdoc"></a>
 
 This walkthrough shows you how to create and run a custom Automation document\. After you run Automation, the system performs the following tasks\.
-
 + Launches a Windows instance from a specified AMI\.
-
 + Executes a command using Run Command that applies Windows updates to the instance\.
-
 + Stops the instance\.
-
 + Creates a new Windows AMI\.
-
 + Tag the Windows AMI\.
-
 + Terminates the original instance\.
 
 **Automation Sample Document**  
@@ -25,9 +19,7 @@ To solve this problem, you must make a copy of the AWS\-UpdateWindowsAmi documen
 **To create a patched AMI using Automation**
 
 1. Collect the following information\. You will specify this information later in this procedure\.
-
    + The source ID of the AMI to update\.
-
    + Create an AWS Identity and Access Management \(IAM\) instance profile role and Automation service role \(or assume role\)\. For more information about these roles and how to quickly create them from an AWS CloudFormation template, see [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)\. Be sure to copy the name of the instance profile role and the Amazon Resource Name \(ARN\) of the Automation service role, as described in [Copy Role Information for Automation](automation-cf.md#automation-cf-copy)\.
 
 1. Copy the following example document into a text editor such as Notepad\. Change the value of `assumeRole` to the role ARN you created earlier when you created an IAM role for Automation and change the value of `IamInstanceProfileName` to the name of the role you created earlier\. Save the document on a local drive as patchWindowsAmi\.json or patchWindowsAmi\.yaml\.

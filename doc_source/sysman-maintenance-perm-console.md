@@ -2,7 +2,7 @@
 
 The following procedures describe how to create the required roles and permissions for Maintenance Windows by using the AWS console\.
 
-
+**Topics**
 + [Create an IAM Role for Systems Manager](#sysman-maintenance-role)
 + [Assign the IAM PassRole Policy to an IAM User Account](#sysman-maintenance-passrole)
 

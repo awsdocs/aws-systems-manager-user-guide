@@ -6,7 +6,7 @@ Systems Manager Automation executes steps defined in Automation documents\. Each
 
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
-
+**Topics**
 + [Common Properties In All Actions](#automation-common)
 + [aws:approve](#automation-action-approve)
 + [aws:changeInstanceState](#automation-action-changestate)
@@ -76,7 +76,7 @@ Required: No
 onFailure  
 Indicates whether the workflow should continue on failure\. The default is to abort on failure\.  
 Type: String  
-Valid values: Abort | Continue  
+Valid values: Abort \| Continue  
 Required: No
 
 inputs  
@@ -205,13 +205,9 @@ Required: No
 
 Approvers  
 A list of AWS authenticated principals who are able to either approve or reject the action\. The maximum number of approvers is 10\. You can specify principals by using any of the following formats:  
-
 + An AWS Identity and Access Management \(IAM\) user name
-
 + An IAM user ARN
-
 + An IAM role ARN
-
 + An IAM assume role user ARN
 Type: StringList  
 Required: Yes
@@ -262,7 +258,7 @@ Required: No
 DesiredState  
 The desired state\.  
 Type: String  
-Valid values: `running` | `stopped` | `terminated`  
+Valid values: `running` \| `stopped` \| `terminated`  
 Required: Yes
 
 Force  
@@ -342,7 +338,7 @@ The ID of the copied image\.
 
 ImageState  
 The state of the copied image\.  
-Valid values: `available` | `pending` | `failed`
+Valid values: `available` \| `pending` \| `failed`
 
 ## aws:createImage<a name="automation-action-create"></a>
 
@@ -427,19 +423,12 @@ Creates a new AWS CloudFormation stack from a template\.
 Capabilities  
 A list of values that you specify before AWS CloudFormation can create certain stacks\. Some stack templates include resources that can affect permissions in your AWS account\. For example, creating new AWS Identity and Access Management \(IAM\) users can affect permissions in your account\. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter\.   
 The only valid values are `CAPABILITY_IAM` and `CAPABILITY_NAMED_IAM`\. The following resources require you to specify this parameter\.  
-
 + [AWS::IAM::AccessKey](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
-
 + [AWS::IAM::Group](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
-
 + [AWS::IAM::InstanceProfile](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
-
 + [AWS::IAM::Policy](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
-
 + [AWS::IAM::Role](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
-
 + [AWS::IAM::User](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
-
 + [AWS::IAM::UserToGroupAddition](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
 If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions, if necessary\.   
 If you have IAM resources, you can specify either capability\. If you have IAM resources with custom names, you must specify `CAPABILITY_NAMED_IAM`\. If you don't specify this parameter, this action returns an `InsufficientCapabilities` error\.   
@@ -476,31 +465,26 @@ Required: No
 
 ResourceTypes  
 The template resource types that you have permissions to work with for this create stack action\. For example: `AWS::EC2::Instance`, `AWS::EC2::*`, or `Custom::MyCustomInstance`\. Use the following syntax to describe template resource types\.  
-
 + For all AWS resources:
 
   ```
   AWS::*
   ```
-
 + For all custom resources:
 
   ```
   Custom::*
   ```
-
 + For a specific custom resource:
 
   ```
   Custom::logical_ID
   ```
-
 + For all resources of a particular AWS service:
 
   ```
   AWS::service_name::*
   ```
-
 + For a specific AWS resource:
 
   ```
@@ -651,7 +635,7 @@ ResourceType
 The type of resource\(s\) to be tagged\. If not supplied, the default value of “EC2” is used\.  
 Type: String  
 Required: No  
-Valid Values: `EC2` | `ManagedInstance` | `MaintenanceWindow` | `Parameter`
+Valid Values: `EC2` \| `ManagedInstance` \| `MaintenanceWindow` \| `Parameter`
 
 **Output**  
 None
@@ -872,13 +856,13 @@ Required: No
 InvocationType  
 The invocation type\. The default is `RequestResponse`\.  
 Type: String  
-Valid values: `Event` | `RequestResponse` | `DryRun`  
+Valid values: `Event` \| `RequestResponse` \| `DryRun`  
 Required: No
 
 LogType  
 If `Tail`, the invocation type must be `RequestResponse`\. AWS Lambda returns the last 4 KB of log data produced by your Lambda function, base64\-encoded\.  
 Type: String  
-Valid values: `None` | `Tail`  
+Valid values: `None` \| `Tail`  
 Required: No
 
 ClientContext  
@@ -971,7 +955,7 @@ Required: No
 DocumentHashType  
 The type of the hash\.  
 Type: String  
-Valid values: `Sha256` | `Sha1`  
+Valid values: `Sha256` \| `Sha1`  
 Required: No
 
 NotificationConfig  

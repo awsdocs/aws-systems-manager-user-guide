@@ -18,23 +18,18 @@ https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 ```
 
 If the download fails, try replacing https://s3\-*region* with https://s3\.*region*\.
-
 + Amazon Linux, RHEL, CentOS, and SLES 64\-bit:
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
-
 + Amazon Linux, RHEL, and CentOS 32\-bit:
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
-
 + Ubuntu Server 64\-bit:
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
-
 + Ubuntu Server 32\-bit:
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
-
 + Raspbian:
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb

@@ -6,7 +6,7 @@ Tags are used to organize parameters\. For example, you can tag parameters for s
 
 For information about the Regions where Systems Manager is available, see [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
 
-
+**Topics**
 + [Tag a Parameter \(Console\)](#sysman-paramstore-su-tag-sys)
 + [Tag a Parameter \(AWS CLI\)](#sysman-paramstore-su-tag-cli)
 + [Tag a Parameter \(AWS Tools for Windows\)](#sysman-paramstore-su-tag-tfw)
@@ -27,7 +27,7 @@ For information about the Regions where Systems Manager is available, see [regio
 
 ## Tag a Parameter \(AWS CLI\)<a name="sysman-paramstore-su-tag-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -66,7 +66,7 @@ For information about the Regions where Systems Manager is available, see [regio
 
 ## Tag a Parameter \(AWS Tools for Windows\)<a name="sysman-paramstore-su-tag-tfw"></a>
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
+1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name

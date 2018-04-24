@@ -1,23 +1,16 @@
 # Create a Maintenance Window<a name="sysman-maintenance-create-mw"></a>
 
 To create a Maintenance Window, you must do the following:
-
 + Create the window and define its schedule and duration\.
-
 + Assign targets for the window\.
-
 + Assign tasks to run during the window\.
 
 After you complete these steps, the Maintenance Window runs according to the schedule you defined and runs the tasks on the targets you specified\. After a task is finished, Systems Manager logs the details of the execution\. 
 
 You can run the following types of tasks on targets:
-
 + Commands by using Systems Manager Run Command
-
 + Automation workflows by using Systems Manager Automation
-
 + Functions by using AWS Lambda
-
 + State machines by using AWS Step Functions
 **Note**  
 The AWS Systems Manager console does not currently support running Step Functions\. To register this type of task, you must use the AWS CLI\. For examples of how to create, configure, and update a Maintenance Window by using the AWS CLI, see the [Systems Manager Maintenance Window Walkthroughs](sysman-maintenance-walk.md)\.

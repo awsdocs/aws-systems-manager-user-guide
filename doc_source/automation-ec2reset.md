@@ -6,9 +6,7 @@ You can use the **AWSSupport\-ResetAccess** document to automatically reenable l
 The **AWSSupport\-ResetAccess** document is currently not supported for Linux instances\. If you execute the automation on a Linux instance, the automation fails without making changes to your instance\.
 
 You can use Automation with the **AWSSupport\-ResetAccess** document to solve the following problems:
-
 + You lost your EC2 key pair: and want to create a password\-enabled AMI from your current instance, so that you can launch a new EC2 instance and select a key pair you own
-
 + You lost your local Administrator password: you want to generate a new password you can decrypt with the current EC2 key pair\.
 
 **Note**  
@@ -17,41 +15,27 @@ If your EC2 Windows instance is configured for Systems Manager, you can also res
 ## How It Works<a name="automation-ec2reset-how"></a>
 
 Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** document works as follows:
-
 + You specify the ID of the instance and execute the Automation workflow\.
-
 + The system creates a temporary VPC, and then executes a series of Lambda functions to configure the VPC\.
-
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
-
 + The system launches a temporary, SSM\-enabled Windows Server helper instance\.
-
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
-
 + The system uses Run Command to run EC2Rescue on the helper instance\. EC2Rescue enables password generation for the local Administrator by using EC2Config or EC2Launch on the attached, original root volume\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
-
 + The system creates a new Amazon Machine Image \(AMI\) of your instance, now that password generation is enabled\. You can use this AMI to create a new EC2 instance, and associate a new key pair if needed\.
-
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
-
 + Your instance generates a new password you can decode from the EC2 console using the current key pair assigned to the instance\.
 
 ## Before You Begin<a name="automation-ec2reset-begin"></a>
 
 Before you execute the following Automation, do the following:
-
 + Copy the instance ID of the instance on which you want to reset the Administator password\. You will specify this ID in the procedure\.
-
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information, see [VPC and Subnets](http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/VPC_Appendix_Limits.html#vpc-limits-vpcs-subnets)\. 
-
 + Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who executed the automation\. For more information about creating roles for Automation, see [QuickStart \#2: Run an Automation Workflow by Using an IAM Service Role](automation-quickstart-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue Permissions to Perform Actions On Your Instances<a name="automation-ec2reset-access"></a>
 
 EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to execute the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
-
 + [Granting Permissions By Using IAM Policies](#automation-ec2reset-access-iam)
-
 + [Granting Permissions By Using An AWS CloudFormation Template](automation-ec2rescue.md#automation-ec2rescue-access-cfn)
 
 #### Granting Permissions By Using IAM Policies<a name="automation-ec2reset-access-iam"></a>
@@ -221,9 +205,7 @@ If you don't see the option to specify a subnet ID, verify that you are using th
 1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** beside a step\.
 
 The Automation creates a backup AMI and a password\-enabled AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but these AMIs remain in your account\. The AMIs are named using the following conventions:
-
 + Backup AMI: AWSSupport\-EC2Rescue:*InstanceId*
-
 + Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *InstanceId*
 
 You can locate these AMIs by searching on the Automation execution ID\.
@@ -255,9 +237,7 @@ If you don't see the option to specify a subnet ID, verify that you are using th
 1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** beside a step\.
 
 The Automation creates a backup AMI and a password\-enabled AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but these AMIs remain in your account\. The AMIs are named using the following conventions:
-
 + Backup AMI: AWSSupport\-EC2Rescue:*InstanceId*
-
 + Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *InstanceId*
 
 You can locate these AMIs by searching on the Automation execution ID\.

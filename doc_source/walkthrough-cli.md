@@ -5,7 +5,7 @@ The following sample walkthrough shows you how to use the AWS CLI to view inform
 **Important**  
 Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to execute any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
 
-
+**Topics**
 + [Step 1: Getting Started](#walkthrough-cli-settings)
 + [Step 2: Run Shell Scripts](#walkthrough-cli-run-scripts)
 + [Step 3: Send a Command Using the AWS\-RunShellScript document \- Example 1](#walkthrough-cli-example-1)
@@ -14,7 +14,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Step 1: Getting Started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the us\-east\-1 region\. Run Command is currently available in the following Systems Manager [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
+You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the us\-east\-1 region\. Run Command is currently available in the following Systems Manager [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 **To execute commands using the AWS CLI**
 
@@ -62,13 +62,11 @@ To execute the commands in this walkthrough, you must replace the instance and c
 Using Run Command and the AWS\-RunShellScript document, you can execute any command or script on an EC2 instance as if you were logged on locally\.
 
 **To view the description and available parameters**
-
 + Use the following command to view a description of the Systems Manager JSON document\.
 
   ```
   aws ssm describe-document --name "AWS-RunShellScript" --query "[Document.Name,Document.Description]"
   ```
-
 + Use the following command to view the available parameters and details about those parameters\.
 
   ```

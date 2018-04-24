@@ -4,7 +4,7 @@ This section describes how to use the `AWS-RunRemoteScript` pre\-defined SSM doc
 
 You can also create custom SSM documents that enable you to download and run scripts or other SSM documents from remote locations\. For more information, see [Creating Composite Documents](composite-docs.md)\.
 
-
+**Topics**
 + [Running Scripts from GitHub](#integration-github)
 + [Running Scripts from Amazon S3](#integration-s3)
 
@@ -15,12 +15,10 @@ This section describes how to download and run scripts from a private or public 
 You can also download a directory that includes multiple scripts\. When you run the primary script in the directory, Systems Manager also runs any referenced scripts \(as long as the referenced scripts are included in the directory\)\.
 
 Note the following important details about running scripts from GitHub\.
-
 + Systems Manager does not check to see if your script is capable of running on an instance\. Before you download and run the script, you must verify that the required software is installed on the instance\. Or, you can create a composite document that installs the software by using either Run Command or State Manager, and then downloads and runs the script\.
-
 + You are responsible for ensuring that all GitHub requirements are met\. This includes refreshing your access token, as needed\. You must also ensure that you don't surpass the number of authenticated or unauthenticated requests\. For more information, see the GitHub documentation\.
 
-
+**Topics**
 + [Run Ansible Playbooks from GitHub](#integration-github-ansible)
 + [Run Python Scripts from GitHub](#integration-github-python)
 
@@ -52,9 +50,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. In **Command parameters**, do the following:
-
    + In **Source Type**, select *GitHub*\. 
-
    + In the **Source Info** box, type the required information to access the source in the following format:
 
      ```
@@ -68,29 +64,22 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
      ```
 
      This example downloads a directory of scripts named *complex\-script*\. 
-
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
      ansible-playbook -i “localhost,” --check -c local webserver.yml
      ```
-
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -151,7 +140,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 #### Run an Ansible Playbook from GitHub by Using the AWS CLI<a name="integration-github-ansible-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -203,9 +192,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. In **Command parameters**, do the following:
-
    + In **Source Type**, select *GitHub*\. 
-
    + In the **Source Info** text box, type the required information to access the source in the following format:
 
      ```
@@ -219,7 +206,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
      ```
 
      This example downloads a directory of scripts named *complex\-script*\.
-
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
@@ -227,23 +213,17 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
      ```
 
      This example runs *mainFile\.py*, which can then run other scripts in the *complex\-script* directory\.
-
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -308,7 +288,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 #### Run a Python Script from GitHub by Using the AWS CLI<a name="integration-github-python-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -344,12 +324,10 @@ This section describes how to download and run scripts from Amazon S3\. You can 
 You can also download a directory that includes multiple scripts\. When you run the primary script in the directory, Systems Manager also runs any referenced scripts \(as long as the referenced scripts are included in the directory\)\.
 
 Note the following important details about running scripts from Amazon S3\.
-
 + Systems Manager does not check to see if your script is capable of running on an instance\. Before you download and run the script, you must verify that the required software is installed on the instance\. Or, you can create a composite document that installs the software by using either Run Command or State Manager, and then downloads and runs the script\.
-
 + Verify that your AWS Identity and Access Management \(IAM\) user account, role, or group has permission to read from the S3 bucket\.
 
-
+**Topics**
 + [Run Ruby Scripts from Amazon S3](#integration-s3-ruby)
 + [Run PowerShell Script from Amazon S3](#integration-S3-PowerShell)
 
@@ -378,9 +356,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. In **Command parameters**, do the following:
-
    + In **Source Type**, select *S3*\. 
-
    + In the **Source Info** text box, type the required information to access the source in the following format:
 
      ```
@@ -392,29 +368,22 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
      ```
      {"path":"https://s3.amazonaws.com/rubytest/scripts/ruby/helloWorld.rb"}
      ```
-
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
      helloWorld.rb argument-1 argument-2
      ```
-
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -475,7 +444,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 #### Run a Ruby Script from S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure
@@ -527,9 +496,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
 
 1. In **Command parameters**, do the following:
-
    + In **Source Type**, select *S3*\. 
-
    + In the **Source Info** text box, type the required information to access the source in the following format:
 
      ```
@@ -541,29 +508,22 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
      ```
      {"path": "https://s3.amazonaws.com/PowerShellTest/powershell/helloPowershell.ps1"}
      ```
-
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
      helloPowershell.ps1 argument-1 argument-2
      ```
-
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In **Other parameters**:
-
    + In the **Comment** box, type information about this command\.
-
    + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. \(Optional\) In **Rate control**:
-
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
@@ -624,7 +584,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 #### Run a PowerShell Script from S3 by Using the AWS CLI<a name="integration-s3-powershell-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\. 
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
    ```
    aws configure

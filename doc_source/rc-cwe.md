@@ -3,9 +3,7 @@
 Use Amazon CloudWatch Events to log command execution status changes\. You can create a rule that runs whenever there is a state transition, or when there is a transition to one or more states that are of interest\. 
 
 You can also specify Run Command as a target action when a CloudWatch event occurs\. For example, say a CloudWatch event is triggered that an instance in an Auto Scaling group is about to terminate\. You can configure CloudWatch so the target of that event is a Run Command script that captures the log files from the instance before it is terminated\. You can also configure a Run Command action when a new instance is created in an Auto Scaling group\. For example, when CloudWatch receives the instance\-created event, Run Command could enable the web server role or install software on the instance\.
-
 + [Configuring CloudWatch Events for Run Command](#rc-cwe-logging)
-
 + [Configure Run Command as a CloudWatch Events Target](#rc-cwe-target)
 
 ## Configuring CloudWatch Events for Run Command<a name="rc-cwe-logging"></a>

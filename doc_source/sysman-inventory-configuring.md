@@ -4,11 +4,8 @@ This section describes how to configure inventory collection on one or more mana
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.
-
 + Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.
-
-+ Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager Prerequisites](systems-manager-setting-up.md#systems-manager-prereqs)\.
-
++ Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
 ## Configuring Collection<a name="sysman-inventory-config-collection"></a>
@@ -46,25 +43,21 @@ If you use tags, any instances created in the future with the same tag will also
 1. In the **Parameters** section, use the lists to enable or disable different types of inventory collection\. See the following samples if you want to create an inventory search for **Files** or the **Windows Registry**\.
 
 **Files**
-
    + On Linux, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
 
      ```
      [{"Path":"/home/ec2-user","Pattern":["*.sh", "*.sh"],"Recursive":false}]
      ```
-
    + On Windows, collect metadata of all "\.exe" files in the Program Files folder, including subdirectories recursively\.
 
      ```
      [{"Path":"C:\Program Files","Pattern":["*.exe"],"Recursive":true}]
      ```
-
    + On Windows, collect metadata of specific log patterns\.
 
      ```
      [{"Path":"C:\ProgramData\Amazon","Pattern":["*amazon*.log"],"Recursive":true}]
      ```
-
    + Limit the directory count when performing recursive collection\.
 
      ```
@@ -72,19 +65,16 @@ If you use tags, any instances created in the future with the same tag will also
      ```
 
 **Windows Registry**
-
    + Collect all keys and values recursively for a specific path\.
 
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon","Recursive": true}]
      ```
-
    + Collect all keys and values for a specific path \(recursive search disabled\)\.
 
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Intel\PSIS\PSIS_DECODER", "Recursive": false}]
      ```
-
    + Collect a specific key by using the `ValueNames` option\.
 
      ```
@@ -118,25 +108,21 @@ If you use tags, any instances created in the future with the same tag will also
 1. In the **Parameters** section, use the lists to enable or disable different types of inventory collection\. See the following samples if you want to create an inventory search for **Files** or the **Windows Registry**\.
 
 **Files**
-
    + On Linux, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
 
      ```
      [{"Path":"/home/ec2-user","Pattern":["*.sh", "*.sh"],"Recursive":false}]
      ```
-
    + On Windows, collect metadata of all "\.exe" files in the Program Files folder, including subdirectories recursively\.
 
      ```
      [{"Path":"C:\Program Files","Pattern":["*.exe"],"Recursive":true}]
      ```
-
    + On Windows, collect metadata of specific log patterns\.
 
      ```
      [{"Path":"C:\ProgramData\Amazon","Pattern":["*amazon*.log"],"Recursive":true}]
      ```
-
    + Limit the directory count when performing recursive collection\.
 
      ```
@@ -144,19 +130,16 @@ If you use tags, any instances created in the future with the same tag will also
      ```
 
 **Windows Registry**
-
    + Collect all keys and values recursively for a specific path\.
 
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon","Recursive": true}]
      ```
-
    + Collect all keys and values for a specific path \(recursive search disabled\)\.
 
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Intel\PSIS\PSIS_DECODER", "Recursive": false}]
      ```
-
    + Collect a specific key by using the `ValueNames` option\.
 
      ```

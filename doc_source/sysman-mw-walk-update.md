@@ -3,13 +3,9 @@
 This section describes how to update a Maintenance Window by using the AWS CLI\. This section also includes information updating different task types, including Systems Manager Run Command, Systems Manager Automation, AWS Lambda, and AWS Step Functions tasks\. For more information about updating a Maintenance Window, see [Update or Delete a Maintenance Window](sysman-maintenance-update.md)\. 
 
 The examples in this section use the following Systems Manager actions for updating a Maintenance Window\.
-
 + [UpdateMaintenanceWindow](http://docs.aws.amazon.com/systems-manager/latest/APIReference/UpdateMaintenanceWindow.html)
-
 + [UpdateMaintenanceWindowTarget](http://docs.aws.amazon.com/systems-manager/latest/APIReference/UpdateMaintenanceWindowTarget.html)
-
 + [UpdateMaintenanceWindowTask](http://docs.aws.amazon.com/systems-manager/latest/APIReference/UpdateMaintenanceWindowTask.html)
-
 + [DeregisterTargetFromMaintenanceWindow](http://docs.aws.amazon.com/systems-manager/latest/APIReference/DeregisterTargetFromMaintenanceWindow.html)
 
 **To update a Maintenance Window**
