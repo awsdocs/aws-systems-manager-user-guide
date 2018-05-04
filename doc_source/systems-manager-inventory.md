@@ -10,6 +10,7 @@ You can use AWS Systems Manager Inventory to collect operating system \(OS\), ap
 + [Querying an Inventory Collection](sysman-inventory-query.md)
 + [Deleting Custom Inventory](sysman-inventory-delete.md)
 + [Systems Manager Inventory Manager Walkthroughs](sysman-inventory-walk.md)
++ [Troubleshooting Problems with Systems Manager Inventory](syman-inventory-troubleshooting.md)
 
 ## Getting Started with Inventory<a name="sysman-inventory-prereqs"></a>
 

@@ -8,23 +8,7 @@ Use one of the following scripts to install SSM Agent on one of the following Li
 + [SUSE Linux Enterprise Server \(SLES\) 12](#agent-install-sles)
 + [Raspbian](#agent-install-raspbianjessie)
 
-**Note**  
-The URLs in the following scripts let you download the SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.  
-*region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.  
-For example, to download the SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West 1 Region, use the following URL:  
-
-```
-https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
-```
-If the download fails, try replacing https://s3\-*region* with https://s3\.*region*\.  
-Amazon Linux, RHEL, CentOS, and SLES 64\-bit:  
-https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
-Amazon Linux, RHEL, and CentOS 32\-bit:  
-https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
-Ubuntu Server 64\-bit:  
-https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
-Ubuntu Server 32\-bit:  
-https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
+The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a specific region, see [Download SSM Agent from a Specific Region](#sysman-install-ssm-agent-specific)\.
 
 After you manually install SSM Agent, you can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
@@ -33,7 +17,7 @@ After you manually install SSM Agent, you can automatically update SSM Agent on 
 Connect to your Amazon Linux instance and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **Important**  
-SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\.
+SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\.
 You must manually install SSM Agent on other versions of Linux, including non\-base images like *Amazon ECS\-Optimized AMIs*\.
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
 
@@ -91,22 +75,48 @@ Connect to your Ubuntu instance and perform the following steps to install the S
 
 **To install SSM Agent on Ubuntu**
 
-1. Create a temporary directory on the instance\.
+1. Use one of the following commands to download and run the SSM installer\.
+
+   **Ubuntu Server 18\.04 LTS 64\-bit instances**:
+
+   SSM Agent is installed, by default, on Ubuntu Server 18\.04 LTS 64\-bit AMIs\. You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\. You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the Snap app store \(https://snapcraft\.io/amazon\-ssm\-agent\)\. 
+
+   ```
+   sudo snap install amazon-ssm-agent --classic
+   ```
+**Note**  
+Note the following details about SSM Agent on Ubuntu Server 18\.04:  
+Because of a known issue with snap, you might see a `Maximum timeout exceeded` error with snap commands\. If you get this error, use the following commands to start the agent, stop it, and check its status:   
+systemctl start snap\.amazon\-ssm\-agent\.amazon\-ssm\-agent\.service
+systemctl stop snap\.amazon\-ssm\-agent\.amazon\-ssm\-agent\.service
+systemctl status snap\.amazon\-ssm\-agent\.amazon\-ssm\-agent\.service
+On Ubuntu Server 18\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: /snap/amazon\-ssm\-agent/current/\. If you make changes to the config files \(amazon\-ssm\-agent\.json\.template and seelog\.xml\.template\) then you must copy these files from the /snap folder to the /etc/amazon/ssm/ folder\. Log and library files have not changed \(/var/lib/amazon/ssm, /var/log/amazon/ssm\)\.
+On Ubuntu Server 18\.04, use Snaps only\. Don't install debs\. Also verify that only one instance of the agent is installed and running on your instances\.
+
+   **Ubuntu Server 16\.04 and 14\.04 64\-bitinstances**:
+
+   Create a temporary directory on the instance\.
 
    ```
    mkdir /tmp/ssm
    ```
 
-1. Use one of the following commands to download and run the SSM installer\.
-
-   64\-bit instances:
+   Execute the following command\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
-   32\-bit instances:
+   **Ubuntu Server 16\.04 and 14\.04 32\-bit instances**:
+
+   Create a temporary directory on the instance\.
+
+   ```
+   mkdir /tmp/ssm
+   ```
+
+   Execute the following command\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb
@@ -115,10 +125,10 @@ Connect to your Ubuntu instance and perform the following steps to install the S
 
 1. Run the following command to determine if SSM Agent is running\. 
 
-   Ubuntu Server 14:
+   Ubuntu Server 18:
 
    ```
-   sudo status amazon-ssm-agent
+   sudo snap list amazon-ssm-agent
    ```
 
    Ubuntu Server 16:
@@ -127,14 +137,20 @@ Connect to your Ubuntu instance and perform the following steps to install the S
    sudo systemctl status amazon-ssm-agent
    ```
 
+   Ubuntu Server 14:
+
+   ```
+   sudo status amazon-ssm-agent
+   ```
+
 1. Run the following commands if the previous command returned "amazon\-ssm\-agent is stopped," "inactive," or "disabled\.
 
    1. Start the service\.
 
-      Ubuntu Server 14:
+      Ubuntu Server 18:
 
       ```
-      sudo start amazon-ssm-agent
+      sudo snap start amazon-ssm-agent
       ```
 
       Ubuntu Server 16: 
@@ -147,18 +163,30 @@ Connect to your Ubuntu instance and perform the following steps to install the S
       sudo systemctl start amazon-ssm-agent
       ```
 
-   1. Check the status of the agent\.
-
       Ubuntu Server 14:
 
       ```
-      sudo status amazon-ssm-agent
+      sudo start amazon-ssm-agent
+      ```
+
+   1. Check the status of the agent\.
+
+      Ubuntu Server 18:
+
+      ```
+      sudo snap services amazon-ssm-agent
       ```
 
       Ubuntu Server 16:
 
       ```
       sudo systemctl status amazon-ssm-agent
+      ```
+
+      Ubuntu Server 14:
+
+      ```
+      sudo status amazon-ssm-agent
       ```
 
 ## Red Hat Enterprise Linux \(RHEL\)<a name="agent-install-rhel"></a>
@@ -413,3 +441,32 @@ Run the following command to make the machine ID persist after a reboot\.
 umount /etc/machine-id
 systemd-machine-id-setup
 ```
+
+## Download SSM Agent from a Specific Region<a name="sysman-install-ssm-agent-specific"></a>
+
+If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
+
+*region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+
+For example, to download the SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West 1 Region, use the following URL:
+
+```
+https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
+```
+
+If the download fails, try replacing https://s3\-*region* with https://s3\.*region*\.
++ Amazon Linux, RHEL, CentOS, and SLES 64\-bit:
+
+  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
++ Amazon Linux, RHEL, and CentOS 32\-bit:
+
+  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
++ Ubuntu Server 64\-bit:
+
+  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
++ Ubuntu Server 32\-bit:
+
+  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
++ Raspbian:
+
+  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb

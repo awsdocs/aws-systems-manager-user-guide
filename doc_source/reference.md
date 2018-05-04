@@ -27,7 +27,8 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 [AWS Systems Manager Developer Forum](https://forums.aws.amazon.com//forum.jspa?forumID=185)
 
  **AWS News Blog**  
-[Management Tools](aws.amazon.com/blogs/aws/category/management-tools/)
+[Management Tools](aws.amazon.com/blogs/mt/)
 
 **Topics**
 + [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
++ [Ec2messages and Undocumented API Calls](systems-manager-setting-up-messageAPIs.md)

@@ -279,7 +279,7 @@ None
 Copies an AMI from any region into the current region\. This action can also encrypt the new AMI\.
 
 **Input**  
-This action supports most CopyImage parameters\. For more information, see [CopyImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.
+This action supports most CopyImage parameters\. For more information, see [CopyImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html)\.
 
 The following example creates a copy of an AMI in the Seoul region \(`SourceImageID`: ami\-0fe10819\. `SourceRegion`: ap\-northeast\-2\)\. The new AMI is copied to the region where you initiated the Automation action\. The copied AMI will be encrypted because the optional `Encrypted` flag is set to `true`\.
 
