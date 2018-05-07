@@ -2,7 +2,7 @@
 
 The following table describes important changes to the documentation since the preceding release of AWS Systems Manager\.
 + API version: 2014\-11\-06
-+ Last update: April 19, 2018
++ Last update: May 3, 2018
 
 
 ****  
@@ -12,7 +12,6 @@ The following table describes important changes to the documentation since the p
 | Inventory all managed instances in your AWS account | You can easily inventory all managed instances in your AWS account by creating a global inventory association\. For more information, see [Inventory All Managed Instances in Your AWS Account](inventory-management-inventory-all.md)\. Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or later\. For information about how to update SSM Agent on your instances, see [Example: Update the SSM Agent](rc-console.md#rc-console-agentexample)\.  | May 3, 2018 | 
 | SSM Agent installed by default on Ubuntu Server 18 | SSM Agent is installed, by default, on Ubuntu Server 18\.04 LTS 64\-bit and 32\-bit AMIs\. | May 2, 2018 | 
 | New topic | The new topic [Sending Commands that Use the Document Version Parameter](run-command-version.md) describes how to use the document\-version parameter to specify which version of an SSM document to use when the command executes\. | May 1, 2018 | 
-| Amazon SNS Notifications for SSM Agent | You can subscribe to an Amazon SNS topic to receive notifications when a new version of SSM Agent is available\. For more information, see [Subscribing to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)\. | April 9, 2018 | 
 | New topic | The new topic [Deleting Custom Inventory](sysman-inventory-delete.md) describes how to delete custom Inventory data from Amazon S3 by using the AWS CLI\. The topic also describes how to use the `SchemaDeleteOption` to manage custom inventory by disabling or deleting a custom inventory type\. This new feature uses the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action\.  | April 19, 2018 | 
 | Amazon SNS notifications for SSM Agent | You can subscribe to an Amazon SNS topic to receive notifications when a new version of SSM Agent is available\. For more information, see [Subscribing to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)\. | April 9, 2018 | 
 | CentOS patching support | Systems Manager now supports patching CentOS instances\. For information about supported CentOS versions, see [Operating Systems Supported by Patch Manager](patch-manager-supported-oses.md)\. For more information about how patching works, see [How Patch Manager Operations Work](patch-manager-how-it-works.md)\. | March 29, 2018 | 

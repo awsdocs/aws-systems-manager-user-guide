@@ -31,6 +31,7 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 |  [DeleteActivation](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteActivation.html)  |  `ssm:DeleteActivation` Required to delete an activation\.  | 
 |  [DeleteAssociation](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteAssociation.html)  |  `ssm:DeleteAssociation` Required to disassociate the specified Systems Manager document from the specified instance\.  | 
 |  [DeleteDocument](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteDocument.html)  |  `ssm:DeleteDocument` Required to delete a Systems Manager document and all instance associations to the document\.  | 
+|  [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html)  |  `ssm:DeleteInventory` Required to delete a custom inventory type, or the data associated with a custom Inventory type\.   | 
 |  [DeleteMaintenanceWindow](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteMaintenanceWindow.html)  |  `ssm:DeleteMaintenanceWindow` Required to delete a Maintenance Window\.  | 
 |  [DeleteParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)  |  `ssm:DeleteParameter` Required to delete a parameter from the system\.  | 
 |  [DeleteParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)  |  `ssm:DeleteParameters` Required to delete one or more parameters from the system\.  | 

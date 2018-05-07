@@ -1,15 +1,15 @@
 # Deleting Custom Inventory<a name="sysman-inventory-delete"></a>
 
-You can use the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete your custom inventory data\. When you execute the delete\-inventory command by using the AWS CLI, you specify a custom inventory type such as Custom:RackSpace\. The system deletes all data for the inventory type from the Systems Manager Inventory service\. You can also delete a custom inventory type by using the `SchemaDeleteOption`\.
+You can use the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS CLI to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
 
 **Note**  
 An inventory type is also called an inventory schema\.
 
 The `SchemaDeleteOption` parameter includes the following options:
-+ **DisableSchema**: If you choose this option, the system ignores all data for the current version and any earlier versions of this inventory type\. You can enable this inventory type again by calling the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
-+ **DeleteSchema**: This option deletes the specified custom type from the Inventory service\. You can recreate the schema later, if you want\.
++ **DeleteSchema**: This option deletes the specified custom type and all data associated with it\. You can recreate the schema later, if you want\.
++ **DisableSchema**: If you choose this option, the system disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. You can enable this inventory type again by calling the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
 
-**To delete custom inventory by using the AWS CLI**
+**To delete or disable custom inventory by using the AWS CLI**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 

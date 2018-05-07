@@ -6,12 +6,12 @@ When you create a parameter, you specify the following information:
   Be aware of the following requirements and restrictions for Systems Manager parameter names:
   + Parameter names are case sensitive\.
   + A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
-    + `/CMH/TestParam1`
+    + `/Test/TestParam1`
     + `/TestParam1`
 
     The following examples are also unique:
-    + `/CMH/TestParam1/Logpath1`
-    + `/CMH/TestParam1`
+    + `/Test/TestParam1/Logpath1`
+    + `/Test/TestParam1`
 
     The following examples, if in the same Region, are not unique:
     + `/TestParam1`

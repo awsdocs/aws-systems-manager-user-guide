@@ -21,8 +21,8 @@ Depending on whether you will create a new role for your instance profile or add
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
 1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\.
-
-1. In the **Select your use case** section, choose **EC2 Role for Simple Systems Manager**, and then choose **Next: Permissions**\.
+**Note**  
+If the **Select your use case** section appears, choose **EC2 Role for Simple Systems Manager**, and then choose **Next: Permissions**\.
 
 1. On the **Attached permissions policy** page, verify that **AmazonEC2RoleforSSM** is listed, and then choose **Next: Review**\. 
 

@@ -1,6 +1,6 @@
 # Metadata Collected by Inventory<a name="sysman-inventory-schema"></a>
 
-The following sample shows the complete list of metadata collected by each Inventory plugin\. 
+The following sample shows the complete list of metadata collected by each Inventory plugin\.
 
 ```
 [
@@ -40,7 +40,7 @@ The following sample shows the complete list of metadata collected by each Inven
     "version": "1.0",
     "attributes":[
       { "name": "Name",               "dataType": "STRING"},
-      { "name": "Size",    	      	  "dataType": "STRING"},
+      { "name": "Size",               "dataType": "STRING"},
       { "name": "Description",        "dataType": "STRING"},
       { "name": "FileVersion",        "dataType": "STRING"},
       { "name": "InstalledDate",      "dataType": "STRING"},
@@ -50,7 +50,7 @@ The following sample shows the complete list of metadata collected by each Inven
       { "name": "InstalledDir",       "dataType": "STRING"},
       { "name": "ProductLanguage",    "dataType": "STRING"},
       { "name": "CompanyName",        "dataType": "STRING"},
-      { "name": "ProductVersion",       "dataType": "STRING"}
+      { "name": "ProductVersion",     "dataType": "STRING"}
     ]
   },
   {
@@ -124,10 +124,10 @@ The following sample shows the complete list of metadata collected by each Inven
     "typeName": "AWS:ComplianceItem",
     "version":"1.0",
     "attributes":[
-      { "name": "ComplianceType",               "dataType": "STRING",                 
-      { "name": "ExecutionId",                  "dataType": "STRING",                 
-      { "name": "ExecutionType",                "dataType": "STRING",                 
-      { "name": "ExecutionTime",                "dataType": "STRING",                 
+      { "name": "ComplianceType",               "dataType": "STRING"},                 
+      { "name": "ExecutionId",                  "dataType": "STRING"},                 
+      { "name": "ExecutionType",                "dataType": "STRING"},                 
+      { "name": "ExecutionTime",                "dataType": "STRING"},                 
       { "name": "Id",                           "dataType": "STRING"},
       { "name": "Title",                        "dataType": "STRING"},
       { "name": "Status",                       "dataType": "STRING"},
