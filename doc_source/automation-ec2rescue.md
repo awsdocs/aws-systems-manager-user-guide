@@ -1,11 +1,12 @@
 # Run the EC2Rescue Tool on Unreachable Instances<a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on both Amazon EC2 Windows and Linux instances\. You can run the tool manually, as described in [Using EC2Rescue for Windows Server](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html) and [Using EC2Rescue for Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html), or you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
+EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux and Windows Server instances\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
-You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate many Operating System issues. Please reference the following for a complete list of issues that **AWSSupport\-ExecuteEC2Rescue** attempts to remediate:
+You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
 
-+ **Windows**: review the *Rescue Action* section under [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)
-+ **Linux**: some EC2Rescue for Linux modules detect an issue and can also attempt to remediate the issue. For more information, see each module documentation in [Github](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs)
+**Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
+
+**Linux**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information ,see the [aws\-ec2rescue\-linux ](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\. 
 
 ## How It Works<a name="automation-ec2rescue-how"></a>
 

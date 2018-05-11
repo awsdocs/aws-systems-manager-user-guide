@@ -87,7 +87,7 @@ A Secure String parameter is any sensitive data that needs to be stored and refe
 If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Important**  
-Only the value of the secure string parameter is encrypted\. The name of the parameter, description, and other properties are not encrypted\. For this reason, consider creating a naming system that avoids the word "password" in parameter names\. 
+Only the value of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. Therefore, to make it less obvious which parameters contain passwords, we recommend using a naming system that avoids the actual word "password" in your parameter names\. For illustration, however, we are using the sample parameter name *my\-password* in our examples\.
 
 ### Create a Secure String Parameter Using the Default KMS CMK<a name="sysman-param-defaultkms"></a>
 

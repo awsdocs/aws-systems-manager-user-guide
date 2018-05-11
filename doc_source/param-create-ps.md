@@ -71,7 +71,7 @@ Before you create a `SecureString` parameter, read about the requirements for th
 **Note**  
 To use the default AWS KMS CMK assigned to your account, remove the `-KeyId` parameter from the command\.
 
-   Here is an example that uses an obfuscated name \(elixir3131\) for a password and the user's default KMS CMK\.
+   Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and the user's default KMS CMK\.
 
    ```
    Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString"

@@ -10,10 +10,10 @@ This walkthrough shows you how to join a Windows instance to a domain using Syst
    Write-SSMParameter -Name DNS-IP -Value a DNS IP address -Type String
    Write-SSMParameter -Name domainName -Value the domain name -Type String
    Write-SSMParameter -Name domainJoinUserName -Value a user name -Type String
-   Write-SSMParameter -Name a-name-for-a-password -Value a password -Type SecureString
+   Write-SSMParameter -Name my-password -Value a password -Type SecureString
    ```
 **Important**  
-Only the value of the secure string parameter is encrypted\. The name of the parameter, description, and other properties are not encrypted\. For this reason, consider creating a naming system that avoids the word "password" in parameter names\. 
+Only the value of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. Therefore, to make it less obvious which parameters contain passwords, we recommend using a naming system that avoids the actual word "password" in your parameter names\. For illustration, however, we are using the sample parameter name *my\-password* in our examples\.
 
 1. Attach the **AmazonEC2RoleforSSM** managed policy to the IAM role permissions for your instance\. For information, see [Managed Policies and Inline Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies)\. 
 

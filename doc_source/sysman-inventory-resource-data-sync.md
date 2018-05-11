@@ -297,25 +297,6 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ```
 
    ```
-   CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_PatchCompliance (
-     `ResourceId` string,
-     `Title` string,
-     `KBId` string,
-     `Classification` string,
-     `Severity` string,
-     `State` string,
-     `InstalledTime` string
-   )
-   PARTITIONED BY (AccountId string, Region string, ResourceType string)
-   ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-   WITH SERDEPROPERTIES (
-     'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:PatchCompliance/'
-   
-   MSCK REPAIR TABLE ssminventory.AWS_PatchCompliance
-   ```
-
-   ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_PatchSummary (
      `ResourceId` string,
      `PatchGroup` string,

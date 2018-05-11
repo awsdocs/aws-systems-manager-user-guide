@@ -2,7 +2,12 @@
 
 Managing dozens or hundreds of parameters as a flat list is time consuming and prone to errors\. It can also be difficult to identify the correct parameter for a task\. This means you might accidentally use the wrong parameter, or you might create multiple parameters that use the same configuration data\. 
 
-You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes\. Here is an example that uses three hierarchy levels in the name to identify the following:
+You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes\. 
+
+**Important**  
+Only the value of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. Therefore, to make it less obvious which parameters contain passwords, we recommend using a naming system that avoids the actual word "password" in your parameter names\. For illustration, however, we are using the sample parameter name *my\-password* in our examples\.
+
+Here is an example that uses three hierarchy levels in the name to identify the following:
 
 /Environment/Type of computer/Application/Data
 
@@ -27,7 +32,7 @@ You can create a hierarchy with a maximum of 15 levels\. We suggest that you cre
 + Your applications that use containers
 
   ```
-  /MyApp/.NET/Libraries/git-password
+  /MyApp/.NET/Libraries/my-password
   ```
 + Your business organization
 
@@ -48,13 +53,13 @@ Parameter hierarchies standardize the way you create parameters and make it easi
 You can create a hierarchy that allows you to share parameters across different environments, as shown in the following examples that use passwords in development and staging environment\.
 
 ```
-/DevTest/MyApp/database/db_password
+/DevTest/MyApp/database/my-password
 ```
 
 You could then create a unique password for your production environment, as shown in the following example:
 
 ```
-/prod/MyApp/database/db_password
+/prod/MyApp/database/my-password
 ```
 
 You are not required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.

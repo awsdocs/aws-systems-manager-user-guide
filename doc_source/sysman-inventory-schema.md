@@ -109,18 +109,6 @@ The following sample shows the complete list of metadata collected by each Inven
     ]
   },
   {
-    "typeName": "AWS:PatchCompliance",
-    "version":"1.0",
-    "attributes":[
-      { "name": "Title",                        "dataType": "STRING"},
-      { "name": "KBId",                         "dataType": "STRING"},
-      { "name": "Classification",               "dataType": "STRING"},
-      { "name": "Severity",                     "dataType": "STRING"},
-      { "name": "State",                        "dataType": "STRING"},
-      { "name": "InstalledTime",                "dataType": "STRING"}
-    ]
-  },
-  {
     "typeName": "AWS:ComplianceItem",
     "version":"1.0",
     "attributes":[
