@@ -1,14 +1,11 @@
 # Run the EC2Rescue Tool on Unreachable Instances<a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Windows Server instances\. You can run the tool manually, as described in [Using EC2Rescue for Windows Server](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html), or you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
+EC2Rescue can help you diagnose and troubleshoot problems on both Amazon EC2 Windows and Linux instances\. You can run the tool manually, as described in [Using EC2Rescue for Windows Server](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html) and [Using EC2Rescue for Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html), or you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
-**Note**  
-The **AWSSupport\-ExecuteEC2Rescue** document is currently not supported for Linux instances\. If you execute the automation on a Linux instance, the automation fails without making changes to your instance\.
+You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate many Operating System issues. Please reference the following for a complete list of issues that **AWSSupport\-ExecuteEC2Rescue** attempts to remediate:
 
-You can use Automation with the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate the following types of problems:
-+ Misconfigured network adapter \(for example, incorrect static IP, DHCP disabled, and DHCP client disabled\)
-+ Issues with the Remote Desktop Protocol \(RDP\) service \(for example, when the service is disabled or configured with a non\-default configuration\)
-+ Issues with Windows Firewall \(for example, when the firewall is blocking RDP traffic\)
++ **Windows**: review the *Rescue Action* section under [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)
++ **Linux**: some EC2Rescue for Linux modules detect an issue and can also attempt to remediate the issue. For more information, see each module documentation in [Github](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs)
 
 ## How It Works<a name="automation-ec2rescue-how"></a>
 
@@ -16,7 +13,7 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Resc
 + You specify the ID of the unreachable instance and execute the Automation workflow\.
 + The system creates a temporary VPC, and then executes a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
-+ The system launches a temporary, SSM\-enabled Windows Server helper instance\.
++ The system launches a temporary, SSM\-enabled helper instance\.
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
 + The system uses Run Command to run EC2Rescue on the helper instance\. EC2Rescue identifies and attempts to fix issues on the attached, original root volume\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
