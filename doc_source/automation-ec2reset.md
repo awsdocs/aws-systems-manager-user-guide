@@ -1,13 +1,13 @@
-# Reset the Local Administrator Password on Amazon EC2 Windows Instances<a name="automation-ec2reset"></a>
+# Reset the Local Administrator Password on Amazon EC2 Windows Instances, and SSH Key on Amazon EC2 Linux Instances<a name="automation-ec2reset"></a>
 
-You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administator password\. 
-
-**Note**  
-The **AWSSupport\-ResetAccess** document is currently not supported for Linux instances\. If you execute the automation on a Linux instance, the automation fails without making changes to your instance\.
+You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances, and to generate a new SSH key on Amazon EC2 Linux instances\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administator password\. 
 
 You can use Automation with the **AWSSupport\-ResetAccess** document to solve the following problems:
-+ You lost your EC2 key pair: and want to create a password\-enabled AMI from your current instance, so that you can launch a new EC2 instance and select a key pair you own
-+ You lost your local Administrator password: you want to generate a new password you can decrypt with the current EC2 key pair\.
++ Windows
+  + You lost your EC2 key pair: you want to create a password\-enabled AMI from your current instance, so that you can launch a new EC2 instance and select a key pair you own
+  + You lost your local Administrator password: you want to generate a new password you can decrypt with the current EC2 key pair\.
++ Linux
+  + You lost your EC2 key pair, or configured SSH access to the instance with a key you lost: you want to create a new SSH key for your current instance, so that you can connect again
 
 **Note**  
 If your EC2 Windows instance is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
@@ -18,12 +18,13 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** 
 + You specify the ID of the instance and execute the Automation workflow\.
 + The system creates a temporary VPC, and then executes a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
-+ The system launches a temporary, SSM\-enabled Windows Server helper instance\.
++ The system launches a temporary, SSM\-enabled helper instance\.
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
-+ The system uses Run Command to run EC2Rescue on the helper instance\. EC2Rescue enables password generation for the local Administrator by using EC2Config or EC2Launch on the attached, original root volume\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
-+ The system creates a new Amazon Machine Image \(AMI\) of your instance, now that password generation is enabled\. You can use this AMI to create a new EC2 instance, and associate a new key pair if needed\.
++ The system uses Run Command to run EC2Rescue on the helper instance\. On Windows, EC2Rescue enables password generation for the local Administrator by using EC2Config or EC2Launch on the attached, original root volume\. On Linux, EC2Rescue generates and injects a new SSH key and saves the private key, encrypted, in Parameter Store. When finished, EC2Rescue reattaches the root volume back to the original instance\.
++ (Windows) The system creates a new Amazon Machine Image \(AMI\) of your instance, now that password generation is enabled\. You can use this AMI to create a new EC2 instance, and associate a new key pair if needed\.
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
-+ Your instance generates a new password you can decode from the EC2 console using the current key pair assigned to the instance\.
++ (Windows) Your instance generates a new password you can decode from the EC2 console using the current key pair assigned to the instance\.
++ (Linux) You can SSH to the instance by using the SSH key stored under Parameter Store as `/ec2rl/openssh/<instanceid>/key`
 
 ## Before You Begin<a name="automation-ec2reset-begin"></a>
 
@@ -210,6 +211,8 @@ The Automation creates a backup AMI and a password\-enabled AMI as part of the w
 
 You can locate these AMIs by searching on the Automation execution ID\.
 
+For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store. The parameter name is `/ec2rl/openssh/<instanceid>/key`
+
 **To execute the AWSSupport\-ResetAccess Automation \(Amazon EC2 Systems Manager\)**
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\. 
@@ -241,3 +244,5 @@ The Automation creates a backup AMI and a password\-enabled AMI as part of the w
 + Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *InstanceId*
 
 You can locate these AMIs by searching on the Automation execution ID\.
+
+For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store. The parameter name is `/ec2rl/openssh/<instanceid>/key`
