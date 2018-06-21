@@ -125,19 +125,19 @@ On Ubuntu Server 18\.04, use Snaps only\. Don't install debs\. Also verify that 
 
 1. Run the following command to determine if SSM Agent is running\. 
 
-   Ubuntu Server 18:
+   Ubuntu Server 18\.04:
 
    ```
    sudo snap list amazon-ssm-agent
    ```
 
-   Ubuntu Server 16:
+   Ubuntu Server 16\.04:
 
    ```
    sudo systemctl status amazon-ssm-agent
    ```
 
-   Ubuntu Server 14:
+   Ubuntu Server 14\.04:
 
    ```
    sudo status amazon-ssm-agent
@@ -147,13 +147,13 @@ On Ubuntu Server 18\.04, use Snaps only\. Don't install debs\. Also verify that 
 
    1. Start the service\.
 
-      Ubuntu Server 18:
+      Ubuntu Server 18\.04:
 
       ```
       sudo snap start amazon-ssm-agent
       ```
 
-      Ubuntu Server 16: 
+      Ubuntu Server 16\.04:
 
       ```
       sudo systemctl enable amazon-ssm-agent
@@ -163,7 +163,7 @@ On Ubuntu Server 18\.04, use Snaps only\. Don't install debs\. Also verify that 
       sudo systemctl start amazon-ssm-agent
       ```
 
-      Ubuntu Server 14:
+      Ubuntu Server 14\.04:
 
       ```
       sudo start amazon-ssm-agent
@@ -171,19 +171,19 @@ On Ubuntu Server 18\.04, use Snaps only\. Don't install debs\. Also verify that 
 
    1. Check the status of the agent\.
 
-      Ubuntu Server 18:
+      Ubuntu Server 18\.04:
 
       ```
       sudo snap services amazon-ssm-agent
       ```
 
-      Ubuntu Server 16:
+      Ubuntu Server 16\.04:
 
       ```
       sudo systemctl status amazon-ssm-agent
       ```
 
-      Ubuntu Server 14:
+      Ubuntu Server 14\.04:
 
       ```
       sudo status amazon-ssm-agent
