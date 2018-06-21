@@ -88,7 +88,7 @@ systemctl status snap\.amazon\-ssm\-agent\.amazon\-ssm\-agent\.service
 On Ubuntu Server 18\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: /snap/amazon\-ssm\-agent/current/\. If you make changes to the config files \(amazon\-ssm\-agent\.json\.template and seelog\.xml\.template\) then you must copy these files from the /snap folder to the /etc/amazon/ssm/ folder\. Log and library files have not changed \(/var/lib/amazon/ssm, /var/log/amazon/ssm\)\.
 Don't install snaps and debs on your Ubuntu Server instances\. This configuration can cause undesired output\. Also verify that only one instance of the agent is installed and running on your instances\.
 
-**Ubuntu Server 16 64\-bit**
+**Ubuntu Server 16\.04 64\-bit**
 
 ```
 #!/bin/bash
@@ -98,7 +98,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 sudo systemctl enable amazon-ssm-agent
 ```
 
-**Ubuntu Server 16 32\-bit**
+**Ubuntu Server 16\.04 32\-bit**
 
 ```
 #!/bin/bash
@@ -108,7 +108,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 sudo systemctl enable amazon-ssm-agent
 ```
 
-**Ubuntu Server 14 64\-bit**
+**Ubuntu Server 14\.04 64\-bit**
 
 ```
 #!/bin/bash
@@ -118,7 +118,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 sudo start amazon-ssm-agent
 ```
 
-**Ubuntu Server 14 32\-bit**
+**Ubuntu Server 14\.04 32\-bit**
 
 ```
 #!/bin/bash

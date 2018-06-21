@@ -50,14 +50,14 @@ On Ubuntu Server, the patch baseline service offers filtering on the *Priority* 
 
 1. On Ubuntu systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
 
-1. Next, the [GlobalFilters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\. Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. 
+1. Next, the [GlobalFilters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\. Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14\.04 this is repo is `trusty-security`\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 To view the contents of the *Priority* and *Section *fields, run the following `aptitude` command: 
 
 **Note**  
-You may need to first install Aptitude on Ubuntu Server 16 systems\.
+You may need to first install Aptitude on Ubuntu Server 16\.04 systems\.
 
 ```
 aptitude search -F '%p %P %s %t %V#' '~U'
@@ -69,7 +69,7 @@ In the response to this command, all upgradable packages are reported in this fo
 name, priority, section, archive, candidate version
 ```
 
-For Ubuntu Server 14, the rules for package classification into the different compliance states are as follows:
+For Ubuntu Server 14\.04, the rules for package classification into the different compliance states are as follows:
 + **Installed**: Packages that are filtered through the patch baseline, with the candidate version appearing in `trusty-security`, and are not upgradable\.
 + **Missing**: Packages that are filtered through the baseline, with the candidate version appearing in `trusty-security`, and are upgradable\.
 + **Installed Other**: Packages that are not filtered through the baseline, with the candidate version appearing in `trusty-security`, and are not upgradable\. The compliance level for these packages is set to `UNSPECIFIED`\.
