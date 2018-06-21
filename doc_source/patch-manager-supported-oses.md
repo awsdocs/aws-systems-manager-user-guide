@@ -1,6 +1,8 @@
 # Operating Systems Supported by Patch Manager<a name="patch-manager-supported-oses"></a>
 
-Patch Manager supports a subset of the operating systems supported overall by AWS Systems Manager\. Patch Manager can be used to patch operating systems listed in the following table\.
+The Patch Manager capability does not support all the same operating systems versions that are supported by other AWS Systems Manager capabilities\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+
+Patch Manager can be used to patch operating systems listed in the following table\.
 
 
 | Operating System | Details | 

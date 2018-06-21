@@ -51,13 +51,73 @@ The system returns information like the following\.
 
 Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but could be adapted to a different source repository that you have configured for an instance\.
 
-```
-aws ssm create-patch-baseline --name "Amazon-Linux-Versions" \
---operating-system AMAZON_LINUX \
---approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=[Security,Bugfix]},{Key=PRODUCT,Values=[AmazonLinux2016.03,AmazonLinux2017.09]}]},ApproveAfterDays=7,EnableNonSecurity=True}]" \
---sources "Name=My-AL2017.09,Products=AmazonLinux2017.09,Configuration='[amzn-main] \nname=amzn-main-Base\nmirrorlist=http://repo.\$awsregion.\$awsdomain/\$releasever/main/ mirror.list\nmirrorlist_expire=300\nmetadata_expire=300 \npriority=10 \nfailovermethod=priority \nfastestmirror_enabled=0 \ngpgcheck=1 \ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY- amazon-ga \nenabled=1 \nretries=3 \ntimeout=5\nreport_instanceid=yes'" \
---description "Amazon Linux Important and Critical updates for Security and Bugfixes"
-```
+**Note**  
+To better demonstrate this more complex command, we are using the \-\-cli\-input\-json option with additional options stored an external JSON file\.
+
+1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it:
+
+   ```
+   {
+       "Description": "My patch repository for Amazon Linux 2017.09",
+       "Name": "Amazon-Linux-2017.09",
+       "OperatingSystem": "AMAZON_LINUX",
+       "ApprovalRules": {
+           "PatchRules": [
+               {
+                   "ApproveAfterDays": 7,
+                   "EnableNonSecurity": true,
+                   "PatchFilterGroup": {
+                       "PatchFilters": [
+                           {
+                               "Key": "SEVERITY",
+                               "Values": [
+                                   "Important",
+                                   "Critical"
+                               ]
+                           },
+                           {
+                               "Key": "CLASSIFICATION",
+                               "Values": [
+                                   "Security",
+                                   "Bugfix"
+                               ]
+                           },
+                           {
+                               "Key": "PRODUCT",
+                               "Values": [
+                                   "AmazonLinux2017.09"
+                               ]
+                           }
+                       ]
+                   }
+               }
+           ]
+       },
+       "Sources": [
+           {
+               "Name": "My-AL2017.09",
+               "Products": [
+                   "AmazonLinux2017.09"
+               ],
+               "Configuration": "[amzn-main] \nname=amzn-main-Base\nmirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list //nmirrorlist_expire=300//nmetadata_expire=300 \npriority=10 \nfailovermethod=priority \nfastestmirror_enabled=0 \ngpgcheck=1 \ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga \nenabled=1 \nretries=3 \ntimeout=5\nreport_instanceid=yes"
+           }
+       ]
+   }
+   ```
+
+1. In the directory where you saved the file, run the following command:
+
+   ```
+   aws ssm create-patch-baseline --cli-input-json file://my-patch-repository.json
+   ```
+
+   The system returns information like the following:
+
+   ```
+   {
+       "BaselineId": "pb-12343b962ba63wxya"
+   }
+   ```
 
 ## Update a patch baseline<a name="patch-manager-cli-commands-update-patch-baseline"></a>
 

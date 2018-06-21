@@ -12,12 +12,7 @@ Before you run a remote document, you must complete the following tasks\.
 + Create an SSM document and save it in a remote location\. For more information, see [Creating Systems Manager Documents](create-ssm-doc.md)
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
-**Topics**
-+ [Run a Remote Document \(Console\)](#run-remote-documents-console)
-
 ## Run a Remote Document \(Console\)<a name="run-remote-documents-console"></a>
-
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
 **To run a remote document \(AWS Systems Manager\)**
 
@@ -111,76 +106,5 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**To run a remote document \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunDocument**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want the document to run\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
 **Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose an option\. 
-   + If you choose **GitHub**, specify **Source** information in the following format:
-
-     ```
-     {"owner":"owner_name", "repository": "repository_name", "path": "path_to_document", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
-     ```
-
-     For example:
-
-     ```
-     {"owner":"TestUser1", "repository": "SSMTestDocsRepo", "path": "SSMDocs/mySSMdoc.yml", "tokenInfo":"{{ssm-secure:myAccessTokenParam}}" }
-     ```
-   + If you choose **S3**, specify **Source** information in the following format:
-
-     ```
-     {"path":"URL_to_document_in_S3"}
-     ```
-
-     For example:
-
-     ```
-     {"path":"https://s3.amazonaws.com/aws-executecommand-test/scripts/ruby/mySSMdoc.json"}
-     ```
-   + If you choose **SSMDocument**, specify **Source** information in the following format:
-
-     ```
-     {"name": "document_name"}
-     ```
-
-     For example:
-
-     ```
-     {"name": "mySSMdoc"}
-     ```
-
-1. In the **Document parameters** field, type parameters for the remote SSM document\. For example, if you run the AWS\-RunPowerShell document, you could specify:
-
-   ```
-   {"commands": ["date", "echo \"Hello World\""]}
-   ```
-
-   If you run the AWS\-ConfigureAWSPack document, you could specify:
-
-   ```
-   {
-      "action":"Install",
-      "name":"AWSPVDriver"
-   }
-   ```
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
-
-1. Choose **Run**\.
+For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.

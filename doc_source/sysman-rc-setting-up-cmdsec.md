@@ -65,7 +65,7 @@ You can create IAM policies that enable a user to execute commands on instances 
          ],
          "Resource":[
             "arn:aws:ssm:us-west-1::document/AWS-*",
-            "arn:aws:ssm:us-east-1::document/AWS-*"
+            "arn:aws:ssm:us-east-2::document/AWS-*"
          ]
       },
       {
@@ -123,7 +123,7 @@ You can also create IAM policies that enable a user to execute commands on multi
          ],
          "Resource":[
             "arn:aws:ssm:us-west-1::document/AWS-*",
-            "arn:aws:ssm:us-east-1::document/AWS-*"
+            "arn:aws:ssm:us-east-2::document/AWS-*"
          ]
       },
       {

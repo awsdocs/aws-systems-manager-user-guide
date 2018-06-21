@@ -63,7 +63,7 @@ Installs patches on your instances or scans instances to determine whether any q
  **Replaces legacy documents:**
 + **AWS\-ApplyPatchBaseline**
 
-The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows instances\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of the SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
+The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows instances\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
 
 For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
@@ -82,7 +82,7 @@ The following four SSM documents are still available for use in your patching op
 Supports only Windows instances, but with the same set of parameters found in its replacement, **AWS\-RunPatchBaseline**\. Not available in AWS Regions launched after August 2017\.
 
 **Note**  
-The replacement for this SSM document, **AWS\-RunPatchBaseline**, requires version 2\.0\.834\.0 or a later version of the SSM Agent\. You can use the **AWS\-UpdateSSMAgent** document to update your instances to the latest version of the agent\. 
+The replacement for this SSM document, **AWS\-RunPatchBaseline**, requires version 2\.0\.834\.0 or a later version of SSM Agent\. You can use the **AWS\-UpdateSSMAgent** document to update your instances to the latest version of the agent\. 
 
 ### AWS\-FindWindowsUpdates<a name="patch-manager-ssm-documents-legacy-AWS-AWS-FindWindowsUpdates"></a>
 

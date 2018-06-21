@@ -31,7 +31,7 @@ The title of each section here is an active link to the corresponding section in
 + [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](sysman-create-iam.md)\.
 
 **[State Manager](systems-manager-state.md)**
-+ [Update the SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](https://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/)\.
++ [Update SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](https://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/)\.
 + [Bootstrap EC2 Instances on launch using EC2Config for Windows](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)
 + \(Windows\) Upload the PowerShell or DSC module to Amazon S3, and use AWS\-InstallPowerShellModule\.
 + Use Amazon EC2 tags to create application groups for your instances\. And then target instances using the `Targets` parameter instead of specifying individual instance IDs\.

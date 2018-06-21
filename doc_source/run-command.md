@@ -11,4 +11,5 @@ If this is your first time using Run Command, we recommend executing commands ag
 + [Running Commands from the Console](rc-console.md)
 + [Sending Commands that Use the Document Version Parameter](run-command-version.md)
 + [Sending Commands to a Fleet](send-commands-multiple.md)
++ [Rebooting Managed Instance from Scripts](send-commands-reboot.md)
 + [Canceling a Command](rc-cancel.md)

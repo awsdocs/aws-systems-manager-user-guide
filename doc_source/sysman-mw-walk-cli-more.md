@@ -3,7 +3,7 @@
 This section includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\.
 
 **List All Maintenance Windows in Your AWS Account**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-windows
@@ -40,7 +40,7 @@ The system returns information like the following\.
 ```
 
 **List all enabled Maintenance Windows**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=true"
@@ -70,7 +70,7 @@ The system returns information like the following\.
 ```
 
 **List all Disabled Maintenance Windows**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=false"
@@ -116,7 +116,7 @@ The system returns information like the following\.
 ```
 
 **Display the Targets for a Maintenance Window Matching a Specific Owner Information Value**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-targets --window-id "mw-ab12cd34ef56gh78" --filters "Key=OwnerInformation,Values=Single instance"
@@ -143,7 +143,7 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Invoke the AWS\-RunPowerShellScript Run Command**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
@@ -203,7 +203,7 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Have a Priority of 3**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=Priority,Values=3"
@@ -241,7 +241,7 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Have a Priority of 1 and Use Run Command**  
-Execute the command as shown here\.
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
@@ -278,8 +278,8 @@ The system returns information like the following\.
 }
 ```
 
-**List All Tasks Executed Before a Date**  
-Execute the command as shown here\.
+**List All Tasks Run Before a Date**  
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-executions --window-id "mw-ab12cd34ef56gh78" --filters "Key=ExecutedBefore,Values=2016-11-04T05:00:00Z"
@@ -330,8 +330,8 @@ The system returns information like the following\.
 }
 ```
 
-**List All Tasks Executed After a Date**  
-Execute the command as shown here\.
+**List All Tasks Run After a Date**  
+Run the command as shown here\.
 
 ```
 aws ssm describe-maintenance-window-executions --window-id "mw-ab12cd34ef56gh78" --filters "Key=ExecutedAfter,Values=2016-11-04T17:00:00Z"

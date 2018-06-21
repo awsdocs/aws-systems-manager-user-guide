@@ -1,21 +1,21 @@
 # Send Logs to CloudWatch Logs \(CloudWatch Agent\)<a name="monitoring-cloudwatch-agent"></a>
 
-You can configure and use the Amazon CloudWatch Agent to collect metrics and logs from your instances instead of using the SSM Agent for these tasks\. The CloudWatch Agent enables you to gather more metrics on Amazon EC2 instances than are available using the SSM Agent\. In addition, you can gather metrics from on\-premises servers using the CloudWatch Agent\. 
+You can configure and use the Amazon CloudWatch Agent to collect metrics and logs from your instances instead of using SSM Agent for these tasks\. The CloudWatch Agent enables you to gather more metrics on Amazon EC2 instances than are available using SSM Agent\. In addition, you can gather metrics from on\-premises servers using the CloudWatch Agent\. 
 
 You can also store agent configuration settings in the Systems Manager Parameter Store for use with the CloudWatch Agent\.
 
 **Note**  
-Currently, AWS Systems Manager supports migrating from the SSM Agent to the CloudWatch Agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch Agent on other operating systems, and for complete information about using the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
+Currently, AWS Systems Manager supports migrating from SSM Agent to the CloudWatch Agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch Agent on other operating systems, and for complete information about using the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
 You can use the CloudWatch Agent on other supported operating systems, but you will not be able to use Systems Manager to perform a tool migration\. 
 
 **Topics**
 + [Migrate Windows Server Instance Log Collection to the CloudWatch Agent](#monitoring-cloudwatch-agent-migrate)
 + [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)
-+ [Roll Back to Log Collection with the SSM Agent](#monitoring-cloudwatch-agent-roll-back)
++ [Roll Back to Log Collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)
 
 ## Migrate Windows Server Instance Log Collection to the CloudWatch Agent<a name="monitoring-cloudwatch-agent-migrate"></a>
 
-If you are currently using the SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from the SSM Agent to the CloudWatch Agent as your log collection tool, as well as migrate your configuration settings\.
+If you are currently using SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch Agent as your log collection tool, as well as migrate your configuration settings\.
 
 The CloudWatch Agent is not supported on 32\-bit versions of Windows Server\.
 
@@ -24,13 +24,13 @@ For 64\-bit Amazon EC2 Windows instances, you can perform the migration to the C
 **Note**  
 During the migration process, the data sent to CloudWatch may be interrupted or duplicated\. Your metrics and log data will be recorded accurately again in CloudWatch after the migration is completed\.
 
-We recommend testing the migration on a limited number of instances before migrating an entire fleet to the CloudWatch Agent\. After migration, if you prefer log collection with the SSM Agent, you can return to using it instead\. 
+We recommend testing the migration on a limited number of instances before migrating an entire fleet to the CloudWatch Agent\. After migration, if you prefer log collection with SSM Agent, you can return to using it instead\. 
 
 **Important**  
 In the following cases, you won’t be able to migrate to the CloudWatch Agent using the steps described in this topic:  
-The existing configuration for the SSM Agent specifies multiple Regions\.
-The existing configuration for the SSM Agent specifies multiple sets of access/secret key credentials\.
-In these cases, it will be necessary to disable log collection in the SSM Agent and install the CloudWatch Agent without a migration process\. For more information, see the following topics:  
+The existing configuration for SSM Agent specifies multiple Regions\.
+The existing configuration for SSM Agent specifies multiple sets of access/secret key credentials\.
+In these cases, it will be necessary to disable log collection in SSM Agent and install the CloudWatch Agent without a migration process\. For more information, see the following topics:  
 [Install the CloudWatch Agent on an Amazon EC2 Instance](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html)
 [Install the CloudWatch Agent on an On\-Premises Server](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-premise.html)
 
@@ -38,7 +38,7 @@ In these cases, it will be necessary to disable log collection in the SSM Agent 
 Before you begin a migration to the CloudWatch Agent for log collection, ensure that the instances on which you will perform the migration meet these requirements:
 + The OS is a 64\-bit version of Windows Server\.
 + SSM Agent 2\.2\.93\.0 or later is installed on the instance\.
-+ The SSM Agent is configured for monitoring on the instance\. 
++ SSM Agent is configured for monitoring on the instance\. 
 
 **Topics**
 + [Automatically Migrate to the CloudWatch Agent](#monitoring-cloudwatch-agent-migrate-auto)
@@ -49,10 +49,10 @@ Before you begin a migration to the CloudWatch Agent for log collection, ensure 
 For Amazon EC2 Windows instances only, you can use the AWS Systems Manager console, the Amazon EC2 console, or the AWS CLI to automatically migrate to the CloudWatch Agent as your log collection tool\.
 
 **Note**  
-Currently, AWS Systems Manager supports migrating from the SSM Agent to the CloudWatch Agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch Agent on other operating systems, and for complete information about using the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
+Currently, AWS Systems Manager supports migrating from SSM Agent to the CloudWatch Agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch Agent on other operating systems, and for complete information about using the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
 You can use the CloudWatch Agent on other supported operating systems, but you will not be able to use Systems Manager to perform a tool migration\. 
 
-After the migration succeeds, check your results in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Roll Back to Log Collection with the SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
+After the migration succeeds, check your results in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Roll Back to Log Collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
 
 **To automatically migrate to the CloudWatch Agent \(console\)**
 
@@ -158,7 +158,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Choose **Run**\.
 
-**Four: Disable Log Collection in the SSM Agent**
+**Four: Disable Log Collection in SSM Agent**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -180,7 +180,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Choose **Run**\.
 
-   After completing these steps, check your logs in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Roll Back to Log Collection with the SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
+   After completing these steps, check your logs in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Roll Back to Log Collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
 
 ## Store CloudWatch Agent Configuration Settings in Parameter Store<a name="monitoring-cloudwatch-agent-store-config"></a>
 
@@ -202,11 +202,11 @@ For information about creating a parameter, see [Creating Systems Manager Parame
 
 For more information about the CloudWatch Agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch Agent ](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the [Amazon CloudWatch User Guide](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
-## Roll Back to Log Collection with the SSM Agent<a name="monitoring-cloudwatch-agent-roll-back"></a>
+## Roll Back to Log Collection with SSM Agent<a name="monitoring-cloudwatch-agent-roll-back"></a>
 
-If you want to return to using the SSM Agent for log collection, follow these steps\.
+If you want to return to using SSM Agent for log collection, follow these steps\.
 
-**One: Retrieve Config Data from the SSM Agent**
+**One: Retrieve Config Data from SSM Agent**
 
 1. On the instance where you want to return to collecting logs with the SSM Agent, locate the contents of the SSM Agent config file\. This JSON file is typically found in the following location:
 
@@ -244,7 +244,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Choose **Run**\.
 
-**Three: Reenable Log Collection in the SSM Agent**
+**Three: Reenable Log Collection in SSM Agent**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

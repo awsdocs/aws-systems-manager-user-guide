@@ -192,7 +192,7 @@ The following example shows the AWS\-ConfigureAWSPackage document\. The **mainSt
 	"schemaVersion": "2.2",
 	"description": "Install or uninstall the latest version or specified version of an AWS package. 
 	                Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, 
-	                AwsVssComponents, and AmazonCloudWatchAgent.",
+	                AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.",
 	"parameters": {
 		"action": {
 			"description": "(Required) Specify whether or not to install or uninstall the package.",

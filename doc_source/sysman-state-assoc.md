@@ -1,6 +1,6 @@
 # Create an Association \(Console\)<a name="sysman-state-assoc"></a>
 
-This section describes how to create a State Manager association by using the Amazon EC2 console\. The example in this section shows you how to create an association based on a custom SSM document\. If this is your first time creating an association, we recommend that you perform this procedure in a test environment\. For an example of creating an association using the AWS CLI, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.
+This section describes how to create a State Manager association by using the Amazon EC2 console\. The example in this section shows you how to create an association based on a custom SSM document\. If this is your first time creating an association, we recommend that you perform this procedure in a test environment\. For an example of creating an association using the AWS CLI, see [Walkthrough: Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 **Before You Begin**  
 Before you complete the following procedure, verify that you have at least one instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 

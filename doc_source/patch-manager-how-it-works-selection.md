@@ -5,7 +5,7 @@ The primary focus of Patch Manager is on installing operating systems security\-
 **Note**  
 On all Linux\-based systems supported by Patch Manager, you can choose a different source repository configured for the instance, typically to install non\-security updates\. For information, see [How to Specify an Alternative Patch Source Repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 
-Choose from the following to learn how Patch Manager selects security patches for your operating system\.
+Choose from the following tabs to learn how Patch Manager selects security patches for your operating system\.
 
 ------
 #### [ Windows ]
@@ -57,7 +57,7 @@ Red Hat Enterprise Linux instances use Yum as the package manager, and Yum uses 
 
 On Ubuntu Server, the Systems Manager patch baseline service uses pre\-configured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
-Packages are then filtered from `codename-security ` repos, where the codename is `trusty/xenial/zesty`\. For example, on Ubuntu Server 14\.04, Patch Manager only identifies upgrades that are part of `trusty-security`\.
+Packages are then filtered from `codename-security ` repos, where the codename is `trusty/xenial/zesty`\. For example, on Ubuntu Server 14, Patch Manager only identifies upgrades that are part of `trusty-security`\. 
 
 ------
 #### [ SLES ]

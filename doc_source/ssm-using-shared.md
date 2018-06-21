@@ -38,7 +38,7 @@ aws ssm send-command --document-name FullARN/name
 For example:
 
 ```
-aws ssm send-command --document-name arn:aws:ssm:us-east-1:12345678912:document/highAvailabilityServerSetup --instance-ids i-12121212
+aws ssm send-command --document-name arn:aws:ssm:us-east-2:12345678912:document/highAvailabilityServerSetup --instance-ids i-12121212
 ```
 
 ## Use a Shared Systems Manager Document \(AWS Tools for Windows PowerShell\)<a name="ssm-using-shared-ps"></a>
@@ -64,7 +64,7 @@ Get-SSMDocument –Name FullARN/name
 For example:
 
 ```
-Get-SSMDocument –Name arn:aws:ssm:us-east-1:12345678912:document/highAvailabilityServerSetup
+Get-SSMDocument –Name arn:aws:ssm:us-east-2:12345678912:document/highAvailabilityServerSetup
 ```
 
 **To get a description of a Systems Manager document that has been shared with you**
@@ -76,7 +76,7 @@ Get-SSMDocumentDescription –Name FullARN/name
 For example:
 
 ```
-Get-SSMDocumentDescription –Name arn:aws:ssm:us-east-1:12345678912:document/highAvailabilityServerSetup
+Get-SSMDocumentDescription –Name arn:aws:ssm:us-east-2:12345678912:document/highAvailabilityServerSetup
 ```
 
 **To execute a command from a shared Systems Manager document using a full ARN**
@@ -88,5 +88,5 @@ Send-SSMCommand –DocumentName FullARN/name –InstanceId IDs
 For example:
 
 ```
-Send-SSMCommand –DocumentName arn:aws:ssm:us-east-1:555450671542:document/highAvailabilityServerSetup –InstanceId @{"i-273d4e9e"}
+Send-SSMCommand –DocumentName arn:aws:ssm:us-east-2:555450671542:document/highAvailabilityServerSetup –InstanceId @{"i-273d4e9e"}
 ```

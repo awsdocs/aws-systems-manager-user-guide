@@ -20,7 +20,7 @@ The following walkthrough describes how to create and configure a Maintenance Wi
    }
    ```
 
-1. Execute the following command to list all Maintenance Windows in your AWS account\.
+1. Run the following command to list all Maintenance Windows in your AWS account\.
 
    ```
    aws ssm describe-maintenance-windows
@@ -42,7 +42,7 @@ The following walkthrough describes how to create and configure a Maintenance Wi
    }
    ```
 
-1. Execute the following command to register an instance as a target for this Maintenance Windows\. The system returns a Maintenance Window target ID\. You will use this ID in a later step to register a task for this Maintenance Window\.
+1. Run the following command to register an instance as a target for this Maintenance Windows\. The system returns a Maintenance Window target ID\. You will use this ID in a later step to register a task for this Maintenance Window\.
 
    ```
    aws ssm register-target-with-maintenance-window --window-id "mw-ab12cd34ef56gh78" --target "Key=InstanceIds,Values=ID" --owner-information "Single instance" --resource-type "INSTANCE"
@@ -132,7 +132,7 @@ The following walkthrough describes how to create and configure a Maintenance Wi
    }
    ```
 
-1. Execute the following command to register a task for the Maintenance Window\. The task in first example uses Systems Manager Run Command to run the `df` command using the AWS\-RunShellScript document\. You can also specify tasks that use Systems Manager Automation, AWS Lambda, and AWS Step Functions, as shown in the additional examples\. You can specify the following parameters when registering a task:
+1. Run the following command to register a task for the Maintenance Window\. The task in first example uses Systems Manager Run Command to run the `df` command using the AWS\-RunShellScript document\. You can also specify tasks that use Systems Manager Automation, AWS Lambda, and AWS Step Functions, as shown in the additional examples\. You can specify the following parameters when registering a task:
    + **`targets`**: Specify either Key=WindowTargetIds,Values=*IDs* to specify a target that is already registered with the Maintenance Window\. Or, specify Key=InstanceIds,Values=*IDs* to target individual instances that may or may not be registered with the Maintenance Window\. 
    + **`task-arn`**: The resource that the task uses during execution\. For RUN\_COMMAND and AUTOMATION task types, `TaskArn` is the SSM document name or ARN\. For LAMBDA tasks, it's the function name or ARN\. For STEP\_FUNCTION tasks, it's the state machine ARN\.
    + **`window-id`**: The ID of the target Maintenance Window\.
@@ -183,20 +183,20 @@ The following walkthrough describes how to create and configure a Maintenance Wi
    }
    ```
 
-   Here are additional examples that include other task types\.
+   The following examples demonstrate how to register other task types\.
 **Important**  
 The IAM policy for Maintenance Windows requires that you prefix Lambda function \(or alias\) names and Step Functions state machine names with SSM, as shown in the first two examples below\. Before you proceed to register these types of tasks, you must update their names in AWS Lambda and AWS Step Functions to include SSM\.
 
    Lambda
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id "mw-0290d787d641f11f3" --targets Key=WindowTargetIds,Values=31547414-69c3-49f8-95b8-ed2dcf045faa --task-arn arn:aws:lambda:us-east-1:711106535523:function:SSMTestFunction --service-role-arn arn:aws:iam::711106535523:role/MaintenanceWindows --task-type LAMBDA --task-invocation-parameters '{"Lambda":{"Payload":"{\"targetId\":\"{{TARGET_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}","Qualifier":"$LATEST","ClientContext":"ew0KICAiY3VzdG9tIjogew0KICAgICJjbGllbnQiOiAiQVdTQ0xJIg0KICB9DQp9"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "Lambda_Example" --description "My Lambda Example"
+   aws ssm register-task-with-maintenance-window --window-id "mw-0290d787d641f11f3" --targets Key=WindowTargetIds,Values=31547414-69c3-49f8-95b8-ed2dcf045faa --task-arn arn:aws:lambda:us-east-2:711106535523:function:SSMTestFunction --service-role-arn arn:aws:iam::711106535523:role/MaintenanceWindows --task-type LAMBDA --task-invocation-parameters '{"Lambda":{"Payload":"{\"targetId\":\"{{TARGET_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}","Qualifier":"$LATEST","ClientContext":"ew0KICAiY3VzdG9tIjogew0KICAgICJjbGllbnQiOiAiQVdTQ0xJIg0KICB9DQp9"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "Lambda_Example" --description "My Lambda Example"
    ```
 
    Step Functions
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id "mw-0290d787d641f11f3" --targets Key=WindowTargetIds,Values=31547414-69c3-49f8-95b8-ed2dcf045faa --task-arn arn:aws:states:us-east-1:711106535523:stateMachine:SSMTestStateMachine --service-role-arn arn:aws:iam::711106535523:role/MaintenanceWindows --task-type STEP_FUNCTIONS --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{TARGET_ID}}\"}"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "Step_Functions_Example" --description "My Step Functions Example"
+   aws ssm register-task-with-maintenance-window --window-id "mw-0290d787d641f11f3" --targets Key=WindowTargetIds,Values=31547414-69c3-49f8-95b8-ed2dcf045faa --task-arn arn:aws:states:us-east-2:711106535523:stateMachine:SSMTestStateMachine --service-role-arn arn:aws:iam::711106535523:role/MaintenanceWindows --task-type STEP_FUNCTIONS --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{TARGET_ID}}\"}"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "Step_Functions_Example" --description "My Step Functions Example"
    ```
 
    Automation
@@ -211,7 +211,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm register-task-with-maintenance-window --window-id "mw-0290d787d641f11f3" --targets Key=WindowTargetIds,Values=31547414-69c3-49f8-95b8-ed2dcf045faa --task-arn AWS-RunPowerShellScript --service-role-arn arn:aws:iam::711106535523:role/MaintenanceWindows --task-type RUN_COMMAND --task-invocation-parameters "RunCommand={Comment=SomeComment,DocumentHashType=Sha256,DocumentHash=b9d0966408047ebcafee82de4d42477299306fd37510c6815c19e9848e2bffe8,NotificationConfig={NotificationArn=arn:aws:sns:us-west-2:711106535523:RunCommandTopic,NotificationEvents=[Success,Failed],NotificationType=Invocation},OutputS3BucketName=MyS3Bucket,OutputS3KeyPrefix=RunCommand,ServiceRoleArn=arn:aws:iam::711106535523:role/RunCommand,TimeoutSeconds=30,Parameters={commands=ipconfig}}" --priority 0 --max-concurrency 10 --max-errors 5 --name "Run_Command_Sample" --description "My Run Command Sample"
    ```
 
-1. Execute the following command to list all registered tasks for a Maintenance Window\.
+1. Run the following command to list all registered tasks for a Maintenance Window\.
 
    ```
    aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78"
@@ -274,7 +274,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    }
    ```
 
-1. Execute the following command to view a list of task executions for a specific Maintenance Window\.
+1. Run the following command to view a list of task executions for a specific Maintenance Window\.
 
    ```
    aws ssm describe-maintenance-window-executions --window-id "mw-ab12cd34ef56gh78"
@@ -310,7 +310,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    }
    ```
 
-1. Execute the following command to get information about a Maintenance Window task execution\.
+1. Run the following command to get information about a Maintenance Window task execution\.
 
    ```
    aws ssm get-maintenance-window-execution --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2"
@@ -330,7 +330,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    }
    ```
 
-1. Execute the following command to list the tasks run as part of a Maintenance Window execution\.
+1. Run the following command to list the tasks run as part of a Maintenance Window execution\.
 
    ```
    aws ssm describe-maintenance-window-execution-tasks --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2"
@@ -351,7 +351,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    }
    ```
 
-1. Execute the following command to get the details of a task execution\.
+1. Run the following command to get the details of a task execution\.
 
    ```
    aws ssm get-maintenance-window-execution-task --window-execution-id "555555-555-55-555555" --task-id "4444-4444-4444-444444"
@@ -378,7 +378,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    }
    ```
 
-1. Execute the following command to get the specific task invocations performed for a task execution\.
+1. Run the following command to get the specific task invocations performed for a task execution\.
 
    ```
    aws ssm describe-maintenance-window-execution-task-invocations --window-execution-id "555555-555-55-555555" --task-id "4444-4444-4444-444444"

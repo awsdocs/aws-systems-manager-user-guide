@@ -15,7 +15,7 @@ In addition, the following walkthrough executes patching during a Maintenance Wi
 
 ## Create a Default Patch Baseline<a name="sysman-patch-baseline-console"></a>
 
-Patch Manager includes a default patch baseline for each operating system supported by Patch Manager\. You can use these default patch baselines \(you can't customize them\), or you can create your own\. The following procedure describes how to view the default patch baselines to see if they meet or you needs\. The procedure also describes how to create your own default patch baseline\. To learn more about patch baselines, see [Verify Default Patch Baselines or Create a Custom Patch Baseline](sysman-patch-baselines.md)\.
+Patch Manager includes a default patch baseline for each operating system supported by Patch Manager\. You can use these default patch baselines \(you can't customize them\), or you can create your own\. The following procedure describes how to view the default patch baselines to see if they meet your needs\. The procedure also describes how to create your own default patch baseline\. To learn more about patch baselines, see [Verify Default Patch Baselines or Create a Custom Patch Baseline](sysman-patch-baselines.md)\.
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 

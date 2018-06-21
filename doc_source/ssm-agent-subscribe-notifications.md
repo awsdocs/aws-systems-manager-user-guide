@@ -6,7 +6,7 @@ Amazon SNS can notify you when new versions of SSM Agent are released\. Use the 
 
 1. Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\.
 
-1. In the navigation bar, change the region to **US East \(N\. Virginia\)**, if necessary\. You must select this region because the SNS notifications that you are subscribing to were created in this region\.
+1. In the navigation bar, change the region to **US East \(N\. Virginia\)**, if it is not selected already\. You must select this region because the SNS notifications that you are subscribing to were created in this region\.
 
 1. In the navigation pane, choose **Subscriptions**\.
 

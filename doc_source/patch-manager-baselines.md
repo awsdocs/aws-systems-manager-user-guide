@@ -20,6 +20,7 @@ The following table describes the pre\-defined patch baselines provided with Pat
 |  AWS\-UbuntuDefaultPatchBaseline  |  Ubuntu Server \(14\.04/16\.04\)  |  Immediately approves all operating system security\-related patches with a priority of "Required" or "Important"\. There is no wait before approval because reliable release dates are not available in the repos\.  | 
 |  AWS\-RedHatDefaultPatchBaseline  |  Redhat Enterprise LinuxRed Hat Enterprise Linux \(6\.5, 6\.6, 6\.7, 6\.8, 6\.9, 7\.0, 7\.1, 7\.2, 7\.3\)   |  Approves all operating system patches with a classification of "Security" and severity of "Critical" or "Important" seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release\.  | 
 | AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server 12 | Approves all operating system patches with a classification of "Security" and a severity of "Critical" or "Important" seven days after release\.  | 
+| AWS\-CentOSDefaultPatchBaseline | CentOS 6\.5 and later | Approves all updates 7 days after they become available \(including non\-security updates\)\. | 
 
 ## Custom Baselines<a name="patch-manager-baselines-custom"></a>
 

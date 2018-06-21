@@ -1,8 +1,12 @@
 # Control Access to Maintenance Windows \(AWS CLI\)<a name="sysman-maintenance-perm-cli"></a>
 
-Use the following procedure to create an IAM role for Maintenance Windows using the AWS CLI\.
+The following procedures describe how to use the AWS CLI to create the required roles and permissions for Maintenance Windows\.
 
-**To create an IAM role for Maintenance Windows**
+**Topics**
++ [Task 1: Create an IAM Maintenance Window Role](#sysman-maintenance-role-cli)
++ [Task 2: Assign the IAM PassRole Policy to an IAM User or Group](#sysman-mw-passrole-cli)
+
+## Task 1: Create an IAM Maintenance Window Role<a name="sysman-maintenance-role-cli"></a>
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
 **Note**  
@@ -27,7 +31,7 @@ Use the following procedure to create an IAM role for Maintenance Windows using 
    }
    ```
 
-1. Open the AWS CLI and run the following command to create a Maintenance Window role called mw\-task\-role\. The command assigns the policy you created in the previous step to this role\.
+1. Open the AWS CLI and run the following command in the directory where you placed `mw-role-trust-policy.json` in order to create a Maintenance Window role called `mw-task-role`\. The command assigns the policy you created in the previous step to this role\.
 
    ```
    aws iam create-role --role-name mw-task-role --assume-role-policy-document file://mw-role-trust-policy.json
@@ -65,19 +69,19 @@ Use the following procedure to create an IAM role for Maintenance Windows using 
 **Note**  
 Make a note of the `RoleName` and the `Arn`\. You will specify these when you create a Maintenance Window\.
 
-1. Execute the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in step 2\.
+1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in step 2\.
 
    ```
    aws iam attach-role-policy --role-name mw-task-role --policy-arn arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole
    ```
 
-## Assign the IAM PassRole Policy to an IAM User Account \(AWS CLI\)<a name="sysman-mw-passrole-cli"></a>
+## Task 2: Assign the IAM PassRole Policy to an IAM User or Group<a name="sysman-mw-passrole-cli"></a>
 
 When you register a task with a Maintenance Window, you specify the role you created in the previous procedure\. This is the role that the service will assume when it runs tasks on your behalf\. In order to register the task, you must assign the IAM [PassRole](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) policy to your IAM user account\. The policy in the following procedure provides the minimum permissions required to register tasks with a Maintenance Window\.
 
-**To assign the IAM PassRole policy to an IAM user account**
+**To assign the IAM PassRole policy to an IAM user account or group**
 
-1. Copy and paste the following IAM policy into a text editor and save it with the `.json` file extension\.
+1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
 
    ```
    {
@@ -101,20 +105,36 @@ When you register a task with a Maintenance Window, you specify the role you cre
 
 1. Open the AWS CLI\.
 
-1. Execute the following command\. For `user-name`, specify the IAM user who will assign tasks to Maintenance Windows\. For `policy-document`, specify the path to the file you saved in step 1\.
+1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
+   + **For an IAM user:**
 
-   ```
-   aws iam put-user-policy --user-name name of user --policy-name "a name for the policy" --policy-document path to document, for example: file://C:\Temp\passrole.json
-   ```
+     ```
+     aws iam put-user-policy --user-name user-name --policy-name "policy-name" --policy-document path-to-document
+     ```
+
+     For *user\-name*, specify the IAM user who will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the AmazonSSMReadOnlyAccess policy to your user account\. Execute the following command to assign this policy to your account\.  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account\.  
+
+     ```
+     aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMFullAccess --user-name user-name
+     ```
+   + **For an IAM group:**
+
+     ```
+     aws iam put-group-policy --group-name group-name --policy-name "policy-name" --policy-document path-to-document
+     ```
+
+     For *group\-name*, specify the IAM group whose members will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
+**Note**  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group\.  
+
+     ```
+     aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMFullAccess --group-name group-name
+     ```
+
+1. Run the following command to verify that the policy has been assigned to the group\.
 
    ```
-   aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess --user-name IAM account name
-   ```
-
-1. Execute the following command to verify that the policy has been assigned to the user\.
-
-   ```
-   aws iam list-user-policies --user-name name-of-user
+   aws iam list-group-policies --group-name group-name
    ```

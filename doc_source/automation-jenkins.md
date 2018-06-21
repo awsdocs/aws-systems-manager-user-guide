@@ -69,7 +69,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
    The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-simpatch.md):
 
    ```
-   aws --region us-east-1 ssm start-automation-execution \
+   aws --region region-id ssm start-automation-execution \
        --document-name UpdateMyLatestWindowsAmi \
        --parameters \
            "sourceAMIid='{{ssm:latestAmi}}'"

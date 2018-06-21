@@ -1,6 +1,6 @@
 # Task 1: Configure User Access for Systems Manager<a name="sysman-access-user"></a>
 
-If your IAM user account, group, or role is assigned administator permissions, then you have access to Systems Manager\. You can skip this task\. If you don't have administrator permissions, then an administrator must update your IAM user account, group, or role to include the following permissions:
+If your IAM user account, group, or role is assigned administrator permissions, then you have access to Systems Manager\. You can skip this task\. If you don't have administrator permissions, then an administrator must update your IAM user account, group, or role to include the following permissions:
 + **To access Resource Groups**: You must add the `resource-groups:*` permissions entity to your IAM user account, group, or role\. For more information, see [Setting Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups* user guide\.
 + **To access Insights**: You must add the following managed policies to your user account, group, or role:
   + AWSHealthFullAccess

@@ -24,7 +24,7 @@ Automation documents currently support the following system variables\.
 |  global:ACCOUNT\_ID  |  The AWS account ID of the AWS Identity and Access Management \(IAM\) user or role in which Automation executes\.  | 
 |  global:DATE  |  The date \(at execution time\) in the format yyyy\-MM\-dd\.  | 
 |  global:DATE\_TIME  |  The date and time \(at execution time\) in the format yyyy\-MM\-dd\_HH\.mm\.ss\.  | 
-|  global:REGION  |  The region which the document is executed in\. For example, us\-east\-1\.  | 
+|  global:REGION  |  The region which the document is executed in\. For example, us\-east\-2\.  | 
 
 **Automation Variables**  
 Automation documents currently support the following automation variables\.

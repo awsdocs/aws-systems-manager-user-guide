@@ -28,9 +28,11 @@ Use the following procedure to execute a command by using the AWS CLI that uses 
    ```
    AWS Access Key ID [None]: key_name
    AWS Secret Access Key [None]: key_name
-   Default region name [None]: us-east-1
+   Default region name [None]: region
    Default output format [None]: ENTER
    ```
+
+   *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. List all available documents
 
@@ -49,5 +51,5 @@ Use the following procedure to execute a command by using the AWS CLI that uses 
 1. Use the following command to execute a command that uses an SSM document version\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunShellScript" --parameters commands="echo Hello",executionTimeout=3600 --instance-ids instance-ID --endpoint-url "https://sonic.us-east-1.amazonaws.com" --region "us-east-1" --document-version "\$DEFAULT, \$LATEST, or a version number"
+   aws ssm send-command --document-name "AWS-RunShellScript" --parameters commands="echo Hello",executionTimeout=3600 --instance-ids instance-ID --endpoint-url "https://us-east-2.amazonaws.com" --region "us-east-2" --document-version "\$DEFAULT, \$LATEST, or a version number"
    ```

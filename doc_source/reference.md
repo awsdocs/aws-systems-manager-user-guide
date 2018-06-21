@@ -31,4 +31,4 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 
 **Topics**
 + [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
-+ [Ec2messages and Undocumented API Calls](systems-manager-setting-up-messageAPIs.md)
++ [Ec2messages and Other API Calls](systems-manager-setting-up-messageAPIs.md)

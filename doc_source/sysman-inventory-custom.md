@@ -9,7 +9,7 @@ To assign custom inventory to an instance, you can either use the Systems Manage
     "SchemaVersion": "1.0",
     "TypeName": "Custom:RackInformation",
     "Content": {
-        "Location": "US-EAST-01.DC.RACK1",
+        "Location": "US-EAST-02.CMH.RACK1",
         "InstalledTime": "2016-01-01T01:01:01Z",
         "vendor": "DELL",
         "Zone" : "BJS12",

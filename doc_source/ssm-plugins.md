@@ -308,9 +308,9 @@ Valid values: Set this to 5 or more seconds\. Fifteen seconds \(00:00:15\) is re
 Required: Yes
 
 **Region**  
-The Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
+The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: `us-east-1` \| `us-west-2` \| `eu-west-1` \| `eu-central-1` \| `ap-southeast-1` \| `ap-southeast-2` \| `ap-northeast-1`  
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [AWS Systems Manager](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) and [Amazon CloudWatch Logs](http://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *AWS General Reference*\.   
 Required: Yes
 
 **SecretKey**  
@@ -369,7 +369,7 @@ Required: Yes
 
 ## aws:configurePackage<a name="aws-configurepackage"></a>
 
-\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport-EC2Rescue\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="configurepackage-syntax"></a>
 
@@ -528,7 +528,7 @@ Example syntax:
 
   ```
   {
-     "name":"arn:aws:ssm:us-east-1:3344556677:document/MySharedDoc"
+     "name":"arn:aws:ssm:us-east-2:3344556677:document/MySharedDoc"
   }
   ```
 
@@ -936,7 +936,7 @@ Required: No
 
 ## aws:updateSSMAgent<a name="aws-updatessmagent"></a>
 
-Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Installing and Configuring SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Installing and Configuring SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateSSMagent-syntax"></a>
 
@@ -963,7 +963,7 @@ Type: String
 Required: Yes
 
 **allowDowngrade**  
-Allow the SSM Agent to be downgraded to an earlier version\. If set to false, the agent can be upgraded to newer versions only \(default\)\. If set to true, specify the earlier version\.   
+Allow SSM Agent to be downgraded to an earlier version\. If set to false, the agent can be upgraded to newer versions only \(default\)\. If set to true, specify the earlier version\.   
 Type: Boolean  
 Required: No
 
@@ -973,6 +973,6 @@ Type: String
 Required: Yes
 
 **targetVersion**  
-A specific version of the SSM Agent to install\. If not specified, the agent will be updated to the latest version\.  
+A specific version of SSM Agent to install\. If not specified, the agent will be updated to the latest version\.  
 Type: String  
 Required: No

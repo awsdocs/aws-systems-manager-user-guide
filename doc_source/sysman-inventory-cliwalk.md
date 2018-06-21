@@ -29,8 +29,10 @@ An instance can have only have one Inventory association configured at a time\. 
 1. Execute the following command to create a State Manager association that runs Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
 
    ```
-   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=an instance ID" --schedule-expression "cron(0 0/30 * 1/1 * ? *)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-1\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=an instance ID" --schedule-expression "cron(0 0/30 * 1/1 * ? *)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region-id\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
+
+   *region\-id* represents the AWS Region where the instance is located, such as us\-east\-2 for the US East \(Ohio\) Region\.
 
    The system responds with information like the following\.
 
@@ -42,7 +44,7 @@ An instance can have only have one Inventory association configured at a time\. 
                "S3Location": {
                    "OutputS3KeyPrefix": "Test",
                    "OutputS3BucketName": "Test bucket",
-                   "OutputS3Region": "us-east-1"
+                   "OutputS3Region": "us-east-2"
                }
            },
            "Name": "The name you specified",
@@ -77,10 +79,10 @@ An instance can have only have one Inventory association configured at a time\. 
    }
    ```
 
-   You can target large groups of instances by using the `Targets` parameter with EC2 tags\.
+   You can target large groups of instances by using the `Targets` parameter with EC2 tags\. For example:
 
    ```
-   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=tag:Environment,Values=Production" --schedule-expression "cron(0 0/30 * 1/1 * ? *)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-1\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=tag:Environment,Values=Production" --schedule-expression "cron(0 0/30 * 1/1 * ? *)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
    You can also inventory files and Windows Registry keys on a Windows instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.

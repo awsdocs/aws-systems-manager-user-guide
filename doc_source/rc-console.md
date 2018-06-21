@@ -1,6 +1,6 @@
 # Running Commands from the Console<a name="rc-console"></a>
 
-You can use Run Command from the console to configure instances without having to login to each instance\. This topic includes an example that shows how to [update the SSM Agent](#rc-console-agentexample) on an instance by using Run Command\.
+You can use Run Command from the console to configure instances without having to login to each instance\. This topic includes an example that shows how to [update SSM Agent](#rc-console-agentexample) on an instance by using Run Command\.
 
 **Before You Begin**  
 Before you send a command using Run Command, verify that your instances meet Systems Manager [requirements](systems-manager-prereqs.md)\.
@@ -111,9 +111,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Command parameters** section, specify values for the following parameters, if you want:
 
-   1. \(Optional\) For **Version**, type the version of the SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
+   1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
 
-   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of the SSM agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
+   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 
 1. In **Other parameters**:
    + In the **Comment** box, type information about this command\.
@@ -135,7 +135,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**To update the SSM Agent using Run Command \(Amazon EC2 Systems Manager\)**
+**To update SSM Agent using Run Command \(Amazon EC2 Systems Manager\)**
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -153,7 +153,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\. For more information, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
 
-1. \(Optional\) For **Version**, type the version of the SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
+1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
 
 1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of the SSM agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 

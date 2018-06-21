@@ -108,10 +108,10 @@ aws ssm put-parameter --name a_name --value "a value" --type SecureString
 If you want to use a custom KMS CMK instead of the default CMK assigned to your account, then you must specify the custom KMS CMK by using the `--key-id` parameter\. The parameter supports the following AWS KMS parameter formats\.
 + Key ARN example:
 
-   `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012`
+   `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
 + Alias ARN example:
 
-  `arn:aws:kms:us-east-1:123456789012:alias/MyAliasName`
+  `arn:aws:kms:us-east-2:123456789012:alias/MyAliasName`
 + Globally Unique Key ID example:
 
   `12345678-1234-1234-1234-123456789012`
@@ -125,10 +125,10 @@ You can create a custom AWS KMS CMK from the AWS CLI by using the following comm
 aws kms create-key
 ```
 
-Use the following command to create a Secure String parameter using the key you just created\.
+Use a command in the following format to create a Secure String parameter using the key you just created\.
 
 ```
-aws ssm put-parameter --name a_name --value "a value" --type SecureString --key-id arn:aws:kms:us-east-1:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+aws ssm put-parameter --name a_name --value "a value" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
 ```
 
 **Note**  
@@ -145,7 +145,7 @@ from __future__ import print_function
  
 import json
 import boto3
-ssm = boto3.client('ssm', 'us-east-1')
+ssm = boto3.client('ssm', 'us-east-2')
  def get_parameters():
     response = ssm.get_parameters(
         Names=['LambdaSecureString'],WithDecryption=True

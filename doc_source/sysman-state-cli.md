@@ -1,4 +1,4 @@
-# Walkthrough: Automatically Update the SSM Agent \(CLI\)<a name="sysman-state-cli"></a>
+# Walkthrough: Automatically Update SSM Agent \(CLI\)<a name="sysman-state-cli"></a>
 
 The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface \(AWS CLI\)\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about the SSM Agent, see [Installing and Configuring SSM Agent](ssm-agent.md)\.
 
@@ -7,7 +7,7 @@ To view details about the different versions of SSM Agent, see the [release note
 **Before You Begin**  
 Before you complete the following procedure, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
-**To create an association for automatically updating the SSM Agent**
+**To create an association for automatically updating SSM Agent**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 
@@ -76,4 +76,4 @@ State Manager associations do not support all cron and rate expressions\. For mo
    aws ssm  list-associations
    ```
 **Note**  
-If your instances are currently running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of the SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.
+If your instances are currently running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.

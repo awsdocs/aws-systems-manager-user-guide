@@ -1,13 +1,18 @@
-# Reset the Local Administrator Password on Amazon EC2 Windows Instances, and SSH Key on Amazon EC2 Linux Instances<a name="automation-ec2reset"></a>
+# Reset Passwords and SSH Keys on Amazon EC2 Instances<a name="automation-ec2reset"></a>
 
 You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances, and to generate a new SSH key on Amazon EC2 Linux instances\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administator password\. 
 
 You can use Automation with the **AWSSupport\-ResetAccess** document to solve the following problems:
-+ Windows
-  + You lost your EC2 key pair: you want to create a password\-enabled AMI from your current instance, so that you can launch a new EC2 instance and select a key pair you own
-  + You lost your local Administrator password: you want to generate a new password you can decrypt with the current EC2 key pair\.
-+ Linux
-  + You lost your EC2 key pair, or configured SSH access to the instance with a key you lost: you want to create a new SSH key for your current instance, so that you can connect again
+
+**Windows**
+
+*You lost the EC2 key pair*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** document to create a password\-enabled AMI from your current instance, launch a new instance from the AMI, and select a key pair you own\.
+
+*You lost the local Administrator password*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** document to generate a new password that you can decrypt with the current EC2 key pair\.
+
+**Linux**
+
+*You lost your EC2 key pair, or you configured SSH access to the instance with a key you lost*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** document to create a new SSH key for your current instance, which enables you to connect to the instance again\.
 
 **Note**  
 If your EC2 Windows instance is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
@@ -20,11 +25,12 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** 
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
 + The system launches a temporary, SSM\-enabled helper instance\.
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
-+ The system uses Run Command to run EC2Rescue on the helper instance\. On Windows, EC2Rescue enables password generation for the local Administrator by using EC2Config or EC2Launch on the attached, original root volume\. On Linux, EC2Rescue generates and injects a new SSH key and saves the private key, encrypted, in Parameter Store. When finished, EC2Rescue reattaches the root volume back to the original instance\.
-+ (Windows) The system creates a new Amazon Machine Image \(AMI\) of your instance, now that password generation is enabled\. You can use this AMI to create a new EC2 instance, and associate a new key pair if needed\.
++ The system uses Run Command to run EC2Rescue on the helper instance\. On Windows, EC2Rescue enables password generation for the local Administrator by using EC2Config or EC2Launch on the attached, original root volume\. On Linux, EC2Rescue generates and injects a new SSH key and saves the private key, encrypted, in Parameter Store\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
++ The system creates a new Amazon Machine Image \(AMI\) of your instance, now that password generation is enabled\. You can use this AMI to create a new EC2 instance, and associate a new key pair if needed\.
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
-+ (Windows) Your instance generates a new password you can decode from the EC2 console using the current key pair assigned to the instance\.
-+ (Linux) You can SSH to the instance by using the SSH key stored under Parameter Store as `/ec2rl/openssh/<instanceid>/key`
++ **Windows**: Your instance generates a new password you can decode from the EC2 console using the current key pair assigned to the instance\.
+
+  **Linux**: You can SSH to the instance by using the SSH key stored in Systems Manager Parameter Store as **/ec2rl/openssh/*instance\_id*/key**\.
 
 ## Before You Begin<a name="automation-ec2reset-begin"></a>
 
@@ -153,7 +159,7 @@ Choose **View** to view the template\.
 1. Copy the **Value**\. The is the ARN of the AssumeRole\. You will specify this ARN when you execute the Automation\. 
 
 **Note**  
-This procedures creates a AWS CloudFormation stack in the us\-east\-2 \(Ohio\) Region, but the IAM role created by this process is a global resource available in all Regions\. 
+This procedure creates an AWS CloudFormation stack in the US East \(Ohio\) Region \(us\-east\-2\), but the IAM role created by this process is a global resource available in all Regions\. 
 
 ## Executing the Automation<a name="automation-ec2reset-executing"></a>
 
@@ -211,7 +217,7 @@ The Automation creates a backup AMI and a password\-enabled AMI as part of the w
 
 You can locate these AMIs by searching on the Automation execution ID\.
 
-For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store. The parameter name is `/ec2rl/openssh/<instanceid>/key`
+For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store\. The parameter name is **/ec2rl/openssh/*instance\_id*/key**\.
 
 **To execute the AWSSupport\-ResetAccess Automation \(Amazon EC2 Systems Manager\)**
 
@@ -245,4 +251,4 @@ The Automation creates a backup AMI and a password\-enabled AMI as part of the w
 
 You can locate these AMIs by searching on the Automation execution ID\.
 
-For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store. The parameter name is `/ec2rl/openssh/<instanceid>/key`
+For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store\. The parameter name is **/ec2rl/openssh/*instance\_id*/key**\.

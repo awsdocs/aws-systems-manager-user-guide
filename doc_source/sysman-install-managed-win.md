@@ -1,17 +1,17 @@
-# Install the SSM Agent on Servers and VMs in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
+# Install SSM Agent on Servers and VMs in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation in the previous section\. You will specify the Code and ID in the following procedure\.
 
 **Important**  
-This procedure is for servers and VMs in an on\-premises or hybrid environment\. To download and install the SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
+This procedure is for servers and VMs in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 
-**To install the SSM Agent on servers and VMs in your hybrid environment**
+**To install SSM Agent on servers and VMs in your hybrid environment**
 
 1. Log on to a server or VM in your hybrid environment\.
 
 1. Open Windows PowerShell\. 
 
-1. Copy and paste the following command block into AWS Tools for Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download the SSM Agent from\.
+1. Copy and paste the following command block into AWS Tools for Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\.
 
    *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
@@ -31,7 +31,7 @@ This procedure is for servers and VMs in an on\-premises or hybrid environment\.
 1. Press Enter\.
 
 The command does the following: 
-+ Downloads and installs the SSM Agent onto the server or VM\.
++ Downloads and installs SSM Agent onto the server or VM\.
 + Registers the server or VM with the SSM service\.
 + Returns a response to the request similar to the following:
 
@@ -42,7 +42,7 @@ The command does the following:
   Mode                LastWriteTime         Length Name
   ----                -------------         ------ ----
   d-----       07/07/2018   8:07 PM                ssm
-  {"ManagedInstanceID":"mi-008d36be46EXAMPLE","Region":"us-east-1"}
+  {"ManagedInstanceID":"mi-008d36be46EXAMPLE","Region":"us-east-2"}
   
   Status      : Running
   Name        : AmazonSSMAgent

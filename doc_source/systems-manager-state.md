@@ -4,7 +4,7 @@ AWS Systems Manager State Manager is a secure and scalable configuration managem
 
 Some of the tasks you can automate using State Manager, to run on schedules you specify, include:
 + Bootstrap instances with specific software at start\-up
-+ Download and update agents on a defined schedule, including the SSM Agent
++ Download and update agents on a defined schedule, including SSM Agent
 + Configure network settings
 + Join instances to a Windows domain \(Windows instances only\)
 + Patch instances with software updates throughout their lifecycle
@@ -21,7 +21,7 @@ To get started with State Manager, complete the tasks described in the following
 
 | Task | For More Information | 
 | --- | --- | 
-|  Update the SSM Agent on your managed instances to the latest version  |  [Installing and Configuring SSM Agent](ssm-agent.md)  | 
+|  Update SSM Agent on your managed instances to the latest version  |  [Installing and Configuring SSM Agent](ssm-agent.md)  | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
 |  Choose a predefined AWS Command or Policy type document and specify parameters at runtime\. \-or\- Create a document that defines the actions to perform on your instances\.  |  [Creating Systems Manager Documents](create-ssm-doc.md)  | 
 |  Create and apply the association to your instances  |  [Create an Association \(Console\)](sysman-state-assoc.md)  | 

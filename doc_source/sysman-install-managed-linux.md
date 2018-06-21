@@ -1,15 +1,15 @@
-# Install the SSM Agent on Servers and VMs in a Linux Hybrid Environment<a name="sysman-install-managed-linux"></a>
+# Install SSM Agent on Servers and VMs in a Linux Hybrid Environment<a name="sysman-install-managed-linux"></a>
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation\. You will specify the Code and ID in the following procedure\.
 
 **Important**  
-This procedure is for servers and VMs in an on\-premises or hybrid environment\. To download and install the SSM Agent on an Amazon EC2 Linux instance, see [Installing and Configuring SSM Agent on Linux Instances](sysman-install-ssm-agent.md)\.
+This procedure is for servers and VMs in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Linux instance, see [Installing and Configuring SSM Agent on Linux Instances](sysman-install-ssm-agent.md)\.
 
-The URLs in the following scripts let you download the SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
+The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
 *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
-For example, to download the SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West \(N\. California\) Region \(us\-west\-1\), use the following URL:
+For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West \(N\. California\) Region \(us\-west\-1\), use the following URL:
 
 ```
 https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
@@ -32,11 +32,11 @@ If the download fails, try replacing https://s3\-*region* with https://s3\.*regi
 
   https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
 
-**To install the SSM Agent on servers and VMs in your hybrid environment**
+**To install SSM Agent on servers and VMs in your hybrid environment**
 
 1. Log on to a server or VM in your hybrid environment\.
 
-1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download the SSM Agent from\. 
+1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\. 
 
     Note that `sudo` is not necessary if you are a root user\.
 
@@ -109,4 +109,4 @@ Execute the following command to make the machine ID persist after a reboot\.
 
 1. Press Enter\.
 
-The command downloads and installs the SSM Agent onto the server or VM in your hybrid environment\. The command stops the SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Amazon EC2 console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
+The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Amazon EC2 console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.

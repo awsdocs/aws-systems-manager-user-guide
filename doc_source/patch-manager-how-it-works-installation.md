@@ -2,7 +2,7 @@
 
 Patch Manager uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
 
-Choose from the following to learn how Patch Manager installs patches on an operating system\.
+Choose from the following tabs to learn how Patch Manager installs patches on an operating system\.
 
 ------
 #### [ Windows ]

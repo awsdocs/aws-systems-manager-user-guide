@@ -6,7 +6,7 @@ Windows AMIs published *before* November 2016 use the EC2Config service to proce
 
 Unless you have a specific reason for using the EC2Config service, or an earlier version of SSM Agent, to process Systems Manager requests, we recommend that you download and install the latest version of SSM Agent to each of your Amazon EC2 instances or hybrid instances that are configured for Systems Manager\.
 
-If you need to update SSM Agent, we recommend that you use State Manager to automatically update SSM Agent on your instances when new versions become available\. For more information, see [Walkthrough: Automatically Update the SSM Agent \(CLI\)](sysman-state-cli.md)\.
+If you need to update SSM Agent, we recommend that you use State Manager to automatically update SSM Agent on your instances when new versions become available\. For more information, see [Walkthrough: Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md)\.
 

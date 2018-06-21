@@ -25,10 +25,10 @@ Open **AWS Tools for Windows PowerShell** on your local computer and execute the
 Set-AWSCredentials –AccessKey key_name –SecretKey key_name
 ```
 
-Execute the following command to set the region for your PowerShell session\. The example uses the us\-east\-1 region\. Run Command is currently available in the following Systems Manager [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+Execute the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ```
-Set-DefaultAWSRegion -Region us-east-1
+Set-DefaultAWSRegion -Region us-east-2
 ```
 
 ## List all Available Documents<a name="walkthrough-powershell-all-documents"></a>
@@ -42,6 +42,9 @@ Get-SSMDocumentList
 ## Run PowerShell Commands or Scripts<a name="walkthrough-powershell-run-script"></a>
 
 Using Run Command and the AWS\-RunPowerShell document, you can execute any command or script on an EC2 instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to execute the command\. 
+
+**Note**  
+For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.
 
 **View the description and available parameters**
 
@@ -105,6 +108,9 @@ Get-SSMCommand -CommandId $cancelCommandResponse.CommandId
 ## Install an Application Using the AWS\-InstallApplication Document<a name="walkthrough-powershell-install-application"></a>
 
 Using Run Command and the AWS\-InstallApplication document, you can install, repair, or uninstall applications on instances\. The command requires the path or address to an MSI\.
+
+**Note**  
+For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.
 
 **View the description and available parameters**
 
@@ -184,6 +190,9 @@ Using Run Command, you can quickly join an instance to an AWS Directory Service 
 
 Currently you can only join an instance to a domain\. You cannot remove an instance from a domain\.
 
+**Note**  
+For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.
+
 **View the description and available parameters**
 
 ```
@@ -241,7 +250,7 @@ Get-SSMDocumentDescription -Name "AWS-ConfigureCloudWatch" | select -ExpandPrope
 The following command configures the instance and moves Windows Applications logs to CloudWatch\.
 
 ```
-$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-1", "LogGroup":"My-Log-Group", "LogStream":"i-1234567890abcdef0"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
+$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-2", "LogGroup":"My-Log-Group", "LogStream":"i-1234567890abcdef0"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
 ```
 
 **Get command information per instance**  
@@ -263,7 +272,7 @@ Get-SSMCommandInvocation -CommandId $cloudWatchCommand.CommandId -Details $true 
 The following demonstration command uploads performance counters to CloudWatch\. For more information, see the [Amazon CloudWatch Documentation](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)\.
 
 ```
-$cloudWatchMetricsCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"us-east-1", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
+$cloudWatchMetricsCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"us-east-2", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
 ```
 
 ## Enable/Disable Windows Automatic Update Using the AWS\-ConfigureWindowsUpdate document<a name="walkthrough-powershell-enable-windows-update"></a>
@@ -355,6 +364,9 @@ Run Command includes three documents to help you manage updates for Amazon EC2 W
 + **AWS\-FindWindowsUpdates** — Scans an instance and determines which updates are missing\.
 + **AWS\-InstallMissingWindowsUpdates** — Installs missing updates on your EC2 instance\.
 + **AWS\-InstallSpecificUpdates** — Installs a specific update\.
+
+**Note**  
+For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.
 
 The following examples demonstrate how to perform the specified Windows Update management tasks\.
 

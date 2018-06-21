@@ -50,9 +50,11 @@ The following procedure requires that you specify a region for your CLI session\
    
    AWS Access Key ID: [your key]
    AWS Secret Access Key: [your key]
-   Default region name: [us-east-1]
+   Default region name: region
    Default output format [None]:
    ```
+
+   *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Use the following command to list all of the Systems Manager documents that are available for you\. The list includes documents that you created and documents that were shared with you\. 
 

@@ -1,4 +1,4 @@
-# Ec2messages and Undocumented API Calls<a name="systems-manager-setting-up-messageAPIs"></a>
+# Ec2messages and Other API Calls<a name="systems-manager-setting-up-messageAPIs"></a>
 
 If you monitor API calls, you will see calls to the following APIs\.
 + ec2messages:AcknowledgeMessage
@@ -12,7 +12,7 @@ If you monitor API calls, you will see calls to the following APIs\.
 + DescribeInstanceProperties
 + DescribeDocumentParameters
 
-Calls to `ec2messages:*` APIs are calls to the ec2messages endpoint\. Systems Manager uses this endpoint to make calls from the SSM Agent to the Systems Manager service in the cloud\. This endpoint is required to send and receive commands\.
+Calls to `ec2messages:*` APIs are calls to the ec2messages endpoint\. Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service in the cloud\. This endpoint is required to send and receive commands\.
 
 `UpdateInstanceInformation`: SSM Agent calls the Systems Manager service in the cloud every five minutes to provide heartbeat information\. This call is necessary to maintain a heartbeat with the agent so that the service knows the agent is functioning as expected\. 
 

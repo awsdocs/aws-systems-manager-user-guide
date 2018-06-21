@@ -84,7 +84,7 @@ aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
 **Restricting IAM Permissions Using Hierarchies**  
-Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Parameter Store API actions, you can provide or restrict access to all parameters in one level of a hierarchy\. The following example policy allows all Parameter Store operations on all parameters for the AWS account 123456789012 in the us\-east\-1 Region\. The user can't create parameters because the `PutParameter` action is explicitly denied\. This policy also forbids the user from calling the `GetParametersByPath` action\. 
+Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Parameter Store API actions, you can provide or restrict access to all parameters in one level of a hierarchy\. The following example policy allows all Parameter Store operations on all parameters for the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. The user can't create parameters because the `PutParameter` action is explicitly denied\. This policy also forbids the user from calling the `GetParametersByPath` action\. 
 
 ```
 {
@@ -95,7 +95,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
             "Action": [
                 "ssm:*"
             ],
-            "Resource": "arn:aws:ssm:us-east-1:123456789012:parameter/*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/*"
         },
         {
             "Effect": "Deny",
@@ -109,7 +109,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
                     ]
                 }
             },
-            "Resource": "arn:aws:ssm:us-east-1:123456789012:parameter/Dev/ERP/Oracle/*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/Dev/ERP/Oracle/*"
         },
         {
             "Effect": "Deny",
@@ -123,7 +123,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
                     ]
                 }
             },
-            "Resource": "arn:aws:ssm:us-east-1:123456789012:parameter/*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/*"
         }
     ]
 }

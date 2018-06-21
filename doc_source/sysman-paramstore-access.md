@@ -26,7 +26,7 @@ We recommend that you control access to Systems Manager parameters by creating r
             "Action": [
                 "ssm:GetParameters"
             ],
-            "Resource": "arn:aws:ssm:us-east-1:123456123:parameter/prod-*"
+            "Resource": "arn:aws:ssm:us-east-2:123456123:parameter/prod-*"
         }
     ]
 }

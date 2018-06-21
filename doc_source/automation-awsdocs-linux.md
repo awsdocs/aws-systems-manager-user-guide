@@ -2,7 +2,7 @@
 
 The AWS\-UpdateLinuxAmi document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the AWS\-UpdateLinuxAmi document to perform the following types of tasks\.
 + Upgrade all distribution packages and Amazon software on an Amazon Linux, Red Hat, Ubuntu, SLES, or Cent OS Amazon Machine Image \(AMI\)\. This is the default document behavior\.
-+ Install the SSM Agent on an existing image to enable Systems Manager capabilities, such as remote command execution using Run Command or software inventory collection using Inventory\.
++ Install SSM Agent on an existing image to enable Systems Manager capabilities, such as remote command execution using Run Command or software inventory collection using Inventory\.
 + Install additional software packages\.
 
 **Before You Begin**  
@@ -29,7 +29,7 @@ The AWS\-UpdateLinuxAmi document accepts the following input parameters\.
 The AWS\-UpdateLinuxAmi document includes the following Automation steps, by default\.
 
 **Step 1: launchInstance \(aws:runInstances action\) **  
-This step launches an instance using Amazon EC2 userdata and an IAM instance profile role\. Userdata installs the appropriate SSM Agent, based on the operating system\. Installing the SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
+This step launches an instance using Amazon EC2 userdata and an IAM instance profile role\. Userdata installs the appropriate SSM Agent, based on the operating system\. Installing SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
 
 **Step 2: updateOSSoftware \(aws:runCommand action\) **  
 This step executes the following commands on the launched instance:  

@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *Bucket\-Name* and *Account\-ID* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix*/ from the ARN in the policy\. 
 
    ```
    {
@@ -51,7 +51,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::Bucket-Name"
+               "Resource": "arn:aws:s3:::bucket-name"
            },
            {
                "Sid": " SSMBucketDelivery",
@@ -60,7 +60,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:PutObject",
-               "Resource": ["arn:aws:s3:::Bucket-Name/Bucket-Prefix/*/accountid=Account_ID_number/*"],
+               "Resource": ["arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id/*"],
                "Condition": {
                    "StringEquals": {
                        "s3:x-amz-acl": "bucket-owner-full-control"
@@ -168,7 +168,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system creates a database called ssminventory\.
 
-1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *Bucket\-Name* and *Bucket\-Prefix* with the name and prefix of the Amazon S3 target\.
+1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *bucket\-name* and *bucket\-prefix* with the name and prefix of the Amazon S3 target\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
@@ -186,7 +186,7 @@ The following section describes how to view and query the data in Amazon Athena\
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:Application/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:Application/'
    ```
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**\.
@@ -214,7 +214,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
 
    The query returns a count of different versions of aws\-cfn\-bootstrap, which is an AWS application present on Amazon EC2 Linux and Windows instances\.
 
-1. Individually copy and paste the following statements into the query editor, replace *Bucket\-Name* and *Bucket\-Prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional Inventory tables in Athena\.
+1. Individually copy and paste the following statements into the query editor, replace *bucket\-name* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional Inventory tables in Athena\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_AWSComponent (
@@ -231,7 +231,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:AWSComponent/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:AWSComponent/'
    
    MSCK REPAIR TABLE ssminventory.AWS_AWSComponent
    ```
@@ -248,7 +248,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:WindowsUpdate/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:WindowsUpdate/'
    
    MSCK REPAIR TABLE ssminventory.AWS_WindowsUpdate
    ```
@@ -269,7 +269,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:InstanceInformation/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:InstanceInformation/'
    
    MSCK REPAIR TABLE ssminventory.AWS_InstanceInformation
    ```
@@ -290,7 +290,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:Network/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:Network/'
    
    
    MSCK REPAIR TABLE ssminventory.AWS_Network
@@ -316,7 +316,7 @@ If you create Resource Data Syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://Bucket-Name/Bucket-Prefix/AWS:PatchSummary/'
+   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:PatchSummary/'
    
    MSCK REPAIR TABLE ssminventory.AWS_PatchSummary
    ```

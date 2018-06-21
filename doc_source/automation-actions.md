@@ -110,7 +110,7 @@ In the following example, the aws:approve action temporarily pauses the Automati
          "timeoutSeconds":1000,
          "onFailure":"Abort",
          "inputs":{
-            "NotificationArn":"arn:aws:sns:us-east-1:12345678901:AutomationApproval",
+            "NotificationArn":"arn:aws:sns:us-east-2:12345678901:AutomationApproval",
             "Message":"{{ message }}",
             "MinRequiredApprovals":1,
             "Approvers":[

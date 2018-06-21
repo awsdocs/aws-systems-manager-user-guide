@@ -76,7 +76,7 @@ This section includes a procedure for creating an IAM policy, and a separate pro
 
 1. On the **Review Policy** page, type a name in the **Policy Name** field, and then choose **Create Policy**\. The system returns you to the IAM console\.
 
-Use the following procedure to create an IAM role for VSS\-enabled snapshots\. This role includes polices for Amazon EC2 and Systems Manager\.
+Use the following procedure to create an IAM role for VSS\-enabled snapshots\. This role includes policies for Amazon EC2 and Systems Manager\.
 
 **To create an IAM role for VSS\-enabled EBS snapshots**
 
@@ -285,6 +285,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose **Run**\.
 
    If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the Systems Manager command output for details about why the execution failed\. If the command successfully completed, but a specific volume backup failed, you can troubleshoot the failure in the list of EBS volumes\.
+
+   If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
 **Note**  
 You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
 
@@ -325,6 +327,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose **Run**\.
 
    If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the Systems Manager command output for details about why the execution failed\. If the command successfully completed, but a specific volume backup failed, you can troubleshoot the failure in the list of EBS volumes\.
+
+   If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
 **Note**  
 You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
 

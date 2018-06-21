@@ -398,3 +398,111 @@ The system returns information like the following\.
    "TypeName":"RackSpace"
 }
 ```
+
+## Viewing Inventory Delete Actions in CloudWatch Events<a name="sysman-inventory-delete-cwe"></a>
+
+You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom Inventory\. CloudWatch offers three types of events for custom Inventory delete operations:
++ **Delete action for an instance**: If the custom Inventory for a specific managed instance was successfully deleted or not\. 
++ **Delete action summary**: A summary of the delete action\.
++ **Warning for disabled custom Inventory type**: A warning event if a user called the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
+
+Here are examples of each event:
+
+**Delete action for an instance**
+
+```
+{
+   "version":"0",
+   "id":"998c9cde-56c0-b38b-707f-0411b3ff9d11",
+   "detail-type":"Inventory Resource State Change",
+   "source":"aws.ssm",
+   "account":"478678815555",
+   "time":"2018-05-24T22:24:34Z",
+   "region":"us-east-1",
+   "resources":[
+      "arn:aws:ssm:us-east-1:478678815555:managed-instance/i-0a5feb270fc3f0b97"
+   ],
+   "detail":{
+      "action-status":"succeeded",
+      "action":"delete",
+      "resource-type":"managed-instance",
+      "resource-id":"i-0a5feb270fc3f0b97",
+      "action-reason":"",
+      "type-name":"Custom:MyInfo"
+   }
+}
+```
+
+**Delete action summary**
+
+```
+{
+   "version":"0",
+   "id":"83898300-f576-5181-7a67-fb3e45e4fad4",
+   "detail-type":"Inventory Resource State Change",
+   "source":"aws.ssm",
+   "account":"478678815555",
+   "time":"2018-05-24T22:28:25Z",
+   "region":"us-east-1",
+   "resources":[
+
+   ],
+   "detail":{
+      "action-status":"succeeded",
+      "action":"delete-summary",
+      "resource-type":"managed-instance",
+      "resource-id":"",
+      "action-reason":"The delete for type name Custom:MyInfo was completed. The deletion summary is: {\"totalCount\":2,\"remainingCount\":0,\"summaryItems\":[{\"version\":\"1.0\",\"count\":2,\"remainingCount\":0}]}",
+      "type-name":"Custom:MyInfo"
+   }
+}
+```
+
+**Warning for disabled custom Inventory type**
+
+```
+{
+   "version":"0",
+   "id":"49c1855c-9c57-b5d7-8518-b64aeeef5e4a",
+   "detail-type":"Inventory Resource State Change",
+   "source":"aws.ssm",
+   "account":"478678815555",
+   "time":"2018-05-24T22:46:58Z",
+   "region":"us-east-1",
+   "resources":[
+      "arn:aws:ssm:us-east-1:478678815555:managed-instance/i-0ee2d86a2cfc371f6"
+   ],
+   "detail":{
+      "action-status":"failed",
+      "action":"put",
+      "resource-type":"managed-instance",
+      "resource-id":"i-0ee2d86a2cfc371f6",
+      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema verison 1.0. You must send a version greater than 1.0",
+      "type-name":"Custom:MyInfo"
+   }
+}
+```
+
+Use the following procedure to create a CloudWatch Events rule for custom Inventory delete operations\. This procedure shows you how to create a rule that sends notifications for custom Inventory delete operations to an Amazon SNS topic\. Before you begin, verify that you have an Amazon SNS topic, or create a new one\. For more information, see [Getting Started](http://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
+
+**To configure CloudWatch Events for delete Inventory operations**
+
+1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+
+1. In the left navigation pane, choose **Events**, and then choose **Create rule**\.
+
+1. Under **Event Source**, verify that **Event Pattern** is selected\.
+
+1. In the **Service Name** field, choose **EC2 Simple Systems Manager \(SSM\)\.**
+
+1. In the **Event Type** field, choose **Inventory**\.
+
+1. Verify that **Any detail type** is selected, and then choose **Add targets**\.
+
+1. In the **Select target type** list, choose **SNS topic**, and then choose your topic from the list\.
+
+1. In the **Configure input** list, verify that **Matched event** is selected\.
+
+1. Choose **Configure details**\.
+
+1. Specify a name and a description, and then choose **Create rule**\.

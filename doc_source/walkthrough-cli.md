@@ -14,7 +14,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Step 1: Getting Started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the us\-east\-1 region\. Run Command is currently available in the following Systems Manager [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 **To execute commands using the AWS CLI**
 
@@ -29,9 +29,11 @@ You must either have administrator privileges on the instances you want to confi
    ```
    AWS Access Key ID [None]: key_name
    AWS Secret Access Key [None]: key_name
-   Default region name [None]: us-east-1
+   Default region name [None]: region-id
    Default output format [None]: ENTER
    ```
+
+   *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. List all available documents
 
@@ -85,7 +87,7 @@ aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellS
 The following command uses the Command ID that was returned from the previous command to get the details and response data of the command execution\. The system returns the response data if the command completed\. If the command execution shows "Pending" you will need to execute this command again to see the response data\.
 
 ```
-aws ssm list-command-invocations --command-id "command ID" --details
+aws ssm list-command-invocations --command-id $sh_command_id --details
 ```
 
 ## Step 4: Send a Command Using the AWS\-RunShellScript document \- Example 2<a name="walkthrough-cli-example-2"></a>
@@ -100,21 +102,21 @@ sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-nam
 The following command uses the Command ID to get the status of the command execution on the instance\. This example uses the Command ID that was returned in the previous command\. 
 
 ```
-aws ssm list-commands  --command-id $sh_command_id
+aws ssm list-commands  --command-id "command_ID"
 ```
 
 **Get command details**  
 The following command uses the Command ID from the previous command to get the status of the command execution on a per instance basis\.
 
 ```
-aws ssm list-command-invocations --command-id $sh_command_id --details
+aws ssm list-command-invocations --command-id "command_ID" --details
 ```
 
 **Get command information with response data for a specific instance**  
 The following command returns the output of the original aws ssm send\-command for a specific instance\. 
 
 ```
-aws ssm list-command-invocations --instance-id instance ID --command-id $sh_command_id –-details
+aws ssm list-command-invocations --instance-id instance ID --command-id "command_ID" --details
 ```
 
 ## Additional Examples<a name="walkthrough-cli-examples"></a>
@@ -122,11 +124,11 @@ aws ssm list-command-invocations --instance-id instance ID --command-id $sh_comm
 The following command returns the version of Python running on an instance\.
 
 ```
-sh_command_id=$(aws ssm send-command --instance-ids instance ID --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters commands='python' --version --output text --query "Command.CommandId")
+sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters commands='python -V' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"' 
 ```
 
 The following command executes a Python script using Run Command\.
 
 ```
-aws ssm send-command --instance-ids instance ID --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters '{"commands":["#!/usr/bin/python","print \"Hello world from python\""]}' --output text --query "Command.CommandId"
+sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters '{"commands":["#!/usr/bin/python","print \"Hello world from python\""]}' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"'
 ```

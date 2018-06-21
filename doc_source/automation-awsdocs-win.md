@@ -9,7 +9,7 @@ The AWS\-UpdateWindowsAmi document enables you to automate image\-maintenance ta
 Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Setting Up Automation](automation-setup.md)\.
 
 **Note**  
-Updates to the SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.
+Updates to SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.
 
 The AWS\-UpdateWindowsAmi document accepts the following input parameters\.
 
@@ -43,7 +43,7 @@ This step enables you to specify a script as a string that executes before updat
 This step uses the AWS\-InstallPowerShellModule public document to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then checks the operating system to determine whether to update EC2Config or EC2Launch\. EC2Config runs on Windows Server 2008 R2 through Windows Server 2012 R2\. EC2Launch runs on Windows Server 2016\.
 
 **Step 4: updateSSMAgent \(aws:runCommand action\)**  
-This step updates the SSM Agent by using the AWS\-UpdateSSMAgent public document\.
+This step updates SSM Agent by using the AWS\-UpdateSSMAgent public document\.
 
 **Step 5: updateAWSPVDriver \(aws:runCommand action\)**  
 This step updates AWS PV drivers by using the AWS\-ConfigureAWSPackage public document\.

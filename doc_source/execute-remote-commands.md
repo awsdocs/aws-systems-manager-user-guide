@@ -18,19 +18,9 @@ The following table includes information to help you get started with Run Comman
 |  [Running Commands Using Systems Manager Run Command](run-command.md)  |  Learn how to execute a command from the EC2 console and how to execute commands to a fleet of managed instances\.  | 
 |  [Run Command Walkthroughs](run-command-walkthroughs.md)  |  Learn how to execute commands using either AWS Tools for Windows PowerShell or the AWS CLI\.  | 
 
-**Components and Concepts**  
-As you get started with Systems Manager Run Command, you'll benefit from understanding the components and concepts of this feature\.
-
-
-****  
-
-| Component/Concept | Details | 
-| --- | --- | 
-| Systems Manager Documents | A Systems Manager document defines the plugins to run and the parameters to use when a command executes on a machine\. When you execute a command, you specify the Systems Manager document that Run Command uses\. Run Command includes pre\-defined documents that enable you to quickly perform common tasks on a machine\. You can also create your own Systems Manager documents\. The first time you execute a command from a new Systems Manager document, the system stores the document with your AWS account\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. | 
-| Commands | You can configure managed instances by sending commands from your local machine\. You don't need to log on locally to configure your instances\. You can send commands using one of the following: the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), AWS Tools for Windows PowerShell, the AWS Command Line Interface \(AWS CLI\), the Systems Manager API, or Amazon SDKs\. For more information, see [Systems Manager AWS Tools for Windows PowerShell Reference](http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html), [Systems Manager AWS CLI Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html), and the [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\. | 
-| SSM Agent | The SSM Agent is AWS software that you install on your EC2 instances and servers and VMs in your hybrid environment\. The agent processes Run Command requests and configures your machine as specified in the request\. For more information, see [Installing and Configuring SSM Agent on Linux Instances](sysman-install-ssm-agent.md) \(Linux\) and [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md) \(Windows\)\. | 
-
-For information about Systems Manager limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\. To increase limits, go to [AWS Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ec2-instances) and submit a limit increase request form\.
+**Related Content**
++ [Remotely Run Commands on an EC2 Instance \(10 minute tutorial\)](https://aws.amazon.com/getting-started/tutorials/remotely-run-commands-ec2-instance-systems-manager/)
++ For information about Systems Manager limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Topics**
 + [Setting Up Run Command](sysman-rc-setting-up.md)

@@ -8,7 +8,7 @@ For more information about working with Systems Manager documents, see [AWS Syst
 
 When you run the AWS\-UpdateLinuxAmi document, Automation performs the following tasks\.
 
-1. Launches a temporary Amazon EC2 instance from a Linux AMI\. The instance is configured with a User Data script that installs the SSM Agent\. SSM Agent executes scripts sent remotely from Systems Manager Run Command\.
+1. Launches a temporary Amazon EC2 instance from a Linux AMI\. The instance is configured with a User Data script that installs SSM Agent\. SSM Agent executes scripts sent remotely from Systems Manager Run Command\.
 
 1. Updates the Instance by performing the following actions:
 

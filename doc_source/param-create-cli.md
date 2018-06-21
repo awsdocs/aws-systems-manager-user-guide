@@ -86,7 +86,7 @@ To use the default AWS KMS CMK assigned to your account, remove the `key-id` par
    Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and a custom AWS KMS key\.
 
    ```
-   aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-1:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+   aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
    ```
 
 1. Execute the following command to verify the details of the parameter\.

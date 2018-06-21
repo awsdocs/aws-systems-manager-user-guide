@@ -1,8 +1,14 @@
 # Control Access to Maintenance Windows \(Tools for Windows PowerShell\)<a name="sysman-maintenance-perm-ps"></a>
 
-Use the following procedure to create an IAM role for Maintenance Windows using the Tools for Windows PowerShell\.
+The following procedures describe how to use the Tools for Windows PowerShell to create the required roles and permissions for Maintenance Windows\.
 
-**To create an IAM role for Maintenance Windows**
+**Topics**
++ [Task 1: Create an IAM Maintenance Window Role](#sysman-maintenance-role-ps)
++ [Task 2: Assign the IAM PassRole Policy to an IAM User or Group](#sysman-mw-passrole-ps)
+
+## Task 1: Create an IAM Maintenance Window Role<a name="sysman-maintenance-role-ps"></a>
+
+****
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
 **Note**  
@@ -27,7 +33,7 @@ Use the following procedure to create an IAM role for Maintenance Windows using 
    }
    ```
 
-1. Open Tools for Windows PowerShell and run the following command to create a role called mw\-task\-role\. The role uses the policy that you created in the previous step\.
+1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a Maintenance Window role; for example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step\.
 
    ```
    New-IAMRole -RoleName "mw-task-role" -AssumeRolePolicyDocument (Get-Content -raw .\mw-role-trust-policy.json)
@@ -44,18 +50,16 @@ Use the following procedure to create an IAM role for Maintenance Windows using 
    RoleName : mw-task-role
    ```
 
-1. Execute the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in the previous step\.
+1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in the previous step\.
 
    ```
    Register-IAMRolePolicy -RoleName mw-task-role -PolicyArn
                    arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole
    ```
 
-## Assign the IAM PassRole Policy to an IAM User Account \(Tools for Windows PowerShell\)<a name="sysman-mw-passrole-ps"></a>
+## Task 2: Assign the IAM PassRole Policy to an IAM User or Group<a name="sysman-mw-passrole-ps"></a>
 
 When you register a task with a Maintenance Window, you specify the role you created in the previous procedure\. This is the role that the service will assume when it runs tasks on your behalf\. In order to register the task, you must assign the IAM [PassRole](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) policy to your IAM user account\. The policy in the following procedure provides the minimum permissions required to register tasks with a Maintenance Window\.
-
-**To assign the IAM PassRole policy to an IAM user account**
 
 1. Copy and paste the following IAM policy into a text editor and save it with the `.json` file extension\.
 
@@ -81,20 +85,36 @@ When you register a task with a Maintenance Window, you specify the role you cre
 
 1. Open Tools for Windows PowerShell\.
 
-1. Execute the following command\. For `user-name`, specify the IAM user who will assign tasks to Maintenance Windows\. For `policy-document`, specify the path to the file you saved in step 1\.
+1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
+   + **For an IAM user**:
 
-   ```
-   Write-IAMUserPolicy -UserName name-of-IAM-user -PolicyDocument (Get-Content -raw path to document, for example: C:\temp\passrole-policy.json) -PolicyName a name for the policy
-   ```
+     ```
+     Write-IAMUserPolicy -UserName user-name -PolicyDocument (Get-Content -raw path-to-document) -PolicyName policy-name
+     ```
+
+     For *user\-name*, specify the IAM user who will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
 **Note**  
-If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the AmazonSSMReadOnlyAccess policy to your user account\. Execute the following command to assign this policy to your account\.  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account\.  
+
+     ```
+     Register-IAMUserPolicy -UserName user-name -PolicyArn arn:aws:iam::aws:policy/AmazonSSMFullAccess
+     ```
+   + **For an IAM group**:
+
+     ```
+     Write-IAMGroupPolicy -GroupName group-name -PolicyDocument (Get-Content -raw path-to-document) -PolicyName policy-name
+     ```
+
+     For *group\-name*, specify the IAM group that will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
+**Note**  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your group\.  
 
    ```
-   Register-IAMUserPolicy -UserName IAM-account-name -PolicyArn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess
+   Register-IAMGroupPolicy -GroupName group-name -PolicyArn arn:aws:iam::aws:policy/AmazonSSMFullAccess
    ```
 
-1. Execute the following command to verify that the policy has been assigned to the user\.
+1. Run the following command to verify that the policy has been assigned to the group\.
 
    ```
-   Get-IAMUserPolicies -UserName name-of-user
+   Get-IAMGroupPolicies -GroupName group-name
    ```

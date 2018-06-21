@@ -74,11 +74,11 @@ Unlike State Manager associations, Maintenance Windows support all cron and rate
 
 | Example | Details | 
 | --- | --- | 
-|  cron\(0 2 ? 1/1 THU\#3 \*\)  |  02:00 AM the third Thursday of every month  | 
+|  cron\(0 2 ? \* THU\#3 \*\)  |  02:00 AM the third Thursday of every month  | 
 |  cron\(15 10 ? \* \* \*\)  |  10:15 AM every day  | 
-|  cron\(0 15 10 ? \* MON\-FRI\)  |  10:15 AM every Monday, Tuesday, Wednesday, Thursday and Friday  | 
-|  cron\(0 0 2 L \* ?\)  |  02:00 AM on the last day of every month  | 
-|  cron\(0 15 10 ? \* 6L\)  |  10:15 AM on the last Friday of every month  | 
+|  cron\(15 10 ? \* MON\-FRI \*\)  |  10:15 AM every Monday, Tuesday, Wednesday, Thursday and Friday  | 
+|  cron\(0 2 L \* ? \*\)  |  02:00 AM on the last day of every month  | 
+|  cron\(15 10 ? \* 6L \*\)  |  10:15 AM on the last Friday of every month  | 
 
 Here are some rate examples for Maintenance Windows\.
 

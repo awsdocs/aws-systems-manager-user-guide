@@ -61,7 +61,7 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    For example:
 
    ```
-   New-SSMActivation -DefaultInstanceName MyWebServers -IamRole RunCommandServiceRole -RegistrationLimit 10 –Region us-east-1
+   New-SSMActivation -DefaultInstanceName MyWebServers -IamRole RunCommandServiceRole -RegistrationLimit 10 –Region us-east-2
    ```
 
 1. Press Enter\. If the activation is successful, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
@@ -79,7 +79,7 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    For example:
 
    ```
-   aws ssm create-activation --default-instance-name MyWebServers --iam-role RunCommandServiceRole --registration-limit 10 --region us-east-1
+   aws ssm create-activation --default-instance-name MyWebServers --iam-role RunCommandServiceRole --registration-limit 10 --region us-east-2
    ```
 
 1. Press Enter\. If the activation is successful, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
