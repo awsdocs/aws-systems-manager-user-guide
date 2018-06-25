@@ -13,6 +13,7 @@ Run Command provides status details with each command execution\. For more infor
 If you do not see the expected list of instances when you choose **Select Target instances** then verify the following\.
 + You installed the latest version of SSM Agent on your instance\. Amazon EC2 Windows Amazon Machine Images \(AMIs\) and some Linux AMIs \(for example Amazon Linux\) are pre\-configured with SSM Agent\. For information about installing the SSM Agent on an instance, see [Installing and Configuring SSM Agent on Linux Instances](sysman-install-ssm-agent.md) \(for Linux\) or [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md) \(for Windows\)\.
 + Your instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
++ Verify that you have selected the relevant Command document from the list. For example, if you select a document which supports only Windows platform, you will not see the Linux instances listed under Targets.
 
 **Check Instance Status Using the Health API**  
 You can use the Amazon EC2 Health API to quickly determine the following information about Amazon EC2 instances:
