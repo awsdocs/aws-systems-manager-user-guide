@@ -15,7 +15,7 @@ When you send a command to multiple instances at the same time, each copy of the
 Lastly, Run Command includes an aggregated command status for all plugins and invocations\. The aggregated command status can be different than the status reported by plugins or invocations, as noted in the following tables\.
 
 **Note**  
-If you execute commands to large numbers of instances using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
+If you run commands to large numbers of instances using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
 
 
 **Detailed Status for Command Plugins and Invocations**  

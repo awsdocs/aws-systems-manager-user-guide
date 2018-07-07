@@ -24,7 +24,7 @@ Use the following procedure to configure an Automation workflow as the target of
 
 1. Expand **Configure automation parameter\(s\)**, and either keep the default parameter values \(if available\) or enter your own values\. 
 **Note**  
-Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't execute\.
+Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't run\.
 
 1. In the permissions section, choose an option\. CloudWatch uses the role to start the Automation workflow\. 
 

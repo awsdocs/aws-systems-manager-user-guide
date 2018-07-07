@@ -11,8 +11,8 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and po
 ## How It Works<a name="automation-ec2rescue-how"></a>
 
 Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** document works as follows:
-+ You specify the ID of the unreachable instance and execute the Automation workflow\.
-+ The system creates a temporary VPC, and then executes a series of Lambda functions to configure the VPC\.
++ You specify the ID of the unreachable instance and run the Automation workflow\.
++ The system creates a temporary VPC, and then runs a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
 + The system launches a temporary, SSM\-enabled helper instance\.
 + The system stops your original instance, and creates a backup\. It then attaches the original root volume to the helper instance\.
@@ -21,14 +21,14 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Resc
 
 ## Before You Begin<a name="automation-ec2rescue-begin"></a>
 
-Before you execute the following Automation, do the following:
+Before you run the following Automation, do the following:
 + Copy the instance ID of the unreachable instance\. You will specify this ID in the procedure\.
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information, see [VPC and Subnets](http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/VPC_Appendix_Limits.html#vpc-limits-vpcs-subnets)\. 
-+ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who executed the automation\. For more information about creating roles for Automation, see [QuickStart \#2: Run an Automation Workflow by Using an IAM Service Role](automation-quickstart-assume.md)\.
++ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [QuickStart \#2: Run an Automation Workflow by Using an IAM Service Role](automation-quickstart-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue Permissions to Perform Actions On Your Instances<a name="automation-ec2rescue-access"></a>
 
-EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to execute the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
+EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting Permissions By Using IAM Policies](#automation-ec2rescue-access-iam)
 + [Granting Permissions By Using An AWS CloudFormation Template](#automation-ec2rescue-access-cfn)
 
@@ -143,7 +143,7 @@ Choose **View** to view the template\.
 
 1. In the stack list, choose the option beside the stack you just created, and then choose the **Outputs** tab\.
 
-1. Copy the **Value**\. The is the ARN of the AssumeRole\. You will specify this ARN when you execute the Automation\. 
+1. Copy the **Value**\. The is the ARN of the AssumeRole\. You will specify this ARN when you run the Automation\. 
 
 ## Executing the Automation<a name="automation-ec2rescue-executing"></a>
 
@@ -155,7 +155,7 @@ The following Automation execution stops the unreachable instance\. Stopping the
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
-**To execute the AWSSupport\-ExecuteEC2Rescue Automation \(AWS Systems Manager\)**
+**To run the AWSSupport\-ExecuteEC2Rescue Automation \(AWS Systems Manager\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -199,7 +199,7 @@ Backup AMI: AWSSupport\-EC2Rescue:*UnreachableInstanceId*
 
 You can locate this AMI in the Amazon EC2 console by searching on the Automation execution ID\.
 
-**To execute the AWSSupport\-ExecuteEC2Rescue Automation \(Amazon EC2 Systems Manager\)**
+**To run the AWSSupport\-ExecuteEC2Rescue Automation \(Amazon EC2 Systems Manager\)**
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\. 
 

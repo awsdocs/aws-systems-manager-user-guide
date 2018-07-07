@@ -2,7 +2,7 @@
 
 This reference describes the actions \(or plugins\) that you can specify in an AWS Systems Manager Automation document\. For information about plugins for other types of SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
 
-Systems Manager Automation executes steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
+Systems Manager Automation runs steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
 
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
@@ -88,7 +88,7 @@ Required: Yes
 
 Temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. You can insert the approval step any place in the mainSteps section of your Automation document\. 
 
-In the following example, the aws:approve action temporarily pauses the Automation workflow until one approver either accepts or rejects the workflow\. Upon approval, the document executes a simple PowerShell command\. 
+In the following example, the aws:approve action temporarily pauses the Automation workflow until one approver either accepts or rejects the workflow\. Upon approval, the document runs a simple PowerShell command\. 
 
 ```
 {

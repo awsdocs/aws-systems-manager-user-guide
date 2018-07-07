@@ -1,8 +1,8 @@
 # QuickStart \#1: Run an Automation Workflow as the Current Authenticated User<a name="automation-quickstart-user"></a>
 
-This walkthrough shows you how to execute an Automation workflow that restarts a managed instance by using the AWS\-RestartEC2Instance document\. The workflow executes in the context of the current IAM user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administator permissions in IAM, then you have permission to run this Automation\.
+This walkthrough shows you how to run an Automation workflow that restarts a managed instance by using the AWS\-RestartEC2Instance document\. The workflow runs in the context of the current IAM user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administator permissions in IAM, then you have permission to run this Automation\.
 
-**To execute the Automation document as the current authenticated user**
+**To run the Automation document as the current authenticated user**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

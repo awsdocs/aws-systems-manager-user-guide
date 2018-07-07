@@ -6,7 +6,7 @@ The following walkthrough describes how to patch a server environment in the Sys
 
 Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.
 
-In addition, the following walkthrough executes patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
+In addition, the following walkthrough runs patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **Topics**
 + [Create a Default Patch Baseline](#sysman-patch-baseline-console)
@@ -74,7 +74,7 @@ For information about accepted formats for lists of approved patches and rejecte
      cachedir=/var/cache/yum/$basesearch
      $releasever
      keepcache=0
-     debualevel=2
+     debuglevel=2
      ```
 
      Choose **Add another source** to specify a source repository for each additional operating system version, up to a maximum of 20\.

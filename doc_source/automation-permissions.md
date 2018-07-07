@@ -9,7 +9,7 @@ Configuring access to Systems Manager Automation requires that you complete the 
 **Note**  
 Automation previously required that you specify a service role \(or *assume* role\) so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\.   
 However, the following situations still require that you specify a service role for Automation:  
-When you want to restrict a user's privileges on a resource, but you want the user to execute an Automation workflow that requires higher privileges\. In this scenario, you can create a service role with higher privileges and allow the user to execute the workflow\.
+When you want to restrict a user's privileges on a resource, but you want the user to run an Automation workflow that requires higher privileges\. In this scenario, you can create a service role with higher privileges and allow the user to run the workflow\.
 Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create an instance profile role and a service role for Systems Manager Automation, complete the following tasks\.
@@ -121,7 +121,7 @@ Use the following procedure to attach the iam:PassRole policy to your Automation
 
 If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the **AmazonSSMFullAccess** managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
 
-Use the following procedure to configure a user account to use Automation\. The user account you choose will have permission to configure and execute Automation\. If you need to create a new user account, see [Creating an IAM User in Your AWS Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
+Use the following procedure to configure a user account to use Automation\. The user account you choose will have permission to configure and run Automation\. If you need to create a new user account, see [Creating an IAM User in Your AWS Account](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 
 **To configure user access and attach the iam:PassRole policy to a user account**
 

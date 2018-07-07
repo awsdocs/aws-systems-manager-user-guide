@@ -1,4 +1,4 @@
-# Walkthrough: Create and Configure a Maintenance Window<a name="sysman-mw-walk-cli"></a>
+# Walkthrough: Create and Configure a Maintenance Window \(CLI\)<a name="sysman-mw-walk-cli"></a>
 
 The following walkthrough describes how to create and configure a Maintenance Window, targets, and tasks by using the AWS CLI\.
 

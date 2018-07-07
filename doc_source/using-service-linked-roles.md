@@ -44,9 +44,9 @@ If the Systems Manager service is using the role when you try to delete the tags
 
 **To delete Systems Manager resources used by the AWSServiceRoleForAmazonSSM**
 
-1. For information about how to delete tags, see [Adding and Deleting Tags on an Individual Resource](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#adding-or-deleting-tags)\.
+1. To delete tags, see [Adding and Deleting Tags on an Individual Resource](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#adding-or-deleting-tags)\.
 
-1. For information about how to delete Resource Groups, see [Delete Groups from AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/deleting-resource-groups.html)\.
+1. To delete Resource Groups, see [Delete Groups from AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/deleting-resource-groups.html)\.
 
 **To manually delete the service\-linked role using IAM**
 

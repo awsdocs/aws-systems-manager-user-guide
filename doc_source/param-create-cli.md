@@ -34,7 +34,7 @@ Parameters are only available in the Region where they were created\.
    aws ssm put-parameter --name "a_name" --value "a value, or a comma-separated list of values" --type String or StringList 
    ```
 
-   If successful, the command has no output\.
+   If successful, the command returns the version number of the parameter\.
 
    Here is an example that uses the StringList data type\.
 

@@ -4,7 +4,7 @@ This Systems Manager Automation walkthrough shows you how to use the AWS CLI and
 
 When you run the AWS\-UpdateLinuxAmi document, Automation performs the following tasks\.
 
-1. Launches a temporary Amazon EC2 instance from a Linux AMI\. The instance is configured with a User Data script that installs SSM Agent\. The SSM Agent executes scripts sent remotely from Systems Manager Run Command\.
+1. Launches a temporary Amazon EC2 instance from a Linux AMI\. The instance is configured with a User Data script that installs SSM Agent\. The SSM Agent runs scripts sent remotely from Systems Manager Run Command\.
 
 1. Updates the Instance by performing the following actions:
 
@@ -47,7 +47,7 @@ To solve this problem, you must make a copy of the AWS\-UpdateLinuxAmi document 
 
 1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
 
-1. Execute the following command to run the AWS\-UpdateLinuxAmi document and run the Automation workflow\. In the parameters section, In the parameters section, specify your Automation role, an AMI source ID, and an Amazon EC2 instance profile role\.
+1. Run the following command to run the AWS\-UpdateLinuxAmi document and run the Automation workflow\. In the parameters section, In the parameters section, specify your Automation role, an AMI source ID, and an Amazon EC2 instance profile role\.
 
    ```
    aws ssm start-automation-execution \
@@ -64,13 +64,13 @@ To solve this problem, you must make a copy of the AWS\-UpdateLinuxAmi document 
    }
    ```
 
-1. To view the workflow execution using the CLI, execute the following command:
+1. To view the workflow execution using the CLI, run the following command:
 
    ```
    aws ssm describe-automation-executions
    ```
 
-1. To view details about the execution progress, execute the following command\.
+1. To view details about the execution progress, run the following command\.
 
    ```
    aws ssm get-automation-execution --automation-execution-id ID

@@ -8,7 +8,7 @@ For a sample of other AWS CLI commands you might use for your Patch Manager conf
 
 Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.
 
-In addition, the following walkthrough executes patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
+In addition, the following walkthrough runs patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To configure Patch Manager and patch instances by using the AWS CLI**
 

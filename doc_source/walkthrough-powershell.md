@@ -1,9 +1,9 @@
 # Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command<a name="walkthrough-powershell"></a>
 
-The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to execute commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
+The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to execute any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell Session Settings](#walkthrough-powershell-settings)
@@ -19,7 +19,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Configure AWS Tools for Windows PowerShell Session Settings<a name="walkthrough-powershell-settings"></a>
 
-Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 ```
 Set-AWSCredentials –AccessKey key_name –SecretKey key_name
@@ -41,7 +41,7 @@ Get-SSMDocumentList
 
 ## Run PowerShell Commands or Scripts<a name="walkthrough-powershell-run-script"></a>
 
-Using Run Command and the AWS\-RunPowerShell document, you can execute any command or script on an EC2 instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to execute the command\. 
+Using Run Command and the AWS\-RunPowerShell document, you can run any command or script on an EC2 instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to run the command\. 
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.

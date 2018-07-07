@@ -41,11 +41,13 @@ The following table shows the structure of the ARN format for each resource type
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
 | Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id*  | 
 | Document |  arn:aws:ssm:*region*:*account\-id*:document/*document\-name*  | 
-| Maintenance Windows |  arn:aws:ssm:*region*:*account\-id*:maintenancewindows/*window\-execution\-id*  | 
+| Maintenance Window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-execution\-id*  | 
+| Maintenance Window task |  arn:aws:ssm:*region*:*account\-id*:windowtask/*window\-task\-id*  | 
+| Maintenance Window target |  arn:aws:ssm:*region*:*account\-id*:windowtarget/*window\-target\-id*  | 
 | Managed instance |  arn:aws:ssm:*region*:*account\-id*:managed\-instance/*managed\-instance\-id*  | 
 | Managed instance inventory | arn:aws:ssm:region:account\-id:managed\-instance\-inventory/managed\-instance\-id | 
 | Parameter |  A one\-level parameter: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html) A parameter named with a hierarchical construction: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html)  | 
-| Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-ID*   | 
+| Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-id*   | 
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
 |  All Systems Manager resources owned by the specified account in the specified region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
 

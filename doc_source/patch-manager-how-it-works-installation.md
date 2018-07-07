@@ -15,9 +15,9 @@ Because the Windows Update API is used to download and install patches, all Grou
 By default, Windows downloads all patches from Microsoft's Windows Update site because Patch Manager uses the Windows Update API to drive the download and installation of patches\. As a result, the instance must be able to reach the Microsoft Windows Update site or patching will fail\. Alternatively, you can configure a WSUS server to serve as a patch repository and configure your instances to target that WSUS server instead using Group Policies\.
 
 ------
-#### [ Amazon Linux ]
+#### [ Amazon Linux and Amazon Linux 2 ]
 
-On Amazon Linux instances, the patch installation workflow is as follows:
+On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is as follows:
 
 1. Apply [GlobalFilters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 

@@ -10,7 +10,7 @@ On Windows instances, the **AWS\-RunPatchBaseline** document downloads and invok
 
 On Linux systems:  
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type:   
-+  Amazon Linux and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
++  Amazon Linux, Amazon Linux 2, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
 +  Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 

@@ -60,6 +60,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Disregard the **Parameters** section, as the test document does not take parameters\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. \(Optional\) In **Rate control**:
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.

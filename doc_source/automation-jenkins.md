@@ -39,7 +39,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 1. If it's not already installed, download the AWS CLI to your Jenkins server\. For more information, see [Installing the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
-1. In a terminal window on your Jenkins server, execute the following commands to configure the AWS CLI\.
+1. In a terminal window on your Jenkins server, run the following commands to configure the AWS CLI\.
 
    ```
    sudo su – jenkins
@@ -60,7 +60,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
 
 1. Choose **Execute shell** or **Execute Windows batch command** \(depending on your operating system\)\.
 
-1. In the **Command** box, execute an AWS CLI command like the following:
+1. In the **Command** box, run an AWS CLI command like the following:
 
    ```
    aws --region the region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document

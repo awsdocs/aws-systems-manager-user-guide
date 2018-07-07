@@ -958,7 +958,7 @@ Update SSM Agent to the latest version or specify an older version\. This plugin
 ### Properties<a name="updateSSMagent-properties"></a>
 
 **agentName**  
-amazon\-ssm\-agent\. This is the name of the Systems Manager agent that processes requests and executes commands on the instance\.  
+amazon\-ssm\-agent\. This is the name of the Systems Manager agent that processes requests and runs commands on the instance\.  
 Type: String  
 Required: Yes
 

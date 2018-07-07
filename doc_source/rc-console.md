@@ -20,6 +20,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose a Systems Manager document\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In the **Command parameters** section, specify values for required parameters\.
 
@@ -71,17 +73,17 @@ For information about canceling a command, see [Canceling a Command](rc-cancel.m
 
 1. For **Timeout \(seconds\)**, type the number of seconds that Run Command should attempt to reach an instance before it is considered unreachable and the command execution fails\. The minimum is 30 seconds, the maximum is 30 days, and the default is 10 minutes\.
 
-1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you execute multiple commands against multiple instances\.
+1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you run multiple commands against multiple instances\.
 **Important**  
 The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you execute with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 **Note**  
 After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
 
 1. Choose **Run**, and then choose **View results**\.
 
-1. In the commands list, choose the command you just executed\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
+1. In the commands list, choose the command you just ran\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
 
 1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
 
@@ -91,7 +93,7 @@ For information about canceling a command, see [Canceling a Command](rc-cancel.m
 
 ## Example: Update the SSM Agent<a name="rc-console-agentexample"></a>
 
-You can use the AWS\-UpdateSSMAgent document to update the Amazon EC2 SSM Agent running on your Windows and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you execute the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
+You can use the AWS\-UpdateSSMAgent document to update the Amazon EC2 SSM Agent running on your Windows and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
@@ -108,6 +110,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose **AWS\-UpdateSSMAgent**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In the **Command parameters** section, specify values for the following parameters, if you want:
 
@@ -161,17 +165,17 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. For **Timeout \(seconds\)**, type the number of seconds that Run Command should attempt to reach an instance before it is considered unreachable and the command execution fails\. The minimum is 30 seconds, the maximum is 30 days, and the default is 10 minutes\.
 
-1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you execute multiple commands against multiple instances\.
+1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you run multiple commands against multiple instances\.
 **Important**  
 The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you execute with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 **Note**  
 After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
 
 1. Choose **Run**, and then choose **View results**\.
 
-1. In the commands list, choose the command you just executed\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
+1. In the commands list, choose the command you just ran\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
 
 1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
 

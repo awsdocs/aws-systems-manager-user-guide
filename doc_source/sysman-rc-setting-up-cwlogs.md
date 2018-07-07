@@ -24,7 +24,7 @@ If you are using a custom policy on your instances, then you must update the pol
 
 To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName*\.
 
-If you execute commands by using the AWS CLI, then you must specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example:
+If you run commands by using the AWS CLI, then you must specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example:
 
 ```
 aws ssm send-command --document-name "AWS-RunPowerShellScript" --parameters commands=["echo helloWorld"] --targets "Key=instanceids,Values=an instance ID” --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
@@ -32,7 +32,7 @@ aws ssm send-command --document-name "AWS-RunPowerShellScript" --parameters comm
 
 ## Viewing Command Output in CloudWatch Logs<a name="sysman-rc-setting-up-cwlogs-view"></a>
 
-As soon as the command starts to execute, Systems Manager sends output to CloudWatch Logs in near real\-time\. The output in CloudWatch Logs uses the following format:
+As soon as the command starts to run, Systems Manager sends output to CloudWatch Logs in near real\-time\. The output in CloudWatch Logs uses the following format:
 
 `CommandID/InstanceID/PluginID/stdout` 
 

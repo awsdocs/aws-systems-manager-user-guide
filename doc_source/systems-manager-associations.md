@@ -8,3 +8,4 @@ Use the following topics to help you create and manage associations in State Man
 + [Create an Association \(Console\)](sysman-state-assoc.md)
 + [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)
 + [Create an Association Using the 'Targets' Parameter \(CLI\)](sysman-state-targets.md)
++ [Viewing Association Histories](sysman-state-assoc-history.md)

@@ -18,9 +18,9 @@ Download the current version of `wsusscn2.cab`:
 + [http://go.microsoft.com/fwlink/p/?LinkID=74689](http://go.microsoft.com/fwlink/p/?LinkID=74689)
 
 ------
-#### [ Amazon Linux ]
+#### [ Amazon Linux and Amazon Linux 2 ]
 
-On Amazon Linux, the Systems Manager patch baseline service uses pre\-configured repositories on the instance\. There are usually two pre\-configured repositories \(repos\) on an instance:
+On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service uses pre\-configured repositories on the instance\. There are usually two pre\-configured repositories \(repos\) on an instance:
 + **Repo ID**: amzn\-main/latest
 
   **Repo name**: amzn\-main\-Base
@@ -31,7 +31,7 @@ On Amazon Linux, the Systems Manager patch baseline service uses pre\-configured
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-Amazon Linux instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Because individual packages are not given classifications or severity, Patch Manager assigns the packages the attributes of the update notice that they belong to\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
+Amazon Linux and Amazon Linux 2 instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Because individual packages are not given classifications or severity, Patch Manager assigns the packages the attributes of the update notice that they belong to\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
 
 ------
 #### [ RHEL ]

@@ -32,11 +32,11 @@ The AWS\-UpdateLinuxAmi document includes the following Automation steps, by def
 This step launches an instance using Amazon EC2 userdata and an IAM instance profile role\. Userdata installs the appropriate SSM Agent, based on the operating system\. Installing SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
 
 **Step 2: updateOSSoftware \(aws:runCommand action\) **  
-This step executes the following commands on the launched instance:  
+This step runs the following commands on the launched instance:  
 + Downloads an update script from Amazon S3\.
-+ Executes an optional pre\-update script\.
++ Runs an optional pre\-update script\.
 + Updates distribution packages and Amazon software\.
-+ Executes an optional post\-update script\.
++ Runs an optional post\-update script\.
 The execution log is stored in the /tmp folder for the user to view later\.  
 If you want to upgrade a specific set of packages, you can supply the list using the `IncludePackages` parameter\. When provided, the system attempts to update only these packages and their dependencies\. No other updates are performed\. By default, when no *include* packages are specified, the program updates all available packages\.  
 If you want to exclude upgrading a specific set of packages, you can supply the list to the `ExcludePackages` parameter\. If provided, these packages remain at their current version, independent of any other options specified\. By default, when no *exclude* packages are specified, no packages are excluded\.

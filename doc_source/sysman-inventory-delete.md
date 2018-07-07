@@ -332,7 +332,7 @@ RackSpace custom inventory 3
 }
 ```
 
-The user executes the following command to preview which data will be deleted\.
+The user runs the following command to preview which data will be deleted\.
 
 ```
 aws ssm delete-inventory --type-name "Custom:RackSpace" --dry-run
@@ -365,7 +365,7 @@ The system returns information like the following\.
 }
 ```
 
-The user executes the following command to delete the Custom:RackSpace inventory\. 
+The user runs the following command to delete the Custom:RackSpace inventory\. 
 
 **Note**  
 The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system has not deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress\.

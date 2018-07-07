@@ -29,7 +29,7 @@ Parameters are only available in the Region where they were created\.
    Write-SSMParameter -Name "a name" -Value "a value, or a comma-separated list of values" -Type "String or StringList" 
    ```
 
-   If successful, the command has no output\.
+   If successful, the command returns the version number of the parameter\.
 **Note**  
 Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` data type\.
 
@@ -67,7 +67,7 @@ Before you create a `SecureString` parameter, read about the requirements for th
    Write-SSMParameter -Name "a name" -Value "a value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 
-   If successful, the command has no output\.
+   If successful, the command returns the version number of the parameter\.
 **Note**  
 To use the default AWS KMS CMK assigned to your account, remove the `-KeyId` parameter from the command\.
 

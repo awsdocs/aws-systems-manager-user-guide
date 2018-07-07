@@ -2,14 +2,14 @@
 
 This walkthrough shows you how to create and run a custom Automation document\. After you run Automation, the system performs the following tasks\.
 + Launches a Windows instance from a specified AMI\.
-+ Executes a command using Run Command that applies Windows updates to the instance\.
++ Runs a command using Run Command that applies Windows updates to the instance\.
 + Stops the instance\.
 + Creates a new Windows AMI\.
 + Tag the Windows AMI\.
 + Terminates the original instance\.
 
 **Automation Sample Document**  
-Automation executes Systems Manager automation documents written in JSON or YAML\. Automation documents include the actions to be performed during workflow execution\. For more information about Systems Manager documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. For information about actions you can add to a document, see [Systems Manager Automation Document Reference](automation-actions.md)
+Automation runs Systems Manager automation documents written in JSON or YAML\. Automation documents include the actions to be performed during workflow execution\. For more information about Systems Manager documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. For information about actions you can add to a document, see [Systems Manager Automation Document Reference](automation-actions.md)
 
 **Note**  
 By default, when Automation runs the AWS\-UpdateWindowsAmi document and creates a temporary instance, the system uses the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:  
@@ -137,7 +137,7 @@ To solve this problem, you must make a copy of the AWS\-UpdateWindowsAmi documen
 
 1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
 
-1. Edit the following command, and specify the path to the patchWindowsAmi\.json/yaml file on your local machine\. Execute the command to create the required Automation document\.
+1. Edit the following command, and specify the path to the patchWindowsAmi\.json/yaml file on your local machine\. Run the command to create the required Automation document\.
 **Note**  
 For the `name` parameter, you can't prefix documents with AWS\. If you specify AWS\-*name* or AWS*name*, you will receive an error\.
 
@@ -183,7 +183,7 @@ For the `name` parameter, you can't prefix documents with AWS\. If you specify A
    }
    ```
 
-1. Execute the following command to view a list of documents that you can access\.
+1. Run the following command to view a list of documents that you can access\.
 
    ```
    aws ssm list-documents --document-filter-list key=Owner,value=Self
@@ -208,7 +208,7 @@ For the `name` parameter, you can't prefix documents with AWS\. If you specify A
    }
    ```
 
-1. Execute the following command to view details about the patchWindowsAmi document\.
+1. Run the following command to view details about the patchWindowsAmi document\.
 
    ```
    aws ssm describe-document --name patchWindowsAmi
@@ -252,7 +252,7 @@ For the `name` parameter, you can't prefix documents with AWS\. If you specify A
    }
    ```
 
-1. Execute the following command to run the patchWindowsAmi document and run the Automation workflow\. This command takes two input parameters: the ID of the AMI to be patched, and the name of the new AMI\. The example command below uses a recent EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
+1. Run the following command to run the patchWindowsAmi document and run the Automation workflow\. This command takes two input parameters: the ID of the AMI to be patched, and the name of the new AMI\. The example command below uses a recent EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 
    ```
    aws ssm start-automation-execution --document-name="patchWindowsAmi" --parameters sourceAMIid="ami-bd3ba0aa"
@@ -266,21 +266,21 @@ For the `name` parameter, you can't prefix documents with AWS\. If you specify A
    }
    ```
 
-   You can monitor the status of the workflow in the console\. Check the console to verify that a new instance is launching\. After the instance launch is complete, you can confirm that the Run Command action was executed\. After Run Command execution is complete, you should see a new AMI in your list of AMI images\.
+   You can monitor the status of the workflow in the console\. Check the console to verify that a new instance is launching\. After the instance launch is complete, you can confirm that the Run Command action was run\. After Run Command execution is complete, you should see a new AMI in your list of AMI images\.
 
-1. To view the workflow execution using the CLI, execute the following command:
+1. To view the workflow execution using the CLI, run the following command:
 
    ```
    aws ssm describe-automation-executions
    ```
 
-1. To view details about the execution progress, execute the following command\.
+1. To view details about the execution progress, run the following command\.
 
    ```
    aws ssm get-automation-execution --automation-execution-id ID
    ```
 
 **Note**  
-Depending on the number of patches applied, the Windows patching process executed in this sample workflow can take 30 minutes or more to complete\.
+Depending on the number of patches applied, the Windows patching process run in this sample workflow can take 30 minutes or more to complete\.
 
 For more examples of how to use Automation, including examples that build on the walkthrough you just completed, see [Systems Manager Automation Examples](automation-examples.md)\.

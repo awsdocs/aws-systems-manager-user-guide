@@ -74,6 +74,8 @@ This section includes information about how to execute an InSpec Compliance scan
    For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running Scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In the **Specify schedule** section, use the schedule builder options to create a schedule for when you want the Compliance scan to run\.
 

@@ -1,4 +1,4 @@
-# Assign Targets to a Maintenance Window<a name="sysman-maintenance-assign-targets"></a>
+# Assign Targets to a Maintenance Window \(Console\)<a name="sysman-maintenance-assign-targets"></a>
 
 After you create a Maintenance Window, you assign targets where the tasks will run\.
 

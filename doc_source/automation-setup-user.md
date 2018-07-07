@@ -9,7 +9,7 @@ Configuring access to Systems Manager Automation requires that you complete the 
 **Note**  
 Automation previously required that you specify a service role \(or *assume* role\) so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\.   
 However, the following situations still require that you specify a service role for Automation:  
-When you want to restrict a user's privileges on a resource, but you want the user to execute an Automation workflow that requires higher privileges\. In this scenario, you can create a service role with higher privileges and allow the user to execute the workflow\.
+When you want to restrict a user's privileges on a resource, but you want the user to run an Automation workflow that requires higher privileges\. In this scenario, you can create a service role with higher privileges and allow the user to run the workflow\.
 Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create a service role and an instance profile role for Automation, you can use one of the following methods\.

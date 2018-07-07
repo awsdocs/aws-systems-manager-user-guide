@@ -3,10 +3,10 @@
 The following procedures describe how to use the AWS CLI to create the required roles and permissions for Maintenance Windows\.
 
 **Topics**
-+ [Task 1: Create an IAM Maintenance Window Role](#sysman-maintenance-role-cli)
++ [Task 1: Create a Custom Service Role for Maintenance Windows](#sysman-maintenance-role-cli)
 + [Task 2: Assign the IAM PassRole Policy to an IAM User or Group](#sysman-mw-passrole-cli)
 
-## Task 1: Create an IAM Maintenance Window Role<a name="sysman-maintenance-role-cli"></a>
+## Task 1: Create a Custom Service Role for Maintenance Windows<a name="sysman-maintenance-role-cli"></a>
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
 **Note**  
@@ -21,7 +21,6 @@ The following procedures describe how to use the AWS CLI to create the required 
             "Principal":{
                "Service":[
                   "ssm.amazonaws.com",
-                  "ec2.amazonaws.com",
                   "sns.amazonaws.com"
                ]
             },
@@ -77,7 +76,7 @@ Make a note of the `RoleName` and the `Arn`\. You will specify these when you cr
 
 ## Task 2: Assign the IAM PassRole Policy to an IAM User or Group<a name="sysman-mw-passrole-cli"></a>
 
-When you register a task with a Maintenance Window, you specify the role you created in the previous procedure\. This is the role that the service will assume when it runs tasks on your behalf\. In order to register the task, you must assign the IAM [PassRole](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) policy to your IAM user account\. The policy in the following procedure provides the minimum permissions required to register tasks with a Maintenance Window\.
+When you register a task with a Maintenance Window, you specify a custom service role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM [PassRole](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\.
 
 **To assign the IAM PassRole policy to an IAM user account or group**
 

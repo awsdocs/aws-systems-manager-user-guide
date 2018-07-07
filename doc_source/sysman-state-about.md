@@ -8,7 +8,7 @@ State Manager works as follows:
 
    For example, determine the applications to bootstrap or the network settings to configure\. You can specify the details of the state as parameters at runtime by using an AWS preconfigured document\. Or, you can create your own document and either specify the state directly in the document or as parameters at runtime\. These documents, written in JSON or YAML, are called *SSM documents*\. 
 
-   An SSM document can include multiple actions or steps \(for example, multiple commands to execute\)\. The two types of SSM documents that State Manager uses are *Command* documents and *Policy* documents\. For more information about SSM documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+   An SSM document can include multiple actions or steps \(for example, multiple commands to run\)\. The two types of SSM documents that State Manager uses are *Command* documents and *Policy* documents\. For more information about SSM documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 1. You specify a schedule for when or how often to apply the state\. You can specify a cron or rate expression\.
 

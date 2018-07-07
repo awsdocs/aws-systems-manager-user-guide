@@ -3,7 +3,7 @@
 You can manage other aspects of Automation execution using the following tasks\.
 
 **Stop an Execution**  
-Execute the following to stop a workflow\. The command doesn't terminate associated instances\.
+Run the following to stop a workflow\. The command doesn't terminate associated instances\.
 
 ```
 aws ssm stop-automation-execution --automation-execution-id ID
@@ -16,7 +16,7 @@ You can't change an existing automation document, but you can create a new versi
 aws ssm update-document --name "patchWindowsAmi" --content file:///Users/test-user/Documents/patchWindowsAmi.json --document-version "\$LATEST"
 ```
 
-Execute the following command to view details about the existing document versions:
+Run the following command to view details about the existing document versions:
 
 ```
 aws ssm list-document-versions --name "patchWindowsAmi"
@@ -43,14 +43,14 @@ The command returns information like the following:
 }
 ```
 
-Execute the following command to update the default version for execution\. The default execution version only changes when you explicitly set it to a new version\. Creating a new document version does not change the default version\.
+Run the following command to update the default version for execution\. The default execution version only changes when you explicitly set it to a new version\. Creating a new document version does not change the default version\.
 
 ```
 aws ssm update-document-default-version --name patchWindowsAmi --document-version 2
 ```
 
 **Delete a Document**  
-Execute the following command to delete an automation document:
+Run the following command to delete an automation document:
 
 ```
 aws ssm delete-document --name patchWindowsAMI

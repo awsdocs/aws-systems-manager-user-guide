@@ -1,10 +1,10 @@
 # QuickStart \#3: Use Delegated Administration to Enhance Automation Security<a name="automation-quickstart-delegated"></a>
 
-When you execute a AWS Systems Manager Automation, by default, the Automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the execution\. This means, for example, if your IAM user account has administrator permissions, then the Automation runs with administrator permissions and full access to the resources being configured by the Automation\. As a security best practice, we recommend that you execute Automations by using an IAM service role \(also called an *assume* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run Automation is called *delegated administration*\.
+When you run a AWS Systems Manager Automation, by default, the Automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the execution\. This means, for example, if your IAM user account has administrator permissions, then the Automation runs with administrator permissions and full access to the resources being configured by the Automation\. As a security best practice, we recommend that you run Automations by using an IAM service role \(also called an *assume* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run Automation is called *delegated administration*\.
 
-When you use a service role, the Automation is allowed to run against the AWS resources, but the user who executed the Automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon EC2 instances\. The Automation restarts the instances, but the service role does not give the user permission to access those instances\.
+When you use a service role, the Automation is allowed to run against the AWS resources, but the user who ran the Automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon EC2 instances\. The Automation restarts the instances, but the service role does not give the user permission to access those instances\.
 
-You can specify a service role at runtime when you execute an Automation, or you can create custom Automation documents and specify the service role directly in the document\. If you specify a service role, either at runtime or in an Automation document, then the service executes in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and executes the Automation\.
+You can specify a service role at runtime when you run an Automation, or you can create custom Automation documents and specify the service role directly in the document\. If you specify a service role, either at runtime or in an Automation document, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the Automation\.
 
 **Note**  
 You must specify a service role for Automations that you expect to run longer than 12 hours\. If you start a long\-running Automation in the context of a user, the user's temporary session expires after 12 hours\.
@@ -15,12 +15,12 @@ To properly illustrate how delegated administration can work in an organization,
 + Create a test IAM user account called AutomationRestrictedOperator \(Administrator\)
 + Create an IAM service role for Automation \(Administrator\)
 + Create a simple Automation document \(based on a preexisting Automation document\) that specifies the service role \(SSM Document Author\)
-+ Execute the Automation as the test user \(Restricted Operator\)
++ Run the Automation as the test user \(Restricted Operator\)
 
 In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here can help you understand how delegated administration enables enhanced security in complex organizations\.
 
 **Important**  
-As a security best practice, we recommend that you always use a service role to execute Automations, even if you are an administrator who performs all of these tasks\.
+As a security best practice, we recommend that you always use a service role to run Automations, even if you are an administrator who performs all of these tasks\.
 
 The procedures in this section link to topics in other AWS guides or other Systems Manager topics\. We recommend that you open links to other topics in a new tab in your web browser so you don't lose your place in this topic\.
 
@@ -28,11 +28,11 @@ The procedures in this section link to topics in other AWS guides or other Syste
 + [Create a Test User Account](#automation-quickstart-delegated-operator)
 + [Create an IAM Service Role for Automation](#automation-quickstart-delegated-service-role)
 + [Create a custom Automation document](#automation-quickstart-delegated-document)
-+ [Execute the custom Automation Document](#automation-quickstart-delegated-execute)
++ [Run the custom Automation Document](#automation-quickstart-delegated-execute)
 
 ## Create a Test User Account<a name="automation-quickstart-delegated-operator"></a>
 
-This section describes how to create an IAM test user account with restricted permissions\. The permissions set allows the user to execute Automations, but the user doesn't have access to the AWS resources targeted by the Automations\. The operator can also view the results of the Automations\. You start by creating the custom IAM permissions policy, and then you create the user account and assign permissions to it\. 
+This section describes how to create an IAM test user account with restricted permissions\. The permissions set allows the user to run Automations, but the user doesn't have access to the AWS resources targeted by the Automations\. The operator can also view the results of the Automations\. You start by creating the custom IAM permissions policy, and then you create the user account and assign permissions to it\. 
 
 **Create an IAM Test User**
 
@@ -132,9 +132,9 @@ This section describes how to create a custom Automation document that restarts 
 
 1. Choose **Create document**\. 
 
-## Execute the custom Automation Document<a name="automation-quickstart-delegated-execute"></a>
+## Run the custom Automation Document<a name="automation-quickstart-delegated-execute"></a>
 
-The following procedure describes how to execute the document you just created as the restricted operator you created earlier in this topic\. The user can execute the document you created earlier because their IAM account permissions enable them to see and execute the document\. The user can't, however, log on to the instances that you will restart with this Automation\.
+The following procedure describes how to run the document you just created as the restricted operator you created earlier in this topic\. The user can run the document you created earlier because their IAM account permissions enable them to see and run the document\. The user can't, however, log on to the instances that you will restart with this Automation\.
 
 1. In the [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/), copy the instance IDs for one or more instances that you want to restart by using the following Automation\.
 

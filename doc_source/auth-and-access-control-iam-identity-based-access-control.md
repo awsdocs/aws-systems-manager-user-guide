@@ -66,7 +66,7 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS Systems Manager:
 + **AmazonSSMFullAccess ** – User trust policy that grants full access to the Systems Manager API and documents\.
-+ **AmazonSSMAutomationRole ** – Service role that provides permissions for the AWS Systems Manager automation service to execute activities defined within automation documents\. Assign this policy to administrators and trusted power users\.
++ **AmazonSSMAutomationRole ** – Service role that provides permissions for the AWS Systems Manager automation service to run activities defined within automation documents\. Assign this policy to administrators and trusted power users\.
 
    
 + **AmazonSSMReadOnlyAccess** – User trust policy that grants access to Systems Manager read\-only API actions, such as `Get*` and `List*`\.

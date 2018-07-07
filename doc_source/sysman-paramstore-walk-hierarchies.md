@@ -27,7 +27,7 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
    aws ssm put-parameter --name "/MyService/Test/MaxConnections" --value 100 --allowed-pattern "\d{1,4}" --type String
    ```
 
-   The command has no output\.
+   The command returns the version number of the parameter\.
 
 1. Execute the following command to *attempt* to overwrite the parameter you just created with a new value\.
 

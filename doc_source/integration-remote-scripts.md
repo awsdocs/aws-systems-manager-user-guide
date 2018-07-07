@@ -48,6 +48,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *GitHub*\. 
@@ -190,6 +192,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *GitHub*\. 
@@ -354,6 +358,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *S3*\. 
@@ -494,6 +500,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *S3*\. 

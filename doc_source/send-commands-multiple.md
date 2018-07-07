@@ -1,6 +1,6 @@
 # Sending Commands to a Fleet<a name="send-commands-multiple"></a>
 
-You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you execute the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\.
+You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\.
 
 **Note**  
 You can also use the `targets` parameter to target a list of specific instance IDs, as described in the next section\.
@@ -14,7 +14,7 @@ To control command execution across hundreds or thousands of instances, Run Comm
 
 ## Targeting Multiple Instances<a name="send-commands-targeting"></a>
 
-You can execute a command and target instances by specifying either Amazon EC2 tags or instance IDs\. The `targets` parameter uses the following syntax in the AWS CLI:
+You can run a command and target instances by specifying either Amazon EC2 tags or instance IDs\. The `targets` parameter uses the following syntax in the AWS CLI:
 
 Example 1: Targeting Tags
 
@@ -92,7 +92,7 @@ aws ssm send-command --document-name name --targets Key=tag:Department,Values="S
 
 ## Using Concurrency Controls<a name="send-commands-velocity"></a>
 
-You can control how many servers execute the command at the same time by using the `max-concurrency` parameter \(the **Execute on** field in the Amazon EC2 console\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation completes before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter:
+You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Execute on** field in the Amazon EC2 console\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation completes before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter:
 
 ```
 aws ssm send-command --document-name name --max-concurrency 10 --targets Key=tag:Environment,Values=Development [...]

@@ -1,6 +1,6 @@
 # Troubleshooting IAM Maintenance Window Permissions<a name="maintenance-window-role-troubleshooting"></a>
 
-The following information might help you troubleshoot common issues with Maintenance Window permissions in AWS Systems Manager\.
+Use the following information to help you troubleshoot common issues with Maintenance Window permissions in AWS Systems Manager\.
 
 ## Edit Task Error: On the page for editing a Maintenance Window task, the IAM role list returns an error message: "We couldn't find the IAM Maintenance Window role specified for this task\. It might have been deleted, or it might not have been created yet\."<a name="maintenance-window-role-troubleshooting-1"></a>
 

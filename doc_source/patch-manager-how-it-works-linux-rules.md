@@ -3,14 +3,14 @@
 The rules in a patch baseline for Linux distributions operate differently based on the distribution type\. Unlike patch updates on Windows instances, rules are evaluated on each instance to take the configured repos on the instance into consideration\. Patch Manager uses the native package manager to drive the installation of patches approved by the patch baseline\.
 
 **Topics**
-+ [How Patch Baseline Rules Work on Amazon Linux](#patch-manager-how-it-works-linux-rules-amazon-linux)
++ [How Patch Baseline Rules Work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How Patch Baseline Rules Work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
 + [How Patch Baseline Rules Work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
 + [How Patch Baseline Rules Work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
 
-## How Patch Baseline Rules Work on Amazon Linux<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
+## How Patch Baseline Rules Work on Amazon Linux and Amazon Linux 2<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
 
-On Amazon Linux, the patch selection process is as follows:
+On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\. 
 **Note**  
@@ -75,6 +75,9 @@ For Ubuntu Server 14, the rules for package classification into the different co
 + **Installed Other**: Packages that are not filtered through the baseline, with the candidate version appearing in `trusty-security`, and are not upgradable\. The compliance level for these packages is set to `UNSPECIFIED`\.
 + **NotApplicable**: Packages that are included in [ApprovedPatches](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) but are not installed on the system\.
 + **Failed**: Packages that failed to install during the patch operation\.
+
+**Note**  
+For general information about patch compliance status values that applies to all operating systems, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 

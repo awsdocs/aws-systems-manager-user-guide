@@ -15,11 +15,11 @@ KB2032276,KB2124261,MS10-048
 The formats you can specify for approved and rejected patches in your patch baseline vary by Linux type\. More specifically, the formats that are supported depend on the package manager used by the type of Linux operating system\.
 
 **Topics**
-+ [Amazon Linux, Red Hat Enterprise Linux \(RHEL\), and CentOS](#patch-manager-approved-rejected-package-name-formats-standard)
++ [Amazon Linux, Amazon Linux 2, Red Hat Enterprise Linux \(RHEL\), and CentOS](#patch-manager-approved-rejected-package-name-formats-standard)
 + [Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
 + [SUSE Linux Enterprise Server \(SLES\)](#patch-manager-approved-rejected-package-name-formats-sles)
 
-### Amazon Linux, Red Hat Enterprise Linux \(RHEL\), and CentOS<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
+### Amazon Linux, Amazon Linux 2, Red Hat Enterprise Linux \(RHEL\), and CentOS<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
 
 **Package manager**: YUM
 

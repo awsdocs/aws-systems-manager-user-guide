@@ -219,12 +219,12 @@ To solve this problem, you must create a new Automation document that includes t
       },
       "PreUpdateScript":{
          "type":"String",
-         "description":"(Optional) A script provided as a string. It will execute prior to installing OS updates.",
+         "description":"(Optional) A script provided as a string. It will run prior to installing OS updates.",
          "default":""
       },
       "PostUpdateScript":{
          "type":"String",
-         "description":"(Optional) A script provided as a string. It will execute after installing OS updates.",
+         "description":"(Optional) A script provided as a string. It will run after installing OS updates.",
          "default":""
       }
    },
@@ -459,7 +459,7 @@ The IAM user attempting to start the Automation execution does not have PassRole
 
 ### Invalid Assume Role<a name="automation-trbl-ar"></a>
 
-When you execute an Automation, an assume role is either provided in the document or passed as a parameter value for the document\. Different types of errors can occur if the assume role is not specified or configured properly\.
+When you run an Automation, an assume role is either provided in the document or passed as a parameter value for the document\. Different types of errors can occur if the assume role is not specified or configured properly\.
 
 **Malformed Assume Role**  
 **Error message**: `The format of the supplied assume role ARN is invalid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your Automation document or as a runtime parameter when executing the Automation\.
@@ -473,7 +473,7 @@ When you execute an Automation, an assume role is either provided in the documen
 
 ### Action\-Specific Failures<a name="automation-trbl-actspec"></a>
 
-Automation documents contain steps and steps execute in order\. Each step invokes one or more AWS service APIs\. The APIs determine the inputs, behavior, and outputs of the step\. There are multiple places where an error can cause a step to fail\. Failure messages indicate when and where an error occurred\.
+Automation documents contain steps and steps run in order\. Each step invokes one or more AWS service APIs\. The APIs determine the inputs, behavior, and outputs of the step\. There are multiple places where an error can cause a step to fail\. Failure messages indicate when and where an error occurred\.
 
 To see a failure message in the EC2 console, choose the **View Outputs** link of the failed step\. To see a failure message from the CLI, call `get-automation-execution` and look for the `FailureMessage` attribute in a failed `StepExecution`\.
 
@@ -523,4 +523,4 @@ A problem with the Automation service is preventing the specified Automation doc
 
 **Error message**: `Step timed out while step is verifying launched instance(s) are ready to be used. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to execute than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for `timeoutSeconds`\. If that does not solve the problem, investigate why the step takes longer to execute than expected\.
+A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for `timeoutSeconds`\. If that does not solve the problem, investigate why the step takes longer to run than expected\.

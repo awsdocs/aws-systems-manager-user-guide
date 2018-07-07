@@ -1,4 +1,4 @@
-# Create a Maintenance Window<a name="sysman-maintenance-create-mw"></a>
+# Create a Maintenance Window \(Console\)<a name="sysman-maintenance-create-mw"></a>
 
 To create a Maintenance Window, you must do the following:
 + Create the window and define its schedule and duration\.

@@ -37,7 +37,7 @@ The AWS\-UpdateWindowsAmi document includes the following Automation steps, by d
 This step launches an instance with an IAM instance profile role from the specified `SourceAmiID`\.
 
 **Step 2: runPreUpdateScript \(aws:runCommand action\)**  
-This step enables you to specify a script as a string that executes before updates are installed\.
+This step enables you to specify a script as a string that runs before updates are installed\.
 
 **Step 3: updateEC2Config \(aws:runCommand action\)**  
 This step uses the AWS\-InstallPowerShellModule public document to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then checks the operating system to determine whether to update EC2Config or EC2Launch\. EC2Config runs on Windows Server 2008 R2 through Windows Server 2012 R2\. EC2Launch runs on Windows Server 2016\.
@@ -55,10 +55,10 @@ This step updates AWS ENA Network drivers by using the AWS\-ConfigureAWSPackage 
 This step installs Windows updates by using the AWS\-InstallWindowsUpdates public document\. By default, Systems Manager searches for and installs all missing updates\. You can change the default behavior by specifying one of the following parameters: `IncludeKbs`, `ExcludeKbs`, `Categories`, or `SeverityLevels`\. 
 
 **Step 8: runPostUpdateScript \(aws:runCommand action\)**  
-This step enables you to specify a script as a string that executes after the updates have been installed\.
+This step enables you to specify a script as a string that runs after the updates have been installed\.
 
 **Step 9: runSysprepGeneralize \(aws:runCommand action\) **  
-This step uses the AWS\-InstallPowerShellModule public document to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then executes sysprep using AWS\-supported methods for either EC2Launch \(Windows Server 2016\) or EC2Config \(Windows Server 2008 R2 through 2012 R2\)\.
+This step uses the AWS\-InstallPowerShellModule public document to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then runs sysprep using AWS\-supported methods for either EC2Launch \(Windows Server 2016\) or EC2Config \(Windows Server 2008 R2 through 2012 R2\)\.
 
 **Step 10: stopInstance \(aws:changeInstanceState action\) **  
 This step stops the updated instance\. 

@@ -4,7 +4,7 @@ You can update or delete a Maintenance Window\. You can also update or delete th
 
 This section describes how to update or delete a Maintenance Window, targets, and tasks by using the AWS Systems Manager console\. For examples of how to do this by using the AWS CLI, see [Walkthrough: Update a Maintenance Window](sysman-mw-walk-update.md)\. 
 
-## Updating or Deleting a Maintenance Window<a name="sysman-maintenance-update-mw"></a>
+## Updating or Deleting a Maintenance Window \(Console\)<a name="sysman-maintenance-update-mw"></a>
 
 You can update a Maintenance Window to changethe name, description, and schedule of the window, and whether the window should allow unregistered targets\.
 
@@ -30,7 +30,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Change the values and options that you want, and then choose **Edit maintenance window**\. The system returns you to the Maintenance Window page\.
 
-## Updating or Deleting the Targets of a Maintenance Window<a name="sysman-maintenance-update-target"></a>
+## Updating or Deleting the Targets of a Maintenance Window \(Console\)<a name="sysman-maintenance-update-target"></a>
 
 You can update or delete the targets of a Maintenance Window\. If you choose to update a Maintenance Window target you can specify a new target name, description, and owner\. You can also choose different targets\. 
 

@@ -9,7 +9,7 @@ We recommend that you initially create and configure Maintenance Windows in a te
 Before you create a Maintenance Window, you must configure access to Maintenance Windows\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 **Topics**
-+ [Create a Maintenance Window](sysman-maintenance-create-mw.md)
-+ [Assign Targets to a Maintenance Window](sysman-maintenance-assign-targets.md)
-+ [Assign Tasks to a Maintenance Window](sysman-maintenance-assign-tasks.md)
++ [Create a Maintenance Window \(Console\)](sysman-maintenance-create-mw.md)
++ [Assign Targets to a Maintenance Window \(Console\)](sysman-maintenance-assign-targets.md)
++ [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
 + [Update or Delete a Maintenance Window](sysman-maintenance-update.md)

@@ -33,7 +33,7 @@ The following procedure walks you through the process of creating and storing a 
    aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String 
    ```
 
-   The command has no output\.
+   The command returns the version number of the parameter\.
 
 1. Execute the following command to view the parameter metadata\.
 
@@ -64,7 +64,7 @@ The following procedure walks you through the process of creating and storing a 
    aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "good day sunshine" --type String --overwrite
    ```
 
-   The command has no output\.
+   The command returns the version number of the parameter\.
 
 1. Execute the following command to view the latest parameter value\.
 

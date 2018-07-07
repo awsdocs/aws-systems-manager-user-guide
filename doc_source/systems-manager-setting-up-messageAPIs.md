@@ -1,4 +1,4 @@
-# Ec2messages and Other API Calls<a name="systems-manager-setting-up-messageAPIs"></a>
+# Reference: Ec2messages and Other API Calls<a name="systems-manager-setting-up-messageAPIs"></a>
 
 If you monitor API calls, you will see calls to the following APIs\.
 + ec2messages:AcknowledgeMessage

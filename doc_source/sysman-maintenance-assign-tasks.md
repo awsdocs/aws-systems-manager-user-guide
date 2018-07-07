@@ -1,4 +1,4 @@
-# Assign Tasks to a Maintenance Window<a name="sysman-maintenance-assign-tasks"></a>
+# Assign Tasks to a Maintenance Window \(Console\)<a name="sysman-maintenance-assign-tasks"></a>
 
 After you assign targets, you assign tasks to perform during the window\.
 
@@ -21,6 +21,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Task priority** list, specify a priority for this task\. 1 is the highest priority\. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. \(Optional\) In **Rate control**:
    + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.

@@ -1,11 +1,11 @@
 # Sending Commands that Use the Document Version Parameter<a name="run-command-version"></a>
 
-You can use the document\-version parameter to specify which version of an SSM document to use when the command executes\. You can specify one of the following options for this parameter:
+You can use the document\-version parameter to specify which version of an SSM document to use when the command runs\. You can specify one of the following options for this parameter:
 + $DEFAULT
 + $LATEST
 + Version number
 
-If you execute commands by using the AWS CLI, then you must escape the first two options by using a backslash\. If you specify a version number, then you don't need to use the backslash\. For example:
+If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash\. If you specify a version number, then you don't need to use the backslash\. For example:
 
 \-\-document\-version "\\$DEFAULT"
 
@@ -13,9 +13,9 @@ If you execute commands by using the AWS CLI, then you must escape the first two
 
 \-\-document\-version "3"
 
-Use the following procedure to execute a command by using the AWS CLI that uses the document\-version parameter\. 
+Use the following procedure to run a command by using the AWS CLI that uses the document\-version parameter\. 
 
-**To execute commands using the AWS CLI**
+**To run commands using the AWS CLI**
 
 1. Run the following command to specify your credentials and the region\.
 
@@ -32,7 +32,7 @@ Use the following procedure to execute a command by using the AWS CLI that uses 
    Default output format [None]: ENTER
    ```
 
-   *region* represents the region identifier for an AWS region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. List all available documents
 
@@ -48,7 +48,7 @@ Use the following procedure to execute a command by using the AWS CLI that uses 
    aws ssm list-document-versions --name "document name"
    ```
 
-1. Use the following command to execute a command that uses an SSM document version\.
+1. Use the following command to run a command that uses an SSM document version\.
 
    ```
    aws ssm send-command --document-name "AWS-RunShellScript" --parameters commands="echo Hello",executionTimeout=3600 --instance-ids instance-ID --endpoint-url "https://us-east-2.amazonaws.com" --region "us-east-2" --document-version "\$DEFAULT, \$LATEST, or a version number"

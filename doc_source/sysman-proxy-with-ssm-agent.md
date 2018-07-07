@@ -38,7 +38,7 @@ For more information about working with \.override files in Upstart environments
 
 ## Configure SSM Agent to Use a Proxy \(systemd\)<a name="ssm-agent-proxy-systemd"></a>
 
-The steps in the following procedure describe how to configure SSM Agent to use a proxy in systemd environments\. Some of the steps in this procedure contain explicit instructions for Ubuntu instances installed by using snap\.
+The steps in the following procedure describe how to configure SSM Agent to use a proxy in systemd environments\. Some of the steps in this procedure contain explicit instructions for Ubuntu Server instances installed by using Snap\.
 
 1. Connect to the instance where you installed SSM Agent\.
 
@@ -48,7 +48,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
    systemctl edit amazon-ssm-agent
    ```
 
-   For Ubuntu instances installed by using snap, execute the following command:
+   For Ubuntu Server instances installed by using snap, execute the following command:
 
    ```
    systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
@@ -74,7 +74,7 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
    sudo systemctl daemon-reload
    ```
 
-   For Ubuntu instances installed by using snap, restart SSM Agent by using the following command:
+   For Ubuntu Server instances installed by using snap, restart SSM Agent by using the following command:
 
    ```
    systemctl start snap.amazon-ssm-agent.amazon-ssm-agent
