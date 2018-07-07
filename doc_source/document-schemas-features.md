@@ -27,7 +27,7 @@ The following table lists the differences between major schema versions\.
 
 ****  
 
-| Version 1\.2 | Version 2\.2 \(lastest version\) | Details | 
+| Version 1\.2 | Version 2\.2 \(latest version\) | Details | 
 | --- | --- | --- | 
 |  runtimeConfig  |  mainSteps  |  In version 2\.2, the `mainSteps` section replaces `runtimeConfig`\. The `mainSteps` section enables Systems Manager to execute steps in sequence\.  | 
 |  properties  |  inputs  |  In version 2\.2, the `inputs` section replaces the `properties` section\. The `inputs` section accepts parameters for steps\.  | 
