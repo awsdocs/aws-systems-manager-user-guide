@@ -54,7 +54,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
    **Amazon Linux**
 
    ```
-   sudo status amazon-ssm-agent
+   sudo service amazon-ssm-agent status
    ```
 
    **Amazon Linux 2**
@@ -70,7 +70,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
       **Amazon Linux**
 
       ```
-      sudo start amazon-ssm-agent
+      sudo service amazon-ssm-agent start
       ```
 
       **Amazon Linux 2**
@@ -88,7 +88,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
       **Amazon Linux**
 
       ```
-      sudo status amazon-ssm-agent
+      sudo service amazon-ssm-agent status
       ```
 
       **Amazon Linux 2**
@@ -328,7 +328,7 @@ Connect to your CentOS instance and perform the following steps to install the S
    CentOS 6\.x:
 
    ```
-   sudo status amazon-ssm-agent
+   sudo service amazon-ssm-agent status
    ```
 
 1. Run the following commands if the previous command returned "amazon\-ssm\-agent is stopped\."
@@ -348,7 +348,7 @@ Connect to your CentOS instance and perform the following steps to install the S
       CentOS 6\.x:
 
       ```
-      sudo start amazon-ssm-agent
+      sudo service amazon-ssm-agent start
       ```
 
    1. Check the status of the agent\.
@@ -362,7 +362,7 @@ Connect to your CentOS instance and perform the following steps to install the S
       CentOS 6\.x:
 
       ```
-      sudo status amazon-ssm-agent
+      sudo service amazon-ssm-agent status
       ```
 
 ## SUSE Linux Enterprise Server \(SLES\) 12<a name="agent-install-sles"></a>
