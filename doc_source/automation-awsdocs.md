@@ -32,7 +32,7 @@ You can view the JSON for these document in the Systems Manager console\.
 |  AWS\-UpdateCloudFormationStack AWS\-UpdateCloudFormationStackWithApproval  |  Use this document to perform an update operation on an existing stack by using a specified template\. You must specify a URL to the template that will be used to update the stack\. These documents execute a AWS Lambda function\. You must provide an Amazon Resource Name \(ARN\) for an IAM role that Lambda can use to execute the function\.  | 
 |  AWS\-UpdateLinuxAmi  |  Use this document to automate image\-maintenance tasks\. For more information, see [Walkthrough: Customize and Update Linux AMIs Using AWS\-UpdateLinuxAmi](automation-awsdocs-linux.md)  | 
 |  AWS\-UpdateWindowsAmi  |  Use this document to automate image\-maintenance tasks\. For more information, see [Walkthrough: Customize and Update Windows AMIs Using AWS\-UpdateWindowsAmi](automation-awsdocs-win.md)  | 
-|  AWSSupport\-ExecuteEC2Rescue  |  Use this document to diagnose and troubleshoot problems on Amazon EC2 Windows Server instances\. For more information, see [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.  | 
+|  AWSSupport\-ExecuteEC2Rescue  |  Use this document to diagnose and troubleshoot problems on Amazon EC2 instances\. For more information, see [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.  | 
 |  AWSSupport\-ResetAccess  |  Use this document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances\. For more information, see [Reset Passwords and SSH Keys on Amazon EC2 Instances](automation-ec2reset.md)\.  | 
 
 **Topics**
