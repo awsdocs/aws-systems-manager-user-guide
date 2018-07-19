@@ -27,3 +27,12 @@ Use the following procedure to create three separate VPC endpoints for Systems M
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Use [Creating a Gateway Endpoint](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint) to create an endpoint for Amazon S3\. Systems Manager uses this endpoint to upload Amazon S3 output logs, and to update SSM Agent\.
+1. In order to let your Managed instances show up in System Manager under Managed Instances you have to specify DNS name of SSM Endpoint in Agent configurtion file.\
+Login to your EC2 instances with already installed SSM agent.\
+Edit SSM agent configuration file: **/etc/amazon/ssm/amazon-ssm-agent.json.template**\
+Specify DNS of your VPC Endpoint to SSM in this section:\
+      "Ssm": {\
+           "Endpoint": "**vpce-xxxxxxxxxxxxxxxxx-yyyyyyyyyy.ssm.zzzzzzzzzz.vpce.amazonaws.com**"\*
+Save file and rename it from **amazon-ssm-agent.json.template** to **amazon-ssm-agent.json**\
+Restart SSM Agent.\
+Now you should see instance under System Manager - Managed Instances.
