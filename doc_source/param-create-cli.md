@@ -60,7 +60,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon Elastic Compute Cloud \(Amazon EC2\), or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    aws configure

@@ -92,7 +92,7 @@ Use the following procedure to create a Lambda function that automatically updat
            print('No such parameter')
            return 'SSM parameter not found.'
    
-       #if parameter has a Descrition field, update it PLUS the Value
+       #if parameter has a Description field, update it PLUS the Value
        if 'Description' in response['Parameters'][0]:
            description = response['Parameters'][0]['Description']
            

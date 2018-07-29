@@ -97,7 +97,7 @@ You can use the AWS\-UpdateSSMAgent document to update the Amazon EC2 SSM Agent 
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
-**To send a command using Run Command \(AWS Systems Manager\)**
+**To update SSM Agent using Run Command \(AWS Systems Manager\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

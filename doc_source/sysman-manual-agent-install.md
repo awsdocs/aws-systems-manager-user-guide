@@ -189,10 +189,19 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    mkdir /tmp/ssm
    ```
 
-   Execute the following command\.
+   Change to the temporary directory\.
+
+   ```
+   cd /tmp/ssm
+   ```
+
+   Execute the following commands\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+   ```
+
+   ```
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
@@ -222,10 +231,19 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    mkdir /tmp/ssm
    ```
 
-   Execute the following command\.
+   Change to the temporary directory\.
+
+   ```
+   cd /tmp/ssm
+   ```
+
+   Execute the following commands\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb
+   ```
+
+   ```
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
@@ -259,6 +277,12 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
 
    ```
    mkdir /tmp/ssm
+   ```
+
+1. Change to the temporary directory\.
+
+   ```
+   cd /tmp/ssm
    ```
 
 1. Use one of the following commands to download and run the SSM installer\.
@@ -333,6 +357,12 @@ Connect to your CentOS instance and perform the following steps to install the S
 
    ```
    mkdir /tmp/ssm
+   ```
+
+1. Change to the temporary directory\.
+
+   ```
+   cd /tmp/ssm
    ```
 
 1. Use one of the following commands to download and run the SSM installer\.

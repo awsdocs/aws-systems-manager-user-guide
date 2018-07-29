@@ -2,10 +2,12 @@
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
 + [DeleteParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
-+ [DeleteParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html) \(to delete parameters by using the Amazon EC2 console\)
++ [DeleteParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)
 + [DescribeParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)
 + [GetParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
 + [GetParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
++ [GetParameterHistory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
++ [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)
 + [PutParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
 
 We recommend that you control access to Systems Manager parameters by creating restrictive IAM policies\. For example, the following policy allows you to call the `DescribeParameters` and `GetParameters` API operations for a specific resource\. This means that you can get information about and use all parameters that begin with prod\-\*\.
@@ -36,17 +38,29 @@ For trusted administrators, you could provide full access to all Systems Manager
 
 ```
 {
-   "Version":"2012-10-17",
-   "Effect":"Allow",
-   "Action":[
-      "ssm:DescribeParameters",
-      "ssm:PutParameter",
-      "ssm:GetParameters",
-      "ssm:DeleteParameter"
-   ],
-   "Resource":[
-      "arn:aws:ssm:region:account id:parameter/dbserver-prod-*"
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameterHistory",
+                "ssm:GetParametersByPath",
+                "ssm:GetParameters",
+                "ssm:GetParameter",
+                "ssm:DeleteParameters"
+            ],
+            "Resource": "arn:aws:ssm:region:account_ID:parameter/dbserver-prod-*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "ssm:DescribeParameters",
+            "Resource": "*"
+        }
+    ]
 }
 ```
 
@@ -97,7 +111,14 @@ Instance policies, like in the previous example, are assigned to the instance ro
 
 ## Controlling Access to Parameters Using Tags<a name="sysman-paramstore-access-tag"></a>
 
-After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags the user can access\. When a user attempts to use a parameter, the system checks the IAM policy and the tags specified for the parameter\. If the user does not have access to the tags assigned to the parameter, the user receives an access denied error\. Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
+After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags the user can access\. When a user attempts to use a parameter, the system checks the IAM policy and the tags specified for the parameter\. If the user does not have access to the tags assigned to the parameter, the user receives an access denied error\.
+
+Currently, you can restrict access to the following GetParameter API actions:
++ [GetParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
++ [GetParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
++ [GetParameterHistory ](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
+
+Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
 
 **Before You Begin**  
 Create and tag parameters\. For more information, see [Setting Up Systems Manager Parameters](sysman-paramstore-settingup.md)\.
@@ -132,6 +153,16 @@ Create and tag parameters\. For more information, see [Setting Up Systems Manage
          }
       ]
    }
+   ```
+
+   This sample policy restricts access to only the GetParameters API action\. You can restrict access to multiple API actions by using the following format in the Action block:
+
+   ```
+   "Action":[
+               "ssm:GetParameters",
+               "ssm:GetParameter",
+               "ssm:GetParameterHistory",
+            ],
    ```
 
    You can specify multiple keys in the policy by using the following **Condition** format\. Specifying multiple keys creates an *AND* relationship for the keys\.

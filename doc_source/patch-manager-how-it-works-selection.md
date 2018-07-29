@@ -57,7 +57,7 @@ Red Hat Enterprise Linux instances use Yum as the package manager, and Yum uses 
 
 On Ubuntu Server, the Systems Manager patch baseline service uses pre\-configured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
-Packages are then filtered from `codename-security ` repos, where the codename is `trusty/xenial/zesty`\. For example, on Ubuntu Server 14, Patch Manager only identifies upgrades that are part of `trusty-security`\. 
+Packages are then filtered from `codename-security` repos, where the codename is something like `trusty` or `xenial`\. For example, on Ubuntu Server 14, Patch Manager only identifies upgrades that are part of `trusty-security`\. On Ubuntu Server 16, only upgrades that are part of `xenial-security` are identified\.
 
 ------
 #### [ SLES ]

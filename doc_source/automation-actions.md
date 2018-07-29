@@ -35,20 +35,20 @@ The following properties are common to all actions:
         "action": "action",
         "maxAttempts": value,
         "timeoutSeconds": value,
-        "onFailure": "Abort",
+        "onFailure": "value",
         "inputs": {
             ...
-        }
+        }      
     },
     {
         "name": "name",
         "action": "action",
         "maxAttempts": value,
         "timeoutSeconds": value,
-        "onFailure": "Abort",
+        "onFailure": "value",
         "inputs": {
             ...
-        }
+        }        
     }
 ]
 ```
@@ -59,7 +59,7 @@ Type: String
 Required: Yes
 
 action  
-The name of the action the step is to execute\.  
+The name of the action the step is to execute\. [aws:runCommand](#automation-action-runcommand) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
 Type: String  
 Required: Yes
 
@@ -74,10 +74,116 @@ Type: Integer
 Required: No
 
 onFailure  
-Indicates whether the workflow should continue on failure\. The default is to abort on failure\.  
+Indicates whether the workflow should abort, continue, or go to a different step on failure\. The default value for this option is abort\.  
 Type: String  
-Valid values: Abort \| Continue  
+Valid values: Abort \| Continue \| step:*step\_name*  
 Required: No
+
+isEnd  
+This option stops an Automation execution at the end of a specific step\. The Automation execution stops if the step execution failed or succeeded\. The default value is false\.  
+Type: Boolean  
+Valid values: true \| false  
+Required: No  
+Here is an example of how to enter this option in the mainSteps section of your document:  
+
+```
+"mainSteps":[
+   {
+      "name":"InstallMsiPackage",
+      "action":"aws:runCommand",
+      "onFailure":"step:PostFailure",
+      "maxAttempts":2,
+      "inputs":{
+         "InstanceIds":[
+            {
+               {
+                  "i-1234567890abcdef0,i-0598c7d356eba48d7"
+               }
+            }
+         ],
+         "DocumentName":"AWS-RunPowerShellScript",
+         "Parameters":{
+            "commands":[
+               "msiexec /i {{packageName}}"
+            ]
+         }
+      },
+      "nextStep":"TestPackage"
+   },
+   {
+      "name":"TestPackage",
+      "action":"aws:invokeLambdaFunction",
+      "maxAttempts":1,
+      "timeoutSeconds":500,
+      "inputs":{
+         "FunctionName":"TestLambdaFunction"
+      },
+      "isEnd":true
+   }
+```
+
+nextStep  
+Specifies which step in an Automation workflow to process next after successfully completing a step\.  
+Here is an example of how to enter this option in the mainSteps section of your document:  
+
+```
+"mainSteps":[
+   {
+      "name":"InstallMsiPackage",
+      "action":"aws:runCommand",
+      "onFailure":"step:PostFailure",
+      "maxAttempts":2,
+      "inputs":{
+         "InstanceIds":[
+            {
+               {
+                  "i-1234567890abcdef0,i-0598c7d356eba48d7"
+               }
+            }
+         ],
+         "DocumentName":"AWS-RunPowerShellScript",
+         "Parameters":{
+            "commands":[
+               "msiexec /i {{packageName}}"
+            ]
+         }
+      },
+      "nextStep":"TestPackage"
+   }
+```
+
+isCritical  
+Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.  
+Type: Boolean  
+Valid values: true \| false  
+Required: No  
+Here is an example of how to enter this option in the mainSteps section of your document:  
+
+```
+{
+   "name":"InstallMsiPackage",
+   "action":"aws:runCommand",
+   "onFailure":"step:SomeOtherStep",
+   "isCritical":false,
+   "maxAttempts":2,
+   "inputs":{
+      "InstanceIds":[
+         {
+            {
+               "i-1234567890abcdef0,i-0598c7d356eba48d7"
+            }
+         }
+      ],
+      "DocumentName":"AWS-RunPowerShellScript",
+      "Parameters":{
+         "commands":[
+            "msiexec /i {{packageName}}"
+         ]
+      }
+   },
+   "nextStep":"TestPackage"
+}
+```
 
 inputs  
 The properties specific to the action\.  
@@ -342,10 +448,7 @@ Valid values: `available` \| `pending` \| `failed`
 
 ## aws:createImage<a name="automation-action-create"></a>
 
-Creates a new AMI from a stopped instance\.
-
-**Important**  
-This action does not stop the instance implicitly\. You must use the aws:changeInstanceState action to stop the instance\. If this action is used on a running instance, the resultant AMI might be defective\.
+Creates a new AMI from an instance that is either running or stopped\. 
 
 **Input**  
 This action supports most CreateImage parameters\. For more information, see [CreateImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
@@ -371,7 +474,7 @@ Type: String
 Required: Yes
 
 ImageName  
-The name of the image\.  
+The name for the image\.  
 Type: String  
 Required: Yes
 
@@ -382,6 +485,8 @@ Required: No
 
 NoReboot  
 A boolean literal\.  
+By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image\. If the No Reboot option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image\. When this option is used, file system integrity on the created image can't be guaranteed\.   
+If you do not want the instance to run after you create an AMI image from it, first use the [aws:changeInstanceState](#automation-action-changestate) plugin to stop the instance, and then use this `aws:createImage` plugin with the NoReboot option set to `true`\.  
 Type: Boolean  
 Required: No
 

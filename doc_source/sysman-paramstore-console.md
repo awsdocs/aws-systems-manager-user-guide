@@ -16,15 +16,15 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. Choose **Create parameter**\.
 
-1. In the **Name** box, type a hierarchy and a name\. For example, type `/Test/helloWorld`\.
+1. In the **Name** box, enter a hierarchy and a name\. For example, enter `/Test/helloWorld`\.
 
    For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
-1. In the **Description** field, type a description that identifies this parameter as a test parameter\.
+1. In the **Description** field, enter a description that identifies this parameter as a test parameter\.
 
 1. For **Type**, choose **String**\.
 
-1. In the **Value** field, type a string\. For example, type `My1stParameter`\.
+1. In the **Value** field, enter a string\. For example, enter `My1stParameter`\.
 
 1. Choose **Create parameter**\.
 
@@ -36,7 +36,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. Under **Target instances**, choose an instance you created earlier\.
 
-1. In the **Commands** field, type echo `{{ssm:parameter name}}`, for example, echo `{{ssm:/Test/helloWorld}}`\. 
+1. In the **Commands** field, enter echo `{{ssm:parameter name}}`, for example, echo `{{ssm:/Test/helloWorld}}`\. 
 
 1. Choose **Run**\.
 

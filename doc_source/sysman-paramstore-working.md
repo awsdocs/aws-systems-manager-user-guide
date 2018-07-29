@@ -8,3 +8,4 @@ This section describes how to organize, create, and tag parameters, and create d
 + [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)
 + [Tagging Systems Manager Parameters](sysman-paramstore-su-tag.md)
 + [Working with Parameter Versions](sysman-paramstore-versions.md)
++ [Labeling Parameters](sysman-paramstore-labels.md)
