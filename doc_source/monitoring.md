@@ -20,4 +20,4 @@ Configuring an agent to send log data to Amazon CloudWatch Logs provides the fol
 **Topics**
 + [Send Logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
 + [Send Logs to CloudWatch Logs \(CloudWatch Agent\)](monitoring-cloudwatch-agent.md)
-+ [Log Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
++ [Log AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)

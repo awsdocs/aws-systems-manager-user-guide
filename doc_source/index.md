@@ -212,7 +212,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Monitoring Instances with AWS Systems Manager](monitoring.md)
    + [Send Logs to CloudWatch Logs (SSM Agent)](monitoring-ssm-agent.md)
    + [Send Logs to CloudWatch Logs (CloudWatch Agent)](monitoring-cloudwatch-agent.md)
-   + [Log Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
+   + [Log AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
 + [Authentication and Access Control for AWS Systems Manager](auth-and-access-control.md)
    + [Overview of Managing Access Permissions to Your AWS Systems Manager Resources](auth-and-access-control-iam-access-control-identity-based.md)
    + [Using Identity-based Policies (IAM Policies) for AWS Systems Manager](auth-and-access-control-iam-identity-based-access-control.md)

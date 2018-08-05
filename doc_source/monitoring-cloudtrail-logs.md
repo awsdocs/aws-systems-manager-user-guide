@@ -1,30 +1,33 @@
-# Log Systems Manager API Calls with AWS CloudTrail<a name="monitoring-cloudtrail-logs"></a>
+# Log AWS Systems Manager API Calls with AWS CloudTrail<a name="monitoring-cloudtrail-logs"></a>
 
-AWS Systems Manager is integrated with CloudTrail, a service that captures API calls made by or on behalf of Systems Manager in your AWS account and delivers the log files to an Amazon S3 bucket you specify\. CloudTrail captures API calls from the Systems Manager console, from Systems Manager commands through the AWS CLI, from the AWS Tools for Windows PowerShell, or from Systems Manager APIs called directly\. Using the information collected by CloudTrail, you can determine which request was made to Systems Manager, the source IP address from which the request was made, who made the request, when it was made, and so on\. To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
+Systems Manager is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. CloudTrail captures all API calls for Systems Manager as events, including calls from the Systems Manager console and from code calls to the Systems Manager APIs\. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Systems Manager\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
 
-**Topics**
-+ [Systems Manager Information in CloudTrail](#monitoring-cloudtrail-logs-log-entries-about)
-+ [Understanding Systems Manager Log File Entries](#monitoring-cloudtrail-logs-log-entries-example)
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
 ## Systems Manager Information in CloudTrail<a name="monitoring-cloudtrail-logs-log-entries-about"></a>
 
-When CloudTrail logging is enabled in your AWS account, API calls made to Systems Manager are tracked in log files\. Systems Manager records are written together with other AWS service records in a log file\. CloudTrail determines when to create and write to a new file based on a time period and file size\. 
+CloudTrail is enabled on your AWS account when you create the account\. When activity occurs in Systems Manager, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**\. You can view, search, and download recent events in your AWS account\. For more information, see [Viewing Events with CloudTrail Event History](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)\. 
 
-All of the Systems Manager actions are logged and documented in the [AWS Systems Manager API Reference](http://docs.aws.amazon.com/systems-manager/latest/APIReference/), the [AWS Systems Manager section of the AWS CLI Command Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html), and the [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)\. For example, calls to create, delete, and edit Maintenance Windows and create custom patch baselines generate entries in CloudTrail log files\.
+For an ongoing record of events in your AWS account, including events for Systems Manager, create a trail\. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket\. By default, when you create a trail in the console, the trail applies to all regions\. The trail logs events from all regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify\. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs\. For more information, see: 
++ [Overview for Creating a Trail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-Every log entry contains information about who generated the request\. The user identity information in the log helps you determine whether the request was made with root or IAM user credentials, with temporary security credentials for a role or federated user, or by another AWS service\. For more information, see the **userIdentity** field in the [CloudTrail Event Reference](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/event_reference_top_level.html)\.
+All Systems Manager actions are logged by CloudTrail and are documented in the [AWS Systems Manager API Reference](http://docs.aws.amazon.com/systems-manager/latest/APIReference/)\. For example, calls to the `CreateMaintenanceWindows`, `PutInventory` and `SendCommand` actions generate entries in the CloudTrail log files\. 
 
-You can store your log files in your bucket for as long as you want, but you can also define Amazon S3 lifecycle rules to archive or delete log files automatically\. By default, your log files are encrypted by using Amazon S3 server\-side encryption \(SSE\)\.
+Every event or log entry contains information about who generated the request\. The identity information helps you determine the following: 
++ Whether the request was made with root or IAM user credentials\.
++ Whether the request was made with temporary security credentials for a role or federated user\.
++ Whether the request was made by another AWS service\.
 
-You can choose to have CloudTrail publish Amazon SNS notifications when new log files are delivered if you want to take quick action upon log file delivery\. For more information, see [Configuring Amazon SNS Notifications](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html) in the *AWS CloudTrail User Guide*\.
-
-You can also aggregate Systems Manager log files from multiple AWS regions and multiple AWS accounts into a single Amazon S3 bucket\. For more information, see [Aggregating CloudTrail Log Files to a Single Amazon S3 Bucket](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/aggregating_logs_top_level.html) in the *AWS CloudTrail User Guide*\.
+For more information, see the [CloudTrail userIdentity Element](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
 
 ## Understanding Systems Manager Log File Entries<a name="monitoring-cloudtrail-logs-log-entries-example"></a>
 
-CloudTrail log files can contain one or more log entries where each entry is made up of multiple JSON\-formatted events\. A log entry represents a single request from any source and includes information about the requested action, any parameters, the date and time of the action, and so on\. The log entries are not guaranteed to be in any particular order \(that is, they are not an ordered stack trace of the public API calls\)\.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
 
-The following example shows a CloudTrail log entry that demonstrates the Systems Manager delete document action on a document named `example-Document` in the US East \(Ohio\) Region \(us\-east\-2\):
+The following example shows a CloudTrail log entry that demonstrates the `DeleteDocuments` action on a document named `example-Document` in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {

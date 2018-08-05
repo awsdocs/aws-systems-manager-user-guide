@@ -30,7 +30,22 @@ If you choose to select instances manually, and an instance you expect to see is
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
-1. In the **IAM Role** field, specify the Maintenance Windows ARN\. For more information about creating a Maintenance Windows ARN, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+1. In the **IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
+   +  ** Create and use a service\-linked role for Systems Manager **
+
+     Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
+**Note**  
+If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
+   + **Use a custom service role**
+
+     You can create a custom service role for Maintenance Window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon SNS to send notifications related to Maintenance Window tasks run through Run Command
+
+     If you need to create a custom service role, see one of the following topics:
+     + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
+     + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
+     + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
 

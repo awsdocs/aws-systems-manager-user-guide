@@ -76,7 +76,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 1: Reference by using the name of the secret**
 
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret
+   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret --with-decryption
    ```
 
    The command returns information like the following\.
@@ -107,7 +107,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 2: Reference that includes the version ID**
 
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:11111-aaa-bbb-ccc-123456789
+   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:11111-aaa-bbb-ccc-123456789 --with-decryption
    ```
 
    The command returns information like the following\.
@@ -139,7 +139,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 3: Reference that includes the version stage**
 
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:AWSCURRENT
+   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:AWSCURRENT --with-decryption
    ```
 
    The command returns information like the following\.

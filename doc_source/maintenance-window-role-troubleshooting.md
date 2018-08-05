@@ -6,8 +6,8 @@ Use the following information to help you troubleshoot common issues with Mainte
 
 **Problem 1**: The IAM Maintenance Window role you originally specified was deleted after you created the task\.
 
-**Possible fixes**: Select a different IAM Maintenance Window role, if one exists in your account, or create a new one and select it for the task\. 
+**Possible fixes**: \(1\) Select a different IAM Maintenance Window role, if one exists in your account, or create a new one and select it for the task\. \(2\) Create or select a Systems Manager service\-linked role\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 **Problem 2**: If the task was created using the AWS CLI, Tools for Windows PowerShell, or an AWS SDK, a non\-existent IAM Maintenance Window role name could have been specified\. For example, the IAM Maintenance Window role could have been deleted before you created the task, or the role name could have been typed incorrectly, such as **myrole** instead of **my\-role**\.
 
-**Possible fixes**: Select the correct name of the IAM Maintenance Window role you want to use, or create a new one to specify for the task\.
+**Possible fixes**: \(1\) Select the correct name of the IAM Maintenance Window role you want to use, or create a new one to specify for the task\. \(2\) Create or select a Systems Manager service\-linked role\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.

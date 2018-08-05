@@ -542,6 +542,13 @@ Type: array of Strings
 Valid Values: `CAPABILITY_IAM | CAPABILITY_NAMED_IAM`  
 Required: No
 
+ClientRequestToken  
+A unique identifier for this CreateStack request\. Specify this token if you set maxAttempts in this step to a value greater than 1\. By specifying this token, AWS CloudFormation knows that you're not attempting to create a new stack with the same name\.  
+Type: String  
+Required: No  
+Length Constraints: Minimum length of 1\. Maximum length of 128\.  
+Pattern: \[a\-zA\-Z0\-9\]\[\-a\-zA\-Z0\-9\]\*
+
 DisableRollback  
 Set to `true` to disable rollback of the stack if stack creation failed\.  
 Conditional: You can specify either the `DisableRollback` parameter or the `OnFailure` parameter, but not both\.   
