@@ -165,4 +165,19 @@ For a table showing all of the Systems Manager API actions and the resources tha
 
 When you grant permissions, you can use the language in the access policy to specify the conditions under which a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [Condition](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Condition) in the *IAM User Guide*\.
 
-To express conditions, you use predefined condition keys\. There are no condition keys specific to AWS Systems Manager\. However, there are AWS\-wide condition keys that you can use as appropriate\. For a complete list of AWS\-wide keys, see [Available Keys for Conditions](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 
+To express conditions, you use predefined condition keys\. 
+
+AWS Systems Manager supports the the following condition keys:
++ `ssm:resourceTag/*`
++ `ssm:Recursive`
++ `ssm:Overwrite`
+
+For information about using the `ssm:resourceTag/*` condition key, see the following topics:
++ [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
++ [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md) 
++ [Controlling Access to Documents Using Tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
++ [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)
+
+For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+
+For a complete list of AWS\-wide keys, see [Available Keys for Conditions](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 
