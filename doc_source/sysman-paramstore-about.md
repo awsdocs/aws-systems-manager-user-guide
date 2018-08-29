@@ -69,11 +69,11 @@ aws ssm send-command –name AWS-JoinDomain –parameters password=$value –ins
 **Tools for Windows PowerShell**
 
 ```
-$secure = (Get-SSMParameterValue -Names the parameter name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
+$secure = (Get-SSMParameterValue -Names 'the parameter name' -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
 ```
 
 ```
-$cred = New-Object System.Management.Automation.PSCredential -argumentlist user name,$secure
+$cred = New-Object System.Management.Automation.PSCredential -argumentlist 'user name',$secure
 ```
 
 ## Use Secure String Parameters<a name="sysman-paramstore-securestring"></a>
