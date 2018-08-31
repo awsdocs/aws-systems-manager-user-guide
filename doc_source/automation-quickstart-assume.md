@@ -29,4 +29,4 @@ You can copy and paste a vertical list of instance IDs \(IDs separated by carria
 
 1. Choose **Execute automation**\. The console displays the status of the Automation execution\.
 
-For more examples of how use Systems Manager Automation, see [Systems Manager Automation Walkthroughs](automation-walk.md)\. For information about how to get started with Automation, see [Setting Up Automation](automation-setup.md)\.
+For more examples of how use Systems Manager Automation, see [Walkthroughs of Common Automation Use Cases](automation-walk.md)\. For information about how to get started with Automation, see [Setting Up Automation](automation-setup.md)\.

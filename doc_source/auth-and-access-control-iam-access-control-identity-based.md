@@ -98,7 +98,7 @@ A *resource owner* is the AWS account that created the resource, regardless of w
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
 **Note**  
-This section discusses using IAM in the context of Systems Manager\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+This section discusses using IAM in the context of Systems Manager\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 Policies attached to an IAM identity are referred to as *identity\-based policies* \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based policies*\. Systems Manager supports only identity\-based policies\.
 
@@ -157,13 +157,13 @@ The following are the basic policy elements:
 + **Effect** – You specify the effect that occurs when the user requests the specific action, either allow or deny\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource, which you might do to make sure that a user cannot access it, even if a different policy grants access\.
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions\. Systems Manager supports only identity\-based policies\.
 
-To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table showing all of the Systems Manager API actions and the resources that they apply to, see [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)\.
 
 ## Specifying Conditions in a Policy<a name="policy-conditions"></a>
 
-When you grant permissions, you can use the language in the access policy to specify the conditions under which a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [Condition](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Condition) in the *IAM User Guide*\.
+When you grant permissions, you can use the language in the access policy to specify the conditions under which a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [IAM JSON Policy Elements: Condition](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
 To express conditions, you use predefined condition keys\. 
 
@@ -180,4 +180,4 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
-For a complete list of AWS\-wide keys, see [Available Keys for Conditions](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 
+For a complete list of AWS\-wide keys, see [IAM Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html) in the *IAM User Guide*\. 

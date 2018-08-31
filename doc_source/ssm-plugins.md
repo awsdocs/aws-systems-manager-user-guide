@@ -799,7 +799,7 @@ Type: List or Array
 Required: Yes
 
 **timeoutSeconds**  
-The time in seconds for a command to be completed before it is considered to have failed\.  
+The time in seconds for a command to be completed before it is considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
 Type: String  
 Required: No
 
@@ -836,7 +836,7 @@ Type: List or Array
 Required: Yes
 
 **timeoutSeconds**  
-The time in seconds for a command to be completed before it is considered to have failed\.  
+The time in seconds for a command to be completed before it is considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
 Type: String  
 Required: No
 

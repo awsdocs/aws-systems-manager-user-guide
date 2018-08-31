@@ -118,7 +118,7 @@ To receive notifications from the Amazon SNS service, you must attach the iam:Pa
 
 1. On the **Create policy** page, choose the **Visual editor** tab\.
 
-1. Choose **Service**, and then choose **IAM**\.
+1. Choose **Service**, and then choose ** IAM**\.
 
 1. Choose **Select actions**\.
 

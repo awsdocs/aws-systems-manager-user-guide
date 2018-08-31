@@ -1,6 +1,6 @@
 # Optional Access Configurations<a name="sysman-create-iam"></a>
 
-Task 1 in this section enabled you to grant access to a user by choosing a pre\-existing or *managed* IAM user policy\. If you want to limit user access to Systems Manager and SSM documents, you can create your own restrictive user policies, as described in this section\. For more information about how to create a custom policy, see [Creating a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html)\.
+Task 1 in this section enabled you to grant access to a user by choosing a pre\-existing or *managed* IAM user policy\. If you want to limit user access to Systems Manager and SSM documents, you can create your own restrictive user policies, as described in this section\. For more information about how to create a custom policy, see [Creating a New Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
 The following example IAM policy allows a user to do the following\.
 + List Systems Manager documents and document versions\.
@@ -17,8 +17,8 @@ The following example IAM policy allows a user to do the following\.
   The instances are determined by the following entries in the second `Resource` section:
 
   ```
-  "arn:aws:ec2:us-east-2:*:instance/i-1234567890abcdef0",
-  "arn:aws:ec2:us-east-2:*:instance/i-0598c7d356eba48d7",
+  "arn:aws:ec2:us-east-2:*:instance/i-1234567890EXAMPLE",
+  "arn:aws:ec2:us-east-2:*:instance/i-abcdefghiEXAMPLE",
   "arn:aws:ec2:us-east-2:*:instance/i-345678abcdef12345",
   ```
 + View details about a command after it has been sent\.
@@ -68,8 +68,8 @@ arn:aws:s3:::bucket_name/key_prefix_name
             "Action": "ssm:SendCommand",
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:us-east-2:*:instance/i-1234567890abcdef0",
-                "arn:aws:ec2:us-east-2:*:instance/i-0598c7d356eba48d7",
+                "arn:aws:ec2:us-east-2:*:instance/i-1234567890EXAMPLE",
+                "arn:aws:ec2:us-east-2:*:instance/i-abcdefghiEXAMPLE",
                 "arn:aws:ec2:us-east-2:*:instance/i-345678abcdef12345",
                 "arn:aws:s3:::bucket_name",
                 "arn:aws:ssm:us-east-2:*:document/name_of_restrictive_document"

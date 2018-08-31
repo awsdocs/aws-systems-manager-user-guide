@@ -82,7 +82,7 @@ Make a note of the `RoleName` and the `Arn`\. You will specify these when you cr
 
 ## Task 2: Assign the IAM PassRole Policy to an IAM User or Group<a name="sysman-mw-passrole-cli"></a>
 
-When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM [PassRole](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\.
+When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 **To assign the IAM PassRole policy to an IAM user account or group**
 

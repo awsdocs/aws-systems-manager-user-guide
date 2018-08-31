@@ -26,7 +26,7 @@ If you need to create an instance profile role and a service role for Systems Ma
 Use the following procedure to create a service role \(or *assume* role\) for Systems Manager Automation\.
 
 **Note**  
-You can also use these roles and their Amazon Resource Names \(ARNs\) in Automation documents, such as the AWS\-UpdateLinuxAmi document\. Using these roles or their ARNs in Automation documents enables Automation to perform actions on your managed instances, launch new instances, and perform actions on your behalf\. To view an example, see [Automation CLI Walkthrough: Patch a Linux AMI](automation-cliwalk.md)\.
+You can also use these roles and their Amazon Resource Names \(ARNs\) in Automation documents, such as the AWS\-UpdateLinuxAmi document\. Using these roles or their ARNs in Automation documents enables Automation to perform actions on your managed instances, launch new instances, and perform actions on your behalf\. To view an example, see [Patch a Linux AMI \(AWS CLI\)](automation-cliwalk.md)\.
 
 **To create an IAM role and allow Automation to assume it**
 
@@ -149,4 +149,4 @@ Use the following procedure to configure a user account to use Automation\. The 
 
 Each instance that runs an Automation workflow requires an IAM instance profile role\. This role gives Automation permission to perform actions on your instances, such as executing commands or starting and stopping services\. If you previously created an instance profile role for Systems Manager, as described in [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md) in the **Configuring Access to Systems Manager** topic, then you can use this same instance profile role for Automation\. If you have not created an instance profile role as described in that topic, please do so now\. For information about how to attach this role to an existing instance, see [Attaching an IAM Role to an Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
 
-You have finished configuring the required roles for Automation\. You can now use the instance profile role and the Automation service role ARN in your Automation documents\. For more information, see [Automation Console Walkthrough: Patch a Linux AMI](automation-consolewalk.md) and [Automation CLI Walkthrough: Patch a Linux AMI](automation-cliwalk.md)\.
+You have finished configuring the required roles for Automation\. You can now use the instance profile role and the Automation service role ARN in your Automation documents\. For more information, see [Patch a Linux AMI \(Console\)](automation-consolewalk.md) and [Patch a Linux AMI \(AWS CLI\)](automation-cliwalk.md)\.

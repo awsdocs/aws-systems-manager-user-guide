@@ -53,6 +53,9 @@ Here are some cron examples for associations\.
 |  cron\(15 13 ? \* \* \*\)  |  Every day at 1:15 PM  | 
 |  cron\(15 13 ? \* MON \*\)  |  Every Monday at 1:15 PM  | 
 
+**Note**  
+If you create an association in the Systems Manager console, the service enables you to create cron expressions with seven digits\. A seven digit expression includes seconds\. Here is an example: "cron\(0 \*/30 \* \* \* ? \*\)"\. State Manager associations support six and seven digit expressions\.
+
 Here are some rate examples for associations\.
 
 

@@ -8,7 +8,7 @@ arn:aws:ssm:us-west-2:111222333444:document:West*
 
 For more information about wildcards, see [IAM Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html) in *IAM User Guide*\. For a list of Systems Manager resources with the ARN format, see [AWS Systems Manager Resources and Operations](auth-and-access-control-iam-access-control-identity-based.md#arn-formats)\.
 
-To express conditions, use AWS\-wide condition keys in your Systems Manager policies\. For a complete list of AWS\-wide keys, see [Available Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\.
+To express conditions, use AWS\-wide condition keys in your Systems Manager policies\. For a complete list of AWS\-wide keys, see [AWS Global Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.
 
 **Specifying multiple actions or resources**
 

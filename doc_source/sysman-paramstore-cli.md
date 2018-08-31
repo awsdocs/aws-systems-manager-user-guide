@@ -24,7 +24,7 @@ The following procedure walks you through the process of creating and storing a 
 1. Execute the following command to create a parameter that uses the String data type\. The `--name` parameter uses a hierarchy\. For more information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "a_name" --value "a value" --type String
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String
    ```
 
    Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
@@ -96,7 +96,7 @@ The following procedure walks you through the process of creating and storing a 
 1. Execute the following command to use this parameter in a command\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunShellScript" --parameters '{"commands":["echo {{ssm:/Test/IAD/helloWorld}}"]}' --targets "Key=instanceids,Values=instance_IDs"
+   aws ssm send-command --document-name "AWS-RunShellScript" --parameters '{"commands":["echo {{ssm:/Test/IAD/helloWorld}}"]}' --targets "Key=instanceids,Values=instance-ids"
    ```
 
 Use the following procedure to create a Secure String parameter\. For more information about Secure String parameters, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
@@ -108,13 +108,13 @@ Use the following procedure to create a Secure String parameter\. For more infor
    **Create a Secure String parameter that uses your default KMS key**
 
    ```
-   aws ssm put-parameter --name "a_name" --value "a value, for example P@ssW%rd#1" --type "SecureString"
+   aws ssm put-parameter --name "parameter_name" --value "a value, for example P@ssW%rd#1" --type "SecureString"
    ```
 
    **Create a Secure String parameter that uses a custom AWS KMS key**
 
    ```
-   aws ssm put-parameter --name "a_name" --value "a value" --type "SecureString" --key-id "your AWS user account ID/the custom AWS KMS key"
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key"
    ```
 
    Here is an example that uses a custom AWS KMS key\.
@@ -128,37 +128,37 @@ Only the value of a secure string parameter is encrypted\. Parameter names, desc
 1. Execute the following command to view the parameter metadata\.
 
    ```
-   aws ssm describe-parameters --filters "Key=Name,Values=the name that you specified"
+   aws ssm describe-parameters --filters "Key=Name,Values=the_name_that_you_specified"
    ```
 
 1. Execute the following command to change the parameter value\.
 
    ```
-   aws ssm put-parameter --name "the name that you specified" --value "new value" --type "SecureString" --overwrite
+   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --overwrite
    ```
 
    **Updating a Secure String parameter that uses your default KMS key**
 
    ```
-   aws ssm put-parameter --name "the name that you specified" --value "new value" --type "SecureString" --key-id "the AWS KMS key ID" --overwrite
+   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "the-AWS KMS-key-ID" --overwrite
    ```
 
    **Updating a Secure String parameter that uses a custom KMS key**
 
    ```
-   aws ssm put-parameter --name "the name that you specified" --value "new value" --type "SecureString" --key-id "your AWS user account alias/the custom KMS key" --overwrite
+   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "your-AWS-user-account-alias/the-custom-KMS-key" --overwrite
    ```
 
 1. Execute the following command to view the latest parameter value\.
 
    ```
-   aws ssm get-parameters --names "the name that you specified" --with-decryption
+   aws ssm get-parameters --names "the_name_that_you_specified" --with-decryption
    ```
 
 1. Execute the following command to view the parameter value history\.
 
    ```
-   aws ssm get-parameter-history --name "the name that you specified"
+   aws ssm get-parameter-history --name "the_name_that_you_specified"
    ```
 
 **Important**  

@@ -106,7 +106,7 @@ The following example grants permissions to perform AWS Systems Manager operatio
     {
       "Effect" : "Allow",
       "Action" : [
-        "arn:aws:ssm:*"
+        "ssm:*"
       ],
       "Resource" : [
         "arn:aws::aws:ssm:us-west-2:111222333444:*"

@@ -52,7 +52,7 @@ For trusted administrators, you could provide full access to all Systems Manager
                 "ssm:GetParameter",
                 "ssm:DeleteParameters"
             ],
-            "Resource": "arn:aws:ssm:region:account_ID:parameter/dbserver-prod-*"
+            "Resource": "arn:aws:ssm:region:account-id:parameter/dbserver-prod-*"
         },
         {
             "Sid": "VisualEditor1",
@@ -203,10 +203,10 @@ Create and tag parameters\. For more information, see [Setting Up Systems Manage
 
 1. Choose **Create policy**\.
 
-1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html)\.
+1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\.
 
 After you attach the policy to the IAM user or group account, if a user tries to use a parameter and the user's policy does not allow the user to access a tag for the parameter \(call the GetParameters API\), the system returns an error\. The error is similar to the following:
 
-User: *user\_name* isn't authorized to perform: ssm:GetParameters on resource: *parameter ARN* with the following command\.
+User: *user\_name* isn't authorized to perform: ssm:GetParameters on resource: *parameter\_ARN* with the following command\.
 
 If a parameter has multiple tags, the user will still receive the access denied error if the user does not have permission to access any one of those tags\.

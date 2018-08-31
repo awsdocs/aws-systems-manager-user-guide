@@ -31,7 +31,7 @@ Parameters are only available in the Region where they were created\.
 1. Execute the following command to create a parameter\.
 
    ```
-   aws ssm put-parameter --name "a_name" --value "a value, or a comma-separated list of values" --type String or StringList 
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value, or a comma-separated list of values" --type String or StringList 
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -47,7 +47,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 1. Execute the following command to verify the details of the parameter\.
 
    ```
-   aws ssm get-parameters --name "the name you specified"
+   aws ssm get-parameters --name "the_parameter_name_you_specified"
    ```
 
    Here is an example that uses the name specified in the earlier example\.
@@ -78,7 +78,7 @@ Before you create a `SecureString` parameter, read about the requirements for th
 1. Execute the following command to create a parameter\.
 
    ```
-   aws ssm put-parameter --name "a_name" --value "a value" --type SecureString  --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+   aws ssm put-parameter --name "parameter_name" --value "parameter value" --type SecureString  --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 **Note**  
 To use the default AWS KMS CMK assigned to your account, remove the `key-id` parameter from the command\.
@@ -92,7 +92,7 @@ To use the default AWS KMS CMK assigned to your account, remove the `key-id` par
 1. Execute the following command to verify the details of the parameter\.
 
    ```
-   aws ssm get-parameters --name "the name you specified" --with-decryption
+   aws ssm get-parameters --name "the_parameter_name_you_specified" --with-decryption
    ```
 **Note**  
 If you don't specify the `with-decryption` parameter, or if you specify the `no-with-decryption` parameter, the command returns an encrypted GUID\.

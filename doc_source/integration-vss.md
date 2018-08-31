@@ -292,7 +292,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
 **Note**  
-You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
+You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
 
 **To create VSS\-enabled EBS snapshots by using the console \(Amazon EC2 Systems Manager\)**
 
@@ -336,7 +336,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
 **Note**  
-You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
+You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
 
 ### Create VSS\-enabled EBS snapshots by Using the AWS CLI<a name="integration-vss-cli"></a>
 
@@ -373,7 +373,7 @@ Use the following procedure to create VSS\-enabled EBS snapshots by using the AW
 
 If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the command output for details about why the execution failed\.
 
-You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
+You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
 
 ### Create VSS\-enabled EBS snapshots by Using AWS Tools for Windows PowerShell<a name="integration-vss-ps"></a>
 
@@ -408,7 +408,7 @@ Use the following procedure to create VSS\-enabled EBS snapshots by using the AW
 
 If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the command output for details about why the execution failed\. If the command successfully completed, but a specific volume backup failed, you can troubleshoot the failure in the list of EBS snapshots\.
 
-You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows](sysman-maintenance-working.md)\.
+You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
 
 ## Creating VSS\-Enabled EBS Snapshots by Using the AWSEC2\-ManageVssIO SSM Document \(Advanced\)<a name="integration-vss-AWSEC2-ManageVssIO"></a>
 

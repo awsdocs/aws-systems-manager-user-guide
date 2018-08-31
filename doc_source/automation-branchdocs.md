@@ -86,7 +86,7 @@ Using the isEnd option in the last step of the mainSteps section is optional\. I
          "InstanceIds":[
             {
                {
-                  "i-1234567890abcdef0,i-0598c7d356eba48d7"
+                  "i-1234567890EXAMPLE,i-abcdefghiEXAMPLE"
                }
             }
          ],

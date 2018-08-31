@@ -250,7 +250,7 @@ Get-SSMDocumentDescription -Name "AWS-ConfigureCloudWatch" | select -ExpandPrope
 The following command configures the instance and moves Windows Applications logs to CloudWatch\.
 
 ```
-$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-2", "LogGroup":"My-Log-Group", "LogStream":"i-1234567890abcdef0"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
+$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-2", "LogGroup":"My-Log-Group", "LogStream":"i-1234567890EXAMPLE"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
 ```
 
 **Get command information per instance**  

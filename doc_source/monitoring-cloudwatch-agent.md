@@ -81,7 +81,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
   aws ssm send-command --document-name AmazonCloudWatch-MigrateCloudWatchAgent --targets Key=instanceids,Values=ID1,ID2,ID3
   ```
 
-  *ID1*, *ID2*, and *ID3* represent the IDs of instances you want to update, such as *i\-1234567890abcdef0*\.
+  *ID1*, *ID2*, and *ID3* represent the IDs of instances you want to update, such as *i\-1234567890EXAMPLE*\.
 
 ### Manually Migrate to the CloudWatch Agent<a name="monitoring-cloudwatch-agent-migrate-manual"></a>
 

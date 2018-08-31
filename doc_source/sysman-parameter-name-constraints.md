@@ -16,7 +16,7 @@ The requirements and constraints for parameter names include the following:
 When you specify a parameter in an SSM document, command, or script, you do include `ssm` as part of the syntax, as shown in the following examples\. Note that there is no space between brackets\.   
 Valid: \{\{ssm:*parameter\_name*\}\} and \{\{ ssm:*parameter\_name* \}\}, such as `{{ssm:addUsers}}`, and `{{ssm:addUsers }}`, 
 Invalid: `{{ssm:ssmAddUsers}}`
-+ **Uniquenes**: A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
++ **Uniqueness**: A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
   + `/Test/TestParam1`
   + `/TestParam1`
 
