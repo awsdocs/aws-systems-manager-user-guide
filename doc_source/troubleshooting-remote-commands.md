@@ -78,7 +78,7 @@ SSM Agent logs information in the following files\. The information in these fil
 
 **On Windows**
 + %PROGRAMDATA%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
-+ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\error\.log
++ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\errors\.log
 
 **Note**  
 The default filename of the seelog is seelog\.xml\.template\. If you modify a seelog, you must rename the file to seelog\.xml\.
