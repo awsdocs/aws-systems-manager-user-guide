@@ -45,7 +45,7 @@ Windows
 
 ## Examples
 
-## Check RDP Settings
+### Check RDP Settings
 
 ```json
 aws ssm start-automation-execution --document-name "AWSSupport-ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=WINDOWSSERVICE"
