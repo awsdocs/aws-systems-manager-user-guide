@@ -78,7 +78,7 @@ Before you create a `SecureString` parameter, read about the requirements for th
 1. Execute the following command to create a parameter\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "parameter value" --type SecureString  --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+   aws ssm put-parameter --name "parameter_name" --value "parameter value" --type SecureString  --key-id "a KMS CMK ID or ARN"
    ```
 **Note**  
 To use the default AWS KMS CMK assigned to your account, remove the `key-id` parameter from the command\.
