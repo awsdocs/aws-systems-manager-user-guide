@@ -81,7 +81,7 @@ mainSteps:
     Api: DescribeInstanceStatus
     InstanceIds:
     - "{{ getInstanceId.Value }}"
-    PropertySelector: "$.Instances.InstanceState.Name"
+    PropertySelector: "$.InstanceStatuses..InstanceState.Name"
     DesiredValues:
     - running
 - name: assertStep
@@ -91,7 +91,7 @@ mainSteps:
     Api: DescribeInstanceStatus
     InstanceIds:
     - "{{ getInstanceId.Value }}"
-    PropertySelector: "$.Instances.InstanceState.Name"
+    PropertySelector: "$.InstanceStatuses..InstanceState.Name"
     DesiredValues:
     - running
 outputs:
