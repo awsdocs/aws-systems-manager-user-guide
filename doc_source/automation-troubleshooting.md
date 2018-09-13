@@ -18,7 +18,7 @@ By default, when Automation runs either the AWS\-UpdateLinuxAmi document or the 
 
 VPC not defined 400
 
-To solve this problem, you must create a new Automation document that includes the subnet ID\. Copy a sample document below that includes the subnet ID parameter and create a new document\. For information about creating a document, see [Walkthrough: Create an Automation Document](automation-createdoc.md)\.
+To solve this problem, you must create a new Automation document that includes the subnet ID\. Copy a sample document below that includes the subnet ID parameter and create a new document\. For information about creating a document, see [Patch a Windows AMI](automation-createdoc.md)\.
 
 **AWS\-UpdateLinuxAmi**
 
@@ -505,11 +505,11 @@ When a step fails, the failure message might indicate which service was being in
 | aws:runInstances | Amazon EC2 | [Amazon EC2 User Guide](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
 | aws:changeInstanceState | Amazon EC2 | [Amazon EC2 User Guide](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
 | aws:runCommand | Systems Manager |  [Systems Manager Run Command](http://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html) | [Troubleshooting Run Command](http://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remote-commands.html) | 
-| aws:createImage | Amazon EC2 | [Amazon Machine Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:createImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
 | aws:createStack | AWS CloudFormation | [AWS CloudFormation User Guide](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
 | aws:deleteStack | AWS CloudFormation | [AWS CloudFormation User Guide](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
-| aws:deleteImage | Amazon EC2 | [Amazon Machine Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
-| aws:copyImage | Amazon EC2 | [Amazon Machine Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:deleteImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:copyImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
 | aws:createTag | Amazon EC2, Systems Manager | [EC2 Resource and Tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html) |  | 
 | aws:invokeLambdaFunction | AWS Lambda | [AWS Lambda Developer Guide](http://docs.aws.amazon.com/lambda/latest/dg/) | [Troublshooting Lambda](http://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) | 
 

@@ -30,12 +30,12 @@ Here is how the process of using InSpec profiles with Systems Manager Compliance
 
 1. Store profiles in either a public or private GitHub repository, or in an Amazon S3 bucket\.
 
-1. Run Compliance with your InSpec profiles by using the AWS\-RunInSpecChecks SSM document\. You can begin a Compliance scan by using Run Command \(for on\-demand scans\), or you can schedule regular Compliance scans by using State Manager\.
+1. Run Compliance with your InSpec profiles by using the AWS\-RunInspecChecks SSM document\. You can begin a Compliance scan by using Run Command \(for on\-demand scans\), or you can schedule regular Compliance scans by using State Manager\.
 
 1. Identify noncompliant instances by using the Compliance API or the Systems Manager Compliance console\.
 
 **Note**  
-Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager executes the AWS\-RunInSpecChecks SSM document, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
+Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager executes the AWS\-RunInspecChecks SSM document, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
 
 ## Running an InSpec Compliance Scan<a name="integration-chef-inspec-running"></a>
 
@@ -57,7 +57,7 @@ This section includes information about how to execute an InSpec Compliance scan
 
 1. In the **Provide association details** section, enter a name\.
 
-1. In the **Command document** list, choose **AWS\-RunInSpecChecks**\.
+1. In the **Command document** list, choose **AWS\-RunInspecChecks**\.
 
 1. In the **Document version** list, choose **Latest at runtime**\.
 
@@ -117,25 +117,25 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    **GitHub**
 
    ```
-   aws ssm send-command --document-name "AWS-RunInSpecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"owner_name\", \"repository\":\"repository_name\", \"path\": \"Inspec.yml_file"}"]}'
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"owner_name\", \"repository\":\"repository_name\", \"path\": \"Inspec.yml_file"}"]}'
    ```
 
    Here is an example\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunInSpecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters '{"sourceType":["GitHub"],"getOptions":"branch:master","sourceInfo":["{\"owner\":\"awslabs\", \"repository\":\"amazon-ssm\", \"path\": \"Compliance/InSpec/PortCheck\"}"]}'
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters '{"sourceType":["GitHub"],"getOptions":"branch:master","sourceInfo":["{\"owner\":\"awslabs\", \"repository\":\"amazon-ssm\", \"path\": \"Compliance/InSpec/PortCheck\"}"]}'
    ```
 
    **Amazon S3**
 
    ```
-   aws ssm send-command --document-name "AWS-RunInSpecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/directory/Inspec.yml_file\"}"]}'
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/directory/Inspec.yml_file\"}"]}'
    ```
 
    Here is an example\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunInSpecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/Compliance/InSpec/PortCheck.yml\"}"]}' 
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/Compliance/InSpec/PortCheck.yml\"}"]}' 
    ```
 
 1. Execute the following command to view a summary of the Compliance scan\.
@@ -147,7 +147,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Execute the following command to drill down into an instance that is not compliant\.
 
    ```
-   aws ssm list-compliance-items --resource-ids instance_ID --resource-type ManagedInstance --filters Key=DocumentName,Values=AWS-RunInSpecChecks
+   aws ssm list-compliance-items --resource-ids instance_ID --resource-type ManagedInstance --filters Key=DocumentName,Values=AWS-RunInspecChecks
    ```
 
 **Related AWS Services**  

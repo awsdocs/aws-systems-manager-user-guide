@@ -7,15 +7,15 @@ This walkthrough shows you how to join a Windows instance to a domain using Syst
 1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
    ```
-   Write-SSMParameter -Name DNS-IP -Value a DNS IP address -Type String
-   Write-SSMParameter -Name domainName -Value the domain name -Type String
-   Write-SSMParameter -Name domainJoinUserName -Value a user name -Type String
-   Write-SSMParameter -Name my-password -Value a password -Type SecureString
+   Write-SSMParameter -Name DNS-IP -Value a-DNS-IP-address -Type String
+   Write-SSMParameter -Name domainName -Value the-domain-name -Type String
+   Write-SSMParameter -Name domainJoinUserName -Value a-user-name -Type String
+   Write-SSMParameter -Name my-password -Value a-password -Type SecureString
    ```
 **Important**  
 Only the _value_ of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. While avoiding the actual word "password" may initially make it less obvious which parameters hold secrets, this does **not** increase protection for the _value_.  Future maintenance should be considered if you do decide to obscure parameter names\.
 
-1. Attach the **AmazonEC2RoleforSSM** managed policy to the IAM role permissions for your instance\. For information, see [Managed Policies and Inline Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies)\. 
+1. Attach the **AmazonEC2RoleforSSM** managed policy to the IAM role permissions for your instance\. For information, see [Managed Policies and Inline Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\. 
 
 1. Edit the IAM role attached to the instance and add the following policy\. This policy gives the instance permissions to call the `kms:Decrypt` API\. 
 
@@ -29,7 +29,7 @@ Only the _value_ of a secure string parameter is encrypted\. Parameter names, de
                "kms:Decrypt"
             ],
             "Resource":[
-               "arn:aws:kms:region:account_id:key/key_id"
+               "arn:aws:kms:region:account-id:key/key-id"
             ]
          }
       ]
@@ -73,5 +73,7 @@ Only the _value_ of a secure string parameter is encrypted\. Parameter names, de
 1. Execute the following command in AWS Tools for Windows PowerShell to join the instance to the domain
 
    ```
-   Send-SSMCommand -InstanceId Instance-ID -DocumentName JoinInstanceToDomain 
+
+   Send-SSMCommand -InstanceId instance-id -DocumentName JoinInstanceToDomain 
    ```
+

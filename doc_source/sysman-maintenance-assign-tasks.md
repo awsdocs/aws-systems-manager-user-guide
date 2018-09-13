@@ -8,7 +8,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the Maintenance Window list, choose the Maintenance Window you just created\.
 
-1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Walkthroughs](sysman-maintenance-walk.md)\.
+1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 
 1. In the **Name** field, type a name for the task\.
 
@@ -30,7 +30,7 @@ If you choose to select instances manually, and an instance you expect to see is
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
    + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify 3 errors, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
 
-1. In the **IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
+1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
    +  ** Create and use a service\-linked role for Systems Manager **
 
      Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
@@ -55,7 +55,7 @@ If a service\-linked role has already been created for your account, choose **Us
 
 1. In the Maintenance Window list, choose the Maintenance Window you just created\.
 
-1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Walkthroughs](sysman-maintenance-walk.md)\.
+1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 
 1. In the **Task Name** field, type a name for the task\.
 

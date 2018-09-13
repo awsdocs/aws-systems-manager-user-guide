@@ -49,8 +49,6 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
    }
    ```
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
 **To create a Resource Data Sync \(AWS Systems Manager\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
@@ -70,24 +68,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. \(Optional\) In the **Bucket prefix** field, type the name of an Amazon S3 bucket prefix \(subdirectory\)\.
 
 1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
-**Note**  
-If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
-
-1. Choose **Create**\.
-
-**To create a Resource Data Sync \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Shared Resources** in the navigation pane, and choose **Managed Instances**\.
-
-1. Choose **Resource Data Syncs**, and then choose **Create a Resource Data Sync**\.
-
-1. In the **Sync Name** field, type a name for the sync configuration\.
-
-1. In the **Bucket Name** field, type the name of the Amazon S3 bucket you created at the start of this procedure\.
-
-1. \(Optional\) In the **Bucket Prefix** field, type the name of an Amazon S3 bucket prefix \(subdirectory\)\.
-
-1. In the **Bucket Region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
 **Note**  
 If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
 

@@ -1,4 +1,4 @@
-# Systems Manager Configuration Compliance Manager Walkthrough \(AWS CLI\)<a name="sysman-compliance-walk"></a>
+# Configuration Compliance Walkthrough \(AWS CLI\)<a name="sysman-compliance-walk"></a>
 
 The following procedure walks you through the process of using the [PutComplianceItems](http://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to assign custom compliance metadata to a resource\. You can also use this API action to manually assign patch or association compliance metadata to an instance, as shown in the following walkthrough\. For more information about custom compliance, see [About Custom Compliance](sysman-compliance-about.md#sysman-compliance-custom)\.
 

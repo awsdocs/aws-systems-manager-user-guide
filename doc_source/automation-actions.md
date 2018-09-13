@@ -9,6 +9,7 @@ You don't need to specify the outputs of an action or step\. The outputs are pre
 **Topics**
 + [Common Properties In All Actions](#automation-common)
 + [aws:approve](#automation-action-approve)
++ [aws:assertAwsResourceProperty](#automation-action-assertAwsResourceProperty)
 + [aws:changeInstanceState](#automation-action-changestate)
 + [aws:copyImage](#automation-action-copyimage)
 + [aws:createImage](#automation-action-create)
@@ -17,12 +18,14 @@ You don't need to specify the outputs of an action or step\. The outputs are pre
 + [aws:deleteImage](#automation-action-delete)
 + [aws:deleteStack](#automation-action-deletestack)
 + [aws:executeAutomation](#automation-action-executeAutomation)
++ [aws:executeAwsApi](#automation-action-executeAwsApi)
 + [aws:executeStateMachine](#automation-action-executeStateMachine)
 + [aws:invokeLambdaFunction](#automation-action-lamb)
 + [aws:pause](#automation-action-pause)
 + [aws:runCommand](#automation-action-runcommand)
 + [aws:runInstances](#automation-action-runinstance)
 + [aws:sleep](#automation-action-sleep)
++ [aws:waitForAwsResourceProperty](#automation-action-waitForAwsResourceProperty)
 
 ## Common Properties In All Actions<a name="automation-common"></a>
 
@@ -97,7 +100,7 @@ Here is an example of how to enter this option in the mainSteps section of your 
          "InstanceIds":[
             {
                {
-                  "i-1234567890abcdef0,i-0598c7d356eba48d7"
+                  "i-1234567890EXAMPLE,i-abcdefghiEXAMPLE"
                }
             }
          ],
@@ -137,7 +140,7 @@ Here is an example of how to enter this option in the mainSteps section of your 
          "InstanceIds":[
             {
                {
-                  "i-1234567890abcdef0,i-0598c7d356eba48d7"
+                  "i-1234567890EXAMPLE,i-abcdefghiEXAMPLE"
                }
             }
          ],
@@ -170,7 +173,7 @@ Here is an example of how to enter this option in the mainSteps section of your 
       "InstanceIds":[
          {
             {
-               "i-1234567890abcdef0,i-0598c7d356eba48d7"
+               "i-1234567890EXAMPLE,i-abcdefghiEXAMPLE"
             }
          }
       ],
@@ -327,6 +330,65 @@ Type: String
 ApproverDecisions  
 A JSON map that includes the approval decision of each approver\.  
 Type: MapList
+
+## aws:assertAwsResourceProperty<a name="automation-action-assertAwsResourceProperty"></a>
+
+The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
+
+For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+
+**Input**  
+Inputs are defined by the API action that you choose\. 
+
+```
+{
+  "action": "aws:assertAwsResourceProperty",
+  "inputs": {
+    "Service":"The official namespace of the service",
+    "Api":"The API action or method name",
+    "API action inputs or parameters":"A value",
+    "PropertySelector": "Response object",
+    "DesiredValues": [
+      "Desired property values"
+    ]
+  }
+}
+```
+
+Service  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+Type: String  
+Required: Yes
+
+Api  
+The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+Type: String  
+Required: Yes
+
+API action inputs  
+One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\. Use the following format to specify more than one input\.  
+
+```
+"inputs":{
+      "Service":"The official namespace of the service",
+      "Api":"The API action name",
+      "API input 1":"A value",
+      "API Input 2":"A value",
+      "API Input 3":"A value"
+   },
+```
+Type: Determined by chosen API action  
+Required: Yes
+
+PropertySelector  
+The jsonpath to a specific attribute in the response object\. You can view the response objects by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\.  
+Type: Varies  
+Required: Yes
+
+DesiredValues  
+The expected status or state on which to continue the Automation workflow\. If you specify a Boolean value, you must use a capital letter such as True or False\.  
+Type: Varies  
+Required: Yes
 
 ## aws:changeInstanceState<a name="automation-action-changestate"></a>
 
@@ -900,6 +962,71 @@ Status
 The status of the secondary execution\.  
 Type: String
 
+## aws:executeAwsApi<a name="automation-action-executeAwsApi"></a>
+
+Calls and executes AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+
+**Input**  
+Inputs are defined by the API action that you choose\. 
+
+```
+{
+   "action":"aws:executeAwsApi",
+   "inputs":{
+      "Service":"The official namespace of the service",
+      "Api":"The API action or method name",
+      "API action inputs or parameters":"A value"
+   },
+   "outputs":[ These are user-specified outputs
+      {
+         "Name":"The name for a user-specified output key",
+         "Selector":"A response object specified by using jsonpath format",
+         "Type":"The data type"
+      }
+   ]
+}
+```
+
+Service  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+Type: String  
+Required: Yes
+
+Api  
+The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+Type: String  
+Required: Yes
+
+API action inputs  
+One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\.  
+
+```
+"inputs":{
+      "Service":"The official namespace of the service",
+      "Api":"The API action name",
+      "API input 1":"A value",
+      "API Input 2":"A value",
+      "API Input 3":"A value"
+   },
+```
+Type: Determined by chosen API action  
+Required: Yes
+
+Name  
+A name for the output\.  
+Type: String  
+Required: Yes
+
+Selector  
+The jsonpath to a specific attribute in the response object\. You can view the response objects by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\.  
+Type: Varies  
+Required: Yes
+
+Type  
+The data type for the response element\.  
+Type: Varies  
+Required: Yes
+
 ## aws:executeStateMachine<a name="automation-action-executeStateMachine"></a>
 
 Executes an AWS Step Functions state machine\.
@@ -1115,18 +1242,33 @@ The action supports most API parameters\. For more information, see the [RunInst
 
 ```
 {
-    "name": "launchInstance",
-    "action": "aws:runInstances",
-    "maxAttempts": 3,
-    "timeoutSeconds": 1200,
-    "onFailure": "Abort",
-    "inputs": {
-        "ImageId": "ami-12345678",
-        "InstanceType": "t2.micro",
-        "MinInstanceCount": 1,
-        "MaxInstanceCount": 1,
-        "IamInstanceProfileName": "myRunCmdRole"
-    }
+   "name":"launchInstance",
+   "action":"aws:runInstances",
+   "maxAttempts":3,
+   "timeoutSeconds":1200,
+   "onFailure":"Abort",
+   "inputs":{
+      "ImageId":"ami-12345678",
+      "InstanceType":"t2.micro",
+      "MinInstanceCount":1,
+      "MaxInstanceCount":1,
+      "IamInstanceProfileName":"myRunCmdRole",
+      "TagSpecifications":[
+         {
+            "ResourceType":"instance",
+            "Tags":[
+               {
+                  "Key":"LaunchedBy",
+                  "Value":"SSMAutomation"
+               },
+               {
+                  "Key":"Category",
+                  "Value":"HighAvailabilityFleetHost"
+               }
+            ]
+         }
+      ]
+   }
 }
 ```
 
@@ -1250,6 +1392,11 @@ The subnet ID\.
 Type: String  
 Required: No
 
+TagSpecifications  
+The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [aws:createTags](#automation-action-createtag) action\.  
+Type: MapList \(For more information, see [TagSpecification](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html)\.\)  
+Required: No
+
 UserData  
 An execution script provided as a string literal value\. If a literal value is entered, then it must be Base64\-encoded\.  
 Type: String  
@@ -1301,3 +1448,60 @@ Type: String
 Required: NoOutput
 
 None  
+
+## aws:waitForAwsResourceProperty<a name="automation-action-waitForAwsResourceProperty"></a>
+
+The aws:waitForAwsResourceProperty action enables your Automation workflow to wait for a specific resource state or event state before continuing the workflow\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+
+**Input**  
+Inputs are defined by the API action that you choose\.
+
+```
+{
+  "action": "aws:waitForAwsResourceProperty",
+  "inputs": {
+    "Service":"The official namespace of the service",
+    "Api":"The API action or method name",
+    "API action inputs or parameters":"A value",
+    "PropertySelector": "Response object",
+    "DesiredValues": [
+      "Desired property value"
+    ]
+  }
+}
+```
+
+Service  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+Type: String  
+Required: Yes
+
+Api  
+The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+Type: String  
+Required: Yes
+
+API action inputs  
+One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\.  
+
+```
+"inputs":{
+      "Service":"The official namespace of the service",
+      "Api":"The API action name",
+      "API input 1":"A value",
+      "API Input 2":"A value",
+      "API Input 3":"A value"
+   },
+```
+Type: Determined by chosen API action  
+Required: Yes
+
+PropertySelector  
+The jsonpath to a specific attribute in the response object\. You can view the response objects by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\.  
+Type: Varies  
+Required: Yes
+
+DesiredValues  
+The expected status or state on which to continue the Automation workflow\.  
+Type: Varies  
+Required: Yes

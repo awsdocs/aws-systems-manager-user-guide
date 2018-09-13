@@ -17,16 +17,18 @@ Parameters are only available in the Region where they were created\.
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Execute the following command to set the Region for your PowerShell session\. 
 
    ```
-   Set-DefaultAWSRegion -Region us-east-2
+   Set-DefaultAWSRegion -Region region
    ```
+
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Execute the following command to create a parameter\.
 
    ```
-   Write-SSMParameter -Name "a name" -Value "a value, or a comma-separated list of values" -Type "String or StringList" 
+   Write-SSMParameter -Name "parameter_name" -Value "a parameter value, or a comma-separated list of values" -Type "String or StringList" 
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -42,7 +44,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 1. Execute the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the name you specified").Parameters
+   (Get-SSMParameterValue -Name "the_parameter_name_you_specified").Parameters
    ```
 
 ## Create a `SecureString` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
@@ -55,16 +57,18 @@ Before you create a `SecureString` parameter, read about the requirements for th
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 region\.
+1. Execute the following command to set the Region for your PowerShell session\.
 
    ```
-   Set-DefaultAWSRegion -Region us-east-2
+   Set-DefaultAWSRegion -Region region
    ```
+
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Execute the following command to create a parameter\.
 
    ```
-   Write-SSMParameter -Name "a name" -Value "a value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+   Write-SSMParameter -Name "parameter_name" -Value "a parameter value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -80,5 +84,5 @@ To use the default AWS KMS CMK assigned to your account, remove the `-KeyId` par
 1. Execute the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the name you specified" –WithDecryption $true).Parameters
+   (Get-SSMParameterValue -Name "the_parameter_name_you_specified" –WithDecryption $true).Parameters
    ```

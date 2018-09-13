@@ -1,9 +1,11 @@
-# Walkthrough: List Information About Maintenance Windows<a name="sysman-mw-walk-cli-more"></a>
+# Tutorial: List Information About Maintenance Windows \(CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
-This section includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\.
+This tutorial includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\.
+
+As you try the commands in this tutorial, replace the values in *red* with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE*\.
 
 **List All Maintenance Windows in Your AWS Account**  
-Run the command as shown here\.
+Open the AWS CLI and run the following command:
 
 ```
 aws ssm describe-maintenance-windows
@@ -17,21 +19,21 @@ The system returns information like the following\.
       {
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-ab12cd34ef56gh78",
+         "WindowId":"mw-0c5ed765acEXAMPLE",
          "Enabled":true,
          "Name":"IAD-Every-15-Minutes"
       },
       {
          "Duration":4,
          "Cutoff":1,
-         "WindowId":"mw-1a2b3c4d5e6f7g8h9",
+         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
          "Enabled":true,
          "Name":"My-First-Maintenance-Window"
       },
       {
          "Duration":8,
          "Cutoff":2,
-         "WindowId":"mw-123abc456def789",
+         "WindowId":"mw-369258147YEXAMPLE",
          "Enabled":false,
          "Name":"Every-Day"
       }
@@ -40,7 +42,7 @@ The system returns information like the following\.
 ```
 
 **List all enabled Maintenance Windows**  
-Run the command as shown here\.
+Run the following command:
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=true"
@@ -54,14 +56,14 @@ The system returns information like the following\.
       {
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-ab12cd34ef56gh78",
+         "WindowId":"mw-0c5ed765acEXAMPLE",
          "Enabled":true,
          "Name":"IAD-Every-15-Minutes"
       },
       {
          "Duration":4,
          "Cutoff":1,
-         "WindowId":"mw-1a2b3c4d5e6f7g8h9",
+         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
          "Enabled":true,
          "Name":"My-First-Maintenance-Window"
       }
@@ -70,7 +72,7 @@ The system returns information like the following\.
 ```
 
 **List all Disabled Maintenance Windows**  
-Run the command as shown here\.
+Run the following command:
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=false"
@@ -84,7 +86,7 @@ The system returns information like the following\.
       {
          "Duration":8,
          "Cutoff":2,
-         "WindowId":"mw-1a2b3c4d5e6f7g8h9",
+         "WindowId":"mw-369258147YEXAMPLE",
          "Enabled":false,
          "Name":"Every-Day"
       }
@@ -107,7 +109,7 @@ The system returns information like the following\.
       {
          "Duration":4,
          "Cutoff":1,
-         "WindowId":"mw-1a2b3c4d5e6f7g8h9",
+         "WindowId":"mw-369258147YEXAMPLE",
          "Enabled":true,
          "Name":"My-First-Maintenance-Window"
       }
@@ -116,10 +118,10 @@ The system returns information like the following\.
 ```
 
 **Display the Targets for a Maintenance Window Matching a Specific Owner Information Value**  
-Run the command as shown here\.
+Run the following command:
 
 ```
-aws ssm describe-maintenance-window-targets --window-id "mw-ab12cd34ef56gh78" --filters "Key=OwnerInformation,Values=Single instance"
+aws ssm describe-maintenance-window-targets --window-id "mw-ab12cd34eEXAMPLE" --filters "Key=OwnerInformation,Values=Single instance"
 ```
 
 The system returns information like the following\.
@@ -133,9 +135,9 @@ The system returns information like the following\.
 
          ],
          "TargetIds":[
-            "i-1a2b3c4d5e6f7g8h9"
+            "i-1234567890EXAMPLE"
          ],
-         "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2",
+         "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLE1-1a2",
          "OwnerInformation":"Single instance"
       }
    ]
@@ -143,10 +145,10 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Invoke the AWS\-RunPowerShellScript Run Command**  
-Run the command as shown here\.
+Run the following command:
 
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
+aws ssm describe-maintenance-window-tasks --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
 ```
 
 The system returns information like the following\.
@@ -155,11 +157,11 @@ The system returns information like the following\.
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::444444444444:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
-         "WindowTaskId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e6c",
+         "WindowTaskId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3EXAMPLE",
          "TaskParameters":{
             "commands":{
                "Values":[
@@ -171,13 +173,13 @@ The system returns information like the following\.
          "Type":"RUN_COMMAND",
          "Targets":[
             {
-               "TaskTargetId":"i-1a2b3c4d5e6f7g8h9",
+               "TaskTargetId":"i-1234567890EXAMPLE",
                "TaskTargetType":"INSTANCE"
             }
          ]
       },
       {
-         "ServiceRoleArn":"arn:aws:iam::333333333333:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -203,10 +205,10 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Have a Priority of 3**  
-Run the command as shown here\.
+Run the following command:
 
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=Priority,Values=3"
+aws ssm describe-maintenance-window-tasks --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=Priority,Values=3"
 ```
 
 The system returns information like the following\.
@@ -215,7 +217,7 @@ The system returns information like the following\.
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::222222222:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -231,7 +233,7 @@ The system returns information like the following\.
          "Type":"RUN_COMMAND",
          "Targets":[
             {
-               "TaskTargetId":"i-1a2b3c4d5e6f7g8h9",
+               "TaskTargetId":"i-1234567890EXAMPLE",
                "TaskTargetType":"INSTANCE"
             }
          ]
@@ -241,7 +243,7 @@ The system returns information like the following\.
 ```
 
 **Show All Registered Tasks that Have a Priority of 1 and Use Run Command**  
-Run the command as shown here\.
+Run the following command:
 
 ```
 aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
@@ -253,7 +255,7 @@ The system returns information like the following\.
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::333333333:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -279,10 +281,10 @@ The system returns information like the following\.
 ```
 
 **List All Tasks Run Before a Date**  
-Run the command as shown here\.
+Run the following command:
 
 ```
-aws ssm describe-maintenance-window-executions --window-id "mw-ab12cd34ef56gh78" --filters "Key=ExecutedBefore,Values=2016-11-04T05:00:00Z"
+aws ssm describe-maintenance-window-executions --window-id "111122223333" --filters "Key=ExecutedBefore,Values=2016-11-04T05:00:00Z"
 ```
 
 The system returns information like the following\.
@@ -298,32 +300,32 @@ The system returns information like the following\.
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"06dc5f8a-9ef0-4ae9-a466-ada2d4ce2d22",
+         "WindowExecutionId":"06dc5f8a-9ef0-4ae9-a466-ada2dEXAMPLE",
          "StartTime":1478230495.469
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"57ad6419-023e-44b0-a831-6687334390b2",
+         "WindowExecutionId":"57ad6419-023e-44b0-a831-66873EXAMPLE",
          "StartTime":1478231395.677
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"ed1372b7-866b-4d64-bc2a-bbfd5195f4ae",
+         "WindowExecutionId":"ed1372b7-866b-4d64-bc2a-bbfd5EXAMPLE",
          "StartTime":1478232295.529
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"154eb2fa-6390-4cb7-8c9e-55686b88c7b3",
+         "WindowExecutionId":"154eb2fa-6390-4cb7-8c9e-55686EXAMPLE",
          "StartTime":1478233195.687
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"1c4de752-eff6-4778-b477-1681c6c03cf1",
+         "WindowExecutionId":"1c4de752-eff6-4778-b477-1681cEXAMPLE",
          "StartTime":1478234095.553
       },
       {
          "Status":"SUCCESS",
-         "WindowExecutionId":"56062f75-e4d8-483f-b5c2-906d613409a4",
+         "WindowExecutionId":"56062f75-e4d8-483f-b5c2-906d6EXAMPLE",
          "StartTime":1478234995.12
       }
    ]
@@ -331,10 +333,10 @@ The system returns information like the following\.
 ```
 
 **List All Tasks Run After a Date**  
-Run the command as shown here\.
+Run the following command:
 
 ```
-aws ssm describe-maintenance-window-executions --window-id "mw-ab12cd34ef56gh78" --filters "Key=ExecutedAfter,Values=2016-11-04T17:00:00Z"
+aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedAfter,Values=2016-11-04T17:00:00Z"
 ```
 
 The system returns information like the following\.

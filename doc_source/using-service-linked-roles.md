@@ -65,8 +65,34 @@ If the Systems Manager service is using the role when you try to delete the tags
 
 1. To delete Resource Groups, see [Delete Groups from AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/deleting-resource-groups.html)\.
 
-1. For information about how to delete Maintenance Window tasks, see [Updating or Deleting the Tasks of a Maintenance Window](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
+1. For information about how to delete Maintenance Window tasks, see [Update or Delete Maintenance Window Tasks \(Console\)](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
 
 **To manually delete the service\-linked role using IAM**
 
 Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleForAmazonSSM service\-linked role\. For more information, see [Deleting a Service\-Linked Role](http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
+
+## Supported Regions for Systems Manager Service\-Linked Roles<a name="slr-regions"></a>
+
+Systems Manager supports using service\-linked roles in the following regions\.
+
+
+****  
+
+| Region name | Region identity | Support in Systems Manager | 
+| --- | --- | --- | 
+| US East \(N\. Virginia\) | us\-east\-1 | Yes | 
+| US East \(Ohio\) | us\-east\-2 | Yes | 
+| US West \(N\. California\) | us\-west\-1 | Yes | 
+| US West \(Oregon\) | us\-west\-2 | Yes | 
+| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | 
+| Asia Pacific \(Osaka\-Local\) | ap\-northeast\-3 | Yes | 
+| Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | 
+| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | 
+| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | 
+| Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | 
+| Canada \(Central\) | ca\-central\-1 | Yes | 
+| EU \(Frankfurt\) | eu\-central\-1 | Yes | 
+| EU \(Ireland\) | eu\-west\-1 | Yes | 
+| EU \(London\) | eu\-west\-2 | Yes | 
+| EU \(Paris\) | eu\-west\-3 | Yes | 
+| South America \(São Paulo\) | sa\-east\-1 | Yes | 

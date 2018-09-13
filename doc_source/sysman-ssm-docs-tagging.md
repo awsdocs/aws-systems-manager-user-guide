@@ -164,7 +164,7 @@ Create and tag documents\. For more information, see [Tagging Systems Manager Do
 
 1. Choose **Create policy**\.
 
-1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html)\.
+1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\.
 
 After you attach the policy to the IAM user or group account, if a user tries to use a document and the user's policy does not allow the user to access a tag for the document \(call the GetDocument API\), the system returns an error\. The error is similar to the following:
 

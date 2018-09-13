@@ -13,7 +13,7 @@ With Systems Manager capabilities, you can reference Systems Manager parameters 
 The following is an example of a Systems Manager parameter in an AWS CLI command for Run Command\. Systems Manager Parameters are always prefixed with `ssm:`\.
 
 ```
-aws ssm send-command --instance-ids i-1a2b3c4d5e6f7g8 --document-name AWS-RunPowerShellScript --parameter '{"commands":["echo {{ssm:parameter name}}"]}'
+aws ssm send-command --instance-ids i-1a2b3c4d5e6f7g8 --document-name AWS-RunPowerShellScript --parameter '{"commands":["echo {{ssm:parameter_name}}"]}'
 ```
 
 You can also reference Systems Manager parameters in the *Parameters* section of an SSM document, as shown in the following example\.
@@ -25,7 +25,7 @@ You can also reference Systems Manager parameters in the *Parameters* section of
    "parameters":{
       "commands" : {
         "type": "StringList",
-        "default": ["{{ssm:parameter name}}"]
+        "default": ["{{ssm:parameter_name}}"]
       }
     },
     "mainSteps":[
@@ -59,21 +59,21 @@ SSM documents currently don't support references to Secure String parameters\. T
 **AWS CLI**
 
 ```
-$value=aws ssm get-parameters --names the parameter name --with-decryption
+$value=aws ssm get-parameters --names parameter_name --with-decryption
 ```
 
 ```
-aws ssm send-command –name AWS-JoinDomain –parameters password=$value –instance-id the instance ID
+aws ssm send-command –name AWS-JoinDomain –parameters password=$value –instance-id instance-id
 ```
 
 **Tools for Windows PowerShell**
 
 ```
-$secure = (Get-SSMParameterValue -Names the parameter name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
+$secure = (Get-SSMParameterValue -Names parameter_name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
 ```
 
 ```
-$cred = New-Object System.Management.Automation.PSCredential -argumentlist user name,$secure
+$cred = New-Object System.Management.Automation.PSCredential -argumentlist user_name,$secure
 ```
 
 ## Use Secure String Parameters<a name="sysman-paramstore-securestring"></a>
@@ -100,7 +100,7 @@ aws kms describe-key --key-id alias/aws/ssm
 If you create a Secure String parameter using the default KMS CMK, then you *don't* have to provide a value for the `--key-id` parameter\. The following CLI example shows the command to create a new Secure String parameter in Parameter Store without the `--key-id` parameter: 
 
 ```
-aws ssm put-parameter --name a_name --value "a value" --type SecureString
+aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString
 ```
 
 ### Create a Secure String Parameter Using a Custom KMS CMK<a name="sysman-param-customkms"></a>
@@ -128,7 +128,7 @@ aws kms create-key
 Use a command in the following format to create a Secure String parameter using the key you just created\.
 
 ```
-aws ssm put-parameter --name a_name --value "a value" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
 ```
 
 **Note**  

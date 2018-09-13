@@ -4,7 +4,7 @@ When you send a command by using Run Command, you can specify where you want to 
 
 If you configured your instance or on\-premises hybrid machine to use the **AmazonEC2RoleforSSM** AWS Identity and Access Management \(IAM\) managed policy, then your instance requires no additional configuration to send output to CloudWatch Logs\. You simply need to choose this option if sending commands from the console, or add the `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter if using the AWS CLI, Tools for Windows PowerShell, or an API action\. The `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter are described in more detail later in this topic\.
 
-If you are using a custom policy on your instances, then you must update the policy on each instance to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information, about updating an IAM policy, see [Editing IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html)\.
+If you are using a custom policy on your instances, then you must update the policy on each instance to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information, about updating an IAM policy, see [Editing IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.
 
 ```
 {

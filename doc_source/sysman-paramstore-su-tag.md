@@ -53,7 +53,7 @@ For information about the Regions where Systems Manager is available, see [regio
 1. Execute the following command to tag a parameter\.
 
    ```
-   aws ssm add-tags-to-resource --resource-type "Parameter" --resource-id "the parameter name" --tags "Key=a key, for example Environment,Value=a value, for example TEST"
+   aws ssm add-tags-to-resource --resource-type "Parameter" --resource-id "the_parameter_name" --tags "Key=a key, for example Environment,Value=a value, for example TEST"
    ```
 
    If successful, the command has no output\.
@@ -61,7 +61,7 @@ For information about the Regions where Systems Manager is available, see [regio
 1. Execute the following command to verify the parameter tags\.
 
    ```
-   aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the parameter name"
+   aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the_parameter_name"
    ```
 
 ## Tag a Parameter \(AWS Tools for Windows\)<a name="sysman-paramstore-su-tag-tfw"></a>
@@ -72,11 +72,13 @@ For information about the Regions where Systems Manager is available, see [regio
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\. Systems Manager is currently available in the following [regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+1. Execute the following command to set the Region for your PowerShell session\.
 
    ```
-   Set-DefaultAWSRegion -Region us-east-2
+   Set-DefaultAWSRegion -Region region
    ```
+
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Execute the following command to list parameters that you can tag\.
 
@@ -90,7 +92,7 @@ For information about the Regions where Systems Manager is available, see [regio
    $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
    $tag1.Key = "Environment"
    $tag1.Value = "TEST"
-   Add-SSMResourceTag -ResourceType "Parameter" -ResourceId "the parameter name" -Tag $tag1
+   Add-SSMResourceTag -ResourceType "Parameter" -ResourceId "parameter_name" -Tag $tag1
    ```
 
    If successful, the command has no output\.
@@ -98,5 +100,5 @@ For information about the Regions where Systems Manager is available, see [regio
 1. Execute the following command to verify the parameter tags\.
 
    ```
-   Get-SSMResourceTag -ResourceType "Parameter" -ResourceId "the parameter name"
+   Get-SSMResourceTag -ResourceType "Parameter" -ResourceId "parameter_name"
    ```

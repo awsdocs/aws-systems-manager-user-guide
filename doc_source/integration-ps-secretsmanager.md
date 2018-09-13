@@ -37,22 +37,26 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    Here is a Java code example that references an access\-key and a secret\-key that are stored in Secrets Manager\. This code example sets up an Amazon DynamoDB client\. The code retrieves configuration data and credentials from Parameter Store\. The configuration data is stored as a string parameter in Parameter Store and the credentials are stored in Secrets Manager\. Even though the configuration data and credentials are stored in separate services, both sets of data can be access from Parameter Store by using the GetParameter API\.
 
    ```
-   public SSMParameterClient ssmParameterClient = clientBuilder.remoteOf(SSMParameterClient.class).newClient();
+   /**
+   * Initialize AWS System Manager Client with default credentials
+   */
+   AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.defaultClient();
     
    ...
     
    /**
-   * Method to launch DynamoDB client
+   * Example method to launch DynamoDB client with credentials different from default
    * @return DynamoDB client
    */
    AmazonDynamoDB getDynamoDbClient() {
        //Getting AWS credentials from Secrets manager using GetParameter
-       BasicAWSCredentials awsCreds = new BasicAWSCredentials(
+       BasicAWSCredentials differentAWSCreds = new BasicAWSCredentials(
                getParameter("/aws/reference/secretsmanager/access-key"),
                getParameter("/aws/reference/secretsmanager/secret-key"));
-       
+    
+       //Initialize the DDB Client with different credentials
        final AmazonDynamoDB client = AmazonDynamoDBClient.builder()
-               .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+               .withCredentials(new AWSStaticCredentialsProvider(differentAWSCreds))
                .withRegion(getParameter("region")) //Getting config from Parameter Store
                .build();
        return client;
@@ -67,7 +71,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
        GetParameterRequest request = new GetParameterRequest();
        request.setName(parameterName);
        request.setWithDecryption(true);
-       return ssmParameterClient.newGetParameterCall().call(request).getParameter().getValue();
+       return ssm.newGetParameterCall().call(request).getParameter().getValue();
    }
    ```
 

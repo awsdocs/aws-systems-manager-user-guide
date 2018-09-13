@@ -1,11 +1,11 @@
-# Walkthrough: Create an Automation Document<a name="automation-createdoc"></a>
+# Patch a Windows AMI<a name="automation-createdoc"></a>
 
-This walkthrough shows you how to create and run a custom Automation document\. After you run Automation, the system performs the following tasks\.
+This walkthrough shows you how to create and run a custom Automation document that patches a Windows Amazon Machine Image \(AMI\)\. After you run Automation, the system performs the following tasks\.
 + Launches a Windows instance from a specified AMI\.
 + Runs a command using Run Command that applies Windows updates to the instance\.
 + Stops the instance\.
 + Creates a new Windows AMI\.
-+ Tag the Windows AMI\.
++ Tags the Windows AMI\.
 + Terminates the original instance\.
 
 **Automation Sample Document**  
@@ -283,4 +283,4 @@ For the `name` parameter, you can't prefix documents with AWS\. If you specify A
 **Note**  
 Depending on the number of patches applied, the Windows patching process run in this sample workflow can take 30 minutes or more to complete\.
 
-For more examples of how to use Automation, including examples that build on the walkthrough you just completed, see [Systems Manager Automation Examples](automation-examples.md)\.
+For more examples of how to use Automation, including examples that build on the walkthrough you just completed, see [Walkthroughs of Common Automation Use Cases](automation-walk.md)\.

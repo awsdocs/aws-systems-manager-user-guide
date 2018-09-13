@@ -97,7 +97,7 @@ Systems Manager uses the following shared resources for managing and configuring
 ------
 #### [ Managed Instances ]
 
-A [managed instances](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine \(server or virtual machine \[VM\]\) in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
+A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine \(server or virtual machine \[VM\]\) in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
 
 ------
 #### [ Activations ]
@@ -132,7 +132,7 @@ These tasks are described in [Setting Up AWS Systems Manager](systems-manager-se
 You can access Systems Manager using any of the following interfaces:
 + The [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) — Provides a web interface that you can use to access Systems Manager\.
 + **AWS Command Line Interface \(AWS CLI\)** — Provides commands for a broad set of AWS services, including Systems Manager, and is supported on Windows, Mac, and Linux\. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/)\.
-+ **AWS Tools for Windows PowerShell** — Provides commands for a broad set of AWS services, including Systems Manager\. For more information, see [AWS Tools for Windows PowerShell](https://aws.amazon.com/powerhshell/)\.
++ **AWS Tools for Windows PowerShell** — Provides commands for a broad set of AWS services, including Systems Manager\. For more information, see [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\.
 + **AWS SDKs** — Provides language\-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\.
 
 ## Pricing<a name="pricing"></a>

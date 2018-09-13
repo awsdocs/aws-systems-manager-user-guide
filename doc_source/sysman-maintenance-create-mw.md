@@ -13,7 +13,7 @@ You can run the following types of tasks on targets:
 + Functions by using AWS Lambda
 + State machines by using AWS Step Functions
 **Note**  
-The AWS Systems Manager console does not currently support running Step Functions\. To register this type of task, you must use the AWS CLI\. For examples of how to create, configure, and update a Maintenance Window by using the AWS CLI, see the [Systems Manager Maintenance Window Walkthroughs](sysman-maintenance-walk.md)\.
+The AWS Systems Manager console does not currently support running Step Functions\. To register this type of task, you must use the AWS CLI\. For examples of how to create, configure, and update a Maintenance Window by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 
 **To create a Maintenance Window**
 

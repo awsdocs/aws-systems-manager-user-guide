@@ -118,7 +118,7 @@ Parameters are only available in the Region where they were created\. If you don
 1. Execute the following command to update the parameter value\.
 
    ```
-   aws ssm put-parameter --name "the_parameter_name" --type the_parameter_type --value "the_new_value" --overwrite
+   aws ssm put-parameter --name "parameter_name" --type the_parameter_type --value "the new value" --overwrite
    ```
 
 1. Execute the following command to view all versions of the parameter\.
@@ -168,7 +168,7 @@ Parameters are only available in the Region where they were created\. If you don
 1. Execute the following command to update the parameter value\.
 
    ```
-   Write-SSMParameter -Name "the_parameter_name" -Value "the_new_value" -Type "the_parameter_type" -Overwrite $true 
+   Write-SSMParameter -Name "parameter_name" -Value "the new value" -Type "the_parameter_type" -Overwrite $true 
    ```
 
 1. Execute the following command to view all versions of the parameter\.

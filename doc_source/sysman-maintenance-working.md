@@ -1,6 +1,6 @@
-# Working with Maintenance Windows<a name="sysman-maintenance-working"></a>
+# Working with Maintenance Windows \(Console\)<a name="sysman-maintenance-working"></a>
 
-This section describes how to create, configure, and update or delete a Maintenance Window\. This section also describes how to perform these same tasks for the targets and tasks of a Maintenance Window\.
+This section describes how to create, configure, and update, and delete Maintenance Windows using the Systems Manager console\. This section also provides information about managing the targets and tasks of a Maintenance Window\.
 
 **Important**  
 We recommend that you initially create and configure Maintenance Windows in a test environment\. 
@@ -12,4 +12,4 @@ Before you create a Maintenance Window, you must configure access to Maintenance
 + [Create a Maintenance Window \(Console\)](sysman-maintenance-create-mw.md)
 + [Assign Targets to a Maintenance Window \(Console\)](sysman-maintenance-assign-targets.md)
 + [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
-+ [Update or Delete a Maintenance Window](sysman-maintenance-update.md)
++ [Updating or Deleting a Maintenance Window \(Console\)](sysman-maintenance-update.md)

@@ -1,6 +1,6 @@
 # Configuring Inventory Collection<a name="sysman-inventory-configuring"></a>
 
-This section describes how to configure inventory collection on one or more managed instances by using the Amazon EC2 console\. This section also describes how to aggregate inventory data from multiple AWS accounts and regions in a single Amazon S3 bucket by using Systems Manager Resource Data Sync\. For an example of how to configure inventory collection using the AWS CLI, see [Systems Manager Inventory Manager Walkthroughs](sysman-inventory-walk.md)\.
+This section describes how to configure inventory collection on one or more managed instances by using the Systems Manager console\. This section also describes how to aggregate inventory data from multiple AWS accounts and regions in a single Amazon S3 bucket by using Systems Manager Resource Data Sync\. For an example of how to configure inventory collection by using the AWS CLI, see [Systems Manager Inventory Manager Walkthroughs](sysman-inventory-walk.md)\.
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.
@@ -10,7 +10,7 @@ Before you configure inventory collection, complete the following tasks\.
 
 ## Configuring Collection<a name="sysman-inventory-config-collection"></a>
 
-Use the following procedure to configure inventory collection on a managed instance using the console\.
+This section includes information about how to configure Systems Manager Inventory to collect metadata from your managed instances by using the Systems Manager console\. You can quickly collect metadata from all instances in a specific AWS account \(and any future instances that might be created in that account\) or you can selectively collect Inventory data by using tags or instance IDs\.
 
 **Note**  
 When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:  

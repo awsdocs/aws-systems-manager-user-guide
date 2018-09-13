@@ -23,7 +23,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Instance limit** field, specify the total number of servers or VMs that you want to register with AWS\. 
 
-1. In the **IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
+1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
    1. Choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
 

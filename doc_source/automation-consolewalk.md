@@ -1,4 +1,4 @@
-# Automation Console Walkthrough: Patch a Linux AMI<a name="automation-consolewalk"></a>
+# Patch a Linux AMI \(Console\)<a name="automation-consolewalk"></a>
 
 This Systems Manager Automation walkthrough shows you how to use the console and the Systems Manager AWS\-UpdateLinuxAmi document to automatically patch a Linux AMI with the latest versions of packages that you specify\. You can update any of the following Linux versions using this walkthrough: Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. The AWS\-UpdateLinuxAmi document also automates the installation of additional site\-specific packages and configurations\.
 

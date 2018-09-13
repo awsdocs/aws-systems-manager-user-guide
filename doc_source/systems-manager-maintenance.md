@@ -11,5 +11,5 @@ AWS Systems Manager Maintenance Windows let you define a schedule for when to pe
 
 **Topics**
 + [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)
-+ [Working with Maintenance Windows](sysman-maintenance-working.md)
-+ [Systems Manager Maintenance Window Walkthroughs](sysman-maintenance-walk.md)
++ [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)
++ [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
