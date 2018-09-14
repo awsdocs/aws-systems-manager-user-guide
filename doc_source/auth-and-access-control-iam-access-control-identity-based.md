@@ -3,7 +3,7 @@
 Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies\. An account administrator can attach permissions policies to IAM identities \(that is, users, groups, and roles\)\. Some services—such as AWS Lambda, Amazon Simple Notification Service \(Amazon SNS\), and Amazon Simple Storage Service \(Amazon S3\)—also support attaching permissions policies to resources\. 
 
 **Note**  
-An *account administrator* \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
+An *account administrator* \(or administrator user\) is a user with administrator privileges\. For more information, see [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*\.
 
 When granting permissions, the account administrator decides who gets the permissions, the resources that they get permissions for, and the specific actions that you want to allow on those resources\.
 
@@ -26,12 +26,13 @@ Systems Manager includes several primary resources:
 + Parameter
 + Patch baseline
 + Resource data sync
++ Session
 
 For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are, known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
 
 To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierachical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of five levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
-Each resource has a unique Amazon Resource Names \(ARNs\)\. In a policy, you identify the resource that a policy applies to by using its ARN\. For more information about ARNs, see [Amazon Resource Names \(ARN\) and AWS Service Namespaces](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
+Each resource has a unique Amazon Resource Names \(ARNs\)\. In a policy, you identify the resource that a policy applies to by using its ARN\. For more information about ARNs, see [Amazon Resource Names \(ARN\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 The following table shows the structure of the ARN format for each resource type in Systems Manager:
 
@@ -48,6 +49,7 @@ The following table shows the structure of the ARN format for each resource type
 | Managed instance inventory | arn:aws:ssm:region:account\-id:managed\-instance\-inventory/managed\-instance\-id | 
 | Parameter |  A one\-level parameter: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html) A parameter named with a hierarchical construction: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html)  | 
 | Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-id*   | 
+| Session |  arn:aws:ssm:*region*:*account\-id*:session/*session\-id*   In most cases, the session ID is constructed using the ID of the account user who started the session, plus an alphanumeric suffix\. For example: <pre>arn:aws:us-east-2:111122223333:session/JohnDoe-1a2b3c4sEXAMPLE</pre> However, if the user ID is not available, the ARN is contructed this way instead: <pre>arn:aws:us-east-2:111122223333:session/session-1a2b3c4sEXAMPLE</pre>   | 
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
 |  All Systems Manager resources owned by the specified account in the specified region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
 
@@ -88,7 +90,7 @@ For a list of Systems Manager operations that work with these resource types, se
 
 ## Understanding Resource Ownership<a name="understanding-resource-ownership"></a>
 
-A *resource owner* is the AWS account that created the resource, regardless of who in the account created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
+A *resource owner* is the AWS account that created the resource, regardless of who in the account created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
 + If you use the root account credentials of your AWS account to create a rule, your AWS account is the owner of the Systems Manager resource\.
 + If you create an IAM user in your AWS account and grant permissions to create Systems Manager resources to that user, the user can create Systems Manager resources\. However, your AWS account, to which the user belongs, owns the Systems Manager resources\.
 + If you create an IAM role in your AWS account with permissions to create Systems Manager resources, anyone who can assume the role can create Systems Manager resources\. Your AWS account, to which the role belongs, owns the Systems Manager resources\.
@@ -98,7 +100,7 @@ A *resource owner* is the AWS account that created the resource, regardless of w
 A *permissions policy* describes who has access to what\. The following section explains the available options for creating permissions policies\.
 
 **Note**  
-This section discusses using IAM in the context of Systems Manager\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](http://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+This section discusses using IAM in the context of Systems Manager\. It doesn't provide detailed information about the IAM service\. For complete IAM documentation, see [What Is IAM?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in the *IAM User Guide*\. For information about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 Policies attached to an IAM identity are referred to as *identity\-based policies* \(IAM policies\)\. Policies attached to a resource are referred to as *resource\-based policies*\. Systems Manager supports only identity\-based policies\.
 
@@ -126,7 +128,7 @@ You can attach policies to IAM identities\. By creating identity\-based IAM poli
 
       
 
-  For more information about using IAM to delegate permissions, see [Access Management](http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
+  For more information about using IAM to delegate permissions, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*\.
 
 The types of actions that you can control access to with resource\-based policies vary depending on the resource type, as outlined in the following table:
 
@@ -142,6 +144,7 @@ The types of actions that you can control access to with resource\-based policie
 |  Managed instance inventory  |  Create Update  | 
 |  Patch baseline  |  Create Delete Deregister Register Update  | 
 |  Resource data sync  |  Create Delete  | 
+|  Session  |  Start Terminate  | 
 
 ### Resource\-Based Policies<a name="resource-based-policies-overview"></a>
 
@@ -149,7 +152,7 @@ Other AWS services, such as Amazon Simple Storage Service, also support resource
 
 ## Specifying Policy Elements: Resources, Actions, Effects, and Principals<a name="actions-effects-principals"></a>
 
-For each Systems Manager resource, Systems Manager defines a set of applicable API operations\. To allow you to grant permissions for these API operations, Systems Manager defines a set of actions that you can specify in a policy\. Some API operations can require permissions for more than one action\. For more information about resources and API operations, see [AWS Systems Manager Resources and Operations](#arn-formats) and [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)\. For a list of actions, see [AWS Systems Manager Resources and Operations](#arn-formats) [Actions](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Operations.html)\.
+For each Systems Manager resource, Systems Manager defines a set of applicable API operations\. To allow you to grant permissions for these API operations, Systems Manager defines a set of actions that you can specify in a policy\. Some API operations can require permissions for more than one action\. For more information about resources and API operations, see [AWS Systems Manager Resources and Operations](#arn-formats) and [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)\. For a list of actions, see [AWS Systems Manager Resources and Operations](#arn-formats) [Actions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Operations.html)\.
 
 The following are the basic policy elements:
 + **Resource** – You use an Amazon Resource Name \(ARN\) to identify the resource that the policy applies to\. For Systems Manager resources, you can, use the wildcard character \(\*\) in IAMpolicies\. For more information, see [AWS Systems Manager Resources and Operations](#arn-formats)\.
@@ -157,13 +160,13 @@ The following are the basic policy elements:
 + **Effect** – You specify the effect that occurs when the user requests the specific action, either allow or deny\. If you don't explicitly grant access to \(allow\) a resource, access is implicitly denied\. You can also explicitly deny access to a resource, which you might do to make sure that a user cannot access it, even if a different policy grants access\.
 + **Principal** – In identity\-based policies \(IAM policies\), the user that the policy is attached to is the implicit principal\. For resource\-based policies, you specify the user, account, service, or other entity that you want to receive permissions\. Systems Manager supports only identity\-based policies\.
 
-To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
+To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
 For a table showing all of the Systems Manager API actions and the resources that they apply to, see [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)\.
 
 ## Specifying Conditions in a Policy<a name="policy-conditions"></a>
 
-When you grant permissions, you can use the language in the access policy to specify the conditions under which a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [IAM JSON Policy Elements: Condition](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
+When you grant permissions, you can use the language in the access policy to specify the conditions under which a policy should take effect\. For example, you might want a policy to be applied only after a specific date\. For more information about specifying conditions in a policy language, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
 To express conditions, you use predefined condition keys\. 
 
@@ -175,9 +178,10 @@ AWS Systems Manager supports the the following condition keys:
 For information about using the `ssm:resourceTag/*` condition key, see the following topics:
 + [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md) 
++ [Restrict Session Access Based on Instance Tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 + [Controlling Access to Documents Using Tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
 + [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
-For a complete list of AWS\-wide keys, see [IAM Condition Context Keys](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html) in the *IAM User Guide*\. 
+For a complete list of AWS\-wide keys, see [IAM Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html) in the *IAM User Guide*\. 

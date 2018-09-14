@@ -42,5 +42,5 @@ The title of each section here is an active link to the corresponding section in
 + Systems Manager requires accurate time references in order to perform its operations\. If your instance's date and time are not set correctly, they may not match the signature date of your API requests\. In some cases, this will lead to errors or incomplete functionality\. For example, instances with incorrect time settings will not be included in your lists of managed instances\.
 
   For information on setting the time on your instances, see the following topics: 
-  +  [Setting the Time for Your Linux Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)
-  +  [Setting the Time for a Windows Instance](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-set-time.html)
+  +  [Setting the Time for Your Linux Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)
+  +  [Setting the Time for a Windows Instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-set-time.html)

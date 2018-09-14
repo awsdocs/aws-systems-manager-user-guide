@@ -31,7 +31,7 @@ As you get started with Automation, note the following restrictions\.
 + Automation does not perform resource clean\-up\. In the event your workflow stops before reaching the final instance\-termination step in the example workflow, you might need to stop instances manually or disable services that were started during the Automation workflow\.
 + If you use userdata with Automation, the userdata must be base\-64 encoded\.
 + Automation retains execution records for 30 days\.
-+ Systems Manager and Automation have the following [service limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
++ Systems Manager and Automation have the following [service limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Before you begin**  
 Create an AWS Identity and Access Management \(IAM\) instance profile role and Automation service role \(or assume role\)\. For more information about these roles and how to quickly create them from an AWS CloudFormation template, see [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)\.

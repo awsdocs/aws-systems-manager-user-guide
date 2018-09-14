@@ -1,14 +1,14 @@
 # Controlling Access to Systems Manager Parameters<a name="sysman-paramstore-access"></a>
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
-+ [DeleteParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
-+ [DeleteParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)
-+ [DescribeParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)
-+ [GetParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
-+ [GetParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
-+ [GetParameterHistory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
-+ [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)
-+ [PutParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
++ [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
++ [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)
++ [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)
++ [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
++ [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
++ [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
++ [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)
++ [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
 
 We recommend that you control access to Systems Manager parameters by creating restrictive IAM policies\. For example, the following policy allows you to call the `DescribeParameters` and `GetParameters` API operations for a specific resource\. This means that you can get information about and use all parameters that begin with prod\-\*\.
 
@@ -73,7 +73,7 @@ For trusted administrators, you could provide full access to all Systems Manager
 You can also control access so that instances can only run specific parameters\. The following example enables instances to get a parameter value only for parameters that begin with "prod\-" If the parameter is a secure string, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
-If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](http://docs.aws.amazon.com/kms/latest/developerguide/)\.  
+If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.  
 Each AWS account is assigned a default AWS KMS key\. You can view your key by executing the following command from the AWS CLI:  
 
 ```
@@ -114,9 +114,9 @@ Instance policies, like in the previous example, are assigned to the instance ro
 After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags the user can access\. When a user attempts to use a parameter, the system checks the IAM policy and the tags specified for the parameter\. If the user does not have access to the tags assigned to the parameter, the user receives an access denied error\.
 
 Currently, you can restrict access to the following GetParameter API actions:
-+ [GetParameter](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
-+ [GetParameters](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
-+ [GetParameterHistory ](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
++ [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html)
++ [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html)
++ [GetParameterHistory ](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)
 
 Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
 
@@ -203,7 +203,7 @@ Create and tag parameters\. For more information, see [Setting Up Systems Manage
 
 1. Choose **Create policy**\.
 
-1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\.
+1. Assign the policy to IAM users or groups\. For more information, see [Changing Permissions for an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) and [Attaching a Policy to an IAM Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\.
 
 After you attach the policy to the IAM user or group account, if a user tries to use a parameter and the user's policy does not allow the user to access a tag for the parameter \(call the GetParameters API\), the system returns an error\. The error is similar to the following:
 

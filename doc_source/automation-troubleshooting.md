@@ -502,16 +502,16 @@ When a step fails, the failure message might indicate which service was being in
 
 | Action | AWS Service\(s\) Invoked by This Action | For Information About This Service | Troubleshooting Content | 
 | --- | --- | --- | --- | 
-| aws:runInstances | Amazon EC2 | [Amazon EC2 User Guide](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
-| aws:changeInstanceState | Amazon EC2 | [Amazon EC2 User Guide](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
+| aws:runInstances | Amazon EC2 | [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
+| aws:changeInstanceState | Amazon EC2 | [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
 | aws:runCommand | Systems Manager |  [Systems Manager Run Command](http://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html) | [Troubleshooting Run Command](http://docs.aws.amazon.com/systems-manager/latest/userguide/troubleshooting-remote-commands.html) | 
-| aws:createImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
-| aws:createStack | AWS CloudFormation | [AWS CloudFormation User Guide](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
-| aws:deleteStack | AWS CloudFormation | [AWS CloudFormation User Guide](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
-| aws:deleteImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
-| aws:copyImage | Amazon EC2 | [Amazon Machines Images](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
-| aws:createTag | Amazon EC2, Systems Manager | [EC2 Resource and Tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html) |  | 
-| aws:invokeLambdaFunction | AWS Lambda | [AWS Lambda Developer Guide](http://docs.aws.amazon.com/lambda/latest/dg/) | [Troublshooting Lambda](http://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) | 
+| aws:createImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:createStack | AWS CloudFormation | [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
+| aws:deleteStack | AWS CloudFormation | [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 
+| aws:deleteImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:copyImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
+| aws:createTag | Amazon EC2, Systems Manager | [EC2 Resource and Tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html) |  | 
+| aws:invokeLambdaFunction | AWS Lambda | [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/) | [Troublshooting Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) | 
 
 ### Automation Service Internal Error<a name="automation-trbl-err"></a>
 

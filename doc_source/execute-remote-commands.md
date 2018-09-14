@@ -12,7 +12,7 @@ The following table includes information to help you get started with Run Comman
 
 | Topic | Details | 
 | --- | --- | 
-|  [Tutorial: Remotely Manage Your Amazon EC2 Instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/tutorial_run_command.html) \(Amazon EC2 User Guide\)  |  \(Optional\) The tutorial shows you how to quickly send a command using Run Command with AWS Tools for Windows PowerShell or the AWS Command Line Interface \(AWS CLI\)\.  | 
+|  [Tutorial: Remotely Manage Your Amazon EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/tutorial_run_command.html) \(Amazon EC2 User Guide\)  |  \(Optional\) The tutorial shows you how to quickly send a command using Run Command with AWS Tools for Windows PowerShell or the AWS Command Line Interface \(AWS CLI\)\.  | 
 |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install the SSM Agent\.  | 
 |  [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so that you can manage them using Run Command\.  | 
 |  [Running Commands Using Systems Manager Run Command](run-command.md)  |  Learn how to run a command from the EC2 console and how to run commands to a fleet of managed instances\.  | 
@@ -20,7 +20,7 @@ The following table includes information to help you get started with Run Comman
 
 **Related Content**
 + [Remotely Run Commands on an EC2 Instance \(10 minute tutorial\)](https://aws.amazon.com/getting-started/tutorials/remotely-run-commands-ec2-instance-systems-manager/)
-+ For information about Systems Manager limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
++ For information about Systems Manager limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Topics**
 + [Setting Up Run Command](sysman-rc-setting-up.md)
@@ -33,4 +33,4 @@ The following table includes information to help you get started with Run Comman
 + [Configuring Access to Systems Manager](systems-manager-access.md)
 + [Installing and Configuring SSM Agent](ssm-agent.md)
 + [Configure Run Command as a CloudWatch Events Target](rc-cwe.md#rc-cwe-target)
-+  [Amazon EC2 Systems Manager API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/) 
++  [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) 

@@ -24,7 +24,7 @@ For each patch, the system reports one of the following compliance status values
 + **Failed**: The patch is approved in the baseline, but it could not be installed\. To troubleshoot this situation, review the command output for information that might help you understand the problem\. 
 
 **Note**  
-If you want to assign a specific patch compliance status to an instance, you can use the [put\-compliance\-items](http://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) CLI command or the [PutComplianceItems](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance status is not supported in the console\.
+If you want to assign a specific patch compliance status to an instance, you can use the [put\-compliance\-items](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) CLI command or the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance status is not supported in the console\.
 
 ## About State Manager Association Compliance<a name="sysman-compliance-about-association"></a>
 
@@ -32,7 +32,7 @@ After you create one or more State Manager associations, compliance status infor
 
 ## About Custom Compliance<a name="sysman-compliance-custom"></a>
 
-You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](http://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to explicitly note which managed instances are running older versions of software X\. Currently you can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
+You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to explicitly note which managed instances are running older versions of software X\. Currently you can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
 
 ```
 aws ssm put-compliance-items --resource-id i-1234567890 --resource-type ManagedInstance --compliance-type Custom:SoftwareXCheck --execution-summary ExecutionTime=AnyStringToDenoteTimeOrDate, --items Id=Version2.0,Title=SoftwareXVersion,Severity=CRITICAL,Status=NON_COMPLIANT 
@@ -73,30 +73,30 @@ For information about fixing compliance issues, see [Remediating Compliance Issu
 
 You can view summaries of compliance data for patching, associations, and custom compliance types in the in the AWS CLI by using the following AWS CLI commands\. 
 
-[list\-compliance\-summaries](http://docs.aws.amazon.com/cli/latest/reference/ssm/list-compliance-summaries.html)  
-Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\. \(API: [ListComplianceSummaries](http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListComplianceSummaries.html)\)
+[list\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-compliance-summaries.html)  
+Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\. \(API: [ListComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListComplianceSummaries.html)\)
 
-[list\-resource\-compliance\-summaries](http://docs.aws.amazon.com/cli/latest/reference/ssm/list-resource-compliance-summaries.html)  
-Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and detailed compliance\-item severity counts, according to the filter criteria you specify\. \(API: [ListResourceComplianceSummaries](http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListResourceComplianceSummaries.html)\)
+[list\-resource\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-resource-compliance-summaries.html)  
+Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and detailed compliance\-item severity counts, according to the filter criteria you specify\. \(API: [ListResourceComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListResourceComplianceSummaries.html)\)
 
 You can view additional compliance data for patching by using the following AWS CLI commands\.
 
-[describe\-patch\-group\-state](http://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)  
-Returns high\-level aggregated patch compliance state for a patch group\. \(API: [DescribePatchGroupState](http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html)\)
+[describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)  
+Returns high\-level aggregated patch compliance state for a patch group\. \(API: [DescribePatchGroupState](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html)\)
 
-[describe\-instance\-patch\-states\-for\-patch\-group](http://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)  
-Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
+[describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)  
+Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
 For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)\.
 
 ## Viewing Compliance Configuration History and Change Tracking<a name="sysman-compliance-history"></a>
 
-Systems Manager Configuration Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](http://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
+Systems Manager Configuration Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
 + SSM:PatchCompliance
 + SSM:AssociationCompliance
 
-For information about how to choose and configure these specific resources in AWS Config, see [Selecting Which Resources AWS Config Records](http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
+For information about how to choose and configure these specific resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
 
 **Note**  
 For information about AWS Config pricing, see [Pricing](https://aws.amazon.com//config/pricing/)\.

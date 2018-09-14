@@ -9,7 +9,7 @@ This walkthrough shows you how to create and run a custom Automation document th
 + Terminates the original instance\.
 
 **Automation Sample Document**  
-Automation runs Systems Manager automation documents written in JSON or YAML\. Automation documents include the actions to be performed during workflow execution\. For more information about Systems Manager documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. For information about actions you can add to a document, see [Systems Manager Automation Document Reference](automation-actions.md)
+Automation runs Systems Manager automation documents written in JSON or YAML\. Automation documents include the actions to be performed during workflow execution\. For more information about Systems Manager documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. For information about actions you can add to a document, see [Systems Manager Automation Actions Reference](automation-actions.md)
 
 **Note**  
 By default, when Automation runs the AWS\-UpdateWindowsAmi document and creates a temporary instance, the system uses the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:  

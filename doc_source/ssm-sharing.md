@@ -12,7 +12,7 @@ As you begin working with Systems Manager documents, be aware of the following l
 + You can share a document with a maximum of 1000 AWS accounts\. To increase this limit, go to [AWS Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ec2-instances) and submit a limit increase request form\.
 + You can publicly share a maximum of five Systems Manager documents\. To increase this limit, go to [AWS Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ec2-instances) and submit a limit increase request form\.
 
-For more information about Systems Manager limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
+For more information about Systems Manager limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Topics**
 + [Guidelines for Sharing and Using Shared Systems Manager Documents](ssm-before-you-share.md)

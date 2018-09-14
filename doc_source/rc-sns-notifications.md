@@ -2,7 +2,7 @@
 
 You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands you send using Systems Manager Run Command\. Amazon SNS coordinates and manages the delivery or sending of notifications to subscribing clients or endpoints\. You can receive a notification whenever a command changes to a new state or changes to a specific state, such as failed or timed out\. In cases where you send a command to multiple instances, you can receive a notification for each copy of the command sent to a specific instance\. Each copy is called an *invocation*\.
 
-Amazon SNS can deliver notifications as HTTP or HTTPS POST, email \(SMTP, either plain\-text or in JSON format\), or as a message posted to an Amazon Simple Queue Service \(Amazon SQS\) queue\. For more information, see [What Is Amazon SNS](http://docs.aws.amazon.com/sns/latest/dg/) in the *Amazon Simple Notification Service Developer Guide*\.
+Amazon SNS can deliver notifications as HTTP or HTTPS POST, email \(SMTP, either plain\-text or in JSON format\), or as a message posted to an Amazon Simple Queue Service \(Amazon SQS\) queue\. For more information, see [What Is Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/) in the *Amazon Simple Notification Service Developer Guide*\.
 
 ## Configure Amazon SNS Notifications for Systems Manager<a name="rc-sns"></a>
 
@@ -136,12 +136,12 @@ To receive notifications from the Amazon SNS service, you must attach the iam:Pa
 
 ### Task 3: Create and Subscribe to an Amazon SNS<a name="rc-configure-sns"></a>
 
-An Amazon SNS *topic* is a communication channel that Run Command uses to send notifications about the status of your commands\. Amazon SNS supports different communication protocols, including HTTP/S, email, and other AWS services like Amazon SQS\. For the purpose of getting started quickly, we recommend that you start with the email protocol\. For information about how to create a topic, see [Create a Topic](http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+An Amazon SNS *topic* is a communication channel that Run Command uses to send notifications about the status of your commands\. Amazon SNS supports different communication protocols, including HTTP/S, email, and other AWS services like Amazon SQS\. For the purpose of getting started quickly, we recommend that you start with the email protocol\. For information about how to create a topic, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
 After you create the topic, copy or make a note of the **Topic ARN**\. You will specify this ARN when you send a command that is configured to return status notifications\.
 
-After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribe to a Topic](http://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribe to a Topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 Amazon SNS sends a confirmation email from *AWS Notifications* to the email address that you specify\. Open the email and choose the link to **Confirm subscription** link\.
 
@@ -219,4 +219,4 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
 
-For more information about configuring Run Command from the command line, see [Amazon EC2 Systems Manager API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+For more information about configuring Run Command from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.

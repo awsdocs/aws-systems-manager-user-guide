@@ -1,13 +1,13 @@
 # Deleting Custom Inventory<a name="sysman-inventory-delete"></a>
 
-You can use the [DeleteInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS CLI to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
+You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS CLI to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
 
 **Note**  
 An inventory type is also called an inventory schema\.
 
 The `SchemaDeleteOption` parameter includes the following options:
 + **DeleteSchema**: This option deletes the specified custom type and all data associated with it\. You can recreate the schema later, if you want\.
-+ **DisableSchema**: If you choose this option, the system disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. You can enable this inventory type again by calling the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
++ **DisableSchema**: If you choose this option, the system disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. You can enable this inventory type again by calling the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
 
 **To delete or disable custom inventory by using the AWS CLI**
 
@@ -404,7 +404,7 @@ The system returns information like the following\.
 You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom Inventory\. CloudWatch offers three types of events for custom Inventory delete operations:
 + **Delete action for an instance**: If the custom Inventory for a specific managed instance was successfully deleted or not\. 
 + **Delete action summary**: A summary of the delete action\.
-+ **Warning for disabled custom Inventory type**: A warning event if a user called the [PutInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
++ **Warning for disabled custom Inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
 
 Here are examples of each event:
 
@@ -483,7 +483,7 @@ Here are examples of each event:
 }
 ```
 
-Use the following procedure to create a CloudWatch Events rule for custom Inventory delete operations\. This procedure shows you how to create a rule that sends notifications for custom Inventory delete operations to an Amazon SNS topic\. Before you begin, verify that you have an Amazon SNS topic, or create a new one\. For more information, see [Getting Started](http://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
+Use the following procedure to create a CloudWatch Events rule for custom Inventory delete operations\. This procedure shows you how to create a rule that sends notifications for custom Inventory delete operations to an Amazon SNS topic\. Before you begin, verify that you have an Amazon SNS topic, or create a new one\. For more information, see [Getting Started](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **To configure CloudWatch Events for delete Inventory operations**
 

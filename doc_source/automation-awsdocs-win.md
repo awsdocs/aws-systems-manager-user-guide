@@ -72,4 +72,4 @@ This step cleans up the execution by terminating the running instance\.
 **Output**  
 This section enables you to designate the outputs of various steps or values of any parameter as the Automation output\. By default, the output is the ID of the updated Windows AMI created by the execution\.
 
-You can use the AWS\-UpdateWindowsAmi document as a template to create your own document, as described in the next section\. For information about actions \(steps\) that are supported in Automation documents, see [Systems Manager Automation Document Reference](automation-actions.md)\. For information about how to use Automation documents, see [Walkthroughs of Common Automation Use Cases](automation-walk.md)
+You can use the AWS\-UpdateWindowsAmi document as a template to create your own document, as described in the next section\. For information about actions \(steps\) that are supported in Automation documents, see [Systems Manager Automation Actions Reference](automation-actions.md)\. For information about how to use Automation documents, see [Walkthroughs of Common Automation Use Cases](automation-walk.md)\.

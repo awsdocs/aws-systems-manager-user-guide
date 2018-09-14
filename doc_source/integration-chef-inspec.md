@@ -152,5 +152,5 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 **Related AWS Services**  
 The following related services can help you assess Compliance and work with Chef\.
-+ [Amazon Inspector](http://docs.aws.amazon.com/inspector/latest/APIReference/) lets you perform security assessments on your instances based on and common vulnerabilities described in Central Internet Security \(CIS\) standards\.
-+ [AWS OpsWorks for Chef Automate](http://docs.aws.amazon.com/opsworks-cm/latest/APIReference/) lets you run a Chef Automate server in AWS\. 
++ [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/APIReference/) lets you perform security assessments on your instances based on and common vulnerabilities described in Central Internet Security \(CIS\) standards\.
++ [AWS OpsWorks for Chef Automate](https://docs.aws.amazon.com/opsworks-cm/latest/APIReference/) lets you run a Chef Automate server in AWS\. 

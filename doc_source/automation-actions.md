@@ -1,4 +1,4 @@
-# Systems Manager Automation Document Reference<a name="automation-actions"></a>
+# Systems Manager Automation Actions Reference<a name="automation-actions"></a>
 
 This reference describes the actions \(or plugins\) that you can specify in an AWS Systems Manager Automation document\. For information about plugins for other types of SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
 
@@ -333,7 +333,7 @@ Type: MapList
 
 ## aws:assertAwsResourceProperty<a name="automation-action-assertAwsResourceProperty"></a>
 
-The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
+The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
 
 For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
 
@@ -356,7 +356,7 @@ Inputs are defined by the API action that you choose\.
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
 Type: String  
 Required: Yes
 
@@ -447,7 +447,7 @@ None
 Copies an AMI from any region into the current region\. This action can also encrypt the new AMI\.
 
 **Input**  
-This action supports most CopyImage parameters\. For more information, see [CopyImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html)\.
+This action supports most CopyImage parameters\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html)\.
 
 The following example creates a copy of an AMI in the Seoul region \(`SourceImageID`: ami\-0fe10819\. `SourceRegion`: ap\-northeast\-2\)\. The new AMI is copied to the region where you initiated the Automation action\. The copied AMI will be encrypted because the optional `Encrypted` flag is set to `true`\.
 
@@ -492,12 +492,12 @@ Type: Boolean
 Required: No
 
 KmsKeyId  
-The full Amazon Resource Name \(ARN\) of the AWS Key Management Service CMK to use when encrypting the snapshots of an image during a copy operation\. For more information, see [CopyImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
+The full Amazon Resource Name \(ARN\) of the AWS Key Management Service CMK to use when encrypting the snapshots of an image during a copy operation\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
 Type: String  
 Required: No
 
 ClientToken  
-A unique, case\-sensitive identifier that you provide to ensure request idempotency\. For more information, see [CopyImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
+A unique, case\-sensitive identifier that you provide to ensure request idempotency\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
 Type: String  
 Required: NoOutput
 
@@ -513,7 +513,7 @@ Valid values: `available` \| `pending` \| `failed`
 Creates a new AMI from an instance that is either running or stopped\. 
 
 **Input**  
-This action supports most CreateImage parameters\. For more information, see [CreateImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
+This action supports most CreateImage parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
 
 ```
 {
@@ -590,16 +590,16 @@ Creates a new AWS CloudFormation stack from a template\.
 Capabilities  
 A list of values that you specify before AWS CloudFormation can create certain stacks\. Some stack templates include resources that can affect permissions in your AWS account\. For example, creating new AWS Identity and Access Management \(IAM\) users can affect permissions in your account\. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter\.   
 The only valid values are `CAPABILITY_IAM` and `CAPABILITY_NAMED_IAM`\. The following resources require you to specify this parameter\.  
-+ [AWS::IAM::AccessKey](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
-+ [AWS::IAM::Group](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
-+ [AWS::IAM::InstanceProfile](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
-+ [AWS::IAM::Policy](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
-+ [AWS::IAM::Role](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
-+ [AWS::IAM::User](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
-+ [AWS::IAM::UserToGroupAddition](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
++ [AWS::IAM::AccessKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
++ [AWS::IAM::Group](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
++ [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
++ [AWS::IAM::Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
++ [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
++ [AWS::IAM::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
++ [AWS::IAM::UserToGroupAddition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
 If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions, if necessary\.   
 If you have IAM resources, you can specify either capability\. If you have IAM resources with custom names, you must specify `CAPABILITY_NAMED_IAM`\. If you don't specify this parameter, this action returns an `InsufficientCapabilities` error\.   
-For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities)\.   
+For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities)\.   
 Type: array of Strings  
 Valid Values: `CAPABILITY_IAM | CAPABILITY_NAMED_IAM`  
 Required: No
@@ -633,8 +633,8 @@ Valid Values:` DO_NOTHING | ROLLBACK | DELETE`
 Required: No
 
 Parameters  
-A list of `Parameter` structures that specify input parameters for the stack\. For more information, see the [Parameter](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html) data type\.   
-Type: array of [Parameter](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html) objects   
+A list of `Parameter` structures that specify input parameters for the stack\. For more information, see the [Parameter](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html) data type\.   
+Type: array of [Parameter](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html) objects   
 Required: No
 
 ResourceTypes  
@@ -664,7 +664,7 @@ The template resource types that you have permissions to work with for this crea
   ```
   AWS::service_name::resource_logical_ID
   ```
-If the list of resource types doesn't include a resource that you're creating, the stack creation fails\. By default, AWS CloudFormation grants permissions to all resource types\. IAM uses this parameter for AWS CloudFormation\-specific condition keys in IAM policies\. For more information, see [Controlling Access with AWS Identity and Access Management](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html)\.   
+If the list of resource types doesn't include a resource that you're creating, the stack creation fails\. By default, AWS CloudFormation grants permissions to all resource types\. IAM uses this parameter for AWS CloudFormation\-specific condition keys in IAM policies\. For more information, see [Controlling Access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html)\.   
 Type: array of Strings  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: No
@@ -683,7 +683,7 @@ Type: String
 Required: Yes
 
 StackPolicyBody  
-Structure containing the stack policy body\. For more information, see [Prevent Updates to Stack Resources](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html)\.  
+Structure containing the stack policy body\. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html)\.  
 Conditional: You can specify either the `StackPolicyBody` parameter or the `StackPolicyURL` parameter, but not both\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 16384\.  
@@ -698,18 +698,18 @@ Required: No
 
 Tags  
 Key\-value pairs to associate with this stack\. AWS CloudFormation also propagates these tags to the resources created in the stack\. You can specify a maximum number of 10 tags\.   
-Type: array of [Tag](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html) objects   
+Type: array of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html) objects   
 Required: No
 
 TemplateBody  
-Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes\. For more information, see [Template Anatomy](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
+Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes\. For more information, see [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
 Conditional: You can specify either the `TemplateBody` parameter or the `TemplateURL` parameter, but not both\.   
 Type: String  
 Length Constraints: Minimum length of 1\.  
 Required: No
 
 TemplateURL  
-Location of a file containing the template body\. The URL must point to a template that is located in an Amazon S3 bucket\. The maximum size allowed for the template is 460,800 bytes\. For more information, see [Template Anatomy](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
+Location of a file containing the template body\. The URL must point to a template that is located in an Amazon S3 bucket\. The maximum size allowed for the template is 460,800 bytes\. For more information, see [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
 Conditional: You can specify either the `TemplateBody` parameter or the `TemplateURL` parameter, but not both\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
@@ -737,7 +737,7 @@ StackStatusReason
 Success or failure message associated with the stack status\.  
 Type: String  
 Required: No  
-For more information, see [CreateStack](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html)\.
+For more information, see [CreateStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html)\.
 
 ### Security Considerations<a name="automation-action-createstack-security"></a>
 
@@ -765,7 +765,7 @@ Before you can use the `aws:createStack` action, you must assign the following p
 Create new tags for Amazon EC2 instances or Systems Manager managed instances\.
 
 **Input**  
-This action supports most EC2 CreateTags and SSM AddTagsToResource parameters\. For more information, see [CreateTags](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_createtags.html) and [AddTagsToResource](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_addtagstoresource.html)\.
+This action supports most EC2 CreateTags and SSM AddTagsToResource parameters\. For more information, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_createtags.html) and [AddTagsToResource](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_addtagstoresource.html)\.
 
 The following example shows how to tag an AMI and an instance as being production resources for a particular department\.
 
@@ -819,7 +819,7 @@ None
 Deletes the specified image and all related snapshots\.
 
 **Input**  
-This action supports only one parameter\. For more information, see the documentation for [DeregisterImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html) and [DeleteSnapshot](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)\.
+This action supports only one parameter\. For more information, see the documentation for [DeregisterImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html) and [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)\.
 
 ```
 {
@@ -964,7 +964,7 @@ Type: String
 
 ## aws:executeAwsApi<a name="automation-action-executeAwsApi"></a>
 
-Calls and executes AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+Calls and executes AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
 
 **Input**  
 Inputs are defined by the API action that you choose\. 
@@ -988,7 +988,7 @@ Inputs are defined by the API action that you choose\.
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
 Type: String  
 Required: Yes
 
@@ -1033,7 +1033,7 @@ Executes an AWS Step Functions state machine\.
 
 **Input**
 
-This action supports most parameters for the Step Functions [StartExecution](http://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
+This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
 
 ```
 {
@@ -1067,7 +1067,7 @@ Required: No
 Invokes the specified Lambda function\.
 
 **Input**  
-This action supports most invoke parameters for the Lambda service\. For more information, see [Invoke](http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
+This action supports most invoke parameters for the Lambda service\. For more information, see [Invoke](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
 
 ```
 {
@@ -1126,7 +1126,7 @@ The JSON representation of the object returned by the Lambda function\. Payload 
 
 ## aws:pause<a name="automation-action-pause"></a>
 
-This action pauses the Automation execution\. Once paused, the execution status is *Waiting*\. To continue the Automation execution, use the [SendAutomationSignal](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html) API action with the Resume signal type\. 
+This action pauses the Automation execution\. Once paused, the execution status is *Waiting*\. To continue the Automation execution, use the [SendAutomationSignal](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html) API action with the Resume signal type\. 
 
 **Input**  
 The input is as follows\.
@@ -1149,7 +1149,7 @@ Runs the specified commands\.
 Automation only supports *output* of one Run Command action\. A document can include multiple Run Command actions and plugins, but output is supported for only one action and plugin at a time\.
 
 **Input**  
-This action supports most send command parameters\. For more information, see [SendCommand](http://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.
+This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.
 
 ```
 {
@@ -1238,7 +1238,7 @@ The output of the command\.
 Launches a new instance\.
 
 **Input**  
-The action supports most API parameters\. For more information, see the [RunInstances](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API documentation\.
+The action supports most API parameters\. For more information, see the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API documentation\.
 
 ```
 {
@@ -1394,7 +1394,7 @@ Required: No
 
 TagSpecifications  
 The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [aws:createTags](#automation-action-createtag) action\.  
-Type: MapList \(For more information, see [TagSpecification](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html)\.\)  
+Type: MapList \(For more information, see [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html)\.\)  
 Required: No
 
 UserData  
@@ -1472,7 +1472,7 @@ Inputs are defined by the API action that you choose\.
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](http://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
 Type: String  
 Required: Yes
 

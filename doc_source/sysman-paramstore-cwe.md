@@ -5,7 +5,7 @@ You can use Amazon CloudWatch Events and Amazon SNS to notify you about changes 
 You can also use CloudWatch to perform an action on a target for specific parameter events\. This means, for example, that you can execute an AWS Lambda function to recreate a parameter when it is deleted\. You can also set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\.
 
 **Before You Begin**  
-Create an Amazon SNS topic\. For more information, see [Getting Started with Amazon SNS](http://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
+Create an Amazon SNS topic\. For more information, see [Getting Started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **To configure CloudWatch Events for Systems Manager Parameters**
 

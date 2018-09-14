@@ -26,11 +26,11 @@ To get started with Systems Manager Parameters, complete the following tasks\.
 |  Learn how to organize, create, and tag parameters\.  |  [Working with Systems Manager Parameters](sysman-paramstore-working.md)  | 
 |  Configure parameter access and notifications\.  |  [Setting Up Systems Manager Parameters](sysman-paramstore-settingup.md)  | 
 |  Learn about creating and using Systems Manager parameters in a test environment\.  |  [Systems Manager Parameter Store Walkthroughs](sysman-paramstore-walk.md)  | 
-|  Learn how Parameter Store uses AWS KMS to manage SecureString parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 
+|  Learn how Parameter Store uses AWS KMS to manage SecureString parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 
 
 **Related Content**  
 The following blog posts provide additional information about Parameter Store and how to use this capability with other AWS services\.
-+ For information about Parameter Store limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
++ For information about Parameter Store limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 + [Referencing AWS Secrets Manager Secrets from Parameter Store Parameters](integration-ps-secretsmanager.md)
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in AWS CodeDeploy](https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)

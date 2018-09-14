@@ -19,7 +19,7 @@ For information about how to quickly configure and collect Inventory data from a
 
 ## Aggregating Inventory Data to See Counts of Instances that Collect Specific Types of Data<a name="sysman-inventory-aggregate-type"></a>
 
-You can use the [GetInventory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more Inventory types and data types\. For example, the AWS:InstanceInformation Inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the AWS:InstanceInformation\.PlatformType data type\. Here is an example AWS CLI command and output:
+You can use the [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more Inventory types and data types\. For example, the AWS:InstanceInformation Inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the AWS:InstanceInformation\.PlatformType data type\. Here is an example AWS CLI command and output:
 
 ```
 aws ssm get-inventory --aggregators "Expression=AWS:InstanceInformation.PlatformType"

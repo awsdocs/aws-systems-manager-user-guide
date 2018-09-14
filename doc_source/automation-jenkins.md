@@ -37,7 +37,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 **To configure the Jenkins server for Automation**
 
-1. If it's not already installed, download the AWS CLI to your Jenkins server\. For more information, see [Installing the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
+1. If it's not already installed, download the AWS CLI to your Jenkins server\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
 
 1. In a terminal window on your Jenkins server, run the following commands to configure the AWS CLI\.
 
@@ -46,7 +46,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
    aws configure
    ```
 
-1. When prompted, enter the AWS Access key and Secret key you received when you created the Jenkins user in IAM\. Specify a default region\. For more information about configuring the AWS CLI see [Configuring the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
+1. When prompted, enter the AWS Access key and Secret key you received when you created the Jenkins user in IAM\. Specify a default region\. For more information about configuring the AWS CLI see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 
 Use the following procedure to configure your Jenkins project to invoke Automation\.
 

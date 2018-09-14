@@ -36,7 +36,7 @@ This section describes how to create an IAM test user account with restricted pe
 
 **Create an IAM Test User**
 
-1. Create a permissions policy named OperatorRestrictedPermissions\. For information about how to create a new IAM permissions policy, see [Create an IAM Policy \(Console\)](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) in the IAM User Guide\. Create the policy on the JSON tab, and specify the following permissions set\.
+1. Create a permissions policy named OperatorRestrictedPermissions\. For information about how to create a new IAM permissions policy, see [Create an IAM Policy \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) in the IAM User Guide\. Create the policy on the JSON tab, and specify the following permissions set\.
 
    ```
    {
@@ -60,7 +60,7 @@ This section describes how to create an IAM test user account with restricted pe
    }
    ```
 
-1. Create a new IAM user account named AutomationRestrictedOperator\. For information about how to create a new IAM user, see [Creating IAM Users \(Console\) ](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) in the IAM User Guide\. When prompted, choose **Attach existing policies directly**, and choose the policy you just created\.
+1. Create a new IAM user account named AutomationRestrictedOperator\. For information about how to create a new IAM user, see [Creating IAM Users \(Console\) ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) in the IAM User Guide\. When prompted, choose **Attach existing policies directly**, and choose the policy you just created\.
 
 1. Make a note of the user name, password, and the **Console login link**\. You will log into this account later in this topic\.
 

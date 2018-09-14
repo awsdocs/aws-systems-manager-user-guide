@@ -26,6 +26,16 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
 **Note**  
 If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN, then the system uses alias/aws/ssm \(Default\), which is the default KMS CMK for Systems Manager\. If you don't want to use this key, then you can choose a custom key\. For more information, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
+When creating a secure string parameter in the console by using the `key-id` parameter with either a custom KMS CMS alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
+
+     ```
+     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
+     ```
+Here is an alias name example:  
+
+     ```
+     alias/MyAliasName
+     ```
 
 1. In the **Value** box, type a value\. For example, type `MyFirstParameter`\. If you chose **Secure String**, the value is masked as you type\.
 
@@ -46,6 +56,16 @@ If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't 
 1. For **Type**, choose **String**, **String List**, or **Secure String**\.
 **Note**  
 If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN, then the system uses alias/aws/ssm \(Default\), which is the default KMS CMK for Systems Manager\. If you don't want to use this key, then you can choose a custom key\. For more information, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
+When creating a secure string parameter in the console by using the `key-id` parameter with either a custom KMS CMS alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
+
+     ```
+     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
+     ```
+Here is an alias name example:  
+
+     ```
+     alias/MyAliasName
+     ```
 
 1. In the **Value** box, type a value\. For example, type `MyFirstParameter`\. If you chose **Secure String**, the value is masked as you type\.
 

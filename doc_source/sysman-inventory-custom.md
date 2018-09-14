@@ -2,7 +2,7 @@
 
 You can assign any metadata you want to your instances by creating *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect Inventory by using Systems Manager, the metadata is collected with other Inventory metadata\. You can then port all Inventory metadata to a central Amazon S3 bucket by using [Resource Data Sync](sysman-inventory-resource-data-sync.html) and query the data\.
 
-To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](http://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign Custom Inventory Metadata to an Instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
+To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign Custom Inventory Metadata to an Instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
 
 ```
 {

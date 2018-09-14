@@ -1,6 +1,6 @@
 # Using Run Command to Take VSS\-Enabled Snapshots of EBS Volumes<a name="integration-vss"></a>
 
-Using Run Command, you can take application\-consistent snapshots of all [Amazon Elastic Block Store \(Amazon EBS\)](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EBSVolumes.html) volumes attached to your Amazon EC2 Windows instances\. The snapshot process uses the Windows [Volume Shadow Copy Service \(VSS\)](https://technet.microsoft.com/en-us/library/ee923636(v=ws.10).aspx) to take image\-level backups of VSS\-aware applications, including data from pending transactions between these applications and the disk\. Furthermore, you don't need to shut down your instances or disconnect them when you need to back up all attached volumes\. 
+Using Run Command, you can take application\-consistent snapshots of all [Amazon Elastic Block Store \(Amazon EBS\)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EBSVolumes.html) volumes attached to your Amazon EC2 Windows instances\. The snapshot process uses the Windows [Volume Shadow Copy Service \(VSS\)](https://technet.microsoft.com/en-us/library/ee923636(v=ws.10).aspx) to take image\-level backups of VSS\-aware applications, including data from pending transactions between these applications and the disk\. Furthermore, you don't need to shut down your instances or disconnect them when you need to back up all attached volumes\. 
 
 There is no additional cost to use VSS\-enabled EBS snapshots\. You only pay for EBS snapshots created by the backup process\. For more information, see [How is my EBS snapshot bill calculated?](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-snapshot-billing/)
 
@@ -100,7 +100,7 @@ Use the following procedure to create an IAM role for VSS\-enabled snapshots\. T
 
 1. Choose **Attach policy**\.
 
-1. Attach this role to the instances for which you want to create VSS\-enabled EBS snapshots\. For more information, see [Attaching an IAM Role to an Instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
+1. Attach this role to the instances for which you want to create VSS\-enabled EBS snapshots\. For more information, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
 
 ### Download and Install VSS Components for Systems Manager<a name="integration-vss-package"></a>
 

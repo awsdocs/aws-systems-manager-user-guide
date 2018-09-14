@@ -8,7 +8,7 @@ You can move labels from one version of a parameter to another version\. For exa
 
 Parameter labels are a lightweight alternative to parameter tags\. Your organization might have strict guidelines for tags that must be applied to different AWS resources\. In contrast, a label is simply a text association for a specific version of a parameter\. 
 
-Similar to tags, you can query parameters by using labels\. You can view a list of specific parameter versions that all use the same label if you query your parameter set by using the [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action, as described later in this section\.
+Similar to tags, you can query parameters by using labels\. You can view a list of specific parameter versions that all use the same label if you query your parameter set by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action, as described later in this section\.
 
 **Label Requirements and Restrictions**
 
@@ -218,7 +218,7 @@ If the output shows the label you created in the `InvalidLabels` list, then the 
 
 ### View Labels for a Parameter<a name="sysman-paramstore-labels-cli-view"></a>
 
-You can use the [GetParameterHistory](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) API action to view the full history and all labels attached to a specified parameter\. Or, you can use the [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters that are assigned a specific label\. 
+You can use the [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) API action to view the full history and all labels attached to a specified parameter\. Or, you can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters that are assigned a specific label\. 
 
 **To view labels for a parameter by using the GetParameterHistory API action**
 
@@ -271,7 +271,7 @@ Parameters are only available in the Region where they were created\. If you don
 
 ### View a List of Parameters that are Assigned a Label<a name="sysman-paramstore-labels-cli-view-param"></a>
 
-You can use the [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters in a path that are assigned a specific label\. 
+You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters in a path that are assigned a specific label\. 
 
 Execute the following command to view a list of parameters in a path that are assigned a specific label\.
 

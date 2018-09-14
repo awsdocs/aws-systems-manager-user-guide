@@ -5,9 +5,10 @@ A Systems Manager Automation document defines the actions that Systems Manager p
 Automation documents are Systems Manager documents of type `Automation`, as opposed to `Command` and `Policy` documents\. Automation documents currently support schema version 0\.3\. Command and Policy documents use schema version 1\.2 or 2\.0\.
 
 **Note**  
-To view information about the actions or plugins that you can specify in a Systems Manager Automation document, see [Systems Manager Automation Document Reference](automation-actions.md)\. To view information about the plugins for all other SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
+To view information about the actions or plugins that you can specify in a Systems Manager Automation document, see [Systems Manager Automation Actions Reference](automation-actions.md)\. To view information about the plugins for all other SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
 
 **Topics**
 + [Working with Predefined Automation Documents](automation-awsdocs.md)
 + [Creating Dynamic Automation Workflows](automation-branchdocs.md)
 + [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)
++ [Systems Manager Automation Documents Reference](automation-documents-reference.md)

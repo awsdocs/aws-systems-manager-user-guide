@@ -4,9 +4,6 @@ Managing dozens or hundreds of parameters as a flat list is time consuming and p
 
 You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes\. 
 
-**Important**  
-Only the value of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. Therefore, to make it less obvious which parameters contain passwords, we recommend using a naming system that avoids the actual word "password" in your parameter names\. For illustration, however, we are using the sample parameter name *my\-password* in our examples\.
-
 Here is an example that uses three hierarchy levels in the name to identify the following:
 
 /Environment/Type of computer/Application/Data
@@ -71,7 +68,7 @@ You are not required to specify a parameter hierarchy\. You can create parameter
 For an example of how to work with parameter hierarchies, see [Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)\.
 
 **Querying Parameters in a Hierarchy**  
-Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you execute the following command from the AWS CLI, the system returns all parameters in the IIS level\.
+Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you execute the following command from the AWS CLI, the system returns all parameters in the IIS level\.
 
 ```
 aws ssm get-parameters-by-path --path /Dev/Web/IIS

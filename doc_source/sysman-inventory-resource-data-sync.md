@@ -3,7 +3,7 @@
 The following walkthrough describes how to create a Resource Data Sync configuration by using the AWS CLI\. A Resource Data Sync automatically ports Inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new Inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a Resource Data Sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 
 **Note**  
-This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](http://docs.aws.amazon.com/kms/latest/developerguide/)\.
+This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
 Before you start this walkthrough, you must collect Inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect Inventory data, see [Walkthrough: Use the AWS CLI to Collect Inventory](sysman-inventory-cliwalk.md)\.
@@ -34,7 +34,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service Getting Started Guide\. Make a note of the bucket name and the AWS Region where you created it\.
+1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service Getting Started Guide\. Make a note of the bucket name and the AWS Region where you created it\.
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
@@ -154,7 +154,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 
 **Working with the Data in Amazon Athena**
 
-The following section describes how to view and query the data in Amazon Athena\. Before you begin, we recommend that you learn about Athena\. For more information, see [What is Amazon Athena?](http://docs.aws.amazon.com/athena/latest/ug/what-is.html) and [Working with Data](http://docs.aws.amazon.com/athena/latest/ug/work-with-data.html) in the *Amazon Athena User Guide*\.
+The following section describes how to view and query the data in Amazon Athena\. Before you begin, we recommend that you learn about Athena\. For more information, see [What is Amazon Athena?](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) and [Working with Data](https://docs.aws.amazon.com/athena/latest/ug/work-with-data.html) in the *Amazon Athena User Guide*\.
 
 **To view and query the data in Amazon Athena**
 
@@ -329,8 +329,8 @@ The following section provides an overview with links for building a visualizati
 
 1. Sign up for [Amazon QuickSight](https://quicksight.aws/) and then log in to the QuickSight console\.
 
-1. Create a data set from the AWS\_Application table and any other tables you created\. For more information, see [Creating a Data Set Using Amazon Athena Data](http://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html)\.
+1. Create a data set from the AWS\_Application table and any other tables you created\. For more information, see [Creating a Data Set Using Amazon Athena Data](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html)\.
 
-1. Join tables\. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables\. For more information about joining tables, see [Joining Tables](http://docs.aws.amazon.com/quicksight/latest/user/joining-tables.html)\.
+1. Join tables\. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables\. For more information about joining tables, see [Joining Tables](https://docs.aws.amazon.com/quicksight/latest/user/joining-tables.html)\.
 
-1. Build a visualization\. For more information, see [Working with Amazon QuickSight Visuals](http://docs.aws.amazon.com/quicksight/latest/user/working-with-visuals.html)\.
+1. Build a visualization\. For more information, see [Working with Amazon QuickSight Visuals](https://docs.aws.amazon.com/quicksight/latest/user/working-with-visuals.html)\.

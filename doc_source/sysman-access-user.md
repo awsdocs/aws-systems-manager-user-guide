@@ -10,4 +10,4 @@ If your IAM user account, group, or role is assigned administrator permissions, 
 Access to Inventory and Compliance are covered by the next policies\.
 + **To access Actions and Shared Resources**: You must add either the AmazonSSMFullAccess policy or the AmazonSSMReadOnlyAccess policy\.
 
-For information about how to change permissions for an IAM user account, group, or role, see [Changing Permissions for an IAM User](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
+For information about how to change permissions for an IAM user account, group, or role, see [Changing Permissions for an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.

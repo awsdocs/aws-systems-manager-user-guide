@@ -44,8 +44,6 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
    ```
    aws ssm put-parameter --name "/MyService/Test/my-password" --value "p#sW*rd33" --allowed-pattern ".{8,20}" --type SecureString
    ```
-**Important**  
-Only the value of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. Therefore, to make it less obvious which parameters contain passwords, we recommend using a naming system that avoids the actual word "password" in your parameter names\. For illustration, however, we are using the sample parameter name *my\-password* in our examples\.
 
 1. Execute the following commands to create more parameters that use the hierarchy structure from the previous step\.
 

@@ -8,7 +8,7 @@ The final step of the Automation workflow in this example uses an AWS Lambda fun
 Complete the following tasks before you begin this example\.
 + Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-simpatch.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** Automation document created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting Up Automation](automation-setup.md)\.
-+ If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](http://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
++ If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
 ## Task 1: Create an IAM Role for AWS Lambda<a name="automation-asg1"></a>
 
@@ -419,4 +419,4 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 1. Terminate one or more instances in your Auto Scaling group\. Replacement instances will be launched with the new AMI ID\.
 
 **Note**  
-You can further automate deployment of the new AMI by editing the Lambda function to gracefully terminate instances\. You can also invoke your own Lambda function and utilize the ability of AWS CloudFormation to update Auto Scaling groups\. For more information, see [UpdatePolicy Attribute](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html)\.
+You can further automate deployment of the new AMI by editing the Lambda function to gracefully terminate instances\. You can also invoke your own Lambda function and utilize the ability of AWS CloudFormation to update Auto Scaling groups\. For more information, see [UpdatePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html)\.

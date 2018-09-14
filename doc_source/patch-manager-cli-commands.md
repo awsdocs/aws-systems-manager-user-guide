@@ -4,7 +4,7 @@ The section includes examples of CLI commands that you can use to perform Patch 
 
 For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Walkthrough: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 
-For more information about using the CLI forAWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
+For more information about using the CLI forAWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
 **Topics**
 + [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline)

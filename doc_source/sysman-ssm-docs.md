@@ -27,7 +27,7 @@ You can tag your documents to help you quickly identify one or more documents ba
 You can make your documents public or share them with specific AWS accounts\. For more information, see [Sharing Systems Manager Documents](ssm-sharing.md)\.
 
 **SSM Document Limits**  
-For information about SSM document limits, see [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
+For information about SSM document limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Topics**
 + [Systems Manager Pre\-Defined Documents](predefined-documents.md)
@@ -39,4 +39,3 @@ For information about SSM document limits, see [AWS Systems Manager Limits](http
 + [Creating Composite Documents](composite-docs.md)
 + [Running Documents from Remote Locations](run-remote-documents.md)
 + [SSM Document Plugin Reference](ssm-plugins.md)
-+ [Systems Manager Automation Document Reference](automation-actions.md)

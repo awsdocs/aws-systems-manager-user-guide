@@ -3,7 +3,7 @@
 AWS Systems Manager is a collection of capabilities for configuring and managing your Amazon EC2 instances, on\-premises servers and virtual machines, and other AWS resources at scale\. Systems Manager includes a unified interface that allows you to easily centralize operational data and automate tasks across your AWS resources\. Systems Manager shortens the time to detect and resolve operational problems in your infrastructure\. Systems Manager gives you a complete view of your infrastructure performance and configuration, simplifies resource and application management, and makes it easy to operate and manage your infrastructure at scale\. 
 
 **Note**  
-AWS Systems Manager was formerly known as "Amazon EC2 Systems Manager" and "Amazon Simple Systems Manager"\. 
+AWS Systems Manager was formerly known as "Amazon EC2 Systems Manager" and "Amazon Simple Systems Manager"\. The Amazon EC2 console includes Systems Manager features and services in the left navigation pane under the headings **SYSTEMS MANAGER SERVICES** and **SYSTEMS MANAGER SHARED RESOURCES**\. The EC2 console offers access to all Systems Manager features and services, but we encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers easy access to all Systems Manager services, data, and shared resources\. This console also includes dashboards and easy access to related services that work with Systems Manager to help you manage your AWS resources\.
 
 ## How It Works<a name="how-it-works"></a>
 
@@ -45,7 +45,7 @@ Systems Manager provides the following capabilities for centrally viewing data a
 ------
 #### [ CloudWatch Dashboards ]
 
-[Amazon CloudWatch Dashboards](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
+[Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
 
 ------
 #### [ Inventory Management ]
@@ -72,6 +72,11 @@ Use [Systems Manager Automation](systems-manager-automation.md) to automate comm
 #### [ Run Command ]
 
 Use [Systems Manager Run Command](execute-remote-commands.md) to remotely and securely manage the configuration of your managed instances at scale\. Use Run Command to perform on\-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances\. 
+
+------
+#### [ Session Manager ]
+
+Use [Session Manager](session-manager.md) to manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your Amazon EC2 instances\. 
 
 ------
 #### [ Patch Management ]
@@ -146,8 +151,8 @@ We welcome your feedback\. To contact us, visit [the AWS Systems Manager forum](
 ## Related Content<a name="related-content"></a>
 
 Systems Manager is also documented in the following references\.
-+ [Amazon EC2 Systems Manager API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/)
-+ [Systems Manager AWS Tools for Windows PowerShell](http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
-+ [Systems Manager AWS CLI Reference](http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
++ [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/)
++ [Systems Manager AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
++ [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 +  [AWS SDKs](http://aws.amazon.com/tools/#SDKs)
-+ [AWS Systems Manager Limits](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)
++ [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)

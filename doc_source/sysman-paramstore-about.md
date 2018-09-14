@@ -59,7 +59,7 @@ SSM documents currently don't support references to Secure String parameters\. T
 **AWS CLI**
 
 ```
-$value=aws ssm get-parameters --names parameter_name --with-decryption
+value=$(aws ssm get-parameters --names parameter_name --with-decryption)
 ```
 
 ```
@@ -84,10 +84,10 @@ A Secure String parameter is any sensitive data that needs to be stored and refe
 + You want to be able to audit when sensitive data is accessed \(AWS CloudTrail\)\.
 + You want AWS\-level encryption for your sensitive data and you want to bring your own encryption keys to manage access\.
 
-If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
+If you choose the Secure String data type when you create your parameter, then AWS KMS encrypts the parameter value\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Important**  
-Only the _value_ of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\. While avoiding the actual word "password" may initially make it less obvious which parameters hold secrets, this does **not** increase protection for the _value_.  Future maintenance should be considered if you do decide to obscure parameter names\.
+Only the *value* of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
 
 ### Create a Secure String Parameter Using the Default KMS CMK<a name="sysman-param-defaultkms"></a>
 
@@ -112,12 +112,16 @@ If you want to use a custom KMS CMK instead of the default CMK assigned to your 
 + Alias ARN example:
 
   `arn:aws:kms:us-east-2:123456789012:alias/MyAliasName`
+**Note**  
+When creating a secure string parameter in the console by using a custom KMS CMK, you must specify the prefix `alias/` before the alias name\.
 + Globally Unique Key ID example:
 
   `12345678-1234-1234-1234-123456789012`
 + Alias Name example:
 
   `alias/MyAliasName`
+**Note**  
+When creating a secure string parameter in the console by using a custom KMS CMK, you must specify the prefix `alias/` before the alias name\.
 
 You can create a custom AWS KMS CMK from the AWS CLI by using the following commands:
 
@@ -134,11 +138,11 @@ aws ssm put-parameter --name parameter_name --value "parameter value" --type Sec
 **Note**  
 You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the Secure String data type\. If you do choose Secure String, your parameter will be doubly encrypted\.
 
-By default, all Secure String values are displayed as cipher text\. To decrypt a Secure String value, a user must have permission to call the KMS [Decrypt](http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring KMS access control, see [Authentication and Access Control for AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
+By default, all Secure String values are displayed as cipher text\. To decrypt a Secure String value, a user must have permission to call the KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
 
 ### Using Secure String Parameters With Other AWS Services<a name="sysman-paramstore-securelam"></a>
 
-You can also use Secure String parameters with other AWS services\. In the following example, the Lambda function retrieves a Secure String parameter by using the [GetParameters](http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.
+You can also use Secure String parameters with other AWS services\. In the following example, the Lambda function retrieves a Secure String parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.
 
 ```
 from __future__ import print_function

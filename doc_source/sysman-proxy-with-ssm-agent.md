@@ -18,7 +18,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 
    ```
    env http_proxy=http://hostname:port
-   env https_proxy=http://hostname:port
+   env https_proxy=http(s)://hostname:port
    env no_proxy=169.254.169.254
    ```
 **Note**  
@@ -59,7 +59,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
    ```
    [Service]
    Environment="http_proxy=http://hostname:port"
-   Environment="https_proxy=http://hostname:port"
+   Environment="https_proxy=http(s)://hostname:port"
    Environment="no_proxy=169.254.169.254"
    ```
 **Note**  

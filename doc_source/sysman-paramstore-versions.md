@@ -149,7 +149,7 @@ Use the following procedure to create a new version of a parameter by using the 
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\. Systems Manager is currently available in the following [Regions](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\. Systems Manager is currently available in the following [Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2

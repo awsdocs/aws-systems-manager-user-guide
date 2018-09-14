@@ -1,8 +1,10 @@
 # Installing and Configuring SSM Agent<a name="ssm-agent"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your Amazon EC2 instances and your hybrid instances that are configured for Systems Manager \(hybrid instances\)\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. SSM Agent sends status and execution information back to the Systems Manager service by using the EC2 Messaging service\. If you monitor traffic, you will see your instances communicating with ec2messages\.\* endpoints\. For more information, see [Reference: Ec2messages and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your Amazon EC2 instances and your hybrid instances that are configured for Systems Manager \(hybrid instances\)\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. SSM Agent sends status and execution information back to the Systems Manager service by using the EC2 Messaging service\. If you monitor traffic, you will see your instances communicating with ec2messages\.\* endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
 
-SSM Agent is installed, by default, on the following Amazon EC2 Amazon Machine Image \(AMIs\): 
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called ssm\-user and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\) every time the agent starts\. This ssm\-user is the default OS user when a Session Manager session is started, and the password for this user is reset on every session\. You can change the permissions by moving ssm\-user to a less\-privileged group or by changing the `sudoers` file\. The ssm\-user account is not removed from the system when SSM Agent is uninstalled\.
+
+SSM Agent is installed, by default, on the following Amazon EC2 Amazon Machine Images \(AMIs\): 
 + Windows Server \(all SKUs\)
 + Amazon Linux
 + Amazon Linux 2

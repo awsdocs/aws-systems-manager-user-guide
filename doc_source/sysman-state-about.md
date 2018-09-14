@@ -26,7 +26,7 @@ If you create a new association that is scheduled to run while an earlier associ
 
 1. Systems Manager reports the status of the request for each instance targeted by the request\. 
 
-   You can view status details in the EC2 console or by using the [DescribeInstanceAssociationsStatus](http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceAssociationsStatus.html) API action\. If you choose to write the output of the command to S3 when you create an association, you can also view the output in the Amazon S3 bucket you specify\.
+   You can view status details in the EC2 console or by using the [DescribeInstanceAssociationsStatus](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceAssociationsStatus.html) API action\. If you choose to write the output of the command to S3 when you create an association, you can also view the output in the Amazon S3 bucket you specify\.
 
 1. After you create the association, State Manager reapplies the state according to the schedule defined in the association\. 
 

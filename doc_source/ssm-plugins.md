@@ -1,6 +1,6 @@
 # SSM Document Plugin Reference<a name="ssm-plugins"></a>
 
-This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation Document Reference](automation-actions.md)\.
+This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation Actions Reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of a Systems Manager document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
@@ -129,7 +129,7 @@ Required: No
 
 ## aws:cloudWatch<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 You can export and monitor the following data types:
 
@@ -310,7 +310,7 @@ Required: Yes
 **Region**  
 The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [AWS Systems Manager](http://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) and [Amazon CloudWatch Logs](http://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *AWS General Reference*\.   
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) and [Amazon CloudWatch Logs](https://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *AWS General Reference*\.   
 Required: Yes
 
 **SecretKey**  
@@ -451,7 +451,7 @@ Example: "dnsIpAddresses": \["198\.51\.100\.1","198\.51\.100\.2"\]
 
 ### Examples<a name="domainJoin-examples"></a>
 
-For examples, see [Joining a Windows Server Instance to an AWS Directory Service Domain](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+For examples, see [Joining a Windows Server Instance to an AWS Directory Service Domain](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 ## aws:downloadContent<a name="aws-downloadContent"></a>
 
@@ -895,7 +895,7 @@ Required: No
 
 ## aws:updateAgent<a name="aws-updateagent"></a>
 
-Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateagent-syntax"></a>
 

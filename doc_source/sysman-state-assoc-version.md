@@ -3,7 +3,7 @@
 You can edit an association to specify a new name, schedule, or targets\. You can also choose to write the output of the command to an Amazon S3 bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedure\.
 
 **Note**  
-This procedure requires that you have write access to an existing S3 bucket\. If you have not used S3 before, be aware that you will incur charges for using S3\. For information about how to create a bucket, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
+This procedure requires that you have write access to an existing S3 bucket\. If you have not used S3 before, be aware that you will incur charges for using S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
