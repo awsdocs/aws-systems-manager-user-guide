@@ -1067,7 +1067,7 @@ Required: No
 Invokes the specified Lambda function\.
 
 **Input**  
-This action supports most invoke parameters for the Lambda service\. For more information, see [Invoke](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
+This action supports most invoked parameters for the Lambda service\. For more information, see [Invoke](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
 
 ```
 {

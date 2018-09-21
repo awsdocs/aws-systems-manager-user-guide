@@ -108,7 +108,7 @@ Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied t
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws:ssm:::session-manager/${aws:username}-*"
+                "arn:aws:ssm:::session/${aws:username}-*"
             ]
         }
     ]

@@ -4,7 +4,7 @@ This topic includes information about how to troubleshoot common errors or probl
 
 **UnsupportedAgent**
 
-If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Example: Update the SSM Agent](rc-console.md#rc-console-agentexample)\.
+If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 **Skipped**
 

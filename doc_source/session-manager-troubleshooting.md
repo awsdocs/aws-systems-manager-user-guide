@@ -26,14 +26,14 @@ Use the following information to help you troubleshoot problems with Session Man
 
 **Problem 2**: An instance you want to connect is in the list on the **Start a session** console page, but the page reports that "The instance you selected is not configured to use Session Manager\." 
 + **Solution A**: The instance has been configured for use with the AWS Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
-+ **Solution B**: The instance is not running a version of SSM Agent that supports Session Manager\. Update SSM Agent on the instance to version 2\.3\.50\.0 or later\. 
++ **Solution B**: The instance is not running a version of SSM Agent that supports Session Manager\. Update SSM Agent on the instance to version 2\.3\.68\.0 or later\. 
 
   Update SSM Agent manually on an instance by following the steps in [Install and Configure SSM Agent on Windows Instances](sysman-install-win.md) or [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md), depending on the operating system\. 
 
-  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Example: Update the SSM Agent](rc-console.md#rc-console-agentexample)\.
+  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 **Tip**  
 To always keep your agent up to date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
-Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Walkthrough: Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
+Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 Run `AWS-UpdateSSMAgent` as part of a Maintenance Window\. For information about working with Maintenance Windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(CLI\)](maintenance-windows-cli-tutorials-create.md)\.
 
 ## Session Manager Plugin Not Found<a name="plugin-not-found"></a>

@@ -14,29 +14,29 @@ You can restrict access to specific instances by creating an IAM user policy tha
 
 ```
 {
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "ssm:StartSession"
-         ],
-         "Resource":[
-            "arn:aws:ec2:us-east-2:123456789012:instance/i-1234567890EXAMPLE",
-            "arn:aws:ec2:us-east-2:123456789012:instance/i-abcdefghijEXAMPLE",
-            "arn:aws:ec2:us-east-2:123456789012:instance/i-0e9d8c7b6aEXAMPLE"
-         ]},
-	"Effect":"Allow",
-         "Action":[
-            "ssm:TerminateSession"
-         ],
-         "Resource":[
-            "arn:aws:ssm:::session/${aws:username}-*"
-         ]
-      }
-
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-east-2:123456789012:instance/i-1234567890EXAMPLE",
+                "arn:aws:ec2:us-east-2:123456789012:instance/i-abcdefghijEXAMPLE",
+                "arn:aws:ec2:us-east-2:123456789012:instance/i-0e9d8c7b6aEXAMPLE"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:::session/${aws:username}-*"
+            ]
+        }
+    ]
 }
 ```
 

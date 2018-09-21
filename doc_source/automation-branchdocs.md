@@ -30,7 +30,8 @@ This section includes different examples of how to use dynamic workflow options 
          "type":"String",
          "description":"(Required) Comma separated list of instances."
       }
-   }   "mainSteps":[
+   },
+   "mainSteps":[
       {
          "name":"InstallMsiPackage",
          "action":"aws:runCommand",
@@ -38,11 +39,7 @@ This section includes different examples of how to use dynamic workflow options 
          "onFailure":"Abort",
          "inputs":{
             "InstanceIds":[
-               {
-                  {
-                     instanceIds
-                  }
-               }
+               "i-1234567890EXAMPLE,i-abcdefghiEXAMPLE,i-456jkl321EXAMPLE"
             ],
             "DocumentName":"AWS-RunPowerShellScript",
             "Parameters":{

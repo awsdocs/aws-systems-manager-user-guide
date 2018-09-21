@@ -1,0 +1,45 @@
+# Systems Manager Automation Document Details Reference<a name="automation-documents-reference-details"></a>
+
+This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
+
+**Note**  
+This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
+
+**Topics**
++ [AWS\-ASGEnterStandby](automation-aws-asgenterstandby.md)
++ [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)
++ [AWS\-AttachEBSVolume](automation-aws-attachebsvolume.md)
++ [AWS\-AttachIAMToInstance](automation-aws-attachiamtoinstance.md)
++ [AWS\-ConfigureCloudWatchOnEC2Instance](automation-aws-configurecloudwatchonec2instance.md)
++ [AWS\-ConfigureS3BucketLogging](automation-aws-configures3bucketlogging.md)
++ [AWS\-Configures3BucketVersioning](automation-aws-configures3bucketversioning.md)
++ [AWS\-CopySnapshot](automation-aws-copysnapshot.md)
++ [AWS\-CreateDynamoDBBackup](automation-aws-createdynamodbbackup.md)
++ [AWS\-CreateImage](automation-aws-createimage.md)
++ [AWS\-CreateManagedLinuxInstance](automation-aws-createmanagedlinuxinstance.md)
++ [AWS\-CreateManagedWindowsInstance](automation-aws-createmanagedwindowsinstance.md)
++ [AWS\-CreateSnapshot](automation-aws-createsnapshot.md)
++ [AWS\-DeleteCloudFormationStack](automation-aws-deletecloudformationstack.md)
++ [AWS\-DeleteDynamoDBBackup](automation-aws-deletedynamodbbackup.md)
++ [AWS\-DeleteDynamoDBTableBackups](automation-aws-deletedynamodbtablebackups.md)
++ [AWS\-DeleteEBSVolumeSnapshots](automation-aws-deleteebsvolumesnapshots.md)
++ [AWS\-DeleteImage](automation-aws-deleteimage.md)
++ [AWS\-DeleteSnapshot](automation-aws-deletesnapshot.md)
++ [AWS\-DetachEBSVolume](automation-aws-detachebsvolume.md)
++ [AWS\-Disables3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
++ [AWS\-Enables3BucketEncryption](automation-aws-enables3bucketencryption.md)
++ [AWS\-PatchASGInstance](automation-aws-patchasginstance.md)
++ [AWS\-RebootRDSInstance](automation-aws-rebootrdsinstance.md)
++ [AWS\-ResizeInstance](automation-aws-resizeinstance.md)
++ [AWS\-RestartEC2Instance](automation-aws-restartec2instance.md)
++ [AWS\-SetupInventory](automation-aws-setupinventory.md)
++ [AWS\-SetupManagedInstance](automation-aws-setupmanagedinstance.md)
++ [AWS\-SetupManagedRoleOnEC2Instance](automation-aws-setupmanagedroleonec2instance.md)
++ [AWS\-StartEC2Instance](automation-aws-startec2instance.md)
++ [AWS\-StartRDSInstance](automation-aws-startrdsinstance.md)
++ [AWS\-StopEC2Instance](automation-aws-stopec2instance.md)
++ [AWS\-StopRDSInstance](automation-aws-stoprdsinstance.md)
++ [AWS\-TerminateEC2Instance](automation-aws-terminateec2instance.md)
++ [AWS\-UpdateCloudFormationStack](automation-aws-updatecloudformationstack.md)
++ [AWS\-UpdateLinuxAmi](automation-aws-updatelinuxami.md)
++ [AWS\-UpdateWindowsAmi](automation-aws-updatewindowsami.md)

@@ -4,3 +4,4 @@ This section includes information to help you work with Systems Manager Automati
 
 **Topics**
 + [Systems Manager Automation Actions Reference](automation-actions.md)
++ [Systems Manager Automation Document Details Reference](automation-documents-reference-details.md)

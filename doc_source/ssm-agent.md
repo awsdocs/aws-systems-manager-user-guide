@@ -11,10 +11,10 @@ SSM Agent is installed, by default, on the following Amazon EC2 Amazon Machine I
 + Ubuntu Server 16\.04
 + Ubuntu Server 18\.04
 
-You must manually install the agent on Amazon EC2 instances created from other Linux AMIs and on Linux servers or virtual machines in your on\-premises environment\. 
+You must manually install the SSM Agent on Amazon EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on servers or virtual machines in your on\-premises environment\. For more information, see [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)\.
 
 **Note**  
-The SSM Agent download and installation process for hybrid instances is different than Amazon EC2 instances\. For more information, see [Install SSM Agent on Servers and VMs in a Windows Hybrid Environment](sysman-install-managed-win.md)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. AMIs that include SSM Agent by default can take up to two weeks to publish an updated AMI with the newest version of SSM Agent\. To ensure that your instances are running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
  For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring Instances with AWS Systems Manager](monitoring.md)\.
 

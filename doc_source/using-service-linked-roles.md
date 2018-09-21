@@ -73,26 +73,4 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleFor
 
 ## Supported Regions for Systems Manager Service\-Linked Roles<a name="slr-regions"></a>
 
-Systems Manager supports using service\-linked roles in the following regions\.
-
-
-****  
-
-| Region name | Region identity | Support in Systems Manager | 
-| --- | --- | --- | 
-| US East \(N\. Virginia\) | us\-east\-1 | Yes | 
-| US East \(Ohio\) | us\-east\-2 | Yes | 
-| US West \(N\. California\) | us\-west\-1 | Yes | 
-| US West \(Oregon\) | us\-west\-2 | Yes | 
-| Asia Pacific \(Mumbai\) | ap\-south\-1 | Yes | 
-| Asia Pacific \(Osaka\-Local\) | ap\-northeast\-3 | Yes | 
-| Asia Pacific \(Seoul\) | ap\-northeast\-2 | Yes | 
-| Asia Pacific \(Singapore\) | ap\-southeast\-1 | Yes | 
-| Asia Pacific \(Sydney\) | ap\-southeast\-2 | Yes | 
-| Asia Pacific \(Tokyo\) | ap\-northeast\-1 | Yes | 
-| Canada \(Central\) | ca\-central\-1 | Yes | 
-| EU \(Frankfurt\) | eu\-central\-1 | Yes | 
-| EU \(Ireland\) | eu\-west\-1 | Yes | 
-| EU \(London\) | eu\-west\-2 | Yes | 
-| EU \(Paris\) | eu\-west\-3 | Yes | 
-| South America \(São Paulo\) | sa\-east\-1 | Yes | 
+Systems Manager supports using service\-linked roles in all of the regions where the service is available\. For more information, see [AWS Regions and Endpoints for Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.

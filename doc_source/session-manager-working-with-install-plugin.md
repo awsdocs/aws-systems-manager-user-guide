@@ -3,7 +3,7 @@
 If you want to use the AWS CLI to start and terminate sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
 **Current Session Manager Plugin Version**  
-The plugin is updated occasionally with enhanced functionality\. The current version is **1\.0\.0**\. 
+The plugin is updated occasionally with enhanced functionality\. The current version is **1\.0\.37\.0**\. 
 
 To see if you have the latest version, run the following command in the AWS CLI:
 
@@ -24,6 +24,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install the Session Manager Plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager Plugin Installation](#install-plugin-verify)
 + [\(Optional\) Enable Session Manager Plugin Logging](#install-plugin-configure-logs)
++ [Session Manager Plugin Release History](#plugin-version-history)
 
 ## Install the Session Manager Plugin on Windows<a name="install-plugin-windows"></a>
 
@@ -32,7 +33,7 @@ You can install the Session Manager plugin on Microsoft Windows Vista or later u
 When updates are released, you must repeat the installation process to get the latest version of the Session Manager plugin\.
 
 **Note**  
-For best results, we recommend starting sessions on Windows clients using the Windows PowerShell application\.
+For best results, we recommend starting sessions on Windows clients using the Windows PowerShell application version 5 or later\. On Microsoft Windows 10, the Command Prompt also provides reliable support for Session Manager operations\.
 
 **To install the Session Manager plugin using the EXE installer**
 
@@ -243,3 +244,17 @@ Do not change the file names or logging will not work correctly\.
 If you use the specified default directory for storing logs, you must either run session commands using sudo or give the directory where the plugin is installed full read and write permissions\. To bypass these restrictions, change the location where logs are stored\.
 
 1. Save the file\.
+
+## Session Manager Plugin Release History<a name="plugin-version-history"></a>
+
+Your local machine must be running a supported version of the Session Manager plugin\. If you are running an earlier version, your Session Manager operations might not succeed\. 
+
+The current minimum supported version is 1\.0\.37\.0\. 
+
+The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
+
+
+| Version | Release date | Details | 
+| --- | --- | --- | 
+| 1\.0\.37\.0 | September 20, 2018 |  **Enhancement**: Bug fix for Windows version\.  | 
+| 1\.0\.0\.0 | September 11, 2018 |  Initial release of the Session Manager plugin\.  | 
