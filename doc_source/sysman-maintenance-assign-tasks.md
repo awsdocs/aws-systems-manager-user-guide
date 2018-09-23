@@ -10,9 +10,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 
-1. In the **Name** field, type a name for the task\.
+1. In the **Name** field, enter a name for the task\.
 
-1. In the **Description** field, type a description\.
+1. In the **Description** field, enter a description\.
 
 1. From the **Document** list, choose the SSM Command or Automation document that defines the task\(s\) to run\.
 
@@ -57,9 +57,9 @@ If a service\-linked role has already been created for your account, choose **Us
 
 1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 
-1. In the **Task Name** field, type a name for the task\.
+1. In the **Task Name** field, enter a name for the task\.
 
-1. In the **Description** field, type a description\.
+1. In the **Description** field, enter a description\.
 
 1. From the **Document** list, choose the SSM Command or Automation document that defines the task\(s\) to run\.
 

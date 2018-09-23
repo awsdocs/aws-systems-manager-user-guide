@@ -96,7 +96,7 @@ In the Systems Manager console, this ARN is selected in the ** IAM Role** list o
 
    1. Choose **Review policy**\.
 
-   1. In the **Name** box, type a name to identify this as a policy to allow sending Amazon SNS notifications\.
+   1. In the **Name** box, enter a name to identify this as a policy to allow sending Amazon SNS notifications\.
 
 1. Choose **Create policy**\.
 
@@ -128,7 +128,7 @@ Type **passr** in the filter box to quickly locate **PassRole**\.
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, type a name in the **Name** box to identify this PassRole policy, and then choose **Create policy**\.
+1. On the **Review policy** page, enter a name in the **Name** box to identify this PassRole policy, and then choose **Create policy**\.
 
 **To assign the IAM PassRole policy to an IAM group**
 

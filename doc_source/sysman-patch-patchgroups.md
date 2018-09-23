@@ -1,4 +1,4 @@
-# Organize Instances into Patch Groups<a name="sysman-patch-patchgroups"></a>
+# About Patch Groups<a name="sysman-patch-patchgroups"></a>
 
 A *patch group* is an optional means of organizing instances for patching\. For example, you can create patch groups for different operating systems \(Linux or Windows\), different environments \(Development, Test, and Production\), or different server functions \(web servers, file servers, databases\)\. Patch groups can help you avoid deploying patches to the wrong set of instances\. They can also help you avoid deploying patches before they have been adequately tested\.
 
@@ -13,4 +13,4 @@ When the system runs the task to apply a patch baseline to an instance, the serv
 
 For example, let's say an instance is tagged with `key=Patch Group` and `value=Front-End Servers`\. When Patch Manager runs the **AWS\-RunPatchBaseline** task on that instance, the service checks to see which patch baseline is registered with Front\-End Servers\. If a patch baseline is found, the system uses that baseline\. If no patch baseline is registered for Front\-End Servers, the system uses the default patch baseline\. 
 
-To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Walkthrough: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
+To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.

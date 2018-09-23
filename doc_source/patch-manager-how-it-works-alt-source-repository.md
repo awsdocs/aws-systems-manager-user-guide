@@ -8,13 +8,13 @@ For example, if your Ubuntu Server fleet includes both Ubuntu Server 14\.04 and 
 
 For a list of example scenarios for using this option, see [Sample Uses for Alternative Patch Source Repositories](#patch-manager-how-it-works-alt-source-repository-examples) later in this topic\.
 
-For information about default and custom patch baselines, see [Verify Default Patch Baselines or Create a Custom Patch Baseline](sysman-patch-baselines.md)\.
+For information about default and custom patch baselines, see [Default and Custom Patch Baselines](sysman-patch-baselines.md)\.
 
 **Note**  
 Running a custom patch baseline that specifies alternative patch repositories on an instance doesn't change the default repository configured for the instance\.
 
 **Using the Console**  
-To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a Default Patch Baseline](sysman-patch-consolewalk.md#sysman-patch-baseline-console), part of the [Walkthrough: Patch a Server Environment \(Console\)](sysman-patch-consolewalk.md) topic\.
+To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a Default Patch Baseline](sysman-patch-baseline-console.md)\.
 
 **Using Other Tools to Create Patch Baselines**  
 Use the `sources` option with other tools when you create a patch baseline\. 

@@ -32,10 +32,10 @@ mainSteps:
 ```
 
 Here is a sample Automation document in YAML that uses all three actions\. The document does the following:
-+ Uses the aws:executeAwsApi action to call the Amazon EC2 DescribeImages API action to get the name of a specific Windows Server 2016 AMI\. It outputs the image ID as `ImageId`\.
-+ Uses the aws:executeAwsApi action to call the Amazon EC2 RunInstances API action to launch one instance that uses the `ImageId` from the previous step\. It outputs the instance ID as as `InstanceId`\.
-+ Uses the aws:waitForAwsResourceProperty action to poll the Amazon EC2 DescribeInstanceStatus API action to wait for the instance to reach the `running` state\. The action times out in 60 seconds\. The step times out if the instance state failed to reach `running` after 60 seconds of polling\.
-+ Uses the aws:assertAwsResourceProperty action to call the Amazon EC2 DescribeInstanceStatus API action to assert that the instance is in the `running` state\. The step fails if the instance state is not `running`\.
++ Uses the aws:executeAwsApi action to call the Amazon EC2 DescribeImages API action to get the name of a specific Windows Server 2016 AMI\. It outputs the image ID number\.
++ Uses the aws:executeAwsApi action to call the Amazon EC2 RunInstances API action to launch one instance that uses the AMI ID from the previous step\. It outputs the instance ID number\.
++ Uses the aws:waitForAwsResourceProperty action to call the Amazon EC2 DescribeInstanceStatus API action to wait for the instance to start\. It outputs the instance state\.
++ Uses the aws:assertAwsResourceProperty action to call the Amazon EC2 DescribeInstanceStatus API action to ensure that the instance started\. It outputs the instance ID\.
 
 ```
 ---
@@ -45,12 +45,9 @@ assumeRole: "{{ AutomationAssumeRole }}"
 parameters:
   AutomationAssumeRole:
     type: String
-    description: "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf."
+    description: "(Optional) The ARN of the role that allows Automation to perform
+      the actions on your behalf."
     default: ''
-  ImageName:
-    type: String
-    description: "(Optional) Image Name to launch ec2 instance with."
-    default: "Windows_Server-2016-English-Full-Base-2018.07.11"
 mainSteps:
 - name: getImageId
   action: aws:executeAwsApi
@@ -60,47 +57,45 @@ mainSteps:
     Filters:  
     - Name: "name"
       Values: 
-      - "{{ ImageName }}"
+      - "Windows_Server-2016-English-Full-Base-2018.07.11"
   outputs:
-  - Name: ImageId
-    Selector: "$.Images[0].ImageId"
+  - Name: Value
+    Selector: "$.Images..ImageId"
     Type: "String"
-- name: launchOneInstance
+- name: getInstanceId
   action: aws:executeAwsApi
   inputs:
     Service: ec2
     Api: RunInstances
-    ImageId: "{{ getImageId.ImageId }}"
+    ImageId: "{{ getImageId.Value }}"
     MaxCount: 1
     MinCount: 1
   outputs:
-  - Name: InstanceId
-    Selector: "$.Instances[0].InstanceId"
+  - Name: Value
+    Selector: "$.Instances..InstanceId"
     Type: "String"
-- name: waitUntilInstanceStateRunning
+- name: waitStep
   action: aws:waitForAwsResourceProperty
-  # timeout is strongly encouraged for action - aws:waitForAwsResourceProperty
-  timeoutSeconds: 60
   inputs:
     Service: ec2
     Api: DescribeInstanceStatus
     InstanceIds:
-    - "{{ launchOneInstance.InstanceId }}"
-    PropertySelector: "$.InstanceStatuses[0].InstanceState.Name"
+    - "{{ getInstanceId.Value }}"
+    PropertySelector: "$.InstanceStatuses..InstanceState.Name"
     DesiredValues:
     - running
-- name: assertInstanceStateRunning
+- name: assertStep
   action: aws:assertAwsResourceProperty
   inputs:
     Service: ec2
     Api: DescribeInstanceStatus
     InstanceIds:
-    - "{{ launchOneInstance.InstanceId }}"
-    PropertySelector: "$.InstanceStatuses[0].InstanceState.Name"
+    - "{{ getInstanceId.Value }}"
+    PropertySelector: "$.InstanceStatuses..InstanceState.Name"
     DesiredValues:
     - running
 outputs:
-- "launchOneInstance.InstanceId"
+- "getInstanceId.Value"
 ...
 ```
 
@@ -116,12 +111,11 @@ You can view the schema for each Automation action in the following locations:
 The schemas include descriptions of the required fields for using each action\.
 
 **Using the Selector/PropertySelector Fields**  
-Each Automation action requires that you specify either an output `Selector` \(for aws:executeAwsApi\) or a `PropertySelector` \(for aws:assertAwsResourceProperty and aws:waitForAwsResourceProperty\)\. These fields are used to process the JSON response from an AWS API action\. These fields use the jsonpath syntax\.
+Each Automation action requires that you specify an output Selector or a PropertySelector\. These fields use the jsonpath syntax\.
 
-Here is an example to help illustrate this concept for the aws:executeAwsAPi action:
+For example, in the example document shown earlier, the aws:executeAwsApi action specifies the following Selector in the outputs section:
 
 ```
----
 mainSteps:
 - name: getImageId
   action: aws:executeAwsApi
@@ -129,176 +123,63 @@ mainSteps:
     Service: ec2
     Api: DescribeImages
     Filters:  
-      - Name: "name"
-        Values: 
-          - "{{ ImageName }}"
+    - Name: "name"
+      Values: 
+      - "Windows_Server-2016-English-Full-Base-2018.07.11"
   outputs:
-    - Name: ImageId
-      Selector: "$.Images[0].ImageId"
-      Type: "String"
-...
+  - Name: Value
+    Selector: "$.Images..ImageId"
+    Type: "String"
 ```
 
-In the aws:executeAwsApi step `getImageId`, the workflow invokes the DescribeImages API action and receives a response `ec2`\. The workflow then applies `Selector - "$.Images[0].ImageId"` to the API response and assigns the selected value to the output `ImageId` variable\. Other steps in the same Automation workflow can use the value of `ImageId` by specifying `"{{ getImageId.ImageId }}"`\.
-
-Here is an example to help illustrate this concept for the aws:waitForAwsResourceProperty action:
-
-```
----
-- name: waitUntilInstanceStateRunning
-  action: aws:waitForAwsResourceProperty
-  # timeout is strongly encouraged for action - aws:waitForAwsResourceProperty
-  timeoutSeconds: 60
-  inputs:
-    Service: ec2
-    Api: DescribeInstanceStatus
-    InstanceIds:
-    - "{{ launchOneInstance.InstanceId }}"
-    PropertySelector: "$.InstanceStatuses[0].InstanceState.Name"
-    DesiredValues:
-    - running
-...
-```
-
-In the aws:waitForAwsResourceProperty step `waitUntilInstanceStateRunning`, the workflow invokes the DescribeInstanceStatus API action and recieves a response from `ec2`\. The workflow then applies `PropertySelector - "$.InstanceStatuses[0].InstanceState.Name"` to the response and checks if the specified returned value matches a value in the `DesiredValues` list \(in this case `running`\)\. The step repeats the process until the response returns an instance state of `running`\. 
-
-## Using JSON Path in an Automation Worfklow<a name="automation-aws-apis-calling-json-path"></a>
-
-A JsonPath expression is a string beginning with "$\." used to select one of more components within a JSON element\. The following list includes information about JSONPath operators that are supported by Systems Manager Automation:
-+ Dot\-notated Child \(\.\), given a JSON object, this operator selects the value of a specific key\.
-+ Deep\-scan \(\.\.\), given a JSON element, this operator scans the JSON element level by level and selects a list of values with the specific key\. Note the return type of this operator is always a JSON array\. In the context of step output type, it would be either "StringList" or "MapList"\.
-+ Array\-Index \(\[ \]\), given a JSON array, this operator gets the value of a specific index\.
-
-Here is a response JSON from ec2 DescribeInstances, below are example JSONPath expressions along with the returned value and type\.
+A jsonpath is a string beginning with $ that you can use to identify components within JSON text\. Note the following details about JSON path selectors for Automation documents:
++ You can access object fields using only dot \(\.\) and square bracket \(\[ \]\) notation\.
++ The operators @ , : ? \* aren't supported\.
++ Functions such as length\(\) aren't supported\. For example, input data contains the following values:
 
 ```
 {
-    "NextToken": "abcdefg",
-    "Reservations": [
-        {
-            "OwnerId": "123456789012",
-            "ReservationId": "r-abcd12345678910",
-            "Instances": [
-                {
-                    "ImageId": "ami-12345678",
-                    "BlockDeviceMappings": [
-                        {
-                            "Ebs": {
-                                "DeleteOnTermination": true,
-                                "Status": "attached",
-                                "VolumeId": "vol-000000000000"
-                            },
-                            "DeviceName": "/dev/xvda"
-                        }
-                    ],
-                    "State": {
-                        "Code": 16,
-                        "Name": "running"
-                    }
-                }
-            ],
-            "Groups": []
-        },
-        {
-            "OwnerId": "123456789012",
-            "ReservationId": "r-12345678910abcd",
-            "Instances": [
-                {
-                    "ImageId": "ami-12345678",
-                    "BlockDeviceMappings": [
-                        {
-                            "Ebs": {
-                                "DeleteOnTermination": true,
-                                "Status": "attached",
-                                "VolumeId": "vol-111111111111"
-                            },
-                            "DeviceName": "/dev/xvda"
-                        }
-                    ],
-                    "State": {
-                        "Code": 80,
-                        "Name": "stopped"
-                    }
-                }
-            ],
-            "Groups": []
-        }
-    ]
-}
-```
-
-JSONPath Example 1 \- Get a specific String from a JSON Response
-
-```
-$.Reservations[0].Instances[0].ImageId =>
-"ami-12345678"
-
-Type: String
-```
-
-JSONPath Example 2 \- Get a specific Boolean from a JSON Response
-
-```
-$.Reservations[0].Instances[0].BlockDeviceMappings[0].Ebs.DeleteOnTermination =>
-true
-
-Type: Boolean
-```
-
-JSONPath Example 3 \- Get a specific Integer from a JSON Response
-
-```
-$.Reservations[0].Instances[0].State.Code =>
-16
-
-Type: Integer
-```
-
-JSONPath Example 4 \- Deep scan a JSON response, then get all the value with VolumeId as a StringList 
-
-```
-$.Reservations..BlockDeviceMappings..VolumeId =>
-[
-   "vol-000000000000",
-   "vol-111111111111"
-]
-
-Type: StringList
-```
-
-JSONPath Example 5 \- Get a specific BlockDeviceMappings object as a StringMap\.
-
-```
-$.Reservations[0].Instances[0].BlockDeviceMappings[0] =>
-{
-   "Ebs" : {
-      "DeleteOnTermination" : true,
-      "Status" : "attached",
-      "VolumeId" : "vol-000000000000"
-   },
-   "DeviceName" : "/dev/xvda"
-}
-
-Type: StringMap
-```
-
-JSONPath Example 6 \- Deep scan a JSON response, then get all State object as a MapList\.
-
-```
-$.Reservations..Instances..State =>
-[
-   {
-      "Code" : 16,
-      "Name" : "running"
-   },
-   {
-      "Code" : 80,
-      "Name" : "stopped"
+   "foo":123,
+   "bar":[
+      "a",
+      "b",
+      "c"
+   ],
+   "car":{
+      "cdr":true
    }
-]
-
-Type: MapList
+}
 ```
+
+In this case, the following jsonpaths would return:
+
+```
+$.foo => 123
+        $.bar => ["a", "b", "c"]
+        $.car.cdr => true
+```
+
+For more information about jsonpath, see the [specification](http://goessner.net/articles/JsonPath/) on the internet\.
+
+The aws:waitForAwsResourceProperty action also requires that you specify one or more desired values for the PropertySelector field\. This means the Automation workflow must wait for the desired value before the workflow can continue\. Here is an example\.
+
+```
+ -
+    name: CheckStart
+    action: aws:waitForAwsResourceProperty
+    onFailure: Abort
+    maxAttempts: 10
+    timeoutSeconds: 600
+    inputs:
+      Service: rds
+      Api: DescribeDBInstances
+      DBInstanceIdentifier: "{{InstanceId}}"
+      PropertySelector: "$.DBInstances[0].DBInstanceStatus"
+      DesiredValues: ["available"]
+    isEnd: true
+```
+
+If you are unsure about what to specify for DesiredValue, then you can execute the API by using the aws:executeAwsApi action and view the output to see the possible values that you can specify\.
 
 ## Sample Walkthrough: Start an Amazon RDS Instance from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling-sample"></a>
 

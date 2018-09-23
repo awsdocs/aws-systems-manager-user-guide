@@ -1,4 +1,4 @@
-# Working with Patch Manager<a name="sysman-patch-working"></a>
+# Working with Patch Manager \(Console\)<a name="sysman-patch-working"></a>
 
 To use Patch Manager, complete the following tasks\. These tasks are described in more detail in this section\.
 
@@ -10,12 +10,13 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 
 1. Monitor patching to verify compliance and investigate failures\.
 
-**Topics**
-+ [Verify Default Patch Baselines or Create a Custom Patch Baseline](sysman-patch-baselines.md)
-+ [Organize Instances into Patch Groups](sysman-patch-patchgroups.md)
-+ [Schedule Patch Updates Using a Maintenance Window](sysman-patch-scheduletasks.md)
-
 **Related Content**
-+ To view an example of how to create a patch baseline, patch groups, and a Maintenance Window, see [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)\.
++ To view an example of how to create a patch baseline, patch groups, and a Maintenance Window using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 + For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 + For information about monitoring patch compliance, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
+
+**Topics**
++ [Create a Default Patch Baseline](sysman-patch-baseline-console.md)
++ [Create a Patch Group](sysman-patch-tagging-console.md)
++ [Create a Maintenance Window for Patching](sysman-patch-mw-console.md)
++ [Create a Patching Configuration](create-patching-configuration.md)

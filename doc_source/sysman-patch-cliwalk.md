@@ -1,6 +1,9 @@
-# Walkthrough: Patch a Server Environment \(AWS CLI\)<a name="sysman-patch-cliwalk"></a>
+# Tutorial: Patch a Server Environment \(AWS CLI\)<a name="sysman-patch-cliwalk"></a>
 
 The following procedure illustrates how a user might patch a server environment by using a custom patch baseline, patch groups, and a Maintenance Window\.
+
+**Note**  
+You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 For a sample of other AWS CLI commands you might use for your Patch Manager configuration tasks, see [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)\.
 

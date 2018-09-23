@@ -1,4 +1,4 @@
-# Package Name Formats for Approved and Rejected Patch Lists<a name="patch-manager-approved-rejected-package-name-formats"></a>
+# About Package Name Formats for Approved and Rejected Patch Lists<a name="patch-manager-approved-rejected-package-name-formats"></a>
 
 The formats of package names you can add to lists of approved patches and rejected patches depend on the type of operating system you are patching\.
 

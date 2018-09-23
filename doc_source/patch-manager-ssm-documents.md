@@ -1,4 +1,4 @@
-# Overview of SSM Documents for Patching Instances<a name="patch-manager-ssm-documents"></a>
+# About SSM Documents for Patching Instances<a name="patch-manager-ssm-documents"></a>
 
 This topic describes the seven SSM documents currently available to help you keep your managed instances patched with the latest security\-related updates\. 
 
@@ -20,6 +20,7 @@ Refer to the following sections for more information about using these SSM docum
 **Topics**
 + [SSM Documents Recommended for Patching Instances](#patch-manager-ssm-documents-recommended)
 + [Legacy SSM Documents for Patching Instances](#patch-manager-ssm-documents-legacy)
++ [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)
 
 ## SSM Documents Recommended for Patching Instances<a name="patch-manager-ssm-documents-recommended"></a>
 

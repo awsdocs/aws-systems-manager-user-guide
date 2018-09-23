@@ -17,15 +17,15 @@ To get started with Patch Manager, complete the tasks described in the following
 | Task | For More Information | 
 | --- | --- | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
-|  Learn how to set up and configure patching  |  [Working with Patch Manager](sysman-patch-working.md)  | 
+|  Learn how to set up and configure patching  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
 | Configure permissions for Maintenance Windows\(Required if you intend to use this feature when patching\.\) | [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md) | 
-|  Create patch baselines, patch groups, and a Maintenance Window to execute patching in a test environment  |  [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)  | 
+|  Create patch baselines, patch groups, and a Maintenance Window to execute patching in a test environment  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
 
 **Topics**
-+ [Operating Systems Supported by Patch Manager](patch-manager-supported-oses.md)
++ [Patch Manager Prerequisites](patch-manager-prerequisites.md)
 + [How Patch Manager Operations Work](patch-manager-how-it-works.md)
-+ [Overview of SSM Documents for Patching Instances](patch-manager-ssm-documents.md)
-+ [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)
-+ [Working with Patch Manager](sysman-patch-working.md)
-+ [Systems Manager Patch Manager Walkthroughs](sysman-patch-walkthrough.md)
++ [About Patching Operations](about-patching-operations.md)
++ [About Patch Baselines](about-patch-baselines.md)
++ [Working with Patch Manager \(Console\)](sysman-patch-working.md)
++ [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 + [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)

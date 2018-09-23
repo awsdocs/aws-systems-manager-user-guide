@@ -8,9 +8,9 @@ After you create a Maintenance Window, you assign targets where the tasks will r
 
 1. Choose **Actions**, and then choose **Register targets**\.
 
-1. In the **Target Name** field, type a name for the targets\.
+1. In the **Target Name** field, enter a name for the targets\.
 
-1. In the **Description** field, type a description\.
+1. In the **Description** field, enter a description\.
 
 1. In the **Owner information** field, specify your name or work alias\. Owner information is included in any CloudWatch Events raised while running tasks for these targets in this Maintenance Window\. 
 

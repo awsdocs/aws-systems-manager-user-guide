@@ -2,7 +2,7 @@
 
 The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Walkthrough: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 
 For more information about using the CLI forAWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
@@ -124,7 +124,7 @@ To better demonstrate this more complex command, we are using the \-\-cli\-input
 The following command adds two patches as rejected and one patch as approved to an existing patch baseline\.
 
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 ```
 aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE" --rejected-patches "KB2032276" "MS10-048" --approved-patches "KB2124261"

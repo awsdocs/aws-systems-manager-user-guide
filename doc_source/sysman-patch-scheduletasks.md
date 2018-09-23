@@ -1,4 +1,4 @@
-# Schedule Patch Updates Using a Maintenance Window<a name="sysman-patch-scheduletasks"></a>
+# About Patching Schedules Using Maintenance Windows<a name="sysman-patch-scheduletasks"></a>
 
 After you configure a patch baseline \(and optionally a patch group\), you can apply patches to your instance by using a Maintenance Window\. A Maintenance Window can reduce the impact on server availability by letting you specify a time to perform the patching process that doesn't interrupt business operations\. A Maintenance Window works like this:
 

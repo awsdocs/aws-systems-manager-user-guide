@@ -9,6 +9,8 @@ After you complete these steps, the Maintenance Window runs according to the sch
 
 You can run the following types of tasks on targets:
 + Commands by using Systems Manager Run Command
+**Note**  
+To create a Maintenance Window for patching operations, we recommend using the **Configure patching** page in Patch Manager instead of creating it in the **Maintenance Window** area of Systems Manager\.
 + Automation workflows by using Systems Manager Automation
 + Functions by using AWS Lambda
 + State machines by using AWS Step Functions
@@ -29,7 +31,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. Choose **Create a Maintenance Window**\.
 
-1. In the **Name** field, type a descriptive name to help you identify this Maintenance Window as a test Maintenance Window\.
+1. In the **Name** field, enter a descriptive name to help you identify this Maintenance Window as a test Maintenance Window\.
 
 1. In the **Description** field, enter a description\.
 
