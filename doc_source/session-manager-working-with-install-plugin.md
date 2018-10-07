@@ -101,7 +101,7 @@ The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the ins
 If you ever want to uninstall the plugin, run the following two commands, one at a time:  
 
 ```
-sudo rm -rf /usr/local/session-manager-plugin
+sudo rm -rf /usr/local/sessionmanagerplugin
 ```
 
 ```
