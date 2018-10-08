@@ -23,7 +23,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 
 **To install SSM Agent on Amazon Linux or Amazon Linux 2**
 
-1. Use one of the following commands to download and run the SSM installer\. 
+1. Use one of the following commands to download and run the SSM Agent installer\. 
 
    64\-bit instances:
 
@@ -86,11 +86,11 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
       ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Ubuntu Server<a name="agent-install-ubuntu"></a>
 
-Connect to your Ubuntu Server instance and perform the steps in one of following procedures to install the SSM Agent on each instance that will run commands using Systems Manager\.
+Connect to your Ubuntu Server instance and perform the steps in one of following procedures to install SSM Agent on each instance that will run commands using Systems Manager\.
 
 **Topics**
 + [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)
@@ -100,7 +100,7 @@ Connect to your Ubuntu Server instance and perform the steps in one of following
 
 ### About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances<a name="agent-install-ubuntu-about-v16"></a>
 
-Beginning with instances created from Ubuntu Server 16\.04 AMIs identified with `20180627`, the SSM Agent is pre\-installed using Snap packages\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\. On instances created from earlier AMIs, you should continue using deb installer packages\. 
+Beginning with instances created from Ubuntu Server 16\.04 AMIs identified with `20180627`, SSM Agent is pre\-installed using Snap packages\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\. On instances created from earlier AMIs, you should continue using deb installer packages\. 
 
 **Important**  
 Be aware that if an instance has more than one installation of the SSM Agent \(for example, one installed using a Snap, one installed using a deb installer\), your agent operations will not work correctly\.
@@ -168,14 +168,14 @@ On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb instal
    ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ### Install SSM Agent on Ubuntu Server 16\.04 and 14\.04 64\-bit instances \(with deb installer package\)<a name="agent-install-ubuntu-deb"></a>
 
 1. You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\.
 **Important**  
 SSM Agent is installed by default on instances created from Ubuntu Server 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\. Instances created from AMIs with earlier identifiers, for example `20171121.1` and `20180522`, should continue to use deb installers\.   
-If SSM Agent is installed on your instance in conjunction with a Snap and you install or update the SSM Agent using a deb installer package, the installation or SSM Agent operations may fail\. For more information, see [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)
+If SSM Agent is installed on your instance in conjunction with a Snap and you install or update SSM Agent using a deb installer package, the installation or SSM Agent operations may fail\. For more information, see [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)
 
    Create a temporary directory on the instance\.
 
@@ -199,26 +199,50 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
-1. Run the following command to determine if SSM Agent is running\. 
+1. Run one of the following commands to determine if SSM Agent is running\. 
+
+   Ubuntu Server 16\.04:
 
    ```
    sudo systemctl status amazon-ssm-agent
    ```
 
-1. Run the following command to start the service if the previous command returned amazon\-ssm\-agent is stopped, inactive, or disabled\.
+   Ubuntu Server 14\.04:
+
+   ```
+   sudo status amazon-ssm-agent
+   ```
+
+1. Run one of the following commands to start the service if the previous command returned amazon\-ssm\-agent is stopped, inactive, or disabled\.
+
+   Ubuntu Server 16\.04:
 
    ```
    sudo systemctl enable amazon-ssm-agent
    ```
 
-1. Check the status of the agent\.
+   Ubuntu Server 14\.04:
+
+   ```
+   sudo start amazon-ssm-agent
+   ```
+
+1. Run one of the following commands to check the status of the agent\.
+
+   Ubuntu Server 16\.04:
 
    ```
    sudo systemctl status amazon-ssm-agent
    ```
 
+   Ubuntu Server 14\.04:
+
+   ```
+   sudo status amazon-ssm-agent
+   ```
+
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ### Install SSM Agent on **Ubuntu Server 16\.04 and 14\.04 32\-bit instances**<a name="agent-install-ubuntu-14"></a>
 
@@ -265,7 +289,7 @@ SSM Agent is updated whenever changes are made to Systems Manager and when new c
       ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Red Hat Enterprise Linux \(RHEL\)<a name="agent-install-rhel"></a>
 
@@ -273,7 +297,7 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
 
 **To install SSM Agent on Red Hat Enterprise Linux**
 
-1. Use one of the following commands to download and run the SSM installer\.
+1. Use one of the following commands to download and run the SSM Agent installer\.
 
    64\-bit instances:
 
@@ -336,7 +360,7 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
       ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## CentOS<a name="agent-install-centos"></a>
 
@@ -344,7 +368,7 @@ Connect to your CentOS instance and perform the following steps to install the S
 
 **To install SSM Agent on CentOS**
 
-1. Use one of the following commands to download and run the SSM installer\.
+1. Use one of the following commands to download and run the SSM Agent installer\.
 
    64\-bit instances:
 
@@ -407,7 +431,7 @@ Connect to your CentOS instance and perform the following steps to install the S
       ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## SUSE Linux Enterprise Server \(SLES\) 12<a name="agent-install-sles"></a>
 
@@ -427,7 +451,7 @@ Connect to your SLES instance and perform the following steps to install the SSM
    cd /tmp/ssm
    ```
 
-1. Use the following command to download and run the SSM installer\. 
+1. Use the following command to download and run the SSM Agent installer\. 
 
    64\-bit instances:
 
@@ -458,7 +482,7 @@ Connect to your SLES instance and perform the following steps to install the SSM
       ```
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Raspbian<a name="agent-install-raspbianjessie"></a>
 
@@ -477,7 +501,7 @@ Connect to your Raspbian device and perform the following steps to install the S
    mkdir /tmp/ssm
    ```
 
-1. Use the following command to download and run the SSM installer\.
+1. Use the following command to download and run the SSM Agent installer\.
 
    ```
    sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
@@ -516,7 +540,7 @@ Run the following command to make the machine ID persist after a reboot\.
   umount /etc/machine-id
   systemd-machine-id-setup
   ```
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Download SSM Agent from a Specific Region<a name="sysman-install-ssm-agent-specific"></a>
 
@@ -527,25 +551,23 @@ If you want to download the agent from a *specific* region, copy the URL for you
 For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West 1 Region, use the following URL:
 
 ```
-https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
+https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
-
-If the download fails, try replacing https://s3\-*region* with https://s3\.*region*\.
 + Amazon Linux, RHEL, CentOS, and SLES 64\-bit:
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
 + Amazon Linux, RHEL, and CentOS 32\-bit:
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
 + Ubuntu Server 64\-bit:
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
 + Ubuntu Server 32\-bit:
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
 + Raspbian:
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.

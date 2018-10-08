@@ -2,7 +2,7 @@
 
 This topic provides information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations\. You can specify these buckets in a custom policy if you want to limit Amazon S3 bucket access for an instance profile or VPC endpoint to the minimum required to use Systems Manager\.
 
-These permissions only provide access to the resources required by the SSM Agent\. They don't reflect permissions needed for other Amazon S3\-related operations\. 
+These permissions only provide access to the resources required by SSM Agent\. They don't reflect permissions needed for other Amazon S3\-related operations\. 
 
 **Topics**
 + [Required Permissions](#ssm-agent-minimum-s3-permissions-required)
@@ -19,8 +19,9 @@ Amazon S3 permissions required by SSM Agent
 | --- | --- | 
 | arn:aws:s3:::aws\-ssm\-region/\* |  Provides access to the Amazon S3 bucket containing modules required for use with SSM documents\.  | 
 | arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support Windows operating systems\.  | 
-| arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of the SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 
-| arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of the SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  | 
+| arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. Thse buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\.  | 
+| arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 
+| arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  | 
 
 *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 

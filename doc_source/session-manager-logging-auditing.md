@@ -28,7 +28,10 @@ In order to send logs to your S3 bucket with encryption, encryption must be enab
 **Customer\-managed CMK**  
 If you are using a KMS customer master key \(CMK\) that you manage yourself \(a customer managed CMK\) to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the CMK\. If you use an AWS managed CMK, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the CMK, see [Allows Key Users to Use the CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
 
-Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket
+Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
+
+**Note**  
+You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -55,6 +58,9 @@ For more information about working with Amazon S3 and S3 buckets, see the *[Amaz
 Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. Log data can be streamed to your log group with or without encryption using your AWS KMS key\. 
 
 Follow these steps to configure Session Manager to stream session log data to a CloudWatch Logs log group\.
+
+**Note**  
+You can also use the AWS CLI to specify or change the CloudWatch log group that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

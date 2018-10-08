@@ -79,22 +79,24 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. Choose the **Trust Relationships** tab, and then choose **Edit Trust Relationship**\.
 
-1. Add "ssm\.amazonaws\.com" to the existing policy as the following code snippet illustrates:
+1. Add `, "ssm.amazonaws.com"` to the existing policy as the following code snippet illustrates:
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Sid": "",
-         "Effect": "Allow",
-         "Principal": {
-           "Service": "ec2.amazonaws.com",
-           "Service": "ssm.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": [
+                       "ec2.amazonaws.com",
+                       "ssm.amazonaws.com"
+                   ]
+               },
+               "Action": "sts:AssumeRole"
+           }
+       ]
    }
    ```
 **Note**  

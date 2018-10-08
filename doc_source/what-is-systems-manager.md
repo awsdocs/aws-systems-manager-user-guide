@@ -102,7 +102,7 @@ Systems Manager uses the following shared resources for managing and configuring
 ------
 #### [ Managed Instances ]
 
-A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine \(server or virtual machine \[VM\]\) in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
+A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine \(server or virtual machine \[VM\]\) in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
 
 ------
 #### [ Activations ]

@@ -91,7 +91,7 @@ After you specify parameters and options for your SSM document, expand the **AWS
 
 For information about canceling a command, see [Canceling a Command](rc-cancel.md)\. 
 
-## Update the SSM Agent by using Run Command<a name="rc-console-agentexample"></a>
+## Update SSM Agent by using Run Command<a name="rc-console-agentexample"></a>
 
 The following procedure describes how to quickly update SSM Agent running on your Windows and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
 
@@ -159,7 +159,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
 
-1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of the SSM agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
+1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 
 1. For **Comment**, we recommend providing information that will help you identify this command in your list of commands\.
 

@@ -1,6 +1,6 @@
 # Installing and Configuring SSM Agent on Linux Instances<a name="sysman-install-ssm-agent"></a>
 
-The SSM Agent processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent\.
+SSM Agent processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent\.
 
 **Important**  
 SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2, Ubuntu Server 16\.04, and Ubuntu Server 18\.04 LTS AMIs\.

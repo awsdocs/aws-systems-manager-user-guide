@@ -3,7 +3,7 @@
 The following table describes important differences between Linux and Windows patching\.
 
 **Note**  
-To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.  
+To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update SSM Agent* in [Running Commands from the Console](rc-console.md)\.  
 The **AWS\-ApplyPatchBaseline ** SSM document doesn't support Linux instances\. For applying patch baselines to both Windows and Linux instances, the recommended SSM document is **AWS\-RunPatchBaseline**\. For more information, see [About SSM Documents for Patching Instances](patch-manager-ssm-documents.md) and [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
 

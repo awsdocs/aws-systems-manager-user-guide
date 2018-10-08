@@ -14,4 +14,4 @@ aws ssm create-association --name AWS-GatherSoftwareInventory --targets Key=Inst
 ```
 
 **Note**  
-Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or later\. For information about how to update SSM Agent on your instances, see [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or later\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.

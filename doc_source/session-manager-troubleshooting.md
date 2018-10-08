@@ -30,7 +30,7 @@ Use the following information to help you troubleshoot problems with Session Man
 
   Update SSM Agent manually on an instance by following the steps in [Install and Configure SSM Agent on Windows Instances](sysman-install-win.md) or [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md), depending on the operating system\. 
 
-  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 **Tip**  
 To always keep your agent up to date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.

@@ -9,6 +9,6 @@ To view information about the actions or plugins that you can specify in a Syste
 
 **Topics**
 + [Working with Predefined Automation Documents](automation-awsdocs.md)
-+ [Creating Dynamic Automation Workflows](automation-branchdocs.md)
++ [Creating Dynamic Automation Workflows with Conditional Branching](automation-branchdocs.md)
 + [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)
 + [Systems Manager Automation Documents Reference](automation-documents-reference.md)

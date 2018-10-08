@@ -148,7 +148,7 @@ Sends IIS log data to CloudWatch Logs\.
 
 **PerformanceCounter**  
 Sends Windows performance counters to CloudWatch\. You can select different categories to upload to CloudWatch as metrics\. For each performance counter that you want to upload, create a **PerformanceCounter** section with a unique ID \(for example, "PerformanceCounter2", "PerformanceCounter3", and so on\) and configure its properties\.  
-If the SSM Agent or the CloudWatch plugin is stopped, performance counter data is not logged in CloudWatch This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after the SSM Agent or the CloudWatch plugin is available\.
+If the SSM Agent or the CloudWatch plugin is stopped, performance counter data is not logged in CloudWatch This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available\.
 
 **SecurityEventLog**  
 Sends security event log data to CloudWatch Logs\.

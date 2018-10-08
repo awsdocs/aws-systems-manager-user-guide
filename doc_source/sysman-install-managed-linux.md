@@ -12,10 +12,8 @@ The URLs in the following scripts let you download SSM Agent from *any* AWS regi
 For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West \(N\. California\) Region \(us\-west\-1\), use the following URL:
 
 ```
-https://s3-us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
+https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm 
 ```
-
-If the download fails, try replacing https://s3\-*region* with https://s3\.*region*\.
 + **Amazon Linux, RHEL, CentOS, and SLES 64\-bit**
 
    https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
@@ -30,7 +28,7 @@ If the download fails, try replacing https://s3\-*region* with https://s3\.*regi
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
 + **Raspbian**
 
-  https://s3\-*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
 
 **To install SSM Agent on servers and VMs in your hybrid environment**
 

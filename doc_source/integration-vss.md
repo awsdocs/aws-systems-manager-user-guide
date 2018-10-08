@@ -28,7 +28,7 @@ Here is how the process of taking application\-consistent, VSS\-enabled EBS snap
 
 Before you create VSS\-enabled EBS snapshots by using Run Command, review the following requirements and limitations, and complete the required tasks\. 
 + VSS\-enabled EBS snapshots are supported for instances running Windows Server 2008 R2 or later\. \(Windows Server 2008 R2 Core is currently not supported\.\) Verify that your instances meet all requirements for Amazon EC2 Windows\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
-+ Update your instances to use SSM Agent version 2\.2\.58\.0 or later\. If you are using an older version of SSM Agent, you can update it by using Run Command\. For more information, see [Update the SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
++ Update your instances to use SSM Agent version 2\.2\.58\.0 or later\. If you are using an older version of SSM Agent, you can update it by using Run Command\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 + Systems Manager requires permission to perform actions on your instances\. You must configure each instance with an AWS Identity and Access Management \(IAM\) instance profile role for Systems Manager\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
 + Systems Manager needs permissions to create and tag VSS\-enabled EBS snapshots\. You can configure an IAM role that enables these permissions\. You must configure each instance with a role for creating and tagging snapshots\. For more information, see [Create an IAM Role for VSS\-Enabled Snapshots](#integration-vss-role) in **Set Up Tasks**\. 
 **Note**  

@@ -25,23 +25,25 @@ VPC endpoints only support Amazon\-provided DNS through Route 53\. If you want 
 The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private subnet of the managed instance\. If incoming connections are not allowed, then the managed instance cannot connect to the SSM and EC2 endpoints\.\.
 
 **Amazon S3 buckets**  
-Your VPC endpoint policy must allow at least access to the Amazon S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets for the code to be retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
+Your VPC endpoint policy must allow at least access to the following Amazon S3 buckets:
++ The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets for the code to be retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
 
-To provide access to the buckets in your AWS Region, include the following permission in your endpoint policy:
+  To provide access to the buckets in your AWS Region, include the following permission in your endpoint policy:
 
-```
-arn:aws:s3:::patch-baseline-snapshot-region/*
-arn:aws:s3:::aws-ssm-region/*
-```
+  ```
+  arn:aws:s3:::patch-baseline-snapshot-region/*
+  arn:aws:s3:::aws-ssm-region/*
+  ```
 
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+  *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
-For example:
+  For example:
 
-```
-arn:aws:s3::patch-baseline-snapshot-us-east-2/*
-arn:aws:s3:::aws-ssm-us-east-2/*
-```
+  ```
+  arn:aws:s3::patch-baseline-snapshot-us-east-2/*
+  arn:aws:s3:::aws-ssm-us-east-2/*
+  ```
++ The S3 buckets listed in [Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 
 ## Creating VPC EndPoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
 

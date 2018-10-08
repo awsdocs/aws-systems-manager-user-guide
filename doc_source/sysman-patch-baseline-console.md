@@ -44,11 +44,20 @@ For SUSE Linux Enterprise Server, it isn't necessary to select the check box bec
 
    For more information about working with approval rules in a custom patch baseline, see [Custom Baselines](sysman-patch-baselines.md#patch-manager-baselines-custom)\.
 
-1. In the **Patch exceptions** section, enter comma\-separated lists of patches you want to explicitly approve and reject for the baseline\. For approved patches, choose a corresponding compliance severity level\. 
+1. If you want to explicitly approve any patches in addition to those meeting your approval rules, do the following in the **Patch exceptions** section:
+   + In the **Approved patches** box, enter a comma\-separated list of the patches you want to approve\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+   + \(Optional\) In the **Approved patches compliance level** list, assign a compliance level to the patches in the list\.
+   + If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed as well\. Applies to Linux instances only\.
 
-   If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed as well\. Applies to Linux instances only\.
+1. If you want to explicitly reject any patches that otherwise meet your approval rules, do the following in the **Patch exceptions** section:
+   + In the **Rejected patches** box, enter a comma\-separated list of the patches you want to reject\.
+**Note**  
+For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+   + In the **Rejected patches action** list, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
+     + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it is a dependency of another package\. It is considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
+     + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, are not installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it is considered non\-compliant with the patch baseline and its status is reported as *InstalledRejected*\.
 
 1. \(Optional\) For Linux instances only: If you want to specify alternative patch repositories for different versions of an operating system, such as *AmazonLinux2016\.03* and *AmazonLinux2017\.09*, do the following for each product in the **Patch sources** section:
    + In **Name**, enter a name to help you identify the source configuration\.
