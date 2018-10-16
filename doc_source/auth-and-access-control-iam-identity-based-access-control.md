@@ -26,7 +26,7 @@ The following is an example of a permissions policy that allows a user to delete
       ]
     }
   ]
-}co
+}
 ```
 
 ## Permissions Required to Use the AWS Systems Manager Console<a name="console-permissions"></a>
