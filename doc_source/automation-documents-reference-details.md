@@ -67,3 +67,4 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-UpdateCloudFormationStack](automation-aws-updatecloudformationstack.md)
 + [AWS\-UpdateLinuxAmi](automation-aws-updatelinuxami.md)
 + [AWS\-UpdateWindowsAmi](automation-aws-updatewindowsami.md)
++ [AWSSupport\-UpgradeWindowsAWSDrivers](automation-awssupport-upgradewindowsawsdrivers.md)

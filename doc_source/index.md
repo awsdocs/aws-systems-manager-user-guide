@@ -139,6 +139,7 @@ Amazon's trademarks and trade dress may not be used in
                + [AWS-UpdateCloudFormationStack](automation-aws-updatecloudformationstack.md)
                + [AWS-UpdateLinuxAmi](automation-aws-updatelinuxami.md)
                + [AWS-UpdateWindowsAmi](automation-aws-updatewindowsami.md)
+               + [AWSSupport-UpgradeWindowsAWSDrivers](automation-awssupport-upgradewindowsawsdrivers.md)
       + [Automation Walkthroughs](automation-walk.md)
          + [Executing Automations by Using Different Security Models](automation-walk-security.md)
             + [Running an Automation Workflow as the Current Authenticated User](automation-walk-security-user.md)

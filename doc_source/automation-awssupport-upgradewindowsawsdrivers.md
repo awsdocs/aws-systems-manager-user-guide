@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling the SSM agent\. If the SSM agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided EC2 instance be stopped and then started\.
+The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified Amazon EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling the SSM agent\. If the SSM agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided Amazon EC2 instance be stopped and then started\.
 
  **Document Type** 
 
@@ -21,7 +21,7 @@ Windows
 
   Type: String
 
-  Description: \(Required\) ID of your EC2 Windows instance\.
+  Description: \(Required\) ID of your Amazon EC2 Windows instance\.
 + AllowOffline
 
   Type: String
@@ -37,7 +37,9 @@ Windows
 
   Default: SelectedInstanceSubnet
 
-  Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline drivers upgrade\. If no subnet ID is specified, AWS Systems Manager Automation will create a new VPC\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
+  Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline drivers upgrade\. If no subnet ID is specified, Systems Manager Automation will create a new VPC\.
+**Important**  
+The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 + ForceUpgrade
 
   Type: String
@@ -58,24 +60,24 @@ Windows
 Start the automation
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-UpgradeWindowsAWSDrivers --parameters "InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name AWSSupport-UpgradeWindowsAWSDrivers --parameters "InstanceId=INSTANCEID"
 ```
 
 Start the automation and allow an offline upgrade
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-UpgradeWindowsAWSDrivers --parameters "InstanceId=INSTANCEID,AllowOffline=True"
+aws ssm start-automation-execution --document-name AWSSupport-UpgradeWindowsAWSDrivers --parameters "InstanceId=INSTANCEID,AllowOffline=True"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to execute the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. If you are performing an offline upgrade, see the permissions required by \*AWSSupport\-StartEC2RescueWorkflow\*\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to execute the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. If you are performing an offline upgrade, see the permissions required by [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
 
  **Document Steps** 
 
@@ -111,9 +113,9 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       1. aws:assertAwsResourceProperty \- Assert the ForceUpgrade flag\.
 
-      1. Force offline upgrade\) If \*ForceUpgrade = True\* then run aws:executeAutomation to invoke AWSSupport\-StartEC2RescueWorkflow with the drivers force upgrade script\. This installs the drivers regardless of the current version that is installed
+      1. Force offline upgrade\) If **ForceUpgrade = True** then run aws:executeAutomation to invoke AWSSupport\-StartEC2RescueWorkflow with the drivers force upgrade script\. This installs the drivers regardless of the current version that is installed
 
-      1. \(Offline upgrade\) If \*ForceUpgrade = False\* then run aws:executeAutomation to invoke AWSSupport\-StartEC2RescueWorkflow with the drivers upgrade script\.
+      1. \(Offline upgrade\) If **ForceUpgrade = False** then run aws:executeAutomation to invoke AWSSupport\-StartEC2RescueWorkflow with the drivers upgrade script\.
 
  **Outputs** 
 
