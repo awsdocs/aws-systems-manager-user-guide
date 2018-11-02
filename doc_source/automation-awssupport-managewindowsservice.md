@@ -56,20 +56,19 @@ Windows
 Check RDP Settings
 
 ```
-        aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=WINDOWSSERVICE"
+aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=WINDOWSSERVICE"
 ```
 
 Change the Startup Type of the TermService to Auto and change Service Action to Start
 
 ```
-        aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=TermService,
-        StartupType=Auto, ServiceAction=Start"
+aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=TermService, StartupType=Auto, ServiceAction=Start"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 

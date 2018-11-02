@@ -9,7 +9,7 @@ Be sure to follow Jenkins security best\-practices when configuring your instanc
 
 **Before You Begin**  
 Complete the following tasks before you configure Automation with Jenkins\.
-+ Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-simpatch.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
++ Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting Up Automation](automation-setup.md)\.
 + After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The Automation workflow uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during execution\.
 
@@ -66,7 +66,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
    aws --region the region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document
    ```
 
-   The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-simpatch.md):
+   The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
 
    ```
    aws --region region-id ssm start-automation-execution \

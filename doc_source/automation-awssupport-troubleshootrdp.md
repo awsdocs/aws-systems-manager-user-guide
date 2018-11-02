@@ -2,7 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootRDP automation document allows the user to check or modify common settings on the target instance which may impact Remote Desktop Protocol \(RDP\) connections, such as the RDP port, Network Layer Authentication \(NLA\) and Windows Firewall profiles\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the document reads and outputs the values of the settings\. IMPORTANT: Changes to the RDP settings, RDP service and Windows Firewall profiles should be carefully reviewed before running this document\.
+The AWSSupport\-TroubleshootRDP automation document allows the user to check or modify common settings on the target instance which may impact Remote Desktop Protocol \(RDP\) connections, such as the RDP port, Network Layer Authentication \(NLA\) and Windows Firewall profiles\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the document reads and outputs the values of the settings\.
+
+**Important**  
+Changes to the RDP settings, RDP service and Windows Firewall profiles should be carefully reviewed before running this document\.
 
  **Document Type** 
 
@@ -117,56 +120,55 @@ Windows
 Check the current RDP status
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
 ```
 
 Check the current RDP status
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
 ```
 
 Disable the Windows firewall
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID,Action=Custom,Firewall=Disable"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID,Action=Custom,Firewall=Disable"
 ```
 
 Restore the default RDP port
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RDPPortAction=Modify"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RDPPortAction=Modify"
 ```
 
 Disable NLA
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, NLASettingAction=Disable"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, NLASettingAction=Disable"
 ```
 
 Allow remote connections
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RemoteConnections=Allow"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RemoteConnections=Allow"
 ```
 
 Restore RDP default settings and disable all Windows Firewall profiles
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll"
 ```
 
 Restore RDP default settings and disable all Windows Firewall profiles, with offline remediation if needed
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll,
-        AllowOffline=True"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll, AllowOffline=True"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
@@ -183,7 +185,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. aws:assertAwsResourceProperty \- Check the provided Action value
 
-   1. \(Online check\) If the \*Action = CheckAll\*, then:
+   1. \(Online check\) If the **Action = CheckAll**, then:
 
       aws:runPowerShellScript \- Executes the PowerShell script to get the Windows Firewall profiles status\.
 
@@ -191,7 +193,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       aws:executeAutomation \- Calls AWSSupport\-ManageRDPSettings to get the RDP settings\.
 
-   1. \(Online fix\) If the \*Action = FixAll\*, then:
+   1. \(Online fix\) If the **Action = FixAll**, then:
 
       aws:runPowerShellScript \- Executes the PowerShell script to disable all Windows Firewall profiles\.
 
@@ -199,7 +201,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       aws:executeAutomation \- Calls AWSSupport\-ManageRDPSettings to enable remote connections and disable NLA\.
 
-   1. \(Online management\) If the \*Action = Custom\*, then:
+   1. \(Online management\) If the **Action = Custom**, then:
 
       aws:runPowerShellScript \- Executes the PowerShell script to manage the Windows Firewall profiles\.
 
@@ -209,21 +211,21 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
 1. \(Offline remediation\) If the instance is not a managed instance then:
 
-   1. aws:assertAwsResourceProperty \- Assert \*AllowOffline = True\*
+   1. aws:assertAwsResourceProperty \- Assert **AllowOffline = True**
 
-   1. aws:assertAwsResourceProperty \- Assert \*Action = FixAll\*
+   1. aws:assertAwsResourceProperty \- Assert **Action = FixAll**
 
    1. aws:assertAwsResourceProperty \- Assert the value of SubnetId
 
-      \(Use the provided instance's subnet\) If \*SubnetId\* is \*SELECTED\_INSTANCE\_SUBNET\*
+      \(Use the provided instance's subnet\) If SubnetId is SELECTED\_INSTANCE\_SUBNET
 
       aws:executeAwsApi \- Retrieve the current instance's subnet\.
 
-      aws:executeAutomation \- Execute \*AWSSupport\-ExecuteEC2Rescue\* with provided instance's subnet\.
+      aws:executeAutomation \- Execute AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
 
-   1. \(Use the provided custom subnet\) If \*SubnetId\* is not \*SELECTED\_INSTANCE\_SUBNET\*
+   1. \(Use the provided custom subnet\) If SubnetId is not SELECTED\_INSTANCE\_SUBNET
 
-      aws:executeAutomation \- Execute \*AWSSupport\-ExecuteEC2Rescue\* with provided \*SubnetId\* value\.
+      aws:executeAutomation \- Execute AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
 
  **Outputs** 
 

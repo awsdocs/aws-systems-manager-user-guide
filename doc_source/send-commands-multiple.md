@@ -1,4 +1,4 @@
-# Sending Commands to a Fleet<a name="send-commands-multiple"></a>
+# Using Targets and Rate Controls to Send Commands to a Fleet<a name="send-commands-multiple"></a>
 
 You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\.
 

@@ -1,6 +1,20 @@
 # Systems Manager Automation Document Details Reference<a name="automation-documents-reference-details"></a>
 
-This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
+This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
+
+You can view the JSON for these document in the Systems Manager console\.
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Documents**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+
+1. Choose a document, and then choose **View details**\.
+
+1. Choose the **Content** tab\.
 
 **Note**  
 This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
@@ -53,4 +67,3 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-UpdateCloudFormationStack](automation-aws-updatecloudformationstack.md)
 + [AWS\-UpdateLinuxAmi](automation-aws-updatelinuxami.md)
 + [AWS\-UpdateWindowsAmi](automation-aws-updatewindowsami.md)
-+ [AWSSupport\-UpgradeWindowsAWSDrivers](automation-awssupport-upgradewindowsawsdrivers.md)

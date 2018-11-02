@@ -27,11 +27,11 @@ The title of each section here is an active link to the corresponding section in
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](https://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by on or on behalf of Run Command using AWS CloudTrail\.
-+ [Use the rate control feature in Run Command to perform a staged command execution](send-commands-multiple.md)\.
++ [Use the targets and rate control features in Run Command to perform a staged command execution](send-commands-multiple.md)\.
 + [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](sysman-create-iam.md)\.
 
 **[State Manager](systems-manager-state.md)**
-+ [Update SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](https://aws.amazon.com/blogs/mt/replacing-a-bastion-host-with-amazon-ec2-systems-manager/)\.
++ [Update SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](sysman-state-cli.md)\.
 + [Bootstrap EC2 Instances on launch using EC2Config for Windows](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)
 + \(Windows\) Upload the PowerShell or DSC module to Amazon S3, and use AWS\-InstallPowerShellModule\.
 + Use Amazon EC2 tags to create application groups for your instances\. And then target instances using the `Targets` parameter instead of specifying individual instance IDs\.

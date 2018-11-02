@@ -1,33 +1,31 @@
 # About State Manager<a name="sysman-state-about"></a>
 
-Systems Manager State Manager is a secure and scalable configuration management service that ensures your Amazon EC2 and hybrid infrastructure is in an intended or consistent state, which you define\. 
+AWS Systems Manager State Manager is a secure and scalable service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define\.
 
-State Manager works as follows:
+Here's how it works:
 
-1. You determine the state you want to apply to your managed instances\. 
+**1\. Determine the state you want to apply to your managed instances\.**  
+Do you want to ensure that your managed instance are configured with specific applications, such as anti\-virus or malware applications? Do you want to automate the process of updating the SSM Agent or other AWS packages such as AWSPVDriver? Do you need to ensure that specific ports are closed or open? To get started with State Manager, determine the state that you want to apply to your managed instances\. The state that you want to apply will determine which SSM document you use to create a State Manager association\.  
+A State Manager *association* is a configuration that is assigned to your managed instances\. The configuration defines the state that you want to maintain on your instances\. For example, an association can specify that anti\-virus software must be installed and running on your instances, or that certain ports must be closed\. The association specifies a schedule for when the configuration is reapplied\. The association also specifies actions to take when applying the configuration\. For example, an association for anti\-virus software might run once a day\. If the software is not installed, then State Manager installs it\. If the software is installed, but the service is not running, then the association might instruct State Manager to start the service\.
 
-   For example, determine the applications to bootstrap or the network settings to configure\. You can specify the details of the state as parameters at runtime by using an AWS preconfigured document\. Or, you can create your own document and either specify the state directly in the document or as parameters at runtime\. These documents, written in JSON or YAML, are called *SSM documents*\. 
+**2\. Determine if a preconfigured SSM document can help you create the State Manager association\.**  
+State Manager uses SSM *command* documents to create an association \(as opposed to Automation documents\)\. Systems Manager includes dozens of preconfigured SSM command documents that you can use to create an association\. Preconfigured documents are ready to perform common tasks like installing applications, configuring Amazon CloudWatch, running PowerShell and Shell scripts, and joining a Directory Service domain for Active Directory, to name a few\. You simply need to specify the name of the document and information for the required parameters, and then execute the command to create the association\. You can view all SSM Command documents in the [Systems Manager console](https://us-west-2.console.aws.amazon.com/systems-manager/documents?region=us-west-2)\. The following screenshot filters on "Command" documents and shows a few of the SSM documents you can use with State Manager\.  
 
-   An SSM document can include multiple actions or steps \(for example, multiple commands to run\)\. The two types of SSM documents that State Manager uses are *Command* documents and *Policy* documents\. For more information about SSM documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+![\[A few of the Command documents for Systems Manager State Manager\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-command-documents.png)
+You can then choose the name of a document to learn more about each one\. Here are two examples: [AWS\-ConfigureAWSPackage](https://us-west-2.console.aws.amazon.com/systems-manager/documents/AWS-ConfigureAWSPackage/description?region=us-west-2) and [AWS\-InstallApplication](https://us-west-2.console.aws.amazon.com/systems-manager/documents/AWS-InstallApplication/description?region=us-west-2)\.
 
-1. You specify a schedule for when or how often to apply the state\. You can specify a cron or rate expression\.
+**3\. Create the association\.**  
+You can create the association by using the AWS Systems Manager console, the AWS CLI, AWS Tools for Windows PowerShell, or the Systems Manager API\. When you create the association, you specify the following information:  
 
-1. You specify the targets for the state\. 
+1. The parameters for the SSM command document \(for example, the path to the application to install or the script to execute on the instances\)\.
 
-   You can target managed instances \(Amazon EC2 instances, or machines in your hybrid environment that are configured for Systems Manager\.\) You can target instances by specifying one or more instance IDs, or you target large groups of managed instances by targeting EC2 tags\. Using the AWS CLI, AWS Tools for Windows PowerShell, or the Systems Manager SDK, you can identify targets by specifying multiple tags\.
+1. A schedule for when or how often to apply the state\. You can specify a cron or rate expression\. For more information about creating schedules by using cron and rate expressions, see [Cron and Rate Expressions for Associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
 
-1. You bind this information \(schedule, targets, documents, parameters\) to the managed instances\. 
-
-   The binding of this information to the targets is called called * creating an association*\. You can create an association by using the Amazon EC2 console, the AWS CLI, AWS Tools for Windows PowerShell, or AWS SDKs\.
-
-1. After you send the request to create an association, the status of the association shows "Pending"\. The system attempts to reach all targets and immediately apply the state specified in the association\. 
-**Note**  
+1. Targets for the association\. You can target managed instances by individually specifying IDs, or you can target large groups of managed instances by specifying Amazon EC2 tags\.
+When you execute the command to create the association, Systems Manager binds the information you specified \(schedule, targets, SSM document, and parameters\) to the managed instances\. The status of the association initially shows "Pending" as the system attempts to reach all targets and *immediately* apply the state specified in the association\.   
 If you create a new association that is scheduled to run while an earlier association is still running, the earlier association is timed out and the new association runs\.
+Systems Manager reports the status of the request to create associations on the managed instances\. You can view status details in the console or by using the [DescribeInstanceAssociationsStatus](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceAssociationsStatus.html) API action\. If you choose to write the output of the command to Amazon S3 when you create an association, you can also view the output in the Amazon S3 bucket you specify\.  
+For more information, see [Create an Association \(Console\)](sysman-state-assoc.md)\. 
 
-1. Systems Manager reports the status of the request for each instance targeted by the request\. 
-
-   You can view status details in the EC2 console or by using the [DescribeInstanceAssociationsStatus](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceAssociationsStatus.html) API action\. If you choose to write the output of the command to S3 when you create an association, you can also view the output in the Amazon S3 bucket you specify\.
-
-1. After you create the association, State Manager reapplies the state according to the schedule defined in the association\. 
-
-   You can update your association documents and reapply them as necessary\. You can also create multiple versions of an association\.
+**4\. Monitor and update\.**  
+After you create the association, State Manager reapplies the configuration according to the schedule that you defined in the association\. You can view the status of your associations on the [State Manager page](https://us-west-2.console.aws.amazon.com/systems-manager/state-manager?region=us-west-2) in the console or by directly calling the association ID generated by Systems Manager when you created the association\. For more information, see [Viewing Association Histories](sysman-state-assoc-history.md)\. You can update your association documents and reapply them as necessary\. You can also create multiple versions of an association\. For more information, see [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)\.

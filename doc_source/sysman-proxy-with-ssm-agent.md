@@ -24,7 +24,7 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 **Note**  
 You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
-1. Save the file as `amazon-ssm-agent.override` in the following location: /etc/init/
+1. Save the file as `amazon-ssm-agent.override` in the following location: `/etc/init/`
 
 1. Stop and restart SSM Agent using the following commands:
 
@@ -34,7 +34,7 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
    ```
 
 **Note**  
-For more information about working with \.override files in Upstart environments, see [init: Upstart init daemon job configuration](https://www.systutorials.com/docs/linux/man/5-init/)\.
+For more information about working with `.override` files in Upstart environments, see [init: Upstart init daemon job configuration](https://www.systutorials.com/docs/linux/man/5-init/)\.
 
 ## Configure SSM Agent to Use a Proxy \(systemd\)<a name="ssm-agent-proxy-systemd"></a>
 
@@ -42,13 +42,13 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 
 1. Connect to the instance where you installed SSM Agent\.
 
-1. Execute the following command:
+1. Run the following command:
 
    ```
    systemctl edit amazon-ssm-agent
    ```
 
-   For Ubuntu Server instances installed by using snap, execute the following command:
+   For Ubuntu Server instances installed by using a snap, run the following command:
 
    ```
    systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
@@ -65,7 +65,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 **Note**  
 You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
-1. Save your changes\. The system creates an amazon\-ssm\-agent\.override file in the amazon\-ssm\-agent\.service\.d folder\.
+1. Save your changes\. The system creates a file named `amazon-ssm-agent.override` \(or `override.conf` on Amazon Linux 2\) instances in the `etc/systemd/system/amazon-ssm-agent.service.d` folder\.
 
 1. Restart SSM Agent by using the following commands:
 
@@ -74,7 +74,7 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
    sudo systemctl daemon-reload
    ```
 
-   For Ubuntu Server instances installed by using snap, restart SSM Agent by using the following command:
+   For Ubuntu Server instances installed by using a snap, restart SSM Agent by using the following command:
 
    ```
    systemctl start snap.amazon-ssm-agent.amazon-ssm-agent

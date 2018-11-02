@@ -61,11 +61,11 @@ For information about canceling a command, see [Canceling a Command](rc-cancel.m
 
 1. In the **Execute on** field, choose either **Targets** or **Percent** in the list\. If you choose **Targets**, then you can specify the exact number of instances that should be allowed to run the command at one time, for example, 10\. If you choose **Percent**, then you can choose a percentage of the instances that should be allowed to run the command at one time, for example 30\. **Percent** is a helpful option when targeting EC2 tags and you are not certain of the total number of instances that will run the command\.
 
-   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
+   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
 
 1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\.
 
-   Instances that are already running a command when this value is reached are allowed to complete, but some of these executions may fail as well\. For more information, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
+   Instances that are already running a command when this value is reached are allowed to complete, but some of these executions may fail as well\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
 
 1. In the next section, specify the parameters or options for your SSM document\. Parameters and options are different for each document\.
 
@@ -153,9 +153,9 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **Execute on** field, choose either **Targets** or **Percent** in the list\. If you choose **Targets**, then you can specify the exact number of instances that should be allowed to run the command at one time, for example, 10\. If you choose **Percent**, then you can choose a percentage of the instances that should be allowed to run the command at one time, for example 30\. **Percent** is a helpful option when targeting EC2 tags and you are not certain of the total number of instances that will run the command\.
 
-   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
+   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
 
-1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\. For more information, see [Sending Commands to a Fleet](send-commands-multiple.md)\.
+1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
 
 1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
 

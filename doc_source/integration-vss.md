@@ -27,13 +27,33 @@ Here is how the process of taking application\-consistent, VSS\-enabled EBS snap
 ## Before You Begin<a name="integration-vss-prereqs"></a>
 
 Before you create VSS\-enabled EBS snapshots by using Run Command, review the following requirements and limitations, and complete the required tasks\. 
-+ VSS\-enabled EBS snapshots are supported for instances running Windows Server 2008 R2 or later\. \(Windows Server 2008 R2 Core is currently not supported\.\) Verify that your instances meet all requirements for Amazon EC2 Windows\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
-+ Update your instances to use SSM Agent version 2\.2\.58\.0 or later\. If you are using an older version of SSM Agent, you can update it by using Run Command\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
-+ Systems Manager requires permission to perform actions on your instances\. You must configure each instance with an AWS Identity and Access Management \(IAM\) instance profile role for Systems Manager\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
-+ Systems Manager needs permissions to create and tag VSS\-enabled EBS snapshots\. You can configure an IAM role that enables these permissions\. You must configure each instance with a role for creating and tagging snapshots\. For more information, see [Create an IAM Role for VSS\-Enabled Snapshots](#integration-vss-role) in **Set Up Tasks**\. 
+
+**Amazon EC2 Windows instance requirements**  
+VSS\-enabled EBS snapshots are supported for instances running Windows Server 2008 R2 or later\. \(Windows Server 2008 R2 Core is currently not supported\.\) Verify that your instances meet all requirements for Amazon EC2 Windows\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+
+**SSM Agent version**  
+Update your instances to use SSM Agent version 2\.2\.58\.0 or later\. If you are using an older version of SSM Agent, you can update it by using Run Command\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+
+**AWS Tools for Windows PowerShell version**  
+Ensure that your instance is running version 3\.3\.48\.0 or later of the AWS Tools for Windows PowerShell\. To check your version number, run the following command on the instance:
+
+```
+Get-AWSPowerShellVersion
+```
+
+If you need to update the version of Tools for Windows PowerShell on your instance, see [Setting up the AWS Tools for Windows PowerShell on a Windows\-based Computer](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-windows.html) in the *AWS Tools for Windows PowerShell User Guide*\.
+
+**IAM instance profile role**  
+Systems Manager requires permission to perform actions on your instances\. You must configure each instance with an AWS Identity and Access Management \(IAM\) instance profile role for Systems Manager\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+
+**IAM Amazon EBS tagging profile role**  
+Systems Manager needs permissions to create and tag VSS\-enabled Amazon Elastic Block Store snapshots\. You can configure an IAM role that enables these permissions\. You must configure each instance with a role for creating and tagging snapshots\. For more information, see [Create an IAM Role for VSS\-Enabled Snapshots](#integration-vss-role) in **Set Up Tasks**\. 
+
 **Note**  
 If you don't want to assign the snapshot role to your instances, you can use Run Command and the pre\-defined AWSEC2\-ManageVssIO SSM document to temporarily pause I/O, create VSS\-enabled EBS snapshots, and restart I/O\. This process runs in the context of the user who executes the command\. If the user has sufficient permission to create and tag snapshots, then Systems Manager can create and tag VSS\-enabled EBS snapshots without the need for the additional IAM snapshot role on the instance\. Instances still must be configured with the instance profile role\. For more information, see [Creating VSS\-Enabled EBS Snapshots by Using the AWSEC2\-ManageVssIO SSM Document \(Advanced\)](#integration-vss-AWSEC2-ManageVssIO)\.
-+ Systems Manager requires VSS components to be installed on your instances\. If you need to install the required VSS components, then you can download and run a VSS package for Systems Manager on your instances\. If you plan to use your own Microsoft licenses for VSS \(BYOL\), you still need to install the VSS components for Systems Manager\. For more information, see [Download and Install VSS Components for Systems Manager](#integration-vss-package) in **Set Up Tasks**\. 
+
+**VSS component requirements**  
+Systems Manager requires VSS components to be installed on your instances\. If you need to install the required VSS components, then you can download and run a VSS package for Systems Manager on your instances\. If you plan to use your own Microsoft licenses for VSS \(BYOL\), you still need to install the VSS components for Systems Manager\. For more information, see [Download and Install VSS Components for Systems Manager](#integration-vss-package) in **Setup Tasks**\. 
 
 **Topics**
 + [Create an IAM Role for VSS\-Enabled Snapshots](#integration-vss-role)

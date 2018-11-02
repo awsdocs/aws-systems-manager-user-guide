@@ -1,7 +1,7 @@
 # Create a Maintenance Window \(Console\)<a name="sysman-maintenance-create-mw"></a>
 
-To create a Maintenance Window, you must do the following:
-+ Create the window and define its schedule and duration\.
+To create a Maintenance Window, do the following:
++ Create a window and define its schedule and duration\.
 + Assign targets for the window\.
 + Assign tasks to run during the window\.
 
@@ -39,10 +39,20 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
    If you don't choose this option, then you must choose previously\-registered targets when you register a task with the Maintenance Window\.
 
-1. Specify a schedule for the Maintenance Window by using one of the scheduling options\.
+1. Specify a schedule for the Maintenance Window by using one of the three scheduling options\.
 
-1. In the **Duration** field, type the number of hours the Maintenance Window should run\.
+   For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-1. In the **Stop initiating tasks** field, type the number of hours before the end of the Maintenance Window that the system should stop scheduling new tasks to run\.
+1. In the **Duration** field, enter the number of hours the Maintenance Window should run\.
+
+1. In the **Stop initiating tasks** field, enter the number of hours before the end of the Maintenance Window that the system should stop scheduling new tasks to run\.
+
+1. \(Optional\) In **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become active\. This allows you to delay activation of the Maintenance Window until the specified future date\.
+
+1. \(Optional\) In **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window will no longer run\.
+
+1. \(Optional\) In **Time zone \(optional\)**, specify the time zone to base scheduled Maintenance Window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+
+   For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
 
 1. Choose **Create maintenance window**\. The system returns you to the Maintenance Window page\. The state of the Maintenance Window you just created is **Enabled**\.

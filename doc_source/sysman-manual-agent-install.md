@@ -125,7 +125,7 @@ For instances created from a 64\-bit Ubuntu Server 16\.04 AMI, be sure to follow
 
 1. SSM Agent is installed, by default, on Ubuntu Server 18\.04 and on 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\. For more information about version 16\.04 AMIs, see [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)\. 
 
-   You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\. You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at https://snapcraft\.io\.
+   You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\. You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
 
    ```
    sudo snap install amazon-ssm-agent --classic
@@ -145,7 +145,7 @@ Because of a known issue with Snap, you might see a `Maximum timeout exceeded` e
      ```
      systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
      ```
-On Ubuntu Server 18\.04 and 16\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: /snap/amazon\-ssm\-agent/current/\. If you make changes to the config files \(amazon\-ssm\-agent\.json\.template and seelog\.xml\.template\) then you must copy these files from the /snap folder to the /etc/amazon/ssm/ folder\. Log and library files have not changed \(/var/lib/amazon/ssm, /var/log/amazon/ssm\)\.
+On Ubuntu Server 18\.04 and 16\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to the config files \(`amazon-ssm-agent.json.template` and `seelog.xml.template`\) then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files have not changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
 On Ubuntu Server 18\.04, use Snaps only\. Don't install deb packages\. Also verify that only one instance of the agent is installed and running on your instances\.
 On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\. For more information, see [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)\.
 
@@ -189,7 +189,7 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    cd /tmp/ssm
    ```
 
-   Execute the following commands\.
+   Run the following commands\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
@@ -258,7 +258,7 @@ SSM Agent is updated whenever changes are made to Systems Manager and when new c
    cd /tmp/ssm
    ```
 
-   Execute the following commands\.
+   Run the following commands\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb
@@ -311,7 +311,7 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
    ```
 
-1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message "amazon\-ssm\-agent is running\."
+1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
 
    RHEL 7\.x:
 
@@ -325,7 +325,7 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
    sudo status amazon-ssm-agent
    ```
 
-1. Run the following commands if the previous command returned "amazon\-ssm\-agent is stopped\."
+1. Run the following commands if the previous command returned amazon\-ssm\-agent is stopped\.
 
    1. Start the service\.
 
@@ -382,7 +382,7 @@ Connect to your CentOS instance and perform the following steps to install the S
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
    ```
 
-1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message "amazon\-ssm\-agent is running\."
+1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
 
    CentOS 7\.x:
 
@@ -396,7 +396,7 @@ Connect to your CentOS instance and perform the following steps to install the S
    sudo status amazon-ssm-agent
    ```
 
-1. Run the following commands if the previous command returned "amazon\-ssm\-agent is stopped\."
+1. Run the following commands if the previous command returned amazon\-ssm\-agent is stopped\.
 
    1. Start the service\.
 
@@ -460,13 +460,13 @@ Connect to your SLES instance and perform the following steps to install the SSM
    sudo rpm --install amazon-ssm-agent.rpm
    ```
 
-1. Run the following command to determine if SSM Agent is running\. The command should return the message "amazon\-ssm\-agent is running\."
+1. Run the following command to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
 
    ```
    sudo systemctl status amazon-ssm-agent
    ```
 
-1. Run the following commands if the previous command returns the message "amazon\-ssm\-agent is stopped\."
+1. Run the following commands if the previous command returns the message amazon\-ssm\-agent is stopped\.
 
    1. Start the service\.
 

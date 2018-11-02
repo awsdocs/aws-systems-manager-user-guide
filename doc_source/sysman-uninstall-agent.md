@@ -9,10 +9,16 @@ sudo yum erase amazon-ssm-agent –y
 ```
 
 **Ubuntu Server**
++ **deb package installations**:
 
-```
-sudo dpkg -r amazon-ssm-agent
-```
+  ```
+  sudo dpkg -r amazon-ssm-agent
+  ```
++ **snap package installations**:
+
+  ```
+  sudo snap remove amazon-ssm-agent
+  ```
 
 **SLES**
 

@@ -43,7 +43,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
    New-IAMRole -RoleName "mw-task-role" -AssumeRolePolicyDocument (Get-Content -raw .\mw-role-trust-policy.json)
    ```
 
-   The systems returns information like the following\.
+   The systems returns information like the following:
 
    ```
    Arn : arn:aws:iam::123456789012:role/mw-task-role

@@ -55,7 +55,7 @@ Use the following procedure to create three required and one optional separate V
    + **com\.amazonaws\.*region*\.ssm**: The endpoint for the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about using Systems Manager to create VSS\-enabled snapshots, see [Using Run Command to Take VSS\-Enabled Snapshots of EBS Volumes](integration-vss.md)\.
-   + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using AWS Systems Manager [](session-manager.md)\.
+   + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
 
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 

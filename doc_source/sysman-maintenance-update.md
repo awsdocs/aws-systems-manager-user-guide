@@ -35,6 +35,8 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Change the values and options that you want, and then choose **Edit maintenance window**\. The system returns you to the Maintenance Window page\.
 
+   For information about options you can choose, see [Create a Maintenance Window \(Console\)](sysman-maintenance-create-mw.md)\.
+
 ## Update or Delete Maintenance Window Targets \(Console\)<a name="sysman-maintenance-update-target"></a>
 
 You can update or delete the targets of a Maintenance Window\. If you choose to update a Maintenance Window target you can specify a new target name, description, and owner\. You can also choose different targets\. 
@@ -65,8 +67,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. If you want to delete a target, choose the small X beside **Edit**\. In the **Deregister target** window, leave the **Safely Deregister Target** option selected if you want the system to check if the target is referenced by any tasks before deleting it\. If the target is referenced by a task, the system returns an error and doesn't delete the target\. Clear the **Safely Deregister Target** option if you want the system to delete the target even if it is referenced by a task\.
 
-   If you want to edit the targets, choose **Edit**\.  
-![\[Updating the targets of a Maintenance Window\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-update-mw1.png)
+   If you want to edit the targets, choose **Edit**\.
 
 1. Change the values and options that you want, and then choose **Edit Target**\. The system returns you to the Maintenance Window page\.
 
@@ -85,7 +86,6 @@ The following procedure describes steps that you perform in the Amazon EC2 conso
 
 1. Choose the **Tasks** tab\.
 
-1. If you want to delete a task, choose the small X beside **Edit**\. If you want to edit the task, choose **Edit**\.  
-![\[Updating the tasks of a Maintenance Window\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-update-mw2.png)
+1. If you want to delete a task, choose the small **x** button beside **Edit**\. If you want to edit the task, choose **Edit**\.
 
 1. Change the values and options that you want, and then choose **Edit Task**\. The system returns you to the Maintenance Window page\.

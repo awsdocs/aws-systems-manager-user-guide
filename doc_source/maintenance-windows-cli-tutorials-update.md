@@ -20,7 +20,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-target --window-id "mw-0c5ed765acEXAMPLE" --window-target-id "d208dedf-3f6b-41ff-ace8-8e751EXAMPLE" --name "NewTargetName" --description "NewTargetName description"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -45,7 +45,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-target --window-id "mw-0c5ed765acEXAMPLE" --window-target-id "d208dedf-3f6b-41ff-ace8-8e751EXAMPLE" --targets "Key=InstanceIds,Values=i-1234567890EXAMPLE,i-abcdefghiEXAMPLE" --name "NewTargetName" --replace
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -64,13 +64,21 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    }
    ```
 
+1. The `start-date` option allows you to delay activation of a Maintenance Window until a specified future date\. The `end-date` option allows you to set a date and time in the future after which the Maintenance Window will no longer run\. Specify the options in ISO\-8601 Extended format\.
+
+   Run the following command to specify a date and time range for regularly scheduled Maintenance Window executions\.
+
+   ```
+   aws ssm update-maintenance-window --window-id "mw-12345678910" --start-date "2018-10-01T10:10:10Z" --end-date "2018-11-01T10:10:10Z"
+   ```
+
 1. Run the following command to update a Run Command task\.
 
    ```
    aws ssm update-maintenance-window-task --window-id "mw-0c5ed765acEXAMPLE" --window-task-id "1111-2222-3333-4444-5555" --targets "Key=WindowTargetIds,Values=a1b2c3d4-e5f6-EXAMPLE" --task-arn "AWS-RunPowerShellScript" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters "RunCommand={Comment=A_Comment,Parameters={commands=ipconfig}}" --priority 1 --max-concurrency 10 --max-errors 4 --name "RC_Name" --description "RC_Name description extra"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -111,7 +119,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-task --window-id mw-0c5ed765acEXAMPLE --window-task-id 1a2b3c4d-5e6f-7g8h90 --targets "Key=WindowTargetIds,Values=a1b2c3d4-e5f6-EXAMPLE,4444-555555-66666-7777" --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters '{"Lambda":{"Payload":"{\"targetId\":\"{{TARGET_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "TestLambda_Name" --description "My Rename Test"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -148,7 +156,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-task --window-id "mw-0c5ed765acEXAMPLE" --window-task-id "1a2b3c4d-5e6f-EXAMPLE" --targets "Key=WindowTargetIds,Values=a1b2c3d4-e5f6-EXAMPLE" --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{ TARGET_ID }}\"}"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "Update_Parameters" --description "Test to update task invocation parameters"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -184,7 +192,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm deregister-target-from-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --window-target-id "aaaa-bbbb-cccc-dddd" --safe
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    An error occurred (TargetInUseException) when calling the DeregisterTargetFromMaintenanceWindow operation: This Target cannot be deregistered because it is still referenced in Task: a11b22c33d44e55f66
@@ -196,7 +204,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm deregister-target-from-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --window-target-id "aaaa-bbbb-cccc-dddd" --no-safe 
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -211,7 +219,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-task --window-id "mw-0c5ed765acEXAMPLE" --window-task-id "777-8888-9999-0000" --targets "Key=InstanceIds,Values=i-1234567890EXAMPLE"  --task-invocation-parameters "RunCommand={Comment=SomeComments,Parameters={UpdateLevel='{{ssm:UpdateLevel}}'}}"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -252,7 +260,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm update-maintenance-window-task --window-id "mw-0c5ed765acEXAMPLE" --window-task-id "777-8888-9999-000" --targets "Key=WindowTargetIds,Values=999-aaa-888-bbb-777 --task-arn "AutoTestDoc" --service-role-arn arn:aws:iam::111122223333:role/MaintenanceWindowsRoleTesting --task-invocation-parameters "Automation={Parameters={instanceId='{{TARGET_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" --priority 0 --max-concurrency 10 --max-errors 5
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {

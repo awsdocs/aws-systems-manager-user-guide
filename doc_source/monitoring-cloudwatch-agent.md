@@ -54,6 +54,24 @@ You can use the CloudWatch Agent on other supported operating systems, but you w
 
 After the migration succeeds, check your results in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch Agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Roll Back to Log Collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
 
+**Note**  
+If you want to migrate a source configuration file that includes a `{hostname}` entry, then be aware that the `{hostname}` entry can change the value of the field after the migration is complete\. For example, say that the following `"LogStream": "{hostname}"` entry maps to a server named *MyLogServer001*\.  
+
+```
+{
+"Id": "CloudWatchIISLogs",
+"FullName": "AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch",
+"Parameters": {
+"AccessKey": "",
+"SecretKey": "",
+"Region": "us-east-1",
+"LogGroup": "Production-Windows-IIS",
+"LogStream": "{hostname}"
+     }
+}
+```
+After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.production\.ExampleCompany\.com\. To retain the local hostname value, specify `{local_hostname}` instead of `{hostname}`\.
+
 **To automatically migrate to the CloudWatch Agent \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
@@ -86,6 +104,24 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 ### Manually Migrate to the CloudWatch Agent<a name="monitoring-cloudwatch-agent-migrate-manual"></a>
 
 For on\-premises Windows instances or Amazon EC2 Windows instances, follow these steps to manually migrate log collection to the Amazon CloudWatch Agent\. 
+
+**Note**  
+If you want to migrate a source configuration file that includes a `{hostname}` entry, then be aware that the `{hostname}` entry can change the value of the field after the migration is complete\. For example, say that the following `"LogStream": "{hostname}"` entry maps to a server named *MyLogServer001*\.  
+
+```
+{
+"Id": "CloudWatchIISLogs",
+"FullName": "AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch",
+"Parameters": {
+"AccessKey": "",
+"SecretKey": "",
+"Region": "us-east-1",
+"LogGroup": "Production-Windows-IIS",
+"LogStream": "{hostname}"
+     }
+}
+```
+After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.production\.ExampleCompany\.com\. To retain the local hostname value, specify `{local_hostname}` instead of `{hostname}`\.
 
 **One: Install the CloudWatch Agent**
 

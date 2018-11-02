@@ -21,14 +21,18 @@ Windows,Linux
 
   Type: String
 
-  Description: \(Required\) ID of the EC2 instance you want to reset access for\. IMPORTANT: AWS Systems Manager Automation stops this instance, and creates an AMI before attempting any operations\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
+  Description: \(Required\) ID of the EC2 instance you want to reset access for\.
+**Important**  
+Systems Manager Automation stops this instance, and creates an AMI before attempting any operations\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
 + SubnetId
 
   Type: String
 
   Default: CreateNewVPC
 
-  Description: \(Optional\) The subnet ID for the EC2Rescue instance\. By default, AWS Systems Manager Automation creates a new VPC\. Alternatively, Use SelectedInstanceSubnet to use the same subnet as your instance, or specify a custom subnet ID\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
+  Description: \(Optional\) The subnet ID for the EC2Rescue instance\. By default, Systems Manager Automation creates a new VPC\. Alternatively, Use SelectedInstanceSubnet to use the same subnet as your instance, or specify a custom subnet ID\.
+**Important**  
+The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 + EC2RescueInstanceType
 
   Type: String
@@ -49,36 +53,36 @@ Windows,Linux
 Enable EC2 password generation for Windows
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID'
+aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID'
 ```
 
 Enable EC2 password generation for Windows and use the provided instance's subnet for the EC2Rescue instance
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID,SubnetId=SelectedInstanceSubnet'
+aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID,SubnetId=SelectedInstanceSubnet'
 ```
 
 Generate a new SSH key for Linux
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID'
+aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID'
 ```
 
 Generate a new SSH key for Linux and use the provided instance's subnet for the EC2Rescue instance
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID,SubnetId=SelectedInstanceSubnet'
+aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID,SubnetId=SelectedInstanceSubnet'
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
 
-You must have at least **ssm:ExecuteAutomation**, \*\*ssm:GetParameter\*\* \(to retrieve the SSH key parameter name\) and **ssm:GetAutomationExecution** to be able to read the automation output\. For more information about the required permissions see \*AWSSupport\-StartEC2RescueWorkflow\*
+You must have at least **ssm:ExecuteAutomation**, **ssm:GetParameter** \(to retrieve the SSH key parameter name\) and **ssm:GetAutomationExecution** to be able to read the automation output\. For more information about the required permissions, see [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
 
  **Document Steps** 
 

@@ -52,4 +52,4 @@ Keep the following in mind when you create a patch baseline:
 
   For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
-For information about creating a patch baseline, see [](sysman-patch-baseline-console.md#sysman-patch-baseline-console.title) and [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For information about creating a patch baseline, see [Create a Default Patch Baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.

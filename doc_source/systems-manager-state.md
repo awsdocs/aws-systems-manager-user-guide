@@ -2,7 +2,7 @@
 
 AWS Systems Manager State Manager is a secure and scalable configuration management service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define\.
 
-Some of the tasks you can automate using State Manager, to run on schedules you specify, include:
+The following list describes the types of tasks you can perform with State Manager\.
 + Bootstrap instances with specific software at start\-up
 + Download and update agents on a defined schedule, including SSM Agent
 + Configure network settings
@@ -14,17 +14,16 @@ State Manager integrates with AWS CloudTrail to provide a record of all executio
 
 **Getting Started with State Manager**
 
-To get started with State Manager, complete the tasks described in the following table\.
+Complete the following tasks to get started with State Manager\.
 
 
 ****  
 
 | Task | For More Information | 
 | --- | --- | 
-|  Update SSM Agent on your managed instances to the latest version  |  [Installing and Configuring SSM Agent](ssm-agent.md)  | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
-|  Choose a predefined AWS Command or Policy type document and specify parameters at runtime\. \-or\- Create a document that defines the actions to perform on your instances\.  |  [Creating Systems Manager Documents](create-ssm-doc.md)  | 
-|  Create and apply the association to your instances  |  [Create an Association \(Console\)](sysman-state-assoc.md)  | 
+|  Learn more about State Manager  |  [About State Manager](sysman-state-about.md)  | 
+|  Create and assign a State Manager association to your instances  |  [Create an Association \(Console\)](sysman-state-assoc.md)  | 
 
 **Related Content**  
 See the following blog posts for additional examples of how to use State Manager:
@@ -34,6 +33,6 @@ See the following blog posts for additional examples of how to use State Manager
 
 **Topics**
 + [About State Manager](sysman-state-about.md)
-+ [Sample State Manager Documents](sysman-state-sampledocs.md)
 + [Working with Associations in Systems Manager](systems-manager-associations.md)
++ [Sample State Manager Documents](sysman-state-sampledocs.md)
 + [Systems Manager State Manager Walkthroughs](sysman-state-walk.md)

@@ -45,14 +45,13 @@ Windows,Linux
 Collect logs from INSTANCEID and upload them to S3 Bucket mybucket
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-SendLogBundleToS3Bucket --parameters "InstanceId=INSTANCEID,
-        S3BucketName=mybucket"
+aws ssm start-automation-execution --document-name AWSSupport-SendLogBundleToS3Bucket --parameters "InstanceId=INSTANCEID, S3BucketName=mybucket"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 

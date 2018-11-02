@@ -6,13 +6,13 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
 
 **To create and configure a Maintenance Window Using the AWS CLI**
 
-1. Open the AWS CLI and run the following command to create a Maintenance Window that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets\. For more information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+1. Open the AWS CLI and run the following command to create a Maintenance Window that runs at 4 PM on every Tuesday for 4 hours, in the United States Pacific time zone, with a 1 hour cutoff, and that allows unassociated targets\. For more information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
    ```
-   aws ssm create-maintenance-window --name "My-First-Maintenance-Window" --schedule "cron(0 16 ? * TUE *)" --duration 4 --cutoff 1 --allow-unassociated-targets
+   aws ssm create-maintenance-window --name "My-First-Maintenance-Window" --schedule "cron(0 16 ? * TUE *)" --duration 4 --schedule-timezone "America/Los_Angeles" --cutoff 1 --allow-unassociated-targets
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -26,13 +26,14 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm describe-maintenance-windows
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
       "WindowIdentities":[
          {
             "Duration":4,
+            "ScheduleTimezone": "America/Los_Angeles",
             "Cutoff":1,
             "WindowId":"mw-0c5ed765acEXAMPLE",
             "Enabled":true,
@@ -50,7 +51,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
 
    *user\-provided\-text* represents information to include in any CloudWatch events raised while running tasks for these targets in this Maintenance Window\. Note that \-\-owner\-information is optional\.
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -76,7 +77,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm describe-maintenance-window-targets --window-id "mw-0c5ed765acEXAMPLE"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -163,7 +164,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm register-task-with-maintenance-window --window-id mw-0c5ed765acEXAMPLE --task-arn "AWS-RunShellScript" --targets "Key=InstanceIds,Values=i-456jkl321EXAMPLE" --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" --task-type "RUN_COMMAND" --task-invocation-parameters '{"RunCommand":{"Parameters":{"commands":["df"]}}}' --max-concurrency 1 --max-errors 1 --priority 10
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -177,7 +178,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    aws ssm register-task-with-maintenance-window --targets "Key=WindowTargetIds,Values=5d2b9275-40f7-40e8-b831-95136EXAMPLE" --task-arn "AWS-RunShellScript" --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" --window-id "mw-0c5ed765acEXAMPLE" --task-type "RUN_COMMAND" --task-invocation-parameters  '{"RunCommand":{"Parameters":{"commands":["df"]}}}' --max-concurrency 1 --max-errors 1 --priority 10
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -219,7 +220,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm describe-maintenance-window-tasks --window-id "mw-0c5ed765acEXAMPLE"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -282,7 +283,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm describe-maintenance-window-executions --window-id "mw-0c5ed765acEXAMPLE"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -318,7 +319,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm get-maintenance-window-execution --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -338,7 +339,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm describe-maintenance-window-execution-tasks --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -359,7 +360,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm get-maintenance-window-execution-task --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2" --task-id "6420cb42-5dbd-4060-8349-bfb2fEXAMPLE"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {
@@ -386,7 +387,7 @@ The IAM policy for Maintenance Windows requires that you prefix Lambda function 
    aws ssm describe-maintenance-window-execution-task-invocations --window-execution-id "555555-555-55-555555" --task-id "6420cb42-5dbd-4060-8349-bfb2fEXAMPLE"
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {

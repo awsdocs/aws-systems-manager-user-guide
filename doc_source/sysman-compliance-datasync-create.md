@@ -4,7 +4,7 @@ You can use Systems Manager Resource Data Sync to send compliance data from all 
 
 The following graphic shows how Resource Data Sync aggregates all data from different accounts, Regions, and your hybrid environment to a central repository\.
 
-![\[Resource Data Sync for SSM Configuration Compliance\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ConfigComplianceDataSync.png)
+![\[Resource Data Sync for Systems Manager Configuration Compliance\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ConfigComplianceDataSync.png)
 
 Use the following procedure to create a Resource Data Sync for Configuration Compliance by using the Amazon EC2 console\.
 

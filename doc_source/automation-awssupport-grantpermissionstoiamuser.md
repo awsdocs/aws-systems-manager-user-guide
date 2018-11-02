@@ -2,7 +2,10 @@
 
  **Description** 
 
-This document grants the specified permissions to an IAM group \(new or existing\), and adds the existing IAM user to it\. Policies you can choose from: Billing \(https://console\.aws\.amazon\.com/iam/home?\#/policies/arn:aws:iam::aws:policy/job\-function/Billing$serviceLevelSummary\), Support \(https://console\.aws\.amazon\.com/iam/home?\#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary\)\. To enable billing access for IAM, remember to also activate \*IAM user and federated user access to the Billing and Cost Management pages\*: http://docs\.aws\.amazon\.com/console/iam/billing\-enable\. WARNING: If you provide an existing IAM group, all current IAM users in the group receive the new permissions\.
+This document grants the specified permissions to an IAM group \(new or existing\), and adds the existing IAM user to it\. Policies you can choose from: [Billing](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary) or [Support](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary)\. To enable billing access for IAM, remember to also activate [IAM user and federated user access to the Billing and Cost Management pages](http://docs.aws.amazon.com/console/iam/billing-enable)\.
+
+**Important**  
+If you provide an existing IAM group, all current IAM users in the group receive the new permissions\.
 
  **Document Type** 
 
@@ -26,7 +29,7 @@ Amazon
 
   Default: ExampleSupportAndBillingGroup
 
-  Description: \(Required\) Can be a new or existing group\. Must comply with https://docs\.aws\.amazon\.com/IAM/latest/UserGuide/reference\_iam\-limits\.html\#reference\_iam\-limits\-names\.
+  Description: \(Required\) Can be a new or existing group\. Must comply with [IAM Entity Name Limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-names)\.
 + Permissions
 
   Type: String
@@ -52,28 +55,25 @@ Amazon
 Add IAM user BillingUser to IAM group BillingGroup and grant full access to the AWS Billing and Cost Management console
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=BillingGroup,
-        IAMUserName=BillingUser, Permissions=BillingFullAccess"
+aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=BillingGroup, IAMUserName=BillingUser, Permissions=BillingFullAccess"
 ```
 
 Add IAM user SupportUser to IAM group SupportGroup and grant full access to Support Center
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportGroup,
-        IAMUserName=SupportUser, Permissions=SupportFullAccess"
+aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportGroup, IAMUserName=SupportUser, Permissions=SupportFullAccess"
 ```
 
 Add IAM user SupportAndBillingUser to IAM group SupportAndBillingGroup and grant full access both Support Center and the AWS Billing and Cost Management console
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportAndBillingGroup,
-        IAMUserName=SupportAndBillingUser"
+aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportAndBillingGroup, IAMUserName=SupportAndBillingUser"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
@@ -85,7 +85,7 @@ Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is executed
  It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed policy attached, and the following additional permissions to be able to create the Lambda function and the IAM Role to pass to Lambda: 
 
 ```
-                {
+{
                     "Version": "2012-10-17",
                     "Statement": [
                         {
@@ -141,10 +141,10 @@ Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is executed
 
  **Using AutomationAssumeRole and LambdaAssumeRole** 
 
-The user must have the **ssm:ExecuteAutomation** permissions on the document, and \*\*iam:PassRole\*\* on the IAM roles passed as \*\*AutomationAssumeRole\*\* and \*\*LambdaAssumeRole\*\*\. Here are the permissions each IAM role needs: 
+The user must have the **ssm:ExecuteAutomation** permissions on the document, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole**\. Here are the permissions each IAM role needs: 
 
 ```
-                    AutomationAssumeRole
+AutomationAssumeRole
 
                     {
                         "Version": "2012-10-17",
@@ -164,7 +164,7 @@ The user must have the **ssm:ExecuteAutomation** permissions on the document, an
 ```
 
 ```
-                LambdaAssumeRole
+LambdaAssumeRole
 
                 {
                     "Version": "2012-10-17",

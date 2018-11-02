@@ -2,7 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-ManageRDPSettings automation document allows the user to manage common Remote Desktop Protocol \(RDP\) settings, such as the RDP port and Network Layer Authentication \(NLA\)\. By default, the document reads and outputs the values of the settings\. IMPORTANT: Changes to the RDP settings should be carefully reviewed before running this document\.
+The AWSSupport\-ManageRDPSettings automation document allows the user to manage common Remote Desktop Protocol \(RDP\) settings, such as the RDP port and Network Layer Authentication \(NLA\)\. By default, the document reads and outputs the values of the settings\.
+
+**Important**  
+Changes to the RDP settings should be carefully reviewed before running this document\.
 
  **Document Type** 
 
@@ -67,25 +70,24 @@ Windows
 Check RDP Settings
 
 ```
-        aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID"
 ```
 
 Restore the default RDP port \(3389\), disable NLA, enable remote connections
 
 ```
-        aws ssm start-automation-execution --document-name "ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify,
-        RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
+aws ssm start-automation-execution --document-name "ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
 
-The EC2 instance receiving the command must have an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus \*\*ssm:GetCommandInvocation\*\* to be able to read the command output\.
+The EC2 instance receiving the command must have an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
 
  **Document Steps** 
 

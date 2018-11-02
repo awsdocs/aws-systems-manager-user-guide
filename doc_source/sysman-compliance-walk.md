@@ -21,7 +21,7 @@ The following procedure walks you through the process of using the [PutComplianc
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to assign custom compliance metadate to an instance\. Currently the only supported resource type is `ManagedInstance`\.
+1. Run the following command to assign custom compliance metadate to an instance\. Currently the only supported resource type is `ManagedInstance`\.
 
    ```
    aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Custom:User-defined string --execution-summary ExecutionTime=User-defined time and/or date value --items Id=User-defined ID,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL,MAJOR,MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANt
@@ -41,7 +41,7 @@ The following procedure walks you through the process of using the [PutComplianc
    aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Patch --execution-summary ExecutionTime=User-defined time and/or date value,ExecutionId=User-defined ID,ExecutionType=Command --items Id=for example, KB12345,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL,MAJOR,MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANT,Details="{PatchGroup=Name of group,PatchSeverity=The patch severity, for example, CRITICAL}"
    ```
 
-1. Execute the following command to view a list of compliance items for a specific managed instance\. Use filters to drill\-down into specific compliance data\.
+1. Run the following command to view a list of compliance items for a specific managed instance\. Use filters to drill down into specific compliance data\.
 
    ```
    aws ssm list-compliance-items --resource-ids Instance ID --resource-types ManagedInstance --filters One or more filters.
@@ -61,7 +61,7 @@ The following procedure walks you through the process of using the [PutComplianc
    aws ssm list-resource-compliance-summaries --filters Key=OverallSeverity,Values=UNSPECIFIED Key=ComplianceType,Values=Association Key=InstanceId,Values=i-1234567890abcdef0 
    ```
 
-1. Execute the following command to view a summary of compliance statuses\. Use filters to drill\-down into specific compliance data\.
+1. Run the following command to view a summary of compliance statuses\. Use filters to drill down into specific compliance data\.
 
    ```
    aws ssm list-resource-compliance-summaries --filters One or more filters.
@@ -77,7 +77,7 @@ The following procedure walks you through the process of using the [PutComplianc
    aws ssm list-resource-compliance-summaries --filters Key=AWS:InstanceInformation.PlatformType,Values=Windows Key=OverallSeverity,Values=CRITICAL
    ```
 
-1. Execute the following command to view a summary count of compliant and non\-compliant resources for a compliance type\. Use filters to drill\-down into specific compliance data\.
+1. Run the following command to view a summary count of compliant and non\-compliant resources for a compliance type\. Use filters to drill down into specific compliance data\.
 
    ```
    aws ssm list-compliance-summaries --filters One or more filters.

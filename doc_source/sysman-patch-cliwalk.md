@@ -48,14 +48,14 @@ In addition, the following walkthrough runs patching during a Maintenance Window
 
    ```
    {
-      "BaselineId":"pb-0c10e65780EXAMPLE""
+      "BaselineId":"pb-0c10e65780EXAMPLE"
    }
    ```
 
 1. Execute the following commands to register the "Production\-Baseline" patch baseline for three patch groups named "Production," "Database Servers," and "Front\-End Patch Group\."
 
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE" --patch-group "Production"
+   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE --patch-group "Production"
    ```
 
    The system returns information like the following\.
@@ -63,12 +63,12 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    ```
    {
       "PatchGroup":"Production",
-      "BaselineId":"pb-0c10e65780EXAMPLE""
+      "BaselineId":"pb-0c10e65780EXAMPLE"
    }
    ```
 
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE" --patch-group "Database Servers"
+   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE --patch-group "Database Servers"
    ```
 
    The system returns information like the following\.
@@ -76,7 +76,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    ```
    {
       "PatchGroup":"Database Servers",
-      "BaselineId":"pb-0c10e65780EXAMPLE""
+      "BaselineId":"pb-0c10e65780EXAMPLE"
    }
    ```
 

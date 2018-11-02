@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon by contacting the SSM agent installed on your managed instance\. Optionally, you can remediate Windows activation offline, which requires a stop and start of your EC2 instance\. If Windows is not activated, the document verifies, and when needed repairs, the Windows route table \(route to Amazon KMS servers\), the KMS settings \(server and port\), and attempts to activate Windows\. Note: this document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. If you want to bring your own license, please review https://aws\.amazon\.com/windows/resources/licensing/\. 
+The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon by contacting the SSM agent installed on your managed instance\. Optionally, you can remediate Windows activation offline, which requires a stop and start of your EC2 instance\. If Windows is not activated, the document verifies, and when needed repairs, the Windows route table \(route to Amazon KMS servers\), the KMS settings \(server and port\), and attempts to activate Windows\. Note: this document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
 
  **Document Type** 
 

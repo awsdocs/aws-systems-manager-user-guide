@@ -42,7 +42,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
    aws iam create-role --role-name mw-task-role --assume-role-policy-document file://mw-role-trust-policy.json
    ```
 
-   The system returns information like the following\.
+   The system returns information like the following:
 
    ```
    {

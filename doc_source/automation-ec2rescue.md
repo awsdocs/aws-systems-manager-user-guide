@@ -24,7 +24,7 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Resc
 Before you run the following Automation, do the following:
 + Copy the instance ID of the unreachable instance\. You will specify this ID in the procedure\.
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/adminguide/VPC_Appendix_Limits.html#vpc-limits-vpcs-subnets)\. 
-+ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [QuickStart \#2: Run an Automation Workflow by Using an IAM Service Role](automation-quickstart-assume.md)\.
++ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an Automation Workflow by Using an IAM Service Role](automation-walk-security-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue Permissions to Perform Actions On Your Instances<a name="automation-ec2rescue-access"></a>
 

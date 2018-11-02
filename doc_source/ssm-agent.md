@@ -15,6 +15,7 @@ You must manually install SSM Agent on Amazon EC2 instances created from other L
 
 **Note**  
 SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. AMIs that include SSM Agent by default can take up to two weeks to publish an updated AMI with the newest version of SSM Agent\. To ensure that your instances are running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
 
  For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring Instances with AWS Systems Manager](monitoring.md)\.
 

@@ -46,7 +46,9 @@ Linux
 
   Default: SelectedInstanceSubnet
 
-  Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting\. If no subnet ID is specified, AWS Systems Manager Automation will create a new VPC\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
+  Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting\. If no subnet ID is specified, AWS Systems Manager Automation will create a new VPC\.
+**Important**  
+The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 + S3BucketName
 
   Type: String
@@ -56,32 +58,32 @@ Linux
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document\.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, Systems Manager Automation will use the permissions of the user that executes this document\.
 
  **Examples** 
 
 Check the current SSH status
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID"
 ```
 
 Perform an online fix of all detected SSH issues
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll"
+aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll"
 ```
 
 Perform an offline fix of all detected SSH issues
 
 ```
-        aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll,AllowOffline=True"
+aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll,AllowOffline=True"
 ```
 
 Retrieve the execution output
 
 ```
-        aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
 
  **Required IAM Permissions** 
@@ -100,15 +102,15 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. \(Offline remediation\) If the instance is not a managed instance then: 
 
-      1. aws:assertAwsResourceProperty \- Assert \*AllowOffline = True\*
+      1. aws:assertAwsResourceProperty \- Assert **AllowOffline = True**
 
-      1. aws:assertAwsResourceProperty \- Assert \*Action = FixAll\*
+      1. aws:assertAwsResourceProperty \- Assert **Action = FixAll**
 
       1. aws:assertAwsResourceProperty \- Assert the value of SubnetId
 
-      1. \(Use the provided instance's subnet\) If \*SubnetId\* is \*SelectedInstanceSubnet\* us aws:executeAutomation to execute \*AWSSupport\-ExecuteEC2Rescue\* with provided instance's subnet\.
+      1. \(Use the provided instance's subnet\) If SubnetId is SelectedInstanceSubnet us aws:executeAutomation to execute AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
 
-      1. \(Use the provided custom subnet\) If \*SubnetId\* is not \*SelectedInstanceSubnet\* use aws:executeAutomation to execute \*AWSSupport\-ExecuteEC2Rescue\* with provided \*SubnetId\* value\.
+      1. \(Use the provided custom subnet\) If SubnetId is not SelectedInstanceSubnet use aws:executeAutomation to execute AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
 
  **Outputs** 
 

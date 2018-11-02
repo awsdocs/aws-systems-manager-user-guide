@@ -43,7 +43,7 @@ The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE""
+   "BaselineId":"pb-0c10e65780EXAMPLE"
 }
 ```
 
@@ -127,14 +127,14 @@ The following command adds two patches as rejected and one patch as approved to 
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 ```
-aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE" --rejected-patches "KB2032276" "MS10-048" --approved-patches "KB2124261"
+aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE --rejected-patches "KB2032276" "MS10-048" --approved-patches "KB2124261"
 ```
 
 The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE"",
+   "BaselineId":"pb-0c10e65780EXAMPLE",
    "Name":"Windows-Server-2012R2",
    "RejectedPatches":[
       "KB2032276",
@@ -187,14 +187,14 @@ The system returns information like the following\.
 ## Rename a patch baseline<a name="patch-manager-cli-commands-rename-patch-baseline"></a>
 
 ```
-aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE" --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
+aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
 ```
 
 The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE"",
+   "BaselineId":"pb-0c10e65780EXAMPLE",
    "Name":"Windows-Server-2012-R2-Important-and-Critical-Security-Updates",
    "RejectedPatches":[
       "KB2032276",
@@ -247,14 +247,14 @@ The system returns information like the following\.
 ## Delete a patch baseline<a name="patch-manager-cli-commands-delete-patch-baseline"></a>
 
 ```
-aws ssm delete-patch-baseline --baseline-id "pb-0c10e65780EXAMPLE""
+aws ssm delete-patch-baseline --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
 The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE""
+   "BaselineId":"pb-0c10e65780EXAMPLE"
 }
 ```
 
@@ -273,13 +273,13 @@ The system returns information like the following\.
          "BaselineName":"AWS-DefaultPatchBaseline",
          "DefaultBaseline":true,
          "BaselineDescription":"Default Patch Baseline Provided by AWS.",
-         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
       },
       {
          "BaselineName":"Windows-Server-2012R2",
          "DefaultBaseline":false,
          "BaselineDescription":"Windows Server 2012 R2, Important and Critical security updates",
-         "BaselineId":"pb-0c10e65780EXAMPLE""
+         "BaselineId":"pb-0c10e65780EXAMPLE"
       }
    ]
 }
@@ -300,13 +300,13 @@ The system returns information like the following\.
          "BaselineName":"AWS-DefaultPatchBaseline",
          "DefaultBaseline":true,
          "BaselineDescription":"Default Patch Baseline Provided by AWS.",
-         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
       },
       {
          "BaselineName":"Windows-Server-2012R2",
          "DefaultBaseline":false,
          "BaselineDescription":"Windows Server 2012 R2, Important and Critical security updates",
-         "BaselineId":"pb-0c10e65780EXAMPLE""
+         "BaselineId":"pb-0c10e65780EXAMPLE"
       }
    ]
 }
@@ -327,7 +327,7 @@ The system returns information like the following\.
          "BaselineName":"AWS-DefaultPatchBaseline",
          "DefaultBaseline":true,
          "BaselineDescription":"Default Patch Baseline Provided by AWS.",
-         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+         "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
       }
    ]
 }
@@ -348,7 +348,7 @@ The system returns information like the following\.
          "BaselineName":"Windows-Server-2012R2",
          "DefaultBaseline":false,
          "BaselineDescription":"Windows Server 2012 R2, Important and Critical security updates",
-         "BaselineId":"pb-0c10e65780EXAMPLE""
+         "BaselineId":"pb-0c10e65780EXAMPLE"
       }
    ]
 }
@@ -357,14 +357,14 @@ The system returns information like the following\.
 ## Display a patch baseline<a name="patch-manager-cli-commands-get-patch-baseline"></a>
 
 ```
-aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE"
+aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
 ```
 
 The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE"",
+   "BaselineId":"pb-0c10e65780EXAMPLE",
    "Name":"Windows-Server-2012R2",
    "PatchGroups":[
       "Web Servers"
@@ -426,26 +426,26 @@ The system returns information like the following\.
 
 ```
 {
-   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 }
 ```
 
 ## Set the default patch baseline<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
 
 ```
-aws ssm register-default-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE""
+aws ssm register-default-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
 ```
 {
-   "BaselineId":"pb-0c10e65780EXAMPLE""
+   "BaselineId":"pb-0c10e65780EXAMPLE"
 }
 ```
 
 ## Register a patch group "Web Servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
 ```
-aws ssm register-patch-baseline-for-patch-group --baseline-id "pb-0c10e65780EXAMPLE"" --patch-group "Web Servers"
+aws ssm register-patch-baseline-for-patch-group --baseline-id "pb-0c10e65780EXAMPLE" --patch-group "Web Servers"
 ```
 
 The system returns information like the following\.
@@ -453,14 +453,14 @@ The system returns information like the following\.
 ```
 {
    "PatchGroup":"Web Servers",
-   "BaselineId":"pb-0c10e65780EXAMPLE""
+   "BaselineId":"pb-0c10e65780EXAMPLE"
 }
 ```
 
 ## Register a patch group "Backend" with the AWS\-provided patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend"></a>
 
 ```
-aws ssm register-patch-baseline-for-patch-group --region us-east-2 --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"" --patch-group "Backend"
+aws ssm register-patch-baseline-for-patch-group --region us-east-2 --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE" --patch-group "Backend"
 ```
 
 The system returns information like the following\.
@@ -468,7 +468,7 @@ The system returns information like the following\.
 ```
 {
    "PatchGroup":"Backend",
-   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 }
 ```
 
@@ -489,7 +489,7 @@ The system returns information like the following\.
             "BaselineName":"AWS-DefaultPatchBaseline",
             "DefaultBaseline":false,
             "BaselineDescription":"Default Patch Baseline Provided by AWS.",
-            "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+            "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
          }
       },
       {
@@ -498,7 +498,7 @@ The system returns information like the following\.
             "BaselineName":"Windows-Server-2012R2",
             "DefaultBaseline":true,
             "BaselineDescription":"Windows Server 2012 R2, Important and Critical updates",
-            "BaselineId":"pb-0c10e65780EXAMPLE""
+            "BaselineId":"pb-0c10e65780EXAMPLE"
          }
       }
    ]
@@ -508,7 +508,7 @@ The system returns information like the following\.
 ## Deregister a patch group from a patch baseline<a name="patch-manager-cli-commands-deregister-patch-baseline-for-patch-group"></a>
 
 ```
-aws ssm deregister-patch-baseline-for-patch-group --region us-east-2 --patch-group "Production" --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+aws ssm deregister-patch-baseline-for-patch-group --region us-east-2 --patch-group "Production" --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
 
 The system returns information like the following\.
@@ -516,14 +516,14 @@ The system returns information like the following\.
 ```
 {
    "PatchGroup":"Production",
-   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE""
+   "BaselineId":"arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 }
 ```
 
 ## Get all patches defined by a patch baseline<a name="patch-manager-cli-commands-describe-effective-patches-for-patch-baseline"></a>
 
 ```
-aws ssm describe-effective-patches-for-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE""
+aws ssm describe-effective-patches-for-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
 The system returns information like the following\.
@@ -670,19 +670,19 @@ The system returns information like the following\.
 ## Tag a patch baseline<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
 
 ```
-aws ssm add-tags-to-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE"" --tags "Key=Project,Value=Testing"
+aws ssm add-tags-to-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE" --tags "Key=Project,Value=Testing"
 ```
 
 ## List the tags for a patch baseline<a name="patch-manager-cli-commands-list-tags-for-resource"></a>
 
 ```
-aws ssm list-tags-for-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE""
+aws ssm list-tags-for-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE"
 ```
 
 ## Remove a tag from a patch baseline<a name="patch-manager-cli-commands-remove-tags-from-resource"></a>
 
 ```
-aws ssm remove-tags-from-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE"" --tag-keys "Project"
+aws ssm remove-tags-from-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE" --tag-keys "Project"
 ```
 
 ## Get patch summary states per\-instance<a name="patch-manager-cli-commands-describe-instance-patch-states"></a>

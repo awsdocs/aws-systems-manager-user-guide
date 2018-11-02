@@ -23,7 +23,7 @@ Use the AWS\-RestartEC2InstanceWithApproval document to target an AWS Resource G
 
 **Simplify complex tasks**  
 Automation offers one\-click automations for simplifying complex tasks such as creating golden Amazon Machines Images \(AMIs\), and recovering unreachable EC2 instances\. Here are some examples:
-+ Use the AWS\-UpdateLinuxAMI and AWS\-UpdateWindowsAMI documents to create golden AMIs from a source AMI\. You can run custom scripts before and after updates are applied\. You can also include or exclude specific packages from being installed\. For examples of how to run these workflows, see [Walkthroughs of Common Automation Use Cases](automation-walk.md)\.
++ Use the AWS\-UpdateLinuxAMI and AWS\-UpdateWindowsAMI documents to create golden AMIs from a source AMI\. You can run custom scripts before and after updates are applied\. You can also include or exclude specific packages from being installed\. For examples of how to run these workflows, see [Automation Walkthroughs](automation-walk.md)\.
 + Use the AWSSupport\-ExecuteEC2Rescue document to recover impaired instances\. An instance can become unreachable for a variety of reasons, including network misconfigurations, RDP issues, or firewall settings\. Troubleshooting and regaining access to the instance previously required dozens of manual steps before you could regain access\. The AWSSupport\-ExecuteEC2Rescue document lets you regain access by specifying an instance ID and clicking a button\. For an example of how to run this workflow, see [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.
 
 **Enhance operations security**  
@@ -34,7 +34,7 @@ Delegated administration enables you to provide permissions for certain tasks on
 + Create an Automation document and embed the role in the document\. \(The easiest way to do this is to customize the AWS\-RestartEC2Instance document and embed the role in the document instead of assigning an Automation service role \[or *assume* role\]\)\.
 + Modify IAM permissions for User1 and allow the user permission to run the document\. 
 
-For an example of how to delegate access to an Automation workflow, see [QuickStart \#3: Use Delegated Administration to Enhance Automation Security](automation-quickstart-delegated.md)\. 
+For an example of how to delegate access to an Automation workflow, see [Running an Automation by Using Delegated Administration](automation-walk-security-delegated.md)\. 
 
 **Share best practices**  
 Automation lets you share best practices with rest of your organization\.
@@ -55,9 +55,9 @@ AWS Systems Manager Automation uses the following concepts\.
 
 **Topics**
 + [Automation Use Cases](#automation-use-cases)
-+ [Automation QuickStarts](automation-quickstart.md)
 + [Setting Up Automation](automation-setup.md)
++ [Working with Systems Manager Automation](automation-working.md)
 + [Working with Automation Documents](automation-documents.md)
-+ [Walkthroughs of Common Automation Use Cases](automation-walk.md)
++ [Automation Walkthroughs](automation-walk.md)
 + [Automation System Variables](automation-variables.md)
 + [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)

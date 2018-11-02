@@ -1,15 +1,11 @@
-# Walkthroughs of Common Automation Use Cases<a name="automation-walk"></a>
+# Automation Walkthroughs<a name="automation-walk"></a>
 
 The following walkthroughs help you get started with Systems Manager Automation using a predefined Automation document\.
 
-Before you begin, you must configure Automation roles and permissions\. For more information, see [Setting Up Automation](automation-setup.md)\. For information about creating a custom Automation document, see [Patch a Windows AMI](automation-createdoc.md)\.
+Before you begin, you must configure Automation roles and permissions\. For more information, see [Setting Up Automation](automation-setup.md)\. For information about creating a custom Automation document, see [Patch a Windows AMI](automation-walk-patch-windows-ami-cli.md)\.
 
 **Topics**
-+ [Patch a Linux AMI \(Console\)](automation-consolewalk.md)
-+ [Patch a Linux AMI \(AWS CLI\)](automation-cliwalk.md)
-+ [Patch a Windows AMI](automation-createdoc.md)
-+ [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)
-+ [Reset Passwords and SSH Keys on Amazon EC2 Instances](automation-ec2reset.md)
-+ [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-simpatch.md)
++ [Executing Automations by Using Different Security Models](automation-walk-security.md)
++ [Patching Amazon Machines Images](automation-walk-ami-patching.md)
++ [Using AWS Support Self\-Service Automations](automation-walk-support.md)
 + [Using Automation with Jenkins](automation-jenkins.md)
-+ [Patch an AMI and Update an Auto Scaling Group](automation-asgroup.md)
