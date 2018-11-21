@@ -65,7 +65,7 @@ If you choose to select instances manually, and an instance you expect to see is
      {"owner":"TestUser1", "repository": "GitHubPrivateTest", "path": "scripts/webserver.yml", "tokenInfo":"{{ssm-secure:mySecureStringParameter}}" }
      ```
 
-     This example downloads a directory of scripts named *complex\-script*\. 
+     This example downloads a directory of scripts named *webserver\.yml*\. 
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
