@@ -40,6 +40,7 @@ The following example illustrates how to provide access to the Amazon S3 buckets
             "Resource": [
                 "arn:aws:s3:::aws-ssm-us-east-2/*",
                 "arn:aws:s3:::aws-windows-downloads-us-east-2/*",
+                "arn:aws:s3:::amazon-ssm-us-east-2/*",
                 "arn:aws:s3:::amazon-ssm-packages-us-east-2/*",
                 "arn:aws:s3:::us-east-2-birdwatcher-prod/*"
             ]
