@@ -1,4 +1,4 @@
-# Installing and Configuring SSM Agent on Linux Instances<a name="sysman-install-ssm-agent"></a>
+# Installing and Configuring SSM Agent on Amazon EC2 Linux Instances<a name="sysman-install-ssm-agent"></a>
 
 SSM Agent processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent\.
 

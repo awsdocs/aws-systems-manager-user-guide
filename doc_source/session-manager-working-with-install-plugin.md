@@ -169,7 +169,7 @@ session-manager-plugin
 If the installation was successful, the following message is returned:
 
 ```
-Session-Manager-Plugin is installed successfully. Please use AWSCLI to start a session.
+Session-Manager-Plugin is installed successfully. Use AWSCLI to start a session.
 ```
 
 You can also test the installation by running the following command in the AWS CLI:

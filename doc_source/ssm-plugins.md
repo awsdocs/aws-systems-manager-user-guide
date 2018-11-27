@@ -369,7 +369,13 @@ Required: Yes
 
 ## aws:configurePackage<a name="aws-configurepackage"></a>
 
-\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. This plugin runs on Microsoft Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
+
+Available packages for Microsoft Windows Server include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
+
+Available packages for Linux operating systems include the following: AmazonCloudWatchAgent and AWSSupport\-EC2Rescue\.
+
+For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="configurepackage-syntax"></a>
 

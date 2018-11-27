@@ -1,4 +1,4 @@
-# Systems Manager Inventory Manager Walkthroughs<a name="sysman-inventory-walk"></a>
+# Systems Manager Inventory Walkthroughs<a name="sysman-inventory-walk"></a>
 
 Use the following walkthroughs to collect and manage Inventory data\. We recommend that you initially perform these walkthroughs with managed instances in a test environment\. 
 

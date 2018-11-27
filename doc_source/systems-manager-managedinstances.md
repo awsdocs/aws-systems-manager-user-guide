@@ -14,5 +14,5 @@ After you finish, your hybrid machines that are configured for Systems Manager a
 **Topics**
 + [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)
 + [Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)
-+ [Install SSM Agent on Servers and VMs in a Windows Hybrid Environment](sysman-install-managed-win.md)
-+ [Install SSM Agent on Servers and VMs in a Linux Hybrid Environment](sysman-install-managed-linux.md)
++ [Install SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment](sysman-install-managed-win.md)
++ [Install SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment](sysman-install-managed-linux.md)

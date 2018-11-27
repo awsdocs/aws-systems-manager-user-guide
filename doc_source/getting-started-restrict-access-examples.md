@@ -33,7 +33,7 @@ You can restrict access to specific instances by creating an IAM user policy tha
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws:ssm:::session/${aws:username}-*"
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]
@@ -70,7 +70,7 @@ You can restrict access to instances based on specific Amazon EC2 tags\. In the 
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws:ssm:::session/${aws:username}-*"
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]
@@ -129,7 +129,7 @@ The following IAM policy lets a user view the IDs of all sessions in your accoun
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ssm:::session/${aws:username}-*"
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]

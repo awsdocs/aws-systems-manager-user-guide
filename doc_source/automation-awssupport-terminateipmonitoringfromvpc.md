@@ -1,59 +1,58 @@
-# AWSSupport-TerminateIPMonitoringFromVPC
+# AWSSupport\-TerminateIPMonitoringFromVPC<a name="automation-awssupport-terminateipmonitoringfromvpc"></a>
 
-## Description
+ **Description** 
 
-AWSSupport-TerminateIPMonitoringFromVPC terminates an IP monitoring test previously started by AWSSupport-SetupIPMonitoringFromVPC. Data related to the specified test ID will be deleted.
+AWSSupport\-TerminateIPMonitoringFromVPC terminates an IP monitoring test previously started by AWSSupport\-SetupIPMonitoringFromVPC\. Data related to the specified test ID will be deleted\.
 
-## Document Type
+ **Document Type** 
 
 Automation
 
-## Owner
+ **Owner** 
 
 Amazon
 
-## Parameters
+ **Parameters** 
++ AutomationExecutionId
 
-### AutomationExecutionId
+  Type: String
 
-- **Type**: String
-- **Description**: (Required) AWSSupport-SetupIPMonitoringFromVPC automation execution ID of the test you want to terminate.
+  Description: \(Required\) AWSSupport\-SetupIPMonitoringFromVPC automation execution ID of the test you want to terminate\.
++ SubnetId
 
-### SubnetId
+  Type: String
 
-- **Type**: String
-- **Description**: (Required) The subnet ID for the monitor instance.
+  Description: \(Required\) The subnet ID for the monitor instance\.
++ InstanceId
 
-### InstanceId
+  Type: String
 
-- **Type**: String
-- **Description**: (Required) The instance ID for the monitor instance.
+  Description: \(Required\) The instance ID for the monitor instance\.
++ AutomationAssumeRole
 
-### AutomationAssumeRole
+  Type: String
 
-- **Type**: String
-- **Description**: (Optional) The IAM role for this execution. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document\.
 
-## Examples
+ **Examples** 
 
-### Start the automation
+Start the automation
 
-```json
-aws ssm start-automation-execution --document-name AWSSupportTest-TerminateIPMonitoringFromVPC --parameters 'AutomationExecutionId=TESTID,SubnetId=TESTSUBNETID,InstanceId=TESTINSTANCEID,'
+```
+aws ssm start-automation-execution --document-name AWSSupportTest-TerminateIPMonitoringFromVPC --parameters 'AutomationExecutionId=ID,SubnetId=ID,InstanceId=ID,'
 ```
 
-### Retrieve the execution output
+Retrieve the execution output
 
-```json
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
+```
+aws ssm get-automation-execution --automation-execution-id ID --output text --query 'AutomationExecution.Output'
 ```
 
-## Required IAM Permissions
+**Required IAM Permissions**
 
-It is recommended the user who executes the automation have the **AmazonSSMAutomationRole** IAM managed policy attached.
-In addition to that policy, the user must have:
+It is recommended that the user who executes the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition, the user must have the following policy attached to their user account, group, or role:
 
-```json
+```
 {
    "Version": "2012-10-17",
    "Statement": [
@@ -93,21 +92,30 @@ In addition to that policy, the user must have:
 }
 ```
 
-## Document Steps
+**Document Steps**
 
-1. **aws:assertAwsResourceProperty** - check AutomationExecutionId and InstanceId are related to the same test.
-1. **aws:assertAwsResourceProperty** - check SubnetId and InstanceId are related to the same test.
-1. **aws:executeAwsApi** - retrieve the test security group.
-1. **aws:executeAwsApi** - delete the CloudWatch dashboard.
-1. **aws:changeInstanceState** - terminate the test instance.
-1. **aws:executeAwsApi** - remove the IAM instance profile from the role.
-1. **aws:executeAwsApi** - delete the IAM instance profile created by the automation.
-1. **aws:executeAwsApi** - delete the CloudWatch inline policy from the role created by the automation.
-1. **aws:executeAwsApi** - detach the AmazonEC2RoleForSSM managed policy from the role created by the automation.
-1. **aws:executeAwsApi** - delete the IAM role created by the automation.
-1. **aws:executeAwsApi** - delete the security group created by the automation, if it exists.
+1. aws:assertAwsResourceProperty \- check AutomationExecutionId and InstanceId are related to the same test\.
 
-## Outputs
+1. aws:assertAwsResourceProperty \- check SubnetId and InstanceId are related to the same test\.
+
+1. aws:executeAwsApi \- retrieve the test security group\.
+
+1. aws:executeAwsApi \- delete the CloudWatch dashboard\.
+
+1. aws:changeInstanceState \- terminate the test instance\.
+
+1. aws:executeAwsApi \- remove the IAM instance profile from the role\.
+
+1. aws:executeAwsApi \- delete the IAM instance profile created by the automation\.
+
+1. aws:executeAwsApi \- delete the CloudWatch inline policy from the role created by the automation\.
+
+1. aws:executeAwsApi \- detach the **AmazonEC2RoleForSSM** managed policy from the role created by the automation\.
+
+1. aws:executeAwsApi \- delete the IAM role created by the automation\.
+
+1. aws:executeAwsApi \- delete the security group created by the automation, if it exists\.
+
+**Outputs**
 
 None
-

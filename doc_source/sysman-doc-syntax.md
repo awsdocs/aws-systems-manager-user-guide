@@ -1,6 +1,6 @@
 # SSM Document Syntax<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or higher\. Documents that use this schema version include the following top\-level elements\. For information about the properties that you can specify in these elements, see [Top\-level Elements](ssm-plugins.md#top-level)\.
+The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later\. Documents that use this schema version include the following top\-level elements\. For information about the properties that you can specify in these elements, see [Top\-level Elements](ssm-plugins.md#top-level)\.
 + `schemaVersion`: The schema version to use\.
 + `Description`: Information you provide to describe the purpose of the document\.
 + `Parameters`: The parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Systems Manager parameters in this section of a document\. You can't reference Secure String Systems Manager parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\.
@@ -186,6 +186,9 @@ mainSteps:
 
 **Schema Version 2\.2 AWS\-ConfigureAWSPackage Example**  
 The following example shows the AWS\-ConfigureAWSPackage document\. The **mainSteps** section includes the **aws:configurePackage** plugin in the **action** step\.
+
+**Note**  
+On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2Rescue` packages are supported\.
 
 ```
 {

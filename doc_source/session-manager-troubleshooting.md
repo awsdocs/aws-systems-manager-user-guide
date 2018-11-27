@@ -28,7 +28,7 @@ Use the following information to help you troubleshoot problems with Session Man
 + **Solution A**: The instance has been configured for use with the AWS Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
 + **Solution B**: The instance is not running a version of SSM Agent that supports Session Manager\. Update SSM Agent on the instance to version 2\.3\.68\.0 or later\. 
 
-  Update SSM Agent manually on an instance by following the steps in [Install and Configure SSM Agent on Windows Instances](sysman-install-win.md) or [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md), depending on the operating system\. 
+  Update SSM Agent manually on an instance by following the steps in [Install and Configure SSM Agent on Amazon EC2 Windows Instances](sysman-install-win.md) or [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md), depending on the operating system\. 
 
   Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 **Tip**  

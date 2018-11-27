@@ -1,6 +1,6 @@
 # Create an IAM Service Role for a Hybrid Environment<a name="sysman-service-role"></a>
 
-Servers and VMs in a hybrid environment require an IAM role to communicate with the Systems Manager SSM service\. The role grants AssumeRole trust to the SSM service\. 
+Servers and virtual machines \(VMs\) in a hybrid environment require an IAM role to communicate with the Systems Manager SSM service\. The role grants AssumeRole trust to the SSM service\. 
 
 **Note**  
 You only need to create the service role once for each AWS account\.

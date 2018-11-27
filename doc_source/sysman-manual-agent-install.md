@@ -12,6 +12,9 @@ The URLs in the following scripts let you download SSM Agent from *any* AWS regi
 
 After you manually install SSM Agent, you can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
+**Important**  
+These procedures apply to installing or reinstalling SSM Agent on Amazon EC2 Linux instances\. If you need to install the agent on an on\-premises instance or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment](sysman-install-managed-linux.md)\.
+
 ## Amazon Linux and Amazon Linux 2<a name="agent-install-al"></a>
 
 Connect to your Amazon Linux or Amazon Linux 2 instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
@@ -25,13 +28,19 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 
 1. Use one of the following commands to download and run the SSM Agent installer\. 
 
-   64\-bit instances:
+   Intel \(x86\_64\) 64\-bit instances:
 
    ```
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
 
-   32\-bit instances:
+   ARM \(arm64\) 64\-bit instances:
+
+   ```
+   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
+
+   Intel \(x86\) 32\-bit instances:
 
    ```
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
@@ -147,6 +156,7 @@ Because of a known issue with Snap, you might see a `Maximum timeout exceeded` e
      ```
 On Ubuntu Server 18\.04 and 16\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to the config files \(`amazon-ssm-agent.json.template` and `seelog.xml.template`\) then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files have not changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
 On Ubuntu Server 18\.04, use Snaps only\. Don't install deb packages\. Also verify that only one instance of the agent is installed and running on your instances\.
+On Ubuntu Server 18\.04 and 16\.04, SSM Agent provides support for the arm64 processor architecture\.
 On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\. For more information, see [About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances](#agent-install-ubuntu-about-v16)\.
 
 1. Run the following command to determine if SSM Agent is running\. 
@@ -299,13 +309,19 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
 
 1. Use one of the following commands to download and run the SSM Agent installer\.
 
-   64\-bit instances:
+   Intel \(x86\_64\) 64\-bit instances:
 
    ```
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
 
-   32\-bit instances:
+   ARM \(arm64\) 64\-bit instances::
+
+   ```
+   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
+
+   Intel \(x86\) 32\-bit instances:
 
    ```
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm

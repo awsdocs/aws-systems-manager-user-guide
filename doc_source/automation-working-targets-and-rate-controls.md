@@ -265,6 +265,8 @@ You must use the `Targets` parameter to use concurrency and error thresholds\.
       + Choose **percentage** to enter a percentage of errors allowed before Automation stops sending the workflow to other resources\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
+**Note**  
+If you chose to target resources by using tags or a Resource Group, then you may not need to choose some of the options in the **Input parameters** section\. For example, if you chose the AWS\-RestartEC2Instance document, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags you specified\. 
 
 1. Choose **Execute automation**\. 
 

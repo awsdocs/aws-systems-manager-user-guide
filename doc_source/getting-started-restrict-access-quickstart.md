@@ -49,7 +49,7 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws:ssm:::session/${aws:username}-*"
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]
@@ -108,7 +108,7 @@ Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied t
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws:ssm:::session/${aws:username}-*"
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]

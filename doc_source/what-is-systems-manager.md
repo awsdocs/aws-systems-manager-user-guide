@@ -79,6 +79,11 @@ Use [Systems Manager Run Command](execute-remote-commands.md) to remotely and se
 Use [Session Manager](session-manager.md) to manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your Amazon EC2 instances\. 
 
 ------
+#### [ Distributor ]
+
+Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
+
+------
 #### [ Patch Management ]
 
 Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed instances\. This capability enables you to scan instances for missing patches and apply missing patches individually or to large groups of instances by using Amazon EC2 instance tags\. For security patches, Patch Manager uses patch baselines that include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. Security patches are installed from the default repository for patches configured for the instance\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager Maintenance Window task\. For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the instance\. For Linux, you also have the ability to update any package on the instance, not just those that are classified as operating system security updates\.
@@ -142,7 +147,7 @@ You can access Systems Manager using any of the following interfaces:
 
 ## Pricing<a name="pricing"></a>
 
-Systems Manager features and shared components are offered at no additional cost\. You pay only for the AWS resources that you use\.
+Some Systems Manager capabilities charge a fee\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 ## We Want to Hear from You<a name="welcome-contact-us"></a>
 

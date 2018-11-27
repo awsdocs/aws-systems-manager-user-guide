@@ -36,8 +36,8 @@ The following table lists the differences between major schema versions\.
 |  not applicable  |  name  |  In version 2\.2, `name` is any user\-defined name for a step\.  | 
 
 **Using the Precondition Parameter**  
-With schema version 2\.2 or higher, you can use the `precondition` parameter to specify the target operating system for each plugin\. The `precondition` parameter supports `platformType` and a value of either `Windows` or `Linux`\.
+With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin\. The `precondition` parameter supports `platformType` and a value of either `Windows` or `Linux`\.
 
-For documents that use schema version 2\.2 or higher, if `precondition` is not specified, each plugin is either executed or skipped based on the plugin’s compatibility with the operating system\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
+For documents that use schema version 2\.2 or later, if `precondition` is not specified, each plugin is either executed or skipped based on the plugin’s compatibility with the operating system\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
 
 For example, in a schema version 2\.2 document, if `precondition` is not specified and the `aws:runShellScript` plugin is listed, then the step runs on Linux instances, but the system skips it on Windows instances because the `aws:runShellScript` is not compatible with Windows instances\. However, for a schema version 2\.0 document, if you specify the `aws:runShellScript` plugin, and then run the document on a Windows instances, the execution fails\. You can see an example of the the precondition parameter in an SSM document later in this section\.

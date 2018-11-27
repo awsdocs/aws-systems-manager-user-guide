@@ -23,7 +23,7 @@ Use the following procedures to install, configure, or uninstall SSM Agent\. Thi
 
 **Topics**
 + [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)
-+ [Installing and Configuring SSM Agent on Linux Instances](sysman-install-ssm-agent.md)
++ [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)
 + [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Subscribing to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)
 + [Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)

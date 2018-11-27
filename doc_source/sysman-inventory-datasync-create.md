@@ -15,38 +15,54 @@ You can use AWS Key Management Service \(AWS KMS\) to encrypt Inventory data in 
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix*/ from the ARN in the following policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\.
+
+   To enable multiple AWS accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
+
+   ```
+   "Resource": [
+        "arn:aws:s3:::MyTestS3Bucket/*/accountid=123456789012/*", 
+        "arn:aws:s3:::MyTestS3Bucket/*/accountid=a1b2c3d4e5f6/*",
+        "arn:aws:s3:::MyTestS3Bucket/*/accountid=1234abcd56ef/*"
+                   ],
+   ```
+
+   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix*/ from the ARN in the following policy\. 
 **Note**  
 For information about viewing your AWS account ID, see [Your AWS Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "SSMBucketPermissionsCheck",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::bucket-name"
-           },
-           {
-               "Sid": " SSMBucketDelivery",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:PutObject",
-               "Resource": ["arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id/*"],
-               "Condition": {
-                   "StringEquals": {
-                       "s3:x-amz-acl": "bucket-owner-full-control"
-                   }
+      "Version":"2012-10-17",
+      "Statement":[
+         {
+            "Sid":"SSMBucketPermissionsCheck",
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"ssm.amazonaws.com"
+            },
+            "Action":"s3:GetBucketAcl",
+            "Resource":"arn:aws:s3:::bucket-name"
+         },
+         {
+            "Sid":" SSMBucketDelivery",
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"ssm.amazonaws.com"
+            },
+            "Action":"s3:PutObject",
+            "Resource":[
+               "arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id-1/*",
+               "arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id-2/*",
+               "arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id-3/*"
+            ],
+            "Condition":{
+               "StringEquals":{
+                  "s3:x-amz-acl":"bucket-owner-full-control"
                }
-           }
-       ]
+            }
+         }
+      ]
    }
    ```
 
@@ -75,3 +91,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 1. In the **KMS Key ARN** field, type or paste a KMS Key ARN to encrypt inventory data in Amazon S3\.
 
 1. Choose **Create**\.
+
+To synchronize inventory data from multiple AWS Regions, you must create a Resource Data Sync in *each* Region\. Repeat this procedure in each AWS Region where you want to collect inventory data and send it to the central Amazon S3 bucket\. When you create the sync in each Region, specify the central Amazon S3 bucket in the **Bucket name** field\. Then use the **Bucket region** option to choose the Region where you created the central Amazon S3 bucket, as shown in the following screen shot\. The next time the association runs to collect inventory data, Systems Manager stores the data in the central Amazon S3 bucket\. 
+
+![\[Systems Manager Resource Data Sync from multiple AWS Regions\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)

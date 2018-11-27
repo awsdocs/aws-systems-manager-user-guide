@@ -1,6 +1,6 @@
 # Configuring Inventory Collection<a name="sysman-inventory-configuring"></a>
 
-This section describes how to configure inventory collection on one or more managed instances by using the Systems Manager console\. This section also describes how to aggregate inventory data from multiple AWS accounts and regions in a single Amazon S3 bucket by using Systems Manager Resource Data Sync\. For an example of how to configure inventory collection by using the AWS CLI, see [Systems Manager Inventory Manager Walkthroughs](sysman-inventory-walk.md)\.
+This section describes how to configure inventory collection on one or more managed instances by using the Systems Manager console\. This section also describes how to aggregate inventory data from multiple AWS accounts and Regions in a single Amazon S3 bucket by using Systems Manager Resource Data Sync\. For an example of how to configure inventory collection by using the AWS CLI, see [Systems Manager Inventory Walkthroughs](sysman-inventory-walk.md)\.
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.

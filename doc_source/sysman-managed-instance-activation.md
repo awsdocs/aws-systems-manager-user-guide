@@ -1,6 +1,6 @@
 # Create a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
 
-To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an Activation Code and Activation ID\. This Code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an Activation Code and Activation ID\. This Code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
 **Note**  
 An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you registered with Systems Manager\. This means that if an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\. All of the servers and VMs that you registered will continue to be registered Systems Manager managed instances until you remove or disable SSM Agent on the server or VM and thereby unregister it\.

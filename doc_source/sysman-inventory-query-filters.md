@@ -1,4 +1,4 @@
-# Querying an Inventory Collection<a name="sysman-inventory-query"></a>
+# Querying an Inventory Collection by Using Filters<a name="sysman-inventory-query-filters"></a>
 
 After you collect inventory data, you can use the filter capabilities in Systems Manager to query a list of managed instances that meet certain filter criteria\. 
 

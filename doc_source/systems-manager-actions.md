@@ -6,6 +6,7 @@ AWS Systems Manager \(formerly Amazon EC2 Systems Manager\) provides the followi
 + [AWS Systems Manager Automation](systems-manager-automation.md)
 + [AWS Systems Manager Run Command](execute-remote-commands.md)
 + [AWS Systems Manager Session Manager](session-manager.md)
++ [AWS Systems Manager Distributor](distributor.md)
 + [AWS Systems Manager Patch Manager](systems-manager-patch.md)
 + [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)
 + [AWS Systems Manager State Manager](systems-manager-state.md)

@@ -20,7 +20,7 @@ For more information, see [Log AWS Systems Manager API Calls with AWS CloudTrail
 
 ## Log Session Data Using Amazon S3<a name="session-manager-logging-auditing-s3"></a>
 
-You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. By default, logs are sent to an encrypted S3 bucket \(encrypted using your AWS Key Management Service \(AWS KMS\) key\. 
+You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. By default, logs are sent to an encrypted S3 bucket\. Encryption is performed using your choice of an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
 **S3 Bucket Encryption**  
 In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](Amazon Simple Storage Service Developer Guidebucket-encryption.html)\.

@@ -31,7 +31,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role assumed by Lambda
+  Description: \(Optional\) The ARN of the role assumed by Lambda\.
 + SnapshotId
 
   Type: String

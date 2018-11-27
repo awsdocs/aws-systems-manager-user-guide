@@ -19,7 +19,7 @@ Amazon S3 permissions required by SSM Agent
 | --- | --- | 
 | arn:aws:s3:::aws\-ssm\-region/\* |  Provides access to the Amazon S3 bucket containing modules required for use with SSM documents\.  | 
 | arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support Windows operating systems\.  | 
-| arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. Thse buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\.  | 
+| arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\.  | 
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 
 | arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  | 
 

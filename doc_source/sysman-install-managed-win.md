@@ -1,15 +1,15 @@
-# Install SSM Agent on Servers and VMs in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
+# Install SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation in the previous section\. You will specify the Code and ID in the following procedure\.
 
 **Important**  
-This procedure is for servers and VMs in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
+This procedure is for servers and virtual vachines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 
 **To install SSM Agent on servers and VMs in your hybrid environment**
 
 1. Log on to a server or VM in your hybrid environment\.
 
-1. Open Windows PowerShell\. 
+1. Open Windows PowerShell in elevated \(administrative\) mode\.
 
 1. Copy and paste the following command block into AWS Tools for Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\.
 

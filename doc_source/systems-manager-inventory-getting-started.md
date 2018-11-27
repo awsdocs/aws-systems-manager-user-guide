@@ -1,0 +1,1 @@
+# Getting Started with Systems Manager Inventory<a name="systems-manager-inventory-getting-started"></a>
