@@ -88,9 +88,9 @@ You must create a new IAM role called **Amazon\-GlueServiceRoleForSSM** that ena
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\. And then choose **Next: Permissions**\.
+1. On the **Select type of trusted entity** page, under **AWS Service**, choose **Glue**\. And then choose **Next: Permissions**\.
 **Note**  
-If the **Select your use case** section appears, choose **EC2 Role for Simple Systems Manager**\.
+If the **Select your use case** section appears, choose **Glue**\.
 
 1. On the **Attach permissions policies** page, use the Search field to search for **AWSGlueServiceRole**\. Choose the option beside this policy, and then choose **Next: Review**\. 
 
