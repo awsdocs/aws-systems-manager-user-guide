@@ -4,7 +4,7 @@ If the scripts that you run by using Run Command reboot managed instances, then 
 
 **Create idempotent scripts**
 
-When developing scripts that reboot manged instances, make the scripts idempotent so that script execution continues where it left off after the reboot\. 
+When developing scripts that reboot managed instances, make the scripts idempotent so that script execution continues where it left off after the reboot\. 
 
 Here is an outline example of an idempotent script the reboots the instance mutliple times\.
 
@@ -30,7 +30,7 @@ If (desired package not installed)
 	}
 ```
 
-The following script samples use exit codes to restart instances\. The Windows example installs the Hypver\-V application on the instance, and then restarts the intance\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. 
+The following script samples use exit codes to restart instances\. The Windows example installs the Hyper\-V application on the instance, and then restarts the intance\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. 
 
 **Windows example**
 
