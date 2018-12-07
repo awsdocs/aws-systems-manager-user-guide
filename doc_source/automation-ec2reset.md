@@ -112,6 +112,7 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "ec2:DeleteInternetGateway",
             "ec2:CreateSubnet",
             "ec2:DeleteSubnet",
+            "ec2:ModifySubnetAttribute",
             "ec2:CreateRoute",
             "ec2:DeleteRoute",
             "ec2:CreateRouteTable",
@@ -121,6 +122,9 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "ec2:CreateVpcEndpoint",
             "ec2:DeleteVpcEndpoints",
             "ec2:ModifyVpcEndpoint",
+            "ec2:DetachVolume",
+            "ec2:AttachVolume",
+            "ec2:ModifyInstanceAttribute", 
             "ec2:Describe*"
          ],
          "Resource": "*",
