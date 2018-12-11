@@ -5,3 +5,5 @@ SSM Agent writes information about executions, scheduled actions, errors, and he
 You can view SSM Agent log files on Windows instances in the following locations\.
 + `%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
 + `%PROGRAMDATA%\Amazon\SSM\Logs\errors.log`
+
+For information about enabling SSM Agent debug logging, see [Enable SSM Agent Debug Logging](troubleshooting-remote-commands.md#systems-manager-ssm-agent-debug-log-files)\.

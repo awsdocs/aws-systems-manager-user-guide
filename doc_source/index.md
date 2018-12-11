@@ -325,6 +325,7 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS Systems Manager Permissions Reference](auth-and-access-control-permissions-reference.md)
 + [AWS Systems Manager Reference](reference.md)
    + [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
+   + [Reference: Maintenance Window Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)
    + [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)
 + [Use Cases and Best Practices](systems-manager-best-practices.md)
 + [Document History](systems-manager-release-history.md)

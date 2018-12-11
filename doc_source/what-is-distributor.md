@@ -13,7 +13,7 @@ See the following topics to learn more about AWS Systems Manager Distributor\.
 Distributor offers these benefits:
 + **One package, many platforms**
 
-  One document can have attached ZIP files that are installed on different operating systems \(such as Windows, Ubuntu, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
+  One document can have attached ZIP files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
 + **Control package access across groups of managed instances**
 
   You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
@@ -32,7 +32,7 @@ Distributor offers these benefits:
 ## What Are the Features of Distributor?<a name="distributor-features"></a>
 + **Deployment of packages to both Windows and Linux instances**
 
-  Distributor lets you deploy software packages to EC2 Windows and Linux instances\. For a list of supported instance operating system types, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
+  Distributor lets you deploy software packages to Amazon EC2 Windows and Linux instances\. For a list of supported instance operating system types, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
 + **Deploy packages one time, or on an automated schedule**
 
   You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\.
@@ -61,12 +61,12 @@ Distributor supports package distribution to any release version of the followin
 
 | Platform | Code Value in Manifest File | Architecture | 
 | --- | --- | --- | 
-|  Windows  |  `windows`  |  `x86_64` or `386`  | 
+|  Windows Server  |  `windows`  |  `x86_64` or `386`  | 
 |  Debian  |  `debian`  |  `x86_64` or `386`  | 
-|  Ubuntu  |  `ubuntu`  |  `x86_64` or `386` `arm64` \(Ubuntu 16 and later, A1 instance types\)  | 
-|  Red Hat Enterprise Linux  |  `redhat`  |  `x86_64` or `386` `arm64` \(Red Hat Enterprise Linux 7\.6 and later, A1 instance types\)  | 
+|  Ubuntu Server  |  `ubuntu`  |  `x86_64` or `386` `arm64` \(Ubuntu 16 and later, A1 instance types\)  | 
+|  Red Hat Enterprise Linux \(RHEL\)  |  `redhat`  |  `x86_64` or `386` `arm64` \(Red Hat Enterprise Linux 7\.6 and later, A1 instance types\)  | 
 |  CentOS  |  `centos`  |  `x86_64` or `386`  | 
 |  Amazon Linux and Amazon Linux 2  |  `amazon`  |  `x86_64` or `386` `arm64` \(Amazon Linux 2, A1 instance types\)  | 
-|  SUSE Linux Enterprise Server  |  `suse`  |  `x86_64` or `386`  | 
+|  SUSE Linux Enterprise Server \(SLES\)  |  `suse`  |  `x86_64` or `386`  | 
 |  openSUSE  |  `opensuse`  |  `x86_64` or `386`  | 
 |  openSUSE Leap  |  `opensuseleap`  |  `x86_64` or `386`  | 

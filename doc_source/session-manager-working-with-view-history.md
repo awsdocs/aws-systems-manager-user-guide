@@ -36,4 +36,4 @@ To view a list of sessions in your account using the CLI, run the following comm
 aws ssm describe-sessions --state History
 ```
 
-For information about other options you can use with the describe\-sessions command, see [describe\-sessions](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-sessions.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the describe\-sessions command, see [describe\-sessions](https://docs.aws.amazon.com/cli/latest/reference/ssm//describe-sessions.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

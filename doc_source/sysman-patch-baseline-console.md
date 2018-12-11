@@ -65,8 +65,8 @@ For information about accepted formats for lists of approved patches and rejecte
    + In **Configuration**, enter the value of the yum repository configuration to use\. For example:
 
      ```
-     cachedir=/var/cache/yum/$basesearch
-     $releasever
+     [main]
+     cachedir=/var/cache/yum/$basesearch$releasever
      keepcache=0
      debuglevel=2
      ```

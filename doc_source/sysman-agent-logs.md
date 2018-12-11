@@ -8,6 +8,6 @@ You can view SSM Agent logs on Linux instances in the following locations\.
 
 SSM Agent `sterr` and `stdout` files are written to the following directory: /var/lib/amazon/ssm\.
 
-You can enable extended logging by updating the `seelog.xml` file\. The default location of the configuration file is: `/etc/amazon/ssm/seelog.xml`
+For information about enabling SSM Agent debug logging, see [Enable SSM Agent Debug Logging](troubleshooting-remote-commands.md#systems-manager-ssm-agent-debug-log-files)\.
 
 For more information about `cihub/seelog` configuration, see the [Seelog Wiki](https://github.com/cihub/seelog/wiki) on GitHub\. For examples of `cihub/seelog` configurations, see the [cihub/seelog examples](https://github.com/cihub/seelog-examples) repository on GitHub\. 

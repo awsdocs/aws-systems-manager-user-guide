@@ -19,7 +19,31 @@ Before you can query and view data from multiple accounts and Regions on the **I
 + [Task 2: Create the Required IAM Role](#systems-manager-inventory-query-access-role): Create a new IAM role called **Amazon\-GlueServiceRoleForSSM**\. This role enables AWS Glue to access the Resource Data Sync Amazon S3 bucket\. You must assign the **AWSGlueServiceRole** managed policy to this role\.
 + [Task 3: Create and Attach an Additional AWS Glue Policy to the IAM Role](#systems-manager-inventory-query-access-policy): Create a separate policy for the IAM role that enables communication between AWS Glue and Systems Manager Inventory\.
 
-The following procedures describe how to configure the required roles and permissions for querying data from multiple Regions and accounts with Systems Manager Inventory\.
+**Important**  
+If you use a programmatic tool such as the AWS CLI, Tools for Windows PowerShell, or the SDK to configure IAM permissions, then you must create an assume role trust relationship between the **Amazon\-GlueServiceRoleForSSM** role and the AWS Glue service\. This trust relationship is automatically created if you use the console procedures in this section\.  
+If you use a programmatic tool, and you don't create this trust relationship, then you receive the following error in the AWS Systems Manager console:  
+
+```
+"Service is unable to assume role arn:aws:iam::account_ID:role/Amazon-GlueServiceRoleForSSM. Please verify role's TrustPolicy."
+```
+Users of programmatic tools must attach the following trust statement to the **Amazon\-GlueServiceRoleForSSM** role\.   
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+The following procedures describe how to use the IAM console to configure the required roles and permissions for querying data from multiple Regions and accounts with Systems Manager Inventory\. You must have administrator permissions in IAM to perform the following tasks\.
 
 ## Task 1: Configure User Access<a name="systems-manager-inventory-query-access-user"></a>
 

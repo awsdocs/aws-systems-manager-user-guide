@@ -26,7 +26,7 @@ You can use the AWS Systems Manager console to create a package\. Have the URL r
 
 ## Add a Package \(CLI\)<a name="create-pkg-cli"></a>
 
-1. To use the CLI to create a package, run the following command, replacing *package\_name* with the name of your package and *S3\_bucket\_URL\_to\_manifest\_file* with the URL of the JSON manifest that you copied in [Step 3: Upload the Package and Manifest to an Amazon S3 Bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\_bucket\_URL\_of\_package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
+1. To use the AWS CLI to create a package, run the following command, replacing *package\_name* with the name of your package and *S3\_bucket\_URL\_to\_manifest\_file* with the URL of the JSON manifest that you copied in [Step 3: Upload the Package and Manifest to an Amazon S3 Bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\_bucket\_URL\_of\_package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
    If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the entire content of the JSON manifest file, in quotations\.
 
@@ -46,4 +46,4 @@ You can use the AWS Systems Manager console to create a package\. Have the URL r
    aws ssm get-document --name "package_name"
    ```
 
-For information about other options you can use with the create\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) in the AWS Systems Manager section of the AWS CLI Command Reference\. For information about other options you can use with the get\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html)\.
+For information about other options you can use with the create\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\. For information about other options you can use with the get\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html)\.

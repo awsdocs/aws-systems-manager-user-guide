@@ -1,6 +1,6 @@
 # Use the AWS CLI to Update Session Manager Preferences<a name="getting-started-configure-preferences-cli"></a>
 
-Follow these steps to use the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) command to specify or change Session Manager preferences for your account in the selected AWS Region, such as the S3 bucket or CloudWatch log group that session data is sent to\. 
+Follow these steps to use the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm//update-document.html) command to specify or change Session Manager preferences for your account in the selected AWS Region, such as the S3 bucket or CloudWatch log group that session data is sent to\. 
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 

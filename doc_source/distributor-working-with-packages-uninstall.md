@@ -16,7 +16,7 @@ You can use Run Command in the AWS Systems Manager console to uninstall a packag
 
 1. On the Run Command home page, choose **Run command**\.
 
-1. Choose the **AWS\-ConfigureAWSPackage** command document\.
+1. Choose the `AWS-ConfigureAWSPackage` command document\.
 
 1. From **Action**, choose **Uninstall** 
 
@@ -24,11 +24,11 @@ You can use Run Command in the AWS Systems Manager console to uninstall a packag
 
 1. In **Targets**, choose target managed instances by specifying a tag key and values that are shared by the managed instances, or specify instances by any of seven attributes, including instance ID, platform, and SSM Agent version\.
 
-1. You can use the advanced options to add comments about the operation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure SNS notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
+1. You can use the advanced options to add comments about the operation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure Amazon SNS notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
 
 1. When you are ready to uninstall the package, choose **Run**, and then choose **View results**\.
 
-1. In the commands list, choose the **AWS\-ConfigureAWSPackage** command that you ran\. If the command is still in progress, choose the refresh icon in the top\-right corner of the console\.
+1. In the commands list, choose the `AWS-ConfigureAWSPackage` command that you ran\. If the command is still in progress, choose the refresh icon in the top\-right corner of the console\.
 
 1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
 
@@ -49,4 +49,4 @@ You can use the AWS CLI to uninstall a Distributor package from managed instance
   aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-00000000000000" --parameters '{"action":["Uninstall"],"name":["Test-ConfigureAWSPackage"]}'
   ```
 
-For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.

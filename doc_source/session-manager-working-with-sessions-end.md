@@ -31,4 +31,4 @@ aws ssm terminate-session --session-id session-id
 
 *session\-id* represents of the ID of an active Session Manager session that you want to end permanently\.
 
-For more information about the terminate\-session command, see [terminate\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/terminate-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For more information about the terminate\-session command, see [terminate\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm//terminate-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

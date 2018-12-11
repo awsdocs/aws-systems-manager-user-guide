@@ -29,7 +29,7 @@ You can use the AWS Systems Manager console to install a package one time\. When
 
 1. In **Install package**, choose **Install one time**\.
 
-   This command opens Systems Manager Run Command with the command document **AWS\-ConfigureAWSPackage** and your Distributor package already selected\.
+   This command opens Systems Manager Run Command with the command document `AWS-ConfigureAWSPackage` and your Distributor package already selected\.
 
 1. Keep **Install** as the value of **Action**\. For **Name**, enter the name of the package that you want to install\.
 
@@ -37,11 +37,11 @@ You can use the AWS Systems Manager console to install a package one time\. When
 
 1. In **Targets**, choose target managed instances by specifying a tag key and values that are shared by the managed instances, or specify instances by any of seven attributes, including instance ID, platform, and SSM Agent version\.
 
-1. You can use the advanced options to add comments about the installation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure SNS notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
+1. You can use the advanced options to add comments about the installation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure Amazon Simple Notification Service \(Amazon SNS\) notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
 
 1. When you are ready to install the package, choose **Run**, and then choose **View results**\.
 
-1. In the commands list, choose the **AWS\-ConfigureAWSPackage** command that you ran\. If the command is still in progress, choose the refresh icon in the top\-right corner of the console\.
+1. In the commands list, choose the `AWS-ConfigureAWSPackage` command that you ran\. If the command is still in progress, choose the refresh icon in the top\-right corner of the console\.
 
 1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
 
@@ -65,7 +65,7 @@ You can use the AWS Systems Manager console to schedule the installation of a pa
 
 1. In **Name**, enter a name \(for example, **Deploy\_test\_agent\_package**\)\. This is optional, but recommended\. Spaces aren't allowed in the name\.
 
-1. In the **Command document** list, the document name **AWS\-ConfigureAWSPackage** is already selected\. Verify that the **Package** value is set to the name of your package\. Verify that in **Parameters**, for **Operation**, **Install** is already selected\.
+1. In the **Command document** list, the document name `AWS-ConfigureAWSPackage` is already selected\. Verify that the **Package** value is set to the name of your package\. Verify that in **Parameters**, for **Operation**, **Install** is already selected\.
 
 1. In **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
@@ -92,7 +92,7 @@ You can run send\-command in the AWS CLI to install a Distributor package one ti
   aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-00000000000000" --parameters '{"action":["Install"],"name":["ExamplePackage"]}'
   ```
 
-For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
 
 ## Schedule a Package Installation \(CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
 

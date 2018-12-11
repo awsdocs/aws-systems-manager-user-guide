@@ -676,7 +676,7 @@ Type: Boolean
 Required: No
 
 DesiredState  
-The desired state\.  
+The desired state\. When set to `running`, this action waits for the Amazon EC2 state to be `Running`, the Instance Status to be `OK`, and the System Status to be `OK` before completing\.  
 Type: String  
 Valid values: `running` \| `stopped` \| `terminated`  
 Required: Yes

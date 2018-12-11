@@ -24,6 +24,9 @@ If you plan to add the patching configuration to a Maintenance Window, you must 
 1. In the **Instances to patch** section, choose one of the following:
    + **Enter instance tags**: Enter a tag key and optional tag value to specify the tagged instance to patch\. Click **Add** to include additional tagged instances\.
    + **Select a patch group**: Choose the name of an existing patch group that includes the instances you want to patch\.
+**Note**  
+The **Select a patch group** list displays only those patch groups that are attached to, or registered with, a patch baseline\. You can register a patch group with a patch baseline in one of two ways\. You can use the [register\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm//register-patch-group.html) CLI command, or you can view a patch baseline in the Systems Manager console and select **Modify patch groups** from the **Actions** menu\.  
+Alternatively, to specify an existing patch group that is not registered with the patch baseline, choose **Enter instance tag**, type `Patch Group` as the tag key and the patch group's name as the tag value\.
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 
 1. In the **Patching schedule** section, choose one of the following:

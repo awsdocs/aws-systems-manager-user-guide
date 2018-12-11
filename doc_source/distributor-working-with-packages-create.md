@@ -307,9 +307,9 @@ Prepare your package by copying or moving all ZIP files into a folder or directo
 
 1. Copy or move all ZIP archive files that you specified in the manifest to a folder or directory\.
 
-1. Create a bucket or choose an existing bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. For more information about how to run an AWS CLI command to create a bucket, see [https://$doc-domain;/cli/latest/reference/s3/mb.html](https://$doc-domain;/cli/latest/reference/s3/mb.html) in the *AWS CLI Command Reference*\.
+1. Create a bucket or choose an existing bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. For more information about how to run an AWS CLI command to create a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) in the *AWS CLI Command Reference*\.
 
-1. Upload the folder to the bucket\. For more information, see [Add an Object to a Bucket](https://$doc-domain;/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, do not upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://$doc-domain;/cli/latest/reference/s3/mv.html](https://$doc-domain;/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
+1. Upload the folder to the bucket\. For more information, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, do not upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
 
 1. On the bucket's home page, choose the folder that you uploaded\.
 

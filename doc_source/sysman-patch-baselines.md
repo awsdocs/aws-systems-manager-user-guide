@@ -14,17 +14,19 @@ Patch Manager provides pre\-defined patch baselines for each of the operating sy
 
 The following table describes the pre\-defined patch baselines provided with Patch Manager\.
 
+For information about which versions of each operating system Patch Manager supports, see [ Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
+
 
 ****  
 
-| Name | Supported Products | Details | 
+| Name | Supported Operating System | Details | 
 | --- | --- | --- | 
-|  AWS\-DefaultPatchBaseline  |  Windows \(Windows Server 2008 – 2016\)  |  Approves all operating system patches with a classification of "CriticalUpdates" or "SecurityUpdates" and an MSRC severity of "Critical" or "Important" seven days after release\.  | 
-|  AWS\-AmazonLinuxDefaultPatchBaseline  |  Amazon Linux \(2012\.03 – 2018\.03\) and Amazon Linux 2 2\-2\.0  |  Approves all operating system patches with a classification of "Security" and severity of "Critical" or "Important" seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release  | 
-|  AWS\-UbuntuDefaultPatchBaseline  |  Ubuntu Server \(14\.04/16\.04\)  |  Immediately approves all operating system security\-related patches with a priority of "Required" or "Important"\. There is no wait before approval because reliable release dates are not available in the repos\.  | 
-|  AWS\-RedHatDefaultPatchBaseline  |  Redhat Enterprise LinuxRed Hat Enterprise Linux \(6\.5, 6\.6, 6\.7, 6\.8, 6\.9, 7\.0, 7\.1, 7\.2, 7\.3\)   |  Approves all operating system patches with a classification of "Security" and severity of "Critical" or "Important" seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release\.  | 
-| AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server 12 | Approves all operating system patches with a classification of "Security" and a severity of "Critical" or "Important" seven days after release\.  | 
-| AWS\-CentOSDefaultPatchBaseline | CentOS 6\.5 and later | Approves all updates 7 days after they become available \(including non\-security updates\)\. | 
+|  AWS\-DefaultPatchBaseline  |  Windows Server  |  Approves all operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and an MSRC severity of "Critical" or "Important" seven days after release\.  | 
+|  AWS\-AmazonLinuxDefaultPatchBaseline  |  Amazon Linux and Amazon Linux 2  |  Approves all operating system patches that are classified as "Security" and with a severity level of "Critical" or "Important" seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release  | 
+|  AWS\-UbuntuDefaultPatchBaseline  |  Ubuntu Server  |  Immediately approves all operating system security\-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra\." There is no wait before approval because reliable release dates are not available in the repos\.  | 
+|  AWS\-RedHatDefaultPatchBaseline  |  Red Hat Enterprise Linux \(RHEL\)   |  Approves all operating system patches that are classified as "Security" and with severity level of "Critical" or "Important" seven days after release\. Also approves all patches that are classified as "Bugfix" seven days after release\.  | 
+| AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server \(SLES\) | Approves all operating system patches that are classified as "Security" and with a severity of "Critical" or "Important" seven days after release\.  | 
+| AWS\-CentOSDefaultPatchBaseline | CentOS | Approves all updates seven days after they become available, including non\-security updates\. | 
 
 ## Custom Baselines<a name="patch-manager-baselines-custom"></a>
 

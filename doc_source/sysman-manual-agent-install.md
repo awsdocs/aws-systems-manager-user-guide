@@ -467,12 +467,19 @@ Connect to your SLES instance and perform the following steps to install the SSM
    cd /tmp/ssm
    ```
 
-1. Use the following command to download and run the SSM Agent installer\. 
+1. Run the following commands one at a time to download and run the SSM Agent installer\. 
 
    64\-bit instances:
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+   ```
+
+   ```
+   sudo rpm --install amazon-ssm-agent.rpm
+   ```
+
+   ```
    sudo rpm --install amazon-ssm-agent.rpm
    ```
 
@@ -488,6 +495,9 @@ Connect to your SLES instance and perform the following steps to install the SSM
 
       ```
       sudo systemctl enable amazon-ssm-agent
+      ```
+
+      ```
       sudo systemctl start amazon-ssm-agent
       ```
 
