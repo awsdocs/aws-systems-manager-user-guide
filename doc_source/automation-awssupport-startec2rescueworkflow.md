@@ -81,7 +81,7 @@ Amazon
 
  **Platform\(s\)** 
 
-Windows,Linux
+Windows, Linux
 
  **Parameters** 
 + InstanceId

@@ -32,13 +32,13 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    Default output format [None]: ENTER
    ```
 
-1. \(Windows\) Execute the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\.
+1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\.
 
    ```
    aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --product "WindowsServer2012R2" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
    ```
 
-   \(Linux\) Execute the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and non\-security patches included in the source repository\.
+   \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and non\-security patches included in the source repository\.
 
    ```
    aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2016.03,AmazonLinux2016.09,AmazonLinux2017.03,AmazonLinux2017.09]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
@@ -52,7 +52,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following commands to register the "Production\-Baseline" patch baseline for three patch groups named "Production," "Database Servers," and "Front\-End Patch Group\."
+1. Run the following commands to register the "Production\-Baseline" patch baseline for three patch groups named "Production," "Database Servers," and "Front\-End Patch Group\."
 
    ```
    aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE --patch-group "Production"
@@ -80,7 +80,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following commands to create two Maintenance Windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\.
+1. Run the following commands to create two Maintenance Windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\.
 
    ```
    aws ssm create-maintenance-window --name "Production-Tuesdays" --schedule "cron(0 0 22 ? * TUE *)" --duration 1 --cutoff 0 --no-allow-unassociated-targets
@@ -106,7 +106,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following commands to register the Production servers with the two production Maintenance Windows\.
+1. Run the following commands to register the Production servers with the two production Maintenance Windows\.
 
    ```
    aws ssm register-target-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=tag:Patch Group,Values=Production" --owner-information "Production servers" --resource-type "INSTANCE"
@@ -156,7 +156,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following commands to register a patch task that only scans the production servers for missing updates in the first production Maintenance Window\.
+1. Run the following commands to register a patch task that only scans the production servers for missing updates in the first production Maintenance Window\.
 
    ```
    aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
@@ -182,7 +182,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following commands to register a patch task that installs missing updates on the productions servers in the second Maintenance Window\.
+1. Run the following commands to register a patch task that installs missing updates on the productions servers in the second Maintenance Window\.
 
    ```
    aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
@@ -208,7 +208,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following command to get the high\-level patch compliance summary for a patch group\. The high\-level patch compliance summary gives you the number of instances with patches in the following states for a patch group: "NotApplicable," "Missing," "Failed," "InstalledOther," and "Installed\." 
+1. Run the following command to get the high\-level patch compliance summary for a patch group\. The high\-level patch compliance summary gives you the number of instances with patches in the following states for a patch group: "NotApplicable," "Missing," "Failed," "InstalledOther," and "Installed\." 
 
    ```
    aws ssm describe-patch-group-state --patch-group "Production"
@@ -227,7 +227,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Execute the following command to get patch summary states per\-instance for a patch group\. The per\-instance summary gives you a number of patches in the following states per instance for a patch group: "NotApplicable," "Missing," "Failed," "InstalledOther," and "Installed\."
+1. Run the following command to get patch summary states per\-instance for a patch group\. The per\-instance summary gives you a number of patches in the following states per instance for a patch group: "NotApplicable," "Missing," "Failed," "InstalledOther," and "Installed\."
 
    ```
    aws ssm describe-instance-patch-states-for-patch-group --patch-group "Production"

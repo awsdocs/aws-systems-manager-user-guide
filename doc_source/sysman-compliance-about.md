@@ -25,7 +25,7 @@ For each patch, the system reports one of the following compliance status values
 + **FAILED**: The patch is approved in the baseline, but it could not be installed\. To troubleshoot this situation, review the command output for information that might help you understand the problem\. 
 
 **Note**  
-If you want to assign a specific patch compliance status to an instance, you can use the [put\-compliance\-items](https://docs.aws.amazon.com/cli/latest/reference/ssm//put-compliance-items.html) CLI command or the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance status is not supported in the console\.
+If you want to assign a specific patch compliance status to an instance, you can use the [put\-compliance\-items](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) CLI command or the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance status is not supported in the console\.
 
 ## About State Manager Association Compliance<a name="sysman-compliance-about-association"></a>
 
@@ -74,18 +74,18 @@ For information about fixing compliance issues, see [Remediating Compliance Issu
 
 You can view summaries of compliance data for patching, associations, and custom compliance types in the in the AWS CLI by using the following AWS CLI commands\. 
 
-[list\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm//list-compliance-summaries.html)  
+[list\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-compliance-summaries.html)  
 Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\. \(API: [ListComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListComplianceSummaries.html)\)
 
-[list\-resource\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm//list-resource-compliance-summaries.html)  
+[list\-resource\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-resource-compliance-summaries.html)  
 Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and detailed compliance\-item severity counts, according to the filter criteria you specify\. \(API: [ListResourceComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListResourceComplianceSummaries.html)\)
 
 You can view additional compliance data for patching by using the following AWS CLI commands\.
 
-[describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm//describe-patch-group-state.html)  
+[describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)  
 Returns high\-level aggregated patch compliance state for a patch group\. \(API: [DescribePatchGroupState](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html)\)
 
-[describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm//describe-instance-patch-states-for-patch-group.html)  
+[describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)  
 Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  

@@ -70,4 +70,4 @@ Windows
 
 **Outputs**
 
-AMIId: Id of the AMI created from the instance upgraded to SQL Server 2016 
+AMIId: The ID of the AMI created from the instance that was upgraded to SQL Server 2016

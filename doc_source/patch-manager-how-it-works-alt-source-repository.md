@@ -18,7 +18,7 @@ To specify alternative patch source repositories when you are working in the AWS
 
 **Using Other Tools to Create Patch Baselines**  
 Use the `sources` option with other tools when you create a patch baseline\. 
-+ AWS CLI: [create\-patch\-baseline](https://docs.aws.amazon.com/cli/latest/reference/ssm//create-patch-baseline.html)
++ AWS CLI: [create\-patch\-baseline](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-patch-baseline.html)
 + Systems Manager API: [API\_CreatePatchBaseline](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html)
 + Systems Manager AWS Tools for Windows PowerShell: [New\-SSMPatchBaseline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-SSMPatchBaseline.html)
 

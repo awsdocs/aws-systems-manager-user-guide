@@ -14,7 +14,7 @@ Patch Manager provides pre\-defined patch baselines for each of the operating sy
 
 The following table describes the pre\-defined patch baselines provided with Patch Manager\.
 
-For information about which versions of each operating system Patch Manager supports, see [ Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
+For information about which versions of each operating system Patch Manager supports, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
 
 
 ****  

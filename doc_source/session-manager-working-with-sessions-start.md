@@ -41,4 +41,4 @@ aws ssm start-session --target instance-id
 
 *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\.
 
-For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm//start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

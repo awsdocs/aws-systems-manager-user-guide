@@ -63,8 +63,8 @@ Distributor supports package distribution to any release version of the followin
 | --- | --- | --- | 
 |  Windows Server  |  `windows`  |  `x86_64` or `386`  | 
 |  Debian  |  `debian`  |  `x86_64` or `386`  | 
-|  Ubuntu Server  |  `ubuntu`  |  `x86_64` or `386` `arm64` \(Ubuntu 16 and later, A1 instance types\)  | 
-|  Red Hat Enterprise Linux \(RHEL\)  |  `redhat`  |  `x86_64` or `386` `arm64` \(Red Hat Enterprise Linux 7\.6 and later, A1 instance types\)  | 
+|  Ubuntu Server  |  `ubuntu`  |  `x86_64` or `386` `arm64` \(Ubuntu Server 16 and later, A1 instance types\)  | 
+|  Red Hat Enterprise Linux \(RHEL\)  |  `redhat`  |  `x86_64` or `386` `arm64` \(RHEL 7\.6 and later, A1 instance types\)  | 
 |  CentOS  |  `centos`  |  `x86_64` or `386`  | 
 |  Amazon Linux and Amazon Linux 2  |  `amazon`  |  `x86_64` or `386` `arm64` \(Amazon Linux 2, A1 instance types\)  | 
 |  SUSE Linux Enterprise Server \(SLES\)  |  `suse`  |  `x86_64` or `386`  | 
