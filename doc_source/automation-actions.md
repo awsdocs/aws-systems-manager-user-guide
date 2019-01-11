@@ -1619,7 +1619,7 @@ Required: Yes
 
 InstanceIds  
 The instance IDs where you want the command to execute\. You can specify a maximum of 50 IDs\. If you don't want to specify individual instance IDs, then you can send commands to a fleet of instances by using the Targets parameter\. The Targets parameter accepts Amazon EC2 tags\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
-Type: String  
+Type: StringList  
 Required: No \(If you don't specify InstanceIds, then you must specify the Targets parameter\.\)
 
 Targets  

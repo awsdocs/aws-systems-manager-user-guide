@@ -107,7 +107,7 @@ Systems Manager uses the following shared resources for managing and configuring
 ------
 #### [ Managed Instances ]
 
-A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine \(server or virtual machine \[VM\]\) in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
+A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance or on\-premises machine–a server or a virtual machine \(VM\)–in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
 
 ------
 #### [ Activations ]
@@ -117,7 +117,7 @@ To set up servers and VMs in your hybrid environment as managed instances, you n
 ------
 #### [ Systems Manager Documents ]
 
-A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the actions that Systems Manager performs\. SSM documents can be either *Command* documents, which are used by State Manager and Run Command, or Automation documents, which are used by Systems Manager Automation\. Systems Manager includes more dozens of pre\-configured documents that you can use by specifying parameters at runtime\. Documents can be expressed in JSON or YAML, and include steps and parameters that you specify\.
+A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the actions that Systems Manager performs\. SSM document types include *Command* documents, which are used by State Manager and Run Command, and *Automation* documents, which are used by Systems Manager Automation\. Systems Manager includes more dozens of pre\-configured documents that you can use by specifying parameters at runtime\. Documents can be expressed in JSON or YAML, and include steps and parameters that you specify\.
 
 ------
 #### [ Parameter Store ]
@@ -158,7 +158,7 @@ We welcome your feedback\. To contact us, visit [the AWS Systems Manager forum](
 Systems Manager is also documented in the following references\.
 + [Blogs \(Management tools category\)](https://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/)
 + [Blogs \(AWS Systems Manager tags category\)](https://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)
-+ [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/)
++ [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)
 + [Systems Manager AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
 + [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 +  [AWS SDKs](http://aws.amazon.com/tools/#SDKs)

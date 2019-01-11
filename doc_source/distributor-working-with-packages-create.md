@@ -61,12 +61,12 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
     "ZIP_file_name1.zip": {
       "checksums": {
         "sha256": "checksum"
-      },
+      }
     },
     "ZIP_file_name2.zip": {
       "checksums": {
         "sha256": "checksum"
-      },
+      }
     }
   }
 }
@@ -208,45 +208,46 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
 
    ```
    "files": {
-       "test-agent-x86.deb.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE2706223c7616ca9fb28863a233b38e5a23a8c326bb4ae241dcEXAMPLE"
-         },
-       },
-       "test-agent-x86_64.deb.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE572a745844618c491045f25ee6aae8a66307ea9bff0e9d1052EXAMPLE"
-         },
-       },
-       "test-agent-x86_64.nano.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE63ccb86e830b63dfef46995af6b32b3c52ce72241b5e80c995EXAMPLE"
-         },
-       },
-       "test-agent-rhel5-x86.nano.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE13df60aa3219bf117638167e5bae0a55467e947a363fff0a51EXAMPLE"
-         },
-       },
-       "test-agent-x86.msi.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE12a4abb10315aa6b8a7384cc9b5ca8ad8e9ced8ef1bf0e5478EXAMPLE"
-         },
-       },
-       "test-agent-x86_64.msi.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE63ccb86e830b63dfef46995af6b32b3c52ce72241b5e80c995EXAMPLE"
-         },
-       },
-       "test-agent-rhel5-x86.rpm.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE13df60aa3219bf117638167e5bae0a55467e947a363fff0a51EXAMPLE"
-         },
-       },
-       "test-agent-rhel5-x86_64.rpm.zip": {
-         "checksums": {
-           "sha256": "EXAMPLE7ce8a2c471a23b5c90761a180fd157ec0469e12ed38a7094d1EXAMPLE"
-         }
+           "test-agent-x86.deb.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE2706223c7616ca9fb28863a233b38e5a23a8c326bb4ae241dcEXAMPLE"
+               }
+           },
+           "test-agent-x86_64.deb.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE572a745844618c491045f25ee6aae8a66307ea9bff0e9d1052EXAMPLE"
+               }
+           },
+           "test-agent-x86_64.nano.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE63ccb86e830b63dfef46995af6b32b3c52ce72241b5e80c995EXAMPLE"
+               }
+           },
+           "test-agent-rhel5-x86.nano.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE13df60aa3219bf117638167e5bae0a55467e947a363fff0a51EXAMPLE"
+               }
+           },
+           "test-agent-x86.msi.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE12a4abb10315aa6b8a7384cc9b5ca8ad8e9ced8ef1bf0e5478EXAMPLE"
+               }
+           },
+           "test-agent-x86_64.msi.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE63ccb86e830b63dfef46995af6b32b3c52ce72241b5e80c995EXAMPLE"
+               }
+           },
+           "test-agent-rhel5-x86.rpm.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE13df60aa3219bf117638167e5bae0a55467e947a363fff0a51EXAMPLE"
+               }
+           },
+           "test-agent-rhel5-x86_64.rpm.zip": {
+               "checksums": {
+                   "sha256": "EXAMPLE7ce8a2c471a23b5c90761a180fd157ec0469e12ed38a7094d1EXAMPLE"
+               }
+           }
        }
    ```
 
@@ -256,44 +257,44 @@ The following is an example of a completed manifest\. In this example, you have 
 
 ```
 {
-  "schemaVersion": "2.0",
-  "version": "1.7.1",
-  "publisher": "Amazon Web Services",
-  "packages": {
-    "windows": {
-      "_any": {
-        "x86_64": {
-          "file": "NewPackage_WINDOWS.zip"
+    "schemaVersion": "2.0",
+    "version": "1.7.1",
+    "publisher": "Amazon Web Services",
+    "packages": {
+        "windows": {
+            "_any": {
+                "x86_64": {
+                    "file": "NewPackage_WINDOWS.zip"
+                }
+            }
+        },
+        "amazon": {
+            "_any": {
+                "x86_64": {
+                    "file": "NewPackage_LINUX.zip"
+                }
+            }
+        },
+        "ubuntu": {
+            "_any": {
+                "x86_64": {
+                    "file": "NewPackage_LINUX.zip"
+                }
+            }
         }
-      }
     },
-    "amazon": {
-      "_any": {
-        "x86_64": {
-          "file": "NewPackage_LINUX.zip"
+    "files": {
+        "NewPackage_WINDOWS.zip": {
+            "checksums": {
+                "sha256": "EXAMPLEc2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE"
+            }
+        },
+        "NewPackage_LINUX.zip": {
+            "checksums": {
+                "sha256": "EXAMPLE2b8b9ed71e86f39f5946e837df0d38aacdd38955b4b18ffa6fEXAMPLE"
+            }
         }
-      }
-    },
-    "ubuntu": {
-      "_any": {
-        "x86_64": {
-          "file": "NewPackage_LINUX.zip"
-        }
-      }
     }
-  },
-  "files": {
-    "NewPackage_WINDOWS.zip": {
-      "checksums": {
-        "sha256": "EXAMPLEc2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE"
-      },
-    },
-    "NewPackage_LINUX.zip": {
-      "checksums": {
-        "sha256": "EXAMPLE2b8b9ed71e86f39f5946e837df0d38aacdd38955b4b18ffa6fEXAMPLE"
-      }
-    }
-  }
 }
 ```
 

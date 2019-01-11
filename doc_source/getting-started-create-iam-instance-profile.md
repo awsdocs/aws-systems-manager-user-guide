@@ -74,7 +74,7 @@ For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, a
 
 ## Create an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logging<a name="create-iam-instance-profile-ssn-logging"></a>
 
-Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances> it also provides the permissions needed for session logs to be stored in Amazon S3 bucketsand CloudWatch Logs log groups\.
+Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon S3 bucketsand CloudWatch Logs log groups\.
 
 For information about specifying preferences for storing session logs, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md)\.
 
