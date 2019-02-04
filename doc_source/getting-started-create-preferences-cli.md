@@ -1,6 +1,8 @@
-# Use the AWS CLI to Update Session Manager Preferences<a name="getting-started-configure-preferences-cli"></a>
+# Use the AWS CLI to Create Session Manager Preferences<a name="getting-started-create-preferences-cli"></a>
 
-The following procedure describes how to use the AWS CLI and the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) command to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use the AWS CLI and the [create\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) command to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+
+For information about using the CLI to update existing Session Manager preferences, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 
@@ -36,15 +38,15 @@ The following procedure describes how to use the AWS CLI and the AWS CLI and the
    }
    ```
 **Note**  
-If you do not want to encrypt the log data, change "true" to "false"\.  
-If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, you can delete the lines for those options\. Make sure the last line in the "inputs" section does not end with a comma\.
+If you don't want to encrypt log data, change "true" to "false"\.  
+If you aren't sending logs to an S3 bucket or a CloudWatch Logs log group, you can delete the lines for those options\. Make sure the last line in the "inputs" section does not end with a comma\.
 
 1. Save the file\.
 
 1. In the directory where you created the JSON file, run the following command:
 
    ```
-   aws ssm update-document --name "SSM-SessionManagerRunShell" --content "file://SessionManagerRunShell.json" --document-version "\$LATEST"
+   aws ssm create-document --name SSM-SessionManagerRunShell --content "file://SessionManagerRunShell.json" --document-type "Session" --document-format JSON
    ```
 **Important**  
 Be sure to include `file://` before the file name\. It is required in this command\.
@@ -54,7 +56,7 @@ Be sure to include `file://` before the file name\. It is required in this comma
    ```
    {
        "DocumentDescription": {
-           "Status": "Updating",
+           "Status": "Creating",
            "Hash": "ce4fd0a2ab9b0fae759004ba603174c3ec2231f21a81db8690a33eb66EXAMPLE",
            "Name": "SSM-SessionManagerRunShell",
            "Tags": [],
@@ -63,14 +65,14 @@ Be sure to include `file://` before the file name\. It is required in this comma
                "Windows",
                "Linux"
            ],
-           "DocumentVersion": "2",
+           "DocumentVersion": "1",
            "HashType": "Sha256",
-           "CreatedDate": 1537206341.565,
+           "CreatedDate": 1547750660.918,
            "Owner": "111122223333",
            "SchemaVersion": "1.0",
            "DefaultVersion": "1",
            "DocumentFormat": "JSON",
-           "LatestVersion": "2"
+           "LatestVersion": "1"
        }
    }
    ```

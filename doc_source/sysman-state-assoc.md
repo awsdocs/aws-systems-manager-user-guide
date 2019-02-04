@@ -10,7 +10,7 @@ This section describes how to create a State Manager association by using the AW
 
 1. In the **Name** field, specify a name\. This is optional, but recommended\. A name can help you understand the purpose of the association when you created it\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
 
-1. In the **Command document** list, choose the option beside a document name\. Use the Search bar to filter on **Document type:Equal:Command** documents\. You can use the numbers to the right of the Search bar to view more Command documents\. 
+1. In the **Document** list, choose the option beside a document name\. You can use the numbers to the right of the Search bar to view more documents\. 
 **Note**  
 You can view information about a document by choosing the document name\.
 

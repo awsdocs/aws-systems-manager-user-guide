@@ -1,8 +1,8 @@
-# Tutorial: List Information About Maintenance Windows \(CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
+# Tutorial: View Information About Maintenance Windows \(CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
 This tutorial includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
 
-As you run the example commands in the AWS CLI, replace the values in *red* with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE*\.
+As you follow the steps in this tutorial, replace the values in *red* with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you have created\.
 
 For information about setting up and configuring the CLI, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 
@@ -220,7 +220,7 @@ The system returns information like the following:
 }
 ```
 
-**Show all registered tasks that have a priority of "3"A**  
+**Show all registered tasks that have a priority of "3"**  
 Run the following command:
 
 ```
@@ -450,7 +450,7 @@ The system returns information like the following:
 ## Examples for 'describe\-maintenance\-window\-schedule'<a name="mw-cli-tutorials-describe-maintenance-window-schedule"></a>
 
 **Display the next ten scheduled Maintenance Window runs for a particular instance**  
-Run the following command: as shown here\.
+Run the following command:
 
 ```
 aws ssm describe-maintenance-window-schedule --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-456jkl321EXAMPLE" --max-results 10

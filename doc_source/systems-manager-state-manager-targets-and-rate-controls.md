@@ -32,7 +32,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 Use the following format to create an AWS CLI command that uses targets to create a State Manager association\. 
 
 ```
-aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name command_document_name  --compliance-severity "severity_level" --schedule "cron_or_rate_expression" --parameters (if any) --max-concurrency (Optional) a_number_of_instances_or_a_percentage_of_target_set --max-errors (Optional) a_number_of_errors_or_a_percentage_of_target_set
+aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name document_name --schedule "cron_or_rate_expression" --parameters (if any) --max-concurrency (Optional) a_number_of_instances_or_a_percentage_of_target_set --max-errors (Optional) a_number_of_errors_or_a_percentage_of_target_set
 ```
 
 The following example creates an association on instances tagged with "Environment,Linux"\. The association uses the AWS\-UpdateSSMAgent document to updates SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of Medium\.

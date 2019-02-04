@@ -5,10 +5,11 @@ You can reference Systems Manager parameters in your scripts, commands, and conf
 With Systems Manager capabilities, you can reference Systems Manager parameters in your AWS CLI or AWS Tools for Windows PowerShell commands or scripts\. You can also reference parameters in SSM documents\. For more information about SSM documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 **Topics**
-+ [Parameter Usage Examples](#parameter-store-about-examples)
-+ [Use Secure String Parameters](#sysman-paramstore-securestring)
++ [Using Systems Manager Parameters — Examples](#parameter-store-about-examples)
++ [Using Secure String Parameters](#sysman-paramstore-securestring)
++ [Using Systems Manager Public Parameters](#parameter-store-public-parameters)
 
-## Parameter Usage Examples<a name="parameter-store-about-examples"></a>
+## Using Systems Manager Parameters — Examples<a name="parameter-store-about-examples"></a>
 
 The following is an example of a Systems Manager parameter in an AWS CLI command for Run Command\. Systems Manager Parameters are always prefixed with `ssm:`\.
 
@@ -76,7 +77,7 @@ $secure = (Get-SSMParameterValue -Names parameter_name -WithDecryption $True).Pa
 $cred = New-Object System.Management.Automation.PSCredential -argumentlist user_name,$secure
 ```
 
-## Use Secure String Parameters<a name="sysman-paramstore-securestring"></a>
+## Using Secure String Parameters<a name="sysman-paramstore-securestring"></a>
 
 A Secure String parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in clear text, such as passwords or license keys, then create those parameters using the Secure String data type\. We recommend using Secure String parameters for the following scenarios\.
 + You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs\.
@@ -168,3 +169,10 @@ For an example of how to create and use a Secure String parameter, see [Walkthro
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in AWS CodeDeploy](https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)
+
+## Using Systems Manager Public Parameters<a name="parameter-store-public-parameters"></a>
+
+Some AWS services create and publish common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) team publishes the names of Linux and Windows Server Amazon Machines Images \(AMIs\) as public parameters\. You can reference these public parameters in your scripts and commands, but you can't edit these artifacts in Parameter Store\. For more information, see the following blog posts:
++ [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](https://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
++ [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)
++ [Amazon ECS provides ECS\-Optimized AMI metadata via SSM Parameters](https://aws.amazon.com/about-aws/whats-new/2018/04/amazon-ecs-provides-ecs-optimized-ami-metadata-via-ssm-parameter/)

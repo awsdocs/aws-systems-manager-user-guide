@@ -99,7 +99,7 @@ The following procedure walks you through the process of creating and storing a 
    aws ssm send-command --document-name "AWS-RunShellScript" --parameters '{"commands":["echo {{ssm:/Test/IAD/helloWorld}}"]}' --targets "Key=instanceids,Values=instance-ids"
    ```
 
-Use the following procedure to create a Secure String parameter\. For more information about Secure String parameters, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
+Use the following procedure to create a Secure String parameter\. For more information about Secure String parameters, see [Using Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
 
 **To create a Secure String parameter using the AWS CLI**
 

@@ -820,6 +820,8 @@ Run Linux shell scripts or specify the path to a script to run\. This plugin onl
 
 ### Syntax<a name="runShellScript-syntax"></a>
 
+**Syntax for 1\.2 SSM document**
+
 ```
 "runtimeConfig":{
         "aws:runShellScript":{
@@ -831,7 +833,49 @@ Run Linux shell scripts or specify the path to a script to run\. This plugin onl
                     "timeoutSeconds":"{{ executionTimeout }}"
                 }
             ]
-        }
+```
+
+**Syntax for 2\.2 SSM document**
+
+```
+"mainSteps": [
+   {
+      "action":"aws:runShellScript",
+      "name":"step name",
+      "inputs":{
+         "timeoutSeconds":"Timeout in seconds",
+         "runCommand":"[Command to execute]"
+                }
+    }
+   ]
+```
+
+Here is a schemaVersion 2\.2 example:
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "Simple test document using the aws:runShellScript plugin.",
+  "parameters": {
+    "salutation": {
+      "type": "String",
+      "description": "(Optional) This is an optional parameter that will be displayed in the output of the command if specified.",
+	  "default": "Hello World"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:runShellScript",
+      "name": "DisplaySalutation",
+      "inputs": {
+        "timeoutSeconds": 60,
+        "runCommand": [
+          "echo {{ salutation }}"
+        ]
+      }
+    }
+  ]
+}
 ```
 
 ### Properties<a name="runShellScript-properties"></a>

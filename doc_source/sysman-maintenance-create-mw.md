@@ -2,6 +2,8 @@
 
 To create a Maintenance Window, do the following:
 + Create a window and define its schedule and duration\.
+**Note**  
+For an explanation of how the various schedule\-related options for Maintenance Windows relate to one another, see [Reference: Maintenance Window Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
 + Assign targets for the window\.
 + Assign tasks to run during the window\.
 

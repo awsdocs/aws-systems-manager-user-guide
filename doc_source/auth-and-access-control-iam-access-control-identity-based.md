@@ -42,7 +42,7 @@ The following table shows the structure of the ARN format for each resource type
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
 | Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id*  | 
 | Document |  arn:aws:ssm:*region*:*account\-id*:document/*document\-name*  | 
-| Maintenance Window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-execution\-id*  | 
+| Maintenance Window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-id*  | 
 | Maintenance Window task |  arn:aws:ssm:*region*:*account\-id*:windowtask/*window\-task\-id*  | 
 | Maintenance Window target |  arn:aws:ssm:*region*:*account\-id*:windowtarget/*window\-target\-id*  | 
 | Managed instance |  arn:aws:ssm:*region*:*account\-id*:managed\-instance/*managed\-instance\-id*  | 

@@ -16,6 +16,8 @@ Automation can simplify common IT tasks such as changing the state of one or mor
 + Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a Maintenance Window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
+For information about how to execute an Automation workflow by using State Manager, see [Executing Systems Manager Automations by using State Manager](systems-manager-state-manager-automation-documents.md)\.
+
 **Safely perform disruptive tasks in bulk**  
 Systems Manager includes features that help you target large groups of instances by using EC2 tags, and velocity controls that help you roll out changes according to the limits you define\.
 

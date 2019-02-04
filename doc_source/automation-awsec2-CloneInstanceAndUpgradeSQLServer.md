@@ -19,12 +19,12 @@ Amazon
 Windows
 
 **Prerequisites**
-+ The Amazon EC2 instance must use a version of Windows Server that is later than Windows Server 2012 R2 and SQL Server 2008 R2 SP3\.
++ The Amazon EC2 instance must use a version of Windows Server that is later than Windows Server 2008 R2 and SQL Server 2008 R2 SP3\.
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 + Configure the instance to use an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [](sysman-configuring-access-role.md)\.
 + Verify that the instance has 20 GB of free disk space in the instance boot disk\.
 + Provide an EBS Snapshot ID that includes SQL Server 2016 installation media\. To do this:
-  + Verify that the Amazon EC2 instance is running Windows Server 2012 or later\.
+  + Verify that the Amazon EC2 instance is running Windows Server 2008 R2 or later\.
   + Create a 6 GB EBS volume in the same Availability Zone where the instance is running\. Attach the volume to the instance\. Mount it, for example, as drive D\. 
   + Right\-click the ISO and mount it to an instance as, for example, drive E\.
   + Copy the content of the ISO from drive E:\\ to drive D:\\
@@ -41,7 +41,7 @@ Windows
 
   Type: String
 
-  Description: \(Required\) The Instance running Windows Server 2012 R2 \(or later\) or SQL Server 2008 R2 \(or later\)\.
+  Description: \(Required\) The Instance running Windows Server 2008 R2 \(or later\) or SQL Server 2008 R2 \(or later\)\.
 + IamInstanceProfile
 
   Type: String
