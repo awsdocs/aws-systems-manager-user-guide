@@ -12,44 +12,11 @@ Athena integration uses Resource Data Sync\. You must set up and configure Resou
 
 Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by Resource Data Sync\. If you are not the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
 
-## Configuring IAM Roles and Permissions for Querying Data from Multiple Regions and Accounts<a name="systems-manager-inventory-query-iam"></a>
+## Configuring Access<a name="systems-manager-inventory-query-iam"></a>
 
-Before you can query and view data from multiple accounts and Regions on the **Inventory Detail View** page in the Systems Manager console, you must configure AWS Identity and Access Management \(IAM\) permissions\. More specifically, you must do the following:
-+ [Task 1: Configure User Access](#systems-manager-inventory-query-access-user): Configure your IAM user account, group, or role with the **AWSQuicksightAthenaAccess** managed policy and a separate inline policy\. The inline policy provides permissions for setting up AWS Glue crawlers and enables you to view data on the **Inventory Detail View** page\.
-+ [Task 2: Create the Required IAM Role](#systems-manager-inventory-query-access-role): Create a new IAM role called **Amazon\-GlueServiceRoleForSSM**\. This role enables AWS Glue to access the Resource Data Sync Amazon S3 bucket\. You must assign the **AWSGlueServiceRole** managed policy to this role\.
-+ [Task 3: Create and Attach an Additional AWS Glue Policy to the IAM Role](#systems-manager-inventory-query-access-policy): Create a separate policy for the IAM role that enables communication between AWS Glue and Systems Manager Inventory\.
+Before you can query and view data from multiple accounts and Regions on the **Inventory Detail View** page in the Systems Manager console, you must configure your AWS Identity and Access Management \(IAM\) user account\. The following procedure describes how to use the IAM console to configure your IAM user account so that you can view inventory data on the **Inventory Detail View** page\. 
 
-**Important**  
-If you use a programmatic tool such as the AWS CLI, Tools for Windows PowerShell, or the SDK to configure IAM permissions, then you must create an assume role trust relationship between the **Amazon\-GlueServiceRoleForSSM** role and the AWS Glue service\. This trust relationship is automatically created if you use the console procedures in this section\.  
-If you use a programmatic tool, and you don't create this trust relationship, then you receive the following error in the AWS Systems Manager console:  
-
-```
-"Service is unable to assume role arn:aws:iam::account_ID:role/Amazon-GlueServiceRoleForSSM. Please verify role's TrustPolicy."
-```
-Users of programmatic tools must attach the following trust statement to the **Amazon\-GlueServiceRoleForSSM** role\.   
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "glue.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-The following procedures describe how to use the IAM console to configure the required roles and permissions for querying data from multiple Regions and accounts with Systems Manager Inventory\. You must have administrator permissions in IAM to perform the following tasks\.
-
-## Task 1: Configure User Access<a name="systems-manager-inventory-query-access-user"></a>
-
-You must configure your IAM user account, group, or role with the **AWSQuicksightAthenaAccess** managed policy and an inline policy with permissions to set AWS Glue crawlers so that you can view inventory data on the **Inventory Detail View** page\. The following procedure describes how to add the required policies to your IAM user account\.
-
-**To configure user access**
+**To configure access to the Inventory Detail View page**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -67,72 +34,7 @@ You must configure your IAM user account, group, or role with the **AWSQuicksigh
 
 1. Choose the user name again to return to the **Summary** page\.
 
-1. Now add the inline policy for the Systems Manager/Athena policy\. On the **Permissions** tab, at the right side of the page, choose **Add inline policy**\. The **Create policy** page opens\.
-
-1. Choose the **JSON** tab\.
-
-1. Delete the existing JSON text in the editor, and then copy and paste the following policy into the JSON editor\. 
-
-   ```
-   {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Sid":"VisualEditor0",
-            "Effect":"Allow",
-            "Action":[
-               "glue:GetCrawlers",
-               "glue:GetCrawler",
-               "glue:GetTables",
-               "glue:StartCrawler",
-               "glue:CreateCrawler"
-            ],
-            "Resource":"*"
-         },
-         {
-            "Effect":"Allow",
-            "Action":"iam:PassRole",
-            "Resource":"arn:aws:iam::account_ID:role/Amazon-GlueServiceRoleForSSM"
-         }
-      ]
-   }
-   ```
-
-1. On the **Review Policy** page, enter a name in the **Name** field\.
-
-1. Choose **Create policy**\.
-
-## Task 2: Create the Required IAM Role<a name="systems-manager-inventory-query-access-role"></a>
-
-You must create a new IAM role called **Amazon\-GlueServiceRoleForSSM** that enables AWS Glue to access the Resource Data Sync Amazon S3 bucket\. You must then assign the **AWSGlueServiceRole** managed policy to this role, as described in the following procedure\.
-
-**To create the required IAM role**
-
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
-
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **Glue**\. And then choose **Next: Permissions**\.
-**Note**  
-If the **Select your use case** section appears, choose **Glue**\.
-
-1. On the **Attach permissions policies** page, use the Search field to search for **AWSGlueServiceRole**\. Choose the option beside this policy, and then choose **Next: Review**\. 
-
-1. On the **Review** page, enter **Amazon\-GlueServiceRoleForSSM** in the **Role name** field, and then type a description\.
-**Important**  
-You must specify **Amazon\-GlueServiceRoleForSSM** as the name for this role\. If you don't, calls to AWS Glue from Systems Manager Inventory will fail\.
-
-1. Choose **Create role**\. The console returns you to the **Roles** page\.
-
-## Task 3: Create and Attach an Additional AWS Glue Policy to the IAM Role<a name="systems-manager-inventory-query-access-policy"></a>
-
-You must add an additional IAM policy to the IAM role to enable communication between AWS Glue and Systems Manager Inventory\.
-
-**To create and add an additional AWS Glue policy to the IAM role**
-
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\.
+1. Now add an inline policy so that AWS Glue can crawl your inventory data\. On the **Permissions** tab, at the right side of the page, choose **Add inline policy**\. The **Create policy** page opens\.
 
 1. Choose the **JSON** tab\.
 
@@ -143,45 +45,52 @@ You must add an additional IAM policy to the IAM role to enable communication be
        "Version": "2012-10-17",
        "Statement": [
            {
+               "Sid": "VisualEditor0",
                "Effect": "Allow",
                "Action": [
-                   "s3:GetObject",
-                   "s3:PutObject"
+                   "glue:GetCrawlers",
+                   "glue:GetCrawler",
+                   "glue:GetTables",
+                   "glue:StartCrawler",
+                   "glue:CreateCrawler"
+               ],
+               "Resource": "*"
+           },
+           {
+               "Sid": "VisualEditor1",
+               "Effect": "Allow",
+               "Action": [
+                   "iam:PassRole",
+                   "iam:CreateRole",
+                   "iam:AttachRolePolicy"
                ],
                "Resource": [
-                   "arn:aws:s3:::name_of_Resource_Data_Sync_S3_bucket*"
+                   "arn:aws:iam::account_ID:role/*"
                ]
            },
            {
+               "Sid": "VisualEditor2",
                "Effect": "Allow",
                "Action": [
-                   "logs:CreateLogGroup",
-                   "logs:CreateLogStream",
-                   "logs:PutLogEvents"
+                   "iam:CreatePolicy"
                ],
                "Resource": [
-                   "*"
+                   "arn:aws:iam::account_ID:policy/*"
                ]
            }
        ]
    }
    ```
 
-1. Choose **Review policy**\.
-
-1. On the **Review Policy** page, enter a name in the **Name** field\. Optionally, you can enter a description\.
+1. On the **Review Policy** page, enter a name in the **Name** field\.
 
 1. Choose **Create policy**\.
 
-1. In the IAM navigation pane, choose **Roles**\.
-
-1. Use the Search field to locate the **Amazon\-GlueServiceRoleForSSM** role\. Choose the role name\. 
-
-1. On the **Permissions** tab, choose **Attach policies**\.
-
-1. Use the Search field to locate the policy you just created\. 
-
-1. Choose the option beside the policy name, and then choose **Attach policy**\.
+**Important**  
+When you choose a Remote Data Sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServicePolicyforSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for Resource Data Sync\. Systems Manager automatically attaches the following policies to the role:  
+**Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
+**AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
+If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **AWSGlueServiceRole** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **AWSGlueServiceRole** role\.
 
 ## Querying Data on the Detailed Inventory View Page<a name="systems-manager-inventory-query-detail-view"></a>
 
@@ -200,7 +109,7 @@ Use the following procedure to view inventory data from multiple AWS Regions and
 1. Choose the **Detailed View** tab\.  
 ![\[Accessing the AWS Systems Manager Inventory Detailed View page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view.png)
 
-1. Choose the option next to the Resource Data Sync for which you want to query data, and then choose **Display Inventory Data**\.  
+1. Choose the Resource Data Sync for which you want to query data\.  
 ![\[Displaying Inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
 
 1. In the **Inventory Type** list, choose the type of inventory data that you want to query, and then press Enter\.  

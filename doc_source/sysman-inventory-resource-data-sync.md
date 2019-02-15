@@ -6,7 +6,7 @@ The following walkthrough describes how to create a Resource Data Sync configura
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
-Before you start this walkthrough, you must collect Inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect Inventory data, see [Walkthrough: Use the AWS CLI to Collect Inventory](sysman-inventory-cliwalk.md)\.
+Before you start this walkthrough, you must collect Inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect Inventory data, see [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)\.
 
 \(Optional\) If you want to encrypt the sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\.
 

@@ -37,7 +37,7 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
 The equivalent yum command for this workflow is:  
 
 ```
-sudo yum update-minimal --security --bugfix 
+sudo yum update-minimal --secseverity=Critical,Important --bugfix 
 ```
 
 ------
@@ -63,7 +63,7 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
 The equivalent yum command for this workflow is:  
 
 ```
-sudo yum update-minimal --security --bugfix 
+sudo yum update-minimal --secseverity=Critical,Important --bugfix 
 ```
 
 ------

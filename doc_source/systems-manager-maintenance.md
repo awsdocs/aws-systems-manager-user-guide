@@ -29,3 +29,4 @@ This means you can use Maintenance Windows to perform tasks like the following o
 + [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)
 + [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)
 + [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
++ [Maintenance Window Walkthroughs](maintenance-window-walkthroughs.md)

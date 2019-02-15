@@ -6,8 +6,6 @@ When you configure Systems Manager Inventory, you specify the type of metadata t
 Inventory only collects metadata\. It does not collect any personal or proprietary data\.
 
 **Topics**
-+ [Inventory All Managed Instances in Your AWS Account](inventory-management-inventory-all.md)
-+ [Configurable Data Types in Inventory Management](inventory-management-configurable-elements.md)
 + [Metadata Collected by Inventory](sysman-inventory-schema.md)
 + [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)
 + [Related AWS Services](sysman-inventory-relatedsvc.md)

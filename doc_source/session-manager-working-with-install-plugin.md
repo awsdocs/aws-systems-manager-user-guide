@@ -119,7 +119,7 @@ sudo rm /usr/local/bin/session-manager-plugin
    + 32\-bit:
 
      ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm]" -o "session-manager-plugin.rpm"
+     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
 
 1. Run the install command:

@@ -85,8 +85,8 @@ SSM Agent logs information in the following files\. The information in these fil
 If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
 
 **On Windows**
-+ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
-+ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\errors\.log
++ %PROGRAMFILES%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
++ %PROGRAMFILES%\\Amazon\\SSM\\Logs\\errors\.log
 
 **On Linux**
 + /var/log/amazon/ssm/amazon\-ssm\-agent\.log

@@ -11,7 +11,7 @@ Note the following important details about aggregation counts of Inventory data:
 + Inventory shows data that has been sent by an instance over the course of its lifetime\. If an instance was previously configured to report a specific Inventory data type, for example AWS:Network, and later you change the configuration to stop collecting that type, aggregation counts still show AWS:Network data until the instance has been terminated\.
 + If an instance was previously configured to collect Inventory data, and you terminate that instance, Inventory counts still show data for the deleted instance for 30 days\.
 
-For information about how to quickly configure and collect Inventory data from all instances in a specific AWS account \(and any future instances that might be created in that account\) see [Configuring Collection](sysman-inventory-configuring.md#sysman-inventory-config-collection)\.
+For information about how to quickly configure and collect Inventory data from all instances in a specific AWS account \(and any future instances that might be created in that account\) see [Configuring Collection by Using the Console](sysman-inventory-configuring.md#sysman-inventory-config-collection)\.
 
 **Topics**
 + [Aggregating Inventory Data to See Counts of Instances that Collect Specific Types of Data](#sysman-inventory-aggregate-type)

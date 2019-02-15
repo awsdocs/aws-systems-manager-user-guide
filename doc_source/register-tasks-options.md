@@ -61,4 +61,4 @@ If you do not specify a service role ARN, Systems Manager will create or use you
 The priority of the task in the Maintenance Window\. The lower the number the higher the priority \(for example, 1 is highest priority\)\. Tasks in a Maintenance Window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
 
 **\-\-client\-token**  
-An idempotency token that your provide\.
+An idempotency token that you provide\.

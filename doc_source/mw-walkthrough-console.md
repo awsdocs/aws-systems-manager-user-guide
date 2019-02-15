@@ -1,0 +1,138 @@
+# Walkthrough: Create a Maintenance Window to Update SSM Agent \(Console\)<a name="mw-walkthrough-console"></a>
+
+The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager Maintenance Window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
+
+**Before You Begin**  
+Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+
+**Topics**
++ [Step 1: Create the Maintenance Window](#mw-walkthrough-console-create)
++ [Step 2: Register Maintenance Window Targets](#mw-walkthrough-console-register-target)
++ [Step 3: Register a Run Command Task for the Maintenance Window to Update SSM Agent](#mw-walkthrough-console-register-task)
+
+## Step 1: Create the Maintenance Window<a name="mw-walkthrough-console-create"></a>
+
+**To create a Maintenance Window**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+   \-or\-
+
+   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
+**Note**  
+If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
+
+1. In the navigation pane, choose **Maintenance Windows**\. 
+
+1. Choose **Create Maintenance Window**\.
+
+1. In the **Name** field, enter a descriptive name to help you identify this Maintenance Window as a test Maintenance Window\.
+
+1. In the **Description** field, enter a description\.
+
+1. Choose **Allow unregistered targets** if you want to allow a Maintenance Window task to run on managed instances, even if you have not registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the Maintenance Window\.
+
+   If you don't choose this option, then you must choose previously\-registered targets when you register a task with the Maintenance Window\.
+
+1. Specify a schedule for the Maintenance Window by using one of the three scheduling options\.
+
+   For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+
+1. In the **Duration** field, enter the number of hours the Maintenance Window should run\.
+
+1. In the **Stop initiating tasks** field, enter the number of hours before the end of the Maintenance Window that the system should stop scheduling new tasks to run\.
+
+1. \(Optional\) In **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become active\. This allows you to delay activation of the Maintenance Window until the specified future date\.
+
+1. \(Optional\) In **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window will no longer run\.
+
+1. \(Optional\) In **Time zone \(optional\)**, specify the time zone to base scheduled Maintenance Window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+
+   For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
+
+1. Choose **Create maintenance window**\. The system returns you to the Maintenance Window page\. The Maintenance Window you just created is in the Enabled state\.
+
+## Step 2: Register Maintenance Window Targets<a name="mw-walkthrough-console-register-target"></a>
+
+Use the following procedure to register a target with the Maintenance Window you created in Step 1\. By registering a target, you specify which instances to update\.
+
+**To assign targets to a Maintenance Window**
+
+1. In the Maintenance Window list, choose the Maintenance Window you just created\.
+
+1. Choose **Actions**, and then choose **Register targets**\.
+
+1. In the **Target Name** field, enter a name for the target\.
+
+1. In the **Description** field, enter a description\.
+
+1. \(Optional\) In the **Owner information** field, specify your name or work alias\. Owner information is included in any Amazon CloudWatch Events raised while running tasks for these targets in this Maintenance Window\.
+
+1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance IDs\.
+**Note**  
+If you don't see the instances that you want to target, verify that those instances are configured for Systems Manager\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+
+1. Choose **Register target**\.
+
+## Step 3: Register a Run Command Task for the Maintenance Window to Update SSM Agent<a name="mw-walkthrough-console-register-task"></a>
+
+Use the following procedure to register a Run Command task for the Maintenance Window you created in Step 1\. The Run Command task updates SSM Agent on the registered targets\.
+
+**To assign tasks to a Maintenance Window**
+
+1. In the Maintenance Window list, choose the Maintenance Window you just created\.
+
+1. Choose **Actions**, and then choose **Register Run Command task**\.
+
+1. In the **Name** field, enter a name for the task, such as UpdateSSMAgent\.
+
+1. In the **Description** field, enter a description\.
+
+1. From the **Document** list, choose the SSM Command document `AWS-UpdateSSMAgent`\.
+**Note**  
+If the targets you registered in the preceding step are Windows Server 2012 R2 or earlier, you must use the `AWS-UpdateEC2Config` document\.
+
+1. In the **Task priority** list, specify a priority for this task\. 1 is the highest priority\. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
+
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
+1. \(Optional\) In **Rate control**:
+   + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+**Note**  
+If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+   + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+
+1. For ** IAM service role**, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
+   +  ** Create and use a service\-linked role for Systems Manager **
+
+     Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
+**Note**  
+If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
+   + **Use a custom service role**
+
+     You can create a custom service role for Maintenance Window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to Maintenance Window tasks run through Run Command\.
+
+     If you need to create a custom service role, see one of the following topics:
+     + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
+     + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
+     + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+
+1. In the **Output options** section, you can optionally enable writing command output to an Amazon S3 bucket\. If you choose to enable this option, specify the Amazon S3 bucket name and optional S3 key prefix to which you want the command output written\.
+
+1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon SNS\. If you choose to enable this option, you need to specify the following:
+
+   1. The IAM role to trigger Amazon SNS notifications\.
+
+   1. The Amazon SNS topic to be used\.
+
+   1. The specific event types about which you want to be notified\.
+
+   1. The notification type that you want to receive when the status of a command changes\. For commands sent to multiple instances, choose **Invocation** to receive notification on an invocation \(per\-instance\) basis when the status of each invocation changes\.
+
+1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we will not provide a version so SSM Agent will be updated to the latest version\.
+
+1. Choose **Register Run Command task**\.

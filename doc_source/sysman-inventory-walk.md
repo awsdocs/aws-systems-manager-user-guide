@@ -10,5 +10,5 @@ Before you start these walkthroughs, complete the following tasks\.
 
 **Topics**
 + [Walkthrough: Assign Custom Inventory Metadata to an Instance](sysman-inventory-walk-custom.md)
-+ [Walkthrough: Use the AWS CLI to Collect Inventory](sysman-inventory-cliwalk.md)
++ [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)
 + [Walkthrough: Use Resource Data Sync to Aggregate Inventory Data](sysman-inventory-resource-data-sync.md)

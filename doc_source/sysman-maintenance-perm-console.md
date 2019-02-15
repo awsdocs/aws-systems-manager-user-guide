@@ -112,7 +112,7 @@ Depending on whether you are assigning the `iam: Passrole` permission to an indi
 
 1. Choose **Users**, and then choose the name of the user account you want to update\.
 
-1. On the **Permissions** tabs, in the policies list, verify that the `AmazonSSMFullAccess` policy is listed, or that there is a comparable policy that gives the IAM user permission to call the Systems Manager API\. Add the permission if it is not included already\. For information, see [Adding and Removing IAM Policies \(Console\) ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-remove-policies-console) in the *IAM User Guide*\.
+1. On the **Permissions** tabs, in the policies list, verify that the `AmazonSSMFullAccess` policy is listed, or that there is a comparable policy that gives the IAM user permission to call the Systems Manager API\. Add the permission if it is not included already\. For information, see [Adding and Removing IAM Policies \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-remove-policies-console) in the *IAM User Guide*\.
 
 1. Choose **Add inline policy**\.
 

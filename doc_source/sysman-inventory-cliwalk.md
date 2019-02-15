@@ -1,13 +1,49 @@
-# Walkthrough: Use the AWS CLI to Collect Inventory<a name="sysman-inventory-cliwalk"></a>
+# Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI<a name="sysman-inventory-cliwalk"></a>
 
-The following procedure walks you through the process of using Inventory to collect metadata from an Amazon EC2 instance\. When you configure Inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the Inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
+The following procedures walk you through the process of configuring Inventory to collect metadata from your managed instances\. When you configure Inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the Inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
 
 `The aws:softwareInventory plugin can only be invoked via ssm-associate`\.
 
 **Note**  
 An instance can have only have one Inventory association configured at a time\. If you configure an instance with two or more Inventory associations, the association doesn't run and no inventory data is collected\.
 
-**To gather inventory from an instance**
+## Quickly Configure All of Your Managed Instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
+
+You can quickly configure all managed instances in your AWS account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
+
+**To configure inventory for all managed instances in your AWS account and in the current Region \(CLI\)**
+
+1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+
+1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
+
+   ```
+   aws configure
+   ```
+
+   The system prompts you to specify the following\.
+
+   ```
+   AWS Access Key ID [None]: key_name
+   AWS Secret Access Key [None]: key_name
+   Default region name [None]: region
+   Default output format [None]: ENTER
+   ```
+
+1. Execute the following command\.
+
+   ```
+   aws ssm create-association --name AWS-GatherSoftwareInventory --targets Key=InstanceIds,Values=* --schedule-expression "rate(1 day)" --parameters applications=Enabled,awsComponents=Enabled,customInventory=Enabled,instanceDetailedInformation=Enabled,networkConfig=Enabled,services=Enabled,windowsRoles=Enabled,windowsUpdates=Enabled
+   ```
+
+**Note**  
+This command does not enable inventory of file or Windows Registry metadata\. To inventory these datatypes, use the next procedure\.
+
+## Manually Configuring Inventory on Your Managed Instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
+
+Use the following procedure to manually configure Inventory on your managed instances by using instance IDs or tags\.
+
+**To manually configure your managed instances for inventory \(CLI\)**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 

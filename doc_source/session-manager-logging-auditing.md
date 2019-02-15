@@ -20,10 +20,10 @@ For more information, see [Log AWS Systems Manager API Calls with AWS CloudTrail
 
 ## Log Session Data Using Amazon S3<a name="session-manager-logging-auditing-s3"></a>
 
-You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. By default, logs are sent to an encrypted S3 bucket\. Encryption is performed using your choice of an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
+You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
 **S3 Bucket Encryption**  
-In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](Amazon Simple Storage Service Developer Guidebucket-encryption.html)\.
+In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
 **Customer\-managed CMK**  
 If you are using a KMS customer master key \(CMK\) that you manage yourself \(a customer managed CMK\) to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the CMK\. If you use an AWS managed CMK, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the CMK, see [Allows Key Users to Use the CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
@@ -41,11 +41,11 @@ You can also use the AWS CLI to specify or change the S3 bucket that session dat
 
 1. Select the check box next to **S3 bucket**\.
 
-1. \(Optional\) If you do not want to encrypt the log data that is sent to the S3 bucket, select the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using your AWS Key Management Service \(AWS KMS\) key\.
+1. \(Optional\) If you do not want to encrypt the log data that is sent to the S3 bucket, clear the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using the server\-side encryption key specified for the bucket\. You must also clear the check box if encryption is not enabled on the bucket\.
 
 1. For **S3 bucket name**, select one of the following:
-   + **Choose a bucket name from the list**: Use a bucket that has already been created in your account to store session log data\.
-   + **Enter a bucket name in the text box**: Create a new S3 bucket to store session logs\.
+   + **Choose a bucket name from the list**: Select an S3 bucket that has already been created in your account to store session log data\.
+   + **Enter a bucket name in the text box**: Enter the name of an S3 bucket that has already been created in your account to store session log data\.
 
 1. \(Optional\) For **S3 key prefix**, enter the name of an existing or new folder to store logs in the selected bucket\.
 
@@ -55,12 +55,12 @@ For more information about working with Amazon S3 and S3 buckets, see the *[Amaz
 
 ## Log Session Data Using Amazon CloudWatch Logs<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
 
-Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. Log data can be streamed to your log group with or without encryption using your AWS KMS key\. 
+Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can stream the data to your log group with or without encryption\. 
 
 Follow these steps to configure Session Manager to stream session log data to a CloudWatch Logs log group\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the CloudWatch log group that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -70,11 +70,11 @@ You can also use the AWS CLI to specify or change the CloudWatch log group that 
 
 1. Select the check box next to **CloudWatch logs**\.
 
-1. \(Optional\) If you do not want to encrypt the log data that is sent to CloudWatch Logs, select the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using your AWS Key Management Service \(AWS KMS\) key\.
+1. \(Optional\) If you do not want to encrypt the log data that is sent to CloudWatch Logs, clear the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using the server\-side encryption key specified for the log group\. You must also clear the check box if encryption is not enabled on the log group\.
 
-1. For **CloudWatch logs**, to specify the CloudWatch log group in your AWS account to upload session logs to, select one of the following:
-   + **Choose a log group from the list**: Use a log group that has already been created in your account to store session log data\.
-   + **Enter a log group name in the text box**: Create a new log group to store session logs\.
+1. For **CloudWatch logs**, to specify the existing CloudWatch Logs log group in your AWS account to upload session logs to, select one of the following:
+   + **Choose a log group from the list**: Select a log group that has already been created in your account to store session log data\.
+   + **Enter a log group name in the text box**: Enter the name of a log group that has already been created in your account to store session log data\.
 
 1. Choose **Save**\.
 
