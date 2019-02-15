@@ -54,6 +54,7 @@ This section does *not* include a separate page for documents that require appro
 + [AWSSupport\-ResetAccess](automation-awssupport-resetaccess.md)
 + [AWS\-ResizeInstance](automation-aws-resizeinstance.md)
 + [AWS\-RestartEC2Instance](automation-aws-restartec2instance.md)
++ [AWS\-DisablePublicAccessForSecurityGroup](automation-aws-disablepublicaccessforsecuritygroup.md)
 + [AWSSupport\-SendLogBundleToS3Bucket](automation-awssupport-sendlogbundletos3bucket.md)
 + [AWS\-SetupInventory](automation-aws-setupinventory.md)
 + [AWSSupport\-SetupIPMonitoringFromVPC](automation-aws-setupipmonitoringfromvpc.md)

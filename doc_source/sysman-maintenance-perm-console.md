@@ -65,11 +65,11 @@ A custom service role is not required if you choose to use a Systems Manager ser
    }
    ```
 **Note**  
-`"sns.amazonaws.com"` is required only if you will use Amazon SNS to send notifications related to Maintenance Window tasks run through Run Command\. See step 13 below for more information\.
+`"sns.amazonaws.com"` is required only if you'll use Amazon SNS to send notifications related to Maintenance Window tasks run through Run Command\. See step 13 below for more information\.
 
 1. Choose **Update Trust Policy**, and then copy or make a note of the role name and the **Role ARN** value on the **Summary** page\. You will specify this information when you create your Maintenance Window\.
 
-1. If you will configure a Maintenance Window to send notifications about command statuses using Amazon SNS, when run through a Run Command command task, do the following:
+1. If you'll configure a Maintenance Window to send notifications about command statuses using Amazon SNS, when run through a Run Command command task, do the following:
 
    1. Choose the **Permissions** tab\.
 

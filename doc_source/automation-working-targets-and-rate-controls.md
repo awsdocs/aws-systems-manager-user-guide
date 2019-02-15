@@ -85,7 +85,9 @@ The following console example uses a Resource Group called t2\-micro\-instances\
 
 ### Targeting Parameter Values<a name="automation-working-targets-parameter-values"></a>
 
-You can also target a parameter value\. You enter `ParameterValues` as the key and then enter the specific resource value where you want the Automation workflow to run\. If you specify multiple values, Systems Manager runs a child Automation workflow on each value specified\. For example, say that your Automation document includes an **InstanceID** parameter\. If you target the values of the **InstanceID** parameter when you run the Automation, then Systems Manager executes a child Automation for each instance ID value specified\. The parent Automation is complete when the Automation finishes executing each specified instance, or if the execution fails\. You can target a maximum of 50 parameter values\.
+You can also target a parameter value\. You enter `ParameterValues` as the key and then enter the specific resource value where you want the Automation workflow to run\. If you specify multiple values, Systems Manager runs a child Automation workflow on each value specified\.
+
+For example, say that your Automation document includes an **InstanceID** parameter\. If you target the values of the **InstanceID** parameter when you run the Automation, then Systems Manager executes a child Automation for each instance ID value specified\. The parent Automation is complete when the Automation finishes executing each specified instance, or if the execution fails\. You can target a maximum of 50 parameter values\.
 
 The following example uses the AWS\-CreateImage Automation document\. The target parameter name specified is *InstanceId*\. The key uses *ParameterValues*\. The values are two Amazon EC2 instance IDs\. This command creates an Automation workflow for each instance, which produces an AMI from each instance\. 
 

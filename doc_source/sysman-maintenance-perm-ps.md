@@ -17,7 +17,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
 **Note**  
-`"sns.amazonaws.com"` is required only if you will use Amazon SNS to send notifications related to Maintenance Window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API\.
+`"sns.amazonaws.com"` is required only if you'll use Amazon SNS to send notifications related to Maintenance Window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API\.
 
    ```
    {
@@ -37,13 +37,13 @@ A custom service role is not required if you choose to use a Systems Manager ser
    }
    ```
 
-1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a Maintenance Window role; for example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step\.
+1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a Maintenance Window role; for example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step:
 
    ```
    New-IAMRole -RoleName "mw-task-role" -AssumeRolePolicyDocument (Get-Content -raw .\mw-role-trust-policy.json)
    ```
 
-   The systems returns information like the following:
+   The system returns information like the following\.
 
    ```
    Arn : arn:aws:iam::123456789012:role/mw-task-role
@@ -54,7 +54,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
    RoleName : mw-task-role
    ```
 
-1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in the previous step\.
+1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in the previous step:
 
    ```
    Register-IAMRolePolicy -RoleName mw-task-role -PolicyArn
@@ -98,7 +98,7 @@ When you register a task with a Maintenance Window, you specify either a custom 
 
      For *user\-name*, specify the IAM user who will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
 **Note**  
-If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account\.  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account:  
 
      ```
      Register-IAMUserPolicy -UserName user-name -PolicyArn arn:aws:iam::aws:policy/AmazonSSMFullAccess
@@ -111,13 +111,13 @@ If you plan to register tasks for Maintenance Windows using the AWS Systems Mana
 
      For *group\-name*, specify the IAM group that will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
 **Note**  
-If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your group\.  
+If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your group:  
 
    ```
    Register-IAMGroupPolicy -GroupName group-name -PolicyArn arn:aws:iam::aws:policy/AmazonSSMFullAccess
    ```
 
-1. Run the following command to verify that the policy has been assigned to the group\.
+1. Run the following command to verify that the policy has been assigned to the group:
 
    ```
    Get-IAMGroupPolicies -GroupName group-name

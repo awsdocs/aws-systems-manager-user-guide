@@ -22,6 +22,7 @@ Amazon S3 permissions required by SSM Agent
 | arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\.  | 
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 
 | arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  | 
+| arn:aws:s3:::patch\-baseline\-snapshot\-region/\* |  Provides access to the Amazon S3 bucket containing patch baseline snapshots\. This is required if you use the `AWS-RunPatchBaseline` and `AWS-ApplyPatchBaseline` documents\.  | 
 
 *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager table of regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
@@ -42,7 +43,8 @@ The following example illustrates how to provide access to the Amazon S3 buckets
                 "arn:aws:s3:::aws-windows-downloads-us-east-2/*",
                 "arn:aws:s3:::amazon-ssm-us-east-2/*",
                 "arn:aws:s3:::amazon-ssm-packages-us-east-2/*",
-                "arn:aws:s3:::us-east-2-birdwatcher-prod/*"
+                "arn:aws:s3:::us-east-2-birdwatcher-prod/*",
+                "arn:aws:s3:::patch-baseline-snapshot-us-east-2/*"
             ]
         }
     ]

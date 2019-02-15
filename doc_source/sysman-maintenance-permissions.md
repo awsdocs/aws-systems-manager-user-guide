@@ -1,18 +1,21 @@
 # Controlling Access to Maintenance Windows<a name="sysman-maintenance-permissions"></a>
 
-Before users in your account can create and schedule Maintenance Window tasks, they must be granted the necessary permissions\. The process of granting these permissions consists of two tasks:
+Before users in your account can create and schedule Maintenance Window tasks, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
 
-1. Task 1: Providing the Maintenance Window service with the AWS Identity and Access Management \(IAM\) permissions needed to run Maintenance Window tasks on your instances\. You need to do one of the following: 
-   + Create a custom service role for Maintenance Window tasks
-   + Create a service\-linked role for Systems Manager
+**Task 1: Configure instance permissions**  
+Provide the Maintenance Window service with the AWS Identity and Access Management \(IAM\) permissions needed to run Maintenance Window tasks on your instances by doing one of the following: 
++ Create a custom service role for Maintenance Window tasks
++ Create a service\-linked role for Systems Manager
 
-   You specify one of these roles as part of the configuration when you create a Maintenance Window task\. This allows Systems Manager to run tasks in Maintenance Windows on your behalf\.
+You specify one of these roles as part of the configuration when you create a Maintenance Window task\. This allows Systems Manager to run tasks in Maintenance Windows on your behalf\.
+
 **Note**  
 A service\-linked role for Systems Manager might already have been created in your account\. Currently, the service\-linked role also provides permissions for the Inventory capability\.
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)\.
+To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)\.
 
-1. Task 2: Granting `iam:PassRole` permissions to the users in your account who will assign tasks to Maintenance Windows\. This allows them to pass the role to the Maintenance Window service\. Without this explicit permission, a user can't assign tasks to a Maintenance Window\. 
+**Task 2: Configure user permissions**  
+Granting `iam:PassRole` permissions to the users in your account who will assign tasks to Maintenance Windows\. This allows them to pass the role to the Maintenance Window service\. Without this explicit permission, a user can't assign tasks to a Maintenance Window\. 
 
 ## Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?<a name="maintenance-window-tasks-service-role"></a>
 

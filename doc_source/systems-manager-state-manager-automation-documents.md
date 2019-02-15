@@ -12,7 +12,11 @@ AWS Systems Manager State Manager now supports creating associations that execut
 For more information about Automation, see [AWS Systems Manager Automation](systems-manager-automation.md)\.
 
 **Before You Begin**  
+<<<<<<< HEAD
 Be aware of the following important details before you execute Auotmations by using State Manager\.
+=======
+Be aware of the following important details before you execute Automations by using State Manager\.
+>>>>>>> 8a35576a45f382f5fea6c04efc4feeb8c56e85fa
 + Before you can create an association that executes an Automation document, verify that you configured permissions for Systems Manager Automation\. For more information, see [Configuring Access for Systems Manager Automation](automation-setup-user.md)\.
 + State Manager associations that execute Automation documents contribute to the maximum number of concurrently executing Automations in your AWS account\. You can have a maximum of 25 concurrent Automations running at one time\.
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by executing the following command from the AWS CLI\.
@@ -39,6 +43,13 @@ Use the following procedure to create a State Manager association that executes 
 **Note**  
 You can view information about a document by choosing the document name\.
 
+<<<<<<< HEAD
+=======
+1. Choose **Simple execution** to run the automation on one or more targets by specifying the resource ID for those targets\. Choose **Rate control** to run the automation across a fleet of AWS resources by specifying a targeting option such as tags or AWS Resource Groups\. You can also control the execution of the automation across your resources by specifying concurrency and error thresholds\.
+
+   If you chose **Rate control**, the **Targets** section appears\.
+
+>>>>>>> 8a35576a45f382f5fea6c04efc4feeb8c56e85fa
 1. In the **Targets** section, choose a method for targeting resources\.
 
    1. \(Required\) In the **Parameter** list, choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation document that you selected at the start of this procedure\. By choosing a parameter, you define the type of resource on which the Automation workflow runs\. 
@@ -74,4 +85,14 @@ Rate expressions are the preferred scheduling mechanism for State Manager associ
 
    For more information about using targets and rate controls with Automation, see [Using Targets and Rate Controls to Execute Automation Workflows on a Fleet](automation-working-targets-and-rate-controls.md)\.
 
+<<<<<<< HEAD
 1. Choose **Create Association**\. 
+=======
+1. Choose **Create Association**\. 
+
+## Troubleshooting State Manager Automation Executions<a name="systems-manager-state-manager-automation-documents-troubleshooting"></a>
+
+Systems Manager Automation enforces a limit of 25 concurrent executions and 75 queued executions per account, per Region\. If a State Manager association that executes an Automation document shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your execution may have reached the limit\. As a result, Systems Manager throttles the executions\. To resolve this issue, do the following:
++ Use a different rate or cron expression for your association\. For example, if the association is scheduled to run every 30 minutes, then change the expression so that it executes every hour or two\.
++ Delete existing Automation executions that have a status of **Pending**\. By deleting these executions, you clear the current queue\.
+>>>>>>> 8a35576a45f382f5fea6c04efc4feeb8c56e85fa

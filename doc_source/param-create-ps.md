@@ -49,7 +49,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 ## Create a `SecureString` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
 
-Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Use Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
+Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Using Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
 
 1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 

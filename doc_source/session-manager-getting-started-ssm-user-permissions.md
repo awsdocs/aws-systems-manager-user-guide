@@ -19,7 +19,7 @@ Use one of the following procedures to disable or enable the ssm\-user account s
 
     ```
     cd /etc/sudoers.d
-    echo "User rules for ssm-user" > ssm-agent-users
+    echo "#User rules for ssm-user" > ssm-agent-users
     ```
 
     \-or\-
@@ -28,7 +28,7 @@ Use one of the following procedures to disable or enable the ssm\-user account s
 
     ```
     cd /etc/sudoers.d 
-    echo "ssm-user ALL=(ALL) NOPASSWD:ALL" >> ssm-agent-users
+    echo "ssm-user ALL=(ALL) NOPASSWD:ALL" > ssm-agent-users
     ```
 
 **Use the command line to modify ssm\-user sudo permissions**
@@ -36,7 +36,13 @@ Use one of the following procedures to disable or enable the ssm\-user account s
 1. Connect to the instance and run the following command:
 
    ```
-   sudo cd /etc/sudoers.d
+   sudo -s
+   ```
+
+1. Change the working directory using the following command:
+
+   ```
+   cd /etc/sudoers.d
    ```
 
 1. Open the file named `ssm-agent-users` for editing\.

@@ -2,7 +2,7 @@
 
 **Description**
 
-Create an Amazon Machine Image \(AMI\) from a Windows Server 2008 R2 instance, and then upgrade the AMI to Windows Server 2012\. The upgrade operation is a multi\-step process that can take 2 hours to complete\. The automation creates an AMI from the instance and then launches the newly created AMI in the VPC/Subnet you provide\. The Automation workflow performs an in\-place upgrade from Windows Server 2008 R2 to Windows server 2012 R2\. The workflow also updates or installs the AWS drivers required by the upgraded instance\. After the upgrade, the workflow creates a new AMI and then terminates the upgraded instance\. 
+Create an Amazon Machine Image \(AMI\) from a Windows Server 2008 R2 instance, and then upgrade the AMI to Windows Server 2012 R2\. The upgrade operation is a multi\-step process that can take 2 hours to complete\. The automation creates an AMI from the instance and then launches the newly created AMI in the VPC/Subnet you provide\. The Automation workflow performs an in\-place upgrade from Windows Server 2008 R2 to Windows server 2012 R2\. The workflow also updates or installs the AWS drivers required by the upgraded instance\. After the upgrade, the workflow creates a new AMI and then terminates the upgraded instance\. 
 
 You can test application functionality by launching the new AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded instance\.
 
@@ -21,7 +21,7 @@ Windows
 **Prerequisites**
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 + This Automation works only with Windows Server 2008 R2 instances\.
-+ Configure the Windows Server 2008 R2 instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [](sysman-configuring-access-role.md)\.
++ Configure the Windows Server 2008 R2 instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\.
 + Verify that the instance has 20 GB of free disk space in the boot disk\.
 + If the instance does not use an AWS\-provided Windows license, then specify an EBS Snapshot ID that includes Windows Server 2012 R2 installation media\. To do this:
   + Verify that the Amazon EC2 instance is running Windows Server 2012 or later\.

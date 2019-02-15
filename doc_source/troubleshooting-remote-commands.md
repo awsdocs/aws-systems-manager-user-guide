@@ -81,32 +81,28 @@ If you experience problems executing commands using Run Command, there might be 
 
 SSM Agent logs information in the following files\. The information in these files can help you troubleshoot problems\.
 
+**Note**  
+If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
+
 **On Windows**
 + %PROGRAMDATA%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
 + %PROGRAMDATA%\\Amazon\\SSM\\Logs\\errors\.log
-
-**Note**  
-The default filename of the seelog is seelog\.xml\.template\. If you modify a seelog, you must rename the file to seelog\.xml\.
 
 **On Linux**
 + /var/log/amazon/ssm/amazon\-ssm\-agent\.log
 + /var/log/amazon/ssm/errors\.log
 
-On Linux, you can enable extended logging by updating the seelog\.xml file\. By default, the configuration file is located here: /etc/amazon/ssm/seelog\.xml\.
-
-For more information about cihub/seelog configuration, go to the [cihub/seelog Wiki](https://github.com/cihub/seelog/wiki)\. For examples of cihub/seelog configurations, go to [cihub/seelog examples](https://github.com/cihub/seelog-examples)\. 
-
 ### Enable SSM Agent Debug Logging<a name="systems-manager-ssm-agent-debug-log-files"></a>
 
 Use the follow procedure to enable SSM Agent debug logging on Windows Server and Linux managed instances\.
 
-1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\.
+1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
-1. Change the file name of **seelog\.xml\.template** to **seelog\.xml**\. The file is located in the following directory:
+1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory:
 
-   1. Windows Server: %PROGRAMDATA%\\Amazon\\SSM\\seelog\.xml\.template
+   1. **Windows Server**: %PROGRAMFILES%\\Amazon\\SSM\\seelog\.xml\.template
 
-   1. Linux: /etc/amazon/ssm/seelog\.xml\.template
+   1. **Linux**: /etc/amazon/ssm/seelog\.xml\.template
 
 1. Edit the seelog\.xml file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
@@ -114,6 +110,34 @@ Use the follow procedure to enable SSM Agent debug logging on Windows Server and
    <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
    ```
 
+1. **Windows only**: Locate the following entry:
+
+   ```
+   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"
+   ```
+
+   Change this entry to use the following path:
+
+   ```
+   filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"
+   ```
+
+1. **Windows only**: Locate the following entry:
+
+   ```
+   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"
+   ```
+
+   Change this entry to use the following path:
+
+   ```
+   filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"
+   ```
+
 1. Restart SSM Agent\.
-   + Windows Server: Use Windows Task Manager to restart AmazonSSMAgent\.exe\.
-   + Linux: Use following command: sudo restart amazon\-ssm\-agent\.
+   + **Windows Server**: Use Windows Task Manager to restart AmazonSSMAgent\.exe\.
+   + **Linux**: Execute the following command:
+
+     ```
+     sudo restart amazon-ssm-agent
+     ```

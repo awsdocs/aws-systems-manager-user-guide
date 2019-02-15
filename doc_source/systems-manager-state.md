@@ -34,5 +34,4 @@ See the following blog posts for additional examples of how to use State Manager
 **Topics**
 + [About State Manager](sysman-state-about.md)
 + [Working with Associations in Systems Manager](systems-manager-associations.md)
-+ [Sample State Manager Documents](sysman-state-sampledocs.md)
 + [Systems Manager State Manager Walkthroughs](sysman-state-walk.md)
