@@ -52,11 +52,13 @@ You only need to create the service role once for each AWS account\.
    ```
    aws iam create-role --role-name SSMServiceRole --assume-role-policy-document file://SSMService-Trust.json 
    ```
+   
+1. Create a new IAM policy restrictive SSM agent role.
 
 1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to enable the SSMServiceRole to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 
    ```
-   aws iam attach-role-policy --role-name SSMServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM 
+   aws iam attach-role-policy --role-name SSMServiceRole --policy-arn policy_arn
    ```
 
 **Note**  
