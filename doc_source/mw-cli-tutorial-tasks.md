@@ -26,4 +26,4 @@ The register\-task\-with\-maintenance\-window also supports two deprecated optio
 **Topics**
 + [Before You Begin](#mw-cli-tutorial-tasks-before)
 + [About 'register\-task\-with\-maintenance\-window' Options and Values](register-tasks-options.md)
-+ [Create a Maintenance Window Task](register-tasks-tutorial.md)
++ [Create a Maintenance Window Task \(AWS CLI\)](register-tasks-tutorial.md)

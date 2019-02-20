@@ -3,10 +3,10 @@
 The following procedures describe how to use the AWS CLI to create the required roles and permissions for Maintenance Windows\.
 
 **Topics**
-+ [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows](#sysman-maintenance-role-cli)
++ [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows \(AWS CLI\)](#sysman-maintenance-role-cli)
 + [Task 2: Assign the IAM PassRole Policy to an IAM User or Group](#sysman-mw-passrole-cli)
 
-## \(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows<a name="sysman-maintenance-role-cli"></a>
+## \(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows \(AWS CLI\)<a name="sysman-maintenance-role-cli"></a>
 
 **Important**  
 A custom service role is not required if you choose to use a Systems Manager service\-linked role to let Maintenance Windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a Maintenance Window task using the Systems Manager console\. For more information, see the following topics:  
@@ -84,7 +84,7 @@ Make a note of the `RoleName` and the `Arn`\. You will specify these when you cr
 
 When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
-**To assign the IAM PassRole policy to an IAM user account or group**
+**To assign the IAM PassRole policy to an IAM user account or group \(AWS CLI\)**
 
 1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
 

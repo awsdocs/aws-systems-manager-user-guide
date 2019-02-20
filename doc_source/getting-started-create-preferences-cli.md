@@ -1,8 +1,10 @@
-# Use the AWS CLI to Create Session Manager Preferences<a name="getting-started-create-preferences-cli"></a>
+# Create Session Manager Preferences \(AWS CLI\)<a name="getting-started-create-preferences-cli"></a>
 
 The following procedure describes how to use the AWS CLI and the [create\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) command to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
-For information about using the CLI to update existing Session Manager preferences, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
+For information about using the CLI to update existing Session Manager preferences, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+
+**To create Session Manager preferences \(AWS CLI\)**
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 

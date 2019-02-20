@@ -1,16 +1,18 @@
 # Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows you how to join a Windows instance to a domain using Systems Manager Secure String parameters and Run Command\. The walkthrough uses typical domain parameters, such as the DNS address, the domain name, and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using a AWS KMS master key and passed as a Secure String\. 
+This walkthrough shows you how to join a Windows instance to a domain using Systems Manager Secure String parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using a AWS KMS master key and passed as a Secure String\. 
+
+**Prerequisites**  
+This walkthrough assumes that you have already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
 **To create a Secure String Parameter and Join an Instance to a Domain**
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
    ```
-   Write-SSMParameter -Name DNS-IP -Value a-DNS-IP-address -Type String
-   Write-SSMParameter -Name domainName -Value the-domain-name -Type String
-   Write-SSMParameter -Name domainJoinUserName -Value a-user-name -Type String
-   Write-SSMParameter -Name my-password -Value a-password -Type SecureString
+   Write-SSMParameter -Name "domainName" -Value "DOMAIN-NAME" -Type String
+   Write-SSMParameter -Name "domainJoinUserName" -Value "DOMAIN\USERNAME" -Type String
+   Write-SSMParameter -Name "domainJoinPassword" -Value "PASSWORD" -Type SecureString
    ```
 **Important**  
 Only the *value* of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
@@ -40,26 +42,30 @@ Only the *value* of a secure string parameter is encrypted\. Parameter names, de
 
    ```
    {
-      "schemaVersion":"2.0",
-      "description":"Run a PowerShell script to securely domain-join a Windows instance",
-      "mainSteps":[
-         {
-            "action":"aws:runPowerShellScript",
-            "name":"runPowerShellWithSecureString",
-            "inputs":{
-               "runCommand":[
-                  "$ipdns = (Get-SSMParameterValue -Name dns).Parameters[0].Value\n",
-                  "$domain = (Get-SSMParameterValue -Name domainName).Parameters[0].Value\n",
-                  "$username = (Get-SSMParameterValue -Name domainJoinUserName).Parameters[0].Value\n",
-                  "$password = (Get-SSMParameterValue -Name domainJoinPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force\n",
-                  "$credential = New-Object System.Management.Automation.PSCredential($username,$password)\n",
-                  "Set-DnsClientServerAddress \"Ethernet 2\" -ServerAddresses $ipdns\n",
-                  "Add-Computer -DomainName $domain -Credential $credential\n",
-                  "Restart-Computer -force"
-               ]
-            }
-         }
-      ]
+       "schemaVersion": "2.2",
+       "description": "Run a PowerShell script to securely domain-join a Windows instance",
+       "mainSteps": [
+           {
+               "action": "aws:runPowerShellScript",
+               "name": "runPowerShellWithSecureString",
+               "precondition": {
+                   "StringEquals": [
+                       "platformType",
+                       "Windows"
+                   ]
+               },
+               "inputs": {
+                   "runCommand": [
+                       "$domain = (Get-SSMParameterValue -Name domainName).Parameters[0].Value",
+                       "$username = (Get-SSMParameterValue -Name domainJoinUserName).Parameters[0].Value",
+                       "$password = (Get-SSMParameterValue -Name domainJoinPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force",
+                       "$credential = New-Object System.Management.Automation.PSCredential($username,$password)",
+                       "Add-Computer -DomainName $domain -Credential $credential -ErrorAction Stop",
+                       "Restart-Computer -force"
+                   ]
+               }
+           }
+       ]
    }
    ```
 

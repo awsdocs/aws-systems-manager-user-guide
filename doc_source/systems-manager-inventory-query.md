@@ -87,7 +87,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
 1. Choose **Create policy**\.
 
 **Important**  
-When you choose a Remote Data Sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServicePolicyforSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for Resource Data Sync\. Systems Manager automatically attaches the following policies to the role:  
+When you choose a Remote Data Sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServicePolicyForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for Resource Data Sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
 **AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
 If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **AWSGlueServiceRole** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **AWSGlueServiceRole** role\.

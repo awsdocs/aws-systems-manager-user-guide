@@ -5,19 +5,21 @@ You can use the AWS Management Console or the AWS CLI to deploy packages to your
 
 | Preference | AWS Systems Manager Action | More Information | 
 | --- | --- | --- | 
-|  Install a package immediately\.  |  Run Command  |  [Install a Package One Time \(Console\)](#distributor-deploy-pkg-console) or [Install a Package One Time \(CLI\)](#distributor-deploy-pkg-cli)  | 
-|  Install a package on a schedule, so that the installation always includes the default version\.  |  State Manager  |  [Schedule a Package Installation \(Console\)](#distributor-deploy-sm-pkg-console) or [Schedule a Package Installation \(CLI\)](#distributor-smdeploy-pkg-cli)  | 
+|  Install a package immediately\.  |  Run Command  |  [Installing a Package One Time \(Console\)](#distributor-deploy-pkg-console) or [Installing a Package One Time \(AWS CLI\)](#distributor-deploy-pkg-cli)  | 
+|  Install a package on a schedule, so that the installation always includes the default version\.  |  State Manager  |  [Scheduling a Package Installation \(Console\)](#distributor-deploy-sm-pkg-console) or [Scheduling a Package Installation \(AWS CLI\)](#distributor-smdeploy-pkg-cli)  | 
 |  Automatically install a package on new instances that have a specific tag or set of tags\. For example, installing the Amazon CloudWatch agent on new instances\.  |  State Manager  |  One way to do this is to apply tags to new instances, and then specify the tags as targets in your State Manager association\. State Manager automatically installs the package in an association on instances that have matching tags\. See [Create an Association that Uses Targets and Rate Controls \(CLI\)](systems-manager-state-manager-targets-and-rate-controls.md#sysman-state-targets)\.  | 
 
 **Topics**
-+ [Install a Package One Time \(Console\)](#distributor-deploy-pkg-console)
-+ [Schedule a Package Installation \(Console\)](#distributor-deploy-sm-pkg-console)
-+ [Install a Package One Time \(CLI\)](#distributor-deploy-pkg-cli)
-+ [Schedule a Package Installation \(CLI\)](#distributor-smdeploy-pkg-cli)
++ [Installing a Package One Time \(Console\)](#distributor-deploy-pkg-console)
++ [Scheduling a Package Installation \(Console\)](#distributor-deploy-sm-pkg-console)
++ [Installing a Package One Time \(AWS CLI\)](#distributor-deploy-pkg-cli)
++ [Scheduling a Package Installation \(AWS CLI\)](#distributor-smdeploy-pkg-cli)
 
-## Install a Package One Time \(Console\)<a name="distributor-deploy-pkg-console"></a>
+## Installing a Package One Time \(Console\)<a name="distributor-deploy-pkg-console"></a>
 
 You can use the AWS Systems Manager console to install a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to perform the installation\.
+
+**To install a package one time \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -47,9 +49,11 @@ You can use the AWS Systems Manager console to install a package one time\. When
 
 1. Choose **View output**\. The command output page shows the results of your command execution\.
 
-## Schedule a Package Installation \(Console\)<a name="distributor-deploy-sm-pkg-console"></a>
+## Scheduling a Package Installation \(Console\)<a name="distributor-deploy-sm-pkg-console"></a>
 
 You can use the AWS Systems Manager console to schedule the installation of a package\. When you schedule package installation, Distributor uses [AWS Systems Manager State Manager](systems-manager-state.md) to perform the installation\.
+
+**To schedule a package installation \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -63,13 +67,13 @@ You can use the AWS Systems Manager console to schedule the installation of a pa
 
    This command opens Systems Manager State Manager to a new association that is created for you\.
 
-1. In **Name**, enter a name \(for example, **Deploy\_test\_agent\_package**\)\. This is optional, but recommended\. Spaces aren't allowed in the name\.
+1. In **Name**, enter a name \(for example, **Deploy\-test\-agent\-package**\)\. This is optional, but recommended\. Spaces aren't allowed in the name\.
 
 1. In the **Command document** list, the document name `AWS-ConfigureAWSPackage` is already selected\. Verify that the **Package** value is set to the name of your package\. Verify that in **Parameters**, for **Operation**, **Install** is already selected\.
 
-1. In **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
+1. For **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
-1. In **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
+1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
 
 1. For more information about advanced options, such as compliance severity, rate control, and output options, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\. When you are finished editing your association, choose **Save Changes**\.
 
@@ -77,13 +81,15 @@ You can use the AWS Systems Manager console to schedule the installation of a pa
 
    State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\.
 
-## Install a Package One Time \(CLI\)<a name="distributor-deploy-pkg-cli"></a>
+## Installing a Package One Time \(AWS CLI\)<a name="distributor-deploy-pkg-cli"></a>
 
 You can run send\-command in the AWS CLI to install a Distributor package one time\.
+
+**To install a package one time \(AWS CLI\)**
 + Run the following command in the AWS CLI\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance_IDs" --parameters '{"action":["Install"],"name":["package_name (in same account) or package_ARN (shared from different account)"]}'
+  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance-IDs" --parameters '{"action":["Install"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 
   The following is an example\.
@@ -94,12 +100,12 @@ You can run send\-command in the AWS CLI to install a Distributor package one ti
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
 
-## Schedule a Package Installation \(CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
+## Scheduling a Package Installation \(AWS CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
 
 You can run create\-association in the AWS CLI to install a Distributor package on a schedule\. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`\. The following command uses the key `InstanceIds` to specify target instances\.
 
 ```
-aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"name":["package_name (in same account) or package_ARN (shared from different account)"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance_ID1\",\"instance_ID2\"]}]
+aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance-ID1\",\"instance-ID2\"]}]
 ```
 
 The following is an example\.

@@ -14,23 +14,23 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. In the patch baselines list, choose the name of a patch baseline for the operating system you want to patch\.
+1. In the list of patch baselines, choose the name of a patch baseline for the operating system you want to patch\.
 
 1. Choose the **Approval rules** tab\. 
 
-   If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group](sysman-patch-tagging-console.md)\. 
+   If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group \(Console\)](sysman-patch-tagging-console.md)\. 
 
    \-or\-
 
    To create your own default patch baseline, in the navigation pane, choose **Patch Manager**, and then choose **Create patch baseline**\.
 
-1. In the **Name** field, enter a name for your new patch baseline, for example, **RHEL\-Default**\.
+1. For **Name**, enter a name for your new patch baseline, for example, **RHEL\-Default**\.
 
 1. \(Optional\) Enter a description for this patch baseline\.
 
-1. In the **Operating system** list, choose an operating system, for example, Red Hat Enterprise Linux\.
+1. For **Operating system**, choose an operating system, for example, Red Hat Enterprise Linux\.
 
-1. In the **Approval rules** section, use the fields to create one or more auto\-approval rules\.
+1. For **Approval rules**, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as RedhatEnterpriseLinux7\.4\. The default selection is All\.
    + **Classification**: The type of patches the approval rule applies to, such as Security\. The default selection is All\. 
    + **Severity**: The severity value of patches the rule is to apply to, such as Critical\. The default selection is All\. 
@@ -45,17 +45,17 @@ For SUSE Linux Enterprise Server, it isn't necessary to select the check box bec
    For more information about working with approval rules in a custom patch baseline, see [Custom Baselines](sysman-patch-baselines.md#patch-manager-baselines-custom)\.
 
 1. If you want to explicitly approve any patches in addition to those meeting your approval rules, do the following in the **Patch exceptions** section:
-   + In the **Approved patches** box, enter a comma\-separated list of the patches you want to approve\.
+   + For **Approved patches**, enter a comma\-separated list of the patches you want to approve\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
-   + \(Optional\) In the **Approved patches compliance level** list, assign a compliance level to the patches in the list\.
+   + \(Optional\) For **Approved patches compliance level**, assign a compliance level to the patches in the list\.
    + If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed as well\. Applies to Linux instances only\.
 
 1. If you want to explicitly reject any patches that otherwise meet your approval rules, do the following in the **Patch exceptions** section:
-   + In the **Rejected patches** box, enter a comma\-separated list of the patches you want to reject\.
+   + For **Rejected patches**, enter a comma\-separated list of the patches you want to reject\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
-   + In the **Rejected patches action** list, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
+   + For **Rejected patches action**, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
      + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it is a dependency of another package\. It is considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
      + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, are not installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it is considered non\-compliant with the patch baseline and its status is reported as *InstalledRejected*\.
 
@@ -87,25 +87,25 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Patch Baselines**\. 
 
-1. In the patch baselines list, choose a patch baseline for the operating system you want to patch\.
+1. In the list of patch baselines, choose a patch baseline for the operating system you want to patch\.
 **Note**  
 If the **Welcome to EC2 Systems Manager \- Patch Baselines** page appears, choose **Create Patch Baseline**\. When the **Create patch baseline** page appears, choose the back button in your browser to view the list of patch baselines\.
 
-1. With a default baseline selected, choose the **Approval Rules** tab\. If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group](sysman-patch-tagging-console.md)\. 
+1. With a default baseline selected, choose the **Approval Rules** tab\. If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group \(Console\)](sysman-patch-tagging-console.md)\. 
 
 1. To create your own default patch baseline, choose **Create Patch Baseline**\.
 
-1. In the **Name** field, enter a name for your new patch baseline, for example, **RHEL\-Default**\.
+1. For **Name**, enter a name for your new patch baseline, for example, **RHEL\-Default**\.
 
 1. \(Optional\) Enter a description for this patch baseline\.
 
-1. In the **Operating System** field, choose an operating system, for example, RedhatEnterpriseLinux\.
+1. For **Operating System**, choose an operating system, for example, RedhatEnterpriseLinux\.
 
-1. In the **Approval Rules** section, use the fields to create one or more auto\-approval rules\.
+1. For **Approval Rules**, use the fields to create one or more auto\-approval rules\.
 **Note**  
 If an approved patch is reported as missing, the option you choose in **Compliance level**, such as Critical or Medium, determines the severity of the compliance violation\.
 
-1. \(Optional\) In the **Patch Exceptions** section, enter comma\-separated lists of patches you want to explicitly approve and reject for the baseline\. For approved patches, choose a corresponding compliance severity level\. 
+1. \(Optional\) For **Patch Exceptions**, enter comma\-separated lists of patches you want to explicitly approve and reject for the baseline\. For approved patches, choose a corresponding compliance severity level\. 
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 

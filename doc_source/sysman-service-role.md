@@ -1,11 +1,11 @@
-# Create an IAM Service Role for a Hybrid Environment<a name="sysman-service-role"></a>
+# Creating an IAM Service Role for a Hybrid Environment<a name="sysman-service-role"></a>
 
 Servers and virtual machines \(VMs\) in a hybrid environment require an IAM role to communicate with the Systems Manager SSM service\. The role grants AssumeRole trust to the SSM service\. 
 
 **Note**  
 You only need to create the service role once for each AWS account\.
 
-**To create an IAM service role using AWS Tools for Windows PowerShell**
+**To create an IAM service role \(Tools for Windows PowerShell\)**
 
 1. Create a text file \(in this example it is named `SSMService-Trust.json`\) with the following trust policy\. Save the file with the `.json` file extension\.
 
@@ -32,7 +32,7 @@ You only need to create the service role once for each AWS account\.
    Register-IAMRolePolicy -RoleName SSMServiceRole -PolicyArn arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
    ```
 
-**To create an IAM service role using the AWS CLI**
+**To create an IAM service role \(AWS CLI\)**
 
 1. Create a text file \(in this example it is named `SSMService-Trust.json`\) with the following trust policy\. Save the file with the `.json` file extension\.
 

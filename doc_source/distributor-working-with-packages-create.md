@@ -32,38 +32,38 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
 ```
 {
   "schemaVersion": "2.0",
-  "version": "your_version",
-  "publisher": "optional_publisher_name",
+  "version": "your-version",
+  "publisher": "optional-publisher-name",
   "packages": {
     "platform": {
-      "platform_version": {
+      "platform-version": {
         "architecture": {
-          "file": "ZIP_file_name1.zip"
+          "file": "ZIP-file-name-1.zip"
         }
       }
     },
-    "another_platform": {
-      "platform_version": {
+    "another-platform": {
+      "platform-version": {
         "architecture": {
-          "file": "ZIP_file_name2.zip"
+          "file": "ZIP-file-name-2.zip"
         }
       }
     },
-    "another_platform": {
-      "platform_version": {
+    "another-platform": {
+      "platform-version": {
         "architecture": {
-          "file": "ZIP_file_name3.zip"
+          "file": "ZIP-file-name-3.zip"
         }
       }
     }
   },
   "files": {
-    "ZIP_file_name1.zip": {
+    "ZIP-file-name-1.zip": {
       "checksums": {
         "sha256": "checksum"
       }
     },
-    "ZIP_file_name2.zip": {
+    "ZIP-file-name-2.zip": {
       "checksums": {
         "sha256": "checksum"
       }
@@ -71,6 +71,8 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
   }
 }
 ```
+
+**To create a JSON package manifest**
 
 1. Add the schema version to your manifest\. In this release, the schema version is always `2.0`\.
 
@@ -92,7 +94,7 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
 
 1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the ZIP files in your package\. For more information, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
 
-   The *platform\_version* can be the wildcard value `_any`\. Use it to indicate that a ZIP file supports any release of the platform\. However, a *platform\_version* value must match the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
+   The *platform\-version* can be the wildcard value `_any`\. Use it to indicate that a ZIP file supports any release of the platform\. However, a *platform\-version* value must match the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
    + On a Windows\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
 
      ```
@@ -109,23 +111,23 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
    ```
    "packages": {
        "platform": {
-         "platform_version": {
+         "platform-version": {
            "architecture": {
-             "file": "ZIP_file_name1.zip"
+             "file": "ZIP-file-name-1.zip"
            }
          }
        },
-       "another_platform": {
-         "platform_version": {
+       "another-platform": {
+         "platform-version": {
            "architecture": {
-             "file": "ZIP_file_name2.zip"
+             "file": "ZIP-file-name-2.zip"
            }
          }
        },
-       "another_platform": {
-         "platform_version": {
+       "another-platform": {
+         "platform-version": {
            "architecture": {
-             "file": "ZIP_file_name3.zip"
+             "file": "ZIP-file-name-3.zip"
            }
          }
        }
@@ -202,7 +204,7 @@ After you prepare and ZIP your installable files, create a JSON manifest\. The f
 
 1. Add the list of ZIP files that are part of this package from step 4\. Each file entry requires the file name and `sha256` hash value checksum\. Checksum values in the manifest must match the `sha256` hash value in the zipped assets to prevent package installation from failing\.
 
-   To get the exact checksum from your installables, you can run the following commands\. On Linux, run `cat file_name.zip | openssl dgst -sha256`\. On Windows, run the `Get-FileHash -Path path_to_ZIP_file` cmdlet in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)\.
+   To get the exact checksum from your installables, you can run the following commands\. On Linux, run `cat file-name.zip | openssl dgst -sha256`\. On Windows, run the `Get-FileHash -Path path-to-ZIP-file` cmdlet in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)\.
 
    The `"files"` section of the manifest includes one reference to each of the ZIP files in your package\.
 
@@ -305,6 +307,8 @@ An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is availa
 ## Step 3: Upload the Package and Manifest to an Amazon S3 Bucket<a name="packages-upload-s3"></a>
 
 Prepare your package by copying or moving all ZIP files into a folder or directory\. A valid package requires the manifest that you created in [Step 2: Create the JSON Package Manifest](#packages-manifest) and all ZIP files identified in the manifest file list\.
+
+**To upload the package and manifest to S3**
 
 1. Copy or move all ZIP archive files that you specified in the manifest to a folder or directory\.
 

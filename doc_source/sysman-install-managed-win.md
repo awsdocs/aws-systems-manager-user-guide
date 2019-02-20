@@ -1,4 +1,4 @@
-# Install SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
+# Installing SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation in the previous section\. You will specify the Code and ID in the following procedure\.
 

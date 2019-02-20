@@ -3,12 +3,14 @@
 You can use the AWS Management Console or the AWS CLI to uninstall Distributor packages from your AWS Systems Manager managed instances by using Run Command\. In this release, you can uninstall one version of one package per command\. You can uninstall a specific version or the default version\.
 
 **Topics**
-+ [Uninstall a Package \(Console\)](#distributor-pkg-uninstall-console)
-+ [Uninstall a Package \(CLI\)](#distributor-pkg-uninstall-cli)
++ [Uninstalling a Package \(Console\)](#distributor-pkg-uninstall-console)
++ [Uninstalling a Package \(AWS CLI\)](#distributor-pkg-uninstall-cli)
 
-## Uninstall a Package \(Console\)<a name="distributor-pkg-uninstall-console"></a>
+## Uninstalling a Package \(Console\)<a name="distributor-pkg-uninstall-console"></a>
 
 You can use Run Command in the AWS Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to uninstall packages\.
+
+**To uninstall a package \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -34,13 +36,15 @@ You can use Run Command in the AWS Systems Manager console to uninstall a packag
 
 1. Choose **View output**\. The command output page shows the results of your command execution\.
 
-## Uninstall a Package \(CLI\)<a name="distributor-pkg-uninstall-cli"></a>
+## Uninstalling a Package \(AWS CLI\)<a name="distributor-pkg-uninstall-cli"></a>
 
 You can use the AWS CLI to uninstall a Distributor package from managed instances by using Run Command\.
+
+**To uninstall a package \(AWS CLI\)**
 + Run the following command in the AWS CLI\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance_IDs" --parameters '{"action":["Uninstall"],"name":["package_name (in same account) or package_ARN (shared from different account)"]}'
+  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance-IDs" --parameters '{"action":["Uninstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 
   The following is an example\.

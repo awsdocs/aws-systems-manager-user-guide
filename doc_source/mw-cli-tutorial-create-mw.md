@@ -1,6 +1,8 @@
-# Step 1: Create the Maintenance Window<a name="mw-cli-tutorial-create-mw"></a>
+# Step 1: Create the Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-create-mw"></a>
 
 In this step, you'll create a Maintenance Window and specify its basic options, such as schedule and duration\. In later steps, you'll choose the instances it will update and the tasks that it will run\.
+
+**To create a Maintenance Window \(AWS CLI\)**
 
 1. Open the AWS CLI and run the following commands to create a Maintenance Window that runs every 2 minutes for 2 hours, in the United States Pacific time zone, with a 1 hour cutoff, and that allows unassociated targets:
 

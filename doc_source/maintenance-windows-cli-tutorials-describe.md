@@ -1,4 +1,4 @@
-# Tutorial: View Information About Maintenance Windows \(CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
+# Tutorial: View Information About Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
 This tutorial includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
 

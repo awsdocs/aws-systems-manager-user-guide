@@ -1,4 +1,4 @@
-# Create a Maintenance Window Task<a name="register-tasks-tutorial"></a>
+# Create a Maintenance Window Task \(AWS CLI\)<a name="register-tasks-tutorial"></a>
 
 1. Run the following command to register a task for the Maintenance Window\. The task in first example uses Systems Manager Run Command to run the `df` command using the `AWS-RunShellScript` document\. You can also specify tasks that use Systems Manager Automation, AWS Lambda, and AWS Step Functions, as shown in the additional examples\. For information about the options you can specify, see [About 'register\-task\-with\-maintenance\-window' Options and Values](register-tasks-options.md)\.
 

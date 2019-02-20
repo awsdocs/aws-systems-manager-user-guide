@@ -1,6 +1,8 @@
-# Use the AWS CLI to Update Session Manager Preferences<a name="getting-started-configure-preferences-cli"></a>
+# Update Session Manager Preferences \(AWS CLI\)<a name="getting-started-configure-preferences-cli"></a>
 
-The following procedure describes how to use the AWS CLI and the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) command to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) command to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+
+**To update Session Manager preferences \(AWS CLI\)**
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 

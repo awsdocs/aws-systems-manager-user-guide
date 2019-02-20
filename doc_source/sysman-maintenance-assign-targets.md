@@ -2,17 +2,17 @@
 
 After you create a Maintenance Window, you assign targets where the tasks will run\.
 
-**To assign targets to a Maintenance Window**
+**To assign targets to a Maintenance Window \(console\)**
 
-1. In the Maintenance Window list, choose the Maintenance Window you just created\.
+1. In the list of Maintenance Windows, choose the Maintenance Window you just created\.
 
 1. Choose **Actions**, and then choose **Register targets**\.
 
-1. In the **Target Name** field, enter a name for the targets\.
+1. For **Target Name**, enter a name for the targets\.
 
-1. In the **Description** field, enter a description\.
+1. For **Description**, enter a description\.
 
-1. In the **Owner information** field, specify your name or work alias\. Owner information is included in any CloudWatch Events raised while running tasks for these targets in this Maintenance Window\. 
+1. For **Owner information**, specify your name or work alias\. Owner information is included in any CloudWatch Events raised while running tasks for these targets in this Maintenance Window\. 
 
 1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance ID\.
 **Note**  

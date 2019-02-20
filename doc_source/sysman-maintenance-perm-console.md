@@ -3,10 +3,10 @@
 The following procedures describe how to use the AWS Systems Manager console to create the required roles and permissions for Maintenance Windows\.
 
 **Topics**
-+ [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows](#sysman-maintenance-role)
-+ [Task 2: Assign the IAM PassRole Policy to an IAM User or Group](#sysman-maintenance-passrole)
++ [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows \(Console\)](#sysman-maintenance-role)
++ [Task 2: Assign the IAM PassRole Policy to an IAM User or Group \(Console\)](#sysman-maintenance-passrole)
 
-## \(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows<a name="sysman-maintenance-role"></a>
+## \(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows \(Console\)<a name="sysman-maintenance-role"></a>
 
 Use the following procedure to create a custom service role for Maintenance Windows so that Systems Manager can run tasks on your behalf\.
 
@@ -16,7 +16,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)
 [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
 
-**To create a custom service role**
+**To create a custom service role \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -96,17 +96,17 @@ In the Systems Manager console, this ARN is selected in the ** IAM Role** list o
 
    1. Choose **Review policy**\.
 
-   1. In the **Name** box, enter a name to identify this as a policy to allow sending Amazon SNS notifications\.
+   1. For **Name**, enter a name to identify this as a policy to allow sending Amazon SNS notifications\.
 
 1. Choose **Create policy**\.
 
-## Task 2: Assign the IAM PassRole Policy to an IAM User or Group<a name="sysman-maintenance-passrole"></a>
+## Task 2: Assign the IAM PassRole Policy to an IAM User or Group \(Console\)<a name="sysman-maintenance-passrole"></a>
 
 When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 Depending on whether you are assigning the `iam: Passrole` permission to an individual user or a group, use one of the following procedures to provide the minimum permissions required to register tasks with a Maintenance Window\.
 
-**To assign the IAM PassRole policy to an IAM user account**
+**To assign the IAM PassRole policy to an IAM user account \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -124,13 +124,13 @@ Type **passr** in the filter box to quickly locate **PassRole**\.
 
 1. Choose the **Resources** line, and then choose **Add ARN**\.
 
-1. In the **Specify ARN for role** field, paste the role ARN you created in the previous procedure, and then choose **Save changes**\.
+1. For **Specify ARN for role**, paste the role ARN you created in the previous procedure, and then choose **Save changes**\.
 
 1. Choose **Review policy**\.
 
 1. On the **Review policy** page, enter a name in the **Name** box to identify this PassRole policy, and then choose **Create policy**\.
 
-**To assign the IAM PassRole policy to an IAM group**
+**To assign the IAM PassRole policy to an IAM group \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -152,7 +152,7 @@ Type **passr** in the filter box to quickly locate **PassRole**\.
 
    1. **Actions**: PassRole
 
-   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the Maintenance Window role you created in [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows](#sysman-maintenance-role)
+   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the Maintenance Window role you created in [\(Optional\) Task 1: Create a Custom Service Role for Maintenance Windows \(Console\)](#sysman-maintenance-role)
 
 1. Choose **Add Statement**, and then choose **Next Step**\.
 

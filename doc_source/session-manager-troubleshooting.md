@@ -34,7 +34,7 @@ Use the following information to help you troubleshoot problems with Session Man
 **Tip**  
 To always keep your agent up to date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
-Run `AWS-UpdateSSMAgent` as part of a Maintenance Window\. For information about working with Maintenance Windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(CLI\)](maintenance-windows-cli-tutorials-create.md)\.
+Run `AWS-UpdateSSMAgent` as part of a Maintenance Window\. For information about working with Maintenance Windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
 
 ## Session Manager Plugin Not Found<a name="plugin-not-found"></a>
 

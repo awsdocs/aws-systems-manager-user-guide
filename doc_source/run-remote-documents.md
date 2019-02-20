@@ -32,11 +32,11 @@ Before you run a remote document, you must complete the following tasks\.
 **Note**  
 If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
-1. \(Optional\) In **Rate control**:
-   + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-   + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Source Type** list, choose an option\. 
    + If you choose **GitHub**, specify **Source Info** information in the following format:
@@ -88,15 +88,15 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
    }
    ```
 
-1. In **Other parameters**:
-   + In the **Comment** box, type information about this command\.
-   + In **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
+1. For **Other parameters**:
+   + For **Comment**, type information about this command\.
+   + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
-1. \(Optional\) In **Rate control**:
-   + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-   + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  

@@ -1,4 +1,4 @@
-# Create a Resource Data Sync for Configuration Compliance<a name="sysman-compliance-datasync-create"></a>
+# Creating a Resource Data Sync for Configuration Compliance<a name="sysman-compliance-datasync-create"></a>
 
 You can use Systems Manager Resource Data Sync to send compliance data from all of your managed instances to a target Amazon S3 bucket\. When you create the sync, you can specify managed instances from multiple AWS accounts, AWS Regions, and your on\-premises hybrid environment\. Resource Data Sync then automatically updates the centralized data when new compliance data is collected\. With all compliance data stored in a target Amazon S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. Configuring Resource Data Sync for configuration compliance is a one\-time operation\.
 
@@ -8,7 +8,7 @@ The following graphic shows how Resource Data Sync aggregates all data from diff
 
 Use the following procedure to create a Resource Data Sync for Configuration Compliance by using the Amazon EC2 console\.
 
-**To create and configure an Amazon S3 Bucket for Resource Data Sync**
+**To create and configure an Amazon S3 Bucket for Resource Data Sync \(console\)**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 

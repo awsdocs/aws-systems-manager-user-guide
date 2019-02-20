@@ -1,16 +1,18 @@
-# Create a Custom IAM Instance Profile for Session Manager \(Console\)<a name="getting-started-create-iam-instance-profile"></a>
+# Create a Custom IAM Instance Profile for Session Manager<a name="getting-started-create-iam-instance-profile"></a>
 
 You can create a custom IAM instance profile that provides permissions for only Session Manager actions on your instances\. You can also create a policy to provide the permissions needed for logs of session activity to be sent to Amazon S3 and CloudWatch Logs\.
 
 After you create an instance profile, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the instance profile to an instance, For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM Roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Create an Instance Profile with Minimal Session Manager Permissions](#create-iam-instance-profile-ssn-only)
-+ [Create an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logging](#create-iam-instance-profile-ssn-logging)
++ [Creating an Instance Profile with Minimal Session Manager Permissions \(Console\)](#create-iam-instance-profile-ssn-only)
++ [Creating an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logs \(Console\)](#create-iam-instance-profile-ssn-logging)
 
-## Create an Instance Profile with Minimal Session Manager Permissions<a name="create-iam-instance-profile-ssn-only"></a>
+## Creating an Instance Profile with Minimal Session Manager Permissions \(Console\)<a name="create-iam-instance-profile-ssn-only"></a>
 
 Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for only Session Manager actions on your instances\.
+
+**To create an instance profile with minimal Session Manager permissions \(console\)**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -72,11 +74,13 @@ For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, a
 
 1. Choose **Create role**\.
 
-## Create an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logging<a name="create-iam-instance-profile-ssn-logging"></a>
+## Creating an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logs \(Console\)<a name="create-iam-instance-profile-ssn-logging"></a>
 
 Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon S3 buckets and CloudWatch Logs log groups\.
 
 For information about specifying preferences for storing session logs, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md)\.
+
+**To create an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

@@ -114,7 +114,10 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 SSM Agent is the tool that processes Systems Manager requests and configures your machine as specified in the request\. SSM Agent must be installed on each instance you want to use with Systems Manager\. On some instance types, SSM Agent is installed by default\. On others, you must install it manually, as described in the following table\.
 
 **Note**  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you create a State Manager association that automatically updates SSM Agent when a new version is available\. You can also use Run Command to quickly update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you update the agent automatically whenever a new version is available using either of the following methods\.  
+Use a State Manager association\. For information, see the State Manager topic [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
+Use a Maintenance Window\. For information, see the Maintenance Window topics [Automatically Update SSM Agent \(AWS CLI\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-cli.html) and [Automatically Update SSM Agent \(Console\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-console.html)\. 
+You can also use Run Command to manually update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 
 ****  
@@ -123,7 +126,7 @@ SSM Agent is updated whenever changes are made to Systems Manager and when new c
 | --- | --- | 
 | Windows |  SSM Agent is installed by default on Windows Server 2016 and 2019 instances, as well as on instances created from Windows Server 2003\-2012 R2 AMIs published in November 2016 or later\. Windows AMIs published before November 2016 use the EC2Config service to process requests and configure instances\. Unless you have a specific reason for using the EC2Config service or an earlier version of SSM Agent to process Systems Manager requests, we recommend that you download and install the latest version of the SSM Agent to each of your Amazon EC2 instances or managed instances \(servers and virtual machines \(VMs\) in a hybrid environment\)\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.  | 
 | Linux | SSM Agent is installed by default on Amazon Linux, Amazon Linux 2, Ubuntu Server 16\.04, and Ubuntu Server 18\.04 LTS base EC2 AMIs\. You must manually install SSM Agent on other versions of EC2 Linux, including non\-base images like Amazon ECS\-Optimized AMIs\. For more information, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\. | 
-| On\-premises servers and VMs |  SSM Agent must be installed manually on on\-premises servers and VMs you want to use in a hybrid environment\. The SSM Agent download and installation process for these machines is different than the process used for Amazon EC2 instances\. For more information, see [Install SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment](sysman-install-managed-win.md)\.  | 
+| On\-premises servers and VMs |  SSM Agent must be installed manually on on\-premises servers and VMs you want to use in a hybrid environment\. The SSM Agent download and installation process for these machines is different than the process used for Amazon EC2 instances\. For more information, see [Installing SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment](sysman-install-managed-win.md)\.  | 
 
 **Note**  
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
@@ -153,7 +156,7 @@ AWS services use these certificates to encrypt calls to other AWS services\. One
 Configuring access to Systems Manager requires that you do the following:
 + **Configure user access to Systems Manager**: See [Task 1: Configure User Access for Systems Manager](sysman-access-user.md)\.
 + **Configure access between your EC2 instances and Systems Manager**: See [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\. This step is *not* required for your on\-premises servers or VMs\.
-+ **Configure access between your on\-premises servers/VMs and Systems Manager**: See [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\. This step is *not* required for your EC2 instances\.
++ **Configure access between your on\-premises servers/VMs and Systems Manager**: See [Creating an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\. This step is *not* required for your EC2 instances\.
 
 For more information about access permissions for Systems Manager, see [Authentication and Access Control for AWS Systems Manager](auth-and-access-control.md)\. 
 

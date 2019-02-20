@@ -1,6 +1,8 @@
-# Step 2: Register Target Instances with the Maintenance Window<a name="mw-cli-tutorial-targets"></a>
+# Step 2: Register Target Instances with the Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-targets"></a>
 
 In this step, you'll register a target with your new Maintenance Window\. In other words, you are specifying which instance the Maintenance Window will update\.
+
+**To register target instances with a Maintenance Window \(AWS CLI\)**
 
 1. Run the following command:
 

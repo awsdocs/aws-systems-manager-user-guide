@@ -12,8 +12,8 @@ AWS\-published packages are already packaged and ready for deployment\. To deplo
 **Topics**
 + [Create a Package](distributor-working-with-packages-create.md)
 + [Add a Package to Distributor](distributor-working-with-packages-add.md)
-+ [Edit Package Permissions](distributor-working-with-packages-ep.md)
-+ [Edit Package Tags](distributor-working-with-packages-tags.md)
++ [Edit Package Permissions \(Console\)](distributor-working-with-packages-ep.md)
++ [Edit Package Tags \(Console\)](distributor-working-with-packages-tags.md)
 + [Add a Package Version to Distributor](distributor-working-with-packages-version.md)
 + [Install Packages](distributor-working-with-packages-deploy.md)
 + [Uninstall a Package](distributor-working-with-packages-uninstall.md)

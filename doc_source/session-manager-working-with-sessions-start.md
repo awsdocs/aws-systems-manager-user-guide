@@ -3,12 +3,14 @@
 You can use the AWS Systems Manager console or the AWS CLI to start a session\.
 
 **Topics**
-+ [Start a Session \(Console\)](#start-sys-console)
-+ [Start a Session \(CLI\)](#sessions-start-cli)
++ [Starting a Session \(Console\)](#start-sys-console)
++ [Starting a Session \(AWS CLI\)](#sessions-start-cli)
 
-## Start a Session \(Console\)<a name="start-sys-console"></a>
+## Starting a Session \(Console\)<a name="start-sys-console"></a>
 
 You can use the AWS Systems Manager console to start a session with an instance in your account\.
+
+**To start a session \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -20,7 +22,7 @@ You can use the AWS Systems Manager console to start a session with an instance 
 
 1. Choose **Start session**\.
 
-1. In the **Target instances** list, choose the radio button to the left of the instance you want to connect to\.
+1. For **Target instances**, choose the option button to the left of the instance you want to connect to\.
 
    If an instance you want to connect to is not in the list, or is listed but an error message reports, "The instance you selected is not configured to use Session Manager," see [Instance Not Available or Not Configured for Session Manager](session-manager-troubleshooting.md#session-manager-troubleshooting-instances) for troubleshooting steps\.
 
@@ -28,9 +30,9 @@ You can use the AWS Systems Manager console to start a session with an instance 
 
 After the connection is made, you can run bash commands \(Linux\) or PowerShell commands \(Windows\) as you would through any other connection type\.
 
-## Start a Session \(CLI\)<a name="sessions-start-cli"></a>
+## Starting a Session \(AWS CLI\)<a name="sessions-start-cli"></a>
 
-To start a session using the CLI, run the following command:
+To start a session using the AWS CLI, run the following command:
 
 **Note**  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.

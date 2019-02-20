@@ -7,9 +7,9 @@ Before a user can update Session Manager preferences, they must have been grante
 **Topics**
 
 For information about using the AWS CLI to update session preferences, see the following topics:
-+ [Use the AWS CLI to Create Session Manager Preferences](getting-started-create-preferences-cli.md)
-+ [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)
++ [Create Session Manager Preferences \(AWS CLI\)](getting-started-create-preferences-cli.md)
++ [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)
 
 For information about using the Systems Manager console to configure Session Manager preferences, see the following topics:
-+ [Log Session Data Using Amazon S3](session-manager-logging-auditing.md#session-manager-logging-auditing-s3)
-+ [Log Session Data Using Amazon CloudWatch Logs](session-manager-logging-auditing.md#session-manager-logging-auditing-cloudwatch-logs)
++ [Logging Session Data Using Amazon S3 \(Console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-s3)
++ [Logging Session Data Using Amazon CloudWatch Logs \(Console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-cloudwatch-logs)

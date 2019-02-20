@@ -6,6 +6,9 @@ Create an AMI from an Amazon EC2 Windows instance running SQL Server 2008 R2 SP3
 
 You can test application functionality by launching the new AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded instance\.
 
+**Note**  
+If you want to modify the computer name of the EC2 instance launched from the new AMI, see [Rename a Computer that Hosts a Stand\-Alone Instance of SQL Server](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/rename-a-computer-that-hosts-a-stand-alone-instance-of-sql-server?view=sql-server-2017)\.
+
 **Document Type**
 
 Automation

@@ -1,4 +1,4 @@
-# Create a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
+# Creating a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
 
 To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an Activation Code and Activation ID\. This Code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
@@ -39,7 +39,7 @@ If you want to register additional managed instances after the expiry date, you 
 **Important**  
 Store the managed\-instance Activation Code and Activation ID in a safe place\. You specify this Code and ID when you install SSM Agent on servers and VMs in your hybrid environment\. If you lose the Code and ID, you must create a new activation\.
 
-**To create a managed\-instance activation using the console \(Amazon EC2 Systems Manager\)**
+**To create a managed\-instance activation \(Amazon EC2 Systems Manager\)**
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Shared Resources** in the navigation pane, and choose **Activations**\.
 
@@ -51,9 +51,9 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
 
 1. Store the managed\-instance Activation Code and Activation ID in a safe place\. You specify this Code and ID when you install SSM Agent on servers and VMs in your hybrid environment\. If you lose the code and ID, you must create a new activation\.
 
-**To create a managed\-instance activation using the AWS Tools for Windows PowerShell**
+**To create a managed\-instance activation using the Tools for Windows PowerShell**
 
-1. On a machine with where you have installed AWS Tools for Windows PowerShell, run the following command in AWS Tools for Windows PowerShell\.
+1. On a machine with where you have installed AWS Tools for Windows PowerShell, run the following command in Tools for Windows PowerShell\.
 
    ```
    New-SSMActivation -DefaultInstanceName name -IamRole iam-service-role-name -RegistrationLimit number-of-managed-instances –Region region
@@ -69,7 +69,7 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
 
 1. Press Enter\. If the activation is successful, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
 
-**To create a managed\-instance activation using the AWS CLI**
+**To create a managed\-instance activation \(AWS CLI\)**
 
 1. On a machine where you have installed the AWS Command Line Interface \(AWS CLI\), run the following command in the CLI\.
 

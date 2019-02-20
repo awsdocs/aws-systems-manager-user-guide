@@ -13,7 +13,7 @@ Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InS
 
 **Topics**
 + [Getting Started with Configuration Compliance](sysman-compliance-prereqs.md)
-+ [Create a Resource Data Sync for Configuration Compliance](sysman-compliance-datasync-create.md)
++ [Creating a Resource Data Sync for Configuration Compliance](sysman-compliance-datasync-create.md)
 + [Working With Configuration Compliance](sysman-compliance-about.md)
 + [Remediating Compliance Issues](sysman-compliance-fixing.md)
 + [Configuration Compliance Walkthrough \(AWS CLI\)](sysman-compliance-walk.md)

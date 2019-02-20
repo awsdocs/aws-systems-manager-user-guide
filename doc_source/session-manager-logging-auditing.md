@@ -18,7 +18,7 @@ AWS CloudTrail captures session API calls through the Systems Manager console, t
 
 For more information, see [Log AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
 
-## Log Session Data Using Amazon S3<a name="session-manager-logging-auditing-s3"></a>
+## Logging Session Data Using Amazon S3 \(Console\)<a name="session-manager-logging-auditing-s3"></a>
 
 You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
@@ -31,7 +31,9 @@ If you are using a KMS customer master key \(CMK\) that you manage yourself \(a 
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+
+**To log session data using Amazon S3 \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -53,14 +55,16 @@ You can also use the AWS CLI to specify or change the S3 bucket that session dat
 
 For more information about working with Amazon S3 and S3 buckets, see the *[Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service Console User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
 
-## Log Session Data Using Amazon CloudWatch Logs<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
+## Logging Session Data Using Amazon CloudWatch Logs \(Console\)<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
 
 Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can stream the data to your log group with or without encryption\. 
 
 Follow these steps to configure Session Manager to stream session log data to a CloudWatch Logs log group\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Use the AWS CLI to Update Session Manager Preferences](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+
+**To log session data using Amazon CloudWatch Logs \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -80,13 +84,15 @@ You can also use the AWS CLI to specify or change the CloudWatch Logs log group 
 
 For more information about working with CloudWatch Logs, see the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 
-## Monitor Session Activity Using Amazon CloudWatch Events<a name="session-manager-logging-auditing-cloudwatch-events"></a>
+## Monitoring Session Activity Using Amazon CloudWatch Events \(Console\)<a name="session-manager-logging-auditing-cloudwatch-events"></a>
 
 CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or terminates a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 
 CloudWatch Events support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with CloudWatch Events to respond to most AWS Systems Manager events\.\)
 
 The following steps outline how to trigger notifications through Amazon Simple Notification Service \(Amazon SNS\) when a Session Manager API event occurs, such as StartSession\.
+
+**To monitor session activity using Amazon CloudWatch Events \(console\)**
 
 1. Create an Amazon SNS topic to use for sending notifications when the Session Manager event occurs that you want to track\.
 
@@ -100,6 +106,6 @@ The following steps outline how to trigger notifications through Amazon Simple N
    + For **Service Name**, choose **EC2 Simple Systems Manager \(SSM\)**\.
    + For **Event Type**, choose **AWS API Call via CloudTrail**\.
    + Choose **Specific operation\(s\)**, and then enter the Session Manager command or commands \(one at a time\) you want to receive notifications for\. You can choose StartSession, ResumeSession, and TerminateSession\. \(CloudWatch Events doesn't support `Get*`,` List*`, and `Describe*` commands\.\)
-   + In the **Targets** list, choose **SNS topic**\. In the **Topic** list, choose the name of the Amazon SNS topic you created in Step 1\.
+   + For**Targets**, choose **SNS topic**\. For **Topic**, choose the name of the Amazon SNS topic you created in Step 1\.
 
 For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)* and the *[Amazon Simple Notification Service Getting Started Guide](https://docs.aws.amazon.com/sns/latest/gsg/)*\.

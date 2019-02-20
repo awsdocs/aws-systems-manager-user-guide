@@ -51,7 +51,7 @@ Use the following procedure to create three required and one optional separate V
 
 **To create VPC endpoints for Systems Manager**
 
-1. Use [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the following endpoints:
+1. Follow the steps in [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the following endpoints:
    + **com\.amazonaws\.*region*\.ssm**: The endpoint for the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about using Systems Manager to create VSS\-enabled snapshots, see [Using Run Command to Take VSS\-Enabled Snapshots of EBS Volumes](integration-vss.md)\.
@@ -59,4 +59,4 @@ Use the following procedure to create three required and one optional separate V
 
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
 
-1. Use [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create an endpoint for Amazon S3\. Systems Manager uses this endpoint to upload Amazon S3 output logs, and to update SSM Agent\.
+1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create an endpoint for Amazon S3\. Systems Manager uses this endpoint to upload Amazon S3 output logs, and to update SSM Agent\.

@@ -1,7 +1,7 @@
 # Create a Maintenance Window for Patching<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a Maintenance Window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a Patching Configuration](create-patching-configuration.md)\.
+You can continue to use this legacy topic to create a Maintenance Window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a Patching Configuration \(Console\)](create-patching-configuration.md)\.
 
 To minimize the impact on your server availability, we recommend that you configure a Maintenance Window to execute patching during times that won't interrupt your business operations\. For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
@@ -21,13 +21,13 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Choose **Create maintenance window**\.
 
-1. In the **Name** field, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
+1. For **Name**, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
 
 1. In the top of the **Schedule** section, choose the schedule options you want\.
 
-1. In the **Duration** field, type the number of hours you want the Maintenance Window to be active\.
+1. For **Duration**, type the number of hours you want the Maintenance Window to be active\.
 
-1. In the **Stop initiating tasks** field, type the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
+1. For **Stop initiating tasks**, type the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
 
 1. Choose **Create maintenance window**\.
 
@@ -35,29 +35,29 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. \(Optional\) In the **Maintenance window target details** section, provide a name, a description, and owner information \(your name or alias\) for this target\.
 
-1. In the **Targets** section, choose **Specifying tags**\.
+1. For **Targets**, choose **Specifying tags**\.
 
-1. Under **Tag**, enter a tag key and a tag value to identify the instances to register with the Maintenance Window\.
+1. For **Tag**, enter a tag key and a tag value to identify the instances to register with the Maintenance Window\.
 
 1. Choose **Register target**\. The system creates a Maintenance Window target\.
 
 1. In the details page of the Maintenance Window you created, choose **Actions**, **Register run command task**\.
 
-1. \(Optional\) In the **Maintenance window task details** section, provide a name and description for this task\.
+1. \(Optional\) For **Maintenance window task details**, provide a name and description for this task\.
 
-1. In the **Command document** list, choose **AWS\-RunPatchBaseline**\.
+1. For **Command document**, choose **AWS\-RunPatchBaseline**\.
 
-1. In the **Task priority** list, choose a priority\. One is the highest priority\.
+1. For **Task priority**, choose a priority\. One is the highest priority\.
 
-1. In the **Targets** section, under **Target by**, choose choose the Maintenance Window target you created earlier in this procedure\.
+1. For **Targets**, under **Target by**, choose the Maintenance Window target you created earlier in this procedure\.
 
-1. \(Optional\) In **Rate control**:
-   + In **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-   + In **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Role** section, enter the ARN of a IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+1. For **Role**, enter the ARN of a IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
@@ -67,13 +67,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
 
-1. In the **Parameters** section:
-   + In the **Operation** list, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
+1. For **Parameters**:
+   + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
 **Note**  
 The **Install** operation causes the instance to reboot \(if patches are installed\)\. The **Scan** operations does not cause a reboot\.
-   + You don't need to specify anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
-   + \(Optional\) In the **Comment** box, enter a tracking note or reminder about this command\.
-   + In the Timeout \(seconds\) box, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
+   + You don't need to enter anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
+   + \(Optional\) For **Comment**, enter a tracking note or reminder about this command\.
+   + For **Timeout \(seconds\)**, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 
 1. Choose **Register run command task**\.
 
@@ -83,17 +83,17 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. In the navigation pane, choose **Maintenance Windows**, and then choose **Create maintenance window**\.
 
-1. In the **Name** field, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
+1. For **Name**, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
 
-1. In the **Specify schedule** area, choose the schedule options you want\.
+1. For **Specify schedule**, choose the schedule options you want\.
 
-1. In the **Duration** field, type the number of hours you want the Maintenance Window to be active\.
+1. For **Duration**, enter the number of hours you want the Maintenance Window to be active\.
 
-1. In the **Stop initiating tasks** field, type the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
+1. For **Stop initiating tasks**, enter the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
 
 1. Choose **Create maintenance window**\.
 
-1. In the Maintenance Window list, choose the Maintenance Window you just created, and then choose **Actions**, **Register targets**\.
+1. In this list of **Maintenance Windows**, select the Maintenance Window you just created, and then choose **Actions**, **Register targets**\.
 
 1. \(Optional\) Near the top of the page, specify a name, description, and owner information \(your name or alias\) for this target\.
 
@@ -103,7 +103,7 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. Choose **Register targets**\. The system creates a Maintenance Window target\.
 
-1. In the Maintenance Window list, choose the Maintenance Window you created with the procedure, and then choose **Actions**, **Register run command task**\.
+1. In the list of Maintenance Windows, choose the Maintenance Window you created with the procedure, and then choose **Actions**, **Register run command task**\.
 
 1. In the **Command Document** section of the **Register run command task** page, choose **AWS\-RunPatchBaseline**\.
 
@@ -111,13 +111,13 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. In the **Targets** section, choose **Select**, and then choose the Maintenance Window target you created earlier in this procedure\.
 
-1. In the **Role** field, enter the ARN of a role which has the **AmazonSSMMaintenanceWindowRole** policy attached to it\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+1. For **Role**, enter the ARN of a role which has the **AmazonSSMMaintenanceWindowRole** policy attached to it\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
-1. In the **Execute on** field, choose either **Targets** or **Percent** to limit the number of instances where the system can simultaneously perform patching operations\.
+1. For **Execute on**, choose either **Targets** or **Percent** to limit the number of instances where the system can simultaneously perform patching operations\.
 
-1. In the **Stop after** field, specify the number of allowed errors before the system stops sending the patching task to other instances\.
+1. For **Stop after**, specify the number of allowed errors before the system stops sending the patching task to other instances\.
 
-1. In the **Operation** list, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
+1. For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
 **Note**  
 The **Install** operation causes the instance to reboot \(if patches are installed\)\. The **Scan** operations does not cause a reboot\.
 

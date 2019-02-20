@@ -6,7 +6,7 @@ Using IAM policies, you can control who can create, deploy, and manage packages\
 User\-defined packages are associated with document ARNs and have the following format:
 
 ```
-arn:aws:ssm:region_ID:account_ID_number:document/document_name
+arn:aws:ssm:region-id:account-id:document/document-name
 ```
 
 The following is an example\.

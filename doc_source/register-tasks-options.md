@@ -32,7 +32,7 @@ The maximum number of errors allowed without the command failing\. When the comm
 **\-\-task\-invocation\-parameters**  
 The parameters that are unique to the type of task you specified\. 
 
-The following list describes some of the common parameters that you can specify when using `task-invocation-parameters`\. You specify these parameters by using the `{{ PARAMETER_NAME }}` syntax, as demonstrated in examples in [Create a Maintenance Window Task](register-tasks-tutorial.md)\.
+The following list describes some of the common parameters that you can specify when using `task-invocation-parameters`\. You specify these parameters by using the `{{ PARAMETER_NAME }}` syntax, as demonstrated in examples in [Create a Maintenance Window Task \(AWS CLI\)](register-tasks-tutorial.md)\.
 + **`TARGET_ID`**: The ID of the target\. If the target type is INSTANCE \(currently the only supported type\), then the target ID is the instance ID\.
 + **`TARGET_TYPE`**: The type of target\. Currently only INSTANCE is supported\.
 + **`WINDOW_ID`**: The ID of the target Maintenance Window\.

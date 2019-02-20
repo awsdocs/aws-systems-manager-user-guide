@@ -2,7 +2,7 @@
 
 This procedure describes how to launch an Amazon EC2 instance that uses the instance profile you created in the previous topic, [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\. You can instead attach the instance profile to an existing instance\. For more information, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
 
-**To create an instance that uses the Systems Manager instance profile**
+**To create an instance that uses the Systems Manager instance profile \(console\)**
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 

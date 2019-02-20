@@ -13,7 +13,7 @@ Install or update the SSM Agent on your instances\. To patch Linux instances, yo
 
 In addition, the following walkthrough runs patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
-**To configure Patch Manager and patch instances by using the AWS CLI**
+**To configure Patch Manager and patch instances \(AWS CLI\)**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 
@@ -35,7 +35,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
 1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\.
 
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --product "WindowsServer2012R2" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
    ```
 
    \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and non\-security patches included in the source repository\.

@@ -13,7 +13,7 @@ You can also configure CloudWatch Events to perform an action in response to Con
 
 Use the following procedure to configure Configuration Compliance as the target of a CloudWatch event\.
 
-**To configure Configuration Compliance as the target of a CloudWatch event**
+**To configure Configuration Compliance as the target of a CloudWatch event \(console\)**
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
 

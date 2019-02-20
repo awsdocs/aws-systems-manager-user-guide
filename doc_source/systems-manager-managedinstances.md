@@ -12,7 +12,7 @@ Complete the procedures in this section to configure your hybrid machines for Sy
 After you finish, your hybrid machines that are configured for Systems Manager are listed in the Amazon EC2 console and described as *managed instances*\. Amazon EC2 instances configured for Systems Manager are *also* managed instances\. In the Amazon EC2 console, however, your on\-premise instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
 **Topics**
-+ [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)
-+ [Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)
-+ [Install SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment](sysman-install-managed-win.md)
-+ [Install SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment](sysman-install-managed-linux.md)
++ [Creating an IAM Service Role for a Hybrid Environment](sysman-service-role.md)
++ [Creating a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)
++ [Installing SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment](sysman-install-managed-win.md)
++ [Installing SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment](sysman-install-managed-linux.md)
