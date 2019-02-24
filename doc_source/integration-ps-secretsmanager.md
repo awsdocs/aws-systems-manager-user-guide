@@ -15,7 +15,7 @@ Note the following restrictions when using Parameter Store to reference Secrets 
 + When you retrieve a Secrets Manager secret from Parameter Store, the parameter name must begin with the following reserved path: /aws/reference/secretsmanager/*secret\_ID\_in\_Secrets\_Manager*\.
 
   Here is an example: /aws/reference/secretsmanager/CFCreds1
-+ Parameter Store honors IAM policies attached to Secrets Manager secrets\. For example, if User 1 doesn't have access to Secret A, then User 1 can't retrieve Secret A by using Parameter Store\.
++ Parameter Store honors the (resource-based) IAM policies attached to Secrets Manager secrets\. For example, if User 1 doesn't have access to Secret A, then User 1 can't retrieve Secret A by using Parameter Store\.
 + Parameters that reference Secrets Manager secrets can't use the Parameter Store versioning or history features\.
 + Parameter Store honors Secrets Manager version stages\. If you reference a version stage, it can only use letters, numbers, a period \(\.\), a hyphen \(\-\), or an underscore \(\_\)\. All other symbols specified in the version stage cause the reference to fail\.
 
