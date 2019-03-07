@@ -16,7 +16,7 @@ Refer to the following topics for more information about auditing and logging op
 
 AWS CloudTrail captures session API calls through the Systems Manager console, the AWS CLI, and the Systems Manager SDK\. The information can be viewed on the CloudTrail console or stored in a specified Amazon S3 bucket\. One bucket is used for all CloudTrail logs for your account\. 
 
-For more information, see [Log AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
+For more information, see [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
 
 ## Logging Session Data Using Amazon S3 \(Console\)<a name="session-manager-logging-auditing-s3"></a>
 

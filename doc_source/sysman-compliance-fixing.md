@@ -8,7 +8,7 @@ For more information about associations, see [Working with Associations in Syste
 
 For more information about running a command, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
 
-**Specify Configuration Compliance as the target of a CloudWatch event**  
+**Specify Configuration Compliance as the target of a CloudWatch Events event**  
 You can also configure CloudWatch Events to perform an action in response to Configuration Compliance events\. For example, if one or more instances fail to install Critical patch updates or run an association that installs anti\-virus software, then you can configure CloudWatch to run the AWS\-RunPatchBaseline document or the AWS\-RefreshAssocation document when the Configuration Compliance event occurs\. 
 
 Use the following procedure to configure Configuration Compliance as the target of a CloudWatch event\.

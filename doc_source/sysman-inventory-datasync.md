@@ -12,7 +12,7 @@ Diagram 1 shows how Resource Data Sync aggregates inventory data from managed in
 
 ![\[Systems Manager Resource Data Sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-inventory-datasync-vsd.png)
 
-If you delete a managed instance, Resource Data Sync preserves the Inventory file for the deleted instance\. For running instances, however, Resource Data Sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the MangagedInstanceInventory resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
+If you delete a managed instance, Resource Data Sync preserves the Inventory file for the deleted instance\. For running instances, however, Resource Data Sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:MangagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
 
 ## Create a Resource Data Sync for Inventory<a name="sysman-inventory-datasync-create"></a>
 

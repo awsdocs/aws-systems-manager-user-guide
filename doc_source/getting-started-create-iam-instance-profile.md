@@ -88,7 +88,7 @@ For information about specifying preferences for storing session logs, see [Audi
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following\. Be sure to replace *s3\-bucket\-name* and *s3\-bucket\-prefix* with the names for your bucket and its prefix \(if any\):
+1. Replace the default content with the following\. Be sure to replace *s3\-bucket\-name* and *s3\-bucket\-prefix* with the names for your bucket and its prefix \(if any\)\. For information about `ssmmessages` in the following policy, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
 
    ```
    {
@@ -137,8 +137,8 @@ For information about specifying preferences for storing session logs, see [Audi
        ]
    }
    ```
-**Note**  
-For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+**Important**  
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
 
 1. Choose **Review policy**\.
 

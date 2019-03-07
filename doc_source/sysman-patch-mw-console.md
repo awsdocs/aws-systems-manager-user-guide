@@ -57,7 +57,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. For **Role**, enter the ARN of a IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+1. For **Role**, enter the ARN of an IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
@@ -65,7 +65,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. For **Parameters**:
    + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
@@ -125,7 +125,7 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. In the **Advanced** section: 
    + If you want to write command output and results to an Amazon S3 bucket, choose **Write to S3**\. Type the bucket and prefix names in the boxes\.
-   + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+   + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. Choose **Register task**\.
 

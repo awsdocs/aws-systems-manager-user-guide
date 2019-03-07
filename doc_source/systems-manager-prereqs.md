@@ -174,6 +174,8 @@ For servers and VMs in your hybrid environment, we recommend that you choose the
 
 You can configure Amazon CloudWatch Events to log status execution changes of the commands you send using Systems Manager\. You can also configure Amazon Simple Notification Service \(Amazon SNS\) to send you notifications about specific command status changes\. Using monitoring and notifications is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use either one\. For more information, see [Understanding Command Statuses](monitor-commands.md)\.
 
+For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+
 ## \(Optional\) Amazon S3 Storage Bucket<a name="prereqs-s3"></a>
 
 Command output in the Systems Manager console is truncated after 2500 characters\. In order to access complete output logs, you can store Systems Manager output in an Amazon Simple Storage Service \(Amazon S3\) bucket\. You can also create an Amazon S3 key prefix \(a subfolder\) to help you organize the log output\. Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to use it\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.

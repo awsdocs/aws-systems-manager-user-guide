@@ -5,9 +5,7 @@ To set up servers and virtual machines \(VMs\) in your hybrid environment as man
 **Note**  
 An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you registered with Systems Manager\. This means that if an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\. All of the servers and VMs that you registered will continue to be registered Systems Manager managed instances until you remove or disable SSM Agent on the server or VM and thereby unregister it\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To create a managed\-instance activation \(AWS Systems Manager\)**
+**To create a managed\-instance activation**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -38,18 +36,6 @@ If you want to register additional managed instances after the expiry date, you 
 1. Choose **Create activation**\.
 **Important**  
 Store the managed\-instance Activation Code and Activation ID in a safe place\. You specify this Code and ID when you install SSM Agent on servers and VMs in your hybrid environment\. If you lose the Code and ID, you must create a new activation\.
-
-**To create a managed\-instance activation \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Shared Resources** in the navigation pane, and choose **Activations**\.
-
-1. Choose **Create an Activation**\.
-
-1. Fill out the form and choose **Create Activation**\.
-
-   Note that you can specify a date when the activation expires\. If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
-
-1. Store the managed\-instance Activation Code and Activation ID in a safe place\. You specify this Code and ID when you install SSM Agent on servers and VMs in your hybrid environment\. If you lose the code and ID, you must create a new activation\.
 
 **To create a managed\-instance activation using the Tools for Windows PowerShell**
 

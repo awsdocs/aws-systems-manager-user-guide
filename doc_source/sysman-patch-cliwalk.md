@@ -32,16 +32,16 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    Default output format [None]: ENTER
    ```
 
-1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\.
+1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --tags "Key=Environment,Value=Production" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
    ```
 
-   \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and non\-security patches included in the source repository\.
+   \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and non\-security patches included in the source repository\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2016.03,AmazonLinux2016.09,AmazonLinux2017.03,AmazonLinux2017.09]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX" --tags "Key=Environment,Value=Production" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2016.03,AmazonLinux2016.09,AmazonLinux2017.03,AmazonLinux2017.09]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
    ```
 
    The system returns information like the following\.
@@ -80,10 +80,10 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Run the following commands to create two Maintenance Windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\.
+1. Run the following commands to create two Maintenance Windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the Maintenance Window has been tagged to indicate that it is for a production environment\.
 
    ```
-   aws ssm create-maintenance-window --name "Production-Tuesdays" --schedule "cron(0 0 22 ? * TUE *)" --duration 1 --cutoff 0 --no-allow-unassociated-targets
+   aws ssm create-maintenance-window --name "Production-Tuesdays" --tags "Key=Environment,Value=Production" --schedule "cron(0 0 22 ? * TUE *)" --duration 1 --cutoff 0 --no-allow-unassociated-targets
    ```
 
    The system returns information like the following\.
@@ -95,7 +95,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    ```
 
    ```
-   aws ssm create-maintenance-window --name "Production-Saturdays" --schedule "cron(0 0 22 ? * SAT *)" --duration 2 --cutoff 0 --no-allow-unassociated-targets
+   aws ssm create-maintenance-window --name "Production-Saturdays" --tags "Key=Environment,Value=Production" --schedule "cron(0 0 22 ? * SAT *)" --duration 2 --cutoff 0 --no-allow-unassociated-targets
    ```
 
    The system returns information like the following\.

@@ -20,7 +20,7 @@ Use a Maintenance Window\. For information, see the Maintenance Window topics [A
 You can also use Run Command to manually update one or more instances with the latest version\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md) \(State Manager\) and [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
 
- For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring Instances with AWS Systems Manager](monitoring.md)\.
+ For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
 
 Use the following procedures to install, configure, or uninstall SSM Agent\. This section also includes information about configuring SSM Agent to use a proxy\.
 

@@ -4,7 +4,7 @@ The section includes examples of CLI commands that you can use to perform Patch 
 
 For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 
-For more information about using the CLI forAWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
+For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
 **Topics**
 + [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline)
@@ -33,10 +33,10 @@ For more information about using the CLI forAWS Systems Manager tasks, see the [
 
 ## Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
 ```
-aws ssm create-patch-baseline --name "Windows-Server-2012R2" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]" --description "Windows Server 2012 R2, Important and Critical security updates"
+aws ssm create-patch-baseline --name "Windows-Server-2012R2" --tags "Key=Environment,Value=Production" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]" --description "Windows Server 2012 R2, Important and Critical security updates"
 ```
 
 The system returns information like the following\.

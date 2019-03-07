@@ -114,16 +114,6 @@ It is recommended that the user who executes the automation have the **AmazonSSM
       },
       {
          "Action": [
-            "ec2:DescribeSubnets",
-            "ec2:createSecurityGroup",
-            "ec2:deleteSecurityGroup",
-            "ec2:AuthorizeSecurityGroupEgress"
-          ],
-          "Resource": "*",
-          "Effect": "Allow"
-      },
-      {
-         "Action": [
             "cloudwatch:DeleteDashboards"
          ],
          "Resource": [

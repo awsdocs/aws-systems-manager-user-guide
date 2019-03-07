@@ -41,7 +41,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -77,7 +77,7 @@ For information about canceling a command, see [Canceling a Command](rc-cancel.m
 **Important**  
 The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 **Note**  
 After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
 
@@ -135,7 +135,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -169,7 +169,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 **Important**  
 The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information, see [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)\.
+1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 **Note**  
 After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
 

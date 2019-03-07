@@ -12,7 +12,9 @@ After you create a Maintenance Window, you assign targets where the tasks will r
 
 1. For **Description**, enter a description\.
 
-1. For **Owner information**, specify your name or work alias\. Owner information is included in any CloudWatch Events raised while running tasks for these targets in this Maintenance Window\. 
+1. For **Owner information**, specify your name or work alias\. Owner information is included in any CloudWatch Events raised while running tasks for these targets in this Maintenance Window\.
+
+   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
 1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance ID\.
 **Note**  

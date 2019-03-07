@@ -7,5 +7,4 @@ This section also includes recommended tasks for monitoring command executions a
 **Topics**
 + [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)
 + [Configuring CloudWatch Events for Run Command](rc-cwe.md)
-+ [Configuring Amazon SNS Notifications for Run Command](rc-sns-notifications.md)
 + [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md)

@@ -19,5 +19,6 @@ Follow these steps to update or delete a patch baseline\.
 1. Choose the patch baseline that you want to update or delete, and then do one of the following:
    + To remove the patch baseline from your account, choose **Delete**\. The system prompts you to confirm your actions\. 
    + To make changes to the patch baseline name or description, approval rules, or patch exceptions, choose **Edit**\. On the **Edit patch baseline** page, change the values and options that you want, and then choose **Save changes**\. 
+   + To add, change, or delete tags applied to the patch baseline, choose the **Tags** tab, and then choose **Edit tags**\. On the **Edit patch baseline tags** page, make updates to the patch baseline tags, and then choose **Save changes**\. 
 
    For information about the configuration choices you can make, see [Create a Default Patch Baseline](sysman-patch-baseline-console.md)\.

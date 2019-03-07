@@ -75,6 +75,12 @@ For information about accepted formats for lists of approved patches and rejecte
 
      For more information about alternative source patch repositories, see [How to Specify an Alternative Patch Source Repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 
+1. \(Optional\) For **Manage tags**, apply one or more tag key name/value pairs to the patch baseline\.
+
+   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to\. In this case, you could specify tags similar to the following key name/value pairs:
+   + `Key=PatchSeverity,Value=Critical`
+   + `Key=OS,Value=Windows`
+
 1. Choose **Create patch baseline**\.
 
 1. In the list of patch baselines, choose the baseline you want to set as the default\.

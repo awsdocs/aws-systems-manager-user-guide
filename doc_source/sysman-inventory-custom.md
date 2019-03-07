@@ -478,7 +478,7 @@ The system returns information like the following\.
 
 ### Viewing Inventory Delete Actions in CloudWatch Events<a name="sysman-inventory-delete-cwe"></a>
 
-You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom inventory\. CloudWatch offers three types of events for custom inventory delete operations:
+You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom inventory\. CloudWatch Events offers three types of events for custom inventory delete operations:
 + **Delete action for an instance**: If the custom inventory for a specific managed instance was successfully deleted or not\. 
 + **Delete action summary**: A summary of the delete action\.
 + **Warning for disabled custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
