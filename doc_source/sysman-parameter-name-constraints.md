@@ -35,4 +35,4 @@ Invalid: `{{ssm:ssmAddUsers}}`
   + `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path /a, then the user can also access /a/b\. Even if a user has explicitly been denied access in IAM for parameter /a, they can still call the [ GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively and view /a/b\.
+If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/a/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively for `/a` and view `/a/b`\.

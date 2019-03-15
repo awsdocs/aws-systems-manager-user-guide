@@ -78,50 +78,62 @@ It is recommended that the user who executes the automation have the **AmazonSSM
 
 ```
 {
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Action": [
-            "iam:CreateRole",
-            "iam:CreateInstanceProfile",
-            "iam:GetRole",
-            "iam:GetInstanceProfile",
-            "iam:DetachRolePolicy",
-            "iam:AttachRolePolicy",
-            "iam:PassRole",
-            "iam:AddRoleToInstanceProfile",
-            "iam:RemoveRoleFromInstanceProfile",
-            "iam:DeleteRole",
-            "iam:DeleteInstanceProfile",
-            "iam:PutRolePolicy",
-            "iam:DeleteRolePolicy"
-         ],
-         "Resource": [
-            "arn:aws:iam::AWS_account_ID:role/AWSSupport/SetupIPMonitoringFromVPC_*",
-            "arn:aws:iam::AWS_account_ID:instance-profile/AWSSupport/SetupIPMonitoringFromVPC_*"
-         ],
-         "Effect": "Allow"
-      },
-      {
-         "Action": [
-            "iam:DetachRolePolicy",
-            "iam:AttachRolePolicy"
-         ],
-         "Resource": [
-            "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
-         ],
-         "Effect": "Allow"
-      },
-      {
-         "Action": [
-            "cloudwatch:DeleteDashboards"
-         ],
-         "Resource": [
-            "*"
-         ],
-         "Effect": "Allow"
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "iam:CreateRole",
+                "iam:CreateInstanceProfile",
+                "iam:GetRole",
+                "iam:GetInstanceProfile",
+                "iam:DetachRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:PassRole",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteRole",
+                "iam:DeleteInstanceProfile",
+                "iam:PutRolePolicy",
+                "iam:DeleteRolePolicy"
+            ],
+            "Resource": [
+                "arn:aws:iam::AWS_account_ID:role/AWSSupport/SetupIPMonitoringFromVPC_*",
+                "arn:aws:iam::AWS_account_ID:instance-profile/AWSSupport/SetupIPMonitoringFromVPC_*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "iam:DetachRolePolicy",
+                "iam:AttachRolePolicy"
+            ],
+            "Resource": [
+                "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudwatch:DeleteDashboards"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeSubnets"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Allow"
+        }
+    ]
 }
 ```
 

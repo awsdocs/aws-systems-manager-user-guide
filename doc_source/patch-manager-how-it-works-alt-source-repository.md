@@ -4,7 +4,7 @@ When you use the default repositories configured on an instance for patching ope
 
 On Linux systems, however, you can also use Patch Manager to install patches that are not related to security, or that are in a different source repository than the default one configured on the instance\. You can specify alternative patch source repositories when you create a custom patch baseline\. In each custom patch baseline, you can specify patch source configurations for up to 20 versions of a supported Linux operating system\. 
 
-For example, if your Ubuntu Server fleet includes both Ubuntu Server 14\.04 and Ubuntu Server 16\.04 instances, you can specify an alternate repository for each version in the same custom patch baseline\. For each version, you provide a name, specify the operating system version type \(product\), and provide a repository configuration\. You can also specify a single alternative source repository that applies to all versions of a supported operating system\.
+For example, suppose that your Ubuntu Server fleet includes both Ubuntu Server 14\.04 and Ubuntu Server 16\.04 instances\. In this case, you can specify alternate repositories for each version in the same custom patch baseline\. For each version, you provide a name, specify the operating system version type \(product\), and provide a repository configuration\. You can also specify a single alternative source repository that applies to all versions of a supported operating system\.
 
 For a list of example scenarios for using this option, see [Sample Uses for Alternative Patch Source Repositories](#patch-manager-how-it-works-alt-source-repository-examples) later in this topic\.
 

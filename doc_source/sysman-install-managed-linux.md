@@ -1,6 +1,6 @@
 # Installing SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment<a name="sysman-install-managed-linux"></a>
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation\. You will specify the Code and ID in the following procedure\.
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation\. You will specify the Code and ID in the following procedure\. For information, see [Creating a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Linux instance, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.

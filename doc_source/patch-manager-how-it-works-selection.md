@@ -31,7 +31,7 @@ On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service u
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-Amazon Linux and Amazon Linux 2 instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Because individual packages are not given classifications or severity, Patch Manager assigns the packages the attributes of the update notice that they belong to\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
+Amazon Linux and Amazon Linux 2 instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
 
 ------
 #### [ RHEL ]
@@ -50,7 +50,7 @@ On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses pre
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-Red Hat Enterprise Linux instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Because individual packages are not given classifications or severity, Patch Manager assigns the packages the attributes of the update notice that they belong to\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
+Red Hat Enterprise Linux instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix a specific problem\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\. To process packages that are not in an update notice, use the EnableNonSecurity flag in the rules\.
 
 ------
 #### [ Ubuntu ]
