@@ -277,6 +277,9 @@ Required: Yes
 
 Temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. You can insert the approval step any place in the mainSteps section of your Automation document\. 
 
+**Note**  
+The default timeout for this action is 7 days \(604800 seconds\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an aws:approve step\. If the automation step reaches the timeout value before receiving all required approval decisions, then the step and the automation stop running and return a status of Timed Out\.
+
 In the following example, the aws:approve action temporarily pauses the Automation workflow until one approver either accepts or rejects the workflow\. Upon approval, the document runs a simple PowerShell command\. 
 
 *JSON*

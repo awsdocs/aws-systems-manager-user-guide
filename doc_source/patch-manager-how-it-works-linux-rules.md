@@ -15,7 +15,7 @@ On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\. 
 **Note**  
-The `updateinfo.xml` file might not be available if the repo is not one managed by Amazon\. If there is no `updateinfo.xml` found, no patch will be applied\.
+If no `updateinfo.xml` file is found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update Notice Attributes**    
@@ -25,7 +25,8 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. For each update notice in `updateinfo.xml`, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update\. If multiple packages are applicable after applying the patch baseline definition, the latest version is used\. 
+1. Packages are selected for the update according to the follow guidelines:    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 ## How Patch Baseline Rules Work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
@@ -43,7 +44,8 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. For each update notice in `updateinfo.xml`, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update\. If multiple packages are applicable after applying the patch baseline definition, the latest version is used\. 
+1. Packages are selected for the update according to the follow guidelines:    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 ## How Patch Baseline Rules Work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
 

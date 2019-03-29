@@ -4,15 +4,15 @@ A patch baseline defines which patches are approved for installation on your ins
 
 To use a list of approved patches to install specific packages, you first remove all auto\-approval rules\. If you explicitly identify a patch as rejected, it will not be approved or installed, even if it matches all of the criteria in an auto\-approval rule\. Also, a patch is installed on an instance only if it applies to the software on the instance, even if the patch has otherwise been approved for the instance\.
 
-Patch Manager provides pre\-defined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
+Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
 
 **Topics**
-+ [Pre\-Defined Baselines](#patch-manager-baselines-pre-defined)
++ [PreDefined Baselines](#patch-manager-baselines-pre-defined)
 + [Custom Baselines](#patch-manager-baselines-custom)
 
-## Pre\-Defined Baselines<a name="patch-manager-baselines-pre-defined"></a>
+## PreDefined Baselines<a name="patch-manager-baselines-pre-defined"></a>
 
-The following table describes the pre\-defined patch baselines provided with Patch Manager\.
+The following table describes the predefined patch baselines provided with Patch Manager\.
 
 For information about which versions of each operating system Patch Manager supports, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
 
@@ -47,7 +47,7 @@ By using multiple patch baselines with different auto\-approval delays, you can 
 
 Keep the following in mind when you create a patch baseline:
 + Patch Manager provides a default patch baseline for each supported operating system\. You can instead create your own patch baseline and designate that as the default patch baseline for the corresponding operating system\.
-+ For on\-premises or non\-Amazon EC2 instances, Patch Manager attempts to use your custom default patch baseline\. If no custom default patch baseline exists, the system uses the pre\-defined patch baseline for the corresponding operating system\.
++ For on\-premises or non\-Amazon EC2 instances, Patch Manager attempts to use your custom default patch baseline\. If no custom default patch baseline exists, the system uses the predefined patch baseline for the corresponding operating system\.
 + If a patch is listed as both approved and rejected in the same patch baseline, the patch is rejected\.
 + An instance can have only one patch baseline defined for it\.
 + The formats of package names you can add to lists of approved patches and rejected patches for a patch baseline depend on the type of operating system you are patching\.

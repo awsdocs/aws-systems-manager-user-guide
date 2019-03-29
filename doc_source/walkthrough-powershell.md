@@ -269,7 +269,7 @@ Get-SSMCommandInvocation -CommandId $cloudWatchCommand.CommandId -Details $true 
 
 ### Send Performance Counters to CloudWatch Using the AWS\-ConfigureCloudWatch document<a name="walkthrough-powershell-windows-metrics-send-performance-counters-cloudwatch"></a>
 
-The following demonstration command uploads performance counters to CloudWatch\. For more information, see the [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/)\.
+The following demonstration command uploads performance counters to CloudWatch\. For more information, see the *[Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.
 
 ```
 $cloudWatchMetricsCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"us-east-2", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}

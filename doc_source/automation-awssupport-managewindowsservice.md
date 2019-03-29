@@ -56,13 +56,13 @@ Windows
 Check RDP Settings
 
 ```
-aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=WINDOWSSERVICE"
+aws ssm start-automation-execution --document-name "AWSSupport-ManageWindowsService" --parameters "InstanceId=i-1234567890abcdef0, WindowsServiceName=TermService"
 ```
 
 Change the Startup Type of the TermService to Auto and change Service Action to Start
 
 ```
-aws ssm start-automation-execution --document-name "ManageWindowsService" --parameters "InstanceId=INSTANCEID, WindowsServiceName=TermService, StartupType=Auto, ServiceAction=Start"
+aws ssm start-automation-execution --document-name "AWSSupport-ManageWindowsService" --parameters "InstanceId=i-1234567890abcdef0, WindowsServiceName=TermService, StartupType=Auto, ServiceAction=Start"
 ```
 
 Retrieve the execution output

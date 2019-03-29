@@ -20,7 +20,7 @@ If you specify an error threshold of 10% for 50 associations, then State Manager
 State Manager error thresholds have the following restrictions and limitations:
 + Error thresholds are enforced for the current interval\.
 + Information about each error, including step\-level details, are recorded in the association history\.
-+ If you choose to create an association by using targets, but you don't specify an error threshold, then State Manager automatically enforces a threshold of 50 failures\.
++ If you choose to create an association by using targets, but you don't specify an error threshold, then State Manager automatically enforces a threshold of 100% failures\.
 
 ## Create an Association that Uses Targets and Rate Controls \(CLI\)<a name="sysman-state-targets"></a>
 

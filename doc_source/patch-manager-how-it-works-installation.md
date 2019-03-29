@@ -29,16 +29,23 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches\.
+1. The YUM update API is applied to approved patches as follows:
+   + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
+
+     The equivalent yum command for this workflow is:
+
+     ```
+     sudo yum update-minimal --sec-severity=critical,important --bugfix 
+     ```
+   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and non\-security updates\)\.
+
+     The equivalent yum command for this workflow is:
+
+     ```
+     sudo yum update --security --bugfix
+     ```
 
 1. The instance is rebooted if any updates were installed\. 
-
-**Note**  
-The equivalent yum command for this workflow is:  
-
-```
-sudo yum update-minimal --secseverity=Critical,Important --bugfix 
-```
 
 ------
 #### [ RHEL ]
@@ -55,16 +62,23 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches\.
+1. The YUM update API is applied to approved patches as follows:
+   + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
+
+     The equivalent yum command for this workflow is:
+
+     ```
+     sudo yum update-minimal --sec-severity=critical,important --bugfix 
+     ```
+   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and non\-security updates\)\.
+
+     The equivalent yum command for this workflow is:
+
+     ```
+     sudo yum update --security --bugfix
+     ```
 
 1. The instance is rebooted if any updates were installed\. 
-
-**Note**  
-The equivalent yum command for this workflow is:  
-
-```
-sudo yum update-minimal --secseverity=Critical,Important --bugfix 
-```
 
 ------
 #### [ Ubuntu ]

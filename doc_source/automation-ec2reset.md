@@ -43,7 +43,7 @@ Before you run the following Automation, do the following:
 
 EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting Permissions By Using IAM Policies](#automation-ec2reset-access-iam)
-+ [Granting Permissions By Using An AWS CloudFormation Template](automation-ec2rescue.md#automation-ec2rescue-access-cfn)
++ [Granting Permissions By Using An AWS CloudFormation Template](#automation-ec2reset-access-cfn)
 
 #### Granting Permissions By Using IAM Policies<a name="automation-ec2reset-access-iam"></a>
 
@@ -191,9 +191,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Document details** section verify that **Document version** is set to the highest default version\. For example, **4 \(default\)**\.
 
-1. In the **Execution mode** section, choose **Execute the entire automation at once**\.
-
-1. Leave the **Targets and Rate Control** option disabled\.
+1. In the **Execution mode** section, choose **Simple Execution**\.
 
 1. In the **Input parameters** section, specify the following parameters: 
 
@@ -207,7 +205,7 @@ If you don't see the option to specify a subnet ID, verify that you are using th
 
    1. For **Assume Role**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you copied from the CloudFormation console\.
 
-1. Choose **Execute automation**\.
+1. Choose **Execute**\.
 
 1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** beside a step\.
 
