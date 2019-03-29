@@ -11,10 +11,10 @@ If you monitor API calls, you might see calls to the following APIs\.
 + ssmmessages:CreateDataChannel
 + ssmmessages:OpenControlChannel
 + ssmmessages:OpenDataChannel
-+ UpdateInstanceInformation
-+ ListInstanceAssociations
-+ DescribeInstanceProperties
-+ DescribeDocumentParameters
++ ssm:UpdateInstanceInformation
++ ssm:ListInstanceAssociations
++ ssm:DescribeInstanceProperties
++ ssm:DescribeDocumentParameters
 
 These special calls are used by Systems Manager for various operations\.
 
