@@ -14,7 +14,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the SSM Command or Automation document that defines the task\(s\) to run\.
+1. For **Document**, choose the SSM Command or Automation document that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 
@@ -61,7 +61,7 @@ If a service\-linked role has already been created for your account, choose **Us
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the SSM Command or Automation document that defines the task\(s\) to run\.
+1. For **Document**, choose the SSM Command or Automation document that defines the tasks to run\.
 
 1. For **Document Version** \(for Automation tasks\), choose the document version to use\.
 

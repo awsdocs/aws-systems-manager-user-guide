@@ -50,13 +50,14 @@ If you send a command to multiple instances, Amazon SNS can send messages about 
 To set up Amazon SNS notifications when a command changes status, you must complete the following tasks\.
 
 **Note**  
-If you are not configuring Amazon SNS notifications for your Maintenance Window, then you can skip Task 4 below\.
+If you are not configuring Amazon SNS notifications for your Maintenance Window, then you can skip Task 5 below\.
 
 **Topics**
 + [Task 1: Create and Subscribe to an Amazon SNS Topic](#monitoring-configure-sns)
-+ [Task 2: Create an IAM Role for Amazon SNS Notifications](#monitoring-iam-notifications)
-+ [Task 3: Attach the iam:PassRole Policy to Your Amazon SNS Role](#monitoring-sns-passpolicy)
-+ [Task 4: Attach the iam:PassRole Policy to Your Maintenance Window Role](#monitoring-sns-passpolicy-mw)
++ [Task 2: Create an IAM Policy for Amazon SNS Notifications](#monitoring-iam-policy)
++ [Task 3: Create an IAM Role for Amazon SNS Notifications](#monitoring-iam-notifications)
++ [Task 4: Attach the iam:PassRole Policy to Your Amazon SNS Role](#monitoring-sns-passpolicy)
++ [Task 5: Attach the iam:PassRole Policy to Your Maintenance Window Role](#monitoring-sns-passpolicy-mw)
 
 ### Task 1: Create and Subscribe to an Amazon SNS Topic<a name="monitoring-configure-sns"></a>
 
@@ -71,9 +72,46 @@ Amazon SNS sends a confirmation email from *AWS Notifications* to the email addr
 
 You will receive an acknowledgement message from AWS\. Amazon SNS is now configured to receive notifications and send the notification as an email to the email address that you specified\.
 
-### Task 2: Create an IAM Role for Amazon SNS Notifications<a name="monitoring-iam-notifications"></a>
+### Task 2: Create an IAM Policy for Amazon SNS Notifications<a name="monitoring-iam-policy"></a>
 
-Use the following procedure to create an AWS Identity and Access Management \(IAM\) role for Amazon SNS notifications\. This service role is used by Systems Manager to trigger Amazon SNS notifications\. 
+Use the following procedure to create a custom AWS Identity and Access Management \(IAM\) policy that provides permissions for triggering Amazon SNS notifications\.
+
+**To create a custom IAM policy for Amazon SNS notifications**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button appears, choose it, and then choose **Create Policy**\.\)
+
+1. Choose the **JSON** tab\.
+
+1. Replace the default content with the following:
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "sns:Publish"
+               ],
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Choose **Review policy**\.
+
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **`SNSPublishPermissions`**\.
+
+1. \(Optional\) For **Description**, enter a description for the policy\.
+
+1. Choose **Create policy**\.
+
+### Task 3: Create an IAM Role for Amazon SNS Notifications<a name="monitoring-iam-notifications"></a>
+
+Use the following procedure to create an IAM role for Amazon SNS notifications\. This service role is used by Systems Manager to trigger Amazon SNS notifications\. 
 
 **To create an IAM service role for Amazon SNS notifications**
 
@@ -85,7 +123,7 @@ Use the following procedure to create an AWS Identity and Access Management \(IA
 
 1. In the **Select your use case** section, choose **EC2**, and then choose **Next: Permissions**\.
 
-1. On the **Attached permissions policy** page, search for the **AmazonSNSFullAccess** policy, choose it, and then choose **Next: Review**\. 
+1. On the **Attach permissions policies** page, select the check box to the left of the name of the custom policy you created in Task 2\. For example: **`SNSPublishPermissions`**\.
 
 1. On the **Review** page, type a name in the **Role name** box, and then type a description\.
 
@@ -124,13 +162,13 @@ You must add a comma after the existing entry\. In the preceding example, the en
 
 1. Leave the **Summary** page open\.
 
-### Task 3: Attach the iam:PassRole Policy to Your Amazon SNS Role<a name="monitoring-sns-passpolicy"></a>
+### Task 4: Attach the iam:PassRole Policy to Your Amazon SNS Role<a name="monitoring-sns-passpolicy"></a>
 
-Use the following procedure to attach the `iam:PassRole` policy to the Amazon SNS service role that you created in Task 2\.
+Use the following procedure to attach the `iam:PassRole` policy to the Amazon SNS service role that you created in Task 3\.
 
 **To attach the iam:PassRole policy to your Amazon SNS role**
 
-1. In the **Summary** page for the role you created in Task 2, choose the **Permissions** tab\.
+1. In the **Summary** page for the role you created in Task 3, choose the **Permissions** tab\.
 
 1. Choose **Add inline policy**\.
 
@@ -152,11 +190,11 @@ Use the following procedure to attach the `iam:PassRole` policy to the Amazon SN
 
 1. On the **Review Policy** page, type a name and then choose **Create Policy**\.
 
-### Task 4: Attach the iam:PassRole Policy to Your Maintenance Window Role<a name="monitoring-sns-passpolicy-mw"></a>
+### Task 5: Attach the iam:PassRole Policy to Your Maintenance Window Role<a name="monitoring-sns-passpolicy-mw"></a>
 
 When you register a Run Command task with a Maintenance Window, you specify a service role Amazon Resource Name \(ARN\)\. This service role is used by Systems Manager to execute tasks registered to the Maintenance Window\. To configure Amazon SNS notifications for a registered Run Command task, you must attach an `iam:PassRole` policy to the Maintenance Window service role specified\. If you do not intend to configure the registered task for Amazon SNS notifications, then this task can be skipped\.
 
-The `iam:PassRole` policy allows the Maintenance Window service role to pass the SNS role created in Task 2 to the Amazon SNS service\. The following procedure shows how to attach the` iam:PassRole` policy to the Maintenance Window service role\.
+The `iam:PassRole` policy allows the Maintenance Window service role to pass the SNS role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the` iam:PassRole` policy to the Maintenance Window service role\.
 
 **Note**  
 You must use a custom service role for your Maintenance Window to send notifications related to the Run Command tasks registered\. For information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role)\.  
@@ -169,7 +207,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Roles** and select the Amazon SNS role created in Task 2\.
+1. In the navigation pane, choose **Roles** and select the Amazon SNS role created in Task 3\.
 
 1. Copy or make a note of the **Role ARN** and return to the **Roles** section of the IAM console\.
 
@@ -187,7 +225,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. From **Actions** choose **PassRole**\.
 
-1. In the **Amazon Resource Name \(ARN\)** field, paste the ARN of the Amazon SNS IAM role created in Task 1\.
+1. In the **Amazon Resource Name \(ARN\)** field, paste the ARN of the Amazon SNS IAM role created in Task 3\.
 
 1. Choose **Add Statement**, and then choose **Next**\.
 

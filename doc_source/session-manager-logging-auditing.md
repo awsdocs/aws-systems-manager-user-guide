@@ -26,7 +26,7 @@ You can choose to store session log data in a specified Amazon S3 bucket for aud
 In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
 **Customer\-managed CMK**  
-If you are using a KMS customer master key \(CMK\) that you manage yourself \(a customer managed CMK\) to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the CMK\. If you use an AWS managed CMK, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the CMK, see [Allows Key Users to Use the CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
+If you are using an AWS KMS customer master key \(CMK\) that you manage yourself \(a customer\-managed CMK\) to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the CMK\. If you use an AWS\-managed CMK, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the CMK, see [Allows Key Users to Use the CMK](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
 
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 

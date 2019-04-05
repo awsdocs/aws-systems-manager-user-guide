@@ -17,11 +17,15 @@ Depending on whether you want to create a new role for your instance profile or 
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\.
-**Note**  
-If the **Select your use case** section appears, choose **EC2 Role for Simple Systems Manager**, and then choose **Next: Permissions**\.
+1. On the **Create role** page, in **Select type of trusted entity**, choose **AWS service**\.
 
-1. On the **Attached permissions policy** page, verify that **AmazonEC2RoleforSSM** is listed, and then choose **Next: Review**\. 
+1. In **Choose the service that will use this role**, in the full list of services, choose **EC2**\.
+
+1. In **Select your use case**, choose **EC2 Role for Simple Systems Manager**, and then choose **Next: Permissions**\.
+
+1. On the **Attached permissions policy** page, verify that **AmazonEC2RoleforSSM** is listed, and then choose **Next: Tags**\.
+
+1. \(Optional\) Add tags to to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
 1. On the **Review** page, type a name in the **Role name** box, and then type a description\.
 **Note**  
@@ -35,9 +39,9 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 1. In the navigation pane, choose **Roles**, and then choose the existing role you want to associate with an instance profile for Systems Manager operations\.
 
-1. On the **Permissions** tab, choose **Attach policy**\.
+1. On the **Permissions** tab, choose **Attach policies**\.
 
-1. On the **Attach policy** page, select the check box next to AmazonEC2RoleforSSM, and then choose **Attach policy**\.
+1. On the **Attach Permissions** page, select the check box next to AmazonEC2RoleforSSM, and then choose **Attach policy**\.
 
 For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
 

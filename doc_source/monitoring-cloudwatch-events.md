@@ -49,7 +49,7 @@ Supported events include the following:
 For more information, see [Setting Up Notifications and Events for Systems Manager Parameters](sysman-paramstore-cwe.md)\.
 
 **Inventory**  
-Supported events include the following:  
+Supported events include the following>:  
 + Deletion of custom inventory item on an instance\. 
 + Availability of a delete action summary\.
 + A disabled custom inventory type is detected\.

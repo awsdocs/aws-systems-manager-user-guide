@@ -1,8 +1,8 @@
-# AWS\-CreateSnapshot<a name="automation-aws-createsnapshot"></a>
+# AWS\-PublishSNSNotification<a name="automation-aws-publishsnsnotification"></a>
 
 **Description**
 
-Create a snapshot of an Amazon EBS volume\.
+Publish a notification to Amazon SNS\.
 
 **Document Type**
 
@@ -12,7 +12,7 @@ Automation
 
 Amazon
 
-**Platforms**
+**Platform\(s\)**
 
 Windows, Linux
 
@@ -22,23 +22,23 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-+ Description
++ Message
 
   Type: String
 
-  Description: \(Optional\) A description for the snapshot
-+ VolumeId
+  Description: \(Required\) The message to include in the SNS notification\.
++ TopicARN
 
   Type: String
 
-  Description: \(Required\) The ID of the volume\.
+  Description: \(Required\) The ARN of the SNS topic to publish the notification to\.
 
 **Examples**
 
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-CreateSnapshot --parameters parameters
+aws ssm start-automation-execution --document-name AWS-PublishSNSNotification --parameters Message=message,TopicARN=arn:aws:sns:us-east-1:123456789012:SNSTopicARN
 ```
 
 Retrieve the execution output
@@ -49,10 +49,8 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
 **Document Steps**
 
-aws:executeAwsApi
-
-aws:waitForAwsResourceProperty
+aws:executeAwsApi \- sns:Publish
 
 **Outputs**
 
-createSnapshot\.Payload
+None

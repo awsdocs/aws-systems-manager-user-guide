@@ -19,12 +19,14 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Configure AWS Tools for Windows PowerShell Session Settings<a name="walkthrough-powershell-settings"></a>
 
+**Specify your credentials**  
 Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 ```
 Set-AWSCredentials –AccessKey key_name –SecretKey key_name
 ```
 
+**Set a default AWS Region**  
 Execute the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ```
@@ -95,11 +97,11 @@ The following command cancels the Send\-SSMComand for the AWS\-RunPowerShellScri
 
 ```
 $cancelCommandResponse=Send-SSMCommand -InstanceId @('Instance-ID','Instance-ID') -DocumentName AWS-RunPowerShellScript -Comment 'Demo AWS-RunPowerShellScript with two instances' -Parameter @{'commands'='Start-Sleep –Seconds 120; dir C:\'} 
-Stop-SSMCommand -CommandId $cancelCommandResponse.CommandId Get-SSMCommand -CommandId $cancelCommandResponse.CommandId
+Stop-SSMCommand -CommandId $cancelCommandResponse.CommandId
 ```
 
 **Check the command status**  
-The following command checks the status of the Cancel command
+The following command checks the status of the Cancel command\.
 
 ```
 Get-SSMCommand -CommandId $cancelCommandResponse.CommandId

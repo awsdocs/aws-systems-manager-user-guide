@@ -32,6 +32,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Canceled | The command was terminated before it was completed\. This is a terminal state\. | 
 | Undeliverable | The command can't be delivered to the instance\. The instance might not exist or it might not be responding\. Undeliverable invocations don't count against the parent command’s max\-errors limit, and they don't contribute to whether the parent command status is Success or Incomplete\. This is a terminal state\. | 
 | Terminated | The parent command exceeded its max\-errors limit and subsequent command invocations were canceled by the system\. This is a terminal state\. | 
+| Invalid Platform | The command was sent to an instance that did not match the required platforms specified by the chosen document\. InvalidPlatform does not count against the parent command’s max\-errors limit, and does not contribute to whether the parent command status is Success or Failed\. This is a terminal state\. | 
 
 
 **Detailed Status for a Command**  

@@ -43,12 +43,38 @@ Use the following procedure to create a custom IAM instance profile with a polic
                    "s3:GetEncryptionConfiguration"
                ],
                "Resource": "*"
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "kms:Decrypt"
+               ],
+               "Resource": "key-name"
            }
        ]
    }
    ```
-**Note**  
+
+**About 'ssmmessages'**  
 For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+
+**About 'kms:Decrypt'**  
+In this policy, the `kms:Decrypt` permission enables customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
+
+   If you will not use AWS KMS encryption for your session data, you can remove the following content from the policy:
+
+   ```
+   ,
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "kms:Decrypt"
+               ],
+               "Resource": "key-name"
+           }
+   ```
+
+   For information about using AWS KMS and a CMK to encrypt session data, see [Enable AWS KMS Key Encryption of Session Data \(Console\)](session-preferences-enable-encryption.md)\.
 
 1. Choose **Review policy**\.
 
@@ -64,7 +90,7 @@ For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, a
 
 1. Choose **Next: Permissions**\.
 
-1.  On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created\. For example: **SessionManagerPermissions**\.
+1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created\. For example: **SessionManagerPermissions**\.
 
 1. Choose **Next: Review**\.
 

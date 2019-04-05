@@ -3,12 +3,12 @@
 If you want to use the AWS CLI to start and terminate sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
 **Current Session Manager Plugin Version**  
-The plugin is updated occasionally with enhanced functionality\. The current version is **1\.0\.37\.0**\. 
+The plugin is updated occasionally with enhanced functionality\. The current version is **1\.1\.17\.0**\. 
 
 To see if you have the latest version, run the following command in the AWS CLI:
 
 **Note**  
-The command returns results only in the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
+The command returns results only if the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
 
 ```
 session-manager-plugin --version
@@ -169,7 +169,7 @@ session-manager-plugin
 If the installation was successful, the following message is returned:
 
 ```
-Session-Manager-Plugin is installed successfully. Use AWSCLI to start a session.
+The Session Manager plugin is installed successfully. Use the AWS CLI to start a session.
 ```
 
 You can also test the installation by running the following command in the AWS CLI:
@@ -249,12 +249,13 @@ If you use the specified default directory for storing logs, you must either run
 
 Your local machine must be running a supported version of the Session Manager plugin\. If you are running an earlier version, your Session Manager operations might not succeed\. 
 
-The current minimum supported version is 1\.0\.37\.0\. 
+The current minimum supported version is 1\.1\.17\.0\. 
 
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
 
-| Version | Release date | Details | 
+| Version> | Release date | Details | 
 | --- | --- | --- | 
+| 1\.1\.17\.0 | April 4, 2019 |  **Enhancement**: Add support for further encryption of session data using AWS Key Management Service \(AWS KMS\)\.  | 
 | 1\.0\.37\.0 | September 20, 2018 |  **Enhancement**: Bug fix for Windows version\.  | 
 | 1\.0\.0\.0 | September 11, 2018 |  Initial release of the Session Manager plugin\.  | 

@@ -15,7 +15,7 @@ Automation
 
 Amazon
 
- **Platform\(s\)** 
+ **Platforms** 
 
 Windows
 

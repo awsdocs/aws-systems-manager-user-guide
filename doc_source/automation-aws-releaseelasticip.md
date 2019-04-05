@@ -1,8 +1,8 @@
-# AWS\-DeleteSnapshot<a name="automation-aws-deletesnapshot"></a>
+# AWS\-ReleaseElasticIP<a name="automation-aws-releaseelasticip"></a>
 
 **Description**
 
-Delete a snapshot of an Amazon EBS volume\.
+Release the specified Elastic IP address using the allocation ID\.
 
 **Document Type**
 
@@ -12,7 +12,7 @@ Automation
 
 Amazon
 
-**Platforms**
+**Platform\(s\)**
 
 Windows, Linux
 
@@ -22,18 +22,18 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-+ SnapshotId
++ AllocationId
 
   Type: String
 
-  Description: \(Required\) The ID of the EBS snapshot\.
+  Description: \(Required\) The Allocation ID of the Elastic IP address\.
 
 **Examples**
 
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-DeleteSnapshot --parameters parameters
+aws ssm start-automation-execution --document-name AWS-ReleaseElasticIP --parameters AllocationId=eipalloc-0123456789abcdefg
 ```
 
 Retrieve the execution output
@@ -44,7 +44,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
 **Document Steps**
 
-aws:executeAwsApi
+aws:executeAwsApi \- ec2:ReleaseAddress
 
 **Outputs**
 

@@ -2,14 +2,27 @@
 
 AWS Systems Manager is a collection of capabilities for configuring and managing your Amazon EC2 instances, on\-premises servers and virtual machines, and other AWS resources at scale\. Systems Manager includes a unified interface that allows you to easily centralize operational data and automate tasks across your AWS resources\. Systems Manager shortens the time to detect and resolve operational problems in your infrastructure\. Systems Manager gives you a complete view of your infrastructure performance and configuration, simplifies resource and application management, and makes it easy to operate and manage your infrastructure at scale\. 
 
-**Note**  
-AWS Systems Manager was formerly known as "Amazon EC2 Systems Manager" and "Amazon Simple Systems Manager"\. The Amazon EC2 console includes Systems Manager features and services in the left navigation pane under the headings **SYSTEMS MANAGER SERVICES** and **SYSTEMS MANAGER SHARED RESOURCES**\. The EC2 console offers access to most Systems Manager features and services, but we encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers easy access to all Systems Manager services, data, and shared resources\. This console also includes dashboards and easy access to related services that work with Systems Manager to help you manage your AWS resources\.
+## Service Name and Console Access<a name="service-naming-history"></a>
+
+ AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:
++ **AWS CLI commands**: `aws ssm describe-patch-baselines`
++ **AWS Systems Manager Agent**: SSM Agent
++ **AWS Systems Manager documents**: SSM documents
++ **AWS Systems Manager parameters**: SSM parameters
++ **AWS Systems Manager resource ARNs**: `arn:aws:ssm:us-east-2:111222333444:patchbaseline/pb-07d8884178EXAMPLE`
++ **AWS CloudFormation resource types**: `AWS::SSM::Document`
++ **AWS Config rule identifier**: `EC2_INSTANCE_MANAGED_BY_SSM`
++ **AWS Identity and Access Management \(IAM\) managed policy names**: `AmazonSSMReadOnlyAccess`
++ **Service endpoints**: `ssm.us-east-2.amazonaws.com`
++ **Amazon CloudWatch Events event rule wizard**: EC2 Simple Systems Manager \(SSM\)
+
+Systems Manager functionality was previously available only in the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\. There you’ll still find Systems Manager features and services in the left navigation pane under the headings **SYSTEMS MANAGER SERVICES** and **SYSTEMS MANAGER SHARED RESOURCES**\. However, the Amazon EC2 console offers access to only those Systems Manager features and services released before November 2017\. Systems Manager access through the Amazon EC2 console will be deprecated in the future\. We therefore encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers access to all Systems Manager services, data, and shared resources\. This console also includes dashboards and access to related services that work with Systems Manager to help you manage your AWS resources\.
 
 ## How It Works<a name="how-it-works"></a>
 
 Diagram 1 shows a general example of the different processes that Systems Manager performs when executing an action like sending a command to your fleet of servers or performing an inventory of the applications running on your on\-premises servers\. Each Systems Manager capability, for example Run Command or Maintenance Windows, uses a similar process of set up, execution, processing, and reporting\. 
 
-1. **Configure Systems Manager**: Use the Systems Manager console, SDK, AWS CLI, or AWS Toolkit for Windows PowerShell to configure, schedule, automate, and execute actions that you want to perform on your AWS resources\. 
+1. **Configure Systems Manager**: Use the Systems Manager console, SDK, AWS CLI, or AWS Tools for Windows PowerShell to configure, schedule, automate, and execute actions that you want to perform on your AWS resources\. 
 
 1. **Verification and processing**: Systems Manager verifies the configurations, including permissions, and sends requests to the SSM Agent running on your instances or servers in your hybrid environment\. SSM Agent performs the specified configuration changes\.
 
@@ -31,7 +44,7 @@ Systems Manager includes the following capabilities:
 
 ### Resource Groups<a name="features-rg"></a>
 
-[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, an Amazon Elastic Block Store \(Amazon EBS\) volume, a security group, or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
+[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, an Amazon Elastic Block Store \(Amazon EBS\) volume, a security group, or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
 
 ### Insights<a name="features-insights"></a>
 
@@ -160,6 +173,6 @@ Systems Manager is also documented in the following references\.
 + [Blogs \(AWS Systems Manager tags category\)](https://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)
 + [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)
 + [Systems Manager AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
-+ [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
++ Systems Manager section of the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 +  [AWS SDKs](http://aws.amazon.com/tools/#SDKs)
 + [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)

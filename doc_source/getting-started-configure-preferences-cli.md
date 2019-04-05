@@ -16,12 +16,13 @@ The following procedure describes how to use the AWS CLI and the [update\-docume
            "s3KeyPrefix": "",
            "s3EncryptionEnabled": true,
            "cloudWatchLogGroupName": "",
-           "cloudWatchEncryptionEnabled": true
+           "cloudWatchEncryptionEnabled": true,
+           "kmsKeyId": ""
        }
    }
    ```
 
-1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. For example:
+1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and EC2 instances, provide the AWS KMS key to use for encryption\. For example:
 
    ```
    {
@@ -33,13 +34,14 @@ The following procedure describes how to use the AWS CLI and the [update\-docume
        "s3KeyPrefix": "MyBucketPrefix",
        "s3EncryptionEnabled": true,
        "cloudWatchLogGroupName": "MyLogGroupName",
-       "cloudWatchEncryptionEnabled": true
+       "cloudWatchEncryptionEnabled": true,
+       "kmsKeyId": "MyKMSKeyID"
      }
    }
    ```
 **Note**  
 If you do not want to encrypt the log data, change "true" to "false"\.  
-If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, you can delete the lines for those options\. Make sure the last line in the "inputs" section does not end with a comma\.
+If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, or don't want to encrypt active session data, you can delete the lines for those options\. Make sure the last line in the "inputs" section does not end with a comma\.
 
 1. Save the file\.
 

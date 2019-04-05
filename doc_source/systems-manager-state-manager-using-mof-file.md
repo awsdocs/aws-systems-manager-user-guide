@@ -97,7 +97,7 @@ There are 5 different types of tokens you can use:
 + **tagb64**: This is the same as tag, but the system use base64 to decode the value\. This allows you to use special characters in tag values\.
 + **env**: Resolves Environment variables\.
 + **ssm**: Parameter Store values\. Only String and SecureString types are supported\.
-+ **Heytagssm**: This is the same as tag, but if the tag is not set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
++ **tagssm**: This is the same as tag, but if the tag is not set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
 
 Tokens play an important role in reducing redundant code by making MOF files generic and reusable\. If you can avoid server\-specific MOF file, then there’s no need for a MOF building service\. A MOF building service increases costs, slows provisioning time, and increases the risk of configuration drift between grouped instances due to differing module versions being installed on the build server when their MOFs were compiled\.
 
