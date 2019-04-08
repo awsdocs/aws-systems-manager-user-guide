@@ -19,7 +19,7 @@ If you choose to create VPC endpoints, then be aware that requests to join a Win
 VPC endpoints currently do not support cross\-region requests—ensure that you create your endpoint in the same region as your bucket\. You can find the location of your bucket by using the Amazon S3 console, or by using the [get\-bucket\-location](https://docs.aws.amazon.com/cli/latest/reference/s3api/get-bucket-location.html) command\. Use a region\-specific Amazon S3 endpoint to access your bucket; for example, `mybucket.s3-us-west-2.amazonaws.com`\. For more information about region\-specific endpoints for Amazon S3, see [Amazon Simple Storage Service \(S3\)](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in *Amazon Web Services General Reference*\. If you use the AWS CLI to make requests to Amazon S3, set your default region to the same region as your bucket, or use the `--region` parameter in your requests\.
 
 **Incoming connections**  
-The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private subnet of the managed instance\. If incoming connections are not allowed, then the managed instance cannot connect to the SSM and EC2 endpoints\.\.
+The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private subnet of the managed instance\. If incoming connections are not allowed, then the managed instance cannot connect to the SSM and EC2 endpoints\.
 
 **Amazon S3 buckets**  
 Your VPC endpoint policy must allow at least access to the following Amazon S3 buckets:
