@@ -569,31 +569,31 @@ The system returns information like the following:
 
 ```
 {
-   "WindowSchedule":[
-      {
-   "ScheduledWindowExecutions": [ 
-      { 
-         "ExecutionTime": "2018-10-04T10:10:10Z",
-         "Name": "My-Maintenance-Window",
-         "WindowId": "mw-0c5ed765acEXAMPLE"
-      },
-      { 
-         "ExecutionTime": "2018-10-11T10:10:10Z",
-         "Name": "My-Maintenance-Window",
-         "WindowId": "mw-0c5ed765acEXAMPLE"
-      },
-      { 
-         "ExecutionTime": "2018-10-18T10:10:10Z",
-         "Name": "My-Maintenance-Window",
-         "WindowId": "mw-0c5ed765acEXAMPLE"
-      },
-      { 
-         "ExecutionTime": "2018-10-25T10:10:10Z",
-         "Name": "My-Maintenance-Window",
-         "WindowId": "mw-0c5ed765acEXAMPLE"
-      }
-   ]
-}
-   
+    "WindowSchedule": [
+        {
+            "ScheduledWindowExecutions": [
+                {
+                    "ExecutionTime": "2018-10-04T10:10:10Z",
+                    "Name": "My-Maintenance-Window",
+                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                },
+                {
+                    "ExecutionTime": "2018-10-11T10:10:10Z",
+                    "Name": "My-Maintenance-Window",
+                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                },
+                {
+                    "ExecutionTime": "2018-10-18T10:10:10Z",
+                    "Name": "My-Maintenance-Window",
+                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                },
+                {
+                    "ExecutionTime": "2018-10-25T10:10:10Z",
+                    "Name": "My-Maintenance-Window",
+                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                }
+            ]
+        }
+    ]
 }
 ```

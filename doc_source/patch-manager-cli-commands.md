@@ -436,6 +436,8 @@ The system returns information like the following\.
 aws ssm register-default-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE"
 ```
 
+The system returns information like the following:
+
 ```
 {
    "BaselineId":"pb-0c10e65780EXAMPLE"

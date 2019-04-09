@@ -12,7 +12,7 @@ To ensure the latest version of the Python `requests` module is installed, follo
    + If the module is installed, the request returns the version number in a response similar to the following:
 
      ```
-     requests (1.2.3) 
+     requests (1.2.3)
      ```
    + If the module is not installed, run the following command to install it:
 

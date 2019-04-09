@@ -424,9 +424,6 @@ Note the following important details about this process:
 
 1. Open the script in a simple text editor, edit the sample call at the bottom of the script, and then run it\.
 
-   ```
-   ```
-
 If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the command output for details about why the execution failed\. If the command was successfully completed, but a specific volume backup failed, you can troubleshoot the failure in the list of EBS volumes\.
 
 ## Restoring Volumes from VSS\-enabled EBS snapshots<a name="integration-vss-restore"></a>

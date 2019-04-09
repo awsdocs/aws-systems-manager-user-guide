@@ -87,7 +87,7 @@ Specify parameters in the following command to target managed instances using ta
    aws ssm send-command --targets "Key=tag:Environment,Values=Dev" --document-name "AWS-RunPowerShellScript" --parameters '{"commands":["Get-Process"]}' --service-role "arn:aws:iam::111122223333:role/SNS_Role" --notification-config '{"NotificationArn":"arn:aws:sns:us-east-1:111122223333:SNSTopic","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
-1. Press enter\.
+1. Press Enter\.
 
 1. Check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
 
