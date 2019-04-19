@@ -26,7 +26,7 @@ Before you complete the following procedure, verify that you have at least one r
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
+1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 
    ```
    aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 0 2 ? * SUN *)"

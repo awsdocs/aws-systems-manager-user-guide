@@ -47,13 +47,13 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
    }
    ```
 
-1. Execute the following command to load the recordingGroup\.json file into AWS Config\.
+1. Run the following command to load the recordingGroup\.json file into AWS Config\.
 
    ```
    aws configservice put-configuration-recorder --configuration-recorder name=myRecorder,roleARN=arn:aws:iam::123456789012:role/myConfigRole --recording-group file://recordingGroup.json
    ```
 
-1. Execute the following command to start recording Inventory history and change tracking\.
+1. Run the following command to start recording Inventory history and change tracking\.
 
    ```
    aws configservice start-configuration-recorder --configuration-recorder-name myRecorder

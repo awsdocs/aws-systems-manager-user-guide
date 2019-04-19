@@ -40,7 +40,7 @@ aws ssm send-command --document-name name --targets Key=tag:Environment,Values=D
 You could target additional instances in other environments by adding to the `Values` list\. Separate items using commas\.
 
 ```
-aws ssm send-command - -document-name name --targets Key=tag:Environment,Values=Development,Test,Pre-production [...]
+aws ssm send-command --document-name name --targets Key=tag:Environment,Values=Development,Test,Pre-production [...]
 ```
 
 Example: Refining your targets using multiple `Key` criteria

@@ -105,7 +105,7 @@ The `SchemaDeleteOption` parameter includes the following options:
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
+1. Run the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --dry-run
@@ -137,7 +137,7 @@ The `SchemaDeleteOption` parameter includes the following options:
 
    For information about how to understand the delete inventory summary, see [Understanding the Delete Inventory Summary](#sysman-inventory-delete-summary)\.
 
-1. Execute the following command to delete all data for a custom inventory type\.
+1. Run the following command to delete all data for a custom inventory type\.
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name"
@@ -172,7 +172,7 @@ The output of this command doesn't show the deletion progress\. For this reason,
 
    The system deletes all data for the specified custom inventory type from the Systems Manager Inventory service\. 
 
-1. Execute the following command\. The command performs the following actions for the current version of the inventory type: disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. 
+1. Run the following command\. The command performs the following actions for the current version of the inventory type: disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. 
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --schema-delete-option "DisableSchema"
@@ -209,7 +209,7 @@ The output of this command doesn't show the deletion progress\. For this reason,
    aws ssm get-inventory-schema --type-name Custom:custom_type_name
    ```
 
-1. Execute the following command to delete an inventory type\.
+1. Run the following command to delete an inventory type\.
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --schema-delete-option "DeleteSchema"
@@ -244,11 +244,11 @@ The output of this command doesn't show the deletion progress\. For this reason,
 
 ### Viewing the Deletion Status<a name="sysman-inventory-delete-status"></a>
 
-You can check the status of a delete operation by using the describe\-inventory\-deletions AWS CLI command\. You can specify a deletion ID to view the status of a specific delete operation\. Or, you can omit the deletion ID to view a list of all deletions executed in the last 30 days\.
+You can check the status of a delete operation by using the describe\-inventory\-deletions AWS CLI command\. You can specify a deletion ID to view the status of a specific delete operation\. Or, you can omit the deletion ID to view a list of all deletions run in the last 30 days\.
 
 ****
 
-1. Execute the following command to view the status of a deletion operation\. The system returned the deletion ID in the delete\-inventory summary\.
+1. Run the following command to view the status of a deletion operation\. The system returned the deletion ID in the delete\-inventory summary\.
 
    ```
    aws ssm describe-inventory-deletions --deletion-id system_generated_deletion_ID
@@ -302,7 +302,7 @@ You can check the status of a delete operation by using the describe\-inventory\
    }
    ```
 
-1. Execute the following command to view a list of all deletions executed in the last 30 days\.
+1. Run the following command to view a list of all deletions run in the last 30 days\.
 
    ```
    aws ssm describe-inventory-deletions --max-results a number

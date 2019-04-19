@@ -2,7 +2,7 @@
 
 This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
 
-You can view the JSON for these document in the Systems Manager console\.
+You can view the JSON for these documents in the Systems Manager console\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

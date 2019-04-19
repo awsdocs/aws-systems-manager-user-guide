@@ -36,7 +36,7 @@ For example, you can tag documents for specific environments, departments, users
 
    If successful, the command has no output\.
 
-1. Execute the following command to verify the document tags\.
+1. Run the following command to verify the document tags\.
 
    ```
    aws ssm list-tags-for-resource --resource-type "Document" --resource-id "document-name"

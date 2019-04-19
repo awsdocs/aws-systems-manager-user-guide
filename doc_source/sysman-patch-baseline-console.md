@@ -38,9 +38,9 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
    + \(Optional\) **Compliance level**: The severity level you want to assign to patches approved by the baseline, such as High\.
 **Note**  
 If an approved patch is reported as missing, the option you choose in **Compliance level**, such as Critical or Medium, determines the severity of the compliance violation\.
-   + \(Linux only\) **Include non\-security updates**: Select the check box to install non\-security patches made available in the source repository, in addition to the security\-related patches\. 
+   + \(Linux only\) **Include non\-security updates**: Select the check box to install nonsecurity patches made available in the source repository, in addition to the security\-related patches\. 
 **Note**  
-For SUSE Linux Enterprise Server, it isn't necessary to select the check box because patches for security and non\-security issues are installed by default on SLES instances\. For more information, see the content for SLES in [How Security Patches Are Selected](patch-manager-how-it-works-selection.md)\.
+For SUSE Linux Enterprise Server, it isn't necessary to select the check box because patches for security and nonsecurity issues are installed by default on SLES instances\. For more information, see the content for SLES in [How Security Patches Are Selected](patch-manager-how-it-works-selection.md)\.
 
    For more information about working with approval rules in a custom patch baseline, see [Custom Baselines](sysman-patch-baselines.md#patch-manager-baselines-custom)\.
 
@@ -57,7 +57,7 @@ For information about accepted formats for lists of approved patches and rejecte
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
    + For **Rejected patches action**, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
      + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it is a dependency of another package\. It is considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
-     + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, are not installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it is considered non\-compliant with the patch baseline and its status is reported as *InstalledRejected*\.
+     + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, are not installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it is considered noncompliant with the patch baseline and its status is reported as *InstalledRejected*\.
 
 1. \(Optional\) For Linux instances only: If you want to specify alternative patch repositories for different versions of an operating system, such as *AmazonLinux2016\.03* and *AmazonLinux2017\.09*, do the following for each product in the **Patch sources** section:
    + In **Name**, enter a name to help you identify the source configuration\.

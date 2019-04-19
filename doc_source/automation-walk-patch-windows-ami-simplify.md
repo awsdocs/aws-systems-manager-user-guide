@@ -5,7 +5,7 @@ The following example expands on how to update a Windows AMI, as described in [P
 The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 
 **Before You Begin**  
-Configure Automation roles and, optionally, CloudWatch Events for Automation\. For more information, see [Setting Up Automation](automation-setup.md)\.
+Configure Automation roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
 
 **Topics**
 + [Task 1: Create a Parameter in Systems Manager Parameter Store](#automation-pet1)
@@ -23,7 +23,7 @@ For information about how to create a Parameter Store string parameter, see [Cre
 
 ## Task 2: Create an IAM Role for AWS Lambda<a name="automation-pet2"></a>
 
-Use the following procedure to create an IAM service role for AWS Lambda\. This role includes the **AWSLambdaExecute** and **AmazonSSMFullAccess** managed policies\. These policies give Lambda permission to update the value of the `latestAmi` parameter using a Lambda function and Systems Manager\.
+Use the following procedure to create an IAM service role for AWS Lambda\. This role includes the `AWSLambdaExecute` and `AmazonSSMFullAccess` managed policies\. These policies give Lambda permission to update the value of the `latestAmi` parameter using a Lambda function and Systems Manager\.
 
 **To create an IAM service role for Lambda**
 
@@ -159,7 +159,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting Up Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
 
    ```
    {
@@ -290,7 +290,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting Up Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
 
    ```
    {

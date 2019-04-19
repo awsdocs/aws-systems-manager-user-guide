@@ -1,17 +1,17 @@
-# Creating Associations that Execute MOF Files<a name="systems-manager-state-manager-using-mof-file"></a>
+# Creating Associations that Run MOF Files<a name="systems-manager-state-manager-using-mof-file"></a>
 
-You can execute Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can execute the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and execute MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure web site with an HTTPS domain\.
+You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure web site with an HTTPS domain\.
 
 State Manager logs and reports the status of each MOF file execution during each association run\. State Manager also reports the output of each MOF file execution as a compliance event which you can view on the [AWS Systems Manager Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
-MOF file execution is built on Windows PowerShell Desired State Configuration \(PowerShell DSC\)\. PowerShell DSC is a declarative platform used for configuration, deployment, and management of Windows systems\. PowerShell DSC allows administrators to describe, in simple text documents called DSC configurations, how they want a server to be configured\. A PowerShell DSC configuration is a specialized PowerShell script that states what to do, but not how to do it\. Executing the configuration produces a MOF file\. The MOF file can be applied to one or more servers to achieve the desired configuration for those servers\. PowerShell DSC resources do the actual work of enforcing configuration\. For more information, see [Windows PowerShell Desired State Configuration Overview](https://docs.microsoft.com/en-us/powershell/dsc/overview)\.
+MOF file execution is built on Windows PowerShell Desired State Configuration \(PowerShell DSC\)\. PowerShell DSC is a declarative platform used for configuration, deployment, and management of Windows systems\. PowerShell DSC allows administrators to describe, in simple text documents called DSC configurations, how they want a server to be configured\. A PowerShell DSC configuration is a specialized PowerShell script that states what to do, but not how to do it\. Running the configuration produces a MOF file\. The MOF file can be applied to one or more servers to achieve the desired configuration for those servers\. PowerShell DSC resources do the actual work of enforcing configuration\. For more information, see [Windows PowerShell Desired State Configuration Overview](https://docs.microsoft.com/en-us/powershell/dsc/overview)\.
 
 **Topics**
 + [Using Amazon S3 to Store Artifacts](#systems-manager-state-manager-using-mof-file-S3-storage)
 + [Resolving Credentials in MOF Files](#systems-manager-state-manager-using-mof-file-credentials)
 + [Using Tokens in MOF Files](#systems-manager-state-manager-using-mof-file-tokens)
 + [Prerequisites](#systems-manager-state-manager-using-mof-file-prereqs)
-+ [Creating an Association that Executes MOF Files](#systems-manager-state-manager-using-mof-file-creating)
++ [Creating an Association that Runs MOF Files](#systems-manager-state-manager-using-mof-file-creating)
 + [Troubleshooting](#systems-manager-state-manager-using-mof-file-troubleshooting)
 + [Common Problems](#systems-manager-state-manager-using-mof-file-troubleshooting-common)
 
@@ -77,7 +77,7 @@ Configuration MyConfig
 }
 ```
 
-You then set a tag on either the managed instance in the AWS Systems Manager console, or an Amazon EC2 tag in the EC2 console\. When you execute the document, the script substitutes the \{tag:ComputerName\} token for the value of the instance tag\.
+You then set a tag on either the managed instance in the AWS Systems Manager console, or an Amazon EC2 tag in the EC2 console\. When you run the document, the script substitutes the \{tag:ComputerName\} token for the value of the instance tag\.
 
 You can also combine multiple tags into a single property, for example:
 
@@ -103,14 +103,14 @@ Tokens play an important role in reducing redundant code by making MOF files gen
 
 ## Prerequisites<a name="systems-manager-state-manager-using-mof-file-prereqs"></a>
 
-Before you create an association that executes MOF files, verify that your managed instances have the following prerequisites installed:
+Before you create an association that runs MOF files, verify that your managed instances have the following prerequisites installed:
 + Windows PowerShell version 5\.0 or later\. For more information, see [Windows PowerShell System Requirements](https://docs.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements?view=powershell-6#operating-system-requirements) on Microsoft\.com\.
 + [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/) version 3\.3\.261\.0 or later\.
 + SSM Agent version 2\.2 or later\.
 
-## Creating an Association that Executes MOF Files<a name="systems-manager-state-manager-using-mof-file-creating"></a>
+## Creating an Association that Runs MOF Files<a name="systems-manager-state-manager-using-mof-file-creating"></a>
 
-**To create an association that executes MOF files**
+**To create an association that runs MOF files**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -122,7 +122,7 @@ Before you create an association that executes MOF files, verify that your manag
 
 1. In the **Parameters** section, specify your choices for the required and optional input parameters\.
 
-   1. **Mofs To Apply**: Specify one or more MOF files to execute when this association runs\. Use commas to separate a list of MOF files\. You can specify the following options for locating MOF file\.
+   1. **Mofs To Apply**: Specify one or more MOF files to run when this association runs\. Use commas to separate a list of MOF files\. You can specify the following options for locating MOF file\.
       + An Amazon S3 bucket name\. Bucket names must use lowercase letters\. Specify this information by using the following format:
 
         ```
@@ -167,7 +167,7 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
       + **Apply**: Correct instance configurations that aren't compliant\. 
       + **ReportOnly**: Don't correct instance configurations, but instead log all compliance data and report instances that aren't compliant\.
 
-   1. **Status Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write MOF execution status information\. These status reports are singleton summaries of the most recent compliance run of an instance\. This means that the report is overwritten the next time the association executes MOF files\.
+   1. **Status Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write MOF execution status information\. These status reports are singleton summaries of the most recent compliance run of an instance\. This means that the report is overwritten the next time the association runs MOF files\.
 **Note**  
 You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific region that does not include us\-east\-1, then you must prefix the bucket name with a region\. If the bucket name is not prefixed, it will automatically discover the bucket region using the us\-east\-1 endpoint\.
 
@@ -181,7 +181,7 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
 
    1. **Reboot Behavior**: \(Optional\) Specify one of the following reboot behaviors if your MOF file execution requires rebooting:
       + **AfterMof**: Reboots the instance after all MOF executions are complete\. Even if multiple MOF executions request reboots, the system waits until all MOF executions are complete to reboot\.
-      + **Immediately**: Reboots the instance whenever a MOF execution requests it\. If executing multiple MOF files that request reboots, then the instance will be rebooted multiple times\.
+      + **Immediately**: Reboots the instance whenever a MOF execution requests it\. If running multiple MOF files that request reboots, then the instance will be rebooted multiple times\.
       + **Never**: Instances are not rebooted, even if the MOF execution explicitly requests a reboot\.
 
    1. **Use Computer Name For Reporting**: \(Optional\) Enable this option to use the name of the computer when reporting compliance information\. The default value is **false**, which means that the system uses the instance ID when reporting compliance information\.
@@ -194,9 +194,9 @@ When enabled, verbose logging writes more data to your Amazon S3 bucket than sta
 **Important**  
 When enabled, debug logging writes more data to your Amazon S3 bucket than standard association execution logging\. This can result in slower performance and possibly higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you enable lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
-   1. **Compliance Type**: \(Optional\) Specify the compliance type to use when reporting compliance information\. The default compliance type is **Custom:DSC**\. If you create multiple associations that execute MOF files, then be sure to specify a different compliance type for each association\. If you don't, each additional association that uses **Custom:DSC** will overwrite the existing compliance data\.
+   1. **Compliance Type**: \(Optional\) Specify the compliance type to use when reporting compliance information\. The default compliance type is **Custom:DSC**\. If you create multiple associations that run MOF files, then be sure to specify a different compliance type for each association\. If you don't, each additional association that uses **Custom:DSC** will overwrite the existing compliance data\.
 
-   1. **Pre Reboot Script**: \(Optional\) Specify a script to execute if the configuration has indicated that a reboot is necessary\. The script executes before the reboot\. The script must be a single line\. If you need to add additional lines, separate lines by using semicolons\.
+   1. **Pre Reboot Script**: \(Optional\) Specify a script to run if the configuration has indicated that a reboot is necessary\. The script runs before the reboot\. The script must be a single line\. If you need to add additional lines, separate lines by using semicolons\.
 
 1. In the **Targets** section, choose either **Specifying tags** or **Manually Selecting Instance**\. If you choose to target resources by using tags, then enter a tag key and a tag value in the fields provided\. For more information about using targets, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
@@ -205,32 +205,32 @@ When enabled, debug logging writes more data to your Amazon S3 bucket than stand
 1. In the **Advanced options** section:
    + In **Compliance severity**, choose a severity level for the association\. Compliance reporting will indicate whether the association state is compliant or non\-compliant, along with the severity level you indicate here\. For more information, see [About State Manager Association Compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-1. In the **Rate control** section, configure options for executing State Manager associations across of fleet of managed instances\. For more information about these options, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In the **Rate control** section, configure options for running State Manager associations across of fleet of managed instances\. For more information about these options, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In the **Concurrency** section, choose an option: 
-   + Choose **targets** to enter an absolute number of targets that can execute the association simultaneously\.
-   + Choose **percentage** to enter a percentage of the target set that can execute the association simultaneously\.
+   + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
+   + Choose **percentage** to enter a percentage of the target set that can run the association simultaneously\.
 
    In the **Error threshold** section, choose an option:
-   + Choose **errors** to enter an absolute number of errors allowed before State Manager stops executing associations on additional targets\.
-   + Choose **percentage** to enter a percentage of errors allowed before State Manager stops executing associations on additional targets\.
+   + Choose **errors** to enter an absolute number of errors allowed before State Manager stops running associations on additional targets\.
+   + Choose **percentage** to enter a percentage of errors allowed before State Manager stops running associations on additional targets\.
 
 1. In the **Output options** section, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an Amazon S3 bucket\.
 
 1. Choose **Create Association**\. 
 
-State Manager creates and immediately executes the association on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations are only executed on instances that are online when the interval starts\. Offline instances are skipped\.
-+ State Manager attempts to execute the association on all configured instances during an interval\.
-+ If an association is not executed during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to execute the association during the next interval\.
+State Manager creates and immediately runs the association on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
++ Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
++ State Manager attempts to run the association on all configured instances during an interval\.
++ If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
 **Note**  
-The AWS\-ApplyDSCMofs is a Systems Manager command document\. This means that you can also execute this document by using Run Command\. For more information, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
+The AWS\-ApplyDSCMofs is a Systems Manager command document\. This means that you can also run this document by using Run Command\. For more information, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
 
 ## Troubleshooting<a name="systems-manager-state-manager-using-mof-file-troubleshooting"></a>
 
-This section includes information to help you troubleshoot issues creating associations that execute MOF files\.
+This section includes information to help you troubleshoot issues creating associations that run MOF files\.
 
 **Enable Enhanced Logging**  
 As a first step to troubleshooting, enable enhanced logging\. More specifically, do the following:
@@ -242,7 +242,7 @@ With verbose and debug logging enabled, the **Stdout** output file includes deta
 
 ## Common Problems<a name="systems-manager-state-manager-using-mof-file-troubleshooting-common"></a>
 
-This section includes information about common problems that can occur when creating associations that execute MOF files and steps to troubleshoot these issues\.
+This section includes information about common problems that can occur when creating associations that run MOF files and steps to troubleshoot these issues\.
 
 **My MOF was not applied**  
 If State Manager failed to apply the association to your instances, then start by reviewing the **Stderr** output file\. This file can help you understand the root cause of the issue\. Also, verify the following:
@@ -255,7 +255,7 @@ If State Manager failed to apply the association to your instances, then start b
 + Try applying the MOF locally on the instance to make sure there isn't an issue with the MOF file itself\.
 
 **My MOF seemed to fail, but the Systems Manager execution was successful**  
-If the AWS\-ApplyDSCMofs document successfully executed, then the Systems Manager execution status shows **Success**\. This status does not reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
+If the AWS\-ApplyDSCMofs document successfully ran, then the Systems Manager execution status shows **Success**\. This status does not reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
 
 **Stderr states: Name resolution failure attempting to reach service**  
 This error indicates that the script can't reach a remote service\. Most likely, the script can't reach Amazon S3\. This issue most often occurs when the script attempts to write compliance reports or compliance status to the Amazon S3 bucket supplied in the document parameters\. Typically, this error occurs when a computing environment uses a firewall or transparent proxy that includes a whitelist\. To resolve this issue:
@@ -272,7 +272,7 @@ This error indicates that the script can't reach a remote service\. Most likely,
 
   1. Find the endpoint name for Amazon S3 in the desired [Region](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)\.
 
-  1. Logon to the target instance and execute the following ping command:
+  1. Log on to the target instance and run the following ping command:
 
      ```
      ping s3.s3-region.amazonaws.com

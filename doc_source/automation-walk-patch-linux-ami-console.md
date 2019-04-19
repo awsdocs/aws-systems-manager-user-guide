@@ -1,16 +1,16 @@
 # Patch a Linux AMI \(Console\)<a name="automation-walk-patch-linux-ami-console"></a>
 
-This Systems Manager Automation walkthrough shows you how to use the console and the Systems Manager AWS\-UpdateLinuxAmi document to automatically patch a Linux AMI with the latest versions of packages that you specify\. You can update any of the following Linux versions using this walkthrough: Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. The AWS\-UpdateLinuxAmi document also automates the installation of additional site\-specific packages and configurations\.
+This Systems Manager Automation walkthrough shows you how to use the console and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. You can update any of the following Linux versions using this walkthrough: Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\.
 
-The AWS\-UpdateLinuxAmi document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the AWS\-UpdateLinuxAmi document to perform the following types of tasks\.
+The `AWS-UpdateLinuxAmi` document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the `AWS-UpdateLinuxAmi` document to perform the following types of tasks\.
 + Upgrade all distribution packages and Amazon software on an Amazon Linux, Red Hat, Ubuntu, SLES, or Cent OS Amazon Machine Image \(AMI\)\. This is the default document behavior\.
 + Install SSM Agent on an existing image to enable Systems Manager capabilities, such as remote command execution using Run Command or software inventory collection using Inventory\.
 + Install additional software packages\.
 
 **Before You Begin**  
-Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Setting Up Automation](automation-setup.md)\.
+Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
 
-The AWS\-UpdateLinuxAmi document accepts the following input parameters\.
+The `AWS-UpdateLinuxAmi` document accepts the following input parameters\.
 
 
 ****  
@@ -18,8 +18,8 @@ The AWS\-UpdateLinuxAmi document accepts the following input parameters\.
 | Parameter | Type | Description | 
 | --- | --- | --- | 
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\.  | 
-|  InstanceIamRole  |  String  |  \(Optional\) The name of the AWS Identity and Access Management \(IAM\) instance profile role you created in [Setting Up Automation](automation-setup.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as executing commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
-|  AutomationAssumeRole  |  String  |  \(Optional\) The name of the IAM service role you created in [Setting Up Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when executing the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
+|  IamInstanceProfileName  |  String  |  \(Required\) The name of the AWS Identity and Access Management \(IAM\) instance profile role you created in [Getting Started with Automation](automation-setup.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as executing commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
+|  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Getting Started with Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when executing the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by region\. The default type is t2\.micro\.  | 
 |  PreUpdateScript  |  String  |  \(Optional\) URL of a script to run before updates are applied\. Default \(\\"none\\"\) is to not run a script\.  | 
@@ -28,7 +28,7 @@ The AWS\-UpdateLinuxAmi document accepts the following input parameters\.
 |  ExcludePackages  |  String  |  \(Optional\) Names of packages to hold back from updates, under all conditions\. By default \(\\"none\\"\), no package is excluded\.  | 
 
 **Automation Steps**  
-The AWS\-UpdateLinuxAmi document includes the following Automation steps, by default\.
+The `AWS-UpdateLinuxAmi` document includes the following Automation steps, by default\.
 
 **Step 1: launchInstance \(aws:runInstances action\) **  
 This step launches an instance using Amazon EC2 userdata and an IAM instance profile role\. Userdata installs the appropriate SSM Agent, based on the operating system\. Installing SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
@@ -56,9 +56,9 @@ This step cleans up the execution by terminating the running instance\.
 The execution returns the new AMI ID as output\.
 
 **Note**  
-By default, when Automation runs the AWS\-UpdateLinuxAmi document, the system creates a temporary instance in the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:  
+By default, when Automation runs the `AWS-UpdateLinuxAmi` document, the system creates a temporary instance in the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:  
 VPC not defined 400  
-To solve this problem, you must make a copy of the AWS\-UpdateLinuxAmi document and specify a subnet ID\. For more information, see [VPC not defined 400](automation-troubleshooting.md#automation-trbl-common-vpc)\.
+To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document and specify a subnet ID\. For more information, see [VPC not defined 400](automation-troubleshooting.md#automation-trbl-common-vpc)\.
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
@@ -76,15 +76,15 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Automation document** list, choose **AWS\-UpdateLinuxAmi**\.
 
-1. In the **Document details** section, verify that **Document version** is set to **1**\.
+1. In the **Document details** section, verify that **Document version** is set to **Default version at runtime**\.
 
-1. In the **Execution mode** section, choose **Execute the entire automation at once**\.
+1. Choose **Next**\.
 
-1. Leave the **Targets and Rate Control** option disabled\.
+1. In the **Execution mode** section, choose **Simple Execution**\.
 
 1. In the **Input parameters** section, enter the information you collected in the **Before You Begin** section\.
 
-1. Choose **Execute automation**\. The console displays the status of the Automation execution\.
+1. Choose **Execute**\. The console displays the status of the Automation execution\.
 
 **To create a patched AMI using Automation \(Amazon EC2 Systems Manager\)**
 

@@ -10,7 +10,7 @@ The examples in this section use the following Systems Manager actions for updat
 
 For information about using the Systems Manager console to update a Maintenance Window, see [Update or Delete a Maintenance Window \(Console\)](sysman-maintenance-update.md)\. 
 
-As you follow the steps in this tutorial, replace the values in *red* with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you have created\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you create\.
 
 **To update a Maintenance Window \(AWS CLI\)**
 
@@ -64,7 +64,7 @@ As you follow the steps in this tutorial, replace the values in *red* with your 
    }
    ```
 
-1. The `start-date` option allows you to delay activation of a Maintenance Window until a specified future date\. The `end-date` option allows you to set a date and time in the future after which the Maintenance Window will no longer run\. Specify the options in ISO\-8601 Extended format\.
+1. The `start-date` option allows you to delay activation of a Maintenance Window until a specified future date\. The `end-date` option allows you to set a date and time in the future after which the Maintenance Window no longer runs\. Specify the options in ISO\-8601 Extended format\.
 
    Run the following command to specify a date and time range for regularly scheduled Maintenance Window executions:
 

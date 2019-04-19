@@ -44,7 +44,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become active\. This allows you to delay activation of the Maintenance Window until the specified future date\.
 
-1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window will no longer run\.
+1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window no longer runs\.
 
 1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled Maintenance Window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
@@ -135,6 +135,6 @@ If a service\-linked role has already been created for your account, choose **Us
 
    1. The notification type that you want to receive when the status of a command changes\. For commands sent to multiple instances, choose **Invocation** to receive notification on an invocation \(per\-instance\) basis when the status of each invocation changes\.
 
-1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we will not provide a version so SSM Agent will be updated to the latest version\.
+1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we don't provide a version\. Therefore, SSM Agent is be updated to the latest version\.
 
 1. Choose **Register Run Command task**\.

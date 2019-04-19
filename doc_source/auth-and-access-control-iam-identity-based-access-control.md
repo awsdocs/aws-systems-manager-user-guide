@@ -66,16 +66,15 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS Systems Manager:
 + **AmazonSSMFullAccess ** – User trust policy that grants full access to the Systems Manager API and documents\.
-+ **AmazonSSMAutomationRole ** – Service role that provides permissions for the AWS Systems Manager automation service to run activities defined within automation documents\. Assign this policy to administrators and trusted power users\.
-
-   
 + **AmazonSSMReadOnlyAccess** – User trust policy that grants access to Systems Manager read\-only API actions, such as `Get*` and `List*`\.
-
-   
-+ **AmazonSSMMaintenanceWindowRole** – Service role for Systems Manager Maintenance Windows\.
-
-   
++ **AmazonSSMAutomationApproverAccess ** – User trust policy that enables access to view automation executions and send approval decisions to automation waiting for approval\.
++ **AmazonSSMAutomationRole ** – Service role policy that provides permissions for the AWS Systems Manager automation service to run activities defined within automation documents\. Assign this policy to administrators and trusted power users\.
++ **AmazonSSMMaintenanceWindowRole** – Service role policy for Systems Manager Maintenance Windows\.
 + **AmazonEC2RoleforSSM ** – Instance trust policy that enables an instance to communicate with the Systems Manager API\.
++ **AmazonSSMDirectoryServiceAccess ** – Instance trust policy that allows SSM Agent to access AWS Directory Service on behalf of the user for domain\-join requests by the managed instance\.
++ **AmazonSSMManagedInstanceCore ** – Instance trust policy that enables an instance to utilize AWS Systems Manager service core functionality\.
++ **AmazonSSMServiceRolePolicy ** – Service role policy that provides access to AWS Resources managed or used by AWS Systems Manager\.
++ **AWSResourceAccessManagerServiceRolePolicy ** – Service role policy containing Read\-only AWS Resource Access Manager access to the account's Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 
 You can also create your own custom IAM policies to allow permissions for Systems Manager actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\.
 

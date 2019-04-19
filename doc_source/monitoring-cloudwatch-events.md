@@ -19,7 +19,7 @@ For more information, see [Configuring CloudWatch Events for Run Command](rc-cwe
 Supported events include the following:  
 + Status change for an automation execution\.
 + Status change for a single step in an automation execution\.
-For more information, see [Configuring CloudWatch Events for Systems Manager Automation \(Optional\)](automation-cwe.md)\.
+For more information, see [Configuring CloudWatch Events for Systems Manager Automation](automation-cwe.md)\.
 
 **State Manager**  
 Supported events include the following:  

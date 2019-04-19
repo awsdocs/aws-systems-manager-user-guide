@@ -1,15 +1,21 @@
 # Enable AWS KMS Key Encryption of Session Data \(Console\)<a name="session-preferences-enable-encryption"></a>
 
-AWS Key Management Service \(AWS KMS\) lets you create and manage keys and control the use of encryption across a wide range of AWS services and in your applications\. You can also specify that session data transmitted between your Amazon EC2 instances and the local machines of users in your AWS account is encrypted using AWS KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) AWS KMS key encryption for sessions is accomplished using a customer master key \(CMK\) that has been created in AWS KMS\. Both the user starting the Session Manager session and the instance that the session connects to must have permission to use the key\. For information about IAM policy permissions for using a CMK with Session Manager, see [Step 2: Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md) and [Quickstart Default IAM Policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
+Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your Amazon EC2 instances and the local machines of users in your AWS account is encrypted using AWS KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) AWS KMS key encryption for sessions is accomplished using a customer master key \(CMK\) that is created in AWS KMS\.
 
-You can use a key that you have created in your AWS account\. You can also use a key that has been created in a different AWS account, provided that the creator of that key has provided you with the permissions needed to use the key\.
+You can use a key that you created in your AWS account\. You can also use a key that was created in a different AWS account\. The creator of the key in a different AWS account must provide you with the permissions needed to use the key\.
 
-You can also use the CLI to specify or change the AWS KMS key that is used to encrypt session data\. For information, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+After you enable AWS KMS key encryption for your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the CMK with Session Manager through IAM policies\. For information, see the following topics:
++ Add CMK permissions for users in your account: [Quickstart Default IAM Policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
++ Add CMK permissions for instances in your account: [Step 2: Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
 
-For information about creating and managing AWS KMS keys, see [https://docs.aws.amazon.com/kms/latest/developerguide/](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
+For more information about creating and managing AWS KMS keys, see the [https://docs.aws.amazon.com/kms/latest/developerguide/](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
+
+For information about using the AWS CLI to enable AWS KMS key encryption of session data in your account, see [Create Session Manager Preferences \(AWS CLI\)](getting-started-create-preferences-cli.md) or [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
 
 **Note**  
-CMKs are priced resources\. For information, see [AWS Key Management Service pricing](docs.aws.amazon.comkms/pricing/)\.
+There is a charge to use CMKs\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/)\.
+
+**To enable AWS KMS key encryption of session data \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

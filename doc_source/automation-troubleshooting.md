@@ -14,7 +14,7 @@ This section includes information about common Automation errors\.
 
 ### VPC not defined 400<a name="automation-trbl-common-vpc"></a>
 
-By default, when Automation runs either the AWS\-UpdateLinuxAmi document or the AWS\-UpdateWindowsAmi document, the system creates a temporary instance in the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:
+By default, when Automation runs either the `AWS-UpdateLinuxAmi` document or the `AWS-UpdateWindowsAmi` document, the system creates a temporary instance in the default VPC \(172\.30\.0\.0/16\)\. If you deleted the default VPC, you will receive the following error:
 
 VPC not defined 400
 
@@ -466,7 +466,7 @@ When you run an Automation, an assume role is either provided in the document or
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting Up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\.
++ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Getting Started with Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\.
 + Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [Task 2: Add a Trust Relationship for Automation](automation-permissions.md#automation-trust2)\. 
 
 ## Execution Started, but Status is Failed<a name="automation-trbl-exstrt"></a>

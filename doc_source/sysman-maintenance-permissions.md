@@ -15,7 +15,7 @@ A service\-linked role for Systems Manager might already have been created in yo
 To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)\.
 
 **Task 2: Configure user permissions**  
-Granting `iam:PassRole` permissions to the users in your account who will assign tasks to Maintenance Windows\. This allows them to pass the role to the Maintenance Window service\. Without this explicit permission, a user can't assign tasks to a Maintenance Window\. 
+Granting `iam:PassRole` permissions to the users in your account who assigns tasks to Maintenance Windows\. This allows them to pass the role to the Maintenance Window service\. Without this explicit permission, a user can't assign tasks to a Maintenance Window\. 
 
 ## Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?<a name="maintenance-window-tasks-service-role"></a>
 

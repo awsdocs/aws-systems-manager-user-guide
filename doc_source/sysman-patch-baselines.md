@@ -26,7 +26,7 @@ For information about which versions of each operating system Patch Manager supp
 |  AWS\-UbuntuDefaultPatchBaseline  |  Ubuntu Server  |  Immediately approves all operating system security\-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra\." There is no wait before approval because reliable release dates are not available in the repos\.  | 
 |  AWS\-RedHatDefaultPatchBaseline  |  Red Hat Enterprise Linux \(RHEL\)   |  Approves all operating system patches that are classified as "Security" and with severity level of "Critical" or "Important" seven days after release\. Also approves all patches that are classified as "Bugfix" seven days after release\.  | 
 | AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server \(SLES\) | Approves all operating system patches that are classified as "Security" and with a severity of "Critical" or "Important" seven days after release\.  | 
-| AWS\-CentOSDefaultPatchBaseline | CentOS | Approves all updates seven days after they become available, including non\-security updates\. | 
+| AWS\-CentOSDefaultPatchBaseline | CentOS | Approves all updates seven days after they become available, including nonsecurity updates\. | 
 
 ## Custom Baselines<a name="patch-manager-baselines-custom"></a>
 

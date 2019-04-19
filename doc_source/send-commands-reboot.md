@@ -6,7 +6,7 @@ If the scripts that you run by using Run Command reboot managed instances, then 
 
 When developing scripts that reboot managed instances, make the scripts idempotent so that script execution continues where it left off after the reboot\. 
 
-Here is an outline example of an idempotent script the reboots the instance mutliple times\.
+Here is an outline example of an idempotent script the reboots the instance multiple times\.
 
 ```
 $name = Get current computer name

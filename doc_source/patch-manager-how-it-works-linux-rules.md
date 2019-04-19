@@ -28,6 +28,8 @@ For information about accepted formats for lists of approved patches and rejecte
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
+For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+
 ## How Patch Baseline Rules Work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
 On Red Hat Enterprise Linux, the patch selection process is as follows:
@@ -46,6 +48,8 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
+
+For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
 
@@ -72,15 +76,7 @@ In the response to this command, all upgradable packages are reported in this fo
 name, priority, section, archive, candidate version
 ```
 
-For Ubuntu Server, the rules for package classification into the different compliance states are as follows:
-+ **Installed**: Packages that are filtered through the patch baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are not upgradable\.
-+ **Missing**: Packages that are filtered through the baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are upgradable\.
-+ **Installed Other**: Packages that are not filtered through the baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are not upgradable\. The compliance level for these packages is set to `UNSPECIFIED`\.
-+ **NotApplicable**: Packages that are included in [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) but are not installed on the system\.
-+ **Failed**: Packages that failed to install during the patch operation\.
-
-**Note**  
-For general information about patch compliance status values that applies to all operating systems, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
+For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 

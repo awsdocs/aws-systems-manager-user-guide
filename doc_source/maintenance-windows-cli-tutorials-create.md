@@ -4,9 +4,9 @@ This tutorial demonstrates how to use the AWS CLI to create and configure a Main
 
 Before you start, make sure you have completed the setup steps listed in [Before You Begin: Verify or Complete Setup Prerequisites](maintenance-windows-tutorials.md#mw-cli-tutorial-setup)\.
 
-As you follow the steps in this tutorial, replace the values in *red* with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you have created\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you create\.
 
 **Topics**
 + [Step 1: Create the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)
-+ [Step 2: Register Target Instances with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-targets.md)
++ [Step 2: Register a Target Instance with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-targets.md)
 + [Step 3: Register Tasks with the Maintenance Window](mw-cli-tutorial-tasks.md)

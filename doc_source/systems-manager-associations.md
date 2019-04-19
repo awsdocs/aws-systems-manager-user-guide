@@ -9,4 +9,3 @@ Use the following topics to help you create and manage State Manager association
 + [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)
 + [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)
 + [Viewing Association Histories](sysman-state-assoc-history.md)
-+ [Executing Systems Manager Automations by using State Manager](systems-manager-state-manager-automation-documents.md)

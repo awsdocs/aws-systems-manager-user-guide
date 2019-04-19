@@ -49,7 +49,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become active\. This allows you to delay activation of the Maintenance Window until the specified future date\.
 
-1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window will no longer run\.
+1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window no longer runs\.
 
 1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled Maintenance Window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
@@ -57,7 +57,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. \(Optional\) In the **Manage tags** area, apply one or more tag key name/value pairs to the Maintenance Window\.
 
-   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a Maintenance Window to identify the type of tasks it will run, the types of targets, and the environment it will run in\. In this case, you could specify the following key name/value pairs:
+   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a Maintenance Window to identify the type of tasks it runs, the types of targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
    + `Key=TaskType,Value=AgentUpdate`
    + `Key=OS,Value=Windows`
    + `Key=Environment,Value=Production`

@@ -112,13 +112,13 @@ Before you start this walkthrough, you must collect Inventory metadata from your
    Default output format [None]: ENTER
    ```
 
-1. \(Optional\) If you want to encrypt the sync, execute the following command to verify that the bucket policy is enforcing the KMS key requirement\.
+1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 
    ```
    aws s3 cp ./A file in the bucket s3://bucket-name/prefix/ --sse aws:kms --sse-kms-key-id "arn:aws:kms:region:AWS-account-ID:key/KMS-key-id" --region region
    ```
 
-1. Execute the following command to create a Resource Data Sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
+1. Run the following command to create a Resource Data Sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
 **Note**  
 If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
 
@@ -132,13 +132,13 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
    aws ssm create-resource-data-sync --sync-name InventoryDataWest --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" --region us-west-1
    ```
 
-   \(Optional\) If you want to encrypt the sync by using AWS KMS, execute the following command to create the sync\. If you encrypt the sync, then the AWS KMS key and the Amazon S3 bucket must be in the same Region\.
+   \(Optional\) If you want to encrypt the sync by using AWS KMS, run the following command to create the sync\. If you encrypt the sync, then the AWS KMS key and the Amazon S3 bucket must be in the same Region\.
 
    ```
    aws ssm create-resource-data-sync --sync-name sync-name --s3-destination "BucketName=bucket-name,Prefix=prefix,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:AWS-account-ID:key/KMS-key-id,Region=bucket-region" --region region
    ```
 
-1. Execute the following command to view the status of sync configuration\. 
+1. Run the following command to view the status of sync configuration\. 
 
    ```
    aws ssm list-resource-data-sync 

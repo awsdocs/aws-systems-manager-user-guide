@@ -1,6 +1,6 @@
 # Use a Shared Systems Manager Document<a name="ssm-using-shared"></a>
 
-When you share a Systems Manager document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and execute a shared document from the Amazon EC2 console, you do not see the ARN\. However, if you want to execute a shared Systems Manager document from a command line application, you must specify a full ARN\. You are shown the full ARN for a Systems Manager document when you execute the command to list documents\. 
+When you share a Systems Manager document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and run a shared document from the Amazon EC2 console, you do not see the ARN\. However, if you want to run a shared Systems Manager document from a command line application, you must specify a full ARN\. You are shown the full ARN for a Systems Manager document when you run the command to list documents\. 
 
 **Note**  
 You are not required to specify ARNs for AWS public documents \(documents that begin with AWS\-\*\) or commands that you own\.
@@ -29,7 +29,7 @@ aws ssm list-documents --document-filter-list key=Owner,value=Private
 aws ssm list-documents --document-filter-list key=Owner,value=All
 ```
 
-**Execute a command from a shared Systems Manager document using a full ARN**
+**Run a command from a shared Systems Manager document using a full ARN**
 
 ```
 aws ssm send-command --document-name FullARN/name
@@ -79,7 +79,7 @@ For example:
 Get-SSMDocumentDescription –Name arn:aws:ssm:us-east-2:12345678912:document/highAvailabilityServerSetup
 ```
 
-**To execute a command from a shared Systems Manager document using a full ARN**
+**To run a command from a shared Systems Manager document using a full ARN**
 
 ```
 Send-SSMCommand –DocumentName FullARN/name –InstanceId IDs

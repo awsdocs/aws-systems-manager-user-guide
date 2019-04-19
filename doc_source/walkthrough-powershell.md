@@ -93,7 +93,7 @@ Get-SSMCommandInvocation -CommandId $runPSCommand.CommandId -Details $true -Inst
 
 ### Cancel a command<a name="walkthrough-powershell-run-script-cancel-command"></a>
 
-The following command cancels the Send\-SSMComand for the AWS\-RunPowerShellScript document\.
+The following command cancels the Send\-SSMCommand for the AWS\-RunPowerShellScript document\.
 
 ```
 $cancelCommandResponse=Send-SSMCommand -InstanceId @('Instance-ID','Instance-ID') -DocumentName AWS-RunPowerShellScript -Comment 'Demo AWS-RunPowerShellScript with two instances' -Parameter @{'commands'='Start-Sleep –Seconds 120; dir C:\'} 

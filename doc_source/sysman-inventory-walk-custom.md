@@ -21,13 +21,13 @@ The following procedure walks you through the process of using the [PutInventory
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to assign rack location information to an instance\.
+1. Run the following command to assign rack location information to an instance\.
 
    ```
    aws ssm put-inventory --instance-id "ID" --items '[{"CaptureTime": "2016-08-22T10:01:01Z", "TypeName": "Custom:RackInfo", "Content":[{"RackLocation": "Bay B/Row C/Rack D/Shelf E"}], "SchemaVersion": "1.0"}]'
    ```
 
-1. Execute the following command to view custom inventory entries for this instance\.
+1. Run the following command to view custom inventory entries for this instance\.
 
    ```
    aws ssm list-inventory-entries --instance-id ID --type-name "Custom:RackInfo"
@@ -49,7 +49,7 @@ The following procedure walks you through the process of using the [PutInventory
    }
    ```
 
-1. Execute the following command to view the custom metadata\.
+1. Run the following command to view the custom metadata\.
 
    ```
    aws ssm get-inventory

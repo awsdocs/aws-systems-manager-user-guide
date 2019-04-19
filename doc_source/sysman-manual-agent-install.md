@@ -27,6 +27,8 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 **To install SSM Agent on Amazon Linux or Amazon Linux 2**
 
 1. Use one of the following commands to download and run the SSM Agent installer\. 
+**Note**  
+Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs for downloading Amazon Linux and Amazon Linux 2\.
 
    Intel \(x86\_64\) 64\-bit instances:
 

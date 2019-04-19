@@ -7,7 +7,7 @@ The final step of the Automation workflow in this example uses an AWS Lambda fun
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
 + Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** Automation document created in that example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting Up Automation](automation-setup.md)\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting Started with Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
 ## Task 1: Create an IAM Role for AWS Lambda<a name="automation-asg1"></a>
@@ -152,7 +152,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting Up Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
 
    ```
    {
@@ -294,7 +294,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting Up Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
 
    ```
    {

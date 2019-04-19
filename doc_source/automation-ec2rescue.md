@@ -173,9 +173,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Document details** section verify that **Document version** is set to the highest default version\. For example, **6 \(default\)**\.
 
-1. In the **Execution mode** section, choose **Execute the entire automation at once**\.
-
-1. Leave the **Targets and Rate Control** option disabled\.
+1. In the **Execution mode** section, choose **Simple Execution**\.
 
 1. In the **Input parameters** section, specify the following parameters: 
 

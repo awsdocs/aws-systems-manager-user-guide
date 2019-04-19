@@ -17,6 +17,7 @@ When granting permissions, the account administrator decides who gets the permis
 ## AWS Systems Manager Resources and Operations<a name="arn-formats"></a>
 
 Systems Manager includes several primary resources:
++ Association
 + Automation definition
 + Automation execution
 + Document
@@ -39,6 +40,7 @@ The following table shows the structure of the ARN format for each resource type
 
 | Resource Type | ARN Format | 
 | --- | --- | 
+| Association | arn:aws:ssm:region:account\-id:association/association\-id | 
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
 | Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id*  | 
 | Document |  arn:aws:ssm:*region*:*account\-id*:document/*document\-name*  | 
@@ -136,6 +138,7 @@ The types of actions that you can control access to with resource\-based policie
 |  Resource types  |  Action types  | 
 | --- | --- | 
 |  All  |  View and list details about resources  | 
+|  Association  |  Create Delete Start Update  | 
 |  Automation definition  |  Start Stop  | 
 |  Document Maintenance Window Parameter  |  Create Delete Update  | 
 |  Managed instance  |  Deregister Register  | 

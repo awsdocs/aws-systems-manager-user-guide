@@ -91,14 +91,14 @@ Administrators can specify read\-only permission by assigning the following inli
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
-## Enabling the Advanced\-Instances Tier<a name="systems-manager-managedinstances-advanced-enabling"></a>
+## Enabling the Advanced\-Instances Tier \(Console\)<a name="systems-manager-managedinstances-advanced-enabling"></a>
 
-Use the following procedure to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+The following procedure shows you how to use the Systems Manager console to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
 
 **Important**  
 The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.
 
-**To enable the advanced\-instances tier**
+**To enable the advanced\-instances tier \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -109,5 +109,77 @@ The following procedure describes how to change an account\-level setting\. This
 1. Choose **Change account settings**\.
 
 1. Review the information in the pop\-up about changing account settings, and then, if you approve, choose the option to accept and continue\.
+
+The system can take several minutes to complete the process of moving all instances from the standard\-instances tier to the advanced\-instances tier\.
+
+## Enabling the Advanced\-Instances Tier \(AWS CLI\)<a name="systems-manager-managedinstances-advanced-enabling-cli"></a>
+
+The following procedure shows you how to use the AWS CLI to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+
+**Important**  
+The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.
+
+**To enable the advanced\-instances tier using the AWS CLI**
+
+1. Open the AWS CLI and run the following command to change all managed instances in the current AWS account and Region to use the advanced\-instances tier\.
+
+   ```
+   aws ssm update-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier --setting-value advanced
+   ```
+
+   There is no output if the command succeeds\.
+
+1. Run the following command to view the current service settings for managed instances in the current AWS account and Region\.
+
+   ```
+   aws ssm get-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier
+   ```
+
+   ```
+   {
+       "ServiceSetting": {
+           "SettingId": "/ssm/managed-instance/activation-tier",
+           "SettingValue": "advanced",
+           "LastModifiedDate": 1555603376.138,
+           "LastModifiedUser": "arn:aws:sts::123456789012:assumed-role/Administrator/Jasper",
+           "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier",
+           "Status": "PendingUpdate"
+       }
+   }
+   ```
+
+The system can take several minutes to complete the process of moving all instances from the standard\-instances tier to the advanced\-instances tier\.
+
+## Enabling the Advanced\-Instances Tier \(PowerShell\)<a name="systems-manager-managedinstances-advanced-enabling-ps"></a>
+
+The following procedure shows you how to use the AWS Tools for Windows PowerShell to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+
+**Important**  
+The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.
+
+**To enable the advanced\-instances tier using PowerShell**
+
+1. Change all managed instances in the current AWS account and Region to use the advanced\-instances tier using the AWS Tools for Windows PowerShell\.
+
+   ```
+   Update-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier" -SettingValue "advanced"
+   ```
+
+   There is no output if the command succeeds\.
+
+1. Run the following command to view the current service settings for managed instances in the current AWS account and Region\.
+
+   ```
+   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier"
+   ```
+
+   ```
+   ARN              : arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier
+   LastModifiedDate : 4/18/2019 4:02:56 PM
+   LastModifiedUser : arn:aws:sts::123456789012:assumed-role/Administrator/Jasper
+   SettingId        : /ssm/managed-instance/activation-tier
+   SettingValue     : advanced
+   Status           : PendingUpdate
+   ```
 
 The system can take several minutes to complete the process of moving all instances from the standard\-instances tier to the advanced\-instances tier\.

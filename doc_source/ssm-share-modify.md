@@ -41,7 +41,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 ## Stop Sharing a Document \(AWS CLI\)<a name="unshare-using-cli"></a>
 
-Open the AWS CLI on your local computer and execute the following command to stop sharing a command\.
+Open the AWS CLI on your local computer and run the following command to stop sharing a command\.
 
 ```
 aws ssm modify-document-permission --name document name --permission-type Share --account-ids-to-remove 'AWS account ID'
@@ -49,7 +49,7 @@ aws ssm modify-document-permission --name document name --permission-type Share 
 
 ## Stop Sharing a Document \(AWS Tools for Windows PowerShell\)<a name="unshare-using-ps"></a>
 
-Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to stop sharing a command\. 
+Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to stop sharing a command\. 
 
 ```
 Edit-SSMDocumentPermission -Name document name –AccountIdsToRemove AWS account ID -PermissionType Share

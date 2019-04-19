@@ -1,17 +1,15 @@
-# Share a Systems Manager Document<a name="ssm-how-to-share"></a>
+# Sharing a Systems Manager Automation Document<a name="automation-share-document"></a>
 
-You can share Systems Manager document by using the Amazon EC2 console, the AWS Systems Manager console, or by programmatically calling the `ModifyDocumentPermission` API operation using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
+You can share a Systems Manager Automation document by using the AWS Systems Manager console, or by programmatically calling the `ModifyDocumentPermission` API operation using the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share an Automation document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
 **Topics**
-+ [Share a Document \(Console\)](#share-using-console)
-+ [Share a Document \(AWS CLI\)](#share-using-cli)
-+ [Share a Document \(AWS Tools for Windows PowerShell\)](#share-using-ps)
++ [Share an Automation Document \(Console\)](#automation-share-using-console)
++ [Share a Document \(AWS CLI\)](#automation-share-using-cli)
++ [Share an Automation Document \(AWS Tools for Windows PowerShell\)](#automation-share-using-ps)
 
-## Share a Document \(Console\)<a name="share-using-console"></a>
+## Share an Automation Document \(Console\)<a name="automation-share-using-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Share a document \(AWS Systems Manager\)**
+**To share an Automation document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -23,27 +21,13 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the documents list, choose the document you want to share, and then choose **View details**\. On the **Permissions** tab, verify that you are the document owner\. Only a document owner can share a document\.
 
-1. Choose **Edit**\.
+1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add**, and then choose **Save**\. 
 
-1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add permission**, and then choose **Save**\. 
+## Share a Document \(AWS CLI\)<a name="automation-share-using-cli"></a>
 
-**Share a document \(Amazon EC2 Systems Manager\)**
+The following procedure requires that you specify a region for your CLI session\.
 
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Documents**\.
-
-1. In the documents list, choose the document you want to share\. Choose the **Permissions** tab and verify that you are the document owner\. Only a document owner can share a document\.
-
-1. Choose **Edit**\.
-
-1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add Permission**, and then choose **Save**\. 
-
-## Share a Document \(AWS CLI\)<a name="share-using-cli"></a>
-
-The following procedure requires that you specify a region for your CLI session\. Run Command is currently available in the following Systems Manager [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
-
-1. Open the AWS CLI on your local computer and run the following command to specify your credentials\. 
+1. Open the AWS CLI on your local computer and execute the following command to specify your credentials\. 
 
    ```
    aws config
@@ -56,10 +40,16 @@ The following procedure requires that you specify a region for your CLI session\
 
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
 
-1. Use the following command to list all of the Systems Manager documents that are available for you\. The list includes documents that you created and documents that were shared with you\. 
+1. Use the following command to list all of the Systems Manager Automation documents that are available for you\. The list includes documents that you created and documents that were shared with you\. 
 
    ```
-   aws ssm list-documents --document-filter-list key=Owner,value=all
+   aws ssm list-documents --document-filter-list key=Owner,value=all key=DocumentType,value=Automation
+   ```
+
+1. Use the following command to list all of the Systems Manager Automation documents that you created\.
+
+   ```
+   aws ssm list-documents --document-filter-list key=Owner,value=self key=DocumentType,value=Automation
    ```
 
 1. Use the following command to get a specific document\.
@@ -89,14 +79,14 @@ The following procedure requires that you specify a region for your CLI session\
    Use the following command to share a document publicly\.
 
    ```
-   aws ssm modify-document-permission --name document name --permission-type Share --account-ids-to-add 'all'
+   aws ssm modify-document-permission --name document name --permission-type Share --account-ids-to-add all
    ```
 
-## Share a Document \(AWS Tools for Windows PowerShell\)<a name="share-using-ps"></a>
+## Share an Automation Document \(AWS Tools for Windows PowerShell\)<a name="automation-share-using-ps"></a>
 
-The following procedure requires that you specify a region for your PowerShell session\. Run Command is currently available in the following Systems Manager [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+The following procedure requires that you specify a region for your PowerShell session\.
 
-1. Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. 
+1. Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to specify your credentials\. 
 
    ```
    Set-AWSCredentials –AccessKey your key –SecretKey your key
@@ -108,10 +98,16 @@ The following procedure requires that you specify a region for your PowerShell s
    Set-DefaultAWSRegion -Region us-west-2
    ```
 
-1. Use the following command to list all of the Systems Manager documents available for you\. The list includes documents that you created and documents that were shared with you\. 
+1. Use the following command to list all of the Systems Manager Automation documents available for you\. The list includes documents that you created and documents that were shared with you\. 
 
    ```
-   Get-SSMDocumentList -DocumentFilterList (@{"key"="Owner";"value"="All"})
+   Get-SSMDocumentList -DocumentFilterList (@{"key"="Owner";"value"="All"},@{"key"="DocumentType";"value"="Automation"})
+   ```
+
+1. Use the following command to list all of the Systems Manager Automation documents that you have created\. 
+
+   ```
+   Get-SSMDocumentList -DocumentFilterList (@{"key"="Owner";"value"="Self"},@{"key"="DocumentType";"value"="Automation"})
    ```
 
 1. Use the following command to get a specific document\.
@@ -129,7 +125,7 @@ The following procedure requires that you specify a region for your PowerShell s
 1. Use the following command to view the permissions of the document\. 
 
    ```
-   Get-SSMDocumentPermission –Name document name -PermissionType Share
+   Get- SSMDocumentPermission –Name document name -PermissionType Share
    ```
 
 1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. This command privately shares the document with a specific individual, based on that person's AWS account ID\.

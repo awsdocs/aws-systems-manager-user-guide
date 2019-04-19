@@ -17,7 +17,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
 **Note**  
-`"sns.amazonaws.com"` is required only if you'll use Amazon SNS to send notifications related to Maintenance Window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API\.
+`"sns.amazonaws.com"` is required only if you plan to use Amazon SNS to send notifications related to Maintenance Window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API\.
 
    ```
    {
@@ -63,7 +63,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 ## Task 2: Assign the IAM PassRole Policy to an IAM User or Group \(AWS CLI\)<a name="sysman-mw-passrole-ps"></a>
 
-When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service will assume when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
+When you register a task with a Maintenance Window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the Maintenance Window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 1. Copy and paste the following IAM policy into a text editor and save it with the `.json` file extension\.
 
@@ -96,7 +96,7 @@ When you register a task with a Maintenance Window, you specify either a custom 
      Write-IAMUserPolicy -UserName user-name -PolicyDocument (Get-Content -raw path-to-document) -PolicyName policy-name
      ```
 
-     For *user\-name*, specify the IAM user who will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
+     For *user\-name*, specify the IAM user who assigns tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
 **Note**  
 If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account:  
 
@@ -109,7 +109,7 @@ If you plan to register tasks for Maintenance Windows using the AWS Systems Mana
      Write-IAMGroupPolicy -GroupName group-name -PolicyDocument (Get-Content -raw path-to-document) -PolicyName policy-name
      ```
 
-     For *group\-name*, specify the IAM group that will assign tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
+     For *group\-name*, specify the IAM group that assigns tasks to Maintenance Windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `C:\temp\passrole-policy.json`
 **Note**  
 If you plan to register tasks for Maintenance Windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your group:  
 

@@ -1,4 +1,4 @@
-# Configuring CloudWatch Events for Systems Manager Automation \(Optional\)<a name="automation-cwe"></a>
+# Configuring CloudWatch Events for Systems Manager Automation<a name="automation-cwe"></a>
 
 You can configure Amazon CloudWatch Events to notify you of Systems Manager Automation events\. For example, you can configure CloudWatch Events to send notifications when an Automation step succeeds or fails\. You can also configure CloudWatch Events to send notifications if the Automation workflow succeeds or fails\. Use the following procedure to configure CloudWatch Events to send notification about Automation events\.
 

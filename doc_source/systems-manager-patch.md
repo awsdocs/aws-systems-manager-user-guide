@@ -1,6 +1,6 @@
 # AWS Systems Manager Patch Manager<a name="systems-manager-patch"></a>
 
-AWS Systems Manager Patch Manager automates the process of patching managed instances with security\-related updates\. For Linux\-based instances, you can also install patches for non\-security updates\. You can patch fleets of Amazon EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Ubuntu Server, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), CentOS, Amazon Linux, and Amazon Linux 2\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
+AWS Systems Manager Patch Manager automates the process of patching managed instances with security\-related updates\. For Linux\-based instances, you can also install patches for nonsecurity updates\. You can patch fleets of Amazon EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Ubuntu Server, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), CentOS, Amazon Linux, and Amazon Linux 2\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
 
 **Important**  
 AWS does not test patches for Windows or Linux before making them available in Patch Manager\.

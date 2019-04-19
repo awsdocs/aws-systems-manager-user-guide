@@ -12,7 +12,7 @@ If the status of the inventory association for an instance shows **Skipped**, th
 
 **Failed**
 
-If the status of the inventory association for an instance shows **Failed**, this could mean that the instance has multiple inventory associations assigned to it\. An instance can only have one inventory association assigned at a time\. An inventory association uses the AWS\-GatherSoftwareInventory SSM document\. You can execute the following command by using the AWS CLI to view a list of associations for an instance\.
+If the status of the inventory association for an instance shows **Failed**, this could mean that the instance has multiple inventory associations assigned to it\. An instance can only have one inventory association assigned at a time\. An inventory association uses the AWS\-GatherSoftwareInventory SSM document\. You can run the following command by using the AWS CLI to view a list of associations for an instance\.
 
 ```
 aws ssm describe-instance-associations-status --instance-id instance ID

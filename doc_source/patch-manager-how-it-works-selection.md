@@ -3,7 +3,7 @@
 The primary focus of Patch Manager is on installing operating systems security\-related updates on instances\. By default, Patch Manager doesn't install all available patches, but rather a smaller set of patches focused on security\.
 
 **Note**  
-On all Linux\-based systems supported by Patch Manager, you can choose a different source repository configured for the instance, typically to install non\-security updates\. For information, see [How to Specify an Alternative Patch Source Repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
+On all Linux\-based systems supported by Patch Manager, you can choose a different source repository configured for the instance, typically to install nonsecurity updates\. For information, see [How to Specify an Alternative Patch Source Repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 
 Choose from the following tabs to learn how Patch Manager selects security patches for your operating system\.
 
@@ -20,7 +20,7 @@ Download the current version of `wsusscn2.cab`:
 ------
 #### [ Amazon Linux and Amazon Linux 2 ]
 
-On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service uses pre\-configured repositories on the instance\. There are usually two pre\-configured repositories \(repos\) on an instance:
+On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service uses preconfigured repositories on the instance\. There are usually two preconfigured repositories \(repos\) on an instance:
 + **Repo ID**: amzn\-main/latest
 
   **Repo name**: amzn\-main\-Base
@@ -39,7 +39,7 @@ If you select the **Approved patches include non\-security updates** check box i
 ------
 #### [ RHEL ]
 
-On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses pre\-configured repositories \(repos\) on the instance\. There are usually three pre\-configured repos on an instance:
+On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually three preconfigured repos on an instance:
 + **Repo ID**: rhui\-REGION\-client\-config\-server\-7/x86\_64
 
   **Repo name**: Red Hat Update Infrastructure 2\.0 Client Configuration Server 7
@@ -61,7 +61,7 @@ If you select the **Approved patches include non\-security updates** check box i
 ------
 #### [ Ubuntu ]
 
-On Ubuntu Server, the Systems Manager patch baseline service uses pre\-configured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
+On Ubuntu Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
 Packages are then filtered from `codename-security` repos, where the codename is something like `trusty` or `xenial`\. For example, on Ubuntu Server 14, Patch Manager only identifies upgrades that are part of `trusty-security`\. On Ubuntu Server 16, only upgrades that are part of `xenial-security` are identified\.
 
@@ -77,7 +77,7 @@ SLES instances use Zypper as the package manager, and Zypper uses the concept of
 ------
 #### [ CentOS ]
 
-On CentOS, the Systems Manager patch baseline service uses pre\-configured repositories \(repos\) on the instance\. Here are some examples from a CentOS 6\.9 Amazon Machine Image \(AMI\):
+On CentOS, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. Here are some examples from a CentOS 6\.9 Amazon Machine Image \(AMI\):
 + **Repo ID**: ultra\-centos\-6\.9\-base
 
   **Repo name**: UltraServe CentOS\-6\.9 \- Base

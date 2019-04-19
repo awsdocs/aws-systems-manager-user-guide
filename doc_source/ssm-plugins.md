@@ -43,7 +43,7 @@ Type: String
 Required: No
 
 **parameters**  
-`parameters` is a structure that contains one or more parameters to execute when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\.  
+`parameters` is a structure that contains one or more parameters to run when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` Examples](#top-level-properties-type) in the next section\.
@@ -63,7 +63,7 @@ Type: Dictionary<string,PluginConfiguration>
 Required: No
 
 **mainSteps**  
-\(Schema version 0\.3, 2\.0, and 2\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins are organized as *actions* within steps\. Steps execute in sequential order as listed in the document\.   
+\(Schema version 0\.3, 2\.0, and 2\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins are organized as *actions* within steps\. Steps run in sequential order as listed in the document\.   
 Type: Dictionary<string,PluginConfiguration>  
 Required: No
 
@@ -691,7 +691,7 @@ Required: No
 
 ## aws:runDocument<a name="aws-rundocument"></a>
 
-\(Schema version 2\.0 or later\) Executes SSM documents stored in Systems Manager or on a local share\. You can use this plugin with the [aws:downloadContent](#aws-downloadContent) plugin to download an SSM document from a remote location to a local share, and then run it\. This plugin is supported on Linux and Windows Server operating systems\.
+\(Schema version 2\.0 or later\) Runs SSM documents stored in Systems Manager or on a local share\. You can use this plugin with the [aws:downloadContent](#aws-downloadContent) plugin to download an SSM document from a remote location to a local share, and then run it\. This plugin is supported on Linux and Windows Server operating systems\.
 
 ### Syntax<a name="rundocument-syntax"></a>
 
@@ -755,7 +755,7 @@ Run PowerShell scripts or specify the path to a script to run\. This plugin runs
       "name":"step name",
       "inputs":{
          "timeoutSeconds":"Timeout in seconds",
-         "runCommand":"[Command to execute]"
+         "runCommand":"[Command to run]"
                 }
     }
    ]
@@ -844,7 +844,7 @@ Run Linux shell scripts or specify the path to a script to run\. This plugin onl
       "name":"step name",
       "inputs":{
          "timeoutSeconds":"Timeout in seconds",
-         "runCommand":"[Command to execute]"
+         "runCommand":"[Command to run]"
                 }
     }
    ]

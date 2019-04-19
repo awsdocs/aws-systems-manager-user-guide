@@ -104,7 +104,7 @@ Use the follow procedure to enable SSM Agent debug logging on Windows Server and
 
    1. **Linux**: /etc/amazon/ssm/seelog\.xml\.template
 
-1. Edit the seelog\.xml file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
+1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
    ```
    <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">

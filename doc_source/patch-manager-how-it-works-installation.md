@@ -37,7 +37,7 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
      ```
      sudo yum update-minimal --sec-severity=critical,important --bugfix 
      ```
-   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and non\-security updates\)\.
+   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
      The equivalent yum command for this workflow is:
 
@@ -70,7 +70,7 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
      ```
      sudo yum update-minimal --sec-severity=critical,important --bugfix 
      ```
-   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and non\-security updates\)\.
+   + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
      The equivalent yum command for this workflow is:
 

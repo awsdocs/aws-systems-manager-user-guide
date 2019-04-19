@@ -51,7 +51,7 @@ The system returns information like the following\.
 ```
 
 **Getting started**  
-Determine the Inventory types and data types for which you want to view counts\. You can view a list of Inventory types and data types that support aggregation by executing the following command in the AWS CLI:
+Determine the Inventory types and data types for which you want to view counts\. You can view a list of Inventory types and data types that support aggregation by running the following command in the AWS CLI:
 
 ```
 aws ssm get-inventory-schema --aggregator
@@ -298,7 +298,7 @@ For example, say that you have four managed instances configured to collect the 
 + Instance 3: AWS:Application, AWS:File
 + Instance 4: AWS:Network
 
-You can execute the following command from the AWS CLI to see how many instances are configured to collect both the AWS:Application and AWS:File Inventory types\. The response also returns a count of how many instance aren't configured to collect both of these Inventory types\.
+You can run the following command from the AWS CLI to see how many instances are configured to collect both the AWS:Application and AWS:File Inventory types\. The response also returns a count of how many instance aren't configured to collect both of these Inventory types\.
 
 ```
 aws ssm get-inventory --aggregators 'Groups=[{Name=ApplicationAndFile,Filters=[{Key=TypeName,Values=[AWS:Application],Type=Exists},{Key=TypeName,Values=[AWS:File],Type=Exists}]}]'
@@ -371,13 +371,13 @@ aws ssm get-inventory --cli-input-json file://file_name.json
 ```
 
 **Additional examples**  
-The following examples show you how to aggregate Inventory data to see which managed instances are and aren't configured to collect the specified Inventory types\. These examples use the AWS CLI\. Each example includes a full command with filters that you can execute from the command line and a sample input\.json file if you prefer to enter the information in a file\.
+The following examples show you how to aggregate Inventory data to see which managed instances are and aren't configured to collect the specified Inventory types\. These examples use the AWS CLI\. Each example includes a full command with filters that you can run from the command line and a sample input\.json file if you prefer to enter the information in a file\.
 
 **Example 1**
 
 This example aggregates a count of instances that are and aren't configured to collect either the AWS:Application or the AWS:File Inventory types\.
 
-Execute the following command from the AWS CLI\.
+Run the following command from the AWS CLI\.
 
 ```
 aws ssm get-inventory --aggregators 'Groups=[{Name=ApplicationORFile,Filters=[{Key=TypeName,Values=[AWS:Application, AWS:File],Type=Exists}]}]'
@@ -409,7 +409,7 @@ If you prefer to use a file, copy and paste the following sample into a file and
 }
 ```
 
-Execute the following command from the AWS CLI\.
+Run the following command from the AWS CLI\.
 
 ```
 aws ssm get-inventory --cli-input-json file://input.json
@@ -442,7 +442,7 @@ The command returns information like the following:
 
 This example aggregates a count of instances that are and aren't configured to collect the AWS:Application, AWS:File, and AWS:Network inventory types\.
 
-Execute the following command from the AWS CLI\.
+Run the following command from the AWS CLI\.
 
 ```
 aws ssm get-inventory --aggregators 'Groups=[{Name=Application,Filters=[{Key=TypeName,Values=[AWS:Application],Type=Exists}]}, {Name=File,Filters=[{Key=TypeName,Values=[AWS:File],Type=Exists}]}, {Name=Network,Filters=[{Key=TypeName,Values=[AWS:Network],Type=Exists}]}]'
@@ -497,7 +497,7 @@ If you prefer to use a file, copy and paste the following sample into a file and
 }
 ```
 
-Execute the following command from the AWS CLI\.
+Run the following command from the AWS CLI\.
 
 ```
 aws ssm get-inventory --cli-input-json file://input.json

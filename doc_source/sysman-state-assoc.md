@@ -23,22 +23,22 @@ You can view information about a document by choosing the document name\.
 1. In the **Advanced options** section:
    + In **Compliance severity**, choose a severity level for the association\. Compliance reporting will indicate whether the association state is compliant or non\-compliant, along with the severity level you indicate here\. For more information, see [About State Manager Association Compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-1. In the **Rate control** section, configure options for executing State Manager associations across of fleet of managed instances\. For more information about these options, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In the **Rate control** section, configure options for running State Manager associations across of fleet of managed instances\. For more information about these options, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In the **Concurrency** section, choose an option: 
-   + Choose **targets** to enter an absolute number of targets that can execute the association simultaneously\.
-   + Choose **percentage** to enter a percentage of the target set that can execute the association simultaneously\.
+   + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
+   + Choose **percentage** to enter a percentage of the target set that can run the association simultaneously\.
 
    In the **Error threshold** section, choose an option:
-   + Choose **errors** to enter an absolute number of errors allowed before State Manager stops executing associations on additional targets\.
-   + Choose **percentage** to enter a percentage of errors allowed before State Manager stops executing associations on additional targets\.
+   + Choose **errors** to enter an absolute number of errors allowed before State Manager stops running associations on additional targets\.
+   + Choose **percentage** to enter a percentage of errors allowed before State Manager stops running associations on additional targets\.
 
 1. In the **Output options** section, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an Amazon S3 bucket\.
 
 1. Choose **Create Association**\. 
 
-State Manager creates and immediately executes the association on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations are only executed on instances that are online when the interval starts\. Offline instances are skipped\.
-+ State Manager attempts to execute the association on all configured instances during an interval\.
-+ If an association is not executed during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to execute the association during the next interval\.
+State Manager creates and immediately runs the association on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
++ Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
++ State Manager attempts to run the association on all configured instances during an interval\.
++ If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.

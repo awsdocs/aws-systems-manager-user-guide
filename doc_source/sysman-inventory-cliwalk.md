@@ -30,7 +30,7 @@ You can quickly configure all managed instances in your AWS account and in the c
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command\.
+1. Run the following command\.
 
    ```
    aws ssm create-association --name AWS-GatherSoftwareInventory --targets Key=InstanceIds,Values=* --schedule-expression "rate(1 day)" --parameters applications=Enabled,awsComponents=Enabled,customInventory=Enabled,instanceDetailedInformation=Enabled,networkConfig=Enabled,services=Enabled,windowsRoles=Enabled,windowsUpdates=Enabled
@@ -62,7 +62,7 @@ Use the following procedure to manually configure Inventory on your managed inst
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to create a State Manager association that runs Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
+1. Run the following command to create a State Manager association that runs Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
 
    ```
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=an instance ID" --schedule-expression "cron(0 0/30 * 1/1 * ? *)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region-id\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
@@ -127,7 +127,7 @@ Use the following procedure to manually configure Inventory on your managed inst
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" --schedule-expression "cron(0 0/30 * 1/1 * ? *)"  --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' --profile dev-pdx
    ```
 
-1. Execute the following command to view the association status\.
+1. Run the following command to view the association status\.
 
    ```
    aws ssm describe-instance-associations-status --instance-id an instance ID

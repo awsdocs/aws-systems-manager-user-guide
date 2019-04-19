@@ -63,7 +63,7 @@ Use the following procedure to view the execution history for a specific associa
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to view a list of executions for a specific association ID\. This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filter parameter.`
+1. Run the following command to view a list of executions for a specific association ID\. This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filter parameter.`
 
    ```
    aws ssm describe-association-executions --association-id ID --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN
@@ -114,7 +114,7 @@ Use the following procedure to view the execution history for a specific associa
    aws ssm describe-association-executions --association-id ID --filters Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN Key=Status,Value=Success,Type=EQUAL
    ```
 
-1. Execute the following command to view all targets where the specific execution ran\.
+1. Run the following command to view all targets where the specific execution ran\.
 
    ```
    aws ssm describe-association-execution-targets --association-id ID --execution-id ID
