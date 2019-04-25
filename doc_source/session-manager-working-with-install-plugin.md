@@ -72,8 +72,6 @@ The bundled installer does not support installing to paths that contain spaces\.
    ```
    unzip sessionmanager-bundle.zip
    ```
-**Note**  
-If you don't have `unzip`, use your Linux distribution's built in package manager to install it\. 
 
 1. Run the install command:
 
