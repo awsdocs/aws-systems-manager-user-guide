@@ -38,7 +38,7 @@ aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name docum
 The following example creates an association on instances tagged with "Environment,Linux"\. The association uses the AWS\-UpdateSSMAgent document to updates SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ```
-aws ssm create-association --association-name Update_SSM_Agent_Linux --targets Key=tag:Environment,Values=Linux --name AWS-UpdateSSMAgent  --compliance-severity "MEDIUM" --schedule "cron(0 0 2 ? * SUN *)"
+aws ssm create-association --association-name Update_SSM_Agent_Linux --targets Key=tag:Environment,Values=Linux --name AWS-UpdateSSMAgent  --compliance-severity "MEDIUM" --schedule "cron(0 2 ? * SUN *)"
 ```
 
 **Note**  

@@ -43,7 +43,7 @@ Type: String
 Required: No
 
 **parameters**  
-`parameters` is a structure that contains one or more parameters to run when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\.  
+`parameters` is a structure that contains one or more parameters to run when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` Examples](#top-level-properties-type) in the next section\.

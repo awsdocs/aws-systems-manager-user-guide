@@ -24,13 +24,13 @@ The following procedure walks you through the process of creating and storing a 
 1. Execute the following command to create a parameter that uses the String data type\. The `--name` parameter uses a hierarchy\. For more information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String --tier Standard or Advanced
    ```
 
    Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String 
+   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String --tier Advanced
    ```
 
    The command returns the version number of the parameter\.
@@ -99,28 +99,28 @@ The following procedure walks you through the process of creating and storing a 
    aws ssm send-command --document-name "AWS-RunShellScript" --parameters '{"commands":["echo {{ssm:/Test/IAD/helloWorld}}"]}' --targets "Key=instanceids,Values=instance-ids"
    ```
 
-Use the following procedure to create a Secure String parameter\. For more information about Secure String parameters, see [Using Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
+Use the following procedure to create a secure string parameter\. For more information about secure string parameters, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
 
-**To create a Secure String parameter using the AWS CLI**
+**To create a secure string parameter using the AWS CLI**
 
-1. Execute one of the following commands to create a parameter that uses the Secure String data type\.
+1. Execute one of the following commands to create a parameter that uses the `SecureString` datatype\.
 
-   **Create a Secure String parameter that uses your default KMS key**
+   **Create a secure string parameter that uses a customer managed customer master key \(CMK\)**
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a value, for example P@ssW%rd#1" --type "SecureString"
    ```
 
-   **Create a Secure String parameter that uses a custom AWS KMS key**
+   **Create a secure string parameter that uses a custom AWS KMS key**
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key"
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key" --tier Standard or Advanced
    ```
 
-   Here is an example that uses a custom AWS KMS key\.
+   Here is an example that uses a customer managed CMK\.
 
    ```
-   aws ssm put-parameter --name "my-password" --value "P@ssW%rd#1" --type "SecureString" --key-id "arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e"
+   aws ssm put-parameter --name "my-password" --value "P@ssW%rd#1" --type "SecureString" --key-id "arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e" --tier Advanced
    ```
 
 1. Execute the following command to view the parameter metadata\.
@@ -135,16 +135,16 @@ Use the following procedure to create a Secure String parameter\. For more infor
    aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --overwrite
    ```
 
-   **Updating a Secure String parameter that uses your default KMS key**
+   **Updating a secure string parameter that uses a customer managed customer master key \(CMK\)**
 
    ```
-   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "the-AWS KMS-key-ID" --overwrite
+   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "the-CMK-ID" --overwrite
    ```
 
-   **Updating a Secure String parameter that uses a custom KMS key**
+   **Updating a secure string parameter that uses a customer managed CMK**
 
    ```
-   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "your-AWS-user-account-alias/the-custom-KMS-key" --overwrite
+   aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "your-AWS-user-account-alias/the-CMK-ID" --overwrite
    ```
 
 1. Execute the following command to view the latest parameter value\.

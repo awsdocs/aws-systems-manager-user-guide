@@ -360,6 +360,9 @@ The system returns information like the following\.
 aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
 ```
 
+**Note**  
+For custom patch baselines, you can specify either the patch baseline ID or the full ARN\. For AWS\-provided patch baseline, you must specify the full ARN\. For example, `arn:aws:ssm:us-east-1:075727635805:patchbaseline/pb-03e3f588eec25344c`\.
+
 The system returns information like the following\.
 
 ```

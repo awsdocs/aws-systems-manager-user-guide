@@ -39,7 +39,7 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
 
    `An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}`
 
-1. Execute the following command to create a Secure String parameter that uses your default AWS KMS key\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
+1. Execute the following command to create a secure string parameter that uses an AWS managed customer master key \(CMK\)\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
 
    ```
    aws ssm put-parameter --name "/MyService/Test/my-password" --value "p#sW*rd33" --allowed-pattern ".{8,20}" --type SecureString

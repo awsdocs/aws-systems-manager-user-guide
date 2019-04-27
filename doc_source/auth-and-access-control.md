@@ -6,7 +6,7 @@ Access to AWS Systems Manager requires credentials\. Those credentials must have
 
 For more information about configuring access to AWS Systems Manager, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
 
-For information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations, see [Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\. 
+For information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations, see [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\. 
 
 ## Authentication<a name="authentication"></a>
 

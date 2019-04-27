@@ -30,7 +30,7 @@ If you configure Run Command or a Run Command task in your Maintenance Window fo
 | OutputS3BucketName | String | The Amazon Simple Storage Service \(Amazon S3\) bucket where the responses to the command execution should be stored\.  | 
 | OutputS3KeyPrefix | String | The Amazon S3 directory path inside the bucket where the responses to the command execution should be stored\.  | 
 |  RequestedDateTime  |  String  |  The time and date that the request was sent to this specific instance\.  | 
-|  InstanceId  |  String  |  The instance that was targeted by the command\.  | 
+|  InstanceIds  |  StringList  |  The instances that were targeted by the command\.  Instance IDs are only included in the summary message if the Run Command task targeted instance IDs directly\. Instance IDs are not included in the summary message if the Run Command task was issued using tag\-based targeting\.   | 
 |  Status  |  String  |  Command status for the command\.  | 
 
 If you send a command to multiple instances, Amazon SNS can send messages about each copy or invocation of the command\. The messages include the following information\.

@@ -6,7 +6,7 @@ After you create the instance profile, attach it to the instances that you want 
 
 Note the following details about creating an IAM instance profile:
 + If you are configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, you must configure your servers and VMs to use an IAM service role\. For more information, see [Creating an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\.
-+ The policy AmazonEC2RoleforSSM provides wildcard \(\*\) access to Amazon S3 buckets\. We recommend that you review this policy and adjust if required\. For information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations, see [Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
++ The policy AmazonEC2RoleforSSM provides wildcard \(\*\) access to Amazon S3 buckets\. We recommend that you review this policy and adjust if required\. For information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations, see [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 + If you change the IAM instance profile, it might take some time for the instance credentials to refresh\. SSM Agent will not process requests until this happens\. To speed up the refresh process, you can restart SSM Agent or restart the instance\.
 
 Depending on whether you want to create a new role for your instance profile or you want to add the needed permissions to an existing role, use one of the following procedures\.<a name="setup-instance-profile-managed-policy"></a>

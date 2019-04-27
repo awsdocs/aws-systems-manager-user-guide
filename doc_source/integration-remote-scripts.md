@@ -465,16 +465,30 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to download and run a script from Amazon S3\.
+1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("/"\) you need to run the command from your command line tool\):
+
+   **Windows** local machine:
 
    ```
-   aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "instance-IDs" --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}' 
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
    ```
 
    Here is an example\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "i-abcd1234" --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/RubyTest/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}' 
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/RubyTest/scripts/ruby/helloWorld.rb\"}',"commandLine"="helloWorld.rb argument-1 argument-2"
+   ```
+
+   **Linux** local machine:
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}'
+   ```
+
+   Here is an example\.
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/RubyTest/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}'
    ```
 
 ### Run PowerShell Script from Amazon S3<a name="integration-S3-PowerShell"></a>

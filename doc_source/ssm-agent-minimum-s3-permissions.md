@@ -1,4 +1,4 @@
-# Minimum S3 Bucket Permissions for SSM Agent<a name="ssm-agent-minimum-s3-permissions"></a>
+# About Minimum S3 Bucket Permissions for SSM Agent<a name="ssm-agent-minimum-s3-permissions"></a>
 
 This topic provides information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations\. You can specify these buckets in a custom policy if you want to limit Amazon S3 bucket access for an instance profile or VPC endpoint to the minimum required to use Systems Manager\.
 

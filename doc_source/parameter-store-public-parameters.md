@@ -1,0 +1,6 @@
+# About Systems Manager Public Parameters<a name="parameter-store-public-parameters"></a>
+
+Some AWS services create and publish common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) team publishes the names of Linux and Windows Server Amazon Machines Images \(AMIs\) as public parameters\. You can reference these public parameters in your scripts and commands, but you can't edit these artifacts in Parameter Store\. For more information, see the following blog posts:
++ [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](https://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
++ [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)
++ [Amazon ECS provides ECS\-Optimized AMI metadata via SSM Parameters](https://aws.amazon.com/about-aws/whats-new/2018/04/amazon-ecs-provides-ecs-optimized-ami-metadata-via-ssm-parameter/)

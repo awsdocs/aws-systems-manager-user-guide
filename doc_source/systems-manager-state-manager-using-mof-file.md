@@ -25,7 +25,7 @@ If you are using Amazon S3 to store PowerShell modules, MOF files, compliance re
 
 ## Resolving Credentials in MOF Files<a name="systems-manager-state-manager-using-mof-file-credentials"></a>
 
-Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-paramstore.md)\. This allows you to set up automatic credential rotation\. This also enables DSC to automatically propagate credentials to your servers without redeploying MOFs\.
+Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also enables DSC to automatically propagate credentials to your servers without redeploying MOFs\.
 
 To use a Secrets Manager secret in a configuration, create a PSCredential object where the Username is the SecretId or SecretARN of the secret containing the credential\. You can specify any value for the password\. The value is ignored\. Here is an example:
 

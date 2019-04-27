@@ -135,7 +135,7 @@ A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the ac
 ------
 #### [ Parameter Store ]
 
-[Parameter Store](systems-manager-paramstore.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
+[Parameter Store](systems-manager-parameter-store.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
 
 ------
 

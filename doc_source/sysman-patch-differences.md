@@ -4,10 +4,7 @@ The following table describes important differences between Linux and Windows pa
 
 **Note**  
 To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\.  
-SSM Agent is updated whenever changes are made to Systems Manager and when new capabilities are added\. To ensure that your instances are always running the newest version of SSM Agent, we recommend that you update the agent automatically whenever a new version is available using either of the following methods\.  
-Use a State Manager association\. For information, see the State Manager topic [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
-Use a Maintenance Window\. For information, see the Maintenance Window topics [Automatically Update SSM Agent \(AWS CLI\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-cli.html) and [Automatically Update SSM Agent \(Console\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-console.html)\. 
-If you prefer to update SSM Agent on your instances manually, you can subscribe to notifications that AWS publishes when a new version of the agent is released\. For information, see [Subscribing to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)\. For information about using Run Command to manually update one or more instances with the latest version, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+Updated versions of SSM Agent are released frequently\. New versions are released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate SSM Agent Updates on Your Instances](ssm-agent-automatic-updates.md)\.
 
 
 ****  

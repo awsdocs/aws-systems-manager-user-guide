@@ -29,7 +29,7 @@ Before you complete the following procedure, verify that you have at least one r
 1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 
    ```
-   aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 0 2 ? * SUN *)"
+   aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 **Note**  
 State Manager associations do not support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
@@ -37,7 +37,7 @@ State Manager associations do not support all cron and rate expressions\. For mo
    If you want, you can also target multiple instances by specifying instances IDs in a comma\-separated list\.
 
    ```
-   aws ssm create-association --targets Key=instanceids,Values=InstanceID,InstanceID,InstanceID --name your document name --schedule-expression "cron(0 0 2 ? * SUN *)"
+   aws ssm create-association --targets Key=instanceids,Values=InstanceID,InstanceID,InstanceID --name your document name --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
    The system returns information like the following\.
@@ -45,7 +45,7 @@ State Manager associations do not support all cron and rate expressions\. For mo
    ```
    {
        "AssociationDescription": {
-           "ScheduleExpression": "cron(0 0 2 ? * SUN *)",
+           "ScheduleExpression": "cron(0 2 ? * SUN *)",
            "Name": "AWS-UpdateSSMAgent",
            "Overview": {
                "Status": "Pending",

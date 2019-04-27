@@ -1,13 +1,11 @@
 # Create a Systems Manager Parameter \(Console\)<a name="param-create-console"></a>
 
-You can use the Amazon EC2 console or AWS Systems Manager console to create a Systems Manager parameter\.
+You can use the AWS Systems Manager console to create a Systems Manager parameter\.
 
 **Note**  
 Parameters are only available in the Region where they were created\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To create a parameter \(AWS Systems Manager\)**
+**To create a parameter**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -23,10 +21,12 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the **Description** box, type a description that identifies this parameter as a test parameter\.
 
+1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [About Systems Manager Advanced Parameters](parameter-store-advanced-parameters.md)\.
+
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
 **Note**  
-If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN, then the system uses alias/aws/ssm \(Default\), which is the default KMS CMK for Systems Manager\. If you don't want to use this key, then you can choose a custom key\. For more information, see [Using Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
-When creating a secure string parameter in the console by using the `key-id` parameter with either a custom KMS CMS alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
+If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS customer master key \(CMK\) ID, a CMK ARN, an alias name, or an alias ARN, then the system uses alias/aws/ssm, which is the AWS managed CMK for Systems Manager\. If you don't want to use this key, then you can use a customer managed CMK\. For more information about secure string parameters, see [About Secure String Parameters](sysman-paramstore-securestring.md)\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
+When creating a secure string parameter in the console by using the `key-id` parameter with either a customer managed CMK alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
 
      ```
      arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
@@ -42,40 +42,13 @@ Here is an alias name example:
 1. \(Optional\) In the **Tags** area, apply one or more tag key name/value pairs to the parameter\.
 
    Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a Systems Manager parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter\. In this case, you could specify the following key name/value pairs:
-   + `Key=Resource,Value=S3bucket`
-   + `Key=OS,Value=Windows`
-   + `Key=ParameterType,Value=LicenseKey`
+   + Key=Resource,Value=S3bucket
+   + Key=OS,Value=Windows
+   + Key=ParameterType,Value=LicenseKey
 
 1. Choose **Create parameter**\. 
 
-1. In the parameters list, choose the name of the parameter you just created\. Verify the details on the **Overview** tab\. If you created a `SecureString` parameter, choose **Show** to view the unencrypted value\.
+1. In the parameters list, choose the name of the parameter you just created\. Verify the details on the **Overview** tab\. If you created a secure string parameter, choose **Show** to view the unencrypted value\.
 
-**To create a parameter \(Amazon EC2 console\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Shared Resources** in the navigation pane, and then choose **Parameter Store**\. 
-
-1. Choose **Create Parameter**\.
-
-1. For **Name**, type a hierachy and a parameter name\. For example, type `/Test/helloWorld`\.
-
-1. In the **Description** box, type a description that identifies this parameter as a test parameter\.
-
-1. For **Type**, choose **String**, **String List**, or **Secure String**\.
 **Note**  
-If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN, then the system uses alias/aws/ssm \(Default\), which is the default KMS CMK for Systems Manager\. If you don't want to use this key, then you can choose a custom key\. For more information, see [Using Secure String Parameters](sysman-paramstore-about.md#sysman-paramstore-securestring)\.
-When creating a secure string parameter in the console by using the `key-id` parameter with either a custom KMS CMS alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
-
-     ```
-     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
-     ```
-Here is an alias name example:  
-
-     ```
-     alias/MyAliasName
-     ```
-
-1. In the **Value** box, type a value\. For example, type `MyFirstParameter`\. If you chose **Secure String**, the value is masked as you type\.
-
-1. Choose **Create Parameter**\. After the system creates the parameter, choose **Close**\. 
-
-1. In the parameters list, choose the parameter you just created\. Verify the details on the **Description** tab\. If you created a `SecureString` parameter, choose **Show** to view the unencrypted value\.
+You can’t change an advanced parameter to a standard parameter\. If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, you must delete it and recreate it as a new standard parameter\.

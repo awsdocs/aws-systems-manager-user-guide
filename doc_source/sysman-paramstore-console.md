@@ -34,7 +34,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. In the **Command document** list, choose AWS\-RunPowershellScript \(Windows\) or AWS\-RunShellScript \(Linux\)\. 
 
-1. Under **Target instances**, choose an instance you created earlier\.
+1. Under **Target instances**, choose instance you created earlier\.
 
 1. In the **Commands** field, enter echo `{{ssm:parameter_name}}`, for example, echo `{{ssm:/Test/helloWorld}}`\. 
 

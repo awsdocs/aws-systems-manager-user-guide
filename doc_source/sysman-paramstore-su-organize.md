@@ -74,7 +74,7 @@ Another benefit of using hierarchies is the ability to query for all parameters 
 aws ssm get-parameters-by-path --path /Dev/Web/IIS
 ```
 
-To view decrypted SecureString parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
+To view decrypted secure string parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
 
 ```
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
@@ -127,4 +127,4 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
 ```
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/a/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively for `/a` and view `/a/b`\.
+If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path /a, then the user can also access /a/b\. Even if a user has explicitly been denied access in IAM for parameter /b, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively and view /a/b\.

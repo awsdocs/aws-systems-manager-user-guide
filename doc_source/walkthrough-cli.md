@@ -84,7 +84,7 @@ aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellS
 ```
 
 **Get command information with response data**  
-The following command uses the Command ID that was returned from the previous command to get the details and response data of the command execution\. The system returns the response data if the command completed\. If the command execution shows "Pending" you will need to run this command again to see the response data\.
+The following command uses the Command ID that was returned from the previous command to get the details and response data of the command execution\. The system returns the response data if the command completed\. If the command execution shows `"Pending"` or `"InProgress"` you will need to run this command again to see the response data\.
 
 ```
 aws ssm list-command-invocations --command-id $sh_command_id --details

@@ -1,6 +1,6 @@
 # Systems Manager Parameter Store Walkthroughs<a name="sysman-paramstore-walk"></a>
 
-The following walkthroughs show you how to create, store, and execute parameters with Parameter Store in a test environment\. These walkthroughs show you how to use Parameter Store with other Systems Manager capabilities\. You can also use Parameter Store with other AWS services\. For more information, see [Using Secure String Parameters With Other AWS Services](sysman-paramstore-about.md#sysman-paramstore-securelam)\.
+The following walkthroughs show you how to create, store, and execute parameters with Parameter Store in a test environment\. These walkthroughs show you how to use Parameter Store with other Systems Manager capabilities\. You can also use Parameter Store with other AWS services\. For more information, see [Using Secure String Parameters With Other AWS Services](sysman-paramstore-securestring.md#sysman-paramstore-securelam)\.
 
 **Topics**
 + [Walkthrough: Create and Use a Parameter in a Command \(Console\)](sysman-paramstore-console.md)

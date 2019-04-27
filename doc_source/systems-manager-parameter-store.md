@@ -1,6 +1,6 @@
-# AWS Systems Manager Parameter Store<a name="systems-manager-paramstore"></a>
+# AWS Systems Manager Parameter Store<a name="systems-manager-parameter-store"></a>
 
-AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name that you specified when you created the parameter\. Highly scalable, available, and durable, Parameter Store is backed by the AWS Cloud\. Parameter Store is offered at no additional charge\.
+AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name that you specified when you created the parameter\. Highly scalable, available, and durable, Parameter Store is backed by the AWS Cloud\. 
 
 Parameter Store offers the following benefits and features\.
 + Use a secure, scalable, hosted secrets management service \(No servers to manage\)\.
@@ -11,7 +11,7 @@ Parameter Store offers the following benefits and features\.
 + Tag parameters individually, and then secure access from different levels, including operational, parameter, EC2 tag, or path levels\. 
 + Reference AWS Secrets Manager secrets by using Parameter Store parameters\.
 + Use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. The following AWS services support Parameter Store parameters: Amazon EC2, Amazon Elastic Container Service, AWS Lambda, AWS CloudFormation, AWS CodeBuild, and AWS CodeDeploy\. 
-+ Configure integration with AWS KMS, Amazon SNS, Amazon CloudWatch, and AWS CloudTrail for encryption, notification, monitoring, and audit capabilities\.
++ Configure integration with AWS Key Management Service \(KMS\), Amazon Simple Notification Service \(SNS\), Amazon CloudWatch, and AWS CloudTrail for encryption, notification, monitoring, and audit capabilities\.
 
 ## Getting Started with Systems Manager Parameters<a name="sysman-paramstore-gs"></a>
 
@@ -22,11 +22,13 @@ To get started with Systems Manager Parameters, complete the following tasks\.
 
 | Task | For More Information | 
 | --- | --- | 
-|  Learn how to use different types of Systems Manager parameters\.  |  [About Systems Manager Parameters](sysman-paramstore-about.md)  | 
-|  Learn how to organize, create, and tag parameters\.  |  [Working with Systems Manager Parameters](sysman-paramstore-working.md)  | 
+|  Learn about different types of Systems Manager parameters\.  |  [Learn More About Systems Manager Parameters](sysman-paramstore-about.md)  | 
 |  Configure parameter access and notifications\.  |  [Setting Up Systems Manager Parameters](sysman-paramstore-settingup.md)  | 
+|  Learn how to organize, create, and tag parameters\.  |  [Working with Systems Manager Parameters](sysman-paramstore-working.md)  | 
 |  Learn about creating and using Systems Manager parameters in a test environment\.  |  [Systems Manager Parameter Store Walkthroughs](sysman-paramstore-walk.md)  | 
-|  Learn how Parameter Store uses AWS KMS to manage SecureString parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 
+|  Learn how Parameter Store uses AWS Key Management Service \(KMS\) to manage secure string parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 
+|  Learn about the benefits of the advanced\-parameter tier\.  |  [About Systems Manager Advanced Parameters](parameter-store-advanced-parameters.md)  | 
+|  Learn how to increase the number of transactions per second that Parameter Store can process\.  |  [Increasing Parameter Store Throughput](parameter-store-throughput.md)  | 
 
 **Related Content**  
 The following blog posts provide additional information about Parameter Store and how to use this capability with other AWS services\.

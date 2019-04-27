@@ -1,18 +1,18 @@
 # Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows you how to join a Windows instance to a domain using Systems Manager Secure String parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using a AWS KMS master key and passed as a Secure String\. 
+This walkthrough shows you how to join a Windows instance to a domain using Systems Manager secure string parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed customer master key \(CMK\) and passed as a secure string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you have already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
-**To create a Secure String Parameter and Join an Instance to a Domain**
+**To create a secure string parameter and join an instance to a domain**
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
    ```
-   Write-SSMParameter -Name "domainName" -Value "DOMAIN-NAME" -Type String
-   Write-SSMParameter -Name "domainJoinUserName" -Value "DOMAIN\USERNAME" -Type String
-   Write-SSMParameter -Name "domainJoinPassword" -Value "PASSWORD" -Type SecureString
+   Write-SSMParameter -Name "domainName" -Value "DOMAIN-NAME" -Type String -Tier Standard
+   Write-SSMParameter -Name "domainJoinUserName" -Value "DOMAIN\USERNAME" -Type String -Tier Standard
+   Write-SSMParameter -Name "domainJoinPassword" -Value "PASSWORD" -Type SecureString -Tier Standard
    ```
 **Important**  
 Only the *value* of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.

@@ -40,7 +40,7 @@ Your VPC endpoint policy must allow at least access to the following Amazon S3 b
   arn:aws:s3:::patch-baseline-snapshot-us-east-2/*
   arn:aws:s3:::aws-ssm-us-east-2/*
   ```
-+ The S3 buckets listed in [Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
++ The S3 buckets listed in [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 
 **DNS in hybrid environment**  
 For information about configuring DNS to work with PrivateLink endpoints in hybrid environments, see [Private DNS](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-private-dns)\. If you want to use your own DNS, you can use Route 53 Resolver\. For more information, see [Resolving DNS Queries Between VPCs and Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide*\. 

@@ -16,7 +16,7 @@ The title of each section here is an active link to the corresponding section in
 **[Maintenance Windows](systems-manager-maintenance.md)**
 + Define a schedule to perform potentially disruptive actions on your instances such as OS patching, driver updates, or software installations\.
 
-**[Parameter Store](systems-manager-paramstore.md)**
+**[Parameter Store](systems-manager-parameter-store.md)**
 + Use Parameter Store to centrally manage global configuration settings\.
 + [Use Parameter Store to encrypt and manage secrets by using AWS KMS](sysman-paramstore-walk.md)\.
 + [Use Parameter Store with ECS task definitions to store secrets](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)\.
