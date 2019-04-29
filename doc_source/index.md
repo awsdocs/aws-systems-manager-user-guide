@@ -35,7 +35,7 @@ Amazon's trademarks and trade dress may not be used in
          + [View SSM Agent Logs](sysman-agent-logs.md)
          + [Uninstall SSM Agent from Linux Instances](sysman-uninstall-agent.md)
       + [Restrict Access to Root-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-      + [Automate SSM Agent Updates on Your Instances](ssm-agent-automatic-updates.md)
+      + [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)
       + [Subscribe to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)
       + [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)
    + [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)

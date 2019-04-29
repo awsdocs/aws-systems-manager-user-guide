@@ -114,7 +114,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 SSM Agent is the tool that processes Systems Manager requests and configures your machine as specified in the request\. SSM Agent must be installed on each instance you want to use with Systems Manager\. On some instance types, SSM Agent is installed by default\. On others, you must install it manually, as described in the following table\.
 
 **Important**  
-Updated versions of SSM Agent are released frequently\. New versions are released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate SSM Agent Updates on Your Instances](ssm-agent-automatic-updates.md)\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)\.
 
 
 ****  

@@ -86,9 +86,9 @@ Administrators can specify read\-only permission by assigning the following inli
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
-## Increasing Throughput<a name="parameter-store-throughput-increasing"></a>
+## Increasing Throughput \(Console\)<a name="parameter-store-throughput-increasing"></a>
 
-Use the following procedure to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+The following procedure shows you how to use the Systems Manager console to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
 
 **To increase Parameter Store throughput**
 
@@ -102,8 +102,104 @@ Use the following procedure to increase the number of transactions per second th
 
 1. Choose the **Settings** tab\.
 
-1. Choose **Increase limit**\.
+1. Choose **Set limit**\.
 
 1. Review the message, and choose **Accept**\.
 
 If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, repeat this procedure and choose **Reset limit**\.
+
+## Increasing Throughput \(AWS CLI\)<a name="parameter-store-throughput-increasing-cli"></a>
+
+The following procedure shows you how to use the AWS Command Line Interface \(AWS CLI\) to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+
+**To increase Parameter Store throughput using the AWS CLI**
+
+1. Open the AWS CLI and run the following command to increase the transactions per second that Parameter Store can process in the current AWS account and Region\.
+
+   ```
+   aws ssm update-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled --setting-value true
+   ```
+
+   There is no output if the command succeeds\.
+
+1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
+
+   ```
+   aws ssm get-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+   ```
+
+   ```
+   {
+       "ServiceSetting": {
+           "SettingId": "/ssm/parameter-store/high-throughput-enabled",
+           "SettingValue": "true",
+           "LastModifiedDate": 1556551683.923,
+           "LastModifiedUser": "arn:aws:sts::123456789012:assumed-role/Administrator/Jasper",
+           "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+           "Status": "Customized"
+       }
+   }
+   ```
+
+If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, run the following command\.
+
+```
+aws ssm reset-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+```
+
+```
+{
+    "ServiceSetting": {
+        "SettingId": "/ssm/parameter-store/high-throughput-enabled",
+        "SettingValue": "false",
+        "LastModifiedDate": 1555532818.578,
+        "LastModifiedUser": "System",
+        "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+        "Status": "Default"
+    }
+}
+```
+
+## Increasing Throughput \(PowerShell\)<a name="parameter-store-throughput-increasing-ps"></a>
+
+The following procedure shows you how to use the AWS Tools for Windows PowerShell to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+
+**To increase Parameter Store throughput using PowerShell**
+
+1. Increase Parameter Store throughput in the current AWS account and Region using the AWS Tools for PowerShell\.
+
+   ```
+   Update-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region us-east-1
+   ```
+
+   There is no output if the command succeeds\.
+
+1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
+
+   ```
+   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-1
+   ```
+
+   ```
+   ARN              : arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+   LastModifiedDate : 4/29/2019 3:35:44 PM
+   LastModifiedUser : arn:aws:sts::123456789012:assumed-role/Administrator/Jasper
+   SettingId        : /ssm/parameter-store/high-throughput-enabled
+   SettingValue     : true
+   Status           : Customized
+   ```
+
+If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, run the following command\.
+
+```
+Reset-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-1
+```
+
+```
+ARN              : arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+LastModifiedDate : 4/17/2019 8:26:58 PM
+LastModifiedUser : System
+SettingId        : /ssm/parameter-store/high-throughput-enabled
+SettingValue     : false
+Status           : Default
+```

@@ -1,6 +1,15 @@
 # Installing and Configuring SSM Agent<a name="ssm-agent"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your Amazon EC2 instances and your hybrid instances that are configured for Systems Manager \(hybrid instances\)\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. SSM Agent sends status and execution information back to the Systems Manager service by using the EC2 Messaging service\. If you monitor traffic, you will see your instances communicating with ec2messages\.\* endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an Amazon EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\. The agent processes requests from the Systems Manager service in the AWS cloud, and then runs them as specified in the request\. SSM Agent then sends status and execution information back to the Systems Manager service by using the EC2 Messaging service\. 
+
+If you monitor traffic, you will see your EC2 instances, and any on\-premises servers or VMs in your hybrid environment, communicating with `ec2messages.*` endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\. For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
+
+**Keeping SSM Agent up\-to\-date**  
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)\.
+
+**Note**  
+AMIs that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.  
+Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
 
 **About the local ssm\-user account**  
 Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called **ssm\-user** and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\) every time the agent starts\. This **ssm\-user** is the default OS user when a Session Manager session is started, and the password for this user is reset on every session\. You can change the permissions by moving **ssm\-user** to a less\-privileged group or by changing the `sudoers` file\. The** ssm\-user** account is not removed from the system when SSM Agent is uninstalled\.
@@ -9,21 +18,14 @@ Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user a
 In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Step 2: Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md) in the **Session Manager** Getting Started content\.
 
 **AMIs with SSM Agent preinstalled**  
-SSM Agent is installed, by default, on the following Amazon EC2 Amazon Machine Images \(AMIs\):
+SSM Agent is installed, by default, on the following Amazon Machine Images \(AMIs\):
 + Windows Server \(all SKUs\)
 + Amazon Linux
 + Amazon Linux 2
 + Ubuntu Server 16\.04
 + Ubuntu Server 18\.04
 
-You must manually install SSM Agent on Amazon EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on servers or virtual machines in your on\-premises environment\. For more information, see [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)\.
-
-**Note**  
-AMIs that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\.  
-Updated versions of SSM Agent are released frequently\. New versions are released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate SSM Agent Updates on Your Instances](ssm-agent-automatic-updates.md)\.
-Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
-
- For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
+You must manually install SSM Agent on Amazon EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)\.
 
 Use the following procedures to install, configure, or uninstall SSM Agent\. This section also includes information about configuring SSM Agent to use a proxy\.
 
@@ -31,6 +33,6 @@ Use the following procedures to install, configure, or uninstall SSM Agent\. Thi
 + [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)
 + [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)
 + [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-+ [Automate SSM Agent Updates on Your Instances](ssm-agent-automatic-updates.md)
++ [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)
 + [Subscribe to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)
 + [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)
