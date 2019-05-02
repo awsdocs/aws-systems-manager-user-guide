@@ -70,9 +70,9 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document
    aws ssm start-automation-execution \
    --document-name "AWS-UpdateLinuxAmi" \
    --parameters \
-   SourceAmiId=ami-0080e4c5bc078760e \
-   IamInstanceProfileName=ManagedInstanceRole \
-   AutomationAssumeRole=arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole
+   "SourceAmiId=ami-0080e4c5bc078760e, \
+   IamInstanceProfileName=ManagedInstanceRole, \
+   AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'"
    ```
 
    The command returns an execution ID\. Copy this ID to the clipboard\. You will use this ID to view the status of the workflow\.
