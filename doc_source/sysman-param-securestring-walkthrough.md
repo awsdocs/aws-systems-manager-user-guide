@@ -1,6 +1,6 @@
 # Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows you how to join a Windows instance to a domain using Systems Manager secure string parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed customer master key \(CMK\) and passed as a secure string\. 
+This walkthrough shows you how to join a Windows instance to a domain using Systems Manager secure string parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as a secure string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you have already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
@@ -69,14 +69,14 @@ Only the *value* of a secure string parameter is encrypted\. Parameter names, de
    }
    ```
 
-1. Execute the following command in AWS Tools for Windows PowerShell to create a new SSM document\.
+1. Run the following command in AWS Tools for Windows PowerShell to create a new SSM document\.
 
    ```
    $json = Get-Content C:\temp\JoinInstanceToDomain | Out-String
    New-SSMDocument -Name JoinInstanceToDomain -Content $json -DocumentType Command
    ```
 
-1. Execute the following command in AWS Tools for Windows PowerShell to join the instance to the domain
+1. Run the following command in AWS Tools for Windows PowerShell to join the instance to the domain
 
    ```
    Send-SSMCommand -InstanceId instance-id -DocumentName JoinInstanceToDomain 

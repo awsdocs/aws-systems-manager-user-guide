@@ -1,9 +1,9 @@
-# Executing a Simple Automation Workflow<a name="automation-working-executing"></a>
+# Running a Simple Automation Workflow<a name="automation-working-executing"></a>
 
-The following procedure describes how to execute a simple Systems Manager Automation workflow\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
+The following procedure describes how to run a simple Systems Manager Automation workflow\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Executing Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
+For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
 
 **To run a simple Automation workflow**
 
@@ -28,4 +28,4 @@ You can view information about a document by choosing the document name\.
 
 1. Choose **Execute**\. 
 
-The console displays the status of the Automation execution\. If the Automation fails to execute, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md) for tips to common problems\.
+The console displays the status of the Automation execution\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md) for tips to common problems\.

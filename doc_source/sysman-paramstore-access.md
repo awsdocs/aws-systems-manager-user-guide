@@ -73,8 +73,8 @@ For trusted administrators, you could provide full access to all Systems Manager
 You can also control access so that instances can only run specific parameters\. The following example enables instances to get a parameter value only for parameters that begin with "prod\-" If the parameter is a secure string, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
-If you choose the `SecureString` datatype when you create your parameter, then Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\. KMS encrypts the value by using either an AWS managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.  
-You can view the AWS managed CMK by running the following command from the AWS CLI:  
+If you choose the `SecureString` datatype when you create your parameter, then Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\. KMS encrypts the value by using either an AWS\-managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.  
+You can view the AWS\-managed CMK by running the following command from the AWS CLI:  
 
 ```
 aws kms describe-key --key-id alias/aws/ssm
@@ -121,7 +121,7 @@ Currently, you can restrict access to the following GetParameter API actions:
 Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
 
 **Before You Begin**  
-Create and tag parameters\. For more information, see [Setting Up Systems Manager Parameters](sysman-paramstore-settingup.md)\.
+Create and tag parameters\. For more information, see [Setting Up Parameter Store](sysman-paramstore-settingup.md)\.
 
 **To restrict a user's access to parameters by using tags**
 

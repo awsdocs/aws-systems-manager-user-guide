@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Lambda created by Automation to perform the actions on your behalf\. If not specified a transient role will be created to execute the Lambda function\.
+  Description: \(Optional\) The ARN of the role that allows Lambda created by Automation to perform the actions on your behalf\. If not specified a transient role will be created to run the Lambda function\.
 + RetentionCount
 
   Type: String

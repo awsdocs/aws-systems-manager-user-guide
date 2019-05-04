@@ -1,6 +1,6 @@
 # Walkthrough: Create and Use a Parameter in a Command \(Console\)<a name="sysman-paramstore-console"></a>
 
-The following procedure walks you through the process of creating a parameter in Parameter Store and then executing a command that uses this parameter\.
+The following procedure walks you through the process of creating a parameter in Parameter Store and then running a command that uses this parameter\.
 
 **To create a parameter using Parameter Store**
 
@@ -34,7 +34,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. In the **Command document** list, choose AWS\-RunPowershellScript \(Windows\) or AWS\-RunShellScript \(Linux\)\. 
 
-1. Under **Target instances**, choose instance you created earlier\.
+1. Under **Target instances**, choose an instance you created earlier\.
 
 1. In the **Commands** field, enter echo `{{ssm:parameter_name}}`, for example, echo `{{ssm:/Test/helloWorld}}`\. 
 

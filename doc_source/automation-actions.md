@@ -88,7 +88,7 @@ Type: String
 Required: Yes
 
 action  
-The name of the action the step is to execute\. [aws:runCommand](#automation-action-runcommand) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
+The name of the action the step is to run\. [aws:runCommand](#automation-action-runcommand) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
 Type: String  
 Required: Yes
 
@@ -505,12 +505,12 @@ inputs:
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
 Type: String  
 Required: Yes
 
 Api  
-The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
 Type: String  
 Required: Yes
 
@@ -635,7 +635,7 @@ The `aws:branch` action supports `And`, `Or`, and `Not` operators\. For examples
 
 Changes or asserts the state of the instance\.
 
-This action can be used in assert mode \(do not execute the API to change the state but verify the instance is in the desired state\.\) To use assert mode, set the CheckStateOnly parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an AMI\.
+This action can be used in assert mode \(do not run the API to change the state but verify the instance is in the desired state\.\) To use assert mode, set the CheckStateOnly parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an AMI\.
 
 **Input**
 
@@ -1308,12 +1308,12 @@ inputs:
 ```
 
 DocumentName  
-The name of the secondary Automation document to execute during the step\. The document must belong to the same AWS account as the primary Automation document\.  
+The name of the secondary Automation document to run during the step\. The document must belong to the same AWS account as the primary Automation document\.  
 Type: String  
 Required: Yes
 
 DocumentVersion  
-The version of the secondary Automation document to execute\. If not specified, Automation runs the default document version\.  
+The version of the secondary Automation document to run\. If not specified, Automation runs the default document version\.  
 Type: String  
 Required: Yes
 
@@ -1336,7 +1336,7 @@ Type: String
 
 ## aws:executeAwsApi<a name="automation-action-executeAwsApi"></a>
 
-Calls and executes AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+Calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
 
 **Input**  
 Inputs are defined by the API action that you choose\. 
@@ -1376,12 +1376,12 @@ outputs: # These are user-specified outputs
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
 Type: String  
 Required: Yes
 
 Api  
-The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
 Type: String  
 Required: Yes
 
@@ -1542,7 +1542,7 @@ StatusCode
 The function execution status code\.
 
 FunctionError  
-Indicates whether an error occurred while executing the Lambda function\. If an error occurred, this field will show either `Handled` or `Unhandled`\. `Handled` errors are reported by the function\. `Unhandled` errors are detected and reported by AWS Lambda\.
+Indicates whether an error occurred while running the Lambda function\. If an error occurred, this field will show either `Handled` or `Unhandled`\. `Handled` errors are reported by the function\. `Unhandled` errors are detected and reported by AWS Lambda\.
 
 LogResult  
 The base64\-encoded logs for the Lambda function invocation\. Logs are present only if the invocation type is `RequestResponse`, and the logs were requested\.
@@ -1624,7 +1624,7 @@ Type: String
 Required: Yes
 
 InstanceIds  
-The instance IDs where you want the command to execute\. You can specify a maximum of 50 IDs\. If you don't want to specify individual instance IDs, then you can send commands to a fleet of instances by using the Targets parameter\. The Targets parameter accepts Amazon EC2 tags\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
+The instance IDs where you want the command to run\. You can specify a maximum of 50 IDs\. If you don't want to specify individual instance IDs, then you can send commands to a fleet of instances by using the Targets parameter\. The Targets parameter accepts Amazon EC2 tags\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
 Type: StringList  
 Required: No \(If you don't specify InstanceIds, then you must specify the Targets parameter\.\)
 
@@ -2045,12 +2045,12 @@ inputs:
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to execute\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
 Type: String  
 Required: Yes
 
 Api  
-The name of the API action that you want to execute\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
 Type: String  
 Required: Yes
 

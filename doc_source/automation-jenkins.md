@@ -63,7 +63,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
 1. In the **Command** box, run an AWS CLI command like the following:
 
    ```
-   aws --region the region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document
+   aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document
    ```
 
    The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):

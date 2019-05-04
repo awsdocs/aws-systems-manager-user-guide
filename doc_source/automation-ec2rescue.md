@@ -145,7 +145,7 @@ Choose **View** to view the template\.
 
 1. Copy the **Value**\. The is the ARN of the AssumeRole\. You will specify this ARN when you run the Automation\. 
 
-## Executing the Automation<a name="automation-ec2rescue-executing"></a>
+## Running the Automation<a name="automation-ec2rescue-executing"></a>
 
 **Note**  
 The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.

@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified Amazon EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling the SSM agent\. If the SSM agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided Amazon EC2 instance be stopped and then started\.
+The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified Amazon EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling SSM Agent\. If SSM Agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided Amazon EC2 instance be stopped and then started\.
 
 **Note**  
 This document will fail on a domain controller\. To update AWS PV drivers on a domain controller, see [Upgrade a Domain Controller \(AWS PV Upgrade\)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Upgrading_PV_drivers.html#aws-pv-upgrade-dc)\.
@@ -56,7 +56,7 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to execute this document\.
+  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document\.
 
  **Examples** 
 
@@ -80,7 +80,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to execute the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. If you are performing an offline upgrade, see the permissions required by [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. If you are performing an offline upgrade, see the permissions required by [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
 
  **Document Steps** 
 

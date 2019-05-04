@@ -1,4 +1,4 @@
-# Executing Automation Workflows with Triggers using CloudWatch Events<a name="automation-cwe-target"></a>
+# Running Automation Workflows with Triggers using CloudWatch Events<a name="automation-cwe-target"></a>
 
 You can start an Automation workflow by specifying an Automation document as the target of an Amazon CloudWatch event\. You can start workflows according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create an Automation document named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* document \(and corresponding workflow\) as a target of a CloudWatch event, you first create a new CloudWatch Events rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedure to specify the *BootStrapInstances* document as the target of the event\. When a new instance starts, the system runs the workflow and installs software\.
 

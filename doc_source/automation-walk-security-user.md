@@ -1,6 +1,6 @@
 # Running an Automation Workflow as the Current Authenticated User<a name="automation-walk-security-user"></a>
 
-This procedure shows how to run an Automation workflow that executes in the context of the current IAM user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you have permission to run this Automation\.
+This procedure shows how to run an Automation workflow that runs in the context of the current IAM user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you have permission to run this Automation\.
 
 **To run the Automation document as the current authenticated user**
 

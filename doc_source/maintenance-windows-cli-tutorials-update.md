@@ -10,7 +10,7 @@ The examples in this section use the following Systems Manager actions for updat
 
 For information about using the Systems Manager console to update a Maintenance Window, see [Update or Delete a Maintenance Window \(Console\)](sysman-maintenance-update.md)\. 
 
-As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you create\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs of resources you create\.
 
 **To update a Maintenance Window \(AWS CLI\)**
 

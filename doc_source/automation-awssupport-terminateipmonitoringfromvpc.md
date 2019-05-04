@@ -32,7 +32,7 @@ Amazon
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document\.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
 
  **Examples** 
 
@@ -50,7 +50,7 @@ aws ssm get-automation-execution --automation-execution-id ID --output text --qu
 
 **Required IAM Permissions**
 
-It is recommended that the user who executes the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition, the user must have the following policy attached to their user account, group, or role:
+It is recommended that the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition, the user must have the following policy attached to their user account, group, or role:
 
 ```
 {

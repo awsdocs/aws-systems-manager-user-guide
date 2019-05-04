@@ -1,14 +1,14 @@
-# Executing Automation Workflows that Use Targets and Rate Controls<a name="automation-working-targets-and-rate-controls"></a>
+# Running Automation Workflows that Use Targets and Rate Controls<a name="automation-working-targets-and-rate-controls"></a>
 
-AWS Systems Manager enables you to execute Automation workflows on a fleet of AWS resources by using targets\. Additionally, you can control the execution of the Automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the Automation simultaneously\. An error threshold determines how many Automation executions are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
+AWS Systems Manager enables you to run Automation workflows on a fleet of AWS resources by using targets\. Additionally, you can control the execution of the Automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the Automation simultaneously\. An error threshold determines how many Automation executions are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
 For more information about Concurrency and Error thresholds, see [About Concurrency and Error Thresholds](automation-working-rate-controls.md)\. For more information about Targets, see [About Targets](automation-working-targets.md)\.
 
-The following procedures describe how to execute an Automation workflow with targets and rate controls by using the Systems Manager console and the AWS CLI\.
+The following procedures describe how to run an Automation workflow with targets and rate controls by using the Systems Manager console and the AWS CLI\.
 
-## Executing an Automation workflow with targets and rate controls \(Console\)<a name="automation-working-targets-and-rate-controls-console"></a>
+## Running an Automation workflow with targets and rate controls \(Console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 
-**To execute an Automation workflow with targets and rate controls \(Console\)**
+**To run an Automation workflow with targets and rate controls \(Console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -51,9 +51,9 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\. 
 
-## Executing an Automation workflow with targets and rate controls \(AWS CLI\)<a name="automation-working-targets-and-rate-controls-cli"></a>
+## Running an Automation workflow with targets and rate controls \(AWS CLI\)<a name="automation-working-targets-and-rate-controls-cli"></a>
 
-**To execute an Automation workflow with targets and rate controls \(AWS CLI\)**
+**To run an Automation workflow with targets and rate controls \(AWS CLI\)**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 
@@ -78,15 +78,15 @@ You may not need to choose some of the options in the **Input parameters** secti
    aws ssm list-documents
    ```
 
-   Note the name of the Automation document that you want to execute\.
+   Note the name of the Automation document that you want to run\.
 
-1. Execute the following command to view details about the Automation document\. Make a note of a parameter name \(for example, InstanceId\) that you want to use for the \-\-target\-parameter\-name option\. This parameter determines the type of resource on which the Automation executes\.
+1. Execute the following command to view details about the Automation document\. Make a note of a parameter name \(for example, InstanceId\) that you want to use for the \-\-target\-parameter\-name option\. This parameter determines the type of resource on which the Automation runs\.
 
    ```
    aws ssm describe-document --name document_name
    ```
 
-1. Create a command that uses the targets and rate control options you want to execute\. Here are some AWS CLI template commands to help you\.
+1. Create a command that uses the targets and rate control options you want to run\. Here are some AWS CLI template commands to help you\.
 
    *Targeting using tags*
 

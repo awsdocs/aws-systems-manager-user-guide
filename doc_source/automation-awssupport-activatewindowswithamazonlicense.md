@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon by contacting the SSM agent installed on your managed instance\. Optionally, you can remediate Windows activation offline, which requires a stop and start of your EC2 instance\. If Windows is not activated, the document verifies, and when needed repairs, the Windows route table \(route to Amazon KMS servers\), the KMS settings \(server and port\), and attempts to activate Windows\. Note: this document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
+The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon by contacting SSM Agent installed on your managed instance\. Optionally, you can remediate Windows activation offline, which requires a stop and start of your EC2 instance\. If Windows is not activated, the document verifies, and when needed repairs, the Windows route table \(route to Amazon KMS servers\), the KMS settings \(server and port\), and attempts to activate Windows\. Note: this document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
 
  **Document Type** 
 
@@ -51,7 +51,7 @@ Windows
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document\.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
 
  **Examples** 
 
@@ -81,7 +81,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to execute the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, see the permissions needed by **AWSSupport\-StartEC2RescueWorkflow**\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, see the permissions needed by **AWSSupport\-StartEC2RescueWorkflow**\.
 
  **Document Steps** 
 
@@ -89,7 +89,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
 1. aws:assertAwsResourceProperty \- Confirm the provided instance is a managed instance
 
-   1. \(Online activation fix\) If the input instance is a managed instance, then run aws:runCommand to execute the PowerShell script to attempt to fix Windows activation\.
+   1. \(Online activation fix\) If the input instance is a managed instance, then run aws:runCommand to run the PowerShell script to attempt to fix Windows activation\.
 
    1. \(Offline activation fix\) If the input instance is not a managed instance:
 

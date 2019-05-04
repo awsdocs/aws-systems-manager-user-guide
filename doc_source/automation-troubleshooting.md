@@ -462,7 +462,7 @@ The IAM user attempting to start the Automation execution does not have PassRole
 When you run an Automation, an assume role is either provided in the document or passed as a parameter value for the document\. Different types of errors can occur if the assume role is not specified or configured properly\.
 
 **Malformed Assume Role**  
-**Error message**: `The format of the supplied assume role ARN is invalid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your Automation document or as a runtime parameter when executing the Automation\.
+**Error message**: `The format of the supplied assume role ARN is invalid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your Automation document or as a runtime parameter when running the Automation\.
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
@@ -475,7 +475,7 @@ When you run an Automation, an assume role is either provided in the document or
 
 Automation documents contain steps and steps run in order\. Each step invokes one or more AWS service APIs\. The APIs determine the inputs, behavior, and outputs of the step\. There are multiple places where an error can cause a step to fail\. Failure messages indicate when and where an error occurred\.
 
-To see a failure message in the EC2 console, choose the **View Outputs** link of the failed step\. To see a failure message from the CLI, call `get-automation-execution` and look for the `FailureMessage` attribute in a failed `StepExecution`\.
+To see a failure message in the EC2 console, choose the **View Outputs** link of the failed step\. To see a failure message from the AWS CLI, call `get-automation-execution` and look for the `FailureMessage` attribute in a failed `StepExecution`\.
 
 In the following examples, a step associated with the `aws:runInstance` action failed\. Each example explores a different type of error\.
 
@@ -517,7 +517,7 @@ When a step fails, the failure message might indicate which service was being in
 
 **Error message**: `Internal Server Error. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-A problem with the Automation service is preventing the specified Automation document from executing correctly\. To resolve this issue, contact AWS Support\. Provide the execution ID and customer ID, if available\.
+A problem with the Automation service is preventing the specified Automation document from running correctly\. To resolve this issue, contact AWS Support\. Provide the execution ID and customer ID, if available\.
 
 ## Execution Started, but Timed Out<a name="automation-trbl-to"></a>
 

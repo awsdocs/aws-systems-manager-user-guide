@@ -2,7 +2,7 @@
 
 This tutorial demonstrates how to use the AWS CLI to view details about your completed Maintenance Window executions\. 
 
-As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs from resources you create\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs of resources you create\.
 
 If you are continuing directly from [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your Maintenance Window to run at least once in order to see its execution results\.
 

@@ -42,7 +42,7 @@ For information about the Regions where Systems Manager is available, see [regio
    Default output format [None]: ENTER
    ```
 
-1. Execute the following command to list parameters that you can tag\.
+1. Run the following command to list parameters that you can tag\.
 
    ```
    aws ssm describe-parameters
@@ -50,7 +50,7 @@ For information about the Regions where Systems Manager is available, see [regio
 
    Note the name of a parameter that you want to tag\.
 
-1. Execute the following command to tag a parameter\.
+1. Run the following command to tag a parameter\.
 
    ```
    aws ssm add-tags-to-resource --resource-type "Parameter" --resource-id "the_parameter_name" --tags "Key=a key, for example Environment,Value=a value, for example TEST"
@@ -58,7 +58,7 @@ For information about the Regions where Systems Manager is available, see [regio
 
    If successful, the command has no output\.
 
-1. Execute the following command to verify the parameter tags\.
+1. Run the following command to verify the parameter tags\.
 
    ```
    aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the_parameter_name"
@@ -66,13 +66,13 @@ For information about the Regions where Systems Manager is available, see [regio
 
 ## Tag a Parameter \(AWS Tools for Windows\)<a name="sysman-paramstore-su-tag-tfw"></a>
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\.
+1. Run the following command to set the Region for your PowerShell session\.
 
    ```
    Set-DefaultAWSRegion -Region region
@@ -80,13 +80,13 @@ For information about the Regions where Systems Manager is available, see [regio
 
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
 
-1. Execute the following command to list parameters that you can tag\.
+1. Run the following command to list parameters that you can tag\.
 
    ```
    Get-SSMParameterList
    ```
 
-1. Execute the following commands to tag a parameter\.
+1. Run the following commands to tag a parameter\.
 
    ```
    $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -97,7 +97,7 @@ For information about the Regions where Systems Manager is available, see [regio
 
    If successful, the command has no output\.
 
-1. Execute the following command to verify the parameter tags\.
+1. Run the following command to verify the parameter tags\.
 
    ```
    Get-SSMResourceTag -ResourceType "Parameter" -ResourceId "parameter_name"

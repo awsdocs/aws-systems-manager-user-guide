@@ -4,7 +4,7 @@
 
 The `AWSEC2-SQLServerDBRestore` document restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud \(EC2\) Linux instance\. You may provide your own EC2 instance running SQL Server 2017 Linux\. If an EC2 instance is not provided, the automation workflow launches and configures a new Ubuntu 16\.04 EC2 instance with SQL Server 2017\. The automation supports restoring full, differential, and transactional log backups\. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided\.
 
-To automate both backup and restore of an on\-premises SQL Server database to an EC2 instance running SQL Server 2017 Linux, see the AWS\-signed PowerShell script [MigrateSQLServerToEC2Linux\.ps1](https://s3-us-west-1.amazonaws.com/awsec2-server-upgrade-prod/MigrateSQLServerToEC2Linux.ps1)\. 
+To automate both backup and restore of an on\-premises SQL Server database to an Amazon EC2 instance running SQL Server 2017 Linux, see the AWS\-signed PowerShell script [MigrateSQLServerToEC2Linux\.ps1](https://s3-us-west-1.amazonaws.com/awsec2-server-upgrade-prod/MigrateSQLServerToEC2Linux.ps1)\. 
 
 **Important**  
 This automation workflow resets the SQL Server server administrator \(SA\) user password every time the workflow runs\. After the automation workflow is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
@@ -83,7 +83,7 @@ The user who runs the Automation workflow must have the following permissions:
 
   Type: String
 
-  Description: \(Optional\) The instance running SQL Server 2017 on Linux\. If no InstanceId is provided, the automation launches a new EC2 instance using the InstanceType and SQLServerEdition provided\.
+  Description: \(Optional\) The instance running SQL Server 2017 on Linux\. If no InstanceId is provided, the automation launches a new Amazon EC2 instance using the InstanceType and SQLServerEdition provided\.
 + InstanceType
 
   Type: String
@@ -176,7 +176,7 @@ aws ssm get-automation-execution --automation-execution-id ExecutionID --output 
 
 1. aws:executeAwsApi \- Reboot the instance if the instance is not ready\.
 
-1. aws:assertAwsResourceProperty \- Verify that SSM agent is installed\.
+1. aws:assertAwsResourceProperty \- Verify that SSM Agent is installed\.
 
 1. aws:runCommand \- Run the SQL Server restore script in PowerShell\.
 
@@ -186,7 +186,7 @@ aws ssm get-automation-execution --automation-execution-id ExecutionID --output 
 
 1. aws:executeAwsApi \- Reboot the instance if the instance is not ready\.
 
-1. aws:assertAwsResourceProperty \- Verify that SSM agent is installed\.
+1. aws:assertAwsResourceProperty \- Verify that SSM Agent is installed\.
 
 1. aws:runCommand \- Run the SQL Server restore script in PowerShell\.
 

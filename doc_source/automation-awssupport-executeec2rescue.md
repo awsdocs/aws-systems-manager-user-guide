@@ -47,7 +47,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use your IAM permissions to execute this document\.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use your IAM permissions to run this document\.
 
  **Examples** 
 

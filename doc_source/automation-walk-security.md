@@ -1,4 +1,4 @@
-# Executing Automation Workflows by Using Different Security Models<a name="automation-walk-security"></a>
+# Running Automation Workflows by Using Different Security Models<a name="automation-walk-security"></a>
 
 This section includes information about how to run Automation workflows by using different security models\.
 

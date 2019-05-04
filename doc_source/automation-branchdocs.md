@@ -1,6 +1,6 @@
 # Creating Dynamic Automation Workflows with Conditional Branching<a name="automation-branchdocs"></a>
 
-By default, the steps that you define in the `mainSteps` section of an Automation document execute in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to execute, the entire Automation workflow fails \(by default\)\. You can use the `aws:branch` Automation action and the Automation document options described in this section to create Automation workflows that perform *conditional branching*\. This means that you can create Automation workflows that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic Automation workflows:
+By default, the steps that you define in the `mainSteps` section of an Automation document run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire Automation workflow fails \(by default\)\. You can use the `aws:branch` Automation action and the Automation document options described in this section to create Automation workflows that perform *conditional branching*\. This means that you can create Automation workflows that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic Automation workflows:
 + **aws:branch**: This automation action enables you to create a dynamic Automation workflow that evaluates multiple choices in a single step and then jumps to a different step in the Automation document based on the results of that evaluation\.
 + **nextStep**: This option specifies which step in an Automation workflow to process next after successfully completing a step\. 
 + **isEnd**: This option stops an Automation execution at the end of a specific step\. The default value for this option is false\.
@@ -78,15 +78,11 @@ When you create an `aws:branch` step in an Automation document, you define the `
 
   Specify parameter variables by using the following form:
 
-  ```
-   Variable: "{{name_of_parameter}}"
-  ```
+  `Variable: "{{name_of_parameter}}"`
 
   Specify output object variables by using the following form:
 
-  ```
-  Variable: "{{previousStepName.outputFieldName}}"
-  ```
+  `Variable: "{{previousStepName.outputFieldName}}"`
 **Note**  
 Creating the output variable is described in more detail in the next section, [About Creating the Output Variable](#automation-branchdocs-awsbranch-creating-output)\.
 + **Operation**: The criteria used to evaluate the choice, such as `StringEquals: Linux`\. The `aws:branch` action supports the following operations:
@@ -166,9 +162,7 @@ mainSteps:
 
 To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format:
 
-```
-Variable: "{{previousStepName.outputFieldName}}"
-```
+`Variable: "{{previousStepName.outputFieldName}}"`
 
 For example, the first step below is named `GetInstance`\. And then, under `outputs`, there is a field called `platform`\. In the second step \(`ChooseOSforCommands`\), the author wants to reference the output from the platform field as a variable\. To create the variable, simply combine the step name \(GetInstance\) and the output field name \(platform\) to create `Variable: "{{GetInstance.platform}}"`\.
 
@@ -243,7 +237,7 @@ Here is a JSON example that shows how * "Variable": "\{\{ describeInstance\.Plat
 
 Here are some example Automation documents that use `aws:branch`\.
 
-**Example 1: Using aws:branch with an output variable to execute commands based on the operating system type**
+**Example 1: Using aws:branch with an output variable to run commands based on the operating system type**
 
 In the first step of this sample \(`GetInstance`\), the document author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API action\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
 
@@ -308,9 +302,9 @@ mainSteps:
     Duration: PT3S
 ```
 
-**Example 2: Using aws:branch with a parameter variable to execute commands based on the operating system type**
+**Example 2: Using aws:branch with a parameter variable to run commands based on the operating system type**
 
-The document author defines several parameter options at the beginning of the document in the `parameters` section\. One parameter is named `OperatingSystemName`\. In the first step \(`ChooseOS`\), the author uses the `aws:branch` action with two `Choices` \(`NextStep: runWindowsCommand`\) and \(`NextStep: runLinuxCommand`\)\. The variable for these `Choices` references the parameter option specified in the parameters section \(`Variable: "{{OperatingSystemName}}"`\)\. When the user executes this Automation workflow, they specify a value at runtime for `OperatingSystemName`\. The Automation workflow uses the runtime parameter during the `Choices` evaluation\. The Automation workflow jumps to a step for the designated operating system based on the runtime parameter specified for `OperatingSystemName`\.
+The document author defines several parameter options at the beginning of the document in the `parameters` section\. One parameter is named `OperatingSystemName`\. In the first step \(`ChooseOS`\), the author uses the `aws:branch` action with two `Choices` \(`NextStep: runWindowsCommand`\) and \(`NextStep: runLinuxCommand`\)\. The variable for these `Choices` references the parameter option specified in the parameters section \(`Variable: "{{OperatingSystemName}}"`\)\. When the user runs this Automation workflow, they specify a value at runtime for `OperatingSystemName`\. The Automation workflow uses the runtime parameter during the `Choices` evaluation\. The Automation workflow jumps to a step for the designated operating system based on the runtime parameter specified for `OperatingSystemName`\.
 
 ```
 ---
@@ -483,7 +477,7 @@ mainSteps:
 The following example uses the `onFailure: step:step_name`, `nextStep`, and `isEnd` options to create a dynamic Automation workflow\. With this example, if the `InstallMsiPackage` action fails, then the workflow jumps to an action called *PostFailure* \(`onFailure: step:PostFailure`\) to run an AWS Lambda function to perform some action in the event the install failed\. If the install succeeds, then the workflow process jumps to the TestInstall action \(`nextStep: TestInstall`\)\. Both the `TestInstall` and the `PostFailure` steps use the `isEnd` option \(`isEnd: true`\) so that the workflow finishes the workflow execution when either of those steps is completed\.
 
 **Note**  
-Using the `isEnd` option in the last step of the `mainSteps` section is optional\. If the last step does not jump to other steps, then the Automation workflow stops after executing the action in the last step\.
+Using the `isEnd` option in the last step of the `mainSteps` section is optional\. If the last step does not jump to other steps, then the Automation workflow stops after running the action in the last step\.
 
 **Example 2: A dynamic workflow that jumps to different steps**
 
@@ -524,7 +518,7 @@ Before processing an Automation document, the system verifies that the document 
 
 **Creating a Dynamic Workflow that Defines Critical Steps**
 
-You can specify that a step is critical for the overall success of the Automation workflow\. If a critical step fails, then Automation reports the status of the execution as failed, even if one or more steps executed successfully\. In the following example, the user identifies the *VerifyDependencies* step if the *InstallMsiPackage* step fails \(`onFailure: step:VerifyDependencies`\)\. The user specifies that the `InstallMsiPackage` step is not critical \(`isCritical: false`\)\. In this example, if the application failed to install, Automation processes the `VerifyDependencies` step to determine if one or more dependencies is missing, which therefore caused the application install to fail\. 
+You can specify that a step is critical for the overall success of the Automation workflow\. If a critical step fails, then Automation reports the status of the execution as failed, even if one or more steps ran successfully\. In the following example, the user identifies the *VerifyDependencies* step if the *InstallMsiPackage* step fails \(`onFailure: step:VerifyDependencies`\)\. The user specifies that the `InstallMsiPackage` step is not critical \(`isCritical: false`\)\. In this example, if the application failed to install, Automation processes the `VerifyDependencies` step to determine if one or more dependencies is missing, which therefore caused the application install to fail\. 
 
 **Example 3: Defining critical steps for the Automation workflow**
 

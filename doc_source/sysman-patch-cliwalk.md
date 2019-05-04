@@ -15,7 +15,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
 
 **To configure Patch Manager and patch instances \(AWS CLI\)**
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Download the latest version of the [AWS CLI](https://aws.amazon.com/cli) to your local machine\.
 
 1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
 

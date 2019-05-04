@@ -1,7 +1,7 @@
 # Invoking Other AWS Services from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling"></a>
 
 You can invoke other AWS services and other Systems Manager capabilities in your Automation workflow by using the following Automation actions in your Automation documents\. 
-+ **aws:executeAwsApi**: This Automation action calls and executes AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
++ **aws:executeAwsApi**: This Automation action calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
 + **aws:waitForAwsResourceProperty**: This Automation action enables your workflow to wait for a specific resource state or event state before continuing the workflow\. For example, you can use this action with the Amazon Relational Database Service \(Amazon RDS\) [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API action to pause an Automation workflow so that a database instance has time to start\.
 + **aws:assertAwsResourceProperty**: This Automation action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
 
@@ -324,7 +324,7 @@ If you execute an automation that invokes other AWS services by using an AWS Ide
 
 ## Sample Walkthrough: Start an Amazon RDS Instance from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling-sample"></a>
 
-This sample walkthrough shows you how to create and execute an Automation document in YAML that uses all three API actions to see if an Amazon Relational Database Service \(Amazon RDS\) database instance is running\. If the instance isn't running, the workflow starts it\. 
+This sample walkthrough shows you how to create and run an Automation document in YAML that uses all three API actions to see if an Amazon Relational Database Service \(Amazon RDS\) database instance is running\. If the instance isn't running, the workflow starts it\. 
 
 **To invoke an Amazon RDS API action from a Systems Manager Automation**
 
@@ -334,7 +334,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "The_Automation_role_to_use_when_executing_the_document"
+   assumeRole: "The_Automation_role_to_use_when_running_the_document"
    parameters:
      InstanceId: The_instance_ID_to_start
        type: String
@@ -350,7 +350,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
 
    1. View the schema to see all available inputs for the [aws:assertAwsResourceProperty](automation-actions.md#automation-action-assertAwsResourceProperty) action\.
 
-   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html)\. The namespace for Amazon RDS is `rds`\.
+   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
    1. Determine which Amazon RDS API action enables you to view the status of a database instance\. You can view the API actions \(also called methods\) on the [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
@@ -360,7 +360,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
 
       `PropertySelector: "$.DBInstances[0].DBInstanceStatus"`\.
 
-   1. Specify one or more DesiredValues\. If you don't know the values you want to specify, then execute the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API action to determine possible values\. For this walkthrough, specify *available* and *starting*\. 
+   1. Specify one or more DesiredValues\. If you don't know the values you want to specify, then run the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API action to determine possible values\. For this walkthrough, specify *available* and *starting*\. 
 
    1. Enter the information you collected into the Automation document as shown in the following example\.
 
@@ -368,7 +368,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "The_Automation_role_to_use_when_executing_the_document"
+   assumeRole: "The_Automation_role_to_use_when_running_the_document"
    parameters:
      InstanceId: The_instance_ID_to_start
        type: String
@@ -404,7 +404,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "{{ The_Automation_role_to_use_when_executing_the_document }}"
+   assumeRole: "{{ The_Automation_role_to_use_when_running_the_document }}"
    parameters:
      InstanceId:
        type: String
@@ -451,7 +451,7 @@ This sample walkthrough shows you how to create and execute an Automation docume
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "{{ The_Automation_role_to_use_when_executing_the_document }}"
+   assumeRole: "{{ The_Automation_role_to_use_when_running_the_document }}"
    parameters:
      InstanceId:
        type: String

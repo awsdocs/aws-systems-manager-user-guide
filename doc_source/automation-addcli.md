@@ -1,4 +1,4 @@
-# Additional Automation CLI Examples<a name="automation-addcli"></a>
+# Additional Automation AWS CLI Examples<a name="automation-addcli"></a>
 
 You can manage other aspects of Automation execution using the following tasks\.
 

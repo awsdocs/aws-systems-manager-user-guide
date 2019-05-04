@@ -6,10 +6,10 @@ A secure string parameter is any sensitive data that needs to be stored and refe
 + You want to be able to audit when sensitive data is accessed \(AWS CloudTrail\)\.
 + You want to encrypt your sensitive data and you want to bring your own encryption keys to manage access\.
 
-If you choose the `SecureString` datatype when you create a parameter, then Parameter Store uses an AWS Key Management Service \(KMS\) customer master key \(CMK\) to encrypt the parameter value\. KMS uses either a customer managed CMK or an AWS managed CMK when encrypting the parameter value\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
+If you choose the `SecureString` datatype when you create a parameter, then Parameter Store uses an AWS Key Management Service \(KMS\) customer master key \(CMK\) to encrypt the parameter value\. KMS uses either a customer managed CMK or an AWS\-managed CMK when encrypting the parameter value\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
 
 **Note**  
-To view a CMK, use the AWS KMS DescribeKey operation\. This CLI example uses DescribeKey to view an AWS managed CMK\.  
+To view a CMK, use the AWS KMS DescribeKey operation\. This AWS CLI example uses DescribeKey to view an AWS\-managed CMK\.  
 
 ```
 aws kms describe-key --key-id alias/aws/ssm
@@ -20,9 +20,9 @@ Only the *value* of a secure string parameter is encrypted\. Parameter names, de
 
 ## Create a Secure String Parameter Using a KMS Customer Master Key<a name="sysman-param-defaultkms"></a>
 
-If you create a secure string parameter by using the AWS managed CMK in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
+If you create a secure string parameter by using the AWS\-managed CMK in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 
-The following CLI example shows the command to create a new secure string parameter in Parameter Store without the `--key-id` parameter: 
+The following AWS CLI example shows the command to create a new secure string parameter in Parameter Store without the `--key-id` parameter: 
 
 ```
 aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString
@@ -30,7 +30,7 @@ aws ssm put-parameter --name parameter_name --value "parameter value" --type Sec
 
 ## Create a Secure String Parameter Using a Customer Managed CMK<a name="sysman-param-customkms"></a>
 
-To use a customer managed CMK instead of the AWS managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
+To use a customer managed CMK instead of the AWS\-managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
 + Key ARN example:
 
    `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`

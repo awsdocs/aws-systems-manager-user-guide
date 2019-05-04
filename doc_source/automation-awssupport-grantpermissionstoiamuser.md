@@ -43,7 +43,7 @@ Amazon
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that executes this document\. 
+  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\. 
 + LambdaAssumeRole
 
   Type: String
@@ -78,7 +78,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is executed\. 
+Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is run\. 
 
  **Direct execution** 
 

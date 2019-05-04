@@ -161,7 +161,7 @@ Choose **View** to view the template\.
 **Note**  
 This procedure creates an AWS CloudFormation stack in the US East \(Ohio\) Region \(us\-east\-2\), but the IAM role created by this process is a global resource available in all Regions\. 
 
-## Executing the Automation<a name="automation-ec2reset-executing"></a>
+## Running the Automation<a name="automation-ec2reset-executing"></a>
 
 **Note**  
 The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.

@@ -3,7 +3,7 @@
 You can control the execution of an Automation workflow across a fleet of AWS resources by specifying a concurrency value and an error threshold\. Concurrency and error threshold are collectively called *rate controls*\.
 
 **Concurrency**  
-Concurrency enables you to specify how many resources are allowed to execute an Automation simultaneously\. Concurrency helps to limit the impact or downtime on your resources when processing an Automation\. You can specify either an absolute number of resources, for example 20, or a percentage of the target set, for example 10%\.
+Concurrency enables you to specify how many resources are allowed to run an Automation simultaneously\. Concurrency helps to limit the impact or downtime on your resources when processing an Automation\. You can specify either an absolute number of resources, for example 20, or a percentage of the target set, for example 10%\.
 
 The queueing system delivers the Automation to a single resource and waits until the initial invocation is complete before sending the Automation to two more resources\. The system exponentially sends the Automation to more resources until the concurrency value is met\.
 

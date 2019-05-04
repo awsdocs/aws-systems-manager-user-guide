@@ -1,4 +1,4 @@
-# About Systems Manager Advanced Parameters<a name="parameter-store-advanced-parameters"></a>
+# About Advanced Parameters<a name="parameter-store-advanced-parameters"></a>
 
 AWS Systems Manager Parameter Store includes standard and advanced parameters\. You individually configure parameters to use either the standard\-parameter tier \(the default tier\) or the advanced\-parameter tier\. The following table describes the differences between the tiers\.
 

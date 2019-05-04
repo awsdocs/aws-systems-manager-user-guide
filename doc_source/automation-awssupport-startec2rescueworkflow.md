@@ -93,7 +93,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) Base64 encoded script to execute against the helper instance\. Use Bash if your source instance is Linux, and PowerShell if it is Windows\.
+  Description: \(Required\) Base64 encoded script to run against the helper instance\. Use Bash if your source instance is Linux, and PowerShell if it is Windows\.
 + EC2RescueInstanceType
 
   Type: String
@@ -137,7 +137,7 @@ Windows, Linux
 
   Default: False
 
-  Description: \(Optional\) Set it to True to create an AMI of InstanceId before executing the script\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. 
+  Description: \(Optional\) Set it to True to create an AMI of InstanceId before running the script\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. 
 + CreatePostEC2RescueBackup
 
   Type: String
@@ -146,7 +146,7 @@ Windows, Linux
 
   Default: False
 
-  Description: \(Optional\) Set it to True to create an AMI of InstanceId after executing the script, before starting it\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\.
+  Description: \(Optional\) Set it to True to create an AMI of InstanceId after running the script, before starting it\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\.
 + UniqueId
 
   Type: String
@@ -158,7 +158,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to execute this document\.
+  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document\.
 
  **Examples** 
 
@@ -182,7 +182,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
 **Required IAM Permissions**
 
-It is recommended the user who executes the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition to that policy, the user must have:
+It is recommended the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition to that policy, the user must have:
 
 ```
 {

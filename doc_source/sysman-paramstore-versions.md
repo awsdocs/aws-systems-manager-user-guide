@@ -43,8 +43,6 @@ The following procedures show you how to edit a parameter and then verify that a
 
 **Topics**
 + [Create a New Parameter Version \(Console\)](#sysman-paramstore-version-console)
-+ [Create a New Parameter Version \(AWS CLI\)](#sysman-paramstore-version-cli)
-+ [Create a New Parameter Version \(Windows PowerShell\)](#sysman-paramstore-version-powershell)
 
 ## Create a New Parameter Version \(Console\)<a name="sysman-paramstore-version-console"></a>
 
@@ -85,100 +83,3 @@ Parameters are only available in the Region where they were created\. If you don
 1. In the **Value** box, type a new value, and then choose **Save parameter**\.
 
 1. In the parameters list, choose the parameter you just updated, and then choose the **History** tab\. Verify that the version number incremented by 1, and verify the new value\.
-
-## Create a New Parameter Version \(AWS CLI\)<a name="sysman-paramstore-version-cli"></a>
-
-Use the following procedure to create a new version of a parameter by using the AWS CLI\.
-
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following:
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-1. Execute the following command to list parameters that you can update\.
-**Note**  
-Parameters are only available in the Region where they were created\. If you don't see a parameter that you want to update, then verify your Region\.
-
-   ```
-   aws ssm describe-parameters
-   ```
-
-   Note the name of a parameter that you want to update\.
-
-1. Execute the following command to update the parameter value\.
-
-   ```
-   aws ssm put-parameter --name "parameter_name" --type the_parameter_type --value "the new value" --overwrite
-   ```
-
-1. Execute the following command to view all versions of the parameter\.
-
-   ```
-   aws ssm get-parameter-history --name "the_parameter_name"
-   ```
-
-1. Execute the following command to retrieve information about a parameter by version number\.
-
-   ```
-   aws ssm get-parameters --names “the_parameter_name:the_version_number" 
-   ```
-
-   Here is an example\.
-
-   ```
-   aws ssm get-parameters --names “/Production/SQLConnectionString:3" 
-   ```
-
-## Create a New Parameter Version \(Windows PowerShell\)<a name="sysman-paramstore-version-powershell"></a>
-
-Use the following procedure to create a new version of a parameter by using the AWS Tools for Windows PowerShell\.
-
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
-
-   ```
-   Set-AWSCredentials –AccessKey key_name –SecretKey key_name
-   ```
-
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\. Systems Manager is currently available in the following [Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
-
-   ```
-   Set-DefaultAWSRegion -Region us-east-2
-   ```
-
-1. Execute the following command to list parameters that you can update\.
-**Note**  
-Parameters are only available in the Region where they were created\. If you don't see a parameter that you want to update, then verify your Region\.
-
-   ```
-   Get-SSMParameterList
-   ```
-
-   Note the name of a parameter that you want to update\.
-
-1. Execute the following command to update the parameter value\.
-
-   ```
-   Write-SSMParameter -Name "parameter_name" -Value "the new value" -Type "the_parameter_type" -Overwrite $true 
-   ```
-
-1. Execute the following command to view all versions of the parameter\.
-
-   ```
-   Get-SSMParameterHistory -Name "the_parameter_name"
-   ```
-
-1. Execute the following command to retrieve information about a parameter by version number\.
-
-   ```
-   (Get-SSMParameterValue -Names "the_parameter_name").Parameters | fl 
-   ```

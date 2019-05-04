@@ -58,7 +58,7 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, Systems Manager Automation will use the permissions of the user that executes this document\.
+  Description: \(Optional\) The IAM role for this execution\. If no role is specified, Systems Manager Automation will use the permissions of the user that runs this document\.
 
  **Examples** 
 
@@ -88,7 +88,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. For the online remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation** and **ssm:SendCommand** to execute the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation**, **ec2:DescribeInstances**, plus **ssm:GetAutomationExecution** to be able to read the automation output\. AWSSupport\-TroubleshootSSH calls AWSSupport\-ExecuteEC2Rescue to perform the offline remediation \- please review the permissions for AWSSupport\-ExecuteEC2Rescue to ensure you can run the automation successfully\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. For the online remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation**, **ec2:DescribeInstances**, plus **ssm:GetAutomationExecution** to be able to read the automation output\. AWSSupport\-TroubleshootSSH calls AWSSupport\-ExecuteEC2Rescue to perform the offline remediation \- please review the permissions for AWSSupport\-ExecuteEC2Rescue to ensure you can run the automation successfully\.
 
  **Document Steps** 
 
@@ -108,9 +108,9 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       1. aws:assertAwsResourceProperty \- Assert the value of SubnetId
 
-      1. \(Use the provided instance's subnet\) If SubnetId is SelectedInstanceSubnet us aws:executeAutomation to execute AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
+      1. \(Use the provided instance's subnet\) If SubnetId is SelectedInstanceSubnet us aws:executeAutomation to run AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
 
-      1. \(Use the provided custom subnet\) If SubnetId is not SelectedInstanceSubnet use aws:executeAutomation to execute AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
+      1. \(Use the provided custom subnet\) If SubnetId is not SelectedInstanceSubnet use aws:executeAutomation to run AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
 
  **Outputs** 
 

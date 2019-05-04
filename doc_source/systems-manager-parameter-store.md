@@ -8,12 +8,12 @@ Parameter Store offers the following benefits and features\.
 + Store configuration data and secure strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.
 + Configure change notifications and trigger automated actions\.
-+ Tag parameters individually, and then secure access from different levels, including operational, parameter, EC2 tag, or path levels\. 
++ Tag parameters individually, and then secure access from different levels, including operational, parameter, Amazon EC2 tag, or path levels\. 
 + Reference AWS Secrets Manager secrets by using Parameter Store parameters\.
 + Use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. The following AWS services support Parameter Store parameters: Amazon EC2, Amazon Elastic Container Service, AWS Lambda, AWS CloudFormation, AWS CodeBuild, and AWS CodeDeploy\. 
 + Configure integration with AWS Key Management Service \(KMS\), Amazon Simple Notification Service \(SNS\), Amazon CloudWatch, and AWS CloudTrail for encryption, notification, monitoring, and audit capabilities\.
 
-## Getting Started with Systems Manager Parameters<a name="sysman-paramstore-gs"></a>
+## Getting Started with Parameter Store<a name="sysman-paramstore-gs"></a>
 
 To get started with Systems Manager Parameters, complete the following tasks\.
 
@@ -22,12 +22,12 @@ To get started with Systems Manager Parameters, complete the following tasks\.
 
 | Task | For More Information | 
 | --- | --- | 
-|  Learn about different types of Systems Manager parameters\.  |  [Learn More About Systems Manager Parameters](sysman-paramstore-about.md)  | 
-|  Configure parameter access and notifications\.  |  [Setting Up Systems Manager Parameters](sysman-paramstore-settingup.md)  | 
-|  Learn how to organize, create, and tag parameters\.  |  [Working with Systems Manager Parameters](sysman-paramstore-working.md)  | 
-|  Learn about creating and using Systems Manager parameters in a test environment\.  |  [Systems Manager Parameter Store Walkthroughs](sysman-paramstore-walk.md)  | 
+|  Learn about different types of Systems Manager parameters\.  |  [Learn More About Parameters](sysman-paramstore-about.md)  | 
+|  Configure parameter access and notifications\.  |  [Setting Up Parameter Store](sysman-paramstore-settingup.md)  | 
+|  Learn how to organize, create, and tag parameters\.  |  [Working with Parameters](sysman-paramstore-working.md)  | 
+|  Learn about creating and using Systems Manager parameters in a test environment\.  |  [Parameter Store Walkthroughs](sysman-paramstore-walk.md)  | 
 |  Learn how Parameter Store uses AWS Key Management Service \(KMS\) to manage secure string parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 
-|  Learn about the benefits of the advanced\-parameter tier\.  |  [About Systems Manager Advanced Parameters](parameter-store-advanced-parameters.md)  | 
+|  Learn about the benefits of the advanced\-parameter tier\.  |  [About Advanced Parameters](parameter-store-advanced-parameters.md)  | 
 |  Learn how to increase the number of transactions per second that Parameter Store can process\.  |  [Increasing Parameter Store Throughput](parameter-store-throughput.md)  | 
 
 **Related Content**  

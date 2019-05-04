@@ -1,4 +1,4 @@
-# Working with Systems Manager Parameters<a name="sysman-paramstore-working"></a>
+# Working with Parameters<a name="sysman-paramstore-working"></a>
 
 This section describes how to organize, create, and tag parameters, and create different versions of parameters\.
 

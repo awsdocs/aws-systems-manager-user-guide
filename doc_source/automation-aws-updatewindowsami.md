@@ -57,12 +57,12 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) A script provided as a string\. It will execute after installing OS updates\.
+  Description: \(Optional\) A script provided as a string\. It will run after installing OS updates\.
 + PreUpdateScript
 
   Type: String
 
-  Description: \(Optional\) A script provided as a string\. It will execute prior to installing OS updates\.
+  Description: \(Optional\) A script provided as a string\. It will run prior to installing OS updates\.
 + PublishedDateAfter
 
   Type: String

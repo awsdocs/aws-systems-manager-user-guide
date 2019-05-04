@@ -25,9 +25,9 @@ You can share a Systems Manager Automation document by using the AWS Systems Man
 
 ## Share a Document \(AWS CLI\)<a name="automation-share-using-cli"></a>
 
-The following procedure requires that you specify a region for your CLI session\.
+The following procedure requires that you specify an AWS Region for your AWS CLI session\.
 
-1. Open the AWS CLI on your local computer and execute the following command to specify your credentials\. 
+1. Open the AWS CLI on your local computer and run the following command to specify your credentials\. 
 
    ```
    aws config
@@ -86,7 +86,7 @@ The following procedure requires that you specify a region for your CLI session\
 
 The following procedure requires that you specify a region for your PowerShell session\.
 
-1. Open **AWS Tools for Windows PowerShell** on your local computer and execute the following command to specify your credentials\. 
+1. Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. 
 
    ```
    Set-AWSCredentials –AccessKey your key –SecretKey your key

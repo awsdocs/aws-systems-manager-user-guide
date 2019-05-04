@@ -2,6 +2,8 @@
 
 In this step, you register a target with your new Maintenance Window\. In other words, you specify which instance to update when the Maintenance Window runs\.
 
+For examples of registering more than one instance at a time using instance IDs, and using instance tags to identify targets, see [Examples: Register Targets with a Maintenance Window](mw-cli-tutorial-targets-examples.md)\.
+
 **To register a target instance with a Maintenance Window \(AWS CLI\)**
 
 1. Run the following command:
@@ -10,25 +12,12 @@ In this step, you register a target with your new Maintenance Window\. In other 
    aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --resource-type "INSTANCE" --target "Key=InstanceIds,Values=i-1234567890EXAMPLE"
    ```
 
-   The system returns information like the following
+   The system returns information like the following:
 
    ```
    {
       "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2"
    }
-   ```
-
-**Alternative commands**  
-You could instead register multiple instances using the following command\.
-
-   ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --targets "Key=InstanceIds,Values=i-1234567890EXAMPLE,i-abcdefghiEXAMPLE" --resource-type "INSTANCE"
-   ```
-
-   You could also register instances using Amazon EC2 tags\. For example:
-
-   ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --targets "Key=tag:Environment,Values=Prod" "Key=Role,Values=Web" --resource-type "INSTANCE"
    ```
 
 1. Now run the following command to view details about your Maintenance Window target:

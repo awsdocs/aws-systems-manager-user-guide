@@ -18,7 +18,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Choose the **Approval rules** tab\. 
 
-   If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group \(Console\)](sysman-patch-tagging-console.md)\. 
+   If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group](sysman-patch-group-tagging.md)\. 
 
    \-or\-
 
@@ -97,7 +97,7 @@ For information about accepted formats for lists of approved patches and rejecte
 **Note**  
 If the **Welcome to EC2 Systems Manager \- Patch Baselines** page appears, choose **Create Patch Baseline**\. When the **Create patch baseline** page appears, choose the back button in your browser to view the list of patch baselines\.
 
-1. With a default baseline selected, choose the **Approval Rules** tab\. If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group \(Console\)](sysman-patch-tagging-console.md)\. 
+1. With a default baseline selected, choose the **Approval Rules** tab\. If the auto\-approval rules are acceptable for your instances, then you can skip to the next procedure, [Create a Patch Group](sysman-patch-group-tagging.md)\. 
 
 1. To create your own default patch baseline, choose **Create Patch Baseline**\.
 
