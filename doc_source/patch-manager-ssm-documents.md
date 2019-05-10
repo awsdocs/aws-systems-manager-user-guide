@@ -64,7 +64,7 @@ Installs patches on your instances or scans instances to determine whether any q
  **Replaces legacy documents:**
 + **AWS\-ApplyPatchBaseline**
 
-The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows instances\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
+The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows instances, and does not provide support for application patching\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
 
 For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
@@ -80,7 +80,7 @@ The following four SSM documents are still available for use in your patching op
 
 ### AWS\-ApplyPatchBaseline<a name="patch-manager-ssm-documents-legacy-AWS-ApplyPatchBaseline"></a>
 
-Supports only Windows instances, but with the same set of parameters found in its replacement, **AWS\-RunPatchBaseline**\. Not available in AWS Regions launched after August 2017\.
+Supports only Windows instances, but does not include support for patching applications that is found in its replacement, **AWS\-RunPatchBaseline**\. Not available in AWS Regions launched after August 2017\.
 
 **Note**  
 The replacement for this SSM document, **AWS\-RunPatchBaseline**, requires version 2\.0\.834\.0 or a later version of SSM Agent\. You can use the **AWS\-UpdateSSMAgent** document to update your instances to the latest version of the agent\. 
@@ -90,22 +90,22 @@ The replacement for this SSM document, **AWS\-RunPatchBaseline**, requires versi
 Replaced by **AWS\-InstallWindowsUpdates**, which can perform all the same actions\. Not available in AWS Regions launched after April 2017\.
 
 To achieve the same result that you would from this legacy SSM document, use the following parameter configuration with the recommended replacement document, **AWS\-InstallWindowsUpdates**:
-+ `Action` = Scan
-+ `Allow Reboot` = False
++ `Action` = `Scan`
++ `Allow Reboot` = `False`
 
 ### AWS\-InstallMissingWindowsUpdates<a name="patch-manager-ssm-documents-legacy-AWS-InstallMissingWindowsUpdates"></a>
 
 Replaced by **AWS\-InstallWindowsUpdates**, which can perform all the same actions\. Not available in any AWS Regions launched after April 2017\.
 
 To achieve the same result that you would from this legacy SSM document, use the following parameter configuration with the recommended replacement document, **AWS\-InstallWindowsUpdates**:
-+ `Action` = Install
-+ `Allow Reboot` = True
++ `Action` = `Install`
++ `Allow Reboot` = `True`
 
 ### AWS\-InstallSpecificWindowsUpdates<a name="patch-manager-ssm-documents-legacy-AWS-InstallSpecificWindowsUpdates"></a>
 
 Replaced by **AWS\-InstallWindowsUpdates**, which can perform all the same actions\. Not available in any AWS Regions launched after April 2017\.
 
 To achieve the same result that you would from this legacy SSM document, use the following parameter configuration with the recommended replacement document, **AWS\-InstallWindowsUpdates**:
-+ `Action` = Install
-+ `Allow Reboot` = True
++ `Action` = `Install`
++ `Allow Reboot` = `True`
 + `Include Kbs` = *comma\-separated list of KB articles*

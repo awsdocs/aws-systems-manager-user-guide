@@ -1,6 +1,6 @@
 # AWS Systems Manager Patch Manager<a name="systems-manager-patch"></a>
 
-AWS Systems Manager Patch Manager automates the process of patching managed instances with security\-related updates\. For Linux\-based instances, you can also install patches for nonsecurity updates\. You can patch fleets of Amazon EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Ubuntu Server, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), CentOS, Amazon Linux, and Amazon Linux 2\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
+AWS Systems Manager Patch Manager automates the process of patching managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) You can patch fleets of Amazon EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Ubuntu Server, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), CentOS, Amazon Linux, and Amazon Linux 2\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
 
 **Important**  
 AWS does not test patches for Windows or Linux before making them available in Patch Manager\.
@@ -21,15 +21,15 @@ To get started with Patch Manager, complete the tasks described in the following
 | Task | For More Information | 
 | --- | --- | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
-|  Learn how to set up and configure patching  |  [Working with Patch Manager](sysman-patch-working.md)  | 
+|  Learn how to set up and configure patching  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
 | Configure permissions for Maintenance Windows\(Required if you intend to use this feature when patching\.\) | [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md) | 
-|  Create patch baselines, patch groups, and a Maintenance Window to execute patching in a test environment  |  [Working with Patch Manager](sysman-patch-working.md)  | 
+|  Create patch baselines, patch groups, and a Maintenance Window to execute patching in a test environment  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
 
 **Topics**
 + [Patch Manager Prerequisites](patch-manager-prerequisites.md)
 + [How Patch Manager Operations Work](patch-manager-how-it-works.md)
 + [About Patching Operations](about-patching-operations.md)
 + [About Patch Baselines](about-patch-baselines.md)
-+ [Working with Patch Manager](sysman-patch-working.md)
++ [Working with Patch Manager \(Console\)](sysman-patch-working.md)
 + [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 + [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)

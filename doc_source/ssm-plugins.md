@@ -897,49 +897,80 @@ Required: No
 
 ## aws:softwareInventory<a name="aws-softwareinventory"></a>
 
-\(Schema version 2\.0 or later\) Gather an inventory of applications, AWS components, network configuration, Windows Updates, and custom inventory from an instance\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Gather metadata about applications, files, and configurations on your managed instances\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 
 ```
 "mainSteps": [
-        {
-            "action": "aws:softwareInventory",
-            "name": "collectSoftwareInventoryItems",
-            "inputs": {
-                "applications": "{{ applications }}",
-                "awsComponents": "{{ awsComponents }}",
-                "networkConfig": "{{ networkConfig }}",
-                "windowsUpdates": "{{ windowsUpdates }}",
-                "customInventory": "{{ customInventory }}"
-            }
-        }
+    {
+      "action": "aws:softwareInventory",
+      "name": "collectSoftwareInventoryItems",
+      "inputs": {
+        "applications": "{{ applications }}",
+        "awsComponents": "{{ awsComponents }}",
+        "networkConfig": "{{ networkConfig }}",
+        "files": "{{ files }}",
+        "services": "{{ services }}",
+        "windowsRoles": "{{ windowsRoles }}",
+        "windowsRegistry": "{{ windowsRegistry}}",
+        "windowsUpdates": "{{ windowsUpdates }}",
+        "instanceDetailedInformation": "{{ instanceDetailedInformation }}",
+        "customInventory": "{{ customInventory }}"
+      }
+    }
+  ]
 ```
 
 ### Inputs<a name="softwareinventory-properties"></a>
 
 **applications**  
-Collect data for installed applications\.  
+\(Optional\) Collect metadata for installed applications\.  
 Type: String  
 Required: No
 
 **awsComponents**  
-Collect data for AWS components like amazon\-ssm\-agent\.  
+\(Optional\) Collect metadata for AWS components like amazon\-ssm\-agent\.  
+Type: String  
+Required: No
+
+**files**  
+\(Optional, requires SSM Agent version 2\.2\.64\.0 or later\) Collect metadata for files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few\. For more information about collecting file inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.  
 Type: String  
 Required: No
 
 **networkConfig**  
-Collect data for network configuration\.  
+\(Optional\) Collect metadata for network configurations\.  
 Type: String  
 Required: No
 
 **windowsUpdates**  
-Collect data for all Windows updates\.  
+\(Optional\) Collect metadata for all Windows updates\.  
+Type: String  
+Required: No
+
+**instanceDetailedInformation**  
+\(Optional\) Collect more instance information than is provided by the default inventory plugin \(aws:instanceInformation\), including CPU model, speed, and the number of cores, to name a few\.  
+Type: String  
+Required: No
+
+**services**  
+\(Optional, Windows OS only, requires SSM Agent version 2\.2\.64\.0 or later\) Collect metadata for service configurations\.  
+Type: String  
+Required: No
+
+**windowsRegistry**  
+\(Optional, Windows OS only, requires SSM Agent version 2\.2\.64\.0 or later\) Collect Windows Registry keys and values\. You can choose a key path and collect all keys and values recursively\. You can also collect a specific registry key and its value for a specific path\. Inventory collects the key path, name, type, and the value\. For more information about collecting Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.  
+Type: String  
+Required: No
+
+**windowsRoles**  
+\(Optional, Windows OS only, requires SSM Agent version 2\.2\.64\.0 or later\) Collect metadata for Microsoft Windows role configurations\.  
 Type: String  
 Required: No
 
 **customInventory**  
-Collect data for custom inventory\.  
+\(Optional\) Collect custom inventory data\. For more information about custom inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)  
 Type: String  
 Required: No
 

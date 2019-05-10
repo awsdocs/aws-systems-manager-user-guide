@@ -1,12 +1,18 @@
 # Assign Tasks to a Maintenance Window \(Console\)<a name="sysman-maintenance-assign-tasks"></a>
 
-After you assign targets, you assign tasks to perform during the window\.
+In this procedure, you add a task to a Maintenance Window\. Tasks are the actions performed on a resource during a Maintenance Window execution\. 
+
+The following four types of tasks can be added to a Maintenance Window:
++ Systems Manager Run Command commands
++ Systems Manager Automation workflows
++ AWS Lambda functions
++ AWS Step Functions tasks
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
 **To assign tasks to a Maintenance Window \(AWS Systems Manager\)**
 
-1. In the list of Maintenance Windows, choose the Maintenance Window you just created\.
+1. In the list of Maintenance Windows, choose a Maintenance Window \.
 
 1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
 

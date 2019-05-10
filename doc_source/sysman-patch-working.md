@@ -1,8 +1,8 @@
-# Working with Patch Manager<a name="sysman-patch-working"></a>
+# Working with Patch Manager \(Console\)<a name="sysman-patch-working"></a>
 
 To use Patch Manager, complete the following tasks\. These tasks are described in more detail in this section\.
 
-1. Verify that the default patch baselines meet your needs, or create patch baselines that define a standard set of patches for your instances\.
+1. Verify that the AWS predefined patch baseline for each operating system type that you use meets your needs\. If it does not, create a patch baseline that defines a standard set of patches for that instance type and set it as the default instead\.
 
 1. Organize instances into patch groups by using Amazon EC2 tags \(optional, but recommended\)\.
 
@@ -16,7 +16,9 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 + For information about monitoring patch compliance, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 **Topics**
-+ [Create a Default Patch Baseline](sysman-patch-baseline-console.md)
++ [View AWS Predefined Patch Baselines](view-predefined-patch-baselines.md)
++ [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)
++ [Set an Existing Patch Baseline as the Default](set-default-patch-baseline.md)
 + [Create a Patch Group](sysman-patch-group-tagging.md)
 + [Add a Patch Group to a Patch Baseline](sysman-patch-group-patchbaseline.md)
 + [Create a Maintenance Window for Patching](sysman-patch-mw-console.md)

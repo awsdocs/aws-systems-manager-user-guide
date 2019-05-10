@@ -3,7 +3,7 @@
 **SSM Agent Version**  
 Version 2\.0\.834\.0 or later of SSM Agent be running on the instances you want to manage with Patch Manager\.
 
-**Important**  
+**Note**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)\.
 
 **Supported Operating Systems**  

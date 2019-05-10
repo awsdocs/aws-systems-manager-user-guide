@@ -7,6 +7,9 @@ To view details about the different versions of SSM Agent, see the [release note
 **Before You Begin**  
 Before you complete the following procedure, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
+**Note**  
+If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
+
 **To create an association for automatically updating SSM Agent**
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.

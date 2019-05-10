@@ -29,19 +29,19 @@ After all approved and applicable updates have been installed, with reboots perf
 
 **Usage**: Required\.
 
-**Options**: Scan \| Install\. 
+**Options**: `Scan` \| `Install`\. 
 
 Scan  
-When you choose the Scan option, **AWS\-RunPatchBaseline** determines the patch compliance state of the instance and reports this information back to Patch Manager\. Scan does not prompt updates to be installed or instances to be rebooted\. Instead, the operation identifies where updates are missing that are approved and applicable to the instance\. 
+When you choose the `Scan` option, **AWS\-RunPatchBaseline** determines the patch compliance state of the instance and reports this information back to Patch Manager\. `Scan` does not prompt updates to be installed or instances to be rebooted\. Instead, the operation identifies where updates are missing that are approved and applicable to the instance\. 
 
 Install  
-When you choose the Install option, **AWS\-RunPatchBaseline** attempts to install the approved and applicable updates that are missing from the instance\. Patch compliance information generated as part of an Install operation does not list any missing updates, but might report updates that are in a failed state if the installation of the update did not succeed for any reason\. Whenever an update is installed on an instance, the instance is rebooted to ensure the update is both installed and active\.
+When you choose the `Install` option, **AWS\-RunPatchBaseline** attempts to install the approved and applicable updates that are missing from the instance\. Patch compliance information generated as part of an `Install` operation does not list any missing updates, but might report updates that are in a failed state if the installation of the update did not succeed for any reason\. Whenever an update is installed on an instance, the instance is rebooted to ensure the update is both installed and active\.
 
 ### Parameter name: `InstallOverrideList`<a name="patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist"></a>
 
 **Usage**: Optional\.
 
-`InstallOverrideList` lets you specify an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
+`InstallOverrideList` lets you specify an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 

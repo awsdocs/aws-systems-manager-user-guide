@@ -7,7 +7,6 @@ The rules in a patch baseline for Linux distributions operate differently based 
 + [How Patch Baseline Rules Work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
 + [How Patch Baseline Rules Work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
 + [How Patch Baseline Rules Work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
-+ [Key Differences Between Linux and Windows Patching](sysman-patch-differences.md)
 
 ## How Patch Baseline Rules Work on Amazon Linux and Amazon Linux 2<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
 
@@ -81,19 +80,12 @@ For information about patch compliance status values, see [About Patch Complianc
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 
 On SLES, each patch includes the following attributes that denote the properties of the packages in the patch:
-+ **Category**: Corresponds to the value of the **Classification** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the type of patch included in the update notice\. Available options include: 
-  + Security
-  + Recommended
-  + Optional
-  + Features
-  + Document
-  + Yast
-+ **Severity**: Corresponds to the value of the **Severity** key attribute patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the severity of the patches\. Available options include: 
-  + None
-  + Low
-  + Moderate
-  + Important
-  + Critical
++ **Category**: Corresponds to the value of the **Classification** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the type of patch included in the update notice\.
+
+  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API action [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
++ **Severity**: Corresponds to the value of the **Severity** key attribute patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the severity of the patches\.
+
+  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API action [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
 
 The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the **Product** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. 
 

@@ -42,3 +42,6 @@ State Manager creates and immediately runs the association on the specified inst
 + State Manager attempts to run the association on all configured instances during an interval\.
 + If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
+
+**Note**  
+If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 

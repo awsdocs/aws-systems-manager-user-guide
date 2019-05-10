@@ -22,7 +22,7 @@ The following is an example of a permissions policy that allows a user to delete
         "ssm:DeleteDocument"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:123456789012:document:MyDocument-*"
+        "arn:aws:ssm:us-west-2:123456789012:document/MyDocument-*"
       ]
     }
   ]

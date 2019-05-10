@@ -17,7 +17,7 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 
 **Systems Manager API Operations and Required Permissions for Actions**  
 
-| Systems Manager API Operations | Required Permissions \(API Actions | 
+| Systems Manager API Operations | Required Permissions \(API Actions\) | 
 | --- | --- | 
 |  [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html)  |  `ssm:AddTagsToResource` Required to add or overwrite tags for a specified resource\.  | 
 |  [CancelCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CancelCommand.html)  |  `ssm:CancelCommand` Required to attempt to cancel the command with the specified command ID\.  | 
@@ -71,6 +71,7 @@ If you see an expand arrow \(**↗**\) in the upper\-right corner of the table, 
 |  [DescribePatchBaselines](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html)  |  `ssm:DescribePatchBaselines` Required to view information about the patch baselines in an AWS account\.  | 
 |  [DescribePatchGroups](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroups.html)  |  `ssm:DescribePatchGroups` Required to view information about all patch groups that have been registered with patch baselines\.  | 
 |  [DescribePatchGroupState](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroupState.html)  |  `ssm:DescribePatchGroupState` Required to view information about the high\-level aggregated patch compliance state for a patch group\.  | 
+|  [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)  |  `ssm:DescribePatchProperties` Required to view information about the properties of available patches\.  | 
 |  [DescribeSessions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeSessions.html)  |  `ssm:DescribeSessions` Required to retrieve a list of all active sessions \(both connected and disconnected\) or terminated Session Manager sessions\.  | 
 |  [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html)  |  `ssm:GetAutomationExecution` Required to view detailed information about a particular Automation execution\.  | 
 |  [GetCommandInvocation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetCommandInvocation.html)  |  `ssm:GetCommandInvocation` Required to view detailed information about command execution for an invocation or plugin\.  | 

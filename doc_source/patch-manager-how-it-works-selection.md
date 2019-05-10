@@ -10,12 +10,10 @@ Choose from the following tabs to learn how Patch Manager selects security patch
 ------
 #### [ Windows ]
 
-On Microsoft Windows operating systems, Patch Manager uses Microsoft’s cab file `wsusscn2.cab` as the source of available operating systems security updates\. This file contains information about the security\-related updates that Microsoft publishes\. Patch Manager continuously monitors for new versions of `wsusscn2.cab` independently in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. The file contains only updates that Microsoft identifies as being related to security\. As the information in the file is processed, Patch Manager also removes updates that have been replaced by later updates\. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
+On Microsoft Windows operating systems, Patch Manager retrieves a list of available updates that Microsoft publishes through its update services, such as Microsoft Update and Windows Server Update Services \(WSUS\)\. Patch Manager continuously monitors for new updates in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. When the patch information from Microsoft is processed, Patch Manager removes updates that have been replaced by later updates from its patch list \. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
 
-To read more about the `wsusscn2.cab` file, see the Microsoft article [Using WUA to Scan for Updates Offline](https://msdn.microsoft.com/en-us/library/windows/desktop/aa387290(v=vs.85).aspx)\.
-
-Download the current version of `wsusscn2.cab`:
-+ [http://go.microsoft.com/fwlink/p/?LinkID=74689](http://go.microsoft.com/fwlink/p/?LinkID=74689)
+**Note**  
+Patch Manager only makes available patches for Windows Server operating system versions that are supported for Patch Manager\. For example, Patch Manager can't be used to patch Windows Server 2003 or Windows RT\.
 
 ------
 #### [ Amazon Linux and Amazon Linux 2 ]

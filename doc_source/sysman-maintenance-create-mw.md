@@ -1,21 +1,11 @@
 # Create a Maintenance Window \(Console\)<a name="sysman-maintenance-create-mw"></a>
 
-To create a Maintenance Window, do the following:
-+ Create a window and define its schedule and duration\.
+In this procedure, you create a Maintenance Window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run during the Maintenance Window execution\.
+
 **Note**  
 For an explanation of how the various schedule\-related options for Maintenance Windows relate to one another, see [Reference: Maintenance Window Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
-+ Assign targets for the window\.
-+ Assign tasks to run during the window\.
 
-After you complete these steps, the Maintenance Window runs according to the schedule you defined and runs the tasks on the targets you specified\. After a task is finished, Systems Manager logs the details of the execution\. 
-
-You can run the following types of tasks on targets:
-+ Commands by using Systems Manager Run Command
-**Note**  
-To create a Maintenance Window for patching operations, we recommend using the **Configure patching** page in Patch Manager instead of creating it in the **Maintenance Window** area of Systems Manager\.
-+ Automation workflows by using Systems Manager Automation
-+ Functions by using AWS Lambda
-+ State machines by using AWS Step Functions
+After a task runs
 
 **To create a Maintenance Window \(console\)**
 

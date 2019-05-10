@@ -53,6 +53,7 @@ This section does *not* include a separate page for documents that require appro
 + [AWSSupport\-ManageRDPSettings](automation-awssupport-managerdpsettings.md)
 + [AWSSupport\-ManageWindowsService](automation-awssupport-managewindowsservice.md)
 + [AWS\-PatchASGInstance](automation-aws-patchasginstance.md)
++ [AWS\-PatchInstanceWithRollback](automation-aws-patchinstancewithrollback.md)
 + [AWS\-PublishSNSNotification](automation-aws-publishsnsnotification.md)
 + [AWS\-RebootRDSInstance](automation-aws-rebootrdsinstance.md)
 + [AWSSupport\-ResetAccess](automation-awssupport-resetaccess.md)

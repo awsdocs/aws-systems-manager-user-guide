@@ -15,15 +15,6 @@ In the **Run a command** page, after you choose an SSM document to run and selec
 + ** IAM instance role**: Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
 + **Target operating system type**: Double\-check that you have selected an SSM document that supports the type of instance you want to update\. Most SSM documents support both Windows and Linux instances, but some do not\. For example, if you select the SSM document `AWS-InstallPowerShellModule`, which applies only to Windows instances, you will not see Linux instances in the target instances list\.
 
-**Check Instance Status Using the Health API**  
-You can use the Amazon EC2 Health API to quickly determine the following information about Amazon EC2 instances:
-+ The status of one or more instances
-+ The last time the instance sent a heartbeat value
-+ The version of SSM Agent
-+ The operating system 
-+ The version of the EC2Config service \(Windows\)
-+ The status of the EC2Config service \(Windows\)
-
 ## Getting Status Information on Windows Instances<a name="rc-healthapi-win"></a>
 
 Use the following command to get status details about one or more instances:
@@ -85,8 +76,8 @@ SSM Agent logs information in the following files\. The information in these fil
 If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
 
 **On Windows**
-+ %PROGRAMFILES%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
-+ %PROGRAMFILES%\\Amazon\\SSM\\Logs\\errors\.log
++ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
++ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\errors\.log
 
 **On Linux**
 + /var/log/amazon/ssm/amazon\-ssm\-agent\.log

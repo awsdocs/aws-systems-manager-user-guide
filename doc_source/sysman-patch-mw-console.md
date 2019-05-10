@@ -47,7 +47,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. For **Command document**, choose **AWS\-RunPatchBaseline**\.
 
-1. For **Task priority**, choose a priority\. One is the highest priority\.
+1. For **Task priority**, choose a priority\. `One` is the highest priority\.
 
 1. For **Targets**, under **Target by**, choose the Maintenance Window target you created earlier in this procedure\.
 

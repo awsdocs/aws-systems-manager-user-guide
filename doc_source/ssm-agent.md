@@ -12,7 +12,11 @@ AMIs that include SSM Agent by default can take up to two weeks to be updated wi
 Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
 
 **About the local ssm\-user account**  
-Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called **ssm\-user** and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\) every time the agent starts\. This **ssm\-user** is the default OS user when a Session Manager session is started, and the password for this user is reset on every session\. You can change the permissions by moving **ssm\-user** to a less\-privileged group or by changing the `sudoers` file\. The** ssm\-user** account is not removed from the system when SSM Agent is uninstalled\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
+
+On Windows Server, SSM Agent handles setting a new password for the `ssm-user` account when each session starts\. No passwords are set for `ssm-user` on Linux managed instances\.
+
+Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account is not created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, you must create the `ssm-user` account manually if it isn't already present\.
 
 **Important**  
 In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Step 2: Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md) in the **Session Manager** Getting Started content\.

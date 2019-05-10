@@ -1,4 +1,4 @@
-# Default and Custom Patch Baselines<a name="sysman-patch-baselines"></a>
+# About Predefined and Custom Patch Baselines<a name="sysman-patch-baselines"></a>
 
 A patch baseline defines which patches are approved for installation on your instances\. You can specify approved or rejected patches one by one\. You can also create auto\-approval rules to specify that certain types of updates \(for example, critical updates\) should be automatically approved\. The rejected list overrides both the rules and the approve list\. 
 
@@ -7,10 +7,10 @@ To use a list of approved patches to install specific packages, you first remove
 Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
 
 **Topics**
-+ [PreDefined Baselines](#patch-manager-baselines-pre-defined)
-+ [Custom Baselines](#patch-manager-baselines-custom)
++ [About Predefined Baselines](#patch-manager-baselines-pre-defined)
++ [About Custom Baselines](#patch-manager-baselines-custom)
 
-## PreDefined Baselines<a name="patch-manager-baselines-pre-defined"></a>
+## About Predefined Baselines<a name="patch-manager-baselines-pre-defined"></a>
 
 The following table describes the predefined patch baselines provided with Patch Manager\.
 
@@ -21,20 +21,24 @@ For information about which versions of each operating system Patch Manager supp
 
 | Name | Supported Operating System | Details | 
 | --- | --- | --- | 
-|  AWS\-DefaultPatchBaseline  |  Windows Server  |  Approves all operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and an MSRC severity of "Critical" or "Important" seven days after release\.  | 
-|  AWS\-AmazonLinuxDefaultPatchBaseline  |  Amazon Linux and Amazon Linux 2  |  Approves all operating system patches that are classified as "Security" and with a severity level of "Critical" or "Important" seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release  | 
-|  AWS\-UbuntuDefaultPatchBaseline  |  Ubuntu Server  |  Immediately approves all operating system security\-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra\." There is no wait before approval because reliable release dates are not available in the repos\.  | 
-|  AWS\-RedHatDefaultPatchBaseline  |  Red Hat Enterprise Linux \(RHEL\)   |  Approves all operating system patches that are classified as "Security" and with severity level of "Critical" or "Important" seven days after release\. Also approves all patches that are classified as "Bugfix" seven days after release\.  | 
-| AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server \(SLES\) | Approves all operating system patches that are classified as "Security" and with a severity of "Critical" or "Important" seven days after release\.  | 
+|  `AWS-AmazonLinuxDefaultPatchBaseline`  |  Amazon Linux  |  Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important"\. Patches are auto\-approved seven days after release\. Also auto\-approves all patches with a classification of "Bugfix" seven days after release\.  | 
+| AWS\-AmazonLinux2DefaultPatchBaseline | Amazon Linux 2 | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important"\. Patches are auto\-approved seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release\. | 
 | AWS\-CentOSDefaultPatchBaseline | CentOS | Approves all updates seven days after they become available, including nonsecurity updates\. | 
+|  `AWS-RedHatDefaultPatchBaseline`  |  Red Hat Enterprise Linux \(RHEL\)   |  Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important"\. Patches are auto\-approved seven days after release\. Also approves all patches that are classified as "Bugfix" seven days after release\.  | 
+| AWS\-SuseDefaultPatchBaseline | SUSE Linux Enterprise Server \(SLES\) | Approves all operating system patches that are classified as "Security" and with a severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
+|  `AWS-UbuntuDefaultPatchBaseline`  |  Ubuntu Server  |  Immediately approves all operating system security\-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra\." There is no wait before approval because reliable release dates are not available in the repos\.  | 
+| AWS\-DefaultPatchBaseline |  Windows Server  |  Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
+| AWS\-WindowsPredefinedPatchBaseline\-OS |  Windows Server  |  Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
+| AWS\-WindowsPredefinedPatchBaseline\-OS\-Applications | Windows Server | For the Windows Server operating system, approves all patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. For Microsoft applications, approves all patches\. Patches for both OS and applications are auto\-approved seven days after release\. | 
 
-## Custom Baselines<a name="patch-manager-baselines-custom"></a>
+## About Custom Baselines<a name="patch-manager-baselines-custom"></a>
 
 If you create your own patch baseline, you can choose which patches to auto\-approve by using the following categories\.
-+ Operating system: Windows, Amazon Linux, Ubuntu Server, etc\.
-+ Product name: For example, RHEL 6\.5, Amazon Linux 2014\.09, Windows Server 2012, Windows Server 2012 R2, etc\.
-+ Classification: For example, critical updates, security updates, etc\.
-+ Severity: For example, critical, important, etc\.
++ Operating system: Windows, Amazon Linux, Ubuntu Server, and so on\.
++ Product name \(for operating systems\): For example, RHEL 6\.5, Amazon Linux 2014\.09, Windows Server 2012, Windows Server 2012 R2, and so on\.
++ Product name \(for Microsoft applications on Windows Server only\): For example, Word 2016, BizTalk Server, and so on\.
++ Classification: For example, critical updates, security updates, and so on\.
++ Severity: For example, critical, important, and so on\.
 
 For each auto\-approval rule that you create, you can specify an auto\-approval delay\. This delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the Critical Updates classification and configure it for seven days auto\-approval delay, then a new critical patch released on January 7 will automatically be approved on January 14\.
 
@@ -46,7 +50,9 @@ You can also specify a compliance severity level\. If an approved patch is repor
 By using multiple patch baselines with different auto\-approval delays, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines and auto\-approval delays for development and production environments\. This enables you to test patches in your development environment before they get deployed in your production environment\. 
 
 Keep the following in mind when you create a patch baseline:
-+ Patch Manager provides a default patch baseline for each supported operating system\. You can instead create your own patch baseline and designate that as the default patch baseline for the corresponding operating system\.
++ Patch Manager provides one predefined patch baseline for each supported operating system\. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type\. 
+**Note**  
+For Windows Server, two predefined patch baselines are provided\. The patch baseline `AWS-WindowsPredefinedPatchBaseline-OS` supports only operating system updates on the Windows operating system itself\. It is used as the default patch baseline for Windows instances unless you specify a different patch baseline\. The other predefined Windows patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\. 
 + For on\-premises or non\-Amazon EC2 instances, Patch Manager attempts to use your custom default patch baseline\. If no custom default patch baseline exists, the system uses the predefined patch baseline for the corresponding operating system\.
 + If a patch is listed as both approved and rejected in the same patch baseline, the patch is rejected\.
 + An instance can have only one patch baseline defined for it\.
@@ -54,4 +60,4 @@ Keep the following in mind when you create a patch baseline:
 
   For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
-For information about creating a patch baseline, see [Create a Default Patch Baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For information about creating a patch baseline, see [Create a Custom Patch Baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.

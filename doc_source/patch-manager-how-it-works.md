@@ -7,3 +7,4 @@ This section provides technical details that explain how Patch Manager determine
 + [How to Specify an Alternative Patch Source Repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)
 + [How Patches Are Installed](patch-manager-how-it-works-installation.md)
 + [How Patch Baseline Rules Work on Linux\-Based Systems](patch-manager-how-it-works-linux-rules.md)
++ [Key Differences Between Linux and Windows Patching](sysman-patch-differences.md)

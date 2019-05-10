@@ -8,13 +8,13 @@ For example, suppose that your Ubuntu Server fleet includes both Ubuntu Server 1
 
 For a list of example scenarios for using this option, see [Sample Uses for Alternative Patch Source Repositories](#patch-manager-how-it-works-alt-source-repository-examples) later in this topic\.
 
-For information about default and custom patch baselines, see [Default and Custom Patch Baselines](sysman-patch-baselines.md)\.
+For information about default and custom patch baselines, see [About Predefined and Custom Patch Baselines](sysman-patch-baselines.md)\.
 
 **Note**  
 Running a custom patch baseline that specifies alternative patch repositories on an instance doesn't change the default repository configured for the instance\.
 
 **Using the Console**  
-To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a Default Patch Baseline](sysman-patch-baseline-console.md)\.
+To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)\.
 
 **Using Other Tools to Create Patch Baselines**  
 Use the `sources` option with other tools when you create a patch baseline\. 
@@ -49,10 +49,10 @@ When you specify alternative patch repositories for YUM\-based distributions, su
 ## Sample Uses for Alternative Patch Source Repositories<a name="patch-manager-how-it-works-alt-source-repository-examples"></a>
 
 **Example 1 – Nonsecurity Updates for Ubuntu Server**  
-You are already using Patch Manager to install security patches on a fleet of Ubuntu Server instances using the AWS\-provided default patch baseline **AWS\-UbuntuDefaultPatchBaseline**\. You can create a new patch baseline that is based on this default, but specify in the approval rules that you want nonsecurity related updates that are part of the default distribution to be installed as well\. When this patch baseline is run against your instances, patches for both security and nonsecurity issues are applied\. You can also choose to approve nonsecurity patches in the patch exceptions you specify for a baseline\.
+You are already using Patch Manager to install security patches on a fleet of Ubuntu Server instances using the AWS\-provided predefined patch baseline **AWS\-UbuntuDefaultPatchBaseline**\. You can create a new patch baseline that is based on this default, but specify in the approval rules that you want nonsecurity related updates that are part of the default distribution to be installed as well\. When this patch baseline is run against your instances, patches for both security and nonsecurity issues are applied\. You can also choose to approve nonsecurity patches in the patch exceptions you specify for a baseline\.
 
 **Example 2 \- Personal Package Archives \(PPA\) for Ubuntu Server**  
 Your Ubuntu Server instances are running software that is distributed through a [Personal Package Archives \(PPA\) for Ubuntu](https://launchpad.net/ubuntu/+ppas)\. In this case, you create a patch baseline that specifies a PPA repository that you have configured on the instance as the source repository for the patching operation\. Then use Run Command to run the patch baseline document on the instances\.
 
 **Example 3 – Internal Corporate Applications on Amazon Linux**  
-You need to run some applications needed for industry regulatory compliance on your Amazon Linux instances\. You can configure a repository for these applications on the instances, use YUM to initially install the applications, and then update or create a new patch baseline to include this new corporate repository\. After this you can use Run Command to run the **AWS\-RunPatchBaseline** document with the Scan option to see if the corporate package is listed among the installed packages and is up\-to\-date on the instance\. If it isn't up\-to\-date, you can run the document again using the Install option to update the applications\. 
+You need to run some applications needed for industry regulatory compliance on your Amazon Linux instances\. You can configure a repository for these applications on the instances, use YUM to initially install the applications, and then update or create a new patch baseline to include this new corporate repository\. After this you can use Run Command to run the **AWS\-RunPatchBaseline** document with the `Scan` option to see if the corporate package is listed among the installed packages and is up to date on the instance\. If it isn't up to date, you can run the document again using the `Install` option to update the applications\. 

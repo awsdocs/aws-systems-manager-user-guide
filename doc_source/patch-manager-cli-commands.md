@@ -52,7 +52,7 @@ The system returns information like the following\.
 Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but could be adapted to a different source repository that you have configured for an instance\.
 
 **Note**  
-To better demonstrate this more complex command, we are using the \-\-cli\-input\-json option with additional options stored an external JSON file\.
+To better demonstrate this more complex command, we are using the `--cli-input-json` option with additional options stored an external JSON file\.
 
 1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it:
 
