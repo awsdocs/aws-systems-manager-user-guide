@@ -1,8 +1,11 @@
-# Setting Up VPC Endpoints for Systems Manager<a name="sysman-setting-up-vpc"></a>
+# Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint<a name="setup-create-vpc"></a>
 
 You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint\. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access Amazon EC2 and Systems Manager APIs by using private IP addresses\. PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. \(Managed instances don't have access to the Internet\.\) Also, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. 
 
 You are not required to configure PrivateLink, but it's recommended\. For more information about PrivateLink and VPC endpoints, see [Accessing AWS Services Through PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html#what-is-privatelink)\.
+
+**Note**  
+The alternative to using a VPC is to enable outbound internet access on your managed instances\.
 
 **Topics**
 + [VPC Endpoint Restrictions and Limitations](#vpc-requirements-and-limitations)
@@ -60,3 +63,5 @@ Use the following procedure to create three required and one optional separate V
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
 
 1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create an endpoint for Amazon S3\. Systems Manager uses this endpoint to upload Amazon S3 output logs, and to update SSM Agent\.
+
+Continue to [Step 7: \(Optional\) Create Systems Manager Service Roles](setup-service-role.md)\.

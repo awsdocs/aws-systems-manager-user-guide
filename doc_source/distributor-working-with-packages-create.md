@@ -18,7 +18,7 @@ An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is availa
 The foundation of your package is at least one ZIP file of software or installable assets\. A package includes one ZIP file per operating system that you want to support, unless one ZIP file can be installed on multiple operating systems\. For example, Red Hat Enterprise Linux and Amazon Linux instances can typically run the same \.RPM executable files, so you need attach only one ZIP file to your package to support both operating systems\.
 
 The following items are required in each ZIP file\.
-+ An install and uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent executes the instructions in the install and uninstall scripts\.
++ An install and uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent runs the instructions in the install and uninstall scripts\.
 
    For example, your installation scripts might run an installer, like an RPM or MSI, they might copy files, or set configuration settings\.
 + An executable file, installer packages \(RPM, DEB, MSI, etc\.\), other scripts, or configuration files, etc\.

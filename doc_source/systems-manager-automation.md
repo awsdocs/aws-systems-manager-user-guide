@@ -13,7 +13,7 @@ This section includes common uses cases for AWS Systems Manager Automation\.
 **Perform common IT tasks**  
 Automation can simplify common IT tasks such as changing the state of one or more instances \(using an approval workflow\) and managing instance states according to a schedule\. Here are some examples:
 + Use the AWS\-StopEC2InstanceWithApproval document to request that one or more AWS Identity and Access Management \(IAM\) users approve the instance stop action\. After the approval is received, Automation stops the instance\.
-+ Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a Maintenance Window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
++ Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
 For information about how to run an Automation workflow by using State Manager, see [Running Automation Workflows with Triggers using State Manager](automation-sm-target.md)\.

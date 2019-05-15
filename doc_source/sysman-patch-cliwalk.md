@@ -1,9 +1,9 @@
 # Tutorial: Patch a Server Environment \(AWS CLI\)<a name="sysman-patch-cliwalk"></a>
 
-The following procedure illustrates how a user might patch a server environment by using a custom patch baseline, patch groups, and a Maintenance Window\.
+The following procedure illustrates how a user might patch a server environment by using a custom patch baseline, patch groups, and a maintenance window\.
 
 **Note**  
-You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+You must configure roles and permissions for the Maintenance Windows capability before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 For a sample of other AWS CLI commands you might use for your Patch Manager configuration tasks, see [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)\.
 
@@ -11,26 +11,13 @@ For a sample of other AWS CLI commands you might use for your Patch Manager conf
 
 Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For information about updating the agent, see the section titled *Example: Update the SSM Agent* in [Running Commands from the Console](rc-console.md)\.
 
-In addition, the following walkthrough runs patching during a Maintenance Window\. You must configure roles and permissions for Maintenance Windows before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
+In addition, the following walkthrough runs patching during a maintenance window\. You must configure roles and permissions for the Maintenance Windows capability before you begin\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To configure Patch Manager and patch instances \(AWS CLI\)**
 
-1. Download the latest version of the [AWS CLI](https://aws.amazon.com/cli) to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
@@ -80,7 +67,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Run the following commands to create two Maintenance Windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the Maintenance Window has been tagged to indicate that it is for a production environment\.
+1. Run the following commands to create two maintenance windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the maintenance window has been tagged to indicate that it is for a production environment\.
 
    ```
    aws ssm create-maintenance-window --name "Production-Tuesdays" --tags "Key=Environment,Value=Production" --schedule "cron(0 0 22 ? * TUE *)" --duration 1 --cutoff 0 --no-allow-unassociated-targets
@@ -106,7 +93,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Run the following commands to register the Production servers with the two production Maintenance Windows\.
+1. Run the following commands to register the Production servers with the two production maintenance windows\.
 
    ```
    aws ssm register-target-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=tag:Patch Group,Values=Production" --owner-information "Production servers" --resource-type "INSTANCE"
@@ -156,7 +143,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Run the following commands to register a patch task that only scans the production servers for missing updates in the first production Maintenance Window\.
+1. Run the following commands to register a patch task that only scans the production servers for missing updates in the first production maintenance window\.
 
    ```
    aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
@@ -182,7 +169,7 @@ In addition, the following walkthrough runs patching during a Maintenance Window
    }
    ```
 
-1. Run the following commands to register a patch task that installs missing updates on the productions servers in the second Maintenance Window\.
+1. Run the following commands to register a patch task that installs missing updates on the productions servers in the second maintenance window\.
 
    ```
    aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'

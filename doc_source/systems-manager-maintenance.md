@@ -1,8 +1,8 @@
 # AWS Systems Manager Maintenance Windows<a name="systems-manager-maintenance"></a>
 
-AWS Systems Manager Maintenance Windows let you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\. Each Maintenance Window has a schedule, a maximum duration, a set of registered targets \(the instances that are acted upon\), and a set of registered tasks\. You can add tags to your Maintenance Windows when you create or update them\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can also specify dates that a Maintenance Window should not run before or after, and you can specify the international time zone on which to base the Maintenance Window schedule\. \(For an explanation of how the various schedule\-related options for Maintenance Windows relate to one another, see [Reference: Maintenance Window Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.\)
+AWS Systems Manager Maintenance Windows let you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\. Each maintenance window has a schedule, a maximum duration, a set of registered targets \(the instances that are acted upon\), and a set of registered tasks\. You can add tags to your maintenance windows when you create or update them\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can also specify dates that a maintenance window should not run before or after, and you can specify the international time zone on which to base the maintenance window schedule\. \(For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.\)
 
-Maintenance Windows support running four types of tasks:
+Maintenance windows support running four types of tasks:
 + Systems Manager Run Command commands
 
   For more information about Run Command, see [AWS Systems Manager Run Command](execute-remote-commands.md)\.
@@ -16,7 +16,7 @@ Maintenance Windows support running four types of tasks:
 
   For more information about Step Functions, see the *[AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/)*\.
 
-This means you can use Maintenance Windows to perform tasks like the following on your selected targets:
+This means you can use maintenance windows to perform tasks like the following on your selected targets:
 + Install or update applications\.
 + Apply patches\.
 + Install or update SSM Agent\.
@@ -28,5 +28,5 @@ This means you can use Maintenance Windows to perform tasks like the following o
 **Topics**
 + [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)
 + [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)
-+ [Systems Manager Maintenance Window Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
-+ [Maintenance Window Walkthroughs](maintenance-window-walkthroughs.md)
++ [Systems Manager Maintenance Windows Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
++ [Maintenance Windows Walkthroughs](maintenance-window-walkthroughs.md)

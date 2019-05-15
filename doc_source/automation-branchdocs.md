@@ -456,9 +456,9 @@ mainSteps:
   onFailure: Abort
   inputs:
     InstanceIds:
-    - i-1234567890EXAMPLE
-    - i-abcdefghiEXAMPLE
-    - i-456jkl321EXAMPLE
+    - i-02573cafcfEXAMPLE
+    - i-0471e04240EXAMPLE
+    - i-07782c72faEXAMPLE
     DocumentName: AWS-RunPowerShellScript
     Parameters:
       commands:
@@ -489,8 +489,8 @@ mainSteps
   maxAttempts: 2
   inputs:
     InstanceIds:
-    - i-1234567890EXAMPLE
-    - i-abcdefghiEXAMPLE
+    - i-02573cafcfEXAMPLE
+    - i-0471e04240EXAMPLE
     DocumentName: AWS-RunPowerShellScript
     Parameters:
       commands:

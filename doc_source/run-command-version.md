@@ -17,22 +17,9 @@ Use the following procedure to run a command by using the AWS CLI that uses the 
 
 **To run commands using the AWS CLI**
 
-1. Run the following command to specify your credentials and the region\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
-
-1. The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. List all available documents
 

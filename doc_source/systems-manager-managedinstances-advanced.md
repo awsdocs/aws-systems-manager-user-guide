@@ -1,25 +1,25 @@
-# Using the Advanced\-Instances Tier<a name="systems-manager-managedinstances-advanced"></a>
+# Step 7: \(Optional\) Enable the Advanced\-Instances Tier<a name="systems-manager-managedinstances-advanced"></a>
 
-AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can create as many instances as you like in the advanced\-instances tier, but all instances configured for Systems Manager are available on a pay\-per\-use basis \(including Amazon EC2 instances that use a Systems Manager on\-premises activation\)\.
+AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can activate as many managed instances in a hybrid environment as you like in the advanced\-instances tier\. However, all instances configured for Systems Manager using the managed\-instance activation process described earlier in [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md) are made available on a pay\-per\-use basis\. This also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
 
 **Note**  
 Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
 The standard\-instances limit also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
-Microsoft application patching is only available on EC2 instances and Advanced Instances\. To patch Microsoft applications on on\-premises servers and VMs, you must enable Advanced Instances\. For more information, see [About Patching Applications on Windows Server](about-windows-app-patching.md)\.
+Microsoft application patching is only available on Amazon EC2 instances and in the advanced\-instances tier\. To patch Microsoft applications on on\-premises servers and VMs, you must enable the advanced\-instances tier\. For more information, see [About Patching Applications on Windows Server](about-windows-app-patching.md)\.
 
 This section describes how to configure your hybrid environment to use the advanced\-instances tier\.
 
 **Before You Begin**  
-Review pricing details for advanced instances\. Advanced instances are an account\-level feature and *all* instances in the account are available on a per\-use\-basis\. For more information see, [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. 
+Review pricing details for advanced instances\. Advanced instances are an account\-level feature and *all* on\-premises servers and VMs in the account and AWS Region that were added using managed\-instance activation are made available on a per\-use\-basis\. For more information see, [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. 
 
 ## Configuring Permissions to Enable the Advanced\-Instances Tier<a name="systems-manager-managedinstances-advanced-permissions"></a>
 
-Verify that you have permission in AWS Identity and Access Management \(IAM\) to change your environment from the standard\-instances tier to the advanced\-instances tier\. You must either have the AdministratorAccess policy attache to your IAM user, group, or role\. Or, you must have permission to change the Systems Manager activation\-tier service setting\. The activation\-tier setting uses the following API actions: 
+Verify that you have permission in AWS Identity and Access Management \(IAM\) to change your environment from the standard\-instances tier to the advanced\-instances tier\. You must either have the AdministratorAccess policy attached to your IAM user, group, or role\. Or, you must have permission to change the Systems Manager activation\-tier service setting\. The activation\-tier setting uses the following API actions: 
 + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
 + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
 + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to user a account\. This policy enables a user to view the current managed\-instance tier setting\. This policy also enables the user to change or reset the current setting\.
+Use the following procedure to add an inline IAM policy to a user account\. This policy enables a user to view the current managed\-instance tier setting\. This policy also enables the user to change or reset the current setting in the specified AWS account and Region\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -94,7 +94,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 
 ## Enabling the Advanced\-Instances Tier \(Console\)<a name="systems-manager-managedinstances-advanced-enabling"></a>
 
-The following procedure shows you how to use the Systems Manager console to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+The following procedure shows you how to use the Systems Manager console to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and Region, to use the advanced\-instances tier\.
 
 **Important**  
 The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.
@@ -115,7 +115,7 @@ The system can take several minutes to complete the process of moving all instan
 
 ## Enabling the Advanced\-Instances Tier \(AWS CLI\)<a name="systems-manager-managedinstances-advanced-enabling-cli"></a>
 
-The following procedure shows you how to use the AWS CLI to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+The following procedure shows you how to use the AWS CLI to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and Region, to use the advanced\-instances tier\.
 
 **Important**  
 The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.
@@ -153,7 +153,7 @@ The system can take several minutes to complete the process of moving all instan
 
 ## Enabling the Advanced\-Instances Tier \(PowerShell\)<a name="systems-manager-managedinstances-advanced-enabling-ps"></a>
 
-The following procedure shows you how to use the AWS Tools for Windows PowerShell to change all instances in the current AWS account and Region to use the advanced\-instances tier\.
+The following procedure shows you how to use the AWS Tools for Windows PowerShell to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and Region, to use the advanced\-instances tier\.
 
 **Important**  
 The following procedure describes how to change an account\-level setting\. This change results in charges being billed to your account\. If you want to change back to the standard\-instances tier, then you must contact AWS Support\.

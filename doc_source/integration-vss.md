@@ -10,7 +10,7 @@ Here is how the process of taking application\-consistent, VSS\-enabled EBS snap
 
 1. You verify and configure Systems Manager prerequisites\.
 
-1. You enter parameters for the AWSEC2\-CreateVssSnapshot SSM document and execute this document by using Run Command\. You can't create a VSS\-enabled EBS snapshot for a specific volume\. You can, however, specify a parameter to exclude the boot volume from the backup process\.
+1. You enter parameters for the AWSEC2\-CreateVssSnapshot SSM document and run this document by using Run Command\. You can't create a VSS\-enabled EBS snapshot for a specific volume\. You can, however, specify a parameter to exclude the boot volume from the backup process\.
 
 1. The VSS agent on your instance coordinates all ongoing I/O operations for running applications\. 
 
@@ -44,13 +44,13 @@ Get-AWSPowerShellVersion
 If you need to update the version of Tools for Windows PowerShell on your instance, see [Setting up the AWS Tools for Windows PowerShell on a Windows\-based Computer](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-windows.html) in the *AWS Tools for Windows PowerShell User Guide*\.
 
 **IAM instance profile role**  
-Systems Manager requires permission to perform actions on your instances\. You must configure each instance with an AWS Identity and Access Management \(IAM\) instance profile role for Systems Manager\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+Systems Manager requires permission to perform actions on your instances\. You must configure each instance with an AWS Identity and Access Management \(IAM\) instance profile role for Systems Manager\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 **IAM Amazon EBS tagging profile role**  
 Systems Manager needs permissions to create and tag VSS\-enabled Amazon Elastic Block Store snapshots\. You can configure an IAM role that enables these permissions\. You must configure each instance with a role for creating and tagging snapshots\. For more information, see [Create an IAM Role for VSS\-Enabled Snapshots](#integration-vss-role) in **Set Up Tasks**\. 
 
 **Note**  
-If you don't want to assign the snapshot role to your instances, you can use Run Command and the pre\-defined AWSEC2\-ManageVssIO SSM document to temporarily pause I/O, create VSS\-enabled EBS snapshots, and restart I/O\. This process runs in the context of the user who executes the command\. If the user has sufficient permission to create and tag snapshots, then Systems Manager can create and tag VSS\-enabled EBS snapshots without the need for the additional IAM snapshot role on the instance\. Instances still must be configured with the instance profile role\. For more information, see [Creating VSS\-Enabled EBS Snapshots by Using the AWSEC2\-ManageVssIO SSM Document \(Advanced\)](#integration-vss-AWSEC2-ManageVssIO)\.
+If you don't want to assign the snapshot role to your instances, you can use Run Command and the pre\-defined AWSEC2\-ManageVssIO SSM document to temporarily pause I/O, create VSS\-enabled EBS snapshots, and restart I/O\. This process runs in the context of the user who runs the command\. If the user has sufficient permission to create and tag snapshots, then Systems Manager can create and tag VSS\-enabled EBS snapshots without the need for the additional IAM snapshot role on the instance\. Instances still must be configured with the instance profile role\. For more information, see [Creating VSS\-Enabled EBS Snapshots by Using the AWSEC2\-ManageVssIO SSM Document \(Advanced\)](#integration-vss-AWSEC2-ManageVssIO)\.
 
 **VSS component requirements**  
 Systems Manager requires VSS components to be installed on your instances\. If you need to install the required VSS components, then you can download and run a VSS package for Systems Manager on your instances\. If you plan to use your own Microsoft licenses for VSS \(BYOL\), you still need to install the VSS components for Systems Manager\. For more information, see [Download and Install VSS Components for Systems Manager](#integration-vss-package) in **Setup Tasks**\. 
@@ -160,7 +160,7 @@ If you choose to select instances manually, and an instance you expect to see is
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 1. Choose **Create Association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. The association status shows **Pending**\.
 
@@ -202,22 +202,11 @@ Use the following procedure to download and install the AwsVssComponents package
 
 **To install the VSS package by using the AWS CLI**
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-1. Execute the following command to download and install the required VSS components for Systems Manager\.
+1. Run the following command to download and install the required VSS components for Systems Manager\.
 
    ```
    aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-12345678" --parameters '{"action":["Install"],"name":["AwsVssComponents"]}'
@@ -229,19 +218,19 @@ Use the following procedure to download and install the AwsVssComponents package
 
 **To install the VSS package by using AWS Tools for Windows PowerShell**
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Run the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2
    ```
 
-1. Execute the following command to download and install the required VSS components for Systems Manager\.
+1. Run the following command to download and install the required VSS components for Systems Manager\.
 
    ```
    Send-SSMCommand -DocumentName AWS-ConfigureAWSPackage -InstanceId "$instance"-Parameter @{'action'='Install';'name'='AwsVssComponents'}
@@ -308,7 +297,7 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
@@ -318,13 +307,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    If successful, the command populates the list of EBS snapshots with the new snapshots\. You can locate these snapshots in the list of EBS snapshots by searching for the tags you specified, or by searching for `AppConsistent`\. If the command execution failed, view the Systems Manager command output for details about why the execution failed\. If the command successfully completed, but a specific volume backup failed, you can troubleshoot the failure in the list of EBS volumes\.
 
-   If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
+   If the command failed and you are using Systems Manager with VPC endpoints, verify that you configured the **com\.amazonaws\.*region*\.ec2** endpoint\. Without the EC2 endpoint defined, the call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\. For more information about setting up VPC endpoint with Systems Manager, see [\(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.
 **Note**  
-You can automate backups by creating a Maintenance Windows task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
+You can automate backups by creating a maintenance window task that uses the AWSEC2\-CreateVssSnapshot SSM document\. For more information, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md)\.
 
 ### Create VSS\-enabled EBS snapshots by Using the AWS CLI<a name="integration-vss-cli"></a>
 
-Use the following procedure to create VSS\-enabled EBS snapshots by using the AWS CLI\. When you execute the command, you can specify the following parameters:
+Use the following procedure to create VSS\-enabled EBS snapshots by using the AWS CLI\. When you run the command, you can specify the following parameters:
 + Instance \(Required\): Specify one or more Amazon EC2 Windows instances\. You can either manually specify instances, or you can specify tags\.
 + Description \(Optional\): Specify details about this backup\.
 + Tags \(Optional\): Specify key\-value tag pairs that you want to assign to the snapshots\. Tags can help you locate, manage, and restore volumes from a list of snapshots\. By default, the system populates the tag parameter with a `Name` key\. For the value of this key, specify a name that you want to apply to snapshots created by this process\. You can also add custom tags to this list by using the following format: `Key=Environment,Value=Test`;`Key=User,Value=TestUser1`\.
@@ -334,22 +323,11 @@ Use the following procedure to create VSS\-enabled EBS snapshots by using the AW
 
 **To create VSS\-enabled EBS snapshots by using the AWS CLI**
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-1. Execute the following command to create VSS\-enabled EBS snapshots\.
+1. Run the following command to create VSS\-enabled EBS snapshots\.
 
    ```
    aws ssm send-command --document-name "AWSEC2-CreateVssSnapshot" --instance-ids "i-12345678" --parameters '{"ExcludeBootVolume":["False"],"description":["Description"],"tags":["Key=key_name,Value=tag_value"]}'
@@ -361,7 +339,7 @@ You can automate backups by creating a Maintenance Windows task that uses the AW
 
 ### Create VSS\-enabled EBS snapshots by Using AWS Tools for Windows PowerShell<a name="integration-vss-ps"></a>
 
-Use the following procedure to create VSS\-enabled EBS snapshots by using the AWS Tools for Windows PowerShell\. When you execute the command, you can specify the following parameters:
+Use the following procedure to create VSS\-enabled EBS snapshots by using the AWS Tools for Windows PowerShell\. When you run the command, you can specify the following parameters:
 + Instance \(Required\): Specify one or more Amazon EC2 Windows instances\. You can either manually specify instances, or you can specify tags\.
 + Description \(Optional\): Specify details about this backup\.
 + Tags \(Optional\): Specify key\-value tag pairs that you want to assign to the snapshots\. Tags can help you locate, manage, and restore volumes from a list of snapshots\. By default, the system populates the tag parameter with a `Name` key\. For the value of this key, specify a name that you want to apply to snapshots created by this process\. You can also add custom tags to this list by using the following format: `Key=Environment,Value=Test`;`Key=User,Value=TestUser1`\.
@@ -371,19 +349,19 @@ Use the following procedure to create VSS\-enabled EBS snapshots by using the AW
 
 **To create VSS\-enabled EBS snapshots by using AWS Tools for Windows PowerShell**
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Run the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2
    ```
 
-1. Execute the following command to create VSS\-enabled EBS snapshots\.
+1. Run the following command to create VSS\-enabled EBS snapshots\.
 
    ```
    Send-SSMCommand -DocumentName AWSEC2-CreateVssSnapshot -InstanceId "$instance" -Parameter @{'ExcludeBootVolume'='False';'description'='a_description'
@@ -396,7 +374,7 @@ You can automate backups by creating a Maintenance Windows task that uses the AW
 
 ## Creating VSS\-Enabled EBS Snapshots by Using the AWSEC2\-ManageVssIO SSM Document \(Advanced\)<a name="integration-vss-AWSEC2-ManageVssIO"></a>
 
-You can use the following script and the pre\-defined AWSEC2\-ManageVssIO SSM document to temporarily pause I/O, create VSS\-enabled EBS snapshots, and restart I/O\. This process runs in the context of the user who executes the command\. If the user has sufficient permission to create and tag snapshots, then Systems Manager can create and tag VSS\-enabled EBS snapshots without the need for the additional IAM snapshot role on the instance\.
+You can use the following script and the pre\-defined AWSEC2\-ManageVssIO SSM document to temporarily pause I/O, create VSS\-enabled EBS snapshots, and restart I/O\. This process runs in the context of the user who runs the command\. If the user has sufficient permission to create and tag snapshots, then Systems Manager can create and tag VSS\-enabled EBS snapshots without the need for the additional IAM snapshot role on the instance\.
 
 In contrast, the AWSEC2\-CreateVssSnapshot document requires that you assign the IAM snapshot role to each instance for which you want to create EBS snapshots\. If you don’t want to provide additional IAM permissions to your instances for policy or compliance reasons, then you can use the following script\.
 
@@ -408,13 +386,13 @@ Note the following important details about this process:
 
 **To create VSS\-enabled EBS snapshots by using the AWSEC2\-ManageVssIO SSM document**
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Run the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2
@@ -428,7 +406,7 @@ If successful, the command populates the list of EBS snapshots with the new snap
 
 ## Restoring Volumes from VSS\-enabled EBS snapshots<a name="integration-vss-restore"></a>
 
-You can use the RestoreVssSnapshotSampleScript\.ps1 script to restore volumes on an instance from VSS\-enabled EBS snapshots\. This script performs the following tasks:
+You can use the `RestoreVssSnapshotSampleScript.ps1` script to restore volumes on an instance from VSS\-enabled EBS snapshots\. This script performs the following tasks:
 + Stops an instance
 + Removes all existing drives from the instance \(except the boot volume, if it was excluded\)
 + Creates new volumes from the snapshots
@@ -440,13 +418,13 @@ The following script detaches all volumes attached to an instance, and then crea
 
 **To restore volumes from VSS\-enabled EBS snapshots**
 
-1. Open AWS Tools for Windows PowerShell and execute the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Execute the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Run the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2

@@ -6,4 +6,4 @@ PrivateLink restricts all network traffic between your managed instances, System
 
 In addition to the three endpoints required to use PrivateLink with Systems Manager, you can create a fourth, **com\.amazonaws\.*region*\.ssmmessages**, for use with Session Manager\.
 
-For more information, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
+For more information, see [\(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.

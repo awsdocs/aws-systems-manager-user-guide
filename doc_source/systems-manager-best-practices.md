@@ -28,7 +28,7 @@ The title of each section here is an active link to the corresponding section in
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](https://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by on or on behalf of Run Command using AWS CloudTrail\.
 + [Use the targets and rate control features in Run Command to perform a staged command execution](send-commands-multiple.md)\.
-+ [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](sysman-create-iam.md)\.
++ [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies)\.
 
 **[State Manager](systems-manager-state.md)**
 + [Update SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](sysman-state-cli.md)\.

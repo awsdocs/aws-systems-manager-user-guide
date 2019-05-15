@@ -1,11 +1,11 @@
 # Example Amazon SNS Notifications for AWS Systems Manager<a name="monitoring-sns-examples"></a>
 
-You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands that you send using AWS Systems Manager Run Command or AWS Systems Manager Maintenance Window\.
+You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands that you send using AWS Systems Manager Run Command or AWS Systems Manager Maintenance Windows\.
 
 **Note**  
-This guide does not address how to configure notifications for Run Command or Maintenance Window\. For information about configuring Run Command or Maintenance Window to send Amazon SNS notifications about the status of commands, see [Configure Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure)\. 
+This guide does not address how to configure notifications for Run Command or Maintenance Windows\. For information about configuring Run Command or Maintenance Windows to send Amazon SNS notifications about the status of commands, see [Configure Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure)\. 
 
-The following examples show the structure of the JSON output returned by Amazon SNS notifications when configured for Run Command or Maintenance Window\.
+The following examples show the structure of the JSON output returned by Amazon SNS notifications when configured for Run Command or Maintenance Windows\.
 
 **Sample JSON Output for Command summary messages using instance ID targeting**
 

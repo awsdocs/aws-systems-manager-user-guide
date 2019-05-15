@@ -4,22 +4,9 @@ The following procedure walks you through the process of using the [PutInventory
 
 **To assign custom Inventory metadata to an instance**
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to assign rack location information to an instance\.
 

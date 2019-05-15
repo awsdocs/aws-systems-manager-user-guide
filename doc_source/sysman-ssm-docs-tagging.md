@@ -1,6 +1,6 @@
 # Tagging Systems Manager Documents<a name="sysman-ssm-docs-tagging"></a>
 
-You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines\. 
+You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
 Tagging is useful when you have many resources of the same type — you can quickly identify a specific resource based on the tags you've assigned to it\. Each tag consists of a *key* and an optional *value*, both of which you define\. 
 

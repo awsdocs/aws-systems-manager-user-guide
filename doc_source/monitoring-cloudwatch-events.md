@@ -34,12 +34,12 @@ For more information, see [Remediating Compliance Issues](sysman-compliance-fixi
 
 **Maintenance Window**  
 Supported events include the following:  
-+ State change for a Maintenance Window \(enabled or disabled\)
-+ Change in a Maintenance Window target registration\.
-+ Change in a Maintenance Window task registration\.
-+ State change for a Maintenance Window execution\.
-+ State change for a Maintenance Window task execution\.
-+ State change for a Maintenance Window task target invocation\.
++ State change for a maintenance window \(enabled or disabled\)
++ Change in a maintenance window target registration\.
++ Change in a maintenance window task registration\.
++ State change for a maintenance window execution\.
++ State change for a maintenance window task execution\.
++ State change for a maintenance window task target invocation\.
 
 **Parameter Store**  
 Supported events include the following:  
@@ -49,7 +49,7 @@ Supported events include the following:
 For more information, see [Setting Up Notifications and Events for Systems Manager Parameters](sysman-paramstore-cwe.md)\.
 
 **Inventory**  
-Supported events include the following>:  
+Supported events include the following:  
 + Deletion of custom inventory item on an instance\. 
 + Availability of a delete action summary\.
 + A disabled custom inventory type is detected\.

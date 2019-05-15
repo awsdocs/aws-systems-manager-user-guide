@@ -62,9 +62,9 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
 1. aws:runCommand \- Install EC2Rescue via AWS\-ConfigureAWSPackage\.
 
-1. aws:runCommand \- Execute the PowerShell script to collect Windows troubleshooting logs with EC2Rescue\.
+1. aws:runCommand \- Run the PowerShell script to collect Windows troubleshooting logs with EC2Rescue\.
 
-1. aws:runCommand \- Execute the bash script to collect Linux troubleshooting logs with EC2Rescue\.
+1. aws:runCommand \- Run the bash script to collect Linux troubleshooting logs with EC2Rescue\.
 
  **Outputs** 
 

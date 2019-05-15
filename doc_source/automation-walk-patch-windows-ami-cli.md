@@ -81,7 +81,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` docume
 
 1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
 
-1. Execute the following command to run the `AWS-UpdateWindowsAmi` document\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
+1. Run the following command to run the `AWS-UpdateWindowsAmi` document\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 
    ```
    aws ssm start-automation-execution --document-name="AWS-UpdateWindowsAmi" --parameters SourceAmiId='ami-0246f4914689c475f',IamInstanceProfileName='ManagedInstanceProfile',AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'

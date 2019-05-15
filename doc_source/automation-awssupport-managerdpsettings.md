@@ -91,7 +91,7 @@ The EC2 instance receiving the command must have an IAM role with the **AmazonEC
 
  **Document Steps** 
 
-aws:runCommand \- Execute the PowerShell script to change or check the RDP settings on the target instance\.
+aws:runCommand \- Run the PowerShell script to change or check the RDP settings on the target instance\.
 
  **Outputs** 
 

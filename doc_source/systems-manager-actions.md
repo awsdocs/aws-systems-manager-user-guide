@@ -1,6 +1,6 @@
 # AWS Systems Manager Actions<a name="systems-manager-actions"></a>
 
-AWS Systems Manager \(formerly Amazon EC2 Systems Manager\) provides the following capabilities for taking action against your AWS resources\. 
+AWS Systems Manager provides the following capabilities for taking action against your AWS resources\. 
 
 **Topics**
 + [AWS Systems Manager Automation](systems-manager-automation.md)

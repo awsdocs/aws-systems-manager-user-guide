@@ -17,7 +17,7 @@ Parameters are only available in the Region where they were created\.
 
 1. Choose **Create parameter**\.
 
-1. For **Name**, type a hierachy and a parameter name\. For example, type `/Test/helloWorld`\.
+1. For **Name**, type a hierarchy and a parameter name\. For example, type `/Test/helloWorld`\.
 
 1. In the **Description** box, type a description that identifies this parameter as a test parameter\.
 

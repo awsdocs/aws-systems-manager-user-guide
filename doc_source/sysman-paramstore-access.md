@@ -107,7 +107,7 @@ aws kms describe-key --key-id alias/aws/ssm
 ```
 
 **Note**  
-Instance policies, like in the previous example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+Instance policies, like in the previous example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 ## Controlling Access to Parameters Using Tags<a name="sysman-paramstore-access-tag"></a>
 

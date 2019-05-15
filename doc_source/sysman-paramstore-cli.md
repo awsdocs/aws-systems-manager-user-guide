@@ -2,24 +2,11 @@
 
 The following procedure walks you through the process of creating and storing a parameter using the AWS CLI\.
 
-**To create a String parameter using Parameter Store**
+**To create and use a parameter in a command \(AWS CLI\)**
 
-1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter that uses the String data type\. The `--name` parameter uses a hierarchy\. For more information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 

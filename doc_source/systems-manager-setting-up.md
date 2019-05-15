@@ -1,19 +1,17 @@
 # Setting Up AWS Systems Manager<a name="systems-manager-setting-up"></a>
 
-This section describes tasks and prerequisites for setting up AWS Systems Manager\. Use the following table to help you get started\.
+This section describes the tasks that account and system administrators perform to set up AWS Systems Manager for their organizations\. After these steps are complete, users in the organization can use Systems Manager to configure and manage the Amazon Elastic Compute Cloud \(Amazon EC2\) instances in the account
 
+If you plan to use Systems Manager to manage and configure your own on\-premises servers and virtual machines \(VMs\) in what is called a *hybrid environment*, follow the setup steps in [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\. If you plan to use both Amazon EC2 instances *and* your own computing resources in a hybrid environment, follow the steps here first\. This section presents steps in the best order for configuring the roles, users, permissions, and initial resources to use in your Systems Manager operations\. 
 
-****  
-
-| What do you want to do with Systems Manager? | Set up tasks | 
-| --- | --- | 
-|  Test it out / Play with it  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html)  | 
-| Use Systems Manager to manage and configure my existing EC2 instances |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html) | 
-| Use Systems Manager to manage and configure my servers and VMs in a hybrid environment | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html) | 
+If you already use other AWS services, you have completed some of these steps\. However, other steps are specific to Systems Manager\. Therefore, we recommend reviewing this entire section to ensure that you are ready to use all Systems Manager capabilities\. 
 
 **Topics**
-+ [Systems Manager Prerequisites](systems-manager-prereqs.md)
-+ [Configuring Access to Systems Manager](systems-manager-access.md)
-+ [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)
-+ [Installing and Configuring SSM Agent](ssm-agent.md)
-+ [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)
++ [Step 1: Sign Up for AWS](setup-sign-up.md)
++ [Step 2: Create an Admin IAM User for AWS](setup-create-admin-user.md)
++ [Step 3: Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)
++ [Step 4: Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)
++ [Step 5: Launch an Amazon EC2 Instance that Uses the Systems Manager Instance Profile](setup-launch-managed-instance.md)
++ [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)
++ [Step 7: \(Optional\) Create Systems Manager Service Roles](setup-service-role.md)
++ [Step 8: \(Optional\) Set Up Integrations with Other AWS Services](setup-integrations.md)

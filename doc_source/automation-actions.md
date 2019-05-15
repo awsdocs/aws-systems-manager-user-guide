@@ -7,7 +7,7 @@ Systems Manager Automation runs steps defined in Automation documents\. Each ste
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
 **Important**  
-If you execute an automation that invokes other AWS services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(AWS\-\* documents\) such as the AWS\-ConfigureS3BucketLogging, AWS\-CreateDynamoDBBackup, and AWS\-RestartEC2Instance documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the aws:executeAwsApi, aws:CreateStack, or aws:copyImage actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage actions`, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 **Topics**
 + [Common Properties In All Actions](#automation-common)
@@ -379,7 +379,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Automation**\.
 
-1. Choose the option beside an Automation with a status of **Waiting**\.  
+1. Choose the option next to an Automation with a status of **Waiting**\.  
 ![\[Accessing the Approve/Deny Automation page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action-aws.png)
 
 1. Choose **Approve/Deny**\.
@@ -1263,7 +1263,7 @@ Before you can use the `aws:deleteStack` action, you must assign the following p
 
 ## aws:executeAutomation<a name="automation-action-executeAutomation"></a>
 
-Executes a secondary Automation workflow by calling a secondary Automation document\. With this action, you can create Automation documents for your most common workflows, and reference those documents during an Automation execution\. This action can simplify your Automation documents by removing the need to duplicate steps across similar documents\.
+Runs a secondary Automation workflow by calling a secondary Automation document\. With this action, you can create Automation documents for your most common workflows, and reference those documents during an Automation execution\. This action can simplify your Automation documents by removing the need to duplicate steps across similar documents\.
 
 The secondary Automation runs in the context of the user who initiated the primary Automation\. This means that the secondary Automation uses the same IAM role or user account as the user who started the first Automation\.
 
@@ -1428,7 +1428,7 @@ Required: Yes
 
 ## aws:executeStateMachine<a name="automation-action-executeStateMachine"></a>
 
-Executes an AWS Step Functions state machine\.
+Run an AWS Step Functions state machine\.
 
 **Input**
 

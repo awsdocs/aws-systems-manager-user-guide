@@ -88,7 +88,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
 
-1. Choose the option beside the parameter that you want to update to include policies, and then choose **Edit**\.
+1. Choose the option next to the parameter that you want to update to include policies, and then choose **Edit**\.
 
 1. Choose **Advanced**\.
 
@@ -107,20 +107,9 @@ Use the following procedure to add policies to an existing parameter by using th
 
 **To add policies to an existing parameter**
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to add policies to an existing parameter\.
 

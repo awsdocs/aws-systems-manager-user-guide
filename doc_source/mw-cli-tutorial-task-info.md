@@ -1,17 +1,17 @@
 # Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)<a name="mw-cli-tutorial-task-info"></a>
 
-This tutorial demonstrates how to use the AWS CLI to view details about your completed Maintenance Window executions\. 
+This tutorial demonstrates how to use the AWS CLI to view details about your completed maintenance window executions\. 
 
-As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs of resources you create\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 
-If you are continuing directly from [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your Maintenance Window to run at least once in order to see its execution results\.
+If you are continuing directly from [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your maintenance window to run at least once in order to see its execution results\.
 
 **To view information about tasks and task executions \(AWS CLI\)**
 
-1. Run the following command to view a list of task executions for a specific Maintenance Window:
+1. Run the following command to view a list of task executions for a specific maintenance window:
 
    ```
-   aws ssm describe-maintenance-window-executions --window-id "mw-0c5ed765acEXAMPLE"
+   aws ssm describe-maintenance-window-executions --window-id "mw-0c50858d01EXAMPLE"
    ```
 
    The system returns information like the following:
@@ -44,7 +44,7 @@ If you are continuing directly from [Tutorial: Create and Configure a Maintenanc
    }
    ```
 
-1. Run the following command to get information about a Maintenance Window task execution:
+1. Run the following command to get information about a maintenance window task execution:
 
    ```
    aws ssm get-maintenance-window-execution --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
@@ -64,7 +64,7 @@ If you are continuing directly from [Tutorial: Create and Configure a Maintenanc
    }
    ```
 
-1. Run the following command to list the tasks run as part of a Maintenance Window execution:
+1. Run the following command to list the tasks run as part of a maintenance window execution:
 
    ```
    aws ssm describe-maintenance-window-execution-tasks --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"

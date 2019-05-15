@@ -7,12 +7,12 @@ Refer to the following sections to learn about the values and parameters you can
 When you run the [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html) command, you must provide values for the following options:
 
 **\-\-window\-id**  
-The ID of the Maintenance Window to register the task with\. For example: `mw-0c5ed765acEXAMPLE`\.
+The ID of the maintenance window to register the task with\. For example: `mw-0c50858d01EXAMPLE`\.
 
 **\-\-targets**  
- The instances, or Maintenance Window targets, for the task to run on\.
-+ To specify a target that is already registered with a Maintenance Window, use its window target ID\. For example: `Key=WindowTargetIds,Values=0fa20143-009f-421f-941f-2b86cEXAMPLE`\.
-+ To specify an instance whether it's registered as a Maintenance Window target or not, use its instance ID\. For example: `Key=InstanceIds,Values=i-1234567890EXAMPLE`\.
+ The instances, or maintenance window targets, for the task to run on\.
++ To specify a target that is already registered with a maintenance window, use its window target ID\. For example: `Key=WindowTargetIds,Values=0fa20143-009f-421f-941f-2b86cEXAMPLE`\.
++ To specify an instance whether it's registered as a maintenance window target or not, use its instance ID\. For example: `Key=InstanceIds,Values=i-02573cafcfEXAMPLE`\.
 
 **\-\-task\-arn**  
 The resource that the task uses during execution\.
@@ -35,7 +35,7 @@ The parameters that are unique to the type of task you specified\.
 The following list describes some of the common parameters that you can specify when using `task-invocation-parameters`\. You specify these parameters by using the `{{ PARAMETER_NAME }}` syntax, as demonstrated in examples in [Create a Maintenance Window Task \(AWS CLI\)](register-tasks-tutorial.md)\.
 + **`TARGET_ID`**: The ID of the target\. If the target type is INSTANCE \(currently the only supported type\), then the target ID is the instance ID\.
 + **`TARGET_TYPE`**: The type of target\. Currently only INSTANCE is supported\.
-+ **`WINDOW_ID`**: The ID of the target Maintenance Window\.
++ **`WINDOW_ID`**: The ID of the target maintenance window\.
 + **`WINDOW_TASK_ID`**: The ID of the window task that is executing\.
 + **`WINDOW_TARGET_ID`**: The ID of the window target that includes the target \(target ID\)\.
 + **`WINDOW_EXECUTION_ID`**: The ID of the current window execution\.
@@ -53,12 +53,12 @@ A name to help identify the task\.
 A description to help identify the purpose of the task\.
 
 **\-\-service\-role\-arn**  
-The role to assume when running the Maintenance Window task\.
+The role to assume when running the maintenance window task\.
 
 If you do not specify a service role ARN, Systems Manager creates or uses your account's service\-linked role for Systems Manager by default\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\. 
 
 **\-\-priority**  
-The priority of the task in the Maintenance Window\. The lower the number the higher the priority \(for example, 1 is highest priority\)\. Tasks in a Maintenance Window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
+The priority of the task in the maintenance window\. The lower the number the higher the priority \(for example, 1 is highest priority\)\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
 
 **\-\-client\-token**  
 An idempotency token that you provide\.

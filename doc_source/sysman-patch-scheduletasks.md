@@ -1,12 +1,12 @@
 # About Patching Schedules Using Maintenance Windows<a name="sysman-patch-scheduletasks"></a>
 
-After you configure a patch baseline \(and optionally a patch group\), you can apply patches to your instance by using a Maintenance Window\. A Maintenance Window can reduce the impact on server availability by letting you specify a time to perform the patching process that doesn't interrupt business operations\. A Maintenance Window works like this:
+After you configure a patch baseline \(and optionally a patch group\), you can apply patches to your instance by using a maintenance window\. A maintenance window can reduce the impact on server availability by letting you specify a time to perform the patching process that doesn't interrupt business operations\. A maintenance window works like this:
 
-1. Create a Maintenance Window with a schedule for your patching operations\.
+1. Create a maintenance window with a schedule for your patching operations\.
 
-1. Choose the targets for the Maintenance Window by specifying the **Patch Group** tag for the tag name, and any value for which you have defined Amazon EC2 tags, for example, "production servers"\.
+1. Choose the targets for the maintenance window by specifying the **Patch Group** tag for the tag name, and any value for which you have defined Amazon EC2 tags, for example, "production servers"\.
 
-1. Create a new Maintenance Window task, and specify the **AWS\-RunPatchBaseline** document\. 
+1. Create a new maintenance window task, and specify the **AWS\-RunPatchBaseline** document\. 
 
 When you configure the task, you can choose to either scan instances or scan and install patches on the instances\. If you choose to scan instances, Patch Manager scans each instance and generates a list of missing patches for you to review\.
 

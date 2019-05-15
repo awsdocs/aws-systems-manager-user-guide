@@ -123,20 +123,9 @@ The following procedure describes how to attach a label to a specific version of
 
 **To create a new parameter label**
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following:
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to view a list of parameters for which you have permission to attach a label\.
 **Note**  

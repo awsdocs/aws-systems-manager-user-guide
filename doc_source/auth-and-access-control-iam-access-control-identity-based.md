@@ -21,7 +21,7 @@ Systems Manager includes several primary resources:
 + Automation definition
 + Automation execution
 + Document
-+ Maintenance Window
++ Maintenance window
 + Managed instance
 + Managed instance inventory
 + Parameter
@@ -31,7 +31,7 @@ Systems Manager includes several primary resources:
 
 For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are, known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
 
-To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierachical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of five levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
+To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of five levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
 Each resource has a unique Amazon Resource Names \(ARNs\)\. In a policy, you identify the resource that a policy applies to by using its ARN\. For more information about ARNs, see [Amazon Resource Names \(ARN\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
@@ -44,7 +44,7 @@ The following table shows the structure of the ARN format for each resource type
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
 | Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id*  | 
 | Document |  arn:aws:ssm:*region*:*account\-id*:document/*document\-name*  | 
-| Maintenance Window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-id*  | 
+| Maintenance window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-id*  | 
 | Managed instance |  arn:aws:ssm:*region*:*account\-id*:managed\-instance/*managed\-instance\-id*  | 
 | Managed instance inventory | arn:aws:ssm:region:account\-id:managed\-instance\-inventory/managed\-instance\-id | 
 | Parameter |  A one\-level parameter: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html) A parameter named with a hierarchical construction: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html)  | 
@@ -140,7 +140,7 @@ The types of actions that you can control access to with resource\-based policie
 |  All  |  View and list details about resources  | 
 |  Association  |  Create Delete Start Update  | 
 |  Automation definition  |  Start Stop  | 
-|  Document Maintenance Window Parameter  |  Create Delete Update  | 
+|  Document Maintenance window Parameter  |  Create Delete Update  | 
 |  Managed instance  |  Deregister Register  | 
 |  Managed instance inventory  |  Create Update  | 
 |  Patch baseline  |  Create Delete Deregister Register Update  | 
@@ -171,7 +171,7 @@ When you grant permissions, you can use the language in the access policy to spe
 
 To express conditions, you use predefined condition keys\. 
 
-AWS Systems Manager supports the the following condition keys:
+AWS Systems Manager supports the following condition keys:
 + `ssm:resourceTag/*`
 + `ssm:Recursive`
 + `ssm:Overwrite`

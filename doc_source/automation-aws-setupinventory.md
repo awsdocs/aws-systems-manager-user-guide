@@ -2,7 +2,7 @@
 
 **Description**
 
-Create a Systems Manager Inventory association for one or more managed instances\. The system collects metadata from your intances according to the schedule in the association\. For more information, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
+Create a Systems Manager Inventory association for one or more managed instances\. The system collects metadata from your instances according to the schedule in the association\. For more information, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 **Document Type**
 

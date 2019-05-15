@@ -25,7 +25,7 @@ Linux
 + This Automation document only works with Linux EC2 instances running SQL Server\.
 + This Automation workflow must be run by a user with, at minimum, the permissions designated in the **Required IAM Permissions** section below\.
 + If you are providing your own EC2 instance:
-  + Configure the EC2 instance with an AWS Identity and Access Management \(IAM\) instance profile that has the `AmazonEC2RoleForSSM` managed policy attached\. For more information, see [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\.
+  + Configure the EC2 instance with an AWS Identity and Access Management \(IAM\) instance profile that has the `AmazonEC2RoleForSSM` managed policy attached\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
   + Verify that SSM Agent is installed on your EC2 instance\. For more information, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.
   + Verify that the EC2 instance has enough free disk space to download and restore the SQL Server backups\.
 

@@ -9,7 +9,7 @@ You can specify a service role at runtime when you run an Automation workflow, o
 **Note**  
 You must specify a service role for Automation workflows that you expect to run longer than 12 hours\. If you start a long\-running Automation in the context of a user, the user's temporary session expires after 12 hours\.
 
-Delegated administration ensures higher security and control of your AWS resources\. It also enables an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
+Delegated administration ensures elevated security and control of your AWS resources\. It also enables an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
 
 To properly illustrate how delegated administration can work in an organization, this topic describes the following tasks as though these tasks were performed by three different people in an organization:
 + Create a test IAM user account called AutomationRestrictedOperator \(Administrator\)\.

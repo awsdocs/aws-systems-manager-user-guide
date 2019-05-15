@@ -28,7 +28,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
 
 1. In the Search field, search for **AWSQuicksightAthenaAccess**\.
 
-1. Choose the option beside this policy, and then choose **Next: Review**\.
+1. Choose the option next to this policy, and then choose **Next: Review**\.
 
 1. Choose **Add permissions**\.
 
@@ -136,7 +136,7 @@ AWS Glue charges your account based on an hourly rate, billed by the second, for
 
 1. In the navigation pane, choose **Crawlers**\.
 
-1. In the crawlers list, choose the option beside the Systems Manager Inventory data crawler\. The crawler name uses the following format:
+1. In the crawlers list, choose the option next to the Systems Manager Inventory data crawler\. The crawler name uses the following format:
 
    AWSSystemsManager\-*Resource\_Data\_Sync\_bucket\_name*\-*Region*\-*AWS\_account\_ID*
 

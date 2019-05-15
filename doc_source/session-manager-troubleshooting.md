@@ -4,7 +4,7 @@ Use the following information to help you troubleshoot problems with Session Man
 
 **Topics**
 + [No Permission to Start a Session](#session-manager-troubleshooting-start-permissions)
-+ [No Permission to Change Session Preferences](#session-manager-troubleshooting-preferences-permissions)
++ [No Permission to Change Session Preferences](#session-maner-troubleshooting-preferences-permissions)
 + [Instance Not Available or Not Configured for Session Manager](#session-manager-troubleshooting-instances)
 + [Session Manager Plugin Not Found](#plugin-not-found)
 + [Session Manager Plugin Not Automatically Added to Command Line Path \(Windows\)](#windows-plugin-env-var-not-set)
@@ -12,9 +12,9 @@ Use the following information to help you troubleshoot problems with Session Man
 ## No Permission to Start a Session<a name="session-manager-troubleshooting-start-permissions"></a>
 
 **Problem**: You attempt to start a session, but the system tells you that you do not have the necessary permissions\.
-+ **Solution**: A system administrator has not granted you IAM policy permissions for starting Session Manager sessions\. For information, see [Step 3: Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)\.
++ **Solution**: A system administrator has not granted you IAM policy permissions for starting Session Manager sessions\. For information, see [Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)\.
 
-## No Permission to Change Session Preferences<a name="session-manager-troubleshooting-preferences-permissions"></a>
+## No Permission to Change Session Preferences<a name="session-maner-troubleshooting-preferences-permissions"></a>
 
 **Problem**: You attempt to update global session preferences for your organization, but the system tells you that you do not have the necessary permissions\.
 + **Solution**: A system administrator has not granted you IAM policy permissions for setting Session Manager preferences\. For information, see [Grant or Deny a User Permissions to Update Session Manager Preferences](preference-setting-permissions.md)\.
@@ -22,7 +22,7 @@ Use the following information to help you troubleshoot problems with Session Man
 ## Instance Not Available or Not Configured for Session Manager<a name="session-manager-troubleshooting-instances"></a>
 
 **Problem 1**: You want to start a session on the **Start a session** console page, but an instance is not in the list\.
-+ **Solution**: The instance you want to connect to might not have been configured to use with the AWS Systems Manager service\. To use an instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\. 
++ **Solution**: The instance you want to connect to might not have been configured to use with the AWS Systems Manager service\. To use an instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Problem 2**: An instance you want to connect is in the list on the **Start a session** console page, but the page reports that "The instance you selected is not configured to use Session Manager\." 
 + **Solution A**: The instance has been configured for use with the AWS Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
@@ -34,7 +34,7 @@ Use the following information to help you troubleshoot problems with Session Man
 **Tip**  
 To always keep your agent up\-to\-date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
-Run `AWS-UpdateSSMAgent` as part of a Maintenance Window\. For information about working with Maintenance Windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
+Run `AWS-UpdateSSMAgent` as part of a maintenance window\. For information about working with maintenance windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
 
 ## Session Manager Plugin Not Found<a name="plugin-not-found"></a>
 

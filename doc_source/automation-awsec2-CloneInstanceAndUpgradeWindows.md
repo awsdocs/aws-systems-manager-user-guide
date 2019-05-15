@@ -21,7 +21,7 @@ Windows
 **Prerequisites**
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 + This Automation works only with Windows Server 2008 R2 instances\.
-+ Configure the Windows Server 2008 R2 instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Task 2: Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\.
++ Configure the Windows Server 2008 R2 instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the boot disk\.
 + If the instance does not use an AWS\-provided Windows license, then specify an EBS Snapshot ID that includes Windows Server 2012 R2 installation media\. To do this:
   + Verify that the Amazon EC2 instance is running Windows Server 2012 or later\.

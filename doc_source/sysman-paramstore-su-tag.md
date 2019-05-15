@@ -1,6 +1,6 @@
 # Tagging Systems Manager Parameters<a name="sysman-paramstore-su-tag"></a>
 
-You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines\. 
+You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
 Tags are used to organize parameters\. For example, you can tag parameters for specific environments, departments, or users and groups\. After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags that the user can access\. For more information about restricting access to parameters by using tags, see [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)\.
 
@@ -27,20 +27,9 @@ For information about the Regions where Systems Manager is available, see [regio
 
 ## Tag a Parameter \(AWS CLI\)<a name="sysman-paramstore-su-tag-cli"></a>
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to list parameters that you can tag\.
 

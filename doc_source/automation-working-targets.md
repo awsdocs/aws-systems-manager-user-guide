@@ -83,7 +83,7 @@ For example, say that your Automation document includes an **InstanceID** parame
 The following example uses the AWS\-CreateImage Automation document\. The target parameter name specified is *InstanceId*\. The key uses *ParameterValues*\. The values are two Amazon EC2 instance IDs\. This command creates an Automation workflow for each instance, which produces an AMI from each instance\. 
 
 ```
-aws ssm start-automation-execution --document-name AWS-CreateImage --target-parameter-name InstanceId --targets Key=ParameterValues,Values=i-1234567890EXAMPLE,i-abcdefghiEXAMPLE
+aws ssm start-automation-execution --document-name AWS-CreateImage --target-parameter-name InstanceId --targets Key=ParameterValues,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE
 ```
 
 ### Targeting Parameter Value Maps<a name="automation-working-targets-maps"></a>

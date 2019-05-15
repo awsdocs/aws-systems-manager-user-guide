@@ -95,22 +95,9 @@ Before you start this walkthrough, you must collect Inventory metadata from your
    }
    ```
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 

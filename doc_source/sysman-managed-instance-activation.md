@@ -1,9 +1,9 @@
-# Creating a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
+# Step 4: Create a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
 
 To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an Activation Code and Activation ID\. This Code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
-**Note**  
-An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you registered with Systems Manager\. This means that if an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\. All of the servers and VMs that you registered will continue to be registered Systems Manager managed instances until you remove or disable SSM Agent on the server or VM and thereby unregister it\.
+**About activation expirations**  
+An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you registered with Systems Manager\. This means that if an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\. Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicity deregister it\. You can deregister a managed instance in your hybrid environment in the **Managed Instances** area of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
 **To create a managed\-instance activation**
 
@@ -19,7 +19,7 @@ An *activation expiration* is a window of time when you can register on\-premise
 
 1. \(Optional\) In the **Activation description** field, enter a description for this activation\. The description is optional, be we recommend that you enter a description if you plan to activate large numbers of servers and VMs\.
 
-1. In the **Instance limit** field, specify the total number of servers or VMs that you want to register with AWS\. 
+1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. 
 
 1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
@@ -50,17 +50,17 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    For example:
 
    ```
-   New-SSMActivation -DefaultInstanceName MyWebServers -IamRole RunCommandServiceRole -RegistrationLimit 10 –Region us-east-2
+   New-SSMActivation -DefaultInstanceName MyWebServers -IamRole SSMServiceRole -RegistrationLimit 10 –Region us-east-2
    ```
 
-1. Press Enter\. If the activation is successful, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
+1. Press Enter\. If the activation is created successfully, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
 
 **To create a managed\-instance activation \(AWS CLI\)**
 
 1. On a machine where you have installed the AWS Command Line Interface \(AWS CLI\), run the following command in the CLI\.
 
    ```
-   aws ssm create-activation --default-instance-name name --iam-role IAM service role --registration-limit number of managed instances --region region
+   aws ssm create-activation --default-instance-name name --iam-role iam-service-role-name --registration-limit number of managed instances --region region
    ```
 
    *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
@@ -68,7 +68,9 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    For example:
 
    ```
-   aws ssm create-activation --default-instance-name MyWebServers --iam-role RunCommandServiceRole --registration-limit 10 --region us-east-2
+   aws ssm create-activation --default-instance-name MyWebServers --iam-role SSMServiceRole --registration-limit 10 --region us-east-2
    ```
 
-1. Press Enter\. If the activation is successful, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
+1. Press Enter\. If the activation is created successfully,, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
+
+Continue to [Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.

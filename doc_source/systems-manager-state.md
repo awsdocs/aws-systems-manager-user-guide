@@ -10,14 +10,12 @@ The following list describes the types of tasks you can perform with State Manag
 + Patch instances with software updates throughout their lifecycle
 + Run scripts on Linux and Windows managed instances throughout their lifecycle
 
-State Manager integrates with AWS CloudTrail to provide a record of all executions that you can audit, and Amazon CloudWatch Events to track state changes\. You can also choose to store and view detailed command output in Amazon S3\.
+State Manager integrates with AWS CloudTrail to provide a record of all executions that you can audit, and Amazon CloudWatch Events to track state changes\. You can also choose to store and view detailed command output in Amazon S3\. For more information, see the following topics:
++ [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
++ [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)
++ [\(Optional\) Set Up Integrations with Other AWS Services](setup-integrations.md)
 
-For information about using CloudTrail to monitor Systems Manager events, see [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
-
-For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
-
-**Getting Started with State Manager**
-
+**Getting Started with State Manager**  
 Complete the following tasks to get started with State Manager\.
 
 

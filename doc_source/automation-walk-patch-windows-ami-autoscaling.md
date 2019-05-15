@@ -24,7 +24,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. In the **Select your use case** section, choose **Lambda**, and then choose **Next: Permissions**\.
 
-1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option beside it\. Search for **AutoScalingFullAccess**, and then choose the option beside it\.
+1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
 
 1. Chooes **Next: Review**\.
 

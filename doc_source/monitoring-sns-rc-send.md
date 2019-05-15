@@ -38,7 +38,7 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS Notifications** section, choose **Enable SNS notifications**\.
 
@@ -71,7 +71,7 @@ Use the following procedure to send a command through Run Command that is config
    For example:
 
    ```
-   aws ssm send-command --instance-ids "i-1234567890EXAMPLE, i-abcdefghiEXAMPLE" --document-name "AWS-RunPowerShellScript" --parameters '{"commands":["Get-Process"]}' --service-role "arn:aws:iam::111122223333:role/SNS_Role" --notification-config '{"NotificationArn":"arn:aws:sns:us-east-1:111122223333:SNSTopic","NotificationEvents":["All"],"NotificationType":"Command"}'
+   aws ssm send-command --instance-ids "i-02573cafcfEXAMPLE, i-0471e04240EXAMPLE" --document-name "AWS-RunPowerShellScript" --parameters '{"commands":["Get-Process"]}' --service-role "arn:aws:iam::111122223333:role/SNS_Role" --notification-config '{"NotificationArn":"arn:aws:sns:us-east-1:111122223333:SNSTopic","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
 **Alternative commands**  

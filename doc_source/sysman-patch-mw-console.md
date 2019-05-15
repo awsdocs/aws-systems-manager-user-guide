@@ -1,15 +1,15 @@
 # Create a Maintenance Window for Patching<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a Maintenance Window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a Patching Configuration \(Console\)](create-patching-configuration.md)\.
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a Patching Configuration \(Console\)](create-patching-configuration.md)\.
 
-To minimize the impact on your server availability, we recommend that you configure a Maintenance Window to execute patching during times that won't interrupt your business operations\. For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
+To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
 You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
 
-**To create a Maintenance Window for patching \(AWS Systems Manager\)**
+**To create a maintenance window for patching \(AWS Systems Manager\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -21,27 +21,27 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Choose **Create maintenance window**\.
 
-1. For **Name**, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
+1. For **Name**, enter a name that designates this as a maintenance window for patching critical and important updates\.
 
 1. In the top of the **Schedule** section, choose the schedule options you want\.
 
-1. For **Duration**, type the number of hours you want the Maintenance Window to be active\.
+1. For **Duration**, type the number of hours you want the maintenance window to be active\.
 
-1. For **Stop initiating tasks**, type the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
+1. For **Stop initiating tasks**, type the number of hours before the maintenance window duration ends that you want the system to stop initiating new tasks\.
 
 1. Choose **Create maintenance window**\.
 
-1. In the Maintenance Windows list, choose the Maintenance Window you just created, and then choose **Actions**, **Register targets**\.
+1. In the maintenance windows list, choose the maintenance window you just created, and then choose **Actions**, **Register targets**\.
 
 1. \(Optional\) In the **Maintenance window target details** section, provide a name, a description, and owner information \(your name or alias\) for this target\.
 
 1. For **Targets**, choose **Specifying tags**\.
 
-1. For **Tag**, enter a tag key and a tag value to identify the instances to register with the Maintenance Window\.
+1. For **Tag**, enter a tag key and a tag value to identify the instances to register with the maintenance window\.
 
-1. Choose **Register target**\. The system creates a Maintenance Window target\.
+1. Choose **Register target**\. The system creates a maintenance window target\.
 
-1. In the details page of the Maintenance Window you created, choose **Actions**, **Register run command task**\.
+1. In the details page of the maintenance window you created, choose **Actions**, **Register run command task**\.
 
 1. \(Optional\) For **Maintenance window task details**, provide a name and description for this task\.
 
@@ -49,7 +49,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. For **Task priority**, choose a priority\. `One` is the highest priority\.
 
-1. For **Targets**, under **Target by**, choose the Maintenance Window target you created earlier in this procedure\.
+1. For **Targets**, under **Target by**, choose the maintenance window target you created earlier in this procedure\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -61,7 +61,7 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
 
 1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
@@ -77,23 +77,23 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. Choose **Register run command task**\.
 
-**To create a Maintenance Window for patching \(Amazon EC2 Systems Manager\)**
+**To create a maintenance window for patching \(Amazon EC2 Systems Manager\)**
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\.
 
 1. In the navigation pane, choose **Maintenance Windows**, and then choose **Create maintenance window**\.
 
-1. For **Name**, enter a name that designates this as a Maintenance Window for patching critical and important updates\.
+1. For **Name**, enter a name that designates this as a maintenance window for patching critical and important updates\.
 
 1. For **Specify schedule**, choose the schedule options you want\.
 
-1. For **Duration**, enter the number of hours you want the Maintenance Window to be active\.
+1. For **Duration**, enter the number of hours you want the maintenance window to be active\.
 
-1. For **Stop initiating tasks**, enter the number of hours before the Maintenance Window duration ends that you want the system to stop initiating new tasks\.
+1. For **Stop initiating tasks**, enter the number of hours before the maintenance window duration ends that you want the system to stop initiating new tasks\.
 
 1. Choose **Create maintenance window**\.
 
-1. In this list of **Maintenance Windows**, select the Maintenance Window you just created, and then choose **Actions**, **Register targets**\.
+1. In this list of maintenance windows, select the maintenance window you just created, and then choose **Actions**, **Register targets**\.
 
 1. \(Optional\) Near the top of the page, specify a name, description, and owner information \(your name or alias\) for this target\.
 
@@ -101,15 +101,15 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. Next to **Tag**, use the lists to choose a tag key and a tag value\.
 
-1. Choose **Register targets**\. The system creates a Maintenance Window target\.
+1. Choose **Register targets**\. The system creates a maintenance window target\.
 
-1. In the list of Maintenance Windows, choose the Maintenance Window you created with the procedure, and then choose **Actions**, **Register run command task**\.
+1. In the list of maintenance windows, choose the maintenance window you created with the procedure, and then choose **Actions**, **Register run command task**\.
 
 1. In the **Command Document** section of the **Register run command task** page, choose **AWS\-RunPatchBaseline**\.
 
 1. In the **Task Priority** section, specify a priority\. One is the highest priority\.
 
-1. In the **Targets** section, choose **Select**, and then choose the Maintenance Window target you created earlier in this procedure\.
+1. In the **Targets** section, choose **Select**, and then choose the maintenance window target you created earlier in this procedure\.
 
 1. For **Role**, enter the ARN of a role which has the **AmazonSSMMaintenanceWindowRole** policy attached to it\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
@@ -129,7 +129,7 @@ The **Install** operation causes the instance to reboot \(if patches are install
 
 1. Choose **Register task**\.
 
-After the Maintenance Window task completes, you can view patch compliance details in the Amazon EC2 console on the **Managed Instances** page\. In the filter bar, use the **AWS:PatchSummary** and **AWS:ComplianceItem** filters\. 
+After the maintenance window task completes, you can view patch compliance details in the Amazon EC2 console on the **Managed Instances** page\. In the filter bar, use the **AWS:PatchSummary** and **AWS:ComplianceItem** filters\. 
 
 **Note**  
 You can save your query by bookmarking the URL after you specify the filters\.

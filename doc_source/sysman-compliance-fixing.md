@@ -29,7 +29,7 @@ Use the following procedure to configure Configuration Compliance as the target 
 
 1. In the **Select target type** list, choose **SSM Run Command**\. 
 
-1. In the **Document** list, choose an SSM document to run when your target is invoked\. For example, choose choose **AWS\-RunPatchBaseline** for a non\-compliant patch event, or choose **AWS\-RefreshAssociation** for a non\-compliant association event\.
+1. In the **Document** list, choose an SSM document to run when your target is invoked\. For example, choose **AWS\-RunPatchBaseline** for a non\-compliant patch event, or choose **AWS\-RefreshAssociation** for a non\-compliant association event\.
 
 1. Specify information for the remaining fields and parameters\.
 **Note**  

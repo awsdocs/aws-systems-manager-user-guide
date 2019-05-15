@@ -13,7 +13,7 @@ You can also use an AWS KMS key policy to control which IAM users, IAM roles, an
 
 Use the following example to create an IAM end user policy for Session Manager\. It provides end users the ability start a session to a particular instance and the ability to terminate only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
 
-Replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-1234567890EXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
+Replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
 
 ```
 {

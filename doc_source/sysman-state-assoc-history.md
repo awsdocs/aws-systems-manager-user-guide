@@ -46,22 +46,9 @@ Use the following procedure to view the execution history for a specific associa
 
 **To view execution history for a specific association ID**
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to view a list of executions for a specific association ID\. This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filter parameter.`
 

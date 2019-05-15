@@ -54,6 +54,6 @@ Verify that the document you choose can run on the instance operating system\. S
 
 1. In the **Configure parameter\(s\)** section, choose an option and then complete any fields populated by your choice\. Use the hover text for more information about the options\. For more information about the parameter fields for your document, see [Running Commands Using Systems Manager Run Command](run-command.md) and choose the procedure for your document\.
 
-1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required instance profile role for Run Command\. Or, choose **Use existing role**\. For more information about roles required for Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required instance profile role for Run Command\. Or, choose **Use existing role**\. For more information about roles required for Run Command, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 1. Choose **Configure details** and complete the wizard\.

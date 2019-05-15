@@ -12,7 +12,7 @@ Run Command provides status details with each command execution\. For more infor
 
 In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\. If an instance you expect to see is not listed, check the following requirements:
 + **SSM Agent**: Make sure the latest version of SSM Agent is installed on the instance\. Only Amazon EC2 Windows Amazon Machine Images \(AMIs\) and some Linux AMIs are pre\-configured with SSM Agent\. For information about installing or reinstalling SSM Agent on an instance, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md) or [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
-+ ** IAM instance role**: Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\. 
++ ** IAM instance role**: Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. 
 + **Target operating system type**: Double\-check that you have selected an SSM document that supports the type of instance you want to update\. Most SSM documents support both Windows and Linux instances, but some do not\. For example, if you select the SSM document `AWS-InstallPowerShellModule`, which applies only to Windows instances, you will not see Linux instances in the target instances list\.
 
 ## Getting Status Information on Windows Instances<a name="rc-healthapi-win"></a>
@@ -58,7 +58,7 @@ aws ssm describe-instance-information --instance-information-filter-list key=Age
 If the describe\-instance\-information API operation returns an AgentStatus of Online, then your instance is ready to be managed using Run Command\. If the status is Inactive, the instance has one or more of the following problems\. 
 + SSM Agent is not installed\.
 + The instance does not have outbound internet connectivity\.
-+ The instance was not launched with an IAM role that enables it to communicate with the SSM API, or the permissions for the IAM role are not correct for Run Command\. For more information, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
++ The instance was not launched with an IAM role that enables it to communicate with the SSM API, or the permissions for the IAM role are not correct for Run Command\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 ## Troubleshooting SSM Agent<a name="ts-ssmagent-linux"></a>
 
@@ -127,7 +127,7 @@ Use the follow procedure to enable SSM Agent debug logging on Windows Server and
 
 1. Restart SSM Agent\.
    + **Windows Server**: Use Windows Task Manager to restart AmazonSSMAgent\.exe\.
-   + **Linux**: Execute the following command:
+   + **Linux**: Run the following command:
 
      ```
      sudo restart amazon-ssm-agent

@@ -1,6 +1,6 @@
 # Walkthrough: Create a Maintenance Window to Update SSM Agent \(Console\)<a name="mw-walkthrough-console"></a>
 
-The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager Maintenance Window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
+The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
 **Before You Begin**  
 Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
@@ -12,7 +12,7 @@ Before you complete the following procedure, you must either have administrator 
 
 ## Step 1: Create the Maintenance Window \(Console\)<a name="mw-walkthrough-console-create"></a>
 
-**To create a Maintenance Window \(console\)**
+**To create a maintenance window \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -24,41 +24,41 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
-1. Choose **Create Maintenance Window**\.
+1. Choose **Create maintenance window**\.
 
-1. For **Name**, enter a descriptive name to help you identify this Maintenance Window as a test Maintenance Window\.
+1. For **Name**, enter a descriptive name to help you identify this maintenance window as a test maintenance window\.
 
 1. For **Description**, enter a description\.
 
-1. Choose **Allow unregistered targets** if you want to allow a Maintenance Window task to run on managed instances, even if you have not registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the Maintenance Window\.
+1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you have not registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
 
-   If you don't choose this option, then you must choose previously\-registered targets when you register a task with the Maintenance Window\.
+   If you don't choose this option, then you must choose previously\-registered targets when you register a task with the maintenance window\.
 
-1. Specify a schedule for the Maintenance Window by using one of the three scheduling options\.
+1. Specify a schedule for the maintenance window by using one of the three scheduling options\.
 
    For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-1. For **Duration**, enter the number of hours the Maintenance Window should run\.
+1. For **Duration**, enter the number of hours the maintenance window should run\.
 
-1. For **Stop initiating tasks**, enter the number of hours before the end of the Maintenance Window that the system should stop scheduling new tasks to run\.
+1. For **Stop initiating tasks**, enter the number of hours before the end of the maintenance window that the system should stop scheduling new tasks to run\.
 
-1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become active\. This allows you to delay activation of the Maintenance Window until the specified future date\.
+1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become active\. This allows you to delay activation of the maintenance window until the specified future date\.
 
-1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the Maintenance Window to become inactive\. This allows you to set a date and time in the future after which the Maintenance Window no longer runs\.
+1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
 
-1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled Maintenance Window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
    For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
 
-1. Choose **Create maintenance window**\. The system returns you to the Maintenance Window page\. The Maintenance Window you just created is in the Enabled state\.
+1. Choose **Create maintenance window**\. The system returns you to the maintenance window page\. The maintenance window you just created is in the Enabled state\.
 
 ## Step 2: Register Maintenance Window Targets \(Console\)<a name="mw-walkthrough-console-register-target"></a>
 
-Use the following procedure to register a target with the Maintenance Window you created in Step 1\. By registering a target, you specify which instances to update\.
+Use the following procedure to register a target with the maintenance window you created in Step 1\. By registering a target, you specify which instances to update\.
 
-**To assign targets to a Maintenance Window \(console\)**
+**To assign targets to a maintenance window \(console\)**
 
-1. In the list of Maintenance Windows, choose the Maintenance Window you just created\.
+1. In the list of maintenance windows, choose the maintenance window you just created\.
 
 1. Choose **Actions**, and then choose **Register targets**\.
 
@@ -66,7 +66,7 @@ Use the following procedure to register a target with the Maintenance Window you
 
 1. For **Description**, enter a description\.
 
-1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon CloudWatch Events raised while running tasks for these targets in this Maintenance Window\.
+1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon CloudWatch Events raised while running tasks for these targets in this maintenance window\.
 
    For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
@@ -78,11 +78,11 @@ If you don't see the instances that you want to target, verify that those instan
 
 ## Step 3: Register a Run Command Task for the Maintenance Window to Update SSM Agent \(Console\)<a name="mw-walkthrough-console-register-task"></a>
 
-Use the following procedure to register a Run Command task for the Maintenance Window you created in Step 1\. The Run Command task updates SSM Agent on the registered targets\.
+Use the following procedure to register a Run Command task for the maintenance window you created in Step 1\. The Run Command task updates SSM Agent on the registered targets\.
 
-**To assign tasks to a Maintenance Window \(console\)**
+**To assign tasks to a maintenance window \(console\)**
 
-1. In the list of Maintenance Windows, choose the Maintenance Window you just created\.
+1. In the list of maintenance windows, choose the maintenance window you just created\.
 
 1. Choose **Actions**, and then choose **Register Run Command task**\.
 
@@ -94,7 +94,7 @@ Use the following procedure to register a Run Command task for the Maintenance W
 **Note**  
 If the targets you registered in the preceding step are Windows Server 2012 R2 or earlier, you must use the `AWS-UpdateEC2Config` document\.
 
-1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
+1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags or selecting instances manually\.
 **Note**  
@@ -114,14 +114,14 @@ If you selected targets by choosing Amazon EC2 tags, and you are not certain how
 If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
    + **Use a custom service role**
 
-     You can create a custom service role for Maintenance Window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to Maintenance Window tasks run through Run Command\.
+     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\.
 
      If you need to create a custom service role, see one of the following topics:
      + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
      + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
      + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a Maintenance Window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. In the **Output options** section, you can optionally enable writing command output to an Amazon S3 bucket\. If you choose to enable this option, specify the Amazon S3 bucket name and optional S3 key prefix to which you want the command output written\.
 

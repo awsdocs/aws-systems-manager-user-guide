@@ -1,6 +1,6 @@
 # Walkthrough: Create a Maintenance Window to Update SSM Agent \(AWS CLI\)<a name="mw-walkthrough-cli"></a>
 
-The following walkthrough shows you how to use the AWS CLI to create an AWS Systems Manager Maintenance Window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
+The following walkthrough shows you how to use the AWS CLI to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
 **Before You Begin**  
 Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
@@ -9,30 +9,17 @@ Before you complete the following procedure, you must either have administrator 
 + [Step 1: Get Started](#mw-walkthrough-cli-settings)
 + [Step 2: Create the Maintenance Window](#mw-walkthrough-cli-create-mw)
 + [Step 3: Register Maintenance Window Targets \(AWS CLI\)](#mw-walkthrough-cli-targets)
-+ [Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent](#mw-walkthrough-cli-tasks)
++ [Step 4: Register a Run Command Task for the Mmaintenance Window to Update SSM Agent](#mw-walkthrough-cli-tasks)
 
 ## Step 1: Get Started<a name="mw-walkthrough-cli-settings"></a>
 
 **To run commands using the AWS CLI**
 
-1. Run the following command to specify your credentials and the AWS Region:
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-1. The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region-id
-   Default output format [None]: ENTER
-   ```
-
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
-
-1. Verify that an instance is ready to be registered as a target for a Maintenance Window\.
+1. Verify that an instance is ready to be registered as a target for a maintenance window\.
 
    Run the following command to view which instances are online\.
 
@@ -48,11 +35,11 @@ Before you complete the following procedure, you must either have administrator 
 
 ## Step 2: Create the Maintenance Window<a name="mw-walkthrough-cli-create-mw"></a>
 
-Use the following procedure to create a Maintenance Window and specify its basic options, such as schedule and duration\.
+Use the following procedure to create a maintenance window and specify its basic options, such as schedule and duration\.
 
-**Create a Maintenance Window \(AWS CLI\)**
+**Create a maintenance window \(AWS CLI\)**
 
-1. Open the AWS CLI and run the following commands to create a Maintenance Window that runs weekly on Sundays at 02:00, in the United States Pacific time zone, with a 1 hour cutoff:
+1. Open the AWS CLI and run the following commands to create a maintenance window that runs weekly on Sundays at 02:00, in the United States Pacific time zone, with a 1 hour cutoff:
 
    ```
    aws ssm create-maintenance-window --name "My-First-Maintenance-Window" --schedule "cron(0 2 ? * SUN *)" --duration 2 --schedule-timezone "America/Los_Angeles" --cutoff 1 --no-allow-unassociated-targets
@@ -60,17 +47,17 @@ Use the following procedure to create a Maintenance Window and specify its basic
 
    For information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   For an explanation of how the various schedule\-related options for Maintenance Windows relate to one another, see [Reference: Maintenance Window Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
+   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
 
    The system returns information like the following:
 
    ```
    {
-      "WindowId":"mw-0c5ed765acEXAMPLE"
+      "WindowId":"mw-0c50858d01EXAMPLE"
    }
    ```
 
-1. To list this and any other Maintenance Windows created in your AWS account in your current AWS Region, run the following command:
+1. To list this and any other maintenance windows created in your AWS account in your current AWS Region, run the following command:
 
    ```
    aws ssm describe-maintenance-windows
@@ -86,7 +73,7 @@ Use the following procedure to create a Maintenance Window and specify its basic
                "Name": "My-First-Maintenance-Window",
                "NextExecutionTime": "2019-02-03T02:00-08:00",
                "Enabled": true,
-               "WindowId": "mw-0c5ed765acEXAMPLE",
+               "WindowId": "mw-0c50858d01EXAMPLE",
                "Duration": 2
            }
        ]
@@ -95,17 +82,17 @@ Use the following procedure to create a Maintenance Window and specify its basic
 
 ## Step 3: Register Maintenance Window Targets \(AWS CLI\)<a name="mw-walkthrough-cli-targets"></a>
 
-Use the following procedure to register a target with your Maintenance Window created in Step 2\. By registering a target, you specify which instances to update\.
+Use the following procedure to register a target with your maintenance window created in Step 2\. By registering a target, you specify which instances to update\.
 
-**To register Maintenance Window targets \(AWS CLI\)**
+**To register maintenance window targets \(AWS CLI\)**
 
 1. Run the following command:
 
    ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --target "Key=InstanceIds,Values=i-1234567890EXAMPLE" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" --resource-type "INSTANCE"
    ```
 
-   The system returns information like the following, which includes a Maintenance Window target ID\. Copy or note the WindowTargetId value\. You must specify this ID in the next step to register a task for this Maintenance Window\.
+   The system returns information like the following, which includes a maintenance window target ID\. Copy or note the WindowTargetId value\. You must specify this ID in the next step to register a task for this maintenance window\.
 
    ```
    {
@@ -117,19 +104,19 @@ Use the following procedure to register a target with your Maintenance Window cr
 Use the following command to register multiple managed instances:
 
    ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --targets "Key=InstanceIds,Values=i-1234567890EXAMPLE,i-abcdefghiEXAMPLE" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE" --resource-type "INSTANCE"
    ```
 
    Use the following command to register instances by using Amazon EC2 tags\. For example:
 
    ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --targets "Key=tag:Environment,Values=Prod" "Key=tag:Role,Values=Web" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --targets "Key=tag:Environment,Values=Prod" "Key=tag:Role,Values=Web" --resource-type "INSTANCE"
    ```
 
-1. Run the following command to display the targets for a Maintenance Window:
+1. Run the following command to display the targets for a maintenance window:
 
    ```
-   aws ssm describe-maintenance-window-targets --window-id "mw-0c5ed765acEXAMPLE"
+   aws ssm describe-maintenance-window-targets --window-id "mw-0c50858d01EXAMPLE"
    ```
 
    The system returns information like the following:
@@ -139,20 +126,20 @@ Use the following command to register multiple managed instances:
        "Targets": [
            {
                "ResourceType": "INSTANCE",
-               "WindowId": "mw-0c5ed765acEXAMPLE",
+               "WindowId": "mw-0c50858d01EXAMPLE",
                "Targets": [
                    {
                        "Values": [
-                           "i-1234567890EXAMPLE"
+                           "i-02573cafcfEXAMPLE"
                        ],
                        "Key": "InstanceIds"
                    }
                ],
-               "WindowTargetId": "d6k2n5j2-mw84-tg4d-r3g4-1d4d1EXAMPLE"
+               "WindowTargetId": "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
            },
            {
                "ResourceType": "INSTANCE",
-               "WindowId": "mw-0c5ed765acEXAMPLE",
+               "WindowId": "mw-0c50858d01EXAMPLE",
                "Targets": [
                    {
                        "Values": [
@@ -167,22 +154,22 @@ Use the following command to register multiple managed instances:
                        "Key": "tag:Role"
                    }
                ],
-               "WindowTargetId": "d6k2n5j2-mw84-tg4d-r3g4-1d4d1EXAMPLE"
+               "WindowTargetId": "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
            }
        ]
    }
    ```
 
-## Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
+## Step 4: Register a Run Command Task for the Mmaintenance Window to Update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
 
-Use the following procedure to register a Run Command task for the Maintenance Window you created in Step 2\. The Run Command task updates SSM Agent on the registered targets\.
+Use the following procedure to register a Run Command task for the maintenance window you created in Step 2\. The Run Command task updates SSM Agent on the registered targets\.
 
-**To register a Run Command task for a Maintenance Window to update SSM Agent \(AWS CLI\)**
+**To register a Run Command task for a maintenance window to update SSM Agent \(AWS CLI\)**
 
-1. Run the following command to register a Run Command task for the Maintenance Window using the WindowTargetId value in Step 3\. The task updates SSM Agent by using the `AWS-UpdateSSMAgent` document\.
+1. Run the following command to register a Run Command task for the maintenance window using the WindowTargetId value in Step 3\. The task updates SSM Agent by using the `AWS-UpdateSSMAgent` document\.
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id "mw-0c5ed765acEXAMPLE" --task-arn "AWS-UpdateSSMAgent" --name "UpdateSSMAgent" --targets "Key=WindowTargetIds,Values=d6k2n5j2-mw84-tg4d-r3g4-1d4d1EXAMPLE" --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 1 --max-errors 1 --priority 10
+   aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --task-arn "AWS-UpdateSSMAgent" --name "UpdateSSMAgent" --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 1 --max-errors 1 --priority 10
    ```
 **Note**  
 If the targets you registered in the preceding step are Windows Server 2012 R2 or earlier, you must use the `AWS-UpdateEC2Config` document\.
@@ -191,14 +178,14 @@ If the targets you registered in the preceding step are Windows Server 2012 R2 o
 
    ```
    {
-      "WindowTaskId": "j2l8d5b5c-mw66-tk4d-r3g9-1d4d1EXAMPLE"
+      "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
    }
    ```
 
-1. Run the following command to list all registered tasks for a Maintenance Window\.
+1. Run the following command to list all registered tasks for a maintenance window\.
 
    ```
-   aws ssm describe-maintenance-window-tasks --window-id "mw-0c5ed765acEXAMPLE"
+   aws ssm describe-maintenance-window-tasks --window-id "mw-0c50858d01EXAMPLE"
    ```
 
    The system returns information like the following:
@@ -211,15 +198,15 @@ If the targets you registered in the preceding step are Windows Server 2012 R2 o
                "MaxErrors": "1",
                "TaskArn": "AWS-UpdateSSMAgent",
                "MaxConcurrency": "1",
-               "WindowTaskId": "j2l8d5b5c-mw66-tk4d-r3g9-1d4d1EXAMPLE",
+               "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
                "TaskParameters": {},
                "Priority": 10,
-               "WindowId": "mw-0c5ed765acEXAMPLE",
+               "WindowId": "mw-0c50858d01EXAMPLE",
                "Type": "RUN_COMMAND",
                "Targets": [
                    {
                        "Values": [
-                           "d6k2n5j2-mw84-tg4d-r3g4-1d4d1EXAMPLE"
+                           "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
                        ],
                        "Key": "WindowTargetIds"
                    }

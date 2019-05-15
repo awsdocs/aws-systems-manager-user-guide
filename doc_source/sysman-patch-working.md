@@ -6,13 +6,13 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 
 1. Organize instances into patch groups by using Amazon EC2 tags \(optional, but recommended\)\.
 
-1. Schedule patching by using a Maintenance Window that defines which instances to patch and when to patch them\.
+1. Schedule patching by using a maintenance window that defines which instances to patch and when to patch them\.
 
 1. Monitor patching to verify compliance and investigate failures\.
 
 **Related Content**
-+ To view an example of how to create a patch baseline, patch groups, and a Maintenance Window using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
-+ For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
++ To view an example of how to create a patch baseline, patch groups, and a maintenance window using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
++ For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 + For information about monitoring patch compliance, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 **Topics**

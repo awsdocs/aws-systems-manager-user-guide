@@ -1,6 +1,6 @@
-# Maintenance Window Walkthroughs<a name="maintenance-window-walkthroughs"></a>
+# Maintenance Windows Walkthroughs<a name="maintenance-window-walkthroughs"></a>
 
-The walkthroughs in this section show you how to create an AWS Systems Manager Maintenance Window using either the AWS Command Line Interface or the AWS Systems Manager Console\. The Maintenance Window that you create updates SSM Agent on managed instances\.
+The walkthroughs in this section show you how to create an AWS Systems Manager maintenance window using either the AWS Command Line Interface or the AWS Systems Manager Console\. The maintenance window that you create updates SSM Agent on managed instances\.
 
 **Topics**
 + [Walkthrough: Create a Maintenance Window to Update SSM Agent \(AWS CLI\)](mw-walkthrough-cli.md)

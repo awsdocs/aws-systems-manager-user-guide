@@ -77,7 +77,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
  **Document Steps** 
 
-aws:runCommand \- Execute the PowerShell script to apply the desired configuration to the Windows service on the target instance\.
+aws:runCommand \- Run the PowerShell script to apply the desired configuration to the Windows service on the target instance\.
 
  **Outputs** 
 

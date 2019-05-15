@@ -21,7 +21,7 @@ Be aware of the following important details before you run Automation workflows 
 
   For more information about service\-linked roles, see [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)\.
 
-## Creating an Association that Executes an Automation Workflow<a name="systems-manager-state-manager-automation-documents-using"></a>
+## Creating an Association that Runs an Automation Workflow<a name="systems-manager-state-manager-automation-documents-using"></a>
 
 Use the following procedure to create a State Manager association that runs an Automation workflow\.
 

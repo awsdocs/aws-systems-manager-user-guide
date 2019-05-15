@@ -3,7 +3,7 @@
 The following sample walkthrough shows you how to use the AWS CLI to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Step 1: Getting Started](#walkthrough-cli-settings)
@@ -18,22 +18,9 @@ You must either have administrator privileges on the instances you want to confi
 
 **To run commands using the AWS CLI**
 
-1. Run the following command to specify your credentials and the region\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-   ```
-   aws configure
-   ```
-
-1. The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region-id
-   Default output format [None]: ENTER
-   ```
-
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. List all available documents
 

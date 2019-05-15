@@ -187,7 +187,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. \(Online check\) If the **Action = CheckAll**, then:
 
-      aws:runPowerShellScript \- Executes the PowerShell script to get the Windows Firewall profiles status\.
+      aws:runPowerShellScript \- Runs the PowerShell script to get the Windows Firewall profiles status\.
 
       aws:executeAutomation \- Calls AWSSupport\-ManageWindowsService to get the RDP service status\.
 
@@ -195,7 +195,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. \(Online fix\) If the **Action = FixAll**, then:
 
-      aws:runPowerShellScript \- Executes the PowerShell script to disable all Windows Firewall profiles\.
+      aws:runPowerShellScript \- Runs the PowerShell script to disable all Windows Firewall profiles\.
 
       aws:executeAutomation \- Calls AWSSupport\-ManageWindowsService to start the RDP service\.
 
@@ -203,7 +203,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. \(Online management\) If the **Action = Custom**, then:
 
-      aws:runPowerShellScript \- Executes the PowerShell script to manage the Windows Firewall profiles\.
+      aws:runPowerShellScript \- Runs the PowerShell script to manage the Windows Firewall profiles\.
 
       aws:executeAutomation \- Calls AWSSupport\-ManageWindowsService to manage the RDP service\.
 
@@ -221,11 +221,11 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       aws:executeAwsApi \- Retrieve the current instance's subnet\.
 
-      aws:executeAutomation \- Execute AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
+      aws:executeAutomation \- Run AWSSupport\-ExecuteEC2Rescue with provided instance's subnet\.
 
    1. \(Use the provided custom subnet\) If SubnetId is not SELECTED\_INSTANCE\_SUBNET
 
-      aws:executeAutomation \- Execute AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
+      aws:executeAutomation \- Run AWSSupport\-ExecuteEC2Rescue with provided SubnetId value\.
 
  **Outputs** 
 

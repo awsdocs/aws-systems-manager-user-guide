@@ -1,13 +1,13 @@
 # Create a Patching Configuration \(Console\)<a name="create-patching-configuration"></a>
 
-A patching configuration defines a unique patching operation\. The configuration specifies the instances for patching, which patch baseline is to be applied, the schedule for patching, and the Maintenance Window that the configuration is to be associated with\. 
+A patching configuration defines a unique patching operation\. The configuration specifies the instances for patching, which patch baseline is to be applied, the schedule for patching, and the maintenance window that the configuration is to be associated with\. 
 
 **Note**  
-Most patching use cases benefit from patching instances on a schedule with a Maintenance Window, but you can also run a one\-time patching operation manually without a Maintenance Window\.
+Most patching use cases benefit from patching instances on a schedule with a maintenance window, but you can also run a one\-time patching operation manually without a maintenance window\.
 
-To minimize the impact on your server availability, we recommend that you configure a Maintenance Window to execute patching during times that won't interrupt your business operations\. For more information about Maintenance Windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
+To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-If you plan to add the patching configuration to a Maintenance Window, you must first configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
+If you plan to add the patching configuration to a maintenance window, you must first configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To create a patching configuration \(console\)**
 
@@ -30,25 +30,25 @@ Alternatively, to specify an existing patch group that is not registered with th
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 
 1. In the **Patching schedule** section, choose one of the following:
-   + **Select an existing Maintenance Window**: From the list, select a Maintenance Window you have already created, and then continue to step 7\. 
-   + **Schedule in a new Maintenance Window**: Create a new Maintenance Window to associate with this patching configuration\.
-   + **Skip scheduling and patch now**: Run a one\-time manual patching operation without a schedule or Maintenance Window\. Continue to step 7\.
+   + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to step 7\. 
+   + **Schedule in a new maintenance window**: Create a new maintenance window to associate with this patching configuration\.
+   + **Skip scheduling and patch now**: Run a one\-time manual patching operation without a schedule or maintenance window\. Continue to step 7\.
 
-1. If you chose **Schedule in a new Maintenance Window** in step 5, then under **How do you want to specify a patching schedule?**, do the following:
-   + Under **How do you want to specify a Maintenance Window schedule?**, choose a schedule builder or expression option\.
-   + Under **Maintenance Window run frequency**, specify how frequently the Maintenance Window runs\. If you are specifying a CRON/Rate expression, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md) for more information\.
-   + For **Maintenance Window duration**, specify the number of hours the Maintenance Window is permitted to run before timing out\.
-   + For **Maintenance Window name**, enter a name to identify the Maintenance Window\.
+1. If you chose **Schedule in a new maintenance window** in step 5, then under **How do you want to specify a patching schedule?**, do the following:
+   + Under **How do you want to specify a maintenance window schedule?**, choose a schedule builder or expression option\.
+   + Under **maintenance window run frequency**, specify how frequently the maintenance window runs\. If you are specifying a CRON/Rate expression, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md) for more information\.
+   + For **Maintenance window duration**, specify the number of hours the maintenance window is permitted to run before timing out\.
+   + For **Maintenance window name**, enter a name to identify the maintenance window\.
 
 1. In the **Patching operation** area, choose whether to scan instances for missing patches and apply them as needed, or to scan only and generate a list of missing patches\.
 
 1. \(Optional\) In the **Additional settings** area, if any target instances you selected belong to a patch group, you can change the patch baseline that is associated with the patch group\. To do so, follow these steps:
 
-   1. Choose the button beside the name of the associated patch baseline\.
+   1. Choose the button next to the name of the associated patch baseline\.
 
    1. Choose **Change patch baseline registration**\.
 
-   1. Choose the patch baselines you want to specify for this configuration by clearing and selecting check boxes beside the patch baseline names\.
+   1. Choose the patch baselines you want to specify for this configuration by clearing and selecting check boxes next to the patch baseline names\.
 
    1. Choose **Close**\.
 **Note**  
@@ -56,4 +56,4 @@ For any target instances you selected that are not part of a patch group, Patch 
 
 1. Choose **Configure patching**\.
 
-If you created a new Maintenance Window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Window** area of Systems Manager\. For more information, see [Update or Delete a Maintenance Window \(Console\)](sysman-maintenance-update.md)\.
+If you created a new maintenance window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Windows** area of Systems Manager\. For more information, see [Update or Delete a Maintenance Window \(Console\)](sysman-maintenance-update.md)\.

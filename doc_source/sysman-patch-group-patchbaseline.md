@@ -16,22 +16,9 @@ To associate a specific patch baseline with your instances, you must add the pat
 
 **To add a patch group to a patch baseline \(AWS CLI\)**
 
-1. Download the latest version of the [AWS CLI](https://aws.amazon.com/cli) to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in AWS Systems Manager, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
 

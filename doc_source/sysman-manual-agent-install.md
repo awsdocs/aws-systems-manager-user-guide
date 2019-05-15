@@ -13,7 +13,7 @@ The URLs in the following scripts let you download SSM Agent from *any* AWS regi
 After you manually install SSM Agent, you can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 **Important**  
-These procedures apply to installing or reinstalling SSM Agent on Amazon EC2 Linux instances\. If you need to install the agent on an on\-premises instance or a virtual machine \(VM\) so it can be used with Systems Manager, see [Installing SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment](sysman-install-managed-linux.md)\.
+These procedures apply to installing or reinstalling SSM Agent on Amazon EC2 Linux instances\. If you need to install the agent on an on\-premises instance or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 ## Amazon Linux and Amazon Linux 2<a name="agent-install-al"></a>
 
@@ -513,7 +513,7 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 This section includes information about how to install SSM Agent on Raspbian Jessie and Raspbian Stretch, including Raspberry Pi \(32\-bit\) devices\.
 
 **Before You Begin**  
-To set up your Raspbian devices as Systems Manager managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\. Store the activation code and ID in a safe place\. For more information about the activation process, see [Setting Up AWS Systems Manager in Hybrid Environments](systems-manager-managedinstances.md)\.
+To set up your Raspbian devices as Systems Manager managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\. Store the activation code and ID in a safe place\. For more information about the activation process, see [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\.
 
 Connect to your Raspbian device and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
 

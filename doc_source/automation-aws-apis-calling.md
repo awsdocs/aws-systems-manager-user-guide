@@ -320,7 +320,7 @@ Type: MapList
 ```
 
 **Important**  
-If you execute an automation that invokes other AWS services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(AWS\-\* documents\) such as the AWS\-ConfigureS3BucketLogging, AWS\-CreateDynamoDBBackup, and AWS\-RestartEC2Instance documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the aws:executeAwsApi, aws:CreateStack, or aws:copyImage actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage actions`, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 ## Sample Walkthrough: Start an Amazon RDS Instance from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling-sample"></a>
 
@@ -498,19 +498,19 @@ This sample walkthrough shows you how to create and run an Automation document i
 
 1. Save the file as sample\.yaml\.
 
-1. Execute the following command in the AWS CLI to add the document to your AWS account\.
+1. Run the following command in the AWS CLI to add the document to your AWS account\.
 
    ```
    aws ssm create-document --name sampleDoc --document-type Automation --document-format YAML --content file://sample.yaml
    ```
 
-1. Execute the following command to run the Automation execution by using the document you just created\. Make a note of the execution ID returned by Systems Manager after you start the execution\.
+1. Run the following command to run the Automation execution by using the document you just created\. Make a note of the execution ID returned by Systems Manager after you start the execution\.
 
    ```
    aws ssm start-automation-execution --document-name sampleDoc 
    ```
 
-1. Execute the following command to view the execution status\.
+1. Run the following command to view the execution status\.
 
    ```
    aws ssm get-automation-execution --automation-execution-id automation_execution_id

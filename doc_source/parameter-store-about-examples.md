@@ -7,13 +7,13 @@ A Parameter Store parameter is any piece of configuration data, such as a passwo
 The following is an example of a Systems Manager parameter named DNS\-IP\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
 
 ```
-aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-1234567890EXAMPLE" --parameters "commands='echo {{ssm:DNS-IP}}'" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-1
+aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands='echo {{ssm:DNS-IP}}'" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-1
 ```
 
 Here is another example parameter that uses a secure string parameter named SecurePassword\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the Secure String parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
 ```
-aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-1234567890EXAMPLE" --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-1
+aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-1
 ```
 
 You can also reference Systems Manager parameters in the *Parameters* section of an SSM document, as shown in the following example\.

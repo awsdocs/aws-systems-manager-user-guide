@@ -5,7 +5,7 @@ Use the information in this topic to help you specify valid values for parameter
 This information supplements the details in the topic [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html) in the *AWS Systems Manager API Reference*, which also provides information about the values **AllowedPattern**, **Description**, **KeyId**, **Overwrite**, **Type**, and **Value**\.
 
 The requirements and constraints for parameter names include the following:
-+ **Case sensivity**: Parameter names are case sensitive\.
++ **Case sensitivity**: Parameter names are case sensitive\.
 + **Spaces**: Parameter names can't include spaces\.
 + **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-/`
 + **Prefixes**: A parameter name *cannot* be prefixed with "aws" or "ssm" \(case\-insensitive\)\. For example, attempts to create parameters with the following names will fail with an exception:

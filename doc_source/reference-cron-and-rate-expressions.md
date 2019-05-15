@@ -1,13 +1,13 @@
 # Reference: Cron and Rate Expressions for Systems Manager<a name="reference-cron-and-rate-expressions"></a>
 
-When you create an AWS Systems Manager Maintenance Window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule in the form of either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. For Maintenance Windows, you can also specify a time stamp in Coordinated Universal Time \(UTC\) format when you create a Maintenance Window so that it runs once at the specified time\.
+When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule in the form of either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. For maintenance windows, you can also specify a time stamp in Coordinated Universal Time \(UTC\) format when you create a maintenance window so that it runs once at the specified time\.
 
-When you create either type of resource programmatically or by using a command line tool such as the AWS CLI, you must specify a schedule parameter with a valid cron or rate expression \(or time stamp for Maintenance Windows\) in the correct format\.
+When you create either type of resource programmatically or by using a command line tool such as the AWS CLI, you must specify a schedule parameter with a valid cron or rate expression \(or time stamp for maintenance windows\) in the correct format\.
 
-When you use the AWS Systems Manager console to create a Maintenance Window or association, you can specify a schedule using a valid cron or rate expression\. You can also use tools in the user interface that simplify the process of creating your schedule\. 
+When you use the AWS Systems Manager console to create a maintenance window or association, you can specify a schedule using a valid cron or rate expression\. You can also use tools in the user interface that simplify the process of creating your schedule\. 
 
 **Maintenance Window Examples**  
-To create Maintenance Windows using the AWS CLI, you include the \-\-schedule parameter with a cron or rate expression or a time stamp\. For example: 
+To create maintenance windows using the AWS CLI, you include the \-\-schedule parameter with a cron or rate expression or a time stamp\. For example: 
 
 ```
 aws ssm create-maintenance-window --name "My-Cron-Maintenance-Window" --schedule "cron(0 16 ? * TUE *)" --schedule-timezone "America/Los_Angeles" --start-date 2019-01-01T00:00:00-08:00 --end-date 2019-06-30T00:00:00-08:00 --duration 4 --cutoff 1
@@ -146,23 +146,23 @@ Here are some rate examples for associations\.
 
 ## Cron and Rate Expressions for Maintenance Windows<a name="reference-cron-and-rate-expressions-maintenance-window"></a>
 
-This section includes examples of cron and rate expressions for Maintenance Windows\.
+This section includes examples of cron and rate expressions for maintenance windows\.
 
-Unlike State Manager associations, Maintenance Windows support all cron and rate expressions, including values other than 0 \(zero\) in the seconds field\. 
+Unlike State Manager associations, maintenance windows support all cron and rate expressions, including values other than 0 \(zero\) in the seconds field\. 
 
-For example, the following 6\-field cron expression runs a Maintenance Window at 9:30 AM every day:
+For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day:
 
 ```
 cron(30 09 ? * * *)
 ```
 
-By adding a value to the `Seconds` field, the following 7\-field cron expression runs a Maintenance Window at 9:30:24 AM every day:
+By adding a value to the `Seconds` field, the following 7\-field cron expression runs a maintenance window at 9:30:24 AM every day:
 
 ```
 cron(24 30 09 ? * * *)
 ```
 
-The following table provides additional 6\-field cron examples for Maintenance Windows\.
+The following table provides additional 6\-field cron examples for maintenance windows\.
 
 
 **Cron Examples for Maintenance Windows**  
@@ -175,7 +175,7 @@ The following table provides additional 6\-field cron examples for Maintenance W
 |  cron\(0 2 L \* ? \*\)  |  02:00 AM on the last day of every month  | 
 |  cron\(15 10 ? \* 6L \*\)  |  10:15 AM on the last Friday of every month  | 
 
-The following table provides rate examples for Maintenance Windows\.
+The following table provides rate examples for maintenance windows\.
 
 
 **Rate Examples for Maintenance Windows**  

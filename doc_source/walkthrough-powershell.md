@@ -3,7 +3,7 @@
 The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell Session Settings](#walkthrough-powershell-settings)
@@ -27,7 +27,7 @@ Set-AWSCredentials –AccessKey key_name –SecretKey key_name
 ```
 
 **Set a default AWS Region**  
-Execute the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
+Run the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ```
 Set-DefaultAWSRegion -Region us-east-2
@@ -231,7 +231,7 @@ Get-SSMCommandInvocation -CommandId $domainJoinCommand.CommandId -Details $true 
 
 ## Send Windows Metrics to Amazon CloudWatch using the AWS\-ConfigureCloudWatch document<a name="walkthrough-powershell-windows-metrics"></a>
 
-You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within 1 minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time are not included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to Amazon CloudWatch\.
+You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time are not included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to Amazon CloudWatch\.
 
 If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the C:\\Program Files\\Amazon\\EC2ConfigService\\Settings\\AWS\.EC2\.Windows\.CloudWatch\.json file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
 
@@ -252,7 +252,7 @@ Get-SSMDocumentDescription -Name "AWS-ConfigureCloudWatch" | select -ExpandPrope
 The following command configures the instance and moves Windows Applications logs to CloudWatch\.
 
 ```
-$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-2", "LogGroup":"My-Log-Group", "LogStream":"i-1234567890EXAMPLE"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
+$cloudWatchCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"us-east-2", "LogGroup":"My-Log-Group", "LogStream":"i-02573cafcfEXAMPLE"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
 ```
 
 **Get command information per instance**  

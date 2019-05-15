@@ -25,7 +25,7 @@ Running Automations across multiple Regions and accounts or OUs works as follows
 
 1. Choose the Automation document, Regions, and accounts or OUs where you want to run the Automation workflow\.
 
-1. Execute the Automation\.
+1. Run the Automation\.
 
 1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor workflow progress\.
 
@@ -67,7 +67,7 @@ This procedure also describes how to create the **AWS\-SystemsManager\-Automatio
 
 1. Download the [AWS\-SystemManager\-AutomationAdministrationRole\.zip folder](samples/AWS-SystemManager-AutomationAdministrationRole.zip) and repeat this procedure for the AWS\-SystemManager\-AutomationAdministrationRole role\. You only need to create the AWS\-SystemManager\-AutomationAdministrationRole role in the Automation management account\.
 
-## Execute an Automation in Multiple Regions and Accounts<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
+## Run an Automation in Multiple Regions and Accounts<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
 
 Use the procedures in this section to run an Automation in multiple Regions and accounts from the Automation management account\. Before you begin, note the following information:
 + AWS account IDs or OUs where you want to run the Automation\.
@@ -80,14 +80,14 @@ Use the procedures in this section to run an Automation in multiple Regions and 
 
 1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
-1. In the **Automation document** list, choose the option beside a document name\. To view more Automation documents, use either the Search bar or the numbers to the right of the Search bar\. 
+1. In the **Automation document** list, choose the option next to a document name\. To view more Automation documents, use either the Search bar or the numbers to the right of the Search bar\. 
 **Note**  
 You can view information about a document by choosing the document name\.
 
-1. In the **Document details** section, verify that **Document version** is set to the version that you want to execute\. The system includes the following version options: 
+1. In the **Document details** section, verify that **Document version** is set to the version that you want to run\. The system includes the following version options: 
    + **Default version at runtime**: Choose this option if the Automation document is updated periodically and a new default version is assigned\.
-   + **Latest version at runtime**: Choose this option if the Automation document is updated periodically, and you want to execute the version that was most recently updated\.
-   + **1 \(Default\)**: Choose this option to execute the first version of the document, which is the default\.
+   + **Latest version at runtime**: Choose this option if the Automation document is updated periodically, and you want to run the version that was most recently updated\.
+   + **1 \(Default\)**: Choose this option to run the first version of the document, which is the default\.
 
 1. Choose **Next**\.
 
@@ -111,7 +111,7 @@ You can view information about a document by choosing the document name\.
 
    1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation document that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
 
-   1. Use the **Targets** list to choose how you want to target resources\. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\. 
+   1. Use the **Targets** list to choose how you want to target resources\. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\.
 
       If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
 
@@ -119,11 +119,11 @@ You can view information about a document by choosing the document name\.
 **Note**  
 You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources in multiple Regions and accounts by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance document, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags you specified\. 
 
-1. Use the options in the **Rate control** section to restrict the number of AWS resources that can execute the Automation within each account\-Region pair\. 
+1. Use the options in the **Rate control** section to restrict the number of AWS resources that can run the Automation within each account\-Region pair\. 
 
    In the **Concurrency** section, choose an option: 
-   + Choose **targets** to enter an absolute number of targets that can execute the Automation workflow simultaneously\.
-   + Choose **percentage** to enter a percentage of the target set that can execute the Automation workflow simultaneously\.
+   + Choose **targets** to enter an absolute number of targets that can run the Automation workflow simultaneously\.
+   + Choose **percentage** to enter a percentage of the target set that can run the Automation workflow simultaneously\.
 
 1. In the **Error threshold** section, choose an option:
    + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the workflow to other resources\.
@@ -133,24 +133,11 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 **To run an Automation workflow in multiple Regions and accounts \(AWS CLI\)**
 
-1. Download the latest version of the [AWS CLI](https://aws.amazon.com/cli/) to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-1. Execute the following command to run an Automation workflow in multiple Regions and accounts\.
+1. Run the following command to run an Automation workflow in multiple Regions and accounts\.
 
    ```
    aws ssm start-automation-execution
@@ -196,13 +183,13 @@ You may not need to choose some of the options in the **Input parameters** secti
    --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2
    ```
 
-1. Execute the following command to view the workflow execution\.
+1. Run the following command to view the workflow execution\.
 
    ```
    aws ssm describe-automation-executions --filters Key=ExecutionId,Values=ID
    ```
 
-1. Execute the following command to view details about the execution progress\.
+1. Run the following command to view details about the execution progress\.
 
    ```
    aws ssm get-automation-execution --automation-execution-id ID

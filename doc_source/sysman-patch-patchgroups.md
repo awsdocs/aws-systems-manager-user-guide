@@ -20,7 +20,7 @@ To view an example of creating a patch baseline and patch groups by using the AW
 
 When the system runs the task to apply a patch baseline to an instance, SSM Agent verifies that a patch group value is defined for the instance\. If the instance is assigned to a patch group, Patch Manager then verifies which patch baseline is registered to that group\. If a patch baseline is found for that group, Patch Manager notifies SSM Agent to use the associated patch baseline\. If an instance isn't configured for a patch group, Patch Manager automatically notifies SSM Agent to use the currently configured default patch baseline\.
 
-The following diagram shows a general example of the processes that Systems Manager performs when sending a Run Command task to your fleet of servers to patch using Patch Manager\. A similar process is used when a Maintenance Window is configured to send a command to patch using Patch Manager\.
+The following diagram shows a general example of the processes that Systems Manager performs when sending a Run Command task to your fleet of servers to patch using Patch Manager\. A similar process is used when a maintenance window is configured to send a command to patch using Patch Manager\.
 
 In this example, we have three groups of Windows EC2 instances with the following tags applied:
 

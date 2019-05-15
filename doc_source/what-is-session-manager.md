@@ -44,7 +44,7 @@ Session Manager offers these benefits:
 
   Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For a list of supported Windows and Linux operating system types, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises instances is provided for the advanced\-instances tier only\. For information, see [Using the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\. 
+Session Manager support for on\-premises instances is provided for the advanced\-instances tier only\. For information, see [Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
 + **Console, CLI, and SDK access to Session Manager capabilities**
 
   You can work with Session Manager in the following ways:
@@ -64,10 +64,10 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
   Session Manager provide you with options for auditing and logging session histories in your AWS account through integration with a number of other AWS services\. For more information, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md)\.
 + **Customer key data encryption support**
 
-  You can configure Session Manager to encrypt the session data logs that you send to an Amazon S3 bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md) and [Step 4: Configure Session Preferences](session-manager-getting-started-configure-preferences.md)\.
+  You can configure Session Manager to encrypt the session data logs that you send to an Amazon S3 bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md) and [ Configure Session Preferences](session-manager-getting-started-configure-preferences.md)\.
 + **AWS PrivateLink support for instances without public IP addresses**
 
-  You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. PrivateLink limits all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [Setting Up VPC Endpoints for Systems Manager](sysman-setting-up-vpc.md)\.
+  You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. PrivateLink limits all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [\(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.
 
 ## What Is a Session?<a name="what-is-a-session"></a>
 

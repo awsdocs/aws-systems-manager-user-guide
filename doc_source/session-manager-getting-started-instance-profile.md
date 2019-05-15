@@ -13,7 +13,7 @@ However, the **AmazonEC2RoleforSSM** provides a broad set of permissions for Sys
   To create an IAM instance profile that contains permissions only for Session Manager actions, follow the steps in [Create a Custom IAM Instance Profile for Session Manager](getting-started-create-iam-instance-profile.md)\.
 + **Create and use a new instance profile with permissions for all Systems Manager actions**
 
-  To create an IAM instance profile for Systems Manager managed instances that uses an AWS\-supplied default policy granting all Systems Manager permissions, follow the steps in [Create an Instance Profile for Systems Manager](sysman-configuring-access-role.md)\.
+  To create an IAM instance profile for Systems Manager managed instances that uses an AWS\-supplied default policy granting all Systems Manager permissions, follow the steps in [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 You can attach an IAM instance profile to an Amazon EC2 instance as you launch it or to a previously launched instance\. For more information, see [Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-usingrole-instanceprofile.html)\.

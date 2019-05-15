@@ -74,12 +74,12 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMDirectoryServiceAccess ** – Instance trust policy that allows SSM Agent to access AWS Directory Service on behalf of the user for domain\-join requests by the managed instance\.
 + **AmazonSSMManagedInstanceCore ** – Instance trust policy that enables an instance to utilize AWS Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy ** – Service role policy that provides access to AWS Resources managed or used by AWS Systems Manager\.
-+ **AWSResourceAccessManagerServiceRolePolicy ** – Service role policy containing Read\-only AWS Resource Access Manager access to the account's Organizations structure\. It also contains IAM permissions to self\-delete the role\.
++ **AWSResourceAccessManagerServiceRolePolicy ** – Service role policy containing read\-only AWS Resource Access Manager access to the account's Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 
 You can also create your own custom IAM policies to allow permissions for Systems Manager actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\.
 
 **Note**  
-In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Creating an IAM Service Role for a Hybrid Environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 
+In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 
 
 ## Customer Managed Policy Examples<a name="customer-managed-policies"></a>
 
@@ -133,5 +133,118 @@ The following example grants permissions to list all document names that begin w
       ]
     }
   ]
+}
+```
+
+### Example 3: Allow a User to Use a Specific SSM Document to Run Commands on Specific Instances<a name="identity-based-policies-example-3"></a>
+
+ The following example IAM policy allows a user to do the following\.
++ List Systems Manager documents and document versions\.
++ View details about documents\.
++ Send a command using the document specified in the policy\. The name of the document is determined by this entry:
+
+  ```
+  arn:aws:ssm:us-east-2:*:document/SSM-document-name
+  ```
++ Send a command to three instances\. The instances are determined by the following entries in the second `Resource` section:
+
+  ```
+  "arn:aws:ec2:us-east-2:*:instance/i-02573cafcfEXAMPLE",
+  "arn:aws:ec2:us-east-2:*:instance/i-0471e04240EXAMPLE",
+  "arn:aws:ec2:us-east-2:*:instance/i-07782c72faEXAMPLE"
+  ```
++ View details about a command after it has been sent\.
++ Start and stop Automation executions\.
++ Get information about Automation executions\.
+
+If you want to give a user permission to use this document to send commands on any instance for which the user currently has access \(as determined by their AWS user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
+
+```
+"arn:aws:ec2:us-east-2:*:instance/*"
+```
+
+Note that the `Resource` section includes an Amazon S3 ARN entry:
+
+```
+arn:aws:s3:::S3-bucket-name
+```
+
+You can also format this entry as follows:
+
+```
+arn:aws:s3:::S3-bucket-name/*
+
+-or-
+
+arn:aws:s3:::S3-bucket-name/S3-prefix-name
+```
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "ssm:ListDocuments",
+                "ssm:ListDocumentsVersions",
+                "ssm:DescribeDocument",
+                "ssm:GetDocument",
+                "ssm:DescribeInstanceInformation",
+                "ssm:DescribeDocumentParameters",
+                "ssm:DescribeInstanceProperties"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": "ssm:SendCommand",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:ec2:us-east-2:*:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ec2:us-east-2:*:instance/i-0471e04240EXAMPLE",
+                "arn:aws:ec2:us-east-2:*:instance/i-07782c72faEXAMPLE",
+                "arn:aws:s3:::bucket_name",
+                "arn:aws:ssm:us-east-2:*:document/SSM-document-name"
+            ]
+        },
+        {
+            "Action": [
+                "ssm:CancelCommand",
+                "ssm:ListCommands",
+                "ssm:ListCommandInvocations"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": "ec2:DescribeInstanceStatus",
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": "ssm:StartAutomationExecution",
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:ssm:::automation-definition/"
+            ]
+        },
+        {
+            "Action": "ssm:DescribeAutomationExecutions ",
+            "Effect": "Allow",
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Action": [
+                "ssm:StopAutomationExecution",
+                "ssm:GetAutomationExecution"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:ssm:::automation-execution/"
+            ]
+        }
+    ]
 }
 ```

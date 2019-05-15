@@ -1,6 +1,6 @@
-# Step 3: Control User Access<a name="distributor-getting-started-restrict-access"></a>
+# Step 3: Control User Access to Packages<a name="distributor-getting-started-restrict-access"></a>
 
-Using IAM policies, you can control who can create, deploy, and manage packages\. You also control which Run Command and State Manager\\ API actions they can perform on managed instances\.
+Using IAM policies, you can control who can create, deploy, and manage packages\. You also control which Run Command and State Manager API actions they can perform on managed instances\.
 
 **ARN Format**  
 User\-defined packages are associated with document ARNs and have the following format:

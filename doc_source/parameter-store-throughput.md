@@ -1,6 +1,6 @@
 # Increasing Parameter Store Throughput<a name="parameter-store-throughput"></a>
 
-Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store can processs\. Increased throughput enables you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to a large number of parameters\. You can increase the limit to 1,000 TPS on the **Settings** tab\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store can process\. Increased throughput enables you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to a large number of parameters\. You can increase the limit to 1,000 TPS on the **Settings** tab\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
 The Parameter Store throughput setting applies to the current AWS account and Region, which means it applies to all AWS Identity and Access Management \(IAM\) users in this AWS account\. The throughput setting applies to standard and advanced parameters\. 

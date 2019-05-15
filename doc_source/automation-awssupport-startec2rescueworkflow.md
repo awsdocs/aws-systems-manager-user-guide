@@ -284,7 +284,7 @@ It is recommended the user who runs the automation have the **AmazonSSMAutomatio
 
 1. aws:invokeLambdaFunction \- Perfom additional input validation
 
-1. aws:executeAwsApi \- Update the EC2Rescue CloudFormation stack to creat the EC2Rescue helper instance
+1. aws:executeAwsApi \- Update the EC2Rescue CloudFormation stack to create the EC2Rescue helper instance
 
 1. aws:waitForAwsResourceProperty \- Wait for the EC2Rescue CloudFormation stack update to complete
 

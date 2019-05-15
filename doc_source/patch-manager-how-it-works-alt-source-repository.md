@@ -35,7 +35,7 @@ Keep in mind the following points as you plan your patching strategy using alter
 **Only specified repositories are used for patching**  
 Specifying alternative repositories doesn't mean specifying *additional* repositories\. You can choose to specify repositories other than those configured as defaults on an instance\. However, you must also specify the default repositories as part of the alternative patch source configuration if you want their updates to be applied\.
 
-For example, on Amazon Linux 2 instances, the default repositories are `amzn-main` and `amzn-update`\. If you want want to include the Extra Packages for Enterprise Linux \(EPEL\) repository in your patching operations, you must specify all three repositories as alternative repositories\.
+For example, on Amazon Linux 2 instances, the default repositories are `amzn-main` and `amzn-update`\. If you want to include the Extra Packages for Enterprise Linux \(EPEL\) repository in your patching operations, you must specify all three repositories as alternative repositories\.
 
 **Note**  
 Running a custom patch baseline that specifies alternative patch repositories on an instance doesn't change the default repository configured for the instance\.

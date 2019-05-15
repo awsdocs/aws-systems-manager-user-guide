@@ -141,7 +141,7 @@ Choose **View** to view the template\.
 
    AWS CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately three minutes\. The status changes to **CREATE\_COMPLETE** after the stack has been created\.
 
-1. In the stack list, choose the option beside the stack you just created, and then choose the **Outputs** tab\.
+1. In the stack list, choose the option next to the stack you just created, and then choose the **Outputs** tab\.
 
 1. Copy the **Value**\. The is the ARN of the AssumeRole\. You will specify this ARN when you run the Automation\. 
 
@@ -223,7 +223,7 @@ If you don't see the option to specify a bucket or a subnet ID, verify that you 
 
 1. Choose **Run Automation**\.
 
-1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** beside a step\.
+1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** next to a step\.
 
 The Automation creates a backup AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but this AMI remains in your account\. The AMI is named using the following convention:
 

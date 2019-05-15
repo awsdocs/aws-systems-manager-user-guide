@@ -4,27 +4,14 @@ The following procedure walks you through the process of using the [PutComplianc
 
 **To assign custom compliance metadata to a managed instance \(AWS CLI\)**
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
+1. Run the following command to assign custom compliance metadata to an instance\. Currently the only supported resource type is `ManagedInstance`\.
 
    ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
-
-1. Run the following command to assign custom compliance metadate to an instance\. Currently the only supported resource type is `ManagedInstance`\.
-
-   ```
-   aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Custom:User-defined string --execution-summary ExecutionTime=User-defined time and/or date value --items Id=User-defined ID,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL,MAJOR,MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANt
+   aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Custom:User-defined string --execution-summary ExecutionTime=User-defined time and/or date value --items Id=User-defined ID,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANT
    ```
 
 1. Repeat the previous step to assign additional custom compliance metadata to one or more instances\. You can also manually assign patch or association compliance metadata to managed instances by using the following commands:
@@ -38,7 +25,7 @@ The following procedure walks you through the process of using the [PutComplianc
    Patch compliance metadata
 
    ```
-   aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Patch --execution-summary ExecutionTime=User-defined time and/or date value,ExecutionId=User-defined ID,ExecutionType=Command --items Id=for example, KB12345,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL,MAJOR,MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANT,Details="{PatchGroup=Name of group,PatchSeverity=The patch severity, for example, CRITICAL}"
+   aws ssm put-compliance-items --resource-id Instance ID --resource-type ManagedInstance --compliance-type Patch --execution-summary ExecutionTime=User-defined time and/or date value,ExecutionId=User-defined ID,ExecutionType=Command --items Id=for example, KB12345,Title=User-defined title,Severity=One or more comma-separated severities:CRITICAL, MAJOR, MINOR,INFORMATIONAL, or UNSPECIFIED,Status=COMPLIANT or NON_COMPLIANT,Details="{PatchGroup=Name of group,PatchSeverity=The patch severity, for example, CRITICAL}"
    ```
 
 1. Run the following command to view a list of compliance items for a specific managed instance\. Use filters to drill down into specific compliance data\.

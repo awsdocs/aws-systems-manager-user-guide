@@ -1,10 +1,10 @@
 # Authentication and Access Control for AWS Systems Manager<a name="auth-and-access-control"></a>
 
-Access to AWS Systems Manager requires credentials\. Those credentials must have permissions to access AWS resources for tasks such as creating or updating documents and registering tasks and targets with Maintenance Windows\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Systems Manager to help secure access to your resources:
+Access to AWS Systems Manager requires credentials\. Those credentials must have permissions to access AWS resources for tasks such as creating or updating documents and registering tasks and targets with maintenance windows\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Systems Manager to help secure access to your resources:
 +  [Authentication](#authentication) 
 +  [Access Control](#access-control) 
 
-For more information about configuring access to AWS Systems Manager, see [Configuring Access to Systems Manager](systems-manager-access.md)\.
+For more information about configuring access to AWS Systems Manager, see [ Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
 
 For information about the Amazon Simple Storage Service \(Amazon S3\) buckets that resources might need to access to perform Systems Manager operations, see [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\. 
 
@@ -37,7 +37,7 @@ For security reasons, we recommend that you use the root credentials only to cre
 
 ## Access Control<a name="access-control"></a>
 
-You can have valid credentials to authenticate your requests, but unless you have permissions you cannot create or access Systems Manager resources\. For example, you must have permissions to create, view, or delete activations, associations, documents, and Maintenance Windows; to register or deregister instances and patch baselines; and so on\.
+You can have valid credentials to authenticate your requests, but unless you have permissions you cannot create or access Systems Manager resources\. For example, you must have permissions to create, view, or delete activations, associations, documents, and maintenance windows; to register or deregister instances and patch baselines; and so on\.
 
 The following sections describe how to manage permissions for Systems Manager\. We recommend that you read the overview first\.
 +  [Overview of Managing Access Permissions to Your AWS Systems Manager Resources](auth-and-access-control-iam-access-control-identity-based.md) 

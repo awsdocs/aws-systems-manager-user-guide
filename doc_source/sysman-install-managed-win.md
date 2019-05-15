@@ -1,9 +1,11 @@
-# Installing SSM Agent on Servers and Virtual Machines in a Windows Hybrid Environment<a name="sysman-install-managed-win"></a>
+# Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)<a name="sysman-install-managed-win"></a>
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation in the previous section\. You will specify the Code and ID in the following procedure\. For information, see [Creating a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\.
+This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
+
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 **To install SSM Agent on servers and VMs in your hybrid environment**
 
@@ -49,4 +51,6 @@ The command does the following:
   DisplayName : Amazon SSM Agent
   ```
 
-The server or VM is now a managed instance\. In the console, these instances are listed with the prefix "mi\-"\. You can view all instances using a `List` command\. For more information, see the [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/)\.
+The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstanceInformation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceInformation.html)\.
+
+Continue to [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.

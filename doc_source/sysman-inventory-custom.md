@@ -88,22 +88,9 @@ The `SchemaDeleteOption` parameter includes the following options:
 
 **To delete or disable custom inventory by using the AWS CLI**
 
-1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
 
-1. Open the AWS CLI and run the following command to specify your credentials and a Region\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\.
-
-   ```
-   aws configure
-   ```
-
-   The system prompts you to specify the following\.
-
-   ```
-   AWS Access Key ID [None]: key_name
-   AWS Secret Access Key [None]: key_name
-   Default region name [None]: region
-   Default output format [None]: ENTER
-   ```
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 
@@ -554,7 +541,7 @@ Here are examples of each event:
       "action":"put",
       "resource-type":"managed-instance",
       "resource-id":"i-0ee2d86a2cfc371f6",
-      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema verison 1.0. You must send a version greater than 1.0",
+      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema versison 1.0. You must send a version greater than 1.0",
       "type-name":"Custom:MyInfo"
    }
 }

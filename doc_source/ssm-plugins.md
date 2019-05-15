@@ -1017,7 +1017,7 @@ Required: No
 
 ## aws:updateSSMAgent<a name="aws-updatessmagent"></a>
 
-Update SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Installing and Configuring SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateSSMagent-syntax"></a>
 

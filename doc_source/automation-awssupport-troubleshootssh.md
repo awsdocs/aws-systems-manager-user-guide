@@ -98,7 +98,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
       1. aws:configurePackage \- Install EC2Rescue for Linux via AWS\-ConfigureAWSPackage\.
 
-      1. aws:runCommand \- Execute the bash script to run EC2Rescue for Linux\.
+      1. aws:runCommand \- Run the bash script to run EC2Rescue for Linux\.
 
    1. \(Offline remediation\) If the instance is not a managed instance then: 
 

@@ -1,40 +1,25 @@
 # What Is AWS Systems Manager?<a name="what-is-systems-manager"></a>
 
-AWS Systems Manager is a collection of capabilities for configuring and managing your Amazon EC2 instances, on\-premises servers and virtual machines, and other AWS resources at scale\. Systems Manager includes a unified interface that allows you to easily centralize operational data and automate tasks across your AWS resources\. Systems Manager shortens the time to detect and resolve operational problems in your infrastructure\. Systems Manager gives you a complete view of your infrastructure performance and configuration, simplifies resource and application management, and makes it easy to operate and manage your infrastructure at scale\. 
+AWS Systems Manager is a collection of capabilities for configuring and managing your Amazon EC2 instances, on\-premises servers and virtual machines \(VMs\), and certain other AWS resources\. Systems Manager includes a unified interface that lets you easily centralize operational data and automate tasks across your AWS resources\. Systems Manager shortens the time to detect and resolve operational problems in your infrastructure\. Systems Manager gives you a complete view of your infrastructure performance and configuration, simplifies resource and application management, and makes it easy to operate and manage your infrastructure at scale\.
 
-## Service Name and Console Access<a name="service-naming-history"></a>
+**Note**  
+AWS Systems Manager was formerly known as *Amazon Simple Systems Manager \(SSM\)* and *Amazon EC2 Systems Manager \(SSM\)*\. For more information, see [Service Name and Console Access](#service-naming-history)\.
 
- AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:
-+ **AWS CLI commands**: `aws ssm describe-patch-baselines`
-+ **AWS Systems Manager Agent**: SSM Agent
-+ **AWS Systems Manager documents**: SSM documents
-+ **AWS Systems Manager parameters**: SSM parameters
-+ **AWS Systems Manager resource ARNs**: `arn:aws:ssm:us-east-2:111222333444:patchbaseline/pb-07d8884178EXAMPLE`
-+ **AWS CloudFormation resource types**: `AWS::SSM::Document`
-+ **AWS Config rule identifier**: `EC2_INSTANCE_MANAGED_BY_SSM`
-+ **AWS Identity and Access Management \(IAM\) managed policy names**: `AmazonSSMReadOnlyAccess`
-+ **Service endpoints**: `ssm.us-east-2.amazonaws.com`
-+ **Amazon CloudWatch Events event rule wizard**: EC2 Simple Systems Manager \(SSM\)
+**Topics**
++ [Systems Manager Capabilities](#features)
++ [How Systems Manager Works](#how-it-works)
++ [Service Name and Console Access](#service-naming-history)
++ [Accessing Systems Manager](#access-methods)
++ [AWS Region Availability](#prereqs-regions)
++ [Systems Manager Limits](#limits)
++ [Pricing](#pricing)
++ [We Want to Hear from You](#welcome-contact-us)
++ [Related Content](#related-content)
++ [Systems Manager Prerequisites](systems-manager-prereqs.md)
 
-Systems Manager functionality was previously available only in the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\. There you’ll still find Systems Manager features and services in the left navigation pane under the headings **SYSTEMS MANAGER SERVICES** and **SYSTEMS MANAGER SHARED RESOURCES**\. However, the Amazon EC2 console offers access to only those Systems Manager features and services released before November 2017\. Systems Manager access through the Amazon EC2 console will be deprecated in the future\. We therefore encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers access to all Systems Manager services, data, and shared resources\. This console also includes dashboards and access to related services that work with Systems Manager to help you manage your AWS resources\.
+## Systems Manager Capabilities<a name="features"></a>
 
-## How It Works<a name="how-it-works"></a>
-
-Diagram 1 shows a general example of the different processes that Systems Manager performs when executing an action like sending a command to your fleet of servers or performing an inventory of the applications running on your on\-premises servers\. Each Systems Manager capability, for example Run Command or Maintenance Windows, uses a similar process of set up, execution, processing, and reporting\. 
-
-1. **Configure Systems Manager**: Use the Systems Manager console, SDK, AWS CLI, or AWS Tools for Windows PowerShell to configure, schedule, automate, and execute actions that you want to perform on your AWS resources\. 
-
-1. **Verification and processing**: Systems Manager verifies the configurations, including permissions, and sends requests to the SSM Agent running on your instances or servers in your hybrid environment\. SSM Agent performs the specified configuration changes\.
-
-1. **Reporting**: SSM Agent reports the status of the configuration changes and actions to Systems Manager in the AWS cloud\. Systems Manager then sends the status to the user and various AWS services, if configured\.
-
-**Diagram 1: General Example of Systems Manager Process Flow**
-
-![\[Diagram showing how Systems Manager capabilities, for example Run Command or Maintenance Windows, use a similar process of set up, execution, processing, and reporting.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)
-
-## Capabilities<a name="features"></a>
-
-Systems Manager includes the following capabilities:
+Systems Manager capabilities are grouped into the following capability types:
 
 **Topics**
 + [Resource Groups](#features-rg)
@@ -44,7 +29,7 @@ Systems Manager includes the following capabilities:
 
 ### Resource Groups<a name="features-rg"></a>
 
-[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, an Amazon Elastic Block Store \(Amazon EBS\) volume, a security group, or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
+[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(Amazon EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
 
 ### Insights<a name="features-insights"></a>
 
@@ -99,12 +84,12 @@ Use [Distributor](distributor.md) to create and deploy packages to managed insta
 ------
 #### [ Patch Management ]
 
-Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) This capability enables you to scan instances for missing patches and apply missing patches individually or to large groups of instances by using Amazon EC2 instance tags\. Patch Manager uses patch baselines, which can include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager Maintenance Window task\. For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the instance\. For Linux, you also have the ability to update any package on the instance, not just those that are classified as operating system security updates\. For Windows Server, you can also use Patch Manager to update supported Microsoft applications\.
+Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) This capability enables you to scan instances for missing patches and apply missing patches individually or to large groups of instances by using Amazon EC2 instance tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task\. For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the instance\. For Linux, you also have the ability to update any package on the instance, not just those that are classified as operating system security updates\. For Windows Server, you can also use Patch Manager to update supported Microsoft applications\.
 
 ------
 #### [ Maintenance Windows ]
 
-Use [Maintenance Windows](systems-manager-maintenance.md) to set up recurring schedules for managed instances to execute administrative tasks like installing patches and updates without interrupting business\-critical operations\. 
+Use [Maintenance Windows](systems-manager-maintenance.md) to set up recurring schedules for managed instances to run administrative tasks like installing patches and updates without interrupting business\-critical operations\. 
 
 ------
 #### [ State Management ]
@@ -139,16 +124,35 @@ A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the ac
 
 ------
 
-## Getting Started<a name="sysman-gstarted"></a>
+## How Systems Manager Works<a name="how-it-works"></a>
 
-To get started with Systems Manager, do the following:
-+ Ensure you have completed the Systems Manager prerequisites
-+ Configure roles and permissions
-+ Install SSM Agent on your instance \(if necessary\)
+Diagram 1 below shows a general example of the different processes that Systems Manager performs when executing an action like sending a command to your fleet of servers or performing an inventory of the applications running on your on\-premises servers\. Each Systems Manager capability, for example Run Command and Maintenance Windows, uses a similar process of set up, execution, processing, and reporting\. 
 
-If you want to manage your on\-premises servers and VMs with Systems Manager, then you must also create a managed instance activation\.
+1. **Configure Systems Manager**: Use the Systems Manager console, SDK, AWS CLI, or AWS Tools for Windows PowerShell to configure, schedule, automate, and run actions that you want to perform on your AWS resources\. 
 
-These tasks are described in [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+1. **Verification and processing**: Systems Manager verifies the configurations, including permissions, and sends requests to the SSM Agent running on your instances or servers in your hybrid environment\. SSM Agent performs the specified configuration changes\.
+
+1. **Reporting**: SSM Agent reports the status of the configuration changes and actions to Systems Manager in the AWS cloud\. Systems Manager then sends the status to the user and various AWS services, if configured\.
+
+**Diagram 1: General Example of Systems Manager Process Flow**
+
+![\[Diagram showing how Systems Manager capabilities, for example Run Command or Maintenance Windows, use a similar process of set up, execution, processing, and reporting.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)
+
+## Service Name and Console Access<a name="service-naming-history"></a>
+
+ AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:
++ **AWS CLI commands**: `aws ssm describe-patch-baselines`
++ **AWS Systems Manager Agent**: SSM Agent
++ **AWS Systems Manager documents**: SSM documents
++ **AWS Systems Manager parameters**: SSM parameters
++ **AWS Systems Manager resource ARNs**: `arn:aws:ssm:us-east-2:111222333444:patchbaseline/pb-07d8884178EXAMPLE`
++ **AWS CloudFormation resource types**: `AWS::SSM::Document`
++ **AWS Config rule identifier**: `EC2_INSTANCE_MANAGED_BY_SSM`
++ **AWS Identity and Access Management \(IAM\) managed policy names**: `AmazonSSMReadOnlyAccess`
++ **Service endpoints**: `ssm.us-east-2.amazonaws.com`
++ **Amazon CloudWatch Events event rule wizard**: EC2 Simple Systems Manager \(SSM\)
+
+Systems Manager functionality was previously available only in the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\. There you’ll still find Systems Manager features and services in the left navigation pane under the headings **SYSTEMS MANAGER SERVICES** and **SYSTEMS MANAGER SHARED RESOURCES**\. However, the Amazon EC2 console offers access to only those Systems Manager features and services released before November 2017\. Systems Manager access through the Amazon EC2 console will be deprecated in the future\. We therefore encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers access to all Systems Manager services, data, and shared resources\. This console also includes dashboards and access to related services that work with Systems Manager to help you manage your AWS resources\.
 
 ## Accessing Systems Manager<a name="access-methods"></a>
 
@@ -156,7 +160,19 @@ You can access Systems Manager using any of the following interfaces:
 + The [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) — Provides a web interface that you can use to access Systems Manager\.
 + **AWS Command Line Interface \(AWS CLI\)** — Provides commands for a broad set of AWS services, including Systems Manager, and is supported on Windows, Mac, and Linux\. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/)\.
 + **AWS Tools for Windows PowerShell** — Provides commands for a broad set of AWS services, including Systems Manager\. For more information, see [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\.
+
+  On your Windows Server instances, Windows PowerShell 3\.0 or later is required to run certain SSM documents \(for example, the `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows instances are running Windows Management Framework 3\.0 or later\. The framework includes PowerShell\. 
 + **AWS SDKs** — Provides language\-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\.
+
+## AWS Region Availability<a name="prereqs-regions"></a>
+
+AWS Systems Manager is available in the AWS Regions listed in the [AWS Systems Manager Supported Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) table in the *AWS General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\. 
+
+For on\-premises servers and VMs in your hybrid environment, we recommend that you choose the Region closest to your data center or computing environment\.
+
+## Systems Manager Limits<a name="limits"></a>
+
+For information about Systems Manager resource and usage limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *AWS General Reference*\.
 
 ## Pricing<a name="pricing"></a>
 
@@ -173,6 +189,6 @@ Systems Manager is also documented in the following references\.
 + [Blogs \(AWS Systems Manager tags category\)](https://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)
 + [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)
 + [Systems Manager AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
-+ Systems Manager section of the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
++ [Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
 +  [AWS SDKs](http://aws.amazon.com/tools/#SDKs)
 + [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)

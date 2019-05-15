@@ -1,8 +1,8 @@
 # Tutorial: View Information About Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
-This tutorial includes commands to help you update or get information about your Maintenance Windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
+This tutorial includes commands to help you update or get information about your maintenance windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
 
-As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the Maintenance Window ID *mw\-0c5ed765acEXAMPLE* and the instance ID *i\-1234567890EXAMPLE* with IDs of resources you create\.
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 
 For information about setting up and configuring the CLI, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 
@@ -16,7 +16,7 @@ For information about setting up and configuring the CLI, see [Installing the AW
 
 ## Examples for 'describe\-maintenance\-windows'<a name="mw-cli-tutorials-describe-maintenance-windows"></a>
 
-**List all Maintenance Windows in your AWS account**  
+**List all maintenance windows in your AWS account**  
 Run the following command:
 
 ```
@@ -31,7 +31,7 @@ The system returns information like the following:
       {
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-0c5ed765acEXAMPLE",
+         "WindowId":"mw-0c50858d01EXAMPLE",
          "Enabled":true,
          "Name":"IAD-Every-15-Minutes"
       },
@@ -53,7 +53,7 @@ The system returns information like the following:
 }
 ```
 
-**List all enabled Maintenance Windows**  
+**List all enabled maintenance windows**  
 Run the following command:
 
 ```
@@ -68,7 +68,7 @@ The system returns information like the following:
       {
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-0c5ed765acEXAMPLE",
+         "WindowId":"mw-0c50858d01EXAMPLE",
          "Enabled":true,
          "Name":"IAD-Every-15-Minutes"
       },
@@ -83,7 +83,7 @@ The system returns information like the following:
 }
 ```
 
-**List all disabled Maintenance Windows**  
+**List all disabled maintenance windows**  
 Run the following command:
 
 ```
@@ -106,7 +106,7 @@ The system returns information like the following:
 }
 ```
 
-**List all Maintenance Windows having names that start with a certain prefix**  
+**List all maintenance windows having names that start with a certain prefix**  
 Run the following command:
 
 ```
@@ -131,7 +131,7 @@ The system returns information like the following:
 
 ## Examples for 'describe\-maintenance\-window\-targets'<a name="mw-cli-tutorials-describe-maintenance-window-targets"></a>
 
-**Display the targets for a Maintenance Window matching a specific owner information value**  
+**Display the targets for a maintenance window matching a specific owner information value**  
 Run the following command:
 
 ```
@@ -149,7 +149,7 @@ The system returns information like the following:
 
          ],
          "TargetIds":[
-            "i-1234567890EXAMPLE"
+            "i-02573cafcfEXAMPLE"
          ],
          "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLE1-1a2",
          "OwnerInformation":"Single instance"
@@ -189,7 +189,7 @@ The system returns information like the following:
          "Type":"RUN_COMMAND",
          "Targets":[
             {
-               "TaskTargetId":"i-1234567890EXAMPLE",
+               "TaskTargetId":"i-02573cafcfEXAMPLE",
                "TaskTargetType":"INSTANCE"
             }
          ]
@@ -249,7 +249,7 @@ The system returns information like the following:
          "Type":"RUN_COMMAND",
          "Targets":[
             {
-               "TaskTargetId":"i-1234567890EXAMPLE",
+               "TaskTargetId":"i-02573cafcfEXAMPLE",
                "TaskTargetType":"INSTANCE"
             }
          ]
@@ -298,7 +298,7 @@ The system returns information like the following:
 
 ## Examples for 'describe\-maintenance\-windows\-for\-target'<a name="mw-cli-tutorials-describe-maintenance-windows-for-target"></a>
 
-**List information about the Maintenance Window targets or tasks associated with instances tagged with a particular key**  
+**List information about the maintenance window targets or tasks associated with instances tagged with a particular key**  
 Run the following command:
 
 ```
@@ -318,7 +318,7 @@ The system returns information like the following:
 }
 ```
 
-**List information about the Maintenance Window targets or tasks associated with instances tagged with a particular key\-value pair**  
+**List information about the maintenance window targets or tasks associated with instances tagged with a particular key\-value pair**  
 Run the following command:
 
 ```
@@ -338,11 +338,11 @@ The system returns information like the following:
 }
 ```
 
-**List information about the Maintenance Window targets or tasks associated with a specific instance**  
+**List information about the maintenance window targets or tasks associated with a specific instance**  
 Run the following command:
 
 ```
-aws ssm describe-maintenance-windows-for-target --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-1234567890EXAMPLE" --max-results 10
+aws ssm describe-maintenance-windows-for-target --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" --max-results 10
 ```
 
 The system returns information like the following:
@@ -351,7 +351,7 @@ The system returns information like the following:
 {
     "WindowIdentities": [
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate"
         },
         {
@@ -449,11 +449,11 @@ The system returns information like the following:
 
 ## Examples for 'describe\-maintenance\-window\-schedule'<a name="mw-cli-tutorials-describe-maintenance-window-schedule"></a>
 
-**Display the next ten scheduled Maintenance Window runs for a particular instance**  
+**Display the next ten scheduled maintenance window runs for a particular instance**  
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-schedule --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-456jkl321EXAMPLE" --max-results 10
+aws ssm describe-maintenance-window-schedule --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-07782c72faEXAMPLE" --max-results 10
 ```
 
 The system returns information like the following:
@@ -462,22 +462,22 @@ The system returns information like the following:
 {
     "ScheduledWindowExecutions": [
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-20T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-21T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-22T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-23T05:34:56-07:00"
         },
@@ -487,7 +487,7 @@ The system returns information like the following:
             "ExecutionTime": "2018-10-23T16:00Z"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-24T05:34:56-07:00"
         },
@@ -497,7 +497,7 @@ The system returns information like the following:
             "ExecutionTime": "2018-10-24T16:00Z"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-25T05:34:56-07:00"
         },
@@ -507,7 +507,7 @@ The system returns information like the following:
             "ExecutionTime": "2018-10-25T16:00Z"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-26T05:34:56-07:00"
         }
@@ -516,7 +516,7 @@ The system returns information like the following:
 }
 ```
 
-**Display the Maintenance Window schedule for instances tagged with a certain key\-value pair**  
+**Display the maintenance window schedule for instances tagged with a certain key\-value pair**  
 Run the following command:
 
 ```
@@ -529,27 +529,27 @@ The system returns information like the following:
 {
     "ScheduledWindowExecutions": [
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-20T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-21T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-22T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-23T05:34:56-07:00"
         },
         {
-            "WindowId": "mw-0c5ed765acEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
             "ExecutionTime": "2018-10-24T05:34:56-07:00"
         }
@@ -558,7 +558,7 @@ The system returns information like the following:
 }
 ```
 
-**Display start times for next four runs of a Maintenance Window**  
+**Display start times for next four runs of a maintenance window**  
 Run the following command:
 
 ```
@@ -575,22 +575,22 @@ The system returns information like the following:
                 {
                     "ExecutionTime": "2018-10-04T10:10:10Z",
                     "Name": "My-Maintenance-Window",
-                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                    "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
                     "ExecutionTime": "2018-10-11T10:10:10Z",
                     "Name": "My-Maintenance-Window",
-                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                    "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
                     "ExecutionTime": "2018-10-18T10:10:10Z",
                     "Name": "My-Maintenance-Window",
-                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                    "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
                     "ExecutionTime": "2018-10-25T10:10:10Z",
                     "Name": "My-Maintenance-Window",
-                    "WindowId": "mw-0c5ed765acEXAMPLE"
+                    "WindowId": "mw-0c50858d01EXAMPLE"
                 }
             ]
         }

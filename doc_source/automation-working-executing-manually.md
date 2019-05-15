@@ -13,14 +13,14 @@ For information about how to run an Automation workflow that uses an IAM service
 
 1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
-1. In the **Automation document** list, choose the option beside a document name\. To view more Automation documents, use either the Search bar or the numbers to the right of the Search bar\. 
+1. In the **Automation document** list, choose the option next to a document name\. To view more Automation documents, use either the Search bar or the numbers to the right of the Search bar\. 
 **Note**  
 You can view information about a document by choosing the document name\.
 
-1. In the **Document details** section, verify that **Document version** is set to the version that you want to execute\. The system includes the following version options: 
+1. In the **Document details** section, verify that **Document version** is set to the version that you want to run\. The system includes the following version options: 
    + **Default version at runtime**: Choose this option if the Automation document is updated periodically and a new default version is assigned\.
-   + **Latest version at runtime**: Choose this option if the Automation document is updated periodically, and you want to execute the version that was most recently updated\.
-   + **1 \(Default\)**: Choose this option to execute the first version of the document, which is the default\.
+   + **Latest version at runtime**: Choose this option if the Automation document is updated periodically, and you want to run the version that was most recently updated\.
+   + **1 \(Default\)**: Choose this option to run the first version of the document, which is the default\.
 
 1. Choose **Next**\.
 

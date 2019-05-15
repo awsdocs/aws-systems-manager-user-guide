@@ -1,9 +1,11 @@
-# Installing SSM Agent on Servers and Virtual Machines in a Linux Hybrid Environment<a name="sysman-install-managed-linux"></a>
+# Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation\. You will specify the Code and ID in the following procedure\. For information, see [Creating a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\.
+This topic describes how to install SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the previous step, [Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Linux instance, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.
+
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
@@ -14,7 +16,7 @@ For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-
 ```
 https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
-+ **Amazon Linux, RHEL, CentOS, and SLES 64\-bit**
++ **Amazon Linux 2, Amazon Linux, RHEL, CentOS, and SLES 64\-bit**
 
    https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
 + **Amazon Linux, RHEL, and CentOS 32\-bit**
@@ -51,7 +53,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo start amazon-ssm-agent
    ```
 
-   **On RHEL 7\.x and CentOS 7\.x**
+   **On Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x**
 
    ```
    mkdir /tmp/ssm
@@ -98,7 +100,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 **Note**  
 If you see the following error in the SSM Agent error logs, then the machine ID did not persist after a reboot:  
 `Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint does not match`  
-Execute the following command to make the machine ID persist after a reboot\.  
+Run the following command to make the machine ID persist after a reboot\.  
 
    ```
    umount /etc/machine-id
@@ -108,3 +110,5 @@ Execute the following command to make the machine ID persist after a reboot\.
 1. Press Enter\.
 
 The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Amazon EC2 console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
+
+Continue to [Step 7: \(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
