@@ -27,20 +27,20 @@ The [AWS Systems Manager Distributor](distributor.md) capability lets you packag
 + [Add a Package to Distributor](distributor-working-with-packages-add.md)
 
 **Patch Manager**  
-The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of Amazon EC2 instances or on\-premises servers\.
+The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of Amazon EC2 instances or on\-premises servers and VMs\.
 + [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)
 + [Create a Patch Group](sysman-patch-group-tagging.md)
 + [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 
 **Maintenance Windows**  
-The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) capability let you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\.
+The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) capability lets you define a schedule for performing potentially disruptive actions on your managed instances, such as patching an operating system, updating drivers, or installing software or patches\.
 + [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
 + [Tutorial: Update a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)
 + [Tutorial: View Information About Maintenance Windows \(AWS CLI\)](maintenance-windows-cli-tutorials-describe.md)
 + [Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)
 
 **State Manager**  
-The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your Amazon EC2 or on\-premises instances, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
+The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your Amazon EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
 + [Creating Associations that Run MOF Files](systems-manager-state-manager-using-mof-file.md)
 + [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically Update PV Drivers on EC2 Windows Instances \(Console\)](sysman-state-pvdriver.md)

@@ -21,11 +21,18 @@ Granting `iam:PassRole` permissions to the users in your account who assigns tas
 
 To run maintenance tasks on your target instances, the Maintenance Windows service must have permission to access and run tasks on your instances\. You can provide this permission by specifying either the Systems Manager service\-linked role or a custom service role as part of a task configuration\.
 
-The type of role you should choose depends on two factors:
+The type of role you should choose depends on the following factors:
 
 **Custom service role**: Use a custom service role for maintenance window tasks in these cases:
 + If you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\. You can enable SNS notifications when you create a maintenance window task\.
 + If you want to use a more restrictive set of permissions than those provided by the service\-linked role\. The service\-linked role supports very limited resource\-level constraints\. For example, say you want to allow maintenance window tasks to run on a limited set of instances, or you want to allow only certain SSM documents run on your target instances\. In these cases, you specify stricter permissions in a custom service role\.
++ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. Some actions in Automation documents require expanded permissions\.
+
+  For example, some Automation actions work with AWS CloudFormation stacks\. Therefore, the permissions `cloudformation:CreateStack`, `cloudformation:DescribeStack`, and `cloudformation:DeleteStack` are required\. 
+
+  Another example: the Automation document `AWS-CopySnapshot` requires permission to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot, and so the service role needs the permission `ec2:CreateSnapshot`\. This permission isn't included in the service\-linked role for Systems Manager\. 
+
+  For information about the role permissions needed by Automation documents, see the document descriptions in [Systems Manager Automation Document Details Reference](automation-documents-reference-details.md)\.
 
 **Systems Manager service\-linked role**: We recommend that you use a Systems Manager service\-linked role in all other cases\.
 

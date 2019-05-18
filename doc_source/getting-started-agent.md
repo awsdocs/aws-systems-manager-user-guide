@@ -5,14 +5,14 @@ AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed
 In this task, you install or update the SSM Agent on an Amazon EC2 instance\.
 
 **Note**  
-If you are working with your own on\-premises servers or virtual machines \(VMs\), see the following topics:  
+If you are working with your own on\-premises servers or VMs, see the following topics:  
 [Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md) 
 [Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)
 
 **Prerequisites**  
 An instance profile for Systems Manager must already be attached to the Amazon EC2 instance that you update\. Refer to the following topics as needed to meet this requirement:
 + Create an EC2 instance profile for Systems Manager: [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)
-+ Attach the instance profile to an EC2 instance when you create the instance: [Launch an Amazon EC2 Instance that Uses the Systems Manager Instance Profile](setup-launch-managed-instance.md)
++ Attach the instance profile to an EC2 instance when you create the instance: [Attach an IAM Instance Profile to an Amazon EC2 Instance](setup-launch-managed-instance.md)
 + Attach the instance profile to an existing EC2 instance: [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*
 
 **Windows Server instance**  

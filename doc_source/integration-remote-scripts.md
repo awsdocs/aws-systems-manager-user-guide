@@ -301,7 +301,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 ## Running Scripts from Amazon S3<a name="integration-s3"></a>
 
-This section describes how to download and run scripts from Amazon S3\. You can run different types of scripts, including Ansible Playbooks, Python, Ruby, and PowerShell\. 
+This section describes how to download and run scripts from Amazon S3\. You can run different types of scripts, including Ansible Playbooks, Python, Ruby, Shell, and PowerShell\. 
 
 You can also download a directory that includes multiple scripts\. When you run the primary script in the directory, Systems Manager also runs any referenced scripts \(as long as the referenced scripts are included in the directory\)\.
 
@@ -311,11 +311,12 @@ Note the following important details about running scripts from Amazon S3\.
 
 **Topics**
 + [Run Ruby Scripts from Amazon S3](#integration-s3-ruby)
++ [Run Shell Scripts from Amazon S3](#integration-s3-shell)
 + [Run PowerShell Script from Amazon S3](#integration-S3-PowerShell)
 
 ### Run Ruby Scripts from Amazon S3<a name="integration-s3-ruby"></a>
 
-This section includes procedures to help you run Ruby scripts from Amazon S3 by using either the EC2 console or the AWS CLI\.
+This section includes procedures to help you run Ruby scripts from Amazon S3 by using either the Systems Manager console or the AWS CLI\.
 
 #### Run a Ruby Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
 
@@ -426,7 +427,7 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
 1. Choose **Run**\.
 
-#### Run a Ruby Script from S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
+#### Run a Ruby Script from Amazon S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
@@ -456,6 +457,151 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
    ```
    aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/RubyTest/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}'
+   ```
+
+### Run Shell Scripts from Amazon S3<a name="integration-s3-shell"></a>
+
+This section includes procedures to help you run Shell scripts from Amazon S3 by using either the Systems Manager console or the AWS CLI\.
+
+#### Run a Shell Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
+
+Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
+
+**Run a Shell Script from Amazon S3 \(AWS Systems Manager\)**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Run Command**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Run Command**\.
+
+1. Choose **Run command**\.
+
+1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
+
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags or selecting instances manually\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
+1. In **Command parameters**, do the following:
+   + In **Source Type**, select *S3*\. 
+   + In the **Source Info** text box, type the required information to access the source in the following format:
+
+     ```
+     {"path":"https://s3.amazonaws.com/path_to_script"}
+     ```
+
+     For example:
+
+     ```
+     {"path":"https://s3.amazonaws.com/shelltest/scripts/shell/helloWorld.sh"}
+     ```
+   + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
+
+     ```
+     helloWorld.sh argument-1 argument-2
+     ```
+   + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
+   + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
+
+1. For **Other parameters**:
+   + For **Comment**, type information about this command\.
+   + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
+
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+**Note**  
+If you selected targets by choosing Amazon EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+
+1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+**Note**  
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+
+1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+
+   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+
+1. Choose **Run**\.
+
+**Run a Shell Script from Amazon S3 \(Amazon EC2 Systems Manager\)**
+
+1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
+
+1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
+
+1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
+
+1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
+
+1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
+**Note**  
+If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
+
+1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
+
+1. In the **Source Type** list, choose **S3**
+
+1. In the **Source** text box, type the required information to access the source in the following format:
+
+   ```
+   {"path":"https://s3.amazonaws.com/path_to_script"}
+   ```
+
+   For example:
+
+   ```
+   {"path":"https://s3.amazonaws.com/shelltest/scripts/shell/helloWorld.sh"}
+   ```
+
+1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
+
+   ```
+   helloWorld.sh argument-1 argument-2
+   ```
+
+1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
+
+1. In the **Comments** field, type information about this command\.
+
+1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
+
+1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+
+1. Choose **Run**\.
+
+#### Run a Shell Script from Amazon S3 by using the AWS CLI<a name="integration-s3-shell-cli"></a>
+
+1. Install and configure the AWS CLI, if you have not already\.
+
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+
+1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
+
+   **Windows** local machine:
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
+   ```
+
+   Here is an example\.
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/ShellTest/scripts/shell/helloWorld.sh\"}',"commandLine"="helloWorld.sh argument-1 argument-2"
+   ```
+
+   **Linux** local machine:
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}'
+   ```
+
+   Here is an example\.
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/ShellTest/scripts/shell/helloWorld.sh\"}"],"commandLine":["helloWorld.sh argument-1 argument-2"]}'
    ```
 
 ### Run PowerShell Script from Amazon S3<a name="integration-S3-PowerShell"></a>
@@ -577,14 +723,28 @@ If you selected targets by choosing EC2 tags, and you are not certain how many i
 
    For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-1. Run the following command to download and run a script from Amazon S3\.
+1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
+
+   **Windows** local machine:
 
    ```
-   aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "instance-IDs" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\": \"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}' 
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
    ```
 
    Here is an example\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "i-1234abcd" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\": \"https://s3.amazonaws.com/TestPowershell/powershell/helloPowershell.ps1\"}"],"commandLine":["helloPowershell.ps1 argument-1 argument-2"]}' 
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/PowerShellTest/scripts/powershell/helloWorld.ps1\"}',"commandLine"="helloWorld.ps1 argument-1 argument-2"
+   ```
+
+   **Linux** local machine:
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=instance-IDs" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}'
+   ```
+
+   Here is an example\.
+
+   ```
+   aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/PowerShellTest/scripts/powershell/helloWorld.ps1\"}"],"commandLine":["helloWorld.ps1 argument-1 argument-2"]}'
    ```

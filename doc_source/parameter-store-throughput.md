@@ -37,8 +37,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
            {
                "Effect": "Allow",
                "Action": [
-                   "ssm:GetServiceSetting"
-                   
+                   "ssm:GetServiceSetting"                
                ],
                "Resource": "*"
            },

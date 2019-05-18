@@ -14,7 +14,7 @@ The AWSServiceRoleForAmazonSSM service\-linked role trusts only ssm\.amazonaws\.
 
 Currently, only two Systems Manager capabilities use the service\-linked role: 
 + Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and Resource Groups\.
-+ The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that this can also be achieved by using an IAM maintenance window role instead\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
++ The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 
 The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources:
 + `ssm:CancelCommand`

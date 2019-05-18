@@ -2,7 +2,7 @@
 
 You can create an IAM instance profile role and a service role for Automation from an AWS CloudFormation template\.
 
-After you create the instance profile role, you must assign it to any instance that you plan to configure using Automation\. For information about how to assign the role to an existing instance, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\. For information about how to assign the role when you create a new instance, see [Launch an Amazon EC2 Instance that Uses the Systems Manager Instance Profile](setup-launch-managed-instance.md)\.
+After you create the instance profile role, you must assign it to any instance that you plan to configure using Automation\. For information about how to assign the role to an existing instance, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\. For information about how to assign the role when you create a new instance, see [Attach an IAM Instance Profile to an Amazon EC2 Instance](setup-launch-managed-instance.md)\.
 
 **Note**  
 You can also use these roles and their Amazon Resource Names \(ARNs\) in Automation documents, such as the `AWS-UpdateLinuxAmi` document\. Using these roles or their ARNs in Automation documents enables Automation to perform actions on your managed instances, launch new instances, and perform actions on your behalf\.

@@ -15,7 +15,7 @@ For information, see [Controlling Access to Maintenance Windows](sysman-maintena
 **Task 3: Create or configure Systems Manager\-compatible instances**  
 You need at least one properly configured Amazon EC2 instance to complete the tutorials\. We recommend launching an Amazon Linux or Amazon Linux 2 instance, which come with SSM Agent preinstalled\. For information about configuring instances to use with Systems Manager, see the following topics in the **Setting Up** section of this user guide:
 + [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)
-+ [Launch an Amazon EC2 Instance that Uses the Systems Manager Instance Profile](setup-launch-managed-instance.md)
++ [Attach an IAM Instance Profile to an Amazon EC2 Instance](setup-launch-managed-instance.md)
 
 **Task 4: Create additional resources as needed**  
 Many Run Command type tasks do not require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. If a maintenance window task you want to run requires additional resources, however, you should create them first\. For example, if you want a maintenance window that runs an AWS Lambda function, create the Lambda function before you begin\. \.

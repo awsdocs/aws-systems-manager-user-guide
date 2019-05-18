@@ -22,11 +22,11 @@ Use the following procedure to create a user group for your Systems Manager user
 
 1. In the policy list, do the following: 
    + If you want to provide users with permission to use Resource Groups and the Tag Editor, choose the **SSMTagEditorAndResourceGroupAccess** policy that you created in the procedure [Task 1: Create Policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\. If you gave the policy a different name, choose that name instead\.
-   + To provide users in this group with full access to the Systems Manager console, select the box next to `AmazonSSMFullAccessPolicy`\.
+   + To provide users in this group with full access to the Systems Manager console, select the box next to `AmazonSSMFullAccess`\.
 
      \-or\-
 
-     If you want users in this group only to view Systems Manager data, and not create or update resources, select the box beside `AmazonSSMFullAccessPolicy`\.
+     If you want users in this group only to view Systems Manager data, and not create or update resources, select the box beside `AmazonSSMReadOnlyAccess`\.
    + To provide users with access to the **Built\-In Insights** and **Dashboard by CloudWatch** pages in the Systems Manager console, select the boxes next to these managed policies: 
      + **AWSHealthFullAccess**
 

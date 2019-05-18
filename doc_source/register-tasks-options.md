@@ -55,7 +55,9 @@ A description to help identify the purpose of the task\.
 **\-\-service\-role\-arn**  
 The role to assume when running the maintenance window task\.
 
-If you do not specify a service role ARN, Systems Manager creates or uses your account's service\-linked role for Systems Manager by default\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\. 
+If you do not specify a service role ARN, Systems Manager creates or uses your account's service\-linked role for Systems Manager by default\. 
+
+Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 
 **\-\-priority**  
 The priority of the task in the maintenance window\. The lower the number the higher the priority \(for example, 1 is highest priority\)\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
