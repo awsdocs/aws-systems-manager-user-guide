@@ -1,4 +1,4 @@
-# Controlling Access to Systems Manager Parameters<a name="sysman-paramstore-access"></a>
+# Control Access to Systems Manager Parameters<a name="sysman-paramstore-access"></a>
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
 + [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
@@ -10,7 +10,7 @@ You control access to Systems Manager Parameters by using AWS Identity and Acces
 + [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)
 + [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
 
-We recommend that you control access to Systems Manager parameters by creating restrictive IAM policies\. For example, the following policy allows you to call the `DescribeParameters` and `GetParameters` API operations for a specific resource\. This means that you can get information about and use all parameters that begin with prod\-\*\.
+We recommend that you control access to Systems Manager parameters by creating restrictive IAM policies\. For example, the following policy allows a user to call the `DescribeParameters` and `GetParameters` API operations for a specific resource\. This means that the user can get information about and use all parameters that begin with `prod-*`\.
 
 ```
 {
@@ -34,7 +34,7 @@ We recommend that you control access to Systems Manager parameters by creating r
 }
 ```
 
-For trusted administrators, you could provide full access to all Systems Manager parameter API operations by using a policy like the following example\. This policy gives the user full access to all production parameters that begin with dbserver\-prod\-\*\.
+For trusted administrators, you could provide full access to all Systems Manager parameter API operations by using a policy like the following example\. This policy gives the user full access to all production parameters that begin with `dbserver-prod-*`\.
 
 ```
 {

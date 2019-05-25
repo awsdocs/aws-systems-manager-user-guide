@@ -14,7 +14,11 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. In the list of maintenance windows, choose a maintenance window \.
 
-1. Choose **Actions** and then, choose either **Register run command task** to run your choice of commands on targets by using an SSM document, or **Register automation task** to run your choice of an Automation workflow on targets by using an SSM Automation document\. For examples of how to create Lambda and Step Functions tasks by using the AWS CLI, see the [Systems Manager Maintenance Windows Tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)\.
+1. Choose **Actions** and then,choose the option for the type of task you want to register with the maintenance window:
+   + **Register Run command task**
+   + **Register Automation task**
+   + **Register Lambda task**
+   + **Register Step Functions task**
 
 1. For **Name**, enter a name for the task\.
 

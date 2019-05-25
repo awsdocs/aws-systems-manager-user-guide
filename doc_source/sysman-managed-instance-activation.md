@@ -1,6 +1,9 @@
 # Step 4: Create a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
 
-To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you complete the activation, you receive an Activation Code and Activation ID\. This Code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
+
+**Important**  
+Systems Manager immediately returns the Activation Code and ID to the console or the command window, depending on how you created the activation\. Copy this information and store it in a safe place\. If you navigate away from the console or close the command window, you might lose this information\. If you lose it, you must create a new activation\. 
 
 **About activation expirations**  
 An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you registered with Systems Manager\. This means that if an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\. Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicity deregister it\. You can deregister a managed instance in your hybrid environment in the **Managed Instances** area of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
@@ -33,9 +36,7 @@ If you want to register additional managed instances after the expiry date, you 
 
 1. \(Optional\) In the **Default instance name** field, specify a name\. 
 
-1. Choose **Create activation**\.
-**Important**  
-Store the managed\-instance Activation Code and Activation ID in a safe place\. You specify this Code and ID when you install SSM Agent on servers and VMs in your hybrid environment\. If you lose the Code and ID, you must create a new activation\.
+1. Choose **Create activation**\. Systems Manager immediately returns the Activation Code and ID to the console\. 
 
 **To create a managed\-instance activation using the Tools for Windows PowerShell**
 
@@ -53,7 +54,7 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    New-SSMActivation -DefaultInstanceName MyWebServers -IamRole SSMServiceRole -RegistrationLimit 10 –Region us-east-2
    ```
 
-1. Press Enter\. If the activation is created successfully, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
+1. Press Enter\. If the activation is created successfully, the system immediately returns an Activation Code and ID\.
 
 **To create a managed\-instance activation \(AWS CLI\)**
 
@@ -71,6 +72,6 @@ Store the managed\-instance Activation Code and Activation ID in a safe place\. 
    aws ssm create-activation --default-instance-name MyWebServers --iam-role SSMServiceRole --registration-limit 10 --region us-east-2
    ```
 
-1. Press Enter\. If the activation is created successfully,, the system returns an Activation Code and an Activation ID\. Store the Activation Code and Activation ID in a safe place\.
+1. Press Enter\. If the activation is created successfully, the system immediately returns an Activation Code and ID\.
 
 Continue to [Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.

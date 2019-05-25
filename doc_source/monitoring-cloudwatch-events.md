@@ -43,10 +43,9 @@ Supported events include the following:
 
 **Parameter Store**  
 Supported events include the following:  
-+ A parameter is created\.
-+ A parameter is updated\.
-+ A parameter is deleted\.
-For more information, see [Setting Up Notifications and Events for Systems Manager Parameters](sysman-paramstore-cwe.md)\.
++ A parameter is created, updated, or deleted, or a label is attached or moved from one version to another \(detail\-type: `"Parameter Store Change"`\)\.
++ A parameter has expired or been deleted, its expiration date is approaching, or its value hasn't been changed for a specified period of time \(detail\-type: `"Parameter Store Policy Action"`\)\.
+For more information, see [Set Up Notifications or Trigger Actions Based on Parameter Store Events](sysman-paramstore-cwe.md)\.
 
 **Inventory**  
 Supported events include the following:  

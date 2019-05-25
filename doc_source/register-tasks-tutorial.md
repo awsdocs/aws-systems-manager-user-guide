@@ -5,6 +5,8 @@
    ```
    aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE --task-arn "AWS-RunShellScript" --targets "Key=InstanceIds,Values=i-07782c72faEXAMPLE" --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" --task-type "RUN_COMMAND" --task-invocation-parameters '{"RunCommand":{"Parameters":{"commands":["df"]}}}' --max-concurrency 1 --max-errors 1 --priority 10
    ```
+**Note**  
+For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using Quotation Marks with Strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#quoting-strings) in the *AWS Command Line Interface User Guide*\.
 
    The system returns information like the following:
 

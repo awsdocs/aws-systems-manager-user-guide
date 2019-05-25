@@ -5,7 +5,7 @@ Parameter policies help you manage a growing set of parameters by enabling you t
 Parameter Store enforces parameter policies by using asynchronous, periodic scans\. After you create a policy, you don't need to perform additional actions to enforce the policy\. Parameter Store independently performs the action defined by the policy according to the criteria you specified\. 
 
 **Note**  
-Parameter policies are available for parameters that use the advanced tier\. For more information, see [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
 
 A parameter policy is a JSON array, as shown in the following table\. You can assign a policy when you create a new advanced parameter, or you can apply a policy by updating a parameter\. Parameter Store supports the following types of parameter policies\.
 
