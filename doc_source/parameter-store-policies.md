@@ -150,7 +150,7 @@ Use the following procedure to add policies to an existing parameter by using To
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
    ```
 
-1. Run the following command to set the Region for your PowerShell session\. The example uses the us\-east\-2 Region\.
+1. Run the following command to set the Region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
 
    ```
    Set-DefaultAWSRegion -Region us-east-2
@@ -162,7 +162,7 @@ Use the following procedure to add policies to an existing parameter by using To
    Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Tier "Advanced" -Policies "[{policies enclosed in brackets and curly braces}]" -Overwrite
    ```
 
-   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2018\. The example also includes a notification policy that generates a CloudWatch Events event five days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
 
    ```
    Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString" -Tier "Advanced" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite

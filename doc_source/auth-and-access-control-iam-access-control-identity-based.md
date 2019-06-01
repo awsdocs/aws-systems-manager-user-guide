@@ -185,4 +185,4 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
-For a complete list of AWS\-wide keys, see [IAM Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html) in the *IAM User Guide*\. 
+For a list of condition keys supported by each AWS service, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html) in the *IAM User Guide*\. For a list of condition keys that can be used in multiple AWS services, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*\.

@@ -78,7 +78,7 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 You can update or delete the tasks of a maintenance window\. If you choose to update, you can specify a new task name, description, and owner\. For Run Command and Automation tasks, you can choose a different SSM document for the tasks\. You can't, however, edit a task to change its type\. For example, if you created an Automation task, you can't edit that task and change it to a Run Command task\. 
 
 **Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.
+The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
 
 **To update or delete the tasks of a maintenance window \(console\)**
 

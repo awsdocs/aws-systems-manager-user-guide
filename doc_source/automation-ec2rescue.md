@@ -6,7 +6,7 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and po
 
 **Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
 
-**Linux**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information ,see the [aws\-ec2rescue\-linux ](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\. 
+**Linux**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information, see the [aws\-ec2rescue\-linux](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\. 
 
 ## How It Works<a name="automation-ec2rescue-how"></a>
 
@@ -148,7 +148,7 @@ Choose **View** to view the template\.
 ## Running the Automation<a name="automation-ec2rescue-executing"></a>
 
 **Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.
+The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
 
 **Important**  
 The following Automation execution stops the unreachable instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\.

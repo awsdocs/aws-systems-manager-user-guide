@@ -10,7 +10,7 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 If necessary, you can manually download and install the latest version of SSM Agent on your Amazon EC2 Windows instance by using the following procedure\.
 
 **Important**  
-This procedure applies to installing or reinstalling SSM Agent on an Amazon EC2 Windows instance\. If you need to install the agent on an on\-premises instance or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.
+This procedure applies to installing or reinstalling SSM Agent on an Amazon EC2 Windows instance\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **To manually download and install the latest version of SSM Agent**
 

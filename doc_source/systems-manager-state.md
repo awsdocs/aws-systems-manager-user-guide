@@ -29,9 +29,9 @@ Complete the following tasks to get started with State Manager\.
 
 **Related Content**  
 See the following blog posts for additional examples of how to use State Manager:
-+ [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows PowerShell DSC](https://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/)
-+ [Running Ansible Playbooks using Amazon EC2 Systems Manager Run Command and State Manager](https://aws.amazon.com/blogs/mt/running-ansible-playbooks-using-ec2-systems-manager-run-command-and-state-manager/)
-+ [Configure Amazon EC2 Instances in an Auto Scaling Group Using State Manager](https://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/)
++ [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows PowerShell DSC](http://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/)
++ [Running Ansible Playbooks using Amazon EC2 Systems Manager Run Command and State Manager](http://aws.amazon.com/blogs/mt/running-ansible-playbooks-using-ec2-systems-manager-run-command-and-state-manager/)
++ [Configure Amazon EC2 Instances in an Auto Scaling Group Using State Manager](http://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/)
 
 **Topics**
 + [About State Manager](sysman-state-about.md)

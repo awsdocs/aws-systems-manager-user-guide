@@ -3,19 +3,30 @@
 AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name that you specified when you created the parameter\. Highly scalable, available, and durable, Parameter Store is backed by the AWS Cloud\. 
 
 Parameter Store offers the following benefits and features\.
-+ Use a secure, scalable, hosted secrets management service \(No servers to manage\)\.
++ Use a secure, scalable, hosted secrets management service with no servers to manage\.
 + Improve your security posture by separating your data from your code\.
 + Store configuration data and secure strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.
-+ Configure change notifications and trigger automated actions\.
-+ Tag parameters individually, and then secure access from different levels, including operational, parameter, Amazon EC2 tag, or path levels\. 
++ Configure change notifications and trigger automated actions for both parameters and parameter policies\.
++ Tag parameters individually, and then secure access from different levels, including operational, parameter, Amazon EC2 tag, and path levels\. 
 + Reference AWS Secrets Manager secrets by using Parameter Store parameters\.
-+ Use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. The following AWS services support Parameter Store parameters: Amazon EC2, Amazon Elastic Container Service, AWS Lambda, AWS CloudFormation, AWS CodeBuild, and AWS CodeDeploy\. 
-+ Configure integration with AWS Key Management Service \(KMS\), Amazon Simple Notification Service \(SNS\), Amazon CloudWatch, and AWS CloudTrail for encryption, notification, monitoring, and audit capabilities\.
++ Use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. The growing list of AWS services that support Parameter Store parameters includes the following:
+  + Amazon Elastic Compute Cloud \(Amazon EC2\)
+  + Amazon Elastic Container Service \(Amazon ECS\)
+  + AWS Lambda
+  + AWS CloudFormation
+  + AWS CloudFormation
+  + AWS CodeBuild
+  + AWS CodeDeploy
++ Configure integration with the following AWS services for encryption, notification, monitoring, and auditing:
+  + AWS Key Management Service \(AWS KMS\)
+  + Amazon Simple Notification Service \(Amazon SNS\)
+  + Amazon CloudWatch
+  + AWS CloudTrail
 
 ## Getting Started with Parameter Store<a name="sysman-paramstore-gs"></a>
 
-To get started with Systems Manager Parameters, complete the following tasks\.
+To get started with Systems Manager Parameters, refer to the following sections:
 
 
 ****  
@@ -31,9 +42,9 @@ To get started with Systems Manager Parameters, complete the following tasks\.
 |  Learn how to increase the number of transactions per second that Parameter Store can process\.  |  [Increasing Parameter Store Throughput](parameter-store-throughput.md)  | 
 
 **Related Content**  
-The following blog posts provide additional information about Parameter Store and how to use this capability with other AWS services\.
-+ For information about Parameter Store limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+The following resources provide more information about Parameter Store and how to use this capability with other AWS services\.
++ [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 + [Referencing AWS Secrets Manager Secrets from Parameter Store Parameters](integration-ps-secretsmanager.md)
-+ [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
-+ [Use Parameter Store to Securely Access Secrets and Config Data in AWS CodeDeploy](https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
-+ [Interesting Articles on EC2 Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)
++ [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
++ [Use Parameter Store to Securely Access Secrets and Config Data in AWS CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
++ [Interesting Articles on EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)

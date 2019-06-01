@@ -19,7 +19,7 @@ If you are currently using SSM Agent on supported Windows Server instances to se
 
 The CloudWatch agent is not supported on 32\-bit versions of Windows Server\.
 
-For 64\-bit Amazon EC2 Windows instances, you can perform the migration to the CloudWatch agent automatically or manually\. For on\-premises instances, the process must be performed manually\. 
+For 64\-bit Amazon EC2 Windows instances, you can perform the migration to the CloudWatch agent automatically or manually\. For on\-premises servers and virtual machines, the process must be performed manually\. 
 
 **Note**  
 During the migration process, the data sent to CloudWatch may be interrupted or duplicated\. Your metrics and log data will be recorded accurately again in CloudWatch after the migration is completed\.

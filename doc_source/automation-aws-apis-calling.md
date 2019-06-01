@@ -107,7 +107,7 @@ outputs:
 
 ## Working with Inputs and Outputs<a name="automation-aws-apis-calling-input-output"></a>
 
-Each of the previously described Automation actions enables you to call a specific API action by specifying the service namespace, the API action name, the input parameters, and the output parameters\. Inputs are defined by the API action that you choose\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
+Each of the previously described Automation actions enables you to call a specific API action by specifying the service namespace, the API action name, the input parameters, and the output parameters\. Inputs are defined by the API action that you choose\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
 
 You can view the schema for each Automation action in the following locations:
 + [aws:assertAwsResourceProperty](automation-actions.md#automation-action-assertAwsResourceProperty)
@@ -352,11 +352,11 @@ This sample walkthrough shows you how to create and run an Automation document i
 
    1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
-   1. Determine which Amazon RDS API action enables you to view the status of a database instance\. You can view the API actions \(also called methods\) on the [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
+   1. Determine which Amazon RDS API action enables you to view the status of a database instance\. You can view the API actions \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
    1. Specify one or more request parameters for the DescribeDBInstances API action\. For example, this action uses the `DBInstanceIdentifier` request parameter\.
 
-   1. Determine one or more PropertySelectors\. A PropertySelector is a response object that is returned by the request of this API action\. For example, on the [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\. For the purposes of this walkthrough, specify `DBInstances` and `DBInstanceStatus` as the PropertySelectors\. Remember that PropertySelectors are entered by using JSONPath\. This means that you format the information in the Automation document like this:
+   1. Determine one or more PropertySelectors\. A PropertySelector is a response object that is returned by the request of this API action\. For example, on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\. For the purposes of this walkthrough, specify `DBInstances` and `DBInstanceStatus` as the PropertySelectors\. Remember that PropertySelectors are entered by using JSONPath\. This means that you format the information in the Automation document like this:
 
       `PropertySelector: "$.DBInstances[0].DBInstanceStatus"`\.
 
@@ -396,7 +396,7 @@ This sample walkthrough shows you how to create and run an Automation document i
 
    1. View the schema to see all available inputs for [aws:executeAwsApi](automation-actions.md#automation-action-executeAwsApi)\. 
 
-   1. Specify the Amazon RDS [StartDBInstance](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.start_db_instance) API action to start the instance\. 
+   1. Specify the Amazon RDS [StartDBInstance](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.start_db_instance) API action to start the instance\. 
 
    1. Enter the information you collected into the Automation document as shown in the following example\.
 
@@ -439,7 +439,7 @@ This sample walkthrough shows you how to create and run an Automation document i
 
    1. View the schema to see all available inputs for the [aws:waitForAwsResourceProperty](automation-actions.md#automation-action-waitForAwsResourceProperty)\. 
 
-   1. Specify the Amazon RDS [DescribeDBInstances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) API action to determine the instance status\. 
+   1. Specify the Amazon RDS [DescribeDBInstances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) API action to determine the instance status\. 
 
    1. Specify `$.DBInstances[0].DBInstanceStatus` as the `PropertySelector`
 
@@ -525,15 +525,15 @@ Systems Manager Automation includes the following predefined SSM Automation docu
 
 | Document Name | Purpose | 
 | --- | --- | 
-|  [AWS\-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description?region=us-west-1)  |  Start an Amazon RDS instance\.  | 
-|  [AWS\-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description?region=us-west-1)  |  Stop an Amazon RDS instance\.  | 
-|  [AWS\-RebootRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description?region=us-west-1)  |  Reboot an Amazon RDS instance\.  | 
-|  [AWS\-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description?region=us-west-1)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
-|  [AWS\-DeleteSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description?region=us-west-1)  |  Delete an Amazon EBS volume snapshot\.  | 
-|  [AWS\-ConfigureS3BucketLogging](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description?region=us-west-1)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
-|  [AWS\-DisableS3BucketPublicReadWrite](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description?region=us-west-1)  |  Disable read and write permissions on an Amazon S3 bucket by using a private ACL\.  | 
-|  [AWS\-ConfigureS3BucketVersioning](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description?region=us-west-1)  |  Enable or suspend versioning on an Amazon S3 bucket\.   | 
-|  [AWS\-DeleteDynamoDbBackup](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description?region=us-west-1)  |  Delete a Amazon DynamoDB \(DynamoDB\) table backup\.   | 
+|  [AWS\-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description)  |  Start an Amazon RDS instance\.  | 
+|  [AWS\-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description)  |  Stop an Amazon RDS instance\.  | 
+|  [AWS\-RebootRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description)  |  Reboot an Amazon RDS instance\.  | 
+|  [AWS\-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
+|  [AWS\-DeleteSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
+|  [AWS\-ConfigureS3BucketLogging](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
+|  [AWS\-DisableS3BucketPublicReadWrite](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an Amazon S3 bucket by using a private ACL\.  | 
+|  [AWS\-ConfigureS3BucketVersioning](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an Amazon S3 bucket\.   | 
+|  [AWS\-DeleteDynamoDbBackup](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB \(DynamoDB\) table backup\.   | 
 
 Either click the links in the table above, or use the following procedure to view more details about these Automation documents in the Systems Manager console\.
 

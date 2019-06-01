@@ -5,6 +5,11 @@ AWS Systems Manager is a collection of capabilities for configuring and managing
 **Note**  
 AWS Systems Manager was formerly known as *Amazon Simple Systems Manager \(SSM\)* and *Amazon EC2 Systems Manager \(SSM\)*\. For more information, see [Service Name and Console Access](#service-naming-history)\.
 
+**Video: What is AWS Systems Manager?**  
+View a video introduction to Systems Manager \(Duration: 1:42\)
+
+[![AWS Videos](http://img.youtube.com/vi/MK4ZoCs-muo/0.jpg)](http://www.youtube.com/watch?v=MK4ZoCs-muo)
+
 **Topics**
 + [Systems Manager Capabilities](#features)
 + [How Systems Manager Works](#how-it-works)
@@ -162,7 +167,7 @@ You can access Systems Manager using any of the following interfaces:
 + **AWS Tools for Windows PowerShell** — Provides commands for a broad set of AWS services, including Systems Manager\. For more information, see [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\.
 
   On your Windows Server instances, Windows PowerShell 3\.0 or later is required to run certain SSM documents \(for example, the `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows instances are running Windows Management Framework 3\.0 or later\. The framework includes PowerShell\. 
-+ **AWS SDKs** — Provides language\-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs)\.
++ **AWS SDKs** — Provides language\-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling\. For more information, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/)\.
 
 ## AWS Region Availability<a name="prereqs-regions"></a>
 
@@ -185,10 +190,10 @@ We welcome your feedback\. To contact us, visit [the AWS Systems Manager forum](
 ## Related Content<a name="related-content"></a>
 
 Systems Manager is also documented in the following references\.
-+ [Blogs \(Management tools category\)](https://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/)
-+ [Blogs \(AWS Systems Manager tags category\)](https://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)
++ [Blogs \(Management tools category\)](http://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/)
++ [Blogs \(AWS Systems Manager tags category\)](http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)
 + [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)
 + [Systems Manager AWS Tools for Windows PowerShell](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
 + [Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
-+  [AWS SDKs](http://aws.amazon.com/tools/#SDKs)
++  [AWS SDKs](https://aws.amazon.com/tools/#SDKs)
 + [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)

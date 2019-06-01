@@ -1,4 +1,4 @@
-# Tutorial: View Information About Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
+# Tutorial: View Information About a Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
 This tutorial includes commands to help you update or get information about your maintenance windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
 
@@ -29,26 +29,21 @@ The system returns information like the following:
 {
    "WindowIdentities":[
       {
+         "WindowId":"mw-0c50858d01EXAMPLE",
+         "Name":"My-First-Maintenance-Window",
+         "Enabled":true,
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-0c50858d01EXAMPLE",
-         "Enabled":true,
-         "Name":"IAD-Every-15-Minutes"
+         "NextExecutionTime": "2019-05-18T17:01:01.137Z"        
       },
       {
+         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
+         "Name":"My-Second-Maintenance-Window",
+         "Enabled":true,
          "Duration":4,
          "Cutoff":1,
-         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
-         "Enabled":true,
-         "Name":"My-First-Maintenance-Window"
+         "NextExecutionTime": "2019-05-30T03:30:00.137Z"        
       },
-      {
-         "Duration":8,
-         "Cutoff":2,
-         "WindowId":"mw-369258147YEXAMPLE",
-         "Enabled":false,
-         "Name":"Every-Day"
-      }
    ]
 }
 ```
@@ -66,19 +61,21 @@ The system returns information like the following:
 {
    "WindowIdentities":[
       {
+         "WindowId":"mw-0c50858d01EXAMPLE",
+         "Name":"My-First-Maintenance-Window",
+         "Enabled":true,
          "Duration":2,
          "Cutoff":0,
-         "WindowId":"mw-0c50858d01EXAMPLE",
-         "Enabled":true,
-         "Name":"IAD-Every-15-Minutes"
+         "NextExecutionTime": "2019-05-18T17:01:01.137Z"        
       },
       {
+         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
+         "Name":"My-Second-Maintenance-Window",
+         "Enabled":true,
          "Duration":4,
          "Cutoff":1,
-         "WindowId":"mw-9a8b7c6d5eEXAMPLE",
-         "Enabled":true,
-         "Name":"My-First-Maintenance-Window"
-      }
+         "NextExecutionTime": "2019-05-30T03:30:00.137Z"        
+      },
    ]
 }
 ```
@@ -94,15 +91,15 @@ The system returns information like the following:
 
 ```
 {
-   "WindowIdentities":[
-      {
-         "Duration":8,
-         "Cutoff":2,
-         "WindowId":"mw-369258147YEXAMPLE",
-         "Enabled":false,
-         "Name":"Every-Day"
-      }
-   ]
+    "WindowIdentities": [
+        {
+            "WindowId": "mw-6e5c9d4b7cEXAMPLE",
+            "Name": "My-Disabled-Maintenance-Window",
+            "Enabled": false,
+            "Duration": 2,
+            "Cutoff": 1
+        }
+    ]
 }
 ```
 
@@ -117,15 +114,31 @@ The system returns information like the following:
 
 ```
 {
-   "WindowIdentities":[
-      {
-         "Duration":4,
-         "Cutoff":1,
-         "WindowId":"mw-369258147YEXAMPLE",
-         "Enabled":true,
-         "Name":"My-First-Maintenance-Window"
-      }
-   ]
+    "WindowIdentities": [
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "Name": "My-First-Maintenance-Window",
+            "Enabled": true,
+            "Duration": 2,
+            "Cutoff": 0,
+            "NextExecutionTime": "2019-05-18T17:01:01.137Z"
+        },
+        {
+            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
+            "Name": "My-Second-Maintenance-Window",
+            "Enabled": true,
+            "Duration": 4,
+            "Cutoff": 1,
+            "NextExecutionTime": "2019-05-30T03:30:00.137Z"
+        },
+        {
+            "WindowId": "mw-6e5c9d4b7cEXAMPLE",
+            "Name": "My-Disabled-Maintenance-Window",
+            "Enabled": false,
+            "Duration": 2,
+            "Cutoff": 1
+        }
+    ]
 }
 ```
 
@@ -135,26 +148,33 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-targets --window-id "mw-ab12cd34eEXAMPLE" --filters "Key=OwnerInformation,Values=Single instance"
+aws ssm describe-maintenance-window-targets --window-id "mw-6e5c9d4b7cEXAMPLE" --filters "Key=Type,Values=INSTANCE"
 ```
+
+**Note**  
+The supported filter keys are `Type`, `WindowTargetId` and `OwnerInformation`\.
 
 The system returns information like the following:
 
 ```
 {
-   "Targets":[
-      {
-         "TargetType":"INSTANCE",
-         "TagFilters":[
-
-         ],
-         "TargetIds":[
-            "i-02573cafcfEXAMPLE"
-         ],
-         "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLE1-1a2",
-         "OwnerInformation":"Single instance"
-      }
-   ]
+    "Targets": [
+        {
+            "WindowId": "mw-6e5c9d4b7cEXAMPLE",
+            "WindowTargetId": "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE",
+            "ResourceType": "INSTANCE",
+            "Targets": [
+                {
+                    "Key": "InstanceIds",
+                    "Values": [
+                        "i-02573cafcfEXAMPLE",
+                        "i-0471e04240EXAMPLE",
+                        "i-07782c72faEXAMPLE"
+                    ]
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -164,7 +184,7 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
+aws ssm describe-maintenance-window-tasks --window-id "mw-0c50858d01EXAMPLE" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
 ```
 
 The system returns information like the following:
@@ -173,11 +193,11 @@ The system returns information like the following:
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
+         "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
-         "WindowTaskId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3EXAMPLE",
+         "WindowTaskId":"4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
          "TaskParameters":{
             "commands":{
                "Values":[
@@ -195,15 +215,15 @@ The system returns information like the following:
          ]
       },
       {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
-         "WindowTaskId":"33333-33333-333-33333",
+         "WindowTaskId":"4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
          "TaskParameters":{
             "commands":{
                "Values":[
-                  "ipconfig.exe"
+                  "ipconfig"
                ]
             }
          },
@@ -211,7 +231,7 @@ The system returns information like the following:
          "Type":"RUN_COMMAND",
          "Targets":[
             {
-               "TaskTargetId":"44444-444-4444-444444",
+               "TaskTargetId":"i-02573cafcfEXAMPLE",
                "TaskTargetType":"WINDOW_TARGET"
             }
          ]
@@ -233,11 +253,11 @@ The system returns information like the following:
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
-         "WindowTaskId":"333333-333-33333-33333",
+         "WindowTaskId":"4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
          "TaskParameters":{
             "commands":{
                "Values":[
@@ -262,81 +282,59 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-ab12cd34ef56gh78" --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
+aws ssm describe-maintenance-window-tasks --window-id "mw-0c50858d01EXAMPLE" --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
 ```
 
 The system returns information like the following:
 
 ```
 {
-   "Tasks":[
-      {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MW-Role",
-         "MaxErrors":"1",
-         "TaskArn":"AWS-RunPowerShellScript",
-         "MaxConcurrency":"1",
-         "WindowTaskId":"66666-555-66-555-6666",
-         "TaskParameters":{
-            "commands":{
-               "Values":[
-                  "ipconfig.exe"
-               ]
-            }
-         },
-         "Priority":1,
-         "Type":"RUN_COMMAND",
-         "Targets":[
-            {
-               "TaskTargetId":"777-77-777-7777777",
-               "TaskTargetType":"WINDOW_TARGET"
-            }
-         ]
-      }
-   ]
+    "Tasks": [
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
+            "TaskArn": "AWS-RunShellScript",
+            "Type": "RUN_COMMAND",
+            "Targets": [
+                {
+                    "Key": "InstanceIds",
+                    "Values": [
+                        "i-02573cafcfEXAMPLE"
+                    ]
+                }
+            ],
+            "TaskParameters": {},
+            "Priority": 1,
+            "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "MaxConcurrency": "1",
+            "MaxErrors": "1"
+        },
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowTaskId": "8a5c4629-31b0-4edd-8aea-33698EXAMPLE",
+            "TaskArn": "AWS-UpdateSSMAgent",
+            "Type": "RUN_COMMAND",
+            "Targets": [
+                {
+                    "Key": "InstanceIds",
+                    "Values": [
+                        "i-0471e04240EXAMPLE"
+                    ]
+                }
+            ],
+            "TaskParameters": {},
+            "Priority": 1,
+            "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"",
+            "MaxConcurrency": "1",
+            "MaxErrors": "1",
+            "Name": "My-Run-Command-Task",
+            "Description": "My Run Command task to update SSM Agent on an instance"
+        }
+    ]
 }
 ```
 
 ## Examples for 'describe\-maintenance\-windows\-for\-target'<a name="mw-cli-tutorials-describe-maintenance-windows-for-target"></a>
-
-**List information about the maintenance window targets or tasks associated with instances tagged with a particular key**  
-Run the following command:
-
-```
-aws ssm describe-maintenance-windows-for-target --resource-type INSTANCE --targets "Key=tag-key,Values=prod"
-```
-
-The system returns information like the following:
-
-```
-{
-    "WindowIdentities": [
-        {
-            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
-            "Name": "DemoRateStartDate"
-        }
-    ]
-}
-```
-
-**List information about the maintenance window targets or tasks associated with instances tagged with a particular key\-value pair**  
-Run the following command:
-
-```
-aws ssm describe-maintenance-windows-for-target --resource-type INSTANCE --targets "Key=tag:prod,Values=rhel7"
-```
-
-The system returns information like the following:
-
-```
-{
-    "WindowIdentities": [
-        {
-            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
-            "Name": "DemoCronEndDate"
-        }
-    ]
-}
-```
 
 **List information about the maintenance window targets or tasks associated with a specific instance**  
 Run the following command:
@@ -352,11 +350,11 @@ The system returns information like the following:
     "WindowIdentities": [
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate"
+            "Name": "My-First-Maintenance-Window"
         },
         {
             "WindowId": "mw-9a8b7c6d5eEXAMPLE",
-            "Name": "DemoCronEndDate"
+            "Name": "My-Second-Maintenance-Window"
         }
     ]
 }
@@ -368,51 +366,37 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-executions --window-id "111122223333" --filters "Key=ExecutedBefore,Values=2016-11-04T05:00:00Z"
+aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedBefore,Values=2019-05-12T05:00:00Z"
 ```
 
 The system returns information like the following:
 
 ```
 {
-   "WindowExecutions":[
-      {
-         "Status":"SUCCESS",
-         "EndTime":1478229594.666,
-         "WindowExecutionId":"",
-         "StartTime":1478229594.666
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"06dc5f8a-9ef0-4ae9-a466-ada2dEXAMPLE",
-         "StartTime":1478230495.469
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"57ad6419-023e-44b0-a831-66873EXAMPLE",
-         "StartTime":1478231395.677
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"ed1372b7-866b-4d64-bc2a-bbfd5EXAMPLE",
-         "StartTime":1478232295.529
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"154eb2fa-6390-4cb7-8c9e-55686EXAMPLE",
-         "StartTime":1478233195.687
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"1c4de752-eff6-4778-b477-1681cEXAMPLE",
-         "StartTime":1478234095.553
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"56062f75-e4d8-483f-b5c2-906d6EXAMPLE",
-         "StartTime":1478234995.12
-      }
-   ]
+    "WindowExecutions": [
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+            "Status": "FAILED",
+            "StatusDetails": "The following SSM parameters are invalid: LevelUp",
+            "StartTime": 1557617747.993,
+            "EndTime": 1557617748.101
+        },
+        {
+            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
+            "WindowExecutionId": "791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
+            "Status": "SUCCESS",
+            "StartTime": 1557594085.428,
+            "EndTime": 1557594090.978
+        },
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowExecutionId": "ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
+            "Status": "SUCCESS",
+            "StartTime": 1557593793.483,
+            "EndTime": 1557593798.978
+        }
+    ]
 }
 ```
 
@@ -420,30 +404,37 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedAfter,Values=2016-11-04T17:00:00Z"
+aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedAfter,Values=2018-12-31T17:00:00Z"
 ```
 
 The system returns information like the following:
 
 ```
 {
-   "WindowExecutions":[
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"33333-4444-444-5555555",
-         "StartTime":1478279095.042
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"55555-6666-6666-777777",
-         "StartTime":1478279994.958
-      },
-      {
-         "Status":"SUCCESS",
-         "WindowExecutionId":"8888-888-888-888888",
-         "StartTime":1478280895.149
-      }
-   ]
+    "WindowExecutions": [
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+            "Status": "FAILED",
+            "StatusDetails": "The following SSM parameters are invalid: LevelUp",
+            "StartTime": 1557617747.993,
+            "EndTime": 1557617748.101
+        },
+        {
+            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
+            "WindowExecutionId": "791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
+            "Status": "SUCCESS",
+            "StartTime": 1557594085.428,
+            "EndTime": 1557594090.978
+        },
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "WindowExecutionId": "ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
+            "Status": "SUCCESS",
+            "StartTime": 1557593793.483,
+            "EndTime": 1557593798.978
+        }
+    ]
 }
 ```
 
@@ -463,53 +454,53 @@ The system returns information like the following:
     "ScheduledWindowExecutions": [
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-20T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-05-18T23:35:24.902Z"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-21T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-05-25T23:35:24.902Z"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-22T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-06-01T23:35:24.902Z"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-23T05:34:56-07:00"
-        },
-        {
-            "WindowId": "mw-0bc0739f959f09230",
-            "Name": "DemoCronEndDate",
-            "ExecutionTime": "2018-10-23T16:00Z"
-        },
-        {
-            "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-24T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-06-08T23:35:24.902Z"
         },
         {
             "WindowId": "mw-9a8b7c6d5eEXAMPLE",
-            "Name": "DemoCronEndDate",
-            "ExecutionTime": "2018-10-24T16:00Z"
+            "Name": "My-Second-Maintenance-Window",
+            "ExecutionTime": "2019-06-15T23:35:24.902Z"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-25T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-06-22T23:35:24.902Z"
         },
         {
             "WindowId": "mw-9a8b7c6d5eEXAMPLE",
-            "Name": "DemoCronEndDate",
-            "ExecutionTime": "2018-10-25T16:00Z"
+            "Name": "My-Second-Maintenance-Window",
+            "ExecutionTime": "2019-06-29T23:35:24.902Z"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
-            "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-26T05:34:56-07:00"
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-07-06T23:35:24.902Z"
+        },
+        {
+            "WindowId": "mw-9a8b7c6d5eEXAMPLE",
+            "Name": "My-Second-Maintenance-Window",
+            "ExecutionTime": "2019-07-13T23:35:24.902Z"
+        },
+        {
+            "WindowId": "mw-0c50858d01EXAMPLE",
+            "Name": "My-First-Maintenance-Window",
+            "ExecutionTime": "2019-07-20T23:35:24.902Z"
         }
     ],
     "NextToken": "AAEABUXdceT92FvtKld/dGHELj5Mi+GKW/EXAMPLE"
@@ -531,27 +522,27 @@ The system returns information like the following:
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-20T05:34:56-07:00"
+            "ExecutionTime": "2019-10-20T05:34:56-07:00"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-21T05:34:56-07:00"
+            "ExecutionTime": "2019-10-21T05:34:56-07:00"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-22T05:34:56-07:00"
+            "ExecutionTime": "2019-10-22T05:34:56-07:00"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-23T05:34:56-07:00"
+            "ExecutionTime": "2019-10-23T05:34:56-07:00"
         },
         {
             "WindowId": "mw-0c50858d01EXAMPLE",
             "Name": "DemoRateStartDate",
-            "ExecutionTime": "2018-10-24T05:34:56-07:00"
+            "ExecutionTime": "2019-10-24T05:34:56-07:00"
         }
     ],
     "NextToken": "AAEABccwSXqQRGKiTZ1yzGELR6cxW4W/EXAMPLE"
@@ -562,7 +553,7 @@ The system returns information like the following:
 Run the following command:
 
 ```
-aws ssm describe-maintenance-window-schedule --window-id "mw-ab12cd34eEXAMPLE" --max-results "4"
+aws ssm describe-maintenance-window-schedule --window-id "mw-0c50858d01EXAMPLE" --max-results "4"
 ```
 
 The system returns information like the following:
@@ -573,23 +564,23 @@ The system returns information like the following:
         {
             "ScheduledWindowExecutions": [
                 {
-                    "ExecutionTime": "2018-10-04T10:10:10Z",
-                    "Name": "My-Maintenance-Window",
+                    "ExecutionTime": "2019-10-04T10:10:10Z",
+                    "Name": "My-First-Maintenance-Window",
                     "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
-                    "ExecutionTime": "2018-10-11T10:10:10Z",
-                    "Name": "My-Maintenance-Window",
+                    "ExecutionTime": "2019-10-11T10:10:10Z",
+                    "Name": "My-First-Maintenance-Window",
                     "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
-                    "ExecutionTime": "2018-10-18T10:10:10Z",
-                    "Name": "My-Maintenance-Window",
+                    "ExecutionTime": "2019-10-18T10:10:10Z",
+                    "Name": "My-First-Maintenance-Window",
                     "WindowId": "mw-0c50858d01EXAMPLE"
                 },
                 {
-                    "ExecutionTime": "2018-10-25T10:10:10Z",
-                    "Name": "My-Maintenance-Window",
+                    "ExecutionTime": "2019-10-25T10:10:10Z",
+                    "Name": "My-First-Maintenance-Window",
                     "WindowId": "mw-0c50858d01EXAMPLE"
                 }
             ]

@@ -171,6 +171,6 @@ You are modifying sample code we provide instead of using the event pattern buil
 1. Choose **Create rule**\.
 
 **Related Information**
-+ \(Blog post\) [Use parameter labels for easy configuration update across environments](aws.amazon.com/blogsmt/use-parameter-labels-for-easy-configuration-update-across-environments/)
++ \(Blog post\) [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)
 + [Tutorial: Use CloudWatch Events to Relay Events to AWS Systems Manager Run Command](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EC2_Run_Command.html) in the *Amazon CloudWatch Events User Guide*
 + [Tutorial: Set AWS Systems Manager Automation as a CloudWatch Events Target](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/SSM_Automation_as_Target.html) in the *Amazon CloudWatch Events User Guide*

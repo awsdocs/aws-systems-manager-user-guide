@@ -8,7 +8,7 @@ The following walkthrough shows you how to configure a State Manager association
 Before you complete the following procedure, verify that you have at least one Amazon EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 **Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.
+The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
 
 **To create a State Manager association that automatically updates PV drivers**
 

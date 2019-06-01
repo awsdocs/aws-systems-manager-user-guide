@@ -6,4 +6,4 @@ With AWS Resource Groups, you can create a custom console that organizes and con
 
 For information about granting the IAM users in your account access to Resource Groups and its Tag Editor in the AWS Management Console, see [Create Policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\.
 
-For more information about the Resource Groups service, see [AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)\.
+For more information about the Resource Groups service, see the *[AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/)*\.

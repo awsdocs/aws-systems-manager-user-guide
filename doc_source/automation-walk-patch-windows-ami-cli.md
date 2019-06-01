@@ -18,7 +18,7 @@ The `AWS-UpdateWindowsAmi` document accepts the following input parameters\.
 
 | Parameter | Type | Description | 
 | --- | --- | --- | 
-|  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Windows Server AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Windows AMI IDs using AWS Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)\.  | 
+|  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Windows Server AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Windows AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)\.  | 
 |  IamInstanceProfileName  |  String  |  \(Required\) The name of the AWS Identity and Access Management \(IAM\) instance profile role you created in [Getting Started with Automation](automation-setup.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Getting Started with Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
@@ -79,7 +79,9 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` docume
 
 **To create a patched Windows AMI by using Automation**
 
-1. [Download](https://aws.amazon.com/cli/) the AWS CLI to your local machine\.
+1. Install and configure the AWS CLI, if you have not already\.
+
+   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateWindowsAmi` document\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 

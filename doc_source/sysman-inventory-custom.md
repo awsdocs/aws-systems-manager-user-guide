@@ -73,7 +73,7 @@ After you create the file, you must save it on the instance\. The following tabl
 |  Windows  |  %SystemDrive%\\ProgramData\\Amazon\\SSM\\InstanceData\\<instance\-id>\\inventory\\custom  | 
 |  Linux  |  /var/lib/amazon/ssm/<instance\-id>/inventory/custom  | 
 
-For an example of how to use custom inventory, see [Get Disk Utilization of Your Fleet Using EC2 Systems Manager Custom Inventory Types](https://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/)\.
+For an example of how to use custom inventory, see [Get Disk Utilization of Your Fleet Using EC2 Systems Manager Custom Inventory Types](http://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/)\.
 
 ## Deleting Custom Inventory<a name="sysman-inventory-delete"></a>
 

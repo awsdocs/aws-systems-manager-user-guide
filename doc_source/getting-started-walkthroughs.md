@@ -36,7 +36,7 @@ The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability hel
 The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) capability lets you define a schedule for performing potentially disruptive actions on your managed instances, such as patching an operating system, updating drivers, or installing software or patches\.
 + [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
 + [Tutorial: Update a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)
-+ [Tutorial: View Information About Maintenance Windows \(AWS CLI\)](maintenance-windows-cli-tutorials-describe.md)
++ [Tutorial: View Information About a Maintenance Windows \(AWS CLI\)](maintenance-windows-cli-tutorials-describe.md)
 + [Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)
 
 **State Manager**  

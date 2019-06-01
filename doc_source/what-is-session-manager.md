@@ -44,7 +44,7 @@ Session Manager offers these benefits:
 
   Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For a list of supported Windows and Linux operating system types, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises instances is provided for the advanced\-instances tier only\. For information, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
+Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
 + **Console, CLI, and SDK access to Session Manager capabilities**
 
   You can work with Session Manager in the following ways:

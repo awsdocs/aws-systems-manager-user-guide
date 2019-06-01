@@ -164,7 +164,7 @@ This procedure creates an AWS CloudFormation stack in the US East \(Ohio\) Regio
 ## Running the Automation<a name="automation-ec2reset-executing"></a>
 
 **Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the new [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console will differ from the steps below\.
+The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
 
 The following procedure describes how to run the **AWSSupport\-ResetAccess** document by using the Amazon EC2 console\.
 

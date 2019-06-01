@@ -16,7 +16,7 @@ For information about limits for the Maintenance Windows capability, in addition
 Use the following command format to register multiple instances as targets using their instance IDs:
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0d89ef8464EXAMPLE" --resource-type "INSTANCE" --target "Key=InstanceIds,Values=i-026366cccbEXAMPLE,i-0471e04240EXAMPLE,i-0547226c05EXAMPLE"
+aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE"
 ```
 
 **Recommended use**: Most useful when registering a unique group of instances with any maintenance window for the first time and they do *not* share a common instance tag\.
@@ -28,7 +28,7 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0d89ef8464EXAMPL
 Use the following command format to register instances that are all already tagged with a key\-value pair you have assigned:
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0d89ef8464EXAMPLE" --resource-type "INSTANCE" --target "Key=tag:Region,Values=East"
+aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=tag:Region,Values=East"
 ```
 
 **Recommended use**: Most useful when registering a unique group of instances with any maintenance window for the first time and they *do* share a common instance tag\.
@@ -43,7 +43,7 @@ You can tag a group of instances with the tag\-key **Patch Group** and assign th
 Use the following command to register instances that all have one or more tag keys assigned to them, regardless of their key values\.
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0d89ef8464EXAMPLE" --resource-type "INSTANCE" --target "Key=tag-key,Values=Name,Instance-Type,CostCenter"
+aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=tag-key,Values=Name,Instance-Type,CostCenter"
 ```
 
 **Recommended use**: Useful when you want to target instances by specifying multiple tag *keys* \(without their values\) rather than just one tag\-key or a tag key\-value pair\.

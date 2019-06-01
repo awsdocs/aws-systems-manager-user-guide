@@ -1,10 +1,10 @@
 # Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)<a name="mw-cli-tutorial-task-info"></a>
 
-This tutorial demonstrates how to use the AWS CLI to view details about your completed maintenance window executions\. 
-
-As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
+This tutorial demonstrates how to use the AWS CLI to view details about your completed maintenance window task executions\. 
 
 If you are continuing directly from [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your maintenance window to run at least once in order to see its execution results\.
+
+As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 
 **To view information about tasks and task executions \(AWS CLI\)**
 
@@ -18,120 +18,138 @@ If you are continuing directly from [Tutorial: Create and Configure a Maintenanc
 
    ```
    {
-      "WindowExecutions":[
-         {
-            "Status":"SUCCESS",
-            "WindowExecutionId":"1111-1111-1111-11111",
-            "StartTime":1478230495.469
-         },
-         {
-            "Status":"SUCCESS",
-            "WindowExecutionId":"2222-2-2-22222222-22",
-            "StartTime":1478231395.677
-         },
-         {
-            "Status":"SUCCESS",
-            "WindowExecutionId":"33333-333-333-3333333",
-            "StartTime":1478272795.021
-         },
-         {
-            "Status":"SUCCESS",
-            "WindowExecutionId":"4444-44-44-44444444",
-            "StartTime":1478273694.932
-         }
-      ],
-      "NextToken":90gfhS4JD8aEXAMPLE..."
-   }
+       "WindowExecutions": [
+           {
+               "WindowId": "mw-0c50858d01EXAMPLE",
+               "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+               "Status": "SUCCESS",
+               "StartTime": 1557593793.483,
+               "EndTime": 1557593798.978
+           },
+           {
+               "WindowId": "mw-0c50858d01EXAMPLE",
+               "WindowExecutionId": "791b72e0-f0da-4021-8b35-f95dfEXAMPLE",
+               "Status": "SUCCESS",
+               "StartTime": 1557593493.096,
+               "EndTime": 1557593498.611
+           },
+           {
+               "WindowId": "mw-0c50858d01EXAMPLE",
+               "WindowExecutionId": "ecec60fa-6bb0-4d26-98c7-140308EXAMPLE",
+               "Status": "SUCCESS",
+               "StatusDetails": "No tasks to execute.",
+               "StartTime": 1557593193.309,
+               "EndTime": 1557593193.334
+           }
+       ]
+   }}
    ```
 
 1. Run the following command to get information about a maintenance window task execution:
 
    ```
-   aws ssm get-maintenance-window-execution --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
+   aws ssm get-maintenance-window-execution --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
    ```
 
    The system returns information like the following:
 
    ```
    {
-      "Status":"SUCCESS",
-      "TaskIds":[
-         "333-33-3333-333333"
-      ],
-      "StartTime":1478230495.472,
-      "EndTime":1478230516.505,
-      "WindowExecutionId":"1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
+       "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+       "TaskIds": [
+           "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE"
+       ],
+       "Status": "SUCCESS",
+       "StartTime": 1557593493.096,
+       "EndTime": 1557593498.611
    }
    ```
 
 1. Run the following command to list the tasks run as part of a maintenance window execution:
 
    ```
-   aws ssm describe-maintenance-window-execution-tasks --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2"
+   aws ssm describe-maintenance-window-execution-tasks --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
    ```
 
    The system returns information like the following:
 
    ```
    {
-      "WindowExecutionTaskIdentities":[
-         {
-            "Status":"SUCCESS",
-            "EndTime":1478230516.425,
-            "StartTime":1478230495.782,
-            "TaskId":"33333-333-333-3333333"
-         }
-      ]
+       "WindowExecutionTaskIdentities": [
+           {
+               "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+               "TaskExecutionId": "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE",
+               "Status": "SUCCESS",
+               "StartTime": 1557593493.162,
+               "EndTime": 1557593498.57,
+               "TaskArn": "AWS-RunShellScript",
+               "TaskType": "RUN_COMMAND"
+           }
+       ]
    }
    ```
 
 1. Run the following command to get the details of a task execution:
 
    ```
-   aws ssm get-maintenance-window-execution-task --window-execution-id "1a2b3c4d-1a2b-1a2b-1a2b-EXAMPLEa-1a2" --task-id "6420cb42-5dbd-4060-8349-bfb2fEXAMPLE"
+   aws ssm get-maintenance-window-execution-task --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE" --task-id "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE"
    ```
 
    The system returns information like the following:
 
    ```
    {
-      "Status":"SUCCESS",
-      "MaxErrors":"1",
-      "TaskArn":"AWS-RunPowerShellScript",
-      "MaxConcurrency":"1",
-      "ServiceRole":"arn:aws:iam::333333333:role/MW-Role",
-      "WindowExecutionId":"555555-555-55-555555",
-      "Priority":0,
-      "StartTime":1478230495.782,
-      "EndTime":1478230516.425,
-      "Type":"RUN_COMMAND",
-      "TaskParameters":[
-   
-      ],
-      "TaskExecutionId":"4444-4444-4444-444444"
+       "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+       "TaskExecutionId": "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE",
+       "TaskArn": "AWS-RunShellScript",
+       "ServiceRole": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+       "Type": "RUN_COMMAND",
+       "TaskParameters": [
+           {
+               "aws:InstanceId": {
+                   "Values": [
+                       "i-02573cafcfEXAMPLE"
+                   ]
+               },
+               "commands": {
+                   "Values": [
+                       "df"
+                   ]
+               }
+           }
+       ],
+       "Priority": 10,
+       "MaxConcurrency": "1",
+       "MaxErrors": "1",
+       "Status": "SUCCESS",
+       "StartTime": 1557593493.162,
+       "EndTime": 1557593498.57
    }
    ```
 
 1. Run the following command to get the specific task invocations performed for a task execution\.
 
    ```
-   aws ssm describe-maintenance-window-execution-task-invocations --window-execution-id "555555-555-55-555555" --task-id "6420cb42-5dbd-4060-8349-bfb2fEXAMPLE"
+   aws ssm describe-maintenance-window-execution-task-invocations --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE" --task-id "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE"
    ```
 
    The system returns information like the following\.
 
    ```
    {
-      "WindowExecutionTaskInvocationIdentities":[
-         {
-            "Status":"SUCCESS",
-            "Parameters":"{\" documentName \" : \" AWS-RunPowerShellScript \" , \" instanceIds \" :[ \" i-1a2b3c4d5e6f7g8h9 \" , \" i-0a
-   00def7faa94f1dc \" ], \" parameters \" :{ \" commands \" :[ \" ipconfig.exe \" ]}, \" maxConcurrency \" : \" 1 \" , \" maxErrors \" : \" 1 \" }",
-            "ExecutionId":"555555-555-55-555555",
-            "InvocationId":"3333-33333-3333-33333",
-            "StartTime":1478230495.842,
-            "EndTime":1478230516.291
-         }
-      ]
+       "WindowExecutionTaskInvocationIdentities": [
+           {
+               "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
+               "TaskExecutionId": "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE",
+               "InvocationId": "c336d2ab-09de-44ba-8f6a-6136cEXAMPLE",
+               "ExecutionId": "76a5a04f-caf6-490c-b448-92c02EXAMPLE",
+               "TaskType": "RUN_COMMAND",
+               "Parameters": "{\"documentName\":\"AWS-RunShellScript\",\"instanceIds\":[\"i-02573cafcfEXAMPLE\"],\"maxConcurrency\":\"1\",\"maxErrors\":\"1\",\"parameters\":{\"commands\":[\"df\"]}}",
+               "Status": "SUCCESS",
+               "StatusDetails": "Success",
+               "StartTime": 1557593493.222,
+               "EndTime": 1557593498.466
+           }
+       ]
    }
    ```
