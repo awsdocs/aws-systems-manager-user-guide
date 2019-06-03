@@ -17,7 +17,7 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
 
 1. Log into an instance and locate the following file:
 
-   On Windows: `%PROGRAMFILES%\Amazon\SSM\seelog.xml.template`
+   On Windows: `%ProgramFiles%\Amazon\SSM\seelog.xml.template`
 
    On Linux: `/etc/amazon/ssm/seelog.xml.template`
 
@@ -28,9 +28,9 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
    ```
    <outputs formatid="fmtinfo">
    		<console formatid="fmtinfo"/>
-   		<rollingfile type="size" maxrolls="5" maxsize="30000000" filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"/>
+   		<rollingfile type="size" maxrolls="5" maxsize="30000000" filename="%ProgramData%\Amazon\SSM\Logs\amazon-ssm-agent.log"/>
    		<filter formatid="fmterror" levels="error,critical">
-   		<rollingfile type="size" maxrolls="5" maxsize="10000000" filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"/>
+   		<rollingfile type="size" maxrolls="5" maxsize="10000000" filename="%ProgramData%\Amazon\SSM\Logs\errors.log"/>
    		</filter>
    	</outputs>
    ```
@@ -44,9 +44,9 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
    	</exceptions>
    	<outputs formatid="fmtinfo">
    		<console formatid="fmtinfo"/>
-   		<rollingfile type="size" maxrolls="5" maxsize="30000000" filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"/>
+   		<rollingfile type="size" maxrolls="5" maxsize="30000000" filename="%ProgramData%\Amazon\SSM\Logs\amazon-ssm-agent.log"/>
    		<filter formatid="fmterror" levels="error,critical">
-   		<rollingfile type="size" maxrolls="5" maxsize="10000000" filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"/>
+   		<rollingfile type="size" maxrolls="5" maxsize="10000000" filename="%ProgramData%\Amazon\SSM\Logs\errors.log"/>
    		</filter>
    		<custom name="cloudwatch_receiver" formatid="fmtdebug" data-log-group="Your CloudWatch Log Group Name"/>
    	</outputs>
