@@ -7,7 +7,7 @@ You can use the AWS Management Console or the AWS CLI to deploy packages to your
 | --- | --- | --- | 
 |  Install a package immediately\.  |  Run Command  |  [Installing a Package One Time \(Console\)](#distributor-deploy-pkg-console) or [Installing a Package One Time \(AWS CLI\)](#distributor-deploy-pkg-cli)  | 
 |  Install a package on a schedule, so that the installation always includes the default version\.  |  State Manager  |  [Scheduling a Package Installation \(Console\)](#distributor-deploy-sm-pkg-console) or [Scheduling a Package Installation \(AWS CLI\)](#distributor-smdeploy-pkg-cli)  | 
-|  Automatically install a package on new instances that have a specific tag or set of tags\. For example, installing the Amazon CloudWatch agent on new instances\.  |  State Manager  |  One way to do this is to apply tags to new instances, and then specify the tags as targets in your State Manager association\. State Manager automatically installs the package in an association on instances that have matching tags\. See [Create an Association that Uses Targets and Rate Controls \(CLI\)](systems-manager-state-manager-targets-and-rate-controls.md#sysman-state-targets)\.  | 
+|  Automatically install a package on new instances that have a specific tag or set of tags\. For example, installing the Amazon CloudWatch agent on new instances\.  |  State Manager  |  One way to do this is to apply tags to new instances, and then specify the tags as targets in your State Manager association\. State Manager automatically installs the package in an association on instances that have matching tags\. See [Create an Association That Uses Targets and Rate Controls \(Console\)](systems-manager-state-manager-targets-and-rate-controls.md#sysman-state-targets-console)\.  | 
 
 **Topics**
 + [Installing a Package One Time \(Console\)](#distributor-deploy-pkg-console)
@@ -73,13 +73,13 @@ You can use the AWS Systems Manager console to schedule the installation of a pa
 
 1. For **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
-1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
+1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an Association](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
 
-1. For more information about advanced options, such as compliance severity, rate control, and output options, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\. When you are finished editing your association, choose **Save Changes**\.
+1. For more information about advanced options, such as compliance severity, rate control, and output options, see [Create an Association](sysman-state-assoc.md) in this guide\. When you are finished editing your association, choose **Save Changes**\.
 
 1. On the association's home page, choose **Apply association now**\.
 
-   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an Association \(Console\)](sysman-state-assoc.md) in this guide\.
+   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an Association](sysman-state-assoc.md) in this guide\.
 
 ## Installing a Package One Time \(AWS CLI\)<a name="distributor-deploy-pkg-cli"></a>
 

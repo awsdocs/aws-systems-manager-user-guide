@@ -8,7 +8,7 @@ The following procedure walks you through the process of creating and storing a 
 
    For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter that uses the String data type\. The `--name` parameter uses a hierarchy\. For more information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String --tier Standard or Advanced
@@ -36,7 +36,7 @@ The following procedure walks you through the process of creating and storing a 
    {
        "Parameters": [
            {
-               "LastModifiedUser": "arn:aws:iam::123456789:user/User's name",
+               "LastModifiedUser": "arn:aws:iam::123456789012:user/User's name",
                "LastModifiedDate": 1494529763.156,
                "Type": "String",
                "Name": "helloworld"

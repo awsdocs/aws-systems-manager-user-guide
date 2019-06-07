@@ -2,9 +2,9 @@
 
 Managing dozens or hundreds of parameters as a flat list is time consuming and prone to errors\. It can also be difficult to identify the correct parameter for a task\. This means you might accidentally use the wrong parameter, or you might create multiple parameters that use the same configuration data\. 
 
-You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes\. 
+You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes \(/\)\. 
 
-Here is an example that uses three hierarchy levels in the name to identify the following:
+The following example uses three hierarchy levels in the name to identify the following:
 
 /Environment/Type of computer/Application/Data
 
@@ -74,7 +74,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
             "Action": [
                 "ssm:*"
             ],
-            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/*"
+            "Resource": "arn:aws:ssm:us-east-2::parameter/*"
         },
         {
             "Effect": "Deny",
@@ -109,4 +109,4 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
 ```
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path /a, then the user can also access /a/b\. Even if a user has explicitly been denied access in IAM for parameter /b, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively and view /a/b\.
+If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively and view `/a/b`\.

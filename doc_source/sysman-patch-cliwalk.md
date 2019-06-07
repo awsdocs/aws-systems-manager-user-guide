@@ -146,7 +146,7 @@ In addition, the following walkthrough runs patching during a maintenance window
 1. Run the following commands to register a patch task that only scans the production servers for missing updates in the first production maintenance window\.
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
    ```
 
    The system returns information like the following\.
@@ -158,7 +158,7 @@ In addition, the following walkthrough runs patching during a maintenance window
    ```
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
    ```
 
    The system returns information like the following\.
@@ -172,7 +172,7 @@ In addition, the following walkthrough runs patching during a maintenance window
 1. Run the following commands to register a patch task that installs missing updates on the productions servers in the second maintenance window\.
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
    ```
 
    The system returns information like the following\.
@@ -184,7 +184,7 @@ In addition, the following walkthrough runs patching during a maintenance window
    ```
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-ApplyPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
    ```
 
    The system returns information like the following\.

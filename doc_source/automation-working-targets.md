@@ -2,7 +2,7 @@
 
 The `Targets` parameter enables you to quickly define which resources in your fleet can run an Automation workflow\. For example, if you want to run an Automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon EC2 tags with the `Targets` parameter\.
 
-When you run an Automation that uses a target, Systems Manager creates a child Automation for each target\. For example, if you target 200 Amazon Elastic Block Store \(Amazon EBS\) volumes with an Automation, Systems Manager creates 200 child Automation workflows\. The parent Automation is complete when all child Automations reach a final state\.
+When you run an Automation that uses a target, Systems Manager creates a child Automation for each target\. For example, if you target Amazon Elastic Block Store \(Amazon EBS\) volumes by specifying tags, and those tags resolve to 100 Amazon EBS volumes, then Systems Manager creates 100 child Automation workflows\. The parent Automation is complete when all child Automations reach a final state\.
 
 **Note**  
 Any `input parameters` that you specify at runtime \(either in the **Input parameters** section of the console or by using the `parameters` option from the command line\) are automatically processed by all child Automations\.
@@ -11,7 +11,7 @@ You can target resources for an Automation execution by using tags, Resource Gro
 
 ## Targeting Tags<a name="automation-working-targets-tags"></a>
 
-Many AWS resources support tags, including Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups, and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run Automation workflows on your AWS resources by targeting tags\. A tag is a key\-value pair, such as Operating\_System\-Linux or Department\-Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
+Many AWS resources support tags, including Amazon EC2 and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups, and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run Automation workflows on your AWS resources by targeting tags\. A tag is a key\-value pair, such as Operating\_System\-Linux or Department\-Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
 
 When you specify a tag as the target for an Automation, you also specify a target parameter\. The target parameter uses the `TargetParameterName` option\. By choosing a target parameter, you define the type of resource on which the Automation runs\. The target parameter you specify with the tag must be a valid parameter defined in the Automation document\. For example, if you want to target dozens of Amazon EC2 instances by using tags, then choose the `InstanceId` target parameter\. By choosing this parameter, you define *instances* as the resource type for the Automation execution\. The following screenshot uses the AWS\-DetachEBSVolume document\. The logical target parameter is `VolumeId`\. 
 
@@ -26,36 +26,22 @@ Target parameter names are case sensitive\. If you run Automations by using eith
 aws ssm describe-document --name AWS-DeleteSnapshot
 ```
 
-You can specify a maximum of 5 tag keys and up to 5 values for *each* key\. If you specify multiple keys, the Automation runs only on those resources that match all of the criteria\. Specifying multiple keys and values for a target is only supported from the command line\. 
-
 Here are some example AWS CLI commands that target resources by using tags\.
 
-**Example 1: Targeting tags that use a single key\-value pair**
+**Example 1: Targeting tags using a key\-value pair to restart Amazon EC2 instances**
 
-This example restarts all Amazon EC2 instances that are tagged with a key of *Department* and a value of *HumanResources*\. The target parameter uses the *InstanceId* parameter from the Automation document\. The example uses an additional parameter to run the automation by using an Automation service role \(also called an assume role\)\.
+This example restarts all Amazon EC2 instances that are tagged with a key of *Department* and a value of *HumanResources*\. The target parameter uses the *InstanceId* parameter from the Automation document\. The example uses an additional parameter to run the automation by using an Automation service role \(also called an *assume role*\)\.
 
 ```
 aws ssm start-automation-execution --document-name AWS-RestartEC2Instance --targets Key=tag:Department,Values=HumanResources --target-parameter-name InstanceId --parameters "AutomationAssumeRole=arn:aws:iam::111122223333:role/AutomationServiceRole"
 ```
 
+**Example 2: Targeting tags using a key\-value pair to delete Amazon EBS snapshots**
+
 The following example uses the AWS\-DeleteSnapshot Automation document to delete all snapshots with a key of *Name* and a value of *January2018Backups*\. The target parameter uses the *VolumeId* parameter\.
 
 ```
 aws ssm start-automation-execution --document-name AWS-DeleteSnapshot --targets Key=tag:Name,Values=January2018Backups --target-parameter-name VolumeId
-```
-
-**Example 2: Targeting tags that use multiple key\-value pairs**
-
-The following example uses the AWS\-ResizeInstance Automation document to change the instance size of all instances tagged with a key of *Environment* and a value of *Development*, *Test*, and *Pre\-production*\.
-
-```
-aws ssm start-automation-execution --document-name AWS-ResizeInstance --targets Key=tag:Environment,Values=Development,Test,Pre-production --target-parameter-name InstanceType --parameters "InstanceType=p3.8xlarge"
-```
-
-The following example uses the AWS\-StopEC2Instance Automation document to stop all Amazon EC2 instances that are tagged with both of the following keys and values:*Environment\-Pre\-production* and *ServerRole\-WebServer*\. The Automation runs only on instances tagged with both key\-value pairs\.
-
-```
-aws ssm start-automation-execution --document-name AWS-ResizeInstance --targets Key=tag:Environment,Values=Pre-production Key=tag:ServerRole, Values=WebServer --target-parameter-name InstanceId
 ```
 
 ## Targeting AWS Resource Groups<a name="automation-working-targets-resource-groups"></a>
@@ -85,6 +71,9 @@ The following example uses the AWS\-CreateImage Automation document\. The target
 ```
 aws ssm start-automation-execution --document-name AWS-CreateImage --target-parameter-name InstanceId --targets Key=ParameterValues,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE
 ```
+
+**Note**  
+AutomationAssumeRole is not a valid parameter\. Don’t choose this item when running Automation workflows that target a parameter value\.
 
 ### Targeting Parameter Value Maps<a name="automation-working-targets-maps"></a>
 

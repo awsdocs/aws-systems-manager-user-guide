@@ -5,7 +5,7 @@ A State Manager association is a configuration that is assigned to your managed 
 Use the following topics to help you create and manage State Manager associations\.
 
 **Topics**
-+ [Create an Association \(Console\)](sysman-state-assoc.md)
++ [Create an Association](sysman-state-assoc.md)
 + [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)
 + [Edit and Create a New Version of an Association \(Console\)](sysman-state-assoc-version.md)
 + [Viewing Association Histories](sysman-state-assoc-history.md)

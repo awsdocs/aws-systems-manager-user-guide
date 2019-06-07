@@ -38,7 +38,7 @@ Only the *value* of a secure string parameter is encrypted\. Parameter names, de
    }
    ```
 
-1. Copy and paste the following json sample into a simple text editor and save the file as JoinInstanceToDomain\.json in the following location: `c:\temp\JoinInstanceToDomain.json`\.
+1. Copy and paste the following json sample into a simple text editor and save the file as `JoinInstanceToDomain.json` in the following location: `c:\temp\JoinInstanceToDomain.json`\.
 
    ```
    {

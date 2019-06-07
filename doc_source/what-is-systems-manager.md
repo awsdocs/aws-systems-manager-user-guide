@@ -27,23 +27,14 @@ View a video introduction to Systems Manager \(Duration: 1:42\)
 Systems Manager capabilities are grouped into the following capability types:
 
 **Topics**
-+ [Resource Groups](#features-rg)
-+ [Insights](#features-insights)
-+ [Actions](#features-actions)
++ [Operations Management](#features-operations-management)
++ [Actions & Change](#features-actions-and-change)
++ [Instances & Nodes](#features-instances-and-nodes)
 + [Shared Resources](#features-shared)
 
-### Resource Groups<a name="features-rg"></a>
+### Operations Management<a name="features-operations-management"></a>
 
-[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(Amazon EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
-
-### Insights<a name="features-insights"></a>
-
-Systems Manager provides the following capabilities for centrally viewing data about your AWS resources\. Choose the tabs to learn more\.
-
-------
-#### [ Built\-in Insights ]
-
-[Insights](https://docs.aws.amazon.com/ARG/latest/userguide/viewing-group-insights.html) show detailed information about the resources in your AWS Resource Groups, such as AWS CloudTrail logs, results of evaluations against AWS Config rules, and AWS Trusted Advisor reports\. Insights show information about a single, selected resource group at a time\.
+Operations Management is a suite of capabilities that help you manage your AWS resources\. Choose the tabs to learn more\.
 
 ------
 #### [ CloudWatch Dashboards ]
@@ -51,20 +42,27 @@ Systems Manager provides the following capabilities for centrally viewing data a
 [Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
 
 ------
-#### [ Inventory Management ]
+#### [ OpsCenter ]
 
-[Inventory Manager](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory Manager to gather metadata about applications, files, components, patches, and more on your managed instances\.
-
-------
-#### [ Configuration Compliance ]
-
-Use [Systems Manager Configuration Compliance](systems-manager-compliance.md) to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Configuration Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
+[OpsCenter](OpsCenter.md) provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items \(OpsItems\) related to AWS resources\. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources\. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources\. OpsCenter also provides Systems Manager Automation documents \(runbooks\) that you can use to quickly resolve issues\. You can specify searchable, custom data for each OpsItem\. You can also view automatically\-generated summary reports about OpsItems by status and source\. 
 
 ------
+#### [ Resource Groups ]
 
-### Actions<a name="features-actions"></a>
+[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(Amazon EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
 
-Systems Manager provides the following capabilities for taking action against your AWS resources\. Choose the tabs to learn more\.
+------
+#### [ Trusted Advisor & Personal Health Dashboard \(PHD\) ]
+
+Systems Manager hosts two online tools to help you provision your resources and monitor your account for health events\. Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices\. For more information, see [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/)\.
+
+The AWS Personal Health Dashboard provides information about AWS Health events that can affect your account\. The information is presented in two ways: a dashboard that shows recent and upcoming events organized by category, and a full event log that shows all events from the past 90 days\. For more information, see [Getting Started with the AWS Personal Health Dashboard](https://docs.aws.amazon.com/health/latest/ug/getting-started-phd.html)\.
+
+------
+
+### Actions & Change<a name="features-actions-and-change"></a>
+
+Systems Manager provides the following capabilities for taking action against or changing your AWS resources\. Choose the tabs to learn more\.
 
 ------
 #### [ Automation ]
@@ -72,40 +70,25 @@ Systems Manager provides the following capabilities for taking action against yo
 Use [Systems Manager Automation](systems-manager-automation.md) to automate common maintenance and deployment tasks\. You can use Automation to create and update Amazon Machine Images, apply driver and agent updates, reset passwords on Windows instance, reset SSH keys on Linux instances, and apply OS patches or application updates\. 
 
 ------
-#### [ Run Command ]
-
-Use [Systems Manager Run Command](execute-remote-commands.md) to remotely and securely manage the configuration of your managed instances at scale\. Use Run Command to perform on\-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances\. 
-
-------
-#### [ Session Manager ]
-
-Use [Session Manager](session-manager.md) to manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your Amazon EC2 instances\. 
-
-------
-#### [ Distributor ]
-
-Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
-
-------
-#### [ Patch Management ]
-
-Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) This capability enables you to scan instances for missing patches and apply missing patches individually or to large groups of instances by using Amazon EC2 instance tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task\. For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the instance\. For Linux, you also have the ability to update any package on the instance, not just those that are classified as operating system security updates\. For Windows Server, you can also use Patch Manager to update supported Microsoft applications\.
-
-------
 #### [ Maintenance Windows ]
 
 Use [Maintenance Windows](systems-manager-maintenance.md) to set up recurring schedules for managed instances to run administrative tasks like installing patches and updates without interrupting business\-critical operations\. 
 
 ------
-#### [ State Management ]
 
-Use [Systems Manager State Manager](systems-manager-state.md) to automate the process of keeping your managed instances in a defined state\. You can use State Manager to ensure that your instances are bootstrapped with specific software at startup, joined to a Windows domain \(Windows instances only\), or patched with specific software updates\. 
+### Instances & Nodes<a name="features-instances-and-nodes"></a>
+
+Systems Manager provides the following capabilities for managing your Amazon EC2 instances, your on\-premises servers and virtual machines \(VMs\) in your hybrid environment, and other types of AWS resources \(nodes\)\. Choose the tabs to learn more\.
 
 ------
+#### [ Configuration Compliance ]
 
-### Shared Resources<a name="features-shared"></a>
+Use [Systems Manager Configuration Compliance](systems-manager-compliance.md) to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Configuration Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
 
-Systems Manager uses the following shared resources for managing and configuring your AWS resources\. Choose the tabs to learn more\.
+------
+#### [ Inventory Management ]
+
+[Inventory Manager](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory Manager to gather metadata about applications, files, components, patches, and more on your managed instances\.
 
 ------
 #### [ Managed Instances ]
@@ -116,6 +99,37 @@ A [managed instance](systems-manager-setting-up.md) is any Amazon EC2 instance o
 #### [ Activations ]
 
 To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed\-instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+
+------
+#### [ Session Manager ]
+
+Use [Session Manager](session-manager.md) to manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your Amazon EC2 instances\. 
+
+------
+#### [ Run Command ]
+
+Use [Systems Manager Run Command](execute-remote-commands.md) to remotely and securely manage the configuration of your managed instances at scale\. Use Run Command to perform on\-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances\. 
+
+------
+#### [ State Management ]
+
+Use [Systems Manager State Manager](systems-manager-state.md) to automate the process of keeping your managed instances in a defined state\. You can use State Manager to ensure that your instances are bootstrapped with specific software at startup, joined to a Windows domain \(Windows instances only\), or patched with specific software updates\. 
+
+------
+#### [ Patch Management ]
+
+Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) This capability enables you to scan instances for missing patches and apply missing patches individually or to large groups of instances by using Amazon EC2 instance tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task\. For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the instance\. For Linux, you also have the ability to update any package on the instance, not just those that are classified as operating system security updates\. For Windows Server, you can also use Patch Manager to update supported Microsoft applications\.
+
+------
+#### [ Distributor ]
+
+Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
+
+------
+
+### Shared Resources<a name="features-shared"></a>
+
+Systems Manager uses the following shared resources for managing and configuring your AWS resources\. Choose the tabs to learn more\.
 
 ------
 #### [ Systems Manager Documents ]

@@ -3,7 +3,7 @@
 You can use Tools for Windows PowerShell to create a parameter that uses the `String`, `StringList`, or `SecureString` data type\. 
 
 **Note**  
-Parameters are only available in the Region where they were created\.
+Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
 + [Create a `String` or `StringList` parameter \(Tools for Windows PowerShell\)](#param-create-ps-string-stringlist)

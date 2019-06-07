@@ -62,7 +62,7 @@ If you are not configuring Amazon SNS notifications for your maintenance window,
 + [Task 1: Create and Subscribe to an Amazon SNS Topic](#monitoring-configure-sns)
 + [Task 2: Create an IAM Policy for Amazon SNS Notifications](#monitoring-iam-policy)
 + [Task 3: Create an IAM Role for Amazon SNS Notifications](#monitoring-iam-notifications)
-+ [Task 4: Attach the iam:PassRole Policy to Your Amazon SNS Role](#monitoring-sns-passpolicy)
++ [Task 4: Configure User Access](#monitoring-sns-passpolicy)
 + [Task 5: Attach the iam:PassRole Policy to Your Maintenance Window Role](#monitoring-sns-passpolicy-mw)
 
 ### Task 1: Create and Subscribe to an Amazon SNS Topic<a name="monitoring-configure-sns"></a>
@@ -168,13 +168,17 @@ You must add a comma after the existing entry\. In the preceding example, the en
 
 1. Leave the **Summary** page open\.
 
-### Task 4: Attach the iam:PassRole Policy to Your Amazon SNS Role<a name="monitoring-sns-passpolicy"></a>
+### Task 4: Configure User Access<a name="monitoring-sns-passpolicy"></a>
 
-Use the following procedure to attach the `iam:PassRole` policy to the Amazon SNS service role that you created in Task 3\.
+If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Run Command and Maintenance Windows\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
 
-**To attach the iam:PassRole policy to your Amazon SNS role**
+Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM User in Your AWS Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 
-1. In the **Summary** page for the role you created in Task 3, choose the **Permissions** tab\.
+**To configure user access and attach the iam:PassRole policy to a user account**
+
+1. In the IAM navigation pane, choose **Users**, and then choose the user account that you want to configure\.
+
+1. On the **Permissions** tab, in the policies list, verify that either the **AmazonSSMFullAccess** policy is listed or that there is a comparable policy that gives the account permissions to access Systems Manager\.
 
 1. Choose **Add inline policy**\.
 
@@ -188,7 +192,7 @@ Use the following procedure to attach the `iam:PassRole` policy to the Amazon SN
 
 1. Choose **Resources**\. Verify that **Specific** is selected, and then choose **Add ARN**\.
 
-1. In the **Specify ARN for role** field, paste the Amazon SNS role ARN that you copied at the end of Task 2\. The system automatically populates the **Account** and **Role name with path** fields\.
+1. In the **Specify ARN for role** field, paste the Amazon SNS role ARN that you copied at the end of Task 3\. The system automatically populates the **Account** and **Role name with path** fields\.
 
 1. Choose **Add**\.
 

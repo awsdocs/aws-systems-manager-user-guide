@@ -134,7 +134,7 @@ The following procedure shows you how to use the AWS Command Line Interface \(AW
            "SettingValue": "true",
            "LastModifiedDate": 1556551683.923,
            "LastModifiedUser": "arn:aws:sts::123456789012:assumed-role/Administrator/Jasper",
-           "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+           "ARN": "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
            "Status": "Customized"
        }
    }
@@ -153,7 +153,7 @@ aws ssm reset-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:se
         "SettingValue": "false",
         "LastModifiedDate": 1555532818.578,
         "LastModifiedUser": "System",
-        "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
+        "ARN": "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
         "Status": "Default"
     }
 }
@@ -176,11 +176,11 @@ The following procedure shows you how to use the AWS Tools for Windows PowerShel
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
 
    ```
-   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-1
+   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
    ```
 
    ```
-   ARN              : arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+   ARN              : arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
    LastModifiedDate : 4/29/2019 3:35:44 PM
    LastModifiedUser : arn:aws:sts::123456789012:assumed-role/Administrator/Jasper
    SettingId        : /ssm/parameter-store/high-throughput-enabled
@@ -191,11 +191,11 @@ The following procedure shows you how to use the AWS Tools for Windows PowerShel
 If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, run the following command\.
 
 ```
-Reset-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-1
+Reset-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
 ```
 
 ```
-ARN              : arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+ARN              : arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
 LastModifiedDate : 4/17/2019 8:26:58 PM
 LastModifiedUser : System
 SettingId        : /ssm/parameter-store/high-throughput-enabled

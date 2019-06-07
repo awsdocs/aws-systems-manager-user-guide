@@ -5,7 +5,7 @@ You can use the AWS CLI to create a parameter that uses the `String`, `StringLis
 For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and Use a Parameter in a Command \(AWS CLI\)](sysman-paramstore-cli.md)\.
 
 **Note**  
-Parameters are only available in the Region where they were created\.
+Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
 + [Create a `String` or `StringList` Parameter \(AWS CLI\)](#param-create-cli-string-stringlist)
@@ -25,7 +25,21 @@ Parameters are only available in the Region where they were created\.
 
    If successful, the command returns the version number of the parameter\.
 
-   Here is an example that uses the StringList data type\.
+   This example adds two key\-value pair tags to a parameter\. \(Depending on the operating system type on your local machine, run one of the following commands\. The version to run from a local Windows machine includes the escape characters \("\\"\) that you need to run the command from your command line tool\.\)
+
+   **Windows** local machine:
+
+   ```
+   aws ssm put-parameter --name parameter-name --value "parameter-value, or a comma-separated-list-of-values" --type "String" --tags [{\"Key\":\"Region1\",\"Value\":\"East1\"},{\"Key\":\"Environment1\",\"Value\":\"Production1\"}]
+   ```
+
+   **Linux** local machine:
+
+   ```
+   aws ssm put-parameter --name parameter-name --value "parameter-value, or a comma-separated-list-of-values" --type "String" --tags '[{"Key":"Region","Value":"East"},{"Key":"Environment", "Value":"Production"}]'
+   ```
+
+   Here is an example that uses the `StringList` data type\.
 
    ```
    aws ssm put-parameter --name /IAD/ERP/Oracle/addUsers --value "Milana,Mariana,Mark,Miguel" --type StringList --tier Standard
@@ -48,7 +62,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 ## Create a Secure String Parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
 
-Before you create a secure string parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Before you create a `Secure String` parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
 
 1. Install and configure the AWS CLI, if you have not already\.
 
@@ -62,7 +76,7 @@ Before you create a secure string parameter, read about the requirements for thi
 **Note**  
 To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assigned to your account, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
-   Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and a CMK\.
+   The following example uses an obfuscated name \(`elixir3131`\) for a password parameter and a CMK\.
 
    ```
    aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e --tier Advanced

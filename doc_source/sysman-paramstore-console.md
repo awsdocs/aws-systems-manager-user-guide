@@ -16,7 +16,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. Choose **Create parameter**\.
 
-1. In the **Name** box, enter a hierarchy and a name\. For example, enter `/Test/helloWorld`\.
+1. In the **Name** box, enter a hierarchy and a name\. For example, enter **/Test/helloWorld**\.
 
    For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
@@ -24,7 +24,7 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. For **Type**, choose **String**\.
 
-1. In the **Value** field, enter a string\. For example, enter `My1stParameter`\.
+1. In the **Value** field, enter a string\. For example, enter **My1stParameter**\.
 
 1. Choose **Create parameter**\.
 
@@ -32,12 +32,12 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose AWS\-RunPowershellScript \(Windows\) or AWS\-RunShellScript \(Linux\)\. 
+1. In the **Command document** list, choose `AWS-RunPowershellScript` \(Windows\) or `AWS-RunShellScript` \(Linux\)\. 
 
-1. Under **Target instances**, choose an instance you created earlier\.
+1. Under **Target instances**, choose a managed instance in your account\.
 
-1. In the **Commands** field, enter echo `{{ssm:parameter_name}}`, for example, echo `{{ssm:/Test/helloWorld}}`\. 
+1. In the **Commands** field, enter **echo \{\{ssm:*parameter\-name*\}\}**, for example, **echo \{\{ssm:/Test/helloWorld\}\}**\. 
 
 1. Choose **Run**\.
 
-1. Scroll to the bottom of the **Command ID** page, select the radio button next to an instance ID, and then choose **View output**\. 
+1. Scroll to the bottom of the **Command ID** page, select the button next to an instance ID, and then choose **View output**\. 

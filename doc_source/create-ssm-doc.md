@@ -12,7 +12,7 @@ If you create a document with conflicting plugins \(e\.g\., domain join and remo
 When processing documents, instance associations are applied first, and next tagged group associations are applied\. If an instance is part of multiple tagged groups, then the documents that are part of the tagged group will not be run in any particular order\. If an instance is directly targeted through multiple documents by its instance ID, there is no particular order of execution\. 
 If you change the default version of an SSM Policy document for State Manager, any association that uses the document will start using the new default version the next time Systems Manager applies the association to the instance\.
 If you create an association using an SSM document that was shared with you, and then the owner stops sharing the document with you, your associations no longer have access to that document\. However, if the owner shares the same SSM document with you again later, your associations automatically remap to it\.
-If you create an SSM document for State Manager, you must associate the document with your managed instances after you add it to the system\. For more information, see [Create an Association \(Console\)](sysman-state-assoc.md)\.
+If you create an SSM document for State Manager, you must associate the document with your managed instances after you add it to the system\. For more information, see [Create an Association](sysman-state-assoc.md)\.
 
 **Topics**
 + [Copy a Document](copy-document.md)

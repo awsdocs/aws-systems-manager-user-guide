@@ -19,7 +19,11 @@ Depending on whether you want to create a new role for your instance profile or 
 
 1. On the **Create role** page, in **Select type of trusted entity**, choose **AWS service**\.
 
-1. In **Choose the service that will use this role**, in the full list of services, choose **EC2**\.
+1. For **Choose the service that will use this role**, scroll down the page to view the full list of service names\.
+
+1. Choose **EC2**\. 
+**Note**  
+Choose the **EC2** link directly under **DynamoDB** in the list of service names\. Do not choose the **EC2** link immediately under the **Choose the service that will use this role** heading\.
 
 1. In **Select your use case**, choose **EC2 Role for AWS Systems Manager**, and then choose **Next: Permissions**\.
 

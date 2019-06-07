@@ -44,7 +44,7 @@ To use a customer managed CMK instead of the AWS\-managed CMK assigned to your a
 
   `alias/MyAliasName`
 
-You can create a customer managed CMK by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the default Region of your AWS account\.
+You can create a customer managed CMK by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current Region of your AWS account\.
 
 ```
 aws kms [create\-key](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
@@ -63,7 +63,7 @@ By default, all secure string values are displayed as cipher\-text\. To decrypt 
 
 ## Using Secure String Parameters With Other AWS Services<a name="sysman-paramstore-securelam"></a>
 
-You can also use secure string parameters with other AWS services\. In the following example, the Lambda function retrieves a secure string parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.
+You can also use secure string parameters with other AWS services\. In the following example, the AWS Lambda function retrieves a secure string parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.
 
 ```
 from __future__ import print_function
@@ -85,7 +85,7 @@ def lambda_handler(event, context):
 ```
 
 **Related topics**  
-For an example of how to create and use a secure string parameter, see [Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blogpost\.
+For an example of how to create and use a secure string parameter, see [Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blog posts\.
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)

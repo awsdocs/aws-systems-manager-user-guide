@@ -25,7 +25,7 @@ Complete the following tasks to get started with State Manager\.
 | --- | --- | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
 |  Learn more about State Manager  |  [About State Manager](sysman-state-about.md)  | 
-|  Create and assign a State Manager association to your instances  |  [Create an Association \(Console\)](sysman-state-assoc.md)  | 
+|  Create and assign a State Manager association to your instances  |  [Create an Association](sysman-state-assoc.md)  | 
 
 **Related Content**  
 See the following blog posts for additional examples of how to use State Manager:

@@ -7,7 +7,7 @@ Configuring access to Systems Manager Automation requires that you complete the 
 1. **Configure instance access by creating and assigning an instance profile role \(Required\)**: Each instance that runs an Automation workflow requires an IAM instance profile role\. This role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. If you previously created an instance profile role for Systems Manager, as described in [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md), then you can use this same instance profile role for Automation\. For information about how to attach this role to an existing instance, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*\.
 
 **Note**  
-Automation previously required that you specify a service role \(or *assume* role\) so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\.   
+Automation previously required that you specify a service role \(or an *assume* role\) so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\.   
 However, the following situations still require that you specify a service role for Automation:  
 When you want to restrict a user's privileges on a resource, but you want the user to run an Automation workflow that requires elevated privileges\. In this scenario, you can create a service role with elevated privileges and allow the user to run the workflow\.
 Operations that you expect to run longer than 12 hours require a service role\.
@@ -23,7 +23,7 @@ If you need to create an instance profile role and a service role for Systems Ma
 
 ## Task 1: Create a Service Role for Automation<a name="automation-role"></a>
 
-Use the following procedure to create a service role \(or *assume* role\) for Systems Manager Automation\.
+Use the following procedure to create a service role \(or *assume role*\) for Systems Manager Automation\.
 
 **Note**  
 You can also use these roles and their Amazon Resource Names \(ARNs\) in Automation documents, such as the `AWS-UpdateLinuxAmi` document\. Using these roles or their ARNs in Automation documents enables Automation to perform actions on your managed instances, launch new instances, and perform actions on your behalf\.

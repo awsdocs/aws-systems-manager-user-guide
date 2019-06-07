@@ -12,11 +12,11 @@ A parameter policy is a JSON array, as shown in the following table\. You can as
 
 | Policy | Details | Examples | 
 | --- | --- | --- | 
-|  **Expiration**  |  This policy deletes the parameter\. You can specify a specific date and time by using either the ISO\_INSTANT format or the ISO\_OFFSET\_DATE\_TIME format\. To change when you want the parameter to be deleted, you must update the policy\. Updating a *parameter* does not affect the expiration date or time of the policy attached to it\. When the expiration date and time is reached, Parameter Store deletes the parameter\.  This example uses the ISO\_INSTANT format\. You can also specify a date and time by using the ISO\_OFFSET\_DATE\_TIME format\. Here is an example: 2019\-11\-01T22:13:48\.87\+10:30:00    | <pre>{<br />   "Type":"Expiration",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Timestamp":"2018-12-02T21:34:33.000Z"<br />   }<br />}</pre> | 
+|  **Expiration**  |  This policy deletes the parameter\. You can specify a specific date and time by using either the `ISO_INSTANT` format or the `ISO_OFFSET_DATE_TIME` format\. To change when you want the parameter to be deleted, you must update the policy\. Updating a *parameter* does not affect the expiration date or time of the policy attached to it\. When the expiration date and time is reached, Parameter Store deletes the parameter\.  This example uses the `ISO_INSTANT` format\. You can also specify a date and time by using the `ISO_OFFSET_DATE_TIME` format\. Here is an example: `2019-11-01T22:13:48.87+10:30:00` \.   | <pre>{<br />   "Type":"Expiration",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Timestamp":"2018-12-02T21:34:33.000Z"<br />   }<br />}</pre> | 
 |  **ExpirationNotification**  |  This policy triggers an event in Amazon CloudWatch Events that notifies you about the expiration\. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours\.  | <pre>{<br />   "Type":"ExpirationNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Before":"15",<br />      "Unit":"Days"<br />   }<br />}</pre> | 
 |  **NoChangeNotification**  |  This policy triggers an event in CloudWatch if a parameter has *not* been modified for a specified period of time\. This policy type is useful when, for example, a password needs to be changed within a period of time\.This policy determines when to send a notification by reading the `LastModifiedTime` attribute of the parameter\. If you change or edit a parameter, the system resets the notification time period based on the new value of `LastModifiedTime`\.  | <pre>{<br />   "Type":"NoChangeNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "After":"20",<br />      "Unit":"Days"<br />   }<br />}</pre> | 
 
-You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers a CloudWatch Events event to notify you about the impending deletion of a parameter\. You can assign a maximum of 10 policies to a parameter\.
+You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers a CloudWatch Events event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
 
 The following example shows a [PutParameter](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new Secure String parameter named `ProdDB3`\.
 
@@ -70,11 +70,11 @@ PutParameterRequest
 This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS CLI, and AWS Tools for Windows PowerShell\. For information about how to create a new parameter that includes policies, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
 **Topics**
-+ [Add Policies to an Existing Parameter by Using the Systems Manager Console](#sysman-paramstore-policy-create-console)
-+ [Add Policies to an Existing Parameter by Using the AWS CLI](#sysman-paramstore-policy-create-cli)
++ [Add Policies to an Existing Parameter \(Console\)](#sysman-paramstore-policy-create-console)
++ [Add Policies to an Existing Parameter \(AWS CLI\)](#sysman-paramstore-policy-create-cli)
 + [Add Policies to an Existing Parameter by Using the Tools for Windows PowerShell](#sysman-paramstore-policy-create-ps)
 
-### Add Policies to an Existing Parameter by Using the Systems Manager Console<a name="sysman-paramstore-policy-create-console"></a>
+### Add Policies to an Existing Parameter \(Console\)<a name="sysman-paramstore-policy-create-console"></a>
 
 Use the following procedure to add policies to an existing parameter by using the Systems Manager console\.
 
@@ -101,7 +101,7 @@ Parameter Store preserves policies on a parameter until you either overwrite the
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy by using brackets and curly braces, as follows: `[{}]`
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 
-### Add Policies to an Existing Parameter by Using the AWS CLI<a name="sysman-paramstore-policy-create-cli"></a>
+### Add Policies to an Existing Parameter \(AWS CLI\)<a name="sysman-paramstore-policy-create-cli"></a>
 
 Use the following procedure to add policies to an existing parameter by using the AWS CLI\.
 
@@ -117,7 +117,7 @@ Use the following procedure to add policies to an existing parameter by using th
    aws ssm put-parameter --name "parameter_name" --value 'a value' --type parameter_type --tier Advanced --policies "[{policies enclosed in brackets and curly braces}]" --overwrite
    ```
 
-   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and a AWS Key Management Service \(KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and a AWS Key Management Service \(KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
    ```
    aws ssm put-parameter --name "/Finance/Payroll/elixir3131" --value "P@sSwW)rd" --type "SecureString" --tier Advanced --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite

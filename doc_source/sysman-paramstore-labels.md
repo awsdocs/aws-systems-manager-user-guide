@@ -240,7 +240,7 @@ Parameters are only available in the Region where they were created\. If you don
                ], 
                "Value": "MyTestService-June-Release.example.com", 
                "Version": 1, 
-               "LastModifiedUser": "arn:aws:iam::1234567890:user/test", 
+               "LastModifiedUser": "arn:aws:iam::123456789012:user/test", 
                "Type": "String"
            }, 
            {
@@ -251,7 +251,7 @@ Parameters are only available in the Region where they were created\. If you don
                ], 
                "Value": "MyTestService-July-Release.example.com", 
                "Version": 2, 
-               "LastModifiedUser": "arn:aws:iam::1234567890:user/test", 
+               "LastModifiedUser": "arn:aws:iam::123456789012:user/test", 
                "Type": "String"
            }
        ]

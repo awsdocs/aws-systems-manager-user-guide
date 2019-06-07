@@ -1,6 +1,6 @@
 # Working with Parameters<a name="sysman-paramstore-working"></a>
 
-This section describes how to organize, create, and tag parameters, and create different versions of parameters\.
+This section describes how to organize, create, and tag parameters, and how to create different versions of parameters\.
 
 **Topics**
 + [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)

@@ -33,7 +33,7 @@ Using delegated administration, you can restrict or elevate user permissions for
 
 Delegated administration enables you to provide permissions for certain tasks on certain resource without having to give a user direct permission to access the resources\. This improves your overall security profile\. For example, assume that User1 doesn’t have permissions to restart EC2 instances, but you would like to authorize the user to do so\. Instead of allowing User1 direct permissions, you can: 
 + Create an IAM role with the permissions required to successfully stop and start EC2 instances\.
-+ Create an Automation document and embed the role in the document\. \(The easiest way to do this is to customize the AWS\-RestartEC2Instance document and embed the role in the document instead of assigning an Automation service role \[or *assume* role\]\)\.
++ Create an Automation document and embed the role in the document\. \(The easiest way to do this is to customize the AWS\-RestartEC2Instance document and embed the role in the document instead of assigning an Automation service role \[or *assume role*\]\)\.
 + Modify IAM permissions for User1 and allow the user permission to run the document\. 
 
 For an example of how to delegate access to an Automation workflow, see [Running an Automation Workflow by Using Delegated Administration](automation-walk-security-delegated.md)\. 
