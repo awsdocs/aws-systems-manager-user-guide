@@ -2,7 +2,7 @@
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an IAM instance profile\. An instance profile is a container that passes IAM role information to an Amazon EC2 instance at launch\. This requirement applies to permissions for all AWS Systems Manager capabilities, not only those specific to Session Manager\.
 
-If you already use other Systems Manager capabilities, such as Run Command or Parameter Store, an instance profile with the required permissions for Session Manager might already be attached to your instances\. If an instance profile that contains the AWS\-managed policy **AmazonEC2RoleforSSM** is already attached to your instances, the permissions for Session Manager are already provided\.
+If you already use other Systems Manager capabilities, such as Run Command or Parameter Store, an instance profile with the required permissions for Session Manager might already be attached to your instances\. If an instance profile that contains the AWS managed policy **AmazonEC2RoleforSSM** is already attached to your instances, the permissions for Session Manager are already provided\.
 
 However, the **AmazonEC2RoleforSSM** provides a broad set of permissions for Systems Manager operations\. Many of these permissions are not required for using Session Manager\. If you want to restrict the instance permission, or if you have created a custom policy for your instance profile, do one of the following to allow Session Manager actions to be performed on your instances:
 + **Embed permissions for Session Manager actions in a custom instance profile**

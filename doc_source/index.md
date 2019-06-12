@@ -15,6 +15,11 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [What Is AWS Systems Manager?](what-is-systems-manager.md)
+   + [Systems Manager Capabilities](features.md)
+   + [How Systems Manager Works](how-it-works.md)
+   + [About SSM Agent](prereqs-ssm-agent.md)
+   + [Supported Operating Systems](prereqs-operating-systems.md)
+   + [Accessing Systems Manager](access-methods.md)
    + [Systems Manager Prerequisites](systems-manager-prereqs.md)
 + [Setting Up AWS Systems Manager](systems-manager-setting-up.md)
    + [Step 1: Sign Up for AWS](setup-sign-up.md)

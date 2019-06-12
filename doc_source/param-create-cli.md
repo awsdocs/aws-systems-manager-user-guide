@@ -20,7 +20,7 @@ Parameters are only available in the AWS Region where they were created\.
 1. Run the following command to create a parameter\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value, or a comma-separated list of values" --type String or StringList --tier Standard or Advanced
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value, or a comma-separated list of values" --type String or StringList
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -45,7 +45,6 @@ Parameters are only available in the AWS Region where they were created\.
    aws ssm put-parameter --name /IAD/ERP/Oracle/addUsers --value "Milana,Mariana,Mark,Miguel" --type StringList --tier Standard
    ```
 **Note**  
-If you don't specify a `tier` parameter, the systems creates a standard parameter\. For more information, about advanced parameters, see [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
 Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` data type\.
 
 1. Run the following command to verify the details of the parameter\.
@@ -62,7 +61,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 ## Create a Secure String Parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
 
-Before you create a `Secure String` parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Before you create a Secure String parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
 
 1. Install and configure the AWS CLI, if you have not already\.
 
@@ -71,7 +70,7 @@ Before you create a `Secure String` parameter, read about the requirements for t
 1. Run the following command to create a parameter\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "parameter value" --type SecureString --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" --tier Standard or Advanced
+   aws ssm put-parameter --name "parameter_name" --value "parameter value" --type SecureString --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 **Note**  
 To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assigned to your account, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
@@ -79,7 +78,7 @@ To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assign
    The following example uses an obfuscated name \(`elixir3131`\) for a password parameter and a CMK\.
 
    ```
-   aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e --tier Advanced
+   aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
    ```
 
 1. Run the following command to verify the details of the parameter\.

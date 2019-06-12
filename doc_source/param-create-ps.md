@@ -28,7 +28,7 @@ Parameters are only available in the AWS Region where they were created\.
 1. Run the following command to create a parameter\.
 
    ```
-   Write-SSMParameter -Name "parameter_name" -Value "a parameter value, or a comma-separated list of values" -Type "String or StringList" -Tier Standard or Advanced
+   Write-SSMParameter -Name "parameter_name" -Value "a parameter value, or a comma-separated list of values" -Type "String or StringList"
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -38,7 +38,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
    Here is an example that uses a String data type\.
 
    ```
-   Write-SSMParameter -Name "/IAD/Web/SQL/IPaddress" -Value "99.99.99.999" -Type "String" -Tier Standard
+   Write-SSMParameter -Name "/IAD/Web/SQL/IPaddress" -Value "99.99.99.999" -Type "String"
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -68,7 +68,7 @@ Before you create a secure string parameter, read about the requirements for thi
 1. Run the following command to create a parameter\.
 
    ```
-   Write-SSMParameter -Name "parameter_name" -Value "a parameter value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" -Tier Standard or Advanced
+   Write-SSMParameter -Name "parameter_name" -Value "a parameter value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -78,7 +78,7 @@ To use the AWS\-managed customer master key \(CMK\) assigned to your account, re
    Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString" -Tier Advanced
+   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString"
    ```
 
 1. Run the following command to verify the details of the parameter\.

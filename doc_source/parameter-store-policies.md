@@ -27,7 +27,6 @@ PutParameterRequest
    "Description":"Parameter with policies",
    "Value":"P@ssW*rd21",
    "Type":"SecureString",
-   "Tier":"Advanced",
    "Overwrite":"True",
    "Policies":[
       {
@@ -114,13 +113,13 @@ Use the following procedure to add policies to an existing parameter by using th
 1. Run the following command to add policies to an existing parameter\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value 'a value' --type parameter_type --tier Advanced --policies "[{policies enclosed in brackets and curly braces}]" --overwrite
+   aws ssm put-parameter --name "parameter_name" --value 'a value' --type parameter_type --policies "[{policies enclosed in brackets and curly braces}]" --overwrite
    ```
 
    Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and a AWS Key Management Service \(KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
    ```
-   aws ssm put-parameter --name "/Finance/Payroll/elixir3131" --value "P@sSwW)rd" --type "SecureString" --tier Advanced --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite
+   aws ssm put-parameter --name "/Finance/Payroll/elixir3131" --value "P@sSwW)rd" --type "SecureString" --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -159,13 +158,13 @@ Use the following procedure to add policies to an existing parameter by using To
 1. Run the following command to add policies to an existing parameter\.
 
    ```
-   Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Tier "Advanced" -Policies "[{policies enclosed in brackets and curly braces}]" -Overwrite
+   Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Policies "[{policies enclosed in brackets and curly braces}]" -Overwrite
    ```
 
    Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString" -Tier "Advanced" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite
+   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -179,6 +178,6 @@ Parameter Store preserves policies on a parameter until you either overwrite the
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. For example:  
 
   ```
-  Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Tier "Advanced" -Policies "[{}]"
+  Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Policies "[{}]"
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.

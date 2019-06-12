@@ -11,13 +11,13 @@ The following procedure walks you through the process of creating and storing a 
 1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String --tier Standard or Advanced
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String
    ```
 
    Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String --tier Advanced
+   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String
    ```
 
    The command returns the version number of the parameter\.
@@ -101,13 +101,13 @@ Use the following procedure to create a secure string parameter\. For more infor
    **Create a secure string parameter that uses a custom AWS KMS key**
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key" --tier Standard or Advanced
+   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key"
    ```
 
    Here is an example that uses a customer managed CMK\.
 
    ```
-   aws ssm put-parameter --name "my-password" --value "P@ssW%rd#1" --type "SecureString" --key-id "arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e" --tier Advanced
+   aws ssm put-parameter --name "my-password" --value "P@ssW%rd#1" --type "SecureString" --key-id "arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e"
    ```
 
 1. Run the following command to view the parameter metadata\.

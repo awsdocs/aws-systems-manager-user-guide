@@ -2,7 +2,7 @@
 
 **Description**
 
-Update a Microsoft Windows Amazon Machine Image \(AMI\)\. By default, this document installs all Windows updates, Amazon software, and Amazon drivers\. It then run Sysprep to create a new AMI\. Supports Windows Server 2008 R2 or later\.
+Update a Microsoft Windows Amazon Machine Image \(AMI\)\. By default, this document installs all Windows updates, Amazon software, and Amazon drivers\. It then runs Sysprep to create a new AMI\. Supports Windows Server 2008 R2 or later\.
 
 **Document Type**
 
