@@ -38,7 +38,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
 
    ```
-   Register-IAMRolePolicy -RoleName SSMServiceRole -PolicyArn arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore
+   Register-IAMRolePolicy -RoleName SSMServiceRole -PolicyArn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
    ```
 
    If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
@@ -87,7 +87,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
 
    ```
-   aws iam attach-role-policy --role-name SSMServiceRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore  
+   aws iam attach-role-policy --role-name SSMServiceRole --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
    ```
 
    If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
