@@ -179,6 +179,12 @@ This command will work only if your Session Manager administrator has granted yo
 aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 ```
 
+If your servers are not running in the default us-east-1 region, add the region parameter:
+
+```
+aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access --region your-region
+```
+
 ## \(Optional\) Enable Session Manager Plugin Logging<a name="install-plugin-configure-logs"></a>
 
 The Session Manager plugin includes an option to enable logging for sessions that you run\. By default, logging is disabled\.
