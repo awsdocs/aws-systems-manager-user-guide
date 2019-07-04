@@ -2,7 +2,7 @@
 
 **Description**
 
-Configure Amazon CloudWatch on a managed instance\.
+Enable/Disable CloudWatch detailed monitoring for EC2 instance.
 
 **Document Type**
 
