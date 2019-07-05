@@ -76,7 +76,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo systemctl start amazon-ssm-agent
    ```
 
-   **On Ubuntu**
+   **On Ubuntu <= 16.04**
 
    ```
    mkdir /tmp/ssm
@@ -85,6 +85,15 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo service amazon-ssm-agent stop
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
    sudo service amazon-ssm-agent start
+   ```
+   
+   **On Ubuntu >= 18.04**
+
+   ```
+   sudo snap install amazon-ssm-agent --classic
+   sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
+   sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+   sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
    ```
 
    **On Raspbian**
