@@ -2,6 +2,9 @@
 
 Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your Amazon EC2 instances and the local machines of users in your AWS account is encrypted using AWS KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) AWS KMS key encryption for sessions is accomplished using a customer master key \(CMK\) that is created in AWS KMS\.
 
+**Note**  
+You must enable AWS KMS encryption in order to reset passwords on your managed instances from the Systems Manager console\. For more information, see [Reset a Password on a Managed Instance](managed-instances-password-reset.md#managed-instance-reset-a-password)\.
+
 You can use a key that you created in your AWS account\. You can also use a key that was created in a different AWS account\. The creator of the key in a different AWS account must provide you with the permissions needed to use the key\.
 
 After you enable AWS KMS key encryption for your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the CMK with Session Manager through IAM policies\. For information, see the following topics:

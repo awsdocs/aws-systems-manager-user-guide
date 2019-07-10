@@ -9,12 +9,6 @@ For an explanation of how the various schedule\-related options for maintenance 
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
 1. Choose **Create a maintenance window**\.

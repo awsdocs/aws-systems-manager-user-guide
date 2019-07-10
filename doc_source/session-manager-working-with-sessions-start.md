@@ -1,10 +1,11 @@
 # Start a Session<a name="session-manager-working-with-sessions-start"></a>
 
-You can use the AWS Systems Manager console or the AWS CLI to start a session\.
+You can use the AWS Systems Manager console, the AWS CLI, or SSH to start a session\.
 
 **Topics**
 + [Starting a Session \(Console\)](#start-sys-console)
 + [Starting a Session \(AWS CLI\)](#sessions-start-cli)
++ [Starting a Session \(SSH\)](#sessions-start-ssh)
 
 ## Starting a Session \(Console\)<a name="start-sys-console"></a>
 
@@ -41,6 +42,30 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 aws ssm start-session --target instance-id
 ```
 
-*instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\.
+ *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.
+
+For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+
+## Starting a Session \(SSH\)<a name="sessions-start-ssh"></a>
+
+To start a session using SSH, run the following command:
+
+**Note**  
+To start a session using SSH, your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Session Manager Sessions](session-manager-getting-started-enable-ssh-connections.md)\.
+
+```
+ssh -i /path/my-key-pair.pem username@instance-id
+```
+
+ */path/my\-key\-pair\.pem* represents the path to your Privacy Enhanced Mail \(PEM\) certificate\.
+
+ *username@instance\-id* represents the user name you use to connect to the instance, and the instance ID\. For example: `JaneDoe@i-02573cafcfEXAMPLE`\.
+
+**Tip**  
+When you start a session using SSH, you can copy local files to the target instance using the following command format\.  
+
+```
+scp -i /path/my-key-pair.pem /path/SampleFile.txt username@instance-id:~
+```
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

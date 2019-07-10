@@ -60,8 +60,6 @@ By default, when Automation runs the `AWS-UpdateLinuxAmi` document, the system c
 VPC not defined 400  
 To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document and specify a subnet ID\. For more information, see [VPC not defined 400](automation-troubleshooting.md#automation-trbl-common-vpc)\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
 **To create a patched AMI using Automation \(AWS Systems Manager\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
@@ -85,22 +83,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. In the **Input parameters** section, enter the information you collected in the **Before You Begin** section\.
 
 1. Choose **Execute**\. The console displays the status of the Automation execution\.
-
-**To create a patched AMI using Automation \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\.
-
-1. Choose **Run automation**\.
-
-1. In the **Document name** list, choose **AWS\-UpdateLinuxAmi**\.
-
-1. In the **Version** list, choose **1**\.
-
-1. In the **Input parameters** section, enter the information you collected in the **Before You Begin** section\.
-
-1. Choose **Run automation**\. The system displays an automation execution ID\. Choose **OK**\.
-
-1. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows you the status of the workflow actions\. The update process can take 30 minutes or more to complete\.
 
 After the workflow finishes, launch a test instance from the updated AMI to verify changes\.
 

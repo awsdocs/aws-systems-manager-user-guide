@@ -13,7 +13,7 @@ MOF file execution is built on Windows PowerShell Desired State Configuration \(
 + [Prerequisites](#systems-manager-state-manager-using-mof-file-prereqs)
 + [Creating an Association that Runs MOF Files](#systems-manager-state-manager-using-mof-file-creating)
 + [Troubleshooting](#systems-manager-state-manager-using-mof-file-troubleshooting)
-+ [Common Problems](#systems-manager-state-manager-using-mof-file-troubleshooting-common)
++ [Viewing DSC Resource Compliance Details](#systems-manager-state-manager-viewing-mof-file-compliance)
 
 ## Using Amazon S3 to Store Artifacts<a name="systems-manager-state-manager-using-mof-file-S3-storage"></a>
 
@@ -96,8 +96,18 @@ There are 5 different types of tokens you can use:
 + **tag**: Amazon EC2 or managed instance tags
 + **tagb64**: This is the same as tag, but the system use base64 to decode the value\. This allows you to use special characters in tag values\.
 + **env**: Resolves Environment variables\.
-+ **ssm**: Parameter Store values\. Only String and SecureString types are supported\.
++ **ssm**: Systems Manager Parameter Store values\. Only String and Secure String types are supported\.
 + **tagssm**: This is the same as tag, but if the tag is not set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
+
+Here is Parameter Store example that uses the `ssm` token type\. 
+
+```
+File MyFile
+{
+    DestinationPath = "C:\ProgramData\ConnectionData.txt"
+    Content = "{ssm:%servicePath%/ConnectionData}"
+}
+```
 
 Tokens play an important role in reducing redundant code by making MOF files generic and reusable\. If you can avoid server\-specific MOF file, then there’s no need for a MOF building service\. A MOF building service increases costs, slows provisioning time, and increases the risk of configuration drift between grouped instances due to differing module versions being installed on the build server when their MOFs were compiled\.
 
@@ -240,7 +250,7 @@ As a first step to troubleshooting, enable enhanced logging\. More specifically,
 
 With verbose and debug logging enabled, the **Stdout** output file includes details about the script execution\. This output file can help you identify where the script failed\. The **Stderr** output file contains errors that occurred during the script execution\. 
 
-## Common Problems<a name="systems-manager-state-manager-using-mof-file-troubleshooting-common"></a>
+### Common Problems<a name="systems-manager-state-manager-using-mof-file-troubleshooting-common"></a>
 
 This section includes information about common problems that can occur when creating associations that run MOF files and steps to troubleshoot these issues\.
 
@@ -279,3 +289,30 @@ This error indicates that the script can't reach a remote service\. Most likely,
      ```
 
      If the ping failed, it means that either Amazon S3 is down, or a firewall/transparent proxy is blocking access to the Amazon S3 region, or the instance can't access the internet\.
+
+## Viewing DSC Resource Compliance Details<a name="systems-manager-state-manager-viewing-mof-file-compliance"></a>
+
+Systems Manager captures compliance information about DSC resource failures in the Amazon Simple Storage Service \(Amazon S3\) **Status Bucket** you specified when you ran the AWS\-ApplyDSCMofs document\. Searching for information about DSC resource failures in an Amazon S3 bucket can be time consuming\. Instead, you can quickly view this information in the Systems Manager **Compliance** page\. 
+
+The **Compliance resources summary** section displays a count of resources that failed\. In the following example, the **ComplianceType** is **Custom:DSC** and one resource is non\-compliant\.
+
+**Note**  
+Custom:DSC is the default **ComplianceType** value in the AWS\-ApplyDSCMofs document\. This value is customizable\.
+
+![\[Viewing counts in the Compliance resources summary section of the Compliance page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-3.png)
+
+The **Details overview for resources** section displays information about the AWS resource with the non\-compliant DSC resource\. This section also includes the MOF name, script execution steps, and \(when applicable\) a **View output** link to view detailed status information\. 
+
+![\[Viewing compliance details for a MOF execution resource failure\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-1.png)
+
+The **View output** link displays the last 4,000 characters of the detailed status\. Systems Manager starts with the exception as the first element, and then scans back through the verbose messages and prepends as many as it can until it reaches the 4000 character limit\. This process displays the log messages that were output prior to the exception being thrown, which are the most relevant messages for troubleshooting\.
+
+![\[Viewing detailed output for MOF resource compliance issue\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
+
+For information about how how to view compliance information, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
+
+### Situations that Affect Compliance Reporting<a name="systems-manager-state-manager-viewing-mof-file-compliance-reporting"></a>
+
+If the State Manager association fails, then no compliance data is reported\. More specifically, if a MOF fails to process, then Systems Manager doesn’t report any compliance items because the associations fails\. For example, if Systems Manager attempts to download a MOF from an Amazon S3 bucket that the instance doesn't have permission to access, then the association fails and no compliance data is reported\.
+
+If a resource in a second MOF fails, then Systems Manager *does* report compliance data\. For example, if a MOF tries to create a file on a drive that doesn’t exist, then Systems Manager reports compliance because the AWS\-ApplyDSCMofs document is able to process completely, which means the association successfully runs\. 

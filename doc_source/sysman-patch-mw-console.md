@@ -7,9 +7,7 @@ To minimize the impact on your server availability, we recommend that you config
 
 You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To create a maintenance window for patching \(AWS Systems Manager\)**
+**To create a maintenance window for patching**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -76,58 +74,6 @@ The **Install** operation causes the instance to reboot \(if patches are install
    + For **Timeout \(seconds\)**, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 
 1. Choose **Register run command task**\.
-
-**To create a maintenance window for patching \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Maintenance Windows**, and then choose **Create maintenance window**\.
-
-1. For **Name**, enter a name that designates this as a maintenance window for patching critical and important updates\.
-
-1. For **Specify schedule**, choose the schedule options you want\.
-
-1. For **Duration**, enter the number of hours you want the maintenance window to be active\.
-
-1. For **Stop initiating tasks**, enter the number of hours before the maintenance window duration ends that you want the system to stop initiating new tasks\.
-
-1. Choose **Create maintenance window**\.
-
-1. In this list of maintenance windows, select the maintenance window you just created, and then choose **Actions**, **Register targets**\.
-
-1. \(Optional\) Near the top of the page, specify a name, description, and owner information \(your name or alias\) for this target\.
-
-1. Next to **Select targets by**, choose **Specifying Tags**\.
-
-1. Next to **Tag**, use the lists to choose a tag key and a tag value\.
-
-1. Choose **Register targets**\. The system creates a maintenance window target\.
-
-1. In the list of maintenance windows, choose the maintenance window you created with the procedure, and then choose **Actions**, **Register run command task**\.
-
-1. In the **Command Document** section of the **Register run command task** page, choose **AWS\-RunPatchBaseline**\.
-
-1. In the **Task Priority** section, specify a priority\. One is the highest priority\.
-
-1. In the **Targets** section, choose **Select**, and then choose the maintenance window target you created earlier in this procedure\.
-
-1. For **Role**, enter the ARN of a role which has the **AmazonSSMMaintenanceWindowRole** policy attached to it\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
-
-1. For **Execute on**, choose either **Targets** or **Percent** to limit the number of instances where the system can simultaneously perform patching operations\.
-
-1. For **Stop after**, specify the number of allowed errors before the system stops sending the patching task to other instances\.
-
-1. For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
-**Note**  
-The **Install** operation causes the instance to reboot \(if patches are installed\)\. The **Scan** operations does not cause a reboot\.
-
-1. You don't need to specify anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
-
-1. In the **Advanced** section: 
-   + If you want to write command output and results to an Amazon S3 bucket, choose **Write to S3**\. Type the bucket and prefix names in the boxes\.
-   + If you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Register task**\.
 
 After the maintenance window task completes, you can view patch compliance details in the Amazon EC2 console on the **Managed Instances** page\. In the filter bar, use the **AWS:PatchSummary** and **AWS:ComplianceItem** filters\. 
 

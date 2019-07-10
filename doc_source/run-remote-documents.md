@@ -14,7 +14,7 @@ Before you run a remote document, you must complete the following tasks\.
 
 ## Run a Remote Document \(Console\)<a name="run-remote-documents-console"></a>
 
-**To run a remote document \(AWS Systems Manager\)**
+**To run a remote document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

@@ -44,7 +44,7 @@ This Automation doesn't support upgrading Windows domain controllers, clusters, 
 
   Type: String
 
-  Description: \(Required\) The IAM instance profile\.
+  Description: \(Required\) The name of the IAM instance profile that enables Systems Manager to manage the instance\.
 + SubnetId
 
   Type: String

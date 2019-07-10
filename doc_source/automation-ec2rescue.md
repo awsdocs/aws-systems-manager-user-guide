@@ -147,15 +147,10 @@ Choose **View** to view the template\.
 
 ## Running the Automation<a name="automation-ec2rescue-executing"></a>
 
-**Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
-
 **Important**  
 The following Automation execution stops the unreachable instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To run the AWSSupport\-ExecuteEC2Rescue Automation \(AWS Systems Manager\)**
+**To run the AWSSupport\-ExecuteEC2Rescue Automation**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -190,40 +185,6 @@ If you don't see the option to specify a bucket or a subnet ID, verify that you 
    1. For **AssumeRole**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you copied from the CloudFormation console\.
 
 1. Choose **Execute automation**\.
-
-The Automation creates a backup AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but this AMI remains in your account\. The AMI is named using the following convention:
-
-Backup AMI: AWSSupport\-EC2Rescue:*UnreachableInstanceId*
-
-You can locate this AMI in the Amazon EC2 console by searching on the Automation execution ID\.
-
-**To run the AWSSupport\-ExecuteEC2Rescue Automation \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\. 
-
-1. Choose **Run Automation**\.
-
-1. In the **Document name** section, choose **Owned by Me or Amazon** from the list\.
-
-1. In the documents list, choose **AWSSupport\-ExecuteEC2Rescue**\. The document owner is Amazon\.
-
-1. In the **Input parameters** section, specify the following parameters: 
-
-   1. For **UnreachableInstanceId**, specify the ID of the unreachable instance\. 
-
-   1. For **LogDestination**, specify an Amazon S3 bucket if you want to collect operating system\-level logs while troubleshooting your instance\. Logs are automatically uploaded to the specified bucket\.
-
-   1. For **EC2RescueInstanceType**, specify an instance type for the EC2Rescue instance\. The default instance type is t2\.small\.
-
-   1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the unreachable instance\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
-**Note**  
-If you don't see the option to specify a bucket or a subnet ID, verify that you are using the latest **Default** version of the document\.
-
-   1. For **AssumeRole**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you copied from the CloudFormation console\.
-
-1. Choose **Run Automation**\.
-
-1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** next to a step\.
 
 The Automation creates a backup AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but this AMI remains in your account\. The AMI is named using the following convention:
 

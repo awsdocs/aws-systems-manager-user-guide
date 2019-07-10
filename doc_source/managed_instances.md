@@ -9,6 +9,8 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 
 **Note**  
 Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
+The standard\-instances limit also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
+Microsoft application patching is only available on Amazon EC2 instances and in the advanced\-instances tier\. To patch Microsoft applications on on\-premises servers and VMs, you must enable the advanced\-instances tier\. For more information, see [About Patching Applications on Windows Server](about-windows-app-patching.md)\.
 
 If you don't see your managed instances listed in the console, then do the following:
 
@@ -30,4 +32,11 @@ AWS Config provides AWS Managed Rules, which are predefined, customizable rules 
 For information about Systems Manager prerequisites, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\.
 
 **Increase security posture on managed instances**  
-For information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+
+**Reset the password on a managed instance**  
+If you forget or want to change the password to one of your managed instances, you can reset it using the AWS Systems Manager **Managed Instances** console or the AWS CLI\. For more information, see [Resetting Passwords on Managed Instances](managed-instances-password-reset.md)\.
+
+**Related Content**
++ For information about increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
++ AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-ssm.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 

@@ -9,7 +9,7 @@ Before you complete the following procedure, you must either have administrator 
 + [Step 1: Get Started](#mw-walkthrough-cli-settings)
 + [Step 2: Create the Maintenance Window](#mw-walkthrough-cli-create-mw)
 + [Step 3: Register Maintenance Window Targets \(AWS CLI\)](#mw-walkthrough-cli-targets)
-+ [Step 4: Register a Run Command Task for the Mmaintenance Window to Update SSM Agent](#mw-walkthrough-cli-tasks)
++ [Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent](#mw-walkthrough-cli-tasks)
 
 ## Step 1: Get Started<a name="mw-walkthrough-cli-settings"></a>
 
@@ -160,7 +160,7 @@ Use the following command to register multiple managed instances:
    }
    ```
 
-## Step 4: Register a Run Command Task for the Mmaintenance Window to Update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
+## Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
 
 Use the following procedure to register a Run Command task for the maintenance window you created in Step 2\. The Run Command task updates SSM Agent on the registered targets\.
 

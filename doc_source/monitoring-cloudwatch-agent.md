@@ -46,7 +46,7 @@ Before you begin a migration to the CloudWatch agent for log collection, ensure 
 
 ### Automatically Migrating to the CloudWatch agent<a name="monitoring-cloudwatch-agent-migrate-auto"></a>
 
-For Amazon EC2 Windows instances only, you can use the AWS Systems Manager console, the Amazon EC2 console, or the AWS CLI to automatically migrate to the CloudWatch agent as your log collection tool\.
+For Amazon EC2 Windows instances only, you can use the AWS Systems Manager console or the AWS CLI to automatically migrate to the CloudWatch agent as your log collection tool\.
 
 **Note**  
 Currently, AWS Systems Manager supports migrating from SSM Agent to the CloudWatch agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch agent on other operating systems, and for complete information about using the CloudWatch agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
@@ -76,15 +76,7 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AmazonCloudWatch\-MigrateCloudWatchAgent\.
 
@@ -127,15 +119,7 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AWS\-ConfigureAWSPackage\.
 
@@ -166,15 +150,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AWS\-RunPowerShellScript\.
 
@@ -198,15 +174,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AWS\-ConfigurecloudWatch\.
 
@@ -260,15 +228,7 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AWS\-ConfigureAWSPackage\.
 
@@ -284,15 +244,7 @@ AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll dow
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
-
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
-**Note**  
-AWS Systems Manager only: If the AWS Systems Manager home page opens, scroll down and choose **Explore Run Command**\.
 
 1. In the **Command document** list, choose AWS\-ConfigureCloudWatch\.
 

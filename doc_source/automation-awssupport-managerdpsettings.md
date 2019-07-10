@@ -76,7 +76,7 @@ aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings
 Restore the default RDP port \(3389\), disable NLA, enable remote connections
 
 ```
-aws ssm start-automation-execution --document-name "ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
+aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
 ```
 
 Retrieve the execution output

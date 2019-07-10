@@ -367,9 +367,7 @@ mainSteps:
 
 You can approve or deny Automations that are waiting for approval in the console\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To approve or deny waiting Automations \(AWS Systems Manager\)**
+**To approve or deny waiting Automations**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -387,18 +385,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Review the details of the Automation\.
 
 1. Choose either **Approve** or **Deny**, type an optional comment, and then choose **Submit**\.
-
-**To approve or deny waiting Automations\(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\.
-
-1. Choose an Automation with a status of **Waiting**, choose **Actions**, and then choose **Approve/Deny this request**\.  
-![\[Accessing the Approve/Deny Automation page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action1.png)
-
-1. Review the details of the Automation in the **Approve/Deny this request** page\.  
-![\[A prompt to approve or reject an Automation action\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action.png)
-
-1. Choose either **Approve** or **Reject**, type an optional comment, and then choose **Submit**\.
 
 **Input**
 
@@ -678,6 +664,7 @@ Required: Yes
 
 CheckStateOnly  
 If false, sets the instance state to the desired state\. If true, asserts the desired state using polling\.  
+Default: `false`  
 Type: Boolean  
 Required: No
 
@@ -921,7 +908,7 @@ Pattern: \[a\-zA\-Z0\-9\]\[\-a\-zA\-Z0\-9\]\*
 DisableRollback  
 Set to `true` to disable rollback of the stack if stack creation failed\.  
 Conditional: You can specify either the `DisableRollback` parameter or the `OnFailure` parameter, but not both\.   
-Default: false  
+Default: `false`  
 Type: Boolean  
 Required: No
 
@@ -1815,6 +1802,7 @@ Required: Yes
 
 InstanceType  
 The instance type\.  
+If an instance type value is not provided, the m1\.small instance type is used\.
 Type: String  
 Required: No
 

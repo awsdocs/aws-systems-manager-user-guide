@@ -9,9 +9,7 @@ If you share a command, users can view and use that command until you either rem
 
 ## Stop Sharing a Document \(Console\)<a name="unshare-using-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Stop sharing a document \(AWS Systems Manager\)**
+**Stop sharing a document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -26,18 +24,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Choose **Edit**\.
 
 1. Choose **X** to delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
-
-**Stop sharing a document \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Documents**\.
-
-1. In the documents list, choose the document you want to stop sharing\. Choose the **Permissions** tab and verify that you are the document owner\. Only a document owner can stop sharing a document\.
-
-1. Choose **Edit**\.
-
-1. Delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
 
 ## Stop Sharing a Document \(AWS CLI\)<a name="unshare-using-cli"></a>
 

@@ -1,4 +1,4 @@
-# AWS\-Configures3BucketVersioning<a name="automation-aws-configures3bucketversioning"></a>
+# AWS\-ConfigureS3BucketVersioning<a name="automation-aws-configures3bucketversioning"></a>
 
 **Description**
 
@@ -42,7 +42,7 @@ Windows, Linux
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-ASGEnterStandby --parameters parameters
+aws ssm start-automation-execution --document-name AWS-ConfigureS3BucketVersioning --parameters parameters
 ```
 
 Retrieve the execution output

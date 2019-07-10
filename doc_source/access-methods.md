@@ -3,8 +3,7 @@
 You can work with Systems Manager in any of the following ways:
 
 **Systems Manager Console**  
-The [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) is a browser\-based interface to access and use Systems Manager\.  
-Systems Manager functionality was previously available only in the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\. There you’ll still find Systems Manager features and services in the left navigation pane under the headings **Systems Manager Services** and **Systems Manager Shared Resources**\. However, the Amazon EC2 console offers access to only those Systems Manager features and services released before November 2017\. Systems Manager access through the Amazon EC2 console will be deprecated in the future\. We therefore encourage you to use the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The AWS Systems Manager console offers access to all Systems Manager services, data, and shared resources\. This console also provides access to the dashboards and related services that work with Systems Manager to help you manage your AWS resources\.
+The [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) is a browser\-based interface to access and use Systems Manager\.
 
 **AWS Command Line Tools**  
 The AWS command line tools let you issue commands at your system's command line to perform Systems Manager and other AWS tasks, and is supported on Windows, Linux, and macOS\. Using the CLI can be faster and more convenient than using the console\. The command line tools also are useful if you want to build scripts that perform AWS tasks\.   

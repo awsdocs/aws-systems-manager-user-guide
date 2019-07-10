@@ -14,7 +14,7 @@ Also note that an instance can have only have one Inventory association configur
 Before you configure inventory collection, complete the following tasks\.
 + Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
-+ Create a Resource Data Sync to centrally store Inventory data in an Amazon S3 bucket\. Resource Data Sync then automatically updates the centralized data when new Inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
++ \(Optional\) Create a Resource Data Sync to centrally store Inventory data in an Amazon S3 bucket\. Resource Data Sync then automatically updates the centralized data when new Inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
 ## Inventory All Managed Instances in Your AWS Account<a name="inventory-management-inventory-all"></a>

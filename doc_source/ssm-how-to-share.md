@@ -9,9 +9,7 @@ You can share Systems Manager document by using the Amazon EC2 console, the AWS 
 
 ## Share a Document \(Console\)<a name="share-using-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Share a document \(AWS Systems Manager\)**
+**Share a document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -26,18 +24,6 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Choose **Edit**\.
 
 1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add permission**, and then choose **Save**\. 
-
-**Share a document \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Documents**\.
-
-1. In the documents list, choose the document you want to share\. Choose the **Permissions** tab and verify that you are the document owner\. Only a document owner can share a document\.
-
-1. Choose **Edit**\.
-
-1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add Permission**, and then choose **Save**\. 
 
 ## Share a Document \(AWS CLI\)<a name="share-using-cli"></a>
 

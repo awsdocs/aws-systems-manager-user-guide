@@ -43,8 +43,13 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
             "Action": [
                 "ssm:GetDocument"
             ],
-            "Resource": "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell"
+            "Resource": "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell"  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
         },
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                }
+            },
         {
             "Effect": "Allow",
             "Action": [
@@ -64,6 +69,10 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
     ]
 }
 ```
+
+**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom configuration document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH Session Manager Sessions](session-manager-getting-started-enable-ssh-connections.md)\.
+
+**2** If you specify the condition element `ssm:SessionDocumentAccessCheck` as `true`, the system checks that a user was granted explicit access to the configuration document `SSM-SessionManagerRunShell` before allowing a session to start\. For more information, see [Enforce Document Permission Check for Default CLI Scenario](getting-started-sessiondocumentaccesscheck.md)\.
 
 **About 'kms:GenerateDataKey**  
 The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 

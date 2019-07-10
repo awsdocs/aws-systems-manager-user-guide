@@ -7,9 +7,6 @@ The following walkthrough shows you how to configure a State Manager association
 **Before You Begin**  
 Before you complete the following procedure, verify that you have at least one Amazon EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
-**Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
-
 **To create a State Manager association that automatically updates PV drivers**
 
 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **State Manager**\.
@@ -28,7 +25,7 @@ If you choose to target instances by using tags, and you specify tags that map t
 
 1. In the **Parameters** section, choose **Install** from the **Action** list\.
 
-1. From the **Name** list, choose **AWSPVDriver**\. You can leave the **Version** field empty\.
+1. For **Name** list, enter **AWSPVDriver**\. You can leave the **Version** field empty\.
 
 1. In the **Advanced** section, choose **Write to S3** if you want to write association details to an Amazon S3 bucket\.
 

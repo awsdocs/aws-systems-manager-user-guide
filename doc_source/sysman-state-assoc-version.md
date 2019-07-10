@@ -5,9 +5,9 @@ You can edit an association to specify a new name, schedule, severity level, or 
 **Note**  
 This procedure requires that you have write access to an existing S3 bucket\. If you have not used S3 before, be aware that you will incur charges for using S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
+**To edit a State Manager association**
 
-**To edit a State Manager association \(AWS Systems Manager\)**
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. In the navigation pane, choose **State Manager**\.
 
@@ -37,31 +37,3 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 1. Drill down several levels, through the `awsrunPowerShell` folder, to the `stdout` file\.
 
 1. Choose **Open** or **Download** to view the host name\.
-
-**To edit a State Manager association \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **State Manager**\.
-
-1. Choose the association you created in the previous procedure\.
-
-1. From the **Actions** menu, choose **Edit Association**\.
-
-1. In the **Name** field, type a new name\. For example, type **TestHostnameAssociation2**\.
-
-1. In the **Schedule** section, choose a new option\. For example, choose **Cron schedule builder**, and then choose **Every 1 hour**\.
-
-1. In the **Advanced** section, choose **Write to S3**\.
-
-1. Disregard the **S3Region** field\. This field is deprecated\. Specify the name of your bucket in the **S3Bucket Name** field\. If want to write output to a sub\-folder, specify the sub folder name in the **S3Key Prefix** field\. 
-
-1. Choose **Edit Association**, and then choose **Close**\.
-
-1. In the State Manager page, choose the association you just edited, and then choose the **Versions** tab\. The system lists each version of the association you created and edited\.
-
-1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
-
-1. Choose your bucket name, and then choose an instance ID that ran the association\.
-
-1. Drill down several levels, through the `awsrunPowerShell` folder, to the `stdout` file\.
-
-1. Choose the file, and then choose the link in the **Link** section\. The host name is listed in the **HostId** tags\.

@@ -27,7 +27,7 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-AttachIAMToInstance](automation-aws-attachiamtoinstance.md)
 + [AWS\-ConfigureCloudWatchOnEC2Instance](automation-aws-configurecloudwatchonec2instance.md)
 + [AWS\-ConfigureS3BucketLogging](automation-aws-configures3bucketlogging.md)
-+ [AWS\-Configures3BucketVersioning](automation-aws-configures3bucketversioning.md)
++ [AWS\-ConfigureS3BucketVersioning](automation-aws-configures3bucketversioning.md)
 + [AWS\-CopySnapshot](automation-aws-copysnapshot.md)
 + [AWSEC2\-CloneInstanceAndUpgradeWindows](automation-awsec2-CloneInstanceAndUpgradeWindows.md)
 + [AWSEC2\-CloneInstanceAndUpgradeSQLServer](automation-awsec2-CloneInstanceAndUpgradeSQLServer.md)

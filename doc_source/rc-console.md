@@ -5,9 +5,7 @@ You can use Run Command from the console to configure instances without having t
 **Before You Begin**  
 Before you send a command using Run Command, verify that your instances meet Systems Manager [requirements](systems-manager-prereqs.md)\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To send a command using Run Command \(AWS Systems Manager\)**
+**To send a command using Run Command**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -47,50 +45,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 For information about canceling a command, see [Canceling a Command](rc-cancel.md)\. 
 
-**To send a command using Run Command \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, expand **Systems Manager Services**, and then choose **Run Command**\.
-
-1. Choose **Run a command**\.
-
-1. In the **Command document** section, choose a document\.
-
-1. In the **Select Targets by** section, choose **Manually Selecting Instances** to chose individual instances\. Or choose **Specifying a Tag**, choose a group of instances by specifying one or more Amazon EC2 tags\.
-
-1. In the **Execute on** field, choose either **Targets** or **Percent** in the list\. If you choose **Targets**, then you can specify the exact number of instances that should be allowed to run the command at one time, for example, 10\. If you choose **Percent**, then you can choose a percentage of the instances that should be allowed to run the command at one time, for example 30\. **Percent** is a helpful option when targeting EC2 tags and you are not certain of the total number of instances that will run the command\.
-
-   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
-
-1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\.
-
-   Instances that are already running a command when this value is reached are allowed to complete, but some of these executions may fail as well\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
-
-1. In the next section, specify the parameters or options for your SSM document\. Parameters and options are different for each document\.
-
-1. For **Comment**, we recommend providing information to will help you identify this command in your list of commands\.
-
-1. For **Timeout \(seconds\)**, type the number of seconds that Run Command should attempt to reach an instance before it is considered unreachable and the command execution fails\. The minimum is 30 seconds, the maximum is 30 days, and the default is 10 minutes\.
-
-1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you run multiple commands against multiple instances\.
-**Important**  
-The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
-
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-**Note**  
-After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
-
-1. Choose **Run**, and then choose **View results**\.
-
-1. In the commands list, choose the command you just ran\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
-
-1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
-
-1. Choose **View Output**\. The command output page shows the results of your command execution\.
-
-For information about canceling a command, see [Canceling a Command](rc-cancel.md)\. 
-
 ## Update SSM Agent by using Run Command<a name="rc-console-agentexample"></a>
 
 The following procedure describes how to quickly update SSM Agent running on your Windows and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
@@ -98,9 +52,7 @@ The following procedure describes how to quickly update SSM Agent running on you
 **Note**  
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To update SSM Agent using Run Command \(AWS Systems Manager\)**
+**To update SSM Agent using Run Command**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -141,45 +93,3 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
-
-**To update SSM Agent using Run Command \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane under **Systems Manager Services**, choose **Run Command**\.
-
-1. Choose **Run a command**\.
-
-1. For **Command document**, choose **AWS\-UpdateSSMAgent**\.
-
-1. In the **Select Targets by** section, choose **Manually Selecting Instances** to chose individual instances\. Or choose **Specifying a Tag** to choose a group of instances by specifying one or more Amazon EC2 tags\.
-
-1. In the **Execute on** field, choose either **Targets** or **Percent** in the list\. If you choose **Targets**, then you can specify the exact number of instances that should be allowed to run the command at one time, for example, 10\. If you choose **Percent**, then you can choose a percentage of the instances that should be allowed to run the command at one time, for example 30\. **Percent** is a helpful option when targeting EC2 tags and you are not certain of the total number of instances that will run the command\.
-
-   This feature allows you to limit the number of instances running the command at one time to avoid impacting instance performance and availability\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
-
-1. In the **Stop after \_\_ errors** field, specify the maximum number of errors allowed before the system stops sending the command to additional instances\. For example, if you specify 1, then the systems stops sending the command to additional instances when the system receives the second error\. For more information, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
-
-1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
-
-1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
-
-1. For **Comment**, we recommend providing information that will help you identify this command in your list of commands\.
-
-1. For **Timeout \(seconds\)**, type the number of seconds that Run Command should attempt to reach an instance before it is considered unreachable and the command execution fails\. The minimum is 30 seconds, the maximum is 30 days, and the default is 10 minutes\.
-
-1. \(Optional\) Choose **Write output to an S3 bucket** if you want to write the command output to an Amazon S3 bucket\. If you chose this option, specify the S3 bucket and, optionally, an S3 key prefix\. An S3 key prefix is a subfolder in the S3 bucket\. A subfolder can help you organize Run Command output if you run multiple commands against multiple instances\.
-**Important**  
-The Run Command **Output** page in the Amazon EC2 console truncates output after 2500 characters\. Configure an Amazon S3 bucket before executing commands using Run Command\. If your command output was longer than 2500 characters, you can view the full output in your Amazon S3 bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
-
-1. \(Optional\) Choose **Enable SNS notifications** if you want to receive notifications about the status of the commands you run with Run Command\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-**Note**  
-After you specify parameters and options for your SSM document, expand the **AWS Command Line Interface command** section\. This section includes a reusable command for different command\-line platforms\.
-
-1. Choose **Run**, and then choose **View results**\.
-
-1. In the commands list, choose the command you just ran\. If the command is still in progress, choose the refresh icon in the top right corner of the console\. 
-
-1. When the **Status** column shows **Success** or **Failed**, choose the **Output** tab\.
-
-1. Choose **View Output**\. The command output page shows the results of your command execution\.

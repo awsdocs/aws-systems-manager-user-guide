@@ -15,7 +15,6 @@ Parameter Store offers the following benefits and features\.
   + Amazon Elastic Container Service \(Amazon ECS\)
   + AWS Lambda
   + AWS CloudFormation
-  + AWS CloudFormation
   + AWS CodeBuild
   + AWS CodeDeploy
 + Configure integration with the following AWS services for encryption, notification, monitoring, and auditing:

@@ -48,9 +48,7 @@ The following procedures show you how to edit a parameter and then verify that a
 
 You can use the Amazon EC2 console or AWS Systems Manager console to create a new version of a parameter\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To create a new parameter version \(AWS Systems Manager\)**
+**To create a new parameter version**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -69,17 +67,3 @@ Parameters are only available in the Region where they were created\. If you don
 1. In the **Value** box, type a new value, and then choose **Save changes**\.
 
 1. In the parameters list, choose the name of the parameter you just updated, and then view the **History** tab\. On the **Overview** tab, verify that the version number incremented by 1, and verify the new value\.
-
-**To create a new parameter version \(Amazon EC2 console\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Shared Resources** in the navigation pane, and then choose **Parameter Store**\. 
-
-1. Choose a parameter that you created earlier\. For information about creating a new parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\. 
-**Note**  
-Parameters are only available in the Region where they were created\. If you don't see a parameter that you want to update, then verify your Region\.
-
-1. Choose **Actions**, **Edit parameter**\.
-
-1. In the **Value** box, type a new value, and then choose **Save parameter**\.
-
-1. In the parameters list, choose the parameter you just updated, and then choose the **History** tab\. Verify that the version number incremented by 1, and verify the new value\.

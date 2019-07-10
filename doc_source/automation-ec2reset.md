@@ -163,17 +163,12 @@ This procedure creates an AWS CloudFormation stack in the US East \(Ohio\) Regio
 
 ## Running the Automation<a name="automation-ec2reset-executing"></a>
 
-**Note**  
-The following procedure describes steps that you perform in the Amazon EC2 console\. You can also perform these steps in the [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/)\. The steps in the new console differ from the steps below\.
-
-The following procedure describes how to run the **AWSSupport\-ResetAccess** document by using the Amazon EC2 console\.
+The following procedure describes how to run the **AWSSupport\-ResetAccess** document by using the AWS Systems Manager console\.
 
 **Important**  
 The following Automation execution stops the instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\. To avoid these configuration changes, use Run Command to reset access\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To run the AWSSupport\-ResetAccess Automation \(AWS Systems Manager\)**
+**To run the AWSSupport\-ResetAccess Automation**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -206,40 +201,6 @@ If you don't see the option to specify a subnet ID, verify that you are using th
    1. For **Assume Role**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you copied from the CloudFormation console\.
 
 1. Choose **Execute**\.
-
-1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** next to a step\.
-
-The Automation creates a backup AMI and a password\-enabled AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but these AMIs remain in your account\. The AMIs are named using the following conventions:
-+ Backup AMI: AWSSupport\-EC2Rescue:*InstanceId*
-+ Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *InstanceId*
-
-You can locate these AMIs by searching on the Automation execution ID\.
-
-For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store\. The parameter name is **/ec2rl/openssh/*instance\_id*/key**\.
-
-**To run the AWSSupport\-ResetAccess Automation \(Amazon EC2 Systems Manager\)**
-
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **Automations**\. 
-
-1. Choose **Run Automation**\.
-
-1. In the **Document name** section, choose **Owned by Me or Amazon** from the list\.
-
-1. In the documents list, choose **AWSSupport\-ResetAccess**\. The document owner is Amazon\.
-
-1. In the **Input parameters** section, specify the following parameters: 
-
-   1. For **InstanceID**, specify the ID of the unreachable instance\. 
-
-   1. For **EC2RescueInstanceType**, specify an instance type for the EC2Rescue instance\. The default instance type is t2\.small\.
-
-   1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the instance you specified\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
-**Note**  
-If you don't see the option to specify a subnet ID, verify that you are using the latest **Default** version of the document\.
-
-   1. For **Assume Role**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you copied from the CloudFormation console\.
-
-1. Choose **Run Automation**\.
 
 1. To monitor the execution progress, choose the running Automation, and then choose the **Steps** tab\. When the execution is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** next to a step\.
 

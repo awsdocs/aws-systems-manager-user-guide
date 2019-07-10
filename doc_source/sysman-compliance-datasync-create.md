@@ -49,7 +49,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
    }
    ```
 
-**To create a Resource Data Sync \(AWS Systems Manager\)**
+**To create a Resource Data Sync**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

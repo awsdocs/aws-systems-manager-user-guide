@@ -31,9 +31,7 @@ If you plan to run a script that is stored in a private GitHub repository, then 
 
 #### Run an Ansible Playbook from GitHub \(Console\)<a name="integration-github-ansible-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Run an Ansible Playbook from GitHub \(AWS Systems Manager\)**
+**Run an Ansible Playbook from GitHub**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -94,52 +92,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**Run an Ansible Playbook from GitHub \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
-**Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose **GitHub**
-
-1. In the **Source** text box, type the required information to access the source in the following format:
-
-   ```
-   {"owner":"owner_name", "repository": "repository_name", "path": "path_to_scripts_or_directory", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
-   ```
-
-   For example:
-
-   ```
-   {"owner":"TestUser1", "repository": "GitHubPrivateTest", "path": "scripts/webserver.yml", "tokenInfo":"{{ssm-secure:mySecureStringParameter}}" }
-   ```
-
-1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
-
-   ```
-   ansible-playbook -i “localhost,” --check -c local webserver.yml
-   ```
-
-1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Run**\.
-
 #### Run an Ansible Playbook from GitHub by Using the AWS CLI<a name="integration-github-ansible-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
@@ -164,9 +116,7 @@ This section includes procedures to help you run Python scripts from GitHub by u
 
 #### Run a Python Script from GitHub \(Console\)<a name="integration-github-python-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Run a Python Script from GitHub \(AWS Systems Manager\)**
+**Run a Python Script from GitHub**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -229,56 +179,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**Run a Python Script from GitHub \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
-**Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose **GitHub**
-
-1. In the **Source** text box, type the required information to access the source in the following format:
-
-   ```
-   {"owner":"owner_name", "repository": "repository_name", "path": "path_to_scripts_or_directory", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
-   ```
-
-   For example:
-
-   ```
-   {"owner":"TestUser1", "repository":"GitHubPrivateTest", "path": "scripts/python/complex-script","tokenInfo":"{{ssm-secure:mySecureStringParameter}}"}
-   ```
-
-   This example downloads a directory of scripts named complex\-script\.
-
-1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
-
-   ```
-   mainFile.py argument-1 argument-2
-   ```
-
-   This example runs mainFile\.py, which can then run other scripts in the complex\-script directory\.
-
-1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Run**\.
-
 #### Run a Python Script from GitHub by Using the AWS CLI<a name="integration-github-python-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
@@ -320,9 +220,7 @@ This section includes procedures to help you run Ruby scripts from Amazon S3 by 
 
 #### Run a Ruby Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Run a Ruby Script from Amazon S3 \(AWS Systems Manager\)**
+**Run a Ruby Script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -381,52 +279,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**Run a Ruby Script from Amazon S3 \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
-**Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose **S3**
-
-1. In the **Source** text box, type the required information to access the source in the following format:
-
-   ```
-   {"path":"https://s3.amazonaws.com/path_to_script"}
-   ```
-
-   For example:
-
-   ```
-   {"path":"https://s3.amazonaws.com/rubytest/scripts/ruby/helloWorld.rb"}
-   ```
-
-1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
-
-   ```
-   helloWorld.rb argument-1 argument-2
-   ```
-
-1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Run**\.
-
 #### Run a Ruby Script from Amazon S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
@@ -465,9 +317,7 @@ This section includes procedures to help you run Shell scripts from Amazon S3 by
 
 #### Run a Shell Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Run a Shell Script from Amazon S3 \(AWS Systems Manager\)**
+**Run a Shell Script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -526,52 +376,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-**Run a Shell Script from Amazon S3 \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
-**Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose **S3**
-
-1. In the **Source** text box, type the required information to access the source in the following format:
-
-   ```
-   {"path":"https://s3.amazonaws.com/path_to_script"}
-   ```
-
-   For example:
-
-   ```
-   {"path":"https://s3.amazonaws.com/shelltest/scripts/shell/helloWorld.sh"}
-   ```
-
-1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
-
-   ```
-   helloWorld.sh argument-1 argument-2
-   ```
-
-1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Run**\.
-
 #### Run a Shell Script from Amazon S3 by using the AWS CLI<a name="integration-s3-shell-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
@@ -610,9 +414,7 @@ This section includes procedures to help you run PowerShell scripts from Amazon 
 
 #### Run a PowerShell Script from Amazon S3 \(Console\)<a name="integration-S3-PowerShell-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Run a PowerShell Script from Amazon S3 \(AWS Systems Manager\)**
+**Run a PowerShell Script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -668,52 +470,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
    For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
-
-1. Choose **Run**\.
-
-**Run a PowerShell Script from Amazon S3 \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Run Command**, and then choose **Run a command**\.
-
-1. In the **Document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Select Targets by** section, choose an option and select the instances where you want to download and run the script\.
-
-1. \(Optional\) In the **Execute on** field, specify a number of **Targets** that can run the AWS\-RunRemoteScript document concurrently \(for example, 10\)\. Or, specify a percentage of the number of targets that can run the document concurrently \(for example, 10%\)\.
-**Note**  
-If you selected targets by choosing EC2 tags, and you are not certain how many instances use the selected tags, then limit the number of instances that can run the document by specifying a percentage\.
-
-1. \(Optional\) In the **Stop after** field, specify the maximum number of errors allowed before the system stops sending the command to other instances\. For example, if you specify 3, then Systems Manager stops sending the command when the 4th error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose **S3**
-
-1. In the **Source** text box, type the required information to access the source in the following format:
-
-   ```
-   {"path": "https://s3.amazonaws.com/path_to_script"}
-   ```
-
-   For example:
-
-   ```
-   {"path": "https://s3.amazonaws.com/PowerShellTest/powershell/helloPowershell.ps1"}
-   ```
-
-1. In the **Command Line** field, type parameters for the script execution\. Here is an example\.
-
-   ```
-   helloPowershell.ps1 argument-1 argument-2
-   ```
-
-1. In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-
-1. In the **Comments** field, type information about this command\.
-
-1. In the **Advanced Options** section, choose **Write to S3** to store command output in an Amazon S3 bucket\. Type the bucket and prefix names in the text boxes\.
-
-1. Choose **Enable SNS notifications** to receive notifications and status about the command execution\. For more information about configuring SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 

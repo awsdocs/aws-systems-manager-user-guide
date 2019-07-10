@@ -7,7 +7,7 @@ If the pre\-configured metadata types collected by Systems Manager Inventory don
 **Important**  
 Systems Manager Inventory collects *only* metadata from your managed instances\. Inventory does not access proprietary information or data\.
 
-The following table lists the types of metadata that you can collect with Systems Manager Inventory\.
+The following table lists the types of metadata that you can collect with Systems Manager Inventory\. The table also lists the instances you can collect inventory information from and the collection intervals you can specify\.
 
 
 ****  

@@ -38,7 +38,7 @@ Windows, Linux
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-SGDisableDefaultPublicAccess --parameters parameters
+aws ssm start-automation-execution --document-name AWS-DisablePublicAccessForSecurityGroup --parameters parameters
 ```
 
 Retrieve the execution output

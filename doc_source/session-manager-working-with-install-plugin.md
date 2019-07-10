@@ -179,12 +179,6 @@ This command will work only if your Session Manager administrator has granted yo
 aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 ```
 
-If your servers are not running in the default us-east-1 region, add the region parameter:
-
-```
-aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access --region your-region
-```
-
 ## \(Optional\) Enable Session Manager Plugin Logging<a name="install-plugin-configure-logs"></a>
 
 The Session Manager plugin includes an option to enable logging for sessions that you run\. By default, logging is disabled\.
@@ -258,8 +252,9 @@ The current minimum supported version is 1\.1\.17\.0\.
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
 
-| Version> | Release date | Details | 
+| Version | Release date | Details | 
 | --- | --- | --- | 
+|  1\.1\.22\.0  | July 9, 2019 |  **Enhancement**: Add support for running SSH sessions using Session Manager\.  | 
 | 1\.1\.17\.0 | April 4, 2019 |  **Enhancement**: Add support for further encryption of session data using AWS Key Management Service \(AWS KMS\)\.  | 
 | 1\.0\.37\.0 | September 20, 2018 |  **Enhancement**: Bug fix for Windows version\.  | 
 | 1\.0\.0\.0 | September 11, 2018 |  Initial release of the Session Manager plugin\.  | 
