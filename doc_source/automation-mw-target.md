@@ -41,7 +41,7 @@ For example, if you choose the Automation document `AWS-CopySnapshot`, then the 
 **Note**  
 If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automation workflows that can run at the same time by specifying a percentage\.  
 When the maintenance window runs, a new Automation execution is initiated per target\. There is a limit of 25 concurrent executions of Automation per AWS account\. If you specify a concurrency rate greater than 25, concurrent executions greater than 25 are automatically added to the execution queue\. For information, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\. 
-   + For **Error threshold**, specify when to stop running the automation workflow on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automation workflows when the fourth error is received\. Targets still processing the workflow might also send errors\.
+   + For **Error threshold**, specify when to stop running the automation workflow on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automation workflows when the third error is received\. Targets still processing the workflow might also send errors\.
 
 1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the Automation workflow:
    +  ** Create and use a service\-linked role for Systems Manager **

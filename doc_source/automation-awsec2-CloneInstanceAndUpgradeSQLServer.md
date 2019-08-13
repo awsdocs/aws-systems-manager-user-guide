@@ -26,15 +26,20 @@ Windows
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 + Configure the instance to use an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the instance boot disk\.
-+ Provide an EBS Snapshot ID that includes SQL Server 2016 installation media\. To do this:
-  + Verify that the Amazon EC2 instance is running Windows Server 2008 R2 or later\.
-  + Create a 6 GB EBS volume in the same Availability Zone where the instance is running\. Attach the volume to the instance\. Mount it, for example, as drive D\. 
-  + Right\-click the ISO and mount it to an instance as, for example, drive E\.
-  + Copy the content of the ISO from drive E:\\ to drive D:\\
-  + Create an EBS snapshot of the 6 GB volume created in step 2 above\.
++ For instances that use a Bring Your Own License \(BYOL\) SQL Server version, the following additional prerequisites apply:
+  + Provide an EBS snapshot ID that includes SQL Server 2016 installation media\. To do this:
+
+    1. Verify that the Amazon EC2 instance is running Windows Server 2008 R2 or later\.
+
+    1. Create a 6 GB EBS volume in the same Availability Zone where the instance is running\. Attach the volume to the instance\. Mount it, for example, as drive D\. 
+
+    1. Right\-click the ISO and mount it to an instance as, for example, drive E\.
+
+    1. Copy the content of the ISO from drive E:\\ to drive D:\\
+
+    1. Create an EBS snapshot of the 6 GB volume created in step 2\.
 
 **Limitations**
-+ This Automation only supports upgrading instances that use a Bring Your Own License SQL Server version\.
 + The upgrade can only be performed on a SQL Server using Windows authentication\.
 + Verify that no security patch updates are pending on the instances\. Open **Control Panel**, then choose **Check for updates**\.
 + SQL Server deployments in HA and mirroring mode are not supported\.
@@ -44,32 +49,32 @@ Windows
 
   Type: String
 
-  Description: \(Required\) The Instance running Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
+  Description: \(Required\) The instance running Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
 + IamInstanceProfile
 
   Type: String
 
   Description: \(Required\) The IAM instance profile\.
-+ SnapshotId
-
-  Type: String
-
-  Description: \(Required\) SnapshotId for SQL Server 2016 installation media\.
 + SubnetId
 
   Type: String
 
   Description: \(Required\) Provide a subnet for the upgrade process\. Verify that the subnet has outbound connectivity to AWS services, Amazon S3, and Microsoft \(to download patches\)\.
++ SQLServerSnapshotId
+
+  Type: String
+
+  Description: \(Conditional\) Snapshot ID for SQL Server 2016 installation media\. This parameter is required for instances that use a BYOL SQL Server version\. This parameter is optional for SQL Server license\-included instances \(instances launched using an AWS provided Amazon Machine Image for Windows Server with Microsoft SQL Server\)\.
 + KeepPreUpgradeImageBackUp
 
   Type: String
 
-  Description: \(Optional\) If set True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
+  Description: \(Optional\) If set to True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
 + RebootInstanceBeforeTakingImage
 
   Type: String
 
-  Description: \(Optional\) If set True, the Automation reboots the instance before creating a pre\-upgrade AMI\. By default, the Automation doesn't reboot before upgrade\.
+  Description: \(Optional\) If set to True, the Automation reboots the instance before creating a pre\-upgrade AMI\. By default, the Automation doesn't reboot before upgrade\.
 
 **Outputs**
 

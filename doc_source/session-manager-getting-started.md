@@ -9,4 +9,4 @@ Before you use Session Manager to connect to the Amazon EC2 instances in your ac
 + [Step 4: Configure Session Preferences](session-manager-getting-started-configure-preferences.md)
 + [Step 5: \(Optional\) Use PrivateLink to Set Up a VPC Endpoint for Session Manager](session-manager-getting-started-privatelink.md)
 + [Step 6: \(Optional\) Disable or Enable ssm\-user Account Administrative Permissions](session-manager-getting-started-ssm-user-permissions.md)
-+ [Step 7: \(Optional\) Enable SSH Session Manager Sessions](session-manager-getting-started-enable-ssh-connections.md)
++ [Step 7: \(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)

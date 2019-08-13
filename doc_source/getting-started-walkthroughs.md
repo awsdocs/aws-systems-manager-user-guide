@@ -24,7 +24,7 @@ The [AWS Systems Manager Session Manager](session-manager.md) capability lets yo
 **Distributor**  
 The [AWS Systems Manager Distributor](distributor.md) capability lets you package your own software—or find AWS\-provided agent software packages, such as AmazonCloudWatchAgent—to install on Systems Manager managed instances\.
 + [Create a Package](distributor-working-with-packages-create.md)
-+ [Add a Package to Distributor](distributor-working-with-packages-add.md)
++ [Step 4: Add a Package to Distributor](distributor-working-with-packages-create.md#distributor-working-with-packages-add)
 
 **Patch Manager**  
 The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of Amazon EC2 instances or on\-premises servers and VMs\.

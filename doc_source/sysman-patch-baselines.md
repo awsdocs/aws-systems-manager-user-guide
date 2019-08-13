@@ -43,7 +43,7 @@ If you create your own patch baseline, you can choose which patches to auto\-app
 For each auto\-approval rule that you create, you can specify an auto\-approval delay\. This delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the Critical Updates classification and configure it for seven days auto\-approval delay, then a new critical patch released on January 7 will automatically be approved on January 14\.
 
 **Note**  
-If a Linux repository doesn’t provide release date information for packages, Systems Manager treats the Auto Approval Delay as having a value of zero\.
+If a Linux repository doesn’t provide release date information for packages, Systems Manager uses the build time of the package as the auto\-approval delay for Amazon Linux, Amazon Linux 2, RHEL, and CentOS\. If the system isn't able to find the build time of the package, Systems Manager treats the auto\-approval delay as having a value of zero\.
 
 You can also specify a compliance severity level\. If an approved patch is reported as missing, `Compliance Level` is the severity of the compliance violation\. 
 

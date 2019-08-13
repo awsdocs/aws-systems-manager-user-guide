@@ -18,7 +18,7 @@ See [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-mana
 See [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
  **AWS Tools for PowerShell Cmdlet Reference**  
-See [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)\.
+See [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)\.
 
  **SSM Agent Repository on GitHub**  
 See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.

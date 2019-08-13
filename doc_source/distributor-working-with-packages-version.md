@@ -1,13 +1,13 @@
 # Add a Package Version to Distributor<a name="distributor-working-with-packages-version"></a>
 
-To add a package version, [create a package and manifest](distributor-working-with-packages-create.md), upload it to Amazon S3, and then use Distributor to add a package version by adding an entry to the document that already exists for older versions\. To save time, update the manifest for an older version of the package, change the value of the `version` entry in the manifest \(for example, from `Test_1.0` to `Test_2.0`\) and save it as the manifest for the new version\. 
+To add a package version, [create a package](distributor-working-with-packages-create.md), and then use Distributor to add a package version by adding an entry to the SSM document that already exists for older versions\. To save time, update the manifest for an older version of the package, change the value of the `version` entry in the manifest \(for example, from `Test_1.0` to `Test_2.0`\) and save it as the manifest for the new version\. The simple **Add version** workflow in the Distributor console updates the manifest file for you\.
 
 A new package version can:
-+ Replace at least one of the ZIP files attached to the current version\.
-+ Add new ZIP files to support additional platforms\.
++ Replace at least one of the installable files attached to the current version\.
++ Add new installable files to support additional platforms\.
 + Delete files to discontinue support for specific platforms\.
 
-A newer version can use the same S3 bucket, but must have a URL with a different file name shown at the end\. You can use the AWS Systems Manager console or the AWS CLI to add the new version\.
+A newer version can use the same S3 bucket, but must have a URL with a different file name shown at the end\. You can use the AWS Systems Manager console or the AWS CLI to add the new version\. Uploading an installable file with the exact name as an existing installable file in the S3 bucket overwrites the existing file\. No installable files are copied over from the older version to the new version; you must upload installable files from the older version to have them be part of a new version\. After Distributor is finished creating your new package version, you can delete or repurpose the S3 bucket, because Distributor copies your software to an internal Systems Manager bucket as part of the versioning process\.
 
 **Topics**
 + [Adding a Package Version \(Console\)](#add-pkg-version)
@@ -17,7 +17,11 @@ A newer version can use the same S3 bucket, but must have a URL with a different
 
 Before you perform these steps, follow the instructions in [Create a Package](distributor-working-with-packages-create.md) to create a new package for the version\. Then, use the AWS Systems Manager console to add a new package version to Distributor\.
 
-**To add a package version \(console\)**
+### Adding a Package Version \(Simple\)<a name="add-pkg-version-simple"></a>
+
+To add a package version by using the **Simple** workflow, prepare updated installable files or add installables to support more platforms and architectures\. Then, use Distributor to upload new and updated installable files and add a package version\. The simplified **Add version** workflow in the Distributor console updates the manifest file and associated SSM document for you\.
+
+**To add a package version \(simple\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -25,13 +29,67 @@ Before you perform these steps, follow the instructions in [Create a Package](di
 
 1. On the Distributor home page, choose the package to which you want to add another version\.
 
-1. On the **Add package version** page, enter a description for the new package version\. Descriptions can be a maximum of 512 characters\.
+1. On the **Add version** page, choose **Simple**\.
 
-1. \(Optional\) If you did not upload your JSON manifest to the S3 bucket where you stored your ZIP files, you can author or paste the entire JSON manifest in the **JSON manifest** field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+1. In **Version name**, enter a version name\. The version name for the new version must be different from older version names\. Version names can be a maximum of 512 characters, and cannot contain special characters\.
+
+1. For **S3 bucket name**, choose an existing S3 bucket from the list\. This can be the same bucket that you used to store installable files for older versions, but the installable file names must be different to avoid overwriting existing installable files in the bucket\.
+
+1. In **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
+
+1. In **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions are not automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
+
+1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown is not correct, choose the correct operating system from the drop\-down list\.
+
+   In the **Simple** versioning workflow, because you upload each installable file only once, extra steps are required to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to instruct Distributor to target the same software at both Amazon Linux and Ubuntu operating systems\. You can do one of the following to work around this limitation\.
+   + Use the **Advanced** versioning workflow instead, zip each installable file into a ZIP file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Adding a Package Version \(Advanced\)](#add-pkg-version-adv)\.
+   + Manually edit the manifest file in the **Simple** workflow so that your ZIP file is targeted at multiple operating system platforms or versions\. For more information about how to do this, see the end of step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+
+1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, or the exact, specific operating system release version to which you want your software to apply\. For more information about specifying a platform version, see step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+
+1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported architectures, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+
+1. \(Optional\) Expand **Installation and uninstallation scripts**, and review the installation and uninstallation scripts that Distributor generates for your installable software\.
+
+1. To add more installable software files to the new version, choose **Add software**\. Otherwise, go to the next step\.
+
+1. \(Optional\) Expand **Manifest**, and review the JSON package manifest that Distributor generates for your installable software\. If you changed any information about your installable software since you began this procedure, such as platform version or target platform, choose **Generate manifest** to show the updated package manifest\.
+
+   You can edit the manifest manually if you want to target a software installable at more than one operating system, as described in step 9\. For more information about editing the manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+
+1. When you finish adding software and reviewing the target platform, version, and architecture data, choose **Add version**\.
+
+1. Wait for Distributor to finish uploading your software and creating the new package version\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page does not show all information about your package until Distributor finishes creating the new package version\. To stop the upload and package version creation, choose **Stop upload**\.
+
+1. If Distributor cannot upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package version creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
+
+1. When Distributor is finished creating the new package version, on the package's **Details** page, on the **Versions** tab, view the new version in the list of available package versions\. Set a default version of the package by choosing a version, and then choosing **Set default version**\.
+
+   If you do not set a default version, the newest package version is the default version\.
+
+### Adding a Package Version \(Advanced\)<a name="add-pkg-version-adv"></a>
+
+To add a package version, [create a package](distributor-working-with-packages-create.md), and then use Distributor to add a package version by adding an entry to the SSM document that exists for older versions\. To save time, update the manifest for an older version of the package, change the value of the `version` entry in the manifest \(for example, from `Test_1.0` to `Test_2.0`\) and save it as the manifest for the new version\. You must have an updated manifest to add a new package version by using the **Advanced** workflow\.
+
+**To add a package version \(advanced\)**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Distributor**\.
+
+1. On the Distributor home page, choose the package to which you want to add another version, and then choose **Add version**\.
 
 1. In **Version name**, enter the exact value that is in the `version` entry of your manifest file\.
 
-1. In **Package location**, paste the URL that you copied when you uploaded your package to S3, and then choose **Add package version**\.
+1. For **S3 bucket name**, choose an existing S3 bucket from the list\. This can be the same bucket that you used to store installable files for older versions, but the installable file names must be different to avoid overwriting existing installable files in the bucket\.
+
+1. In **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
+
+1. In **Manifest**, choose **Extract from package** to use a manifest that you uploaded to the S3 bucket with your ZIP files\.
+
+   \(Optional\) If you did not upload your revised JSON manifest to the S3 bucket where you stored your ZIP files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+
+1. When you are finished with the manifest, choose **Add package version**\.
 
 1. On the package's **Details** page, on the **Versions** tab, view the new version in the list of available package versions\. Set a default version of the package by choosing a version, and then choosing **Set default version**\.
 

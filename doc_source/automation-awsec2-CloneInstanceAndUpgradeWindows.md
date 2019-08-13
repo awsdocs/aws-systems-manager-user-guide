@@ -20,7 +20,9 @@ Windows
 
 **Prerequisites**
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
++ The subnet ID specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
 + This Automation works only with Windows Server 2008 R2 instances\.
++ This Automation works only on instances with an unencrypted EBS root volume\. If the specified instance has an encrypted root volume, the Automation workflow fails\.
 + Configure the Windows Server 2008 R2 instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the boot disk\.
 + If the instance does not use an AWS\-provided Windows license, then specify an EBS Snapshot ID that includes Windows Server 2012 R2 installation media\. To do this:

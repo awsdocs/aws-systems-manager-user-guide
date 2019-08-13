@@ -28,6 +28,9 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 + **Ubuntu Server 32\-bit**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
++ **Debian Server 64\-bit**
+
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
 + **Raspbian**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
@@ -81,6 +84,17 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    ```
    mkdir /tmp/ssm
    curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+   sudo service amazon-ssm-agent stop
+   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+   sudo service amazon-ssm-agent start
+   ```
+
+   **On Debian**
+
+   ```
+   mkdir /tmp/ssm
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
    sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
    sudo service amazon-ssm-agent stop
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 

@@ -51,7 +51,7 @@ For information about other options you can use with the start\-session command,
 To start a session using SSH, run the following command:
 
 **Note**  
-To start a session using SSH, your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Session Manager Sessions](session-manager-getting-started-enable-ssh-connections.md)\.
+To start a session using SSH, your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
 ```
 ssh -i /path/my-key-pair.pem username@instance-id

@@ -1,13 +1,11 @@
-# Step 7: \(Optional\) Enable SSH Session Manager Sessions<a name="session-manager-getting-started-enable-ssh-connections"></a>
+# Step 7: \(Optional\) Enable SSH Connections Through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
 
-You can enable users in your AWS account to use the AWS CLI to start sessions on managed instances using SSH\. Users who connect using SSH can also copy files between their local machines and managed instances using SCP\.
+You can enable users in your AWS account to use the AWS CLI to establish Secure Shell \(SSH\) connections to instances using Session Manager\. Users who connect using SSH can also copy files between their local machines and managed instances using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to instances without opening inbound ports or maintaining bastion hosts\. You can also choose to explicity disable SSH connections to your instances through Session Manager\.
 
-**To enable SSH Session Manager sessions on managed instances**
+**To enable SSH connections through Session Manager**
 
 1. On the managed instance to which you want to enable SSH connections, do the following:
-   + Ensure that the SSH port is open internally\. You can remove the inbound port on the instance\.
-
-     For information, see [Authorizing Inbound Traffic for Your Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+   + Ensure that SSH is running on the instance\. \(You can close inbound ports on the instance\.\)
    + Ensure that SSM Agent version 2\.3\.672\.0 or later is installed on the instance\.
 
      For information about installing or updating SSM Agent on an instance, see the following topics:
@@ -22,11 +20,13 @@ To use Session Manager with on\-premises servers and virtual machines \(VMs\) th
    + Ensure that version 1\.1\.23\.0 or later of the Session Manager plugin is installed\.
 
      For information about installing the Session Manager plugin, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
-   + Update the SSH config to enable running a proxy command that starts a Session Manager session and transfer all data through the connection\.
-**Tip**  
-The SSH config file is typically located at `~/.ssh/config`\.
+   + Update the SSH configuration file to enable running a proxy command that starts a Session Manager session and transfer all data through the connection\.
 
-     Add the following to the config file on the local machine:
+     **Linux**
+**Tip**  
+The SSH configuration file is typically located at `~/.ssh/config`\.
+
+     Add the following to the configuration file on the local machine:
 
      ```
      # SSH over Session Manager
@@ -34,4 +34,38 @@ The SSH config file is typically located at `~/.ssh/config`\.
          ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
      ```
 
-For information about starting a session using SSH, see [Starting a Session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\. 
+     **Windows**
+**Tip**  
+The SSH configuration file is typically located at `C:\Users\username\.ssh\config`\.
+
+     Add the following to the configuration file on the local machine:
+
+     ```
+     # SSH over Session Manager
+     host i-* mi-*
+         ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p"
+     ```
+   + Create or verify that you have a Privacy Enhanced Mail Certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed instances\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a Session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
+
+**To disable SSH connections through Session Manager**
++ Option 1: Open the [IAM policies page](https://console.aws.amazon.com/iam/home/policies), and then update the permissions policy for the user or role to block from starting Session Manager sessions\. For example, prepare to modify the user quickstart policy you created in [Quickstart End User Policy for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy, or replace any permissions that allow a user to start a session:
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "VisualEditor1",
+              "Effect": "Deny",
+              "Action": "ssm:StartSession",
+              "Resource": "arn:aws:ssm:*:*:document/AWS-StartSSHSession"
+          }
+      ]
+  }
+  ```
+
+  Option 2: Attach an inline policy to a user policy by using the AWS Management Console, the AWS CLI, or the AWS API\.
+
+  Using the method of your choice, attach the policy statement in Option 1 to the policy for an AWS user, group, or role\.
+
+  For information, see [Adding and Removing IAM Identity Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*,

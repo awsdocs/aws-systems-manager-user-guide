@@ -23,7 +23,7 @@ If you enable Run As support for sessions, the system checks for access permissi
 
    If Yes, does the user name exist on the instance? If it does, start the session\. If it does not, do not allow a session to start\.
 
-   If the IAM user's account or role has *not* been tagged with `SSMSessionRunAs = os-user-account-name`, continue to step \#2\.
+   If the IAM user's account or role has *not* been tagged with `SSMSessionRunAs = os-user-account-name`, continue to step 2\.
 
 1. If the IAM user's account or role hasn't been tagged with `SSMSessionRunAs = os-user-account-name`, has an OS user name been specified in the AWS account's Session Manager preferences?
 

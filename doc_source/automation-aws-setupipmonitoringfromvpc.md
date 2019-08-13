@@ -8,6 +8,9 @@ AWSSupport\-SetupIPMonitoringFromVPC creates an Amazon EC2 instance in the speci
 
 The CloudWatch Logs data can be used for network troubleshooting and analysis of pattern/trends\. Additionally, you can configure CloudWatch alarms with Amazon SNS notifications when packet loss and/or latency reach a threshold\. The data can also be used when opening a Premium Support case, to help isolate an issue quickly and reduce time to resolution when investigating a network issue\.
 
+**Note**  
+To clean up resources created by AWSSupport\-SetupIPMonitoringFromVPC, you can run the Automation document `AWSSupport-TerminateIPMonitoringFromVPC`\. For more information, see [AWSSupport\-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md)\.
+
 **Document Type**
 
 Automation

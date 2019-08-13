@@ -9,6 +9,8 @@ OpsCenter is integrated with Amazon CloudWatch Events\. This means you can creat
 + Health alerts, such as an AWS Health alert for scheduled maintenance
 + State changes, such as an Amazon EC2 instance state change from `Running` to `Stopped`
 
+OpsCenter is also integrated with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\.
+
 Operations engineers and IT professionals can create, view, and edit OpsItems by using the OpsCenter page in the AWS Systems Manager console, public API actions, the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDKs\. You can also use AWS Lambda with Amazon SNS to create OpsItems from sources like CloudWatch alarms\. OpsCenter public API actions also enable you to integrate OpsCenter with your case management systems and health dashboards\. 
 
 **Topics**

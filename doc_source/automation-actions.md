@@ -491,7 +491,7 @@ inputs:
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
 Type: String  
 Required: Yes
 
@@ -913,7 +913,7 @@ Type: Boolean
 Required: No
 
 NotificationARNs  
-The Amazon SNS topic ARNs for publishing stack\-related events\. You can find SNS topic ARNs using the Amazon SNS console, [https://console\.aws\.amazon\.com/sns/v2/home](https://console.aws.amazon.com/sns/v2/home)\.   
+The Amazon SNS topic ARNs for publishing stack\-related events\. You can find SNS topic ARNs using the Amazon SNS console, [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.   
 Type: array of Strings  
 Array Members: Maximum number of 5 items\.  
 Required: No
@@ -1363,7 +1363,7 @@ outputs: # These are user-specified outputs
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
 Type: String  
 Required: Yes
 
@@ -2033,7 +2033,7 @@ inputs:
 ```
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
 Type: String  
 Required: Yes
 

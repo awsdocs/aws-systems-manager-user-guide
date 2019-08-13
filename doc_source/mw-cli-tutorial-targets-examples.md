@@ -2,7 +2,11 @@
 
 You can register a single instance as a target using its instance ID, as demonstrated in [Step 2: Register a Target Instance with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-targets.md)\. You can also register one or more instances as targets using the command formats on this page\.
 
-In general, there are two methods for identifying the instances you want to use as maintenance window targets: specifying individual instances, and using resource tags\. Using resource tags provides you with more options, as shown in examples 2\-3\. 
+In general, there are two methods for identifying the instances you want to use as maintenance window targets: specifying individual instances, and using resource tags\. The resource tags method provides more options, as shown in examples 2\-3\. 
+
+You can also specify one or more resource groups as the target of a maintenance window\. A resource group can include instances and many other types of supported AWS resources\. Examples 4 and 5, next, demonstrate how to add resource groups to your maintenance window targets\.
+
+For more information about creating and managing resource groups, see [What is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide* and [Resource Groups and Tagging for AWS](http://aws.amazon.com/blogs/aws/resource-groups-and-tagging/) in the *AWS News Blog*\.
 
 For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
@@ -10,6 +14,7 @@ For information about limits for the Maintenance Windows capability, in addition
 + [Example 1: Register Multiple Targets Using Instance IDs](#mw-target-example-1)
 + [Example 2: Register Targets Using Resource Tags Applied to Instances](#mw-target-example-2)
 + [Example 3: Register Targets Using a Group of Tag Keys \(Without Tag Values\)](#mw-target-example-3)
++ [Example 4: Register Targets Using a Resource Group Name](#mw-target-example-4)
 
 ## Example 1: Register Multiple Targets Using Instance IDs<a name="mw-target-example-1"></a>
 
@@ -33,7 +38,7 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPL
 
 **Recommended use**: Most useful when registering a unique group of instances with any maintenance window for the first time and they *do* share a common instance tag\.
 
-**Limits:** You can specify up to five \(5\) key\-value pairs total for each target\. 
+**Limits:** You can specify up to fivekey\-value pairs total for each target\. 
 
 **Note**  
 You can tag a group of instances with the tag\-key **Patch Group** and assign the instances a common key value, such as `my-patch-group`\. Patch Manager evaluates the **Patch Group** key on instances to help determine which patch baseline applies to them\. If your task will run the `AWS-ApplyPatchBaseline` or `AWS-RunPatchBaseline` SSM document, you can specify the same **Patch Group** key\-value pair when you register targets with a maintenance window\. For example: `--target "Key=tag:Patch Group,Values=my-patch-group`\. Doing so enables you to easily use a maintenance window to update patches on a group of instances that are already associated with the same patch baseline\. For more information, see [About Patch Groups](sysman-patch-patchgroups.md)\.
@@ -48,4 +53,28 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPL
 
 **Recommended use**: Useful when you want to target instances by specifying multiple tag *keys* \(without their values\) rather than just one tag\-key or a tag key\-value pair\.
 
-**Limits:** You can specify up to five \(5\) tag\-keys total for each target\. 
+**Limits:** You can specify up to five tag\-keys total for each target\. 
+
+## Example 4: Register Targets Using a Resource Group Name<a name="mw-target-example-4"></a>
+
+Use the following command to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window do not act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
+
+```
+aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "RESOURCE_GROUP" --target "Key=resource-groups:Name,Values=MyResourceGroup"
+```
+
+**Recommended use**: Useful when you want to quickly specify a resource group as a target without evaluating whether all of its resource types will be targeted by a maintenance window, or when you know that the resource group contains only the resource types that your tasks perform actions on\.
+
+**Limits:** You can specify only one resource group as a target\.
+
+### Example 5: Register Targets by Filtering Resource Types in a Resource Group<a name="mw-target-example-5"></a>
+
+Use the following command to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
+
+```
+aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "RESOURCE_GROUP" --target "Key=resource-groups:Name,Values=MyResourceGroup" "Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::Instance,AWS::ECS::Cluster"
+```
+
+**Recommended use**: Useful when you want to maintain strict control over the types of AWS resources your maintenance window can run actions on, or when your resource group contains a large number of resource types and you want to avoid unnecessary error reports in your maintenance window logs\.
+
+**Limits:** You can specify only one resource group as a target\.

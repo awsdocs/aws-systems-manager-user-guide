@@ -74,7 +74,7 @@ The general process to scan or install patches using Run Command and Patch Manag
 
      1. Patch Manager notifies SSM Agent to use the default Windows patch baseline `pb-0123456789abcdef0`\.
 
-     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-9876543210abcdef0` and proceeds to the next step\.
+     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step\.
 
 1. **Patch scan or install**: After determining the appropriate patch baseline to use, SSM Agent begins either scanning for or installing patches based on the operation value specified in Step 1\. The patches that are scanned for or installed are determined by the approval rules and patch exceptions defined in the patch baseline snapshot provided by Patch Manager\.
 

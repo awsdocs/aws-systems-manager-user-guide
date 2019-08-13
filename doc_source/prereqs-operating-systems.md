@@ -49,6 +49,14 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
 
 
+**Debian Server**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| Jessie \(8\) |  | ✓ |  | 
+| Stretch \(9\) |  | ✓ |  | 
+
+
 **Red Hat Enterprise Linux \(RHEL\)**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
