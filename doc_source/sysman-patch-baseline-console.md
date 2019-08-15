@@ -40,7 +40,7 @@ If an approved patch is reported as missing, the option you choose in **Complian
 
 1. In the **Approval rules for Microsoft applications** section, use the fields to create one or more auto\-approval rules\.
    + **Product family**: The general Microsoft product family for which you want to specify a rule, such as Office or Exchange Server\.
-   + **Product**: The version of the application the approval rule applies to, such as Office 2016 or OfficeActive Directory Rights Management Services Client 2\.0 2016\. The default selection is All\.
+   + **Product**: The version of the application the approval rule applies to, such as Office 2016 or Active Directory Rights Management Services Client 2\.0 2016\. The default selection is All\.
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule applies to, such as `Critical`\. The default selection is `All`\. 
    + **Auto approval delay**: The number of days to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.

@@ -131,6 +131,12 @@ Required: No
 
 Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
+**Important**  
+The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. Support for using SSM Agent to send log data will be deprecated in the near future\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
+[Sending Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
+[Migrate Windows Server Instance Log Collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
+[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+
 You can export and monitor the following data types:
 
 **ApplicationEventLog**  

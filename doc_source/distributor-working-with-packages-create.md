@@ -2,7 +2,7 @@
 
 To create a package, prepare your installable software or assets, one file per operating system platform\. At least one file is required to create a package\.
 
-Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you are creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you are creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
 When you create a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
@@ -14,7 +14,7 @@ An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is availa
 
 ## Create a Package \(Simple\)<a name="distributor-working-with-packages-create-simple"></a>
 
-This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](sysman-ssm-docs.md)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](sysman-ssm-docs.md)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
 **To create a package \(simple\)**
 
@@ -42,7 +42,7 @@ This section describes how to create a package in Distributor by choosing the **
 
 1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, or the exact, specific operating system release version to which you want your software to apply\. For more information about specifying an operating system platform version, see step 4 in [Step 2: Create the JSON Package Manifest](#packages-manifest)\.
 
-1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported processor architectures, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported processor architectures, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
 1. \(Optional\) Expand **Installation and uninstallation scripts**, and review the scripts that Distributor generates for your installable software\.
 
@@ -151,7 +151,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
    "publisher": "MyOrganization",
    ```
 
-1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the ZIP files in your package\. For more information, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the ZIP files in your package\. For more information, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
    The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a ZIP file supports any release of the platform\. However, a *platform\-version* value must match the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
    + On a Windows\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.

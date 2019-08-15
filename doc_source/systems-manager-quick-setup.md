@@ -2,7 +2,7 @@
 
 Use AWS Systems Manager Quick Setup to quickly configure required security roles and commonly used Systems Manager capabilities on your Amazon EC2 instances\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. Specifically, Quick Setup helps you configure the following components on the instances you choose or target by using tags:
 + AWS Identity and Access Management \(IAM\) instance profile roles for Systems Manager\.
-+ A scheduled, bi\-monthly update of SSM Agent\.
++ A scheduled, bi\-weekly update of SSM Agent\.
 + A scheduled collection of Inventory metadata every 30 minutes\.
 + A daily scan of your instances to identify missing patches\.
 + A one\-time installation and configuration of the Amazon CloudWatch agent\.

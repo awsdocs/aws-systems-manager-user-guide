@@ -2,7 +2,7 @@
 
 This topic provides information about the Amazon Simple Storage Service \(Amazon S3\) buckets that SSM Agent might need to access to in order to perform Systems Manager operations\. These buckets are publicly accessible, but in some cases, you might need to provide explicit permission in an EC2 instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you are using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\. 
 
-To grant access to these buckets, you create a custom S3 bucket policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
+To grant access to these buckets, you create a custom S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
 
 **Note**  
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 
@@ -17,7 +17,7 @@ For more information, see the following topics:
 
 ## Required Permissions<a name="ssm-agent-minimum-s3-permissions-required"></a>
 
-The following table describes each of the Amazon S3 bucket policy permissions needed for using Systems Manager\.
+The following table describes each of the Amazon S3 policy permissions needed for using Systems Manager\.
 
 Amazon S3 permissions required by SSM Agent
 

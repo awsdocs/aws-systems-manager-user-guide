@@ -47,7 +47,7 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, or the exact, specific operating system release version to which you want your software to apply\. For more information about specifying a platform version, see step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
-1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported architectures, see [Supported Package Platforms and Architectures](what-is-distributor.md#what-is-a-package-platforms)\.
+1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported architectures, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
 1. \(Optional\) Expand **Installation and uninstallation scripts**, and review the installation and uninstallation scripts that Distributor generates for your installable software\.
 

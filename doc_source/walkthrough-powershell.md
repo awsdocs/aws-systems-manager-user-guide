@@ -13,8 +13,8 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 + [Install a PowerShell Module Using the AWS\-InstallPowerShellModule JSON Document](#walkthrough-powershell-install-module)
 + [Join an Instance to a Domain Using the AWS\-JoinDirectoryServiceDomain JSON Document](#walkthrough-powershell-domain-join)
 + [Send Windows Metrics to Amazon CloudWatch using the AWS\-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics)
-+ [Enable/Disable Windows Automatic Update Using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
 + [Update EC2Config Using the AWS\-UpdateEC2Config Document](#walkthrough-powershell-update-ec2config)
++ [Enable/Disable Windows Automatic Update Using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
 + [Manage Windows Updates Using Run Command](#walkthough-powershell-windows-updates)
 
 ## Configure AWS Tools for Windows PowerShell Session Settings<a name="walkthrough-powershell-settings"></a>
@@ -277,6 +277,43 @@ The following demonstration command uploads performance counters to CloudWatch\.
 $cloudWatchMetricsCommand=Send-SSMCommand -InstanceID Instance-ID -DocumentName 'AWS-ConfigureCloudWatch' -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"us-east-2", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
 ```
 
+## Update EC2Config Using the AWS\-UpdateEC2Config Document<a name="walkthrough-powershell-update-ec2config"></a>
+
+Using Run Command and the AWS\-EC2ConfigUpdate document, you can update the EC2Config service running on your Windows instances\. This command can update the EC2Config service to the latest version or a version you specify\.
+
+**View the description and available parameters**
+
+```
+Get-SSMDocumentDescription -Name "AWS-UpdateEC2Config"
+```
+
+**View more information about parameters**
+
+```
+Get-SSMDocumentDescription -Name "AWS-UpdateEC2Config" | select -ExpandProperty Parameters
+```
+
+### Update EC2Config to the latest version<a name="walkthrough-powershell-update-ec2config-latest-version"></a>
+
+```
+Send-SSMCommand -InstanceId Instance-ID -DocumentName "AWS-UpdateEC2Config"
+```
+
+**Get command information with response data for the instance**  
+This command returns the output of the specified command from the previous Send\-SSMCommand:
+
+```
+Get-SSMCommandInvocation -CommandId ID -Details $true -InstanceId Instance-ID | select -ExpandProperty CommandPlugins
+```
+
+### Update EC2Config to a specific version<a name="walkthrough-powershell-update-ec2config-specific-version"></a>
+
+The following command will downgrade EC2Config to an older version:
+
+```
+Send-SSMCommand -InstanceId Instance-ID -DocumentName "AWS-UpdateEC2Config" -Parameter @{'version'='3.8.354'; 'allowDowngrade'='true'}
+```
+
 ## Enable/Disable Windows Automatic Update Using the AWS\-ConfigureWindowsUpdate document<a name="walkthrough-powershell-enable-windows-update"></a>
 
 Using Run Command and the AWS\-ConfigureWindowsUpdate document, you can enable or disable automatic Windows updates on your Windows instances\. This command configures the Windows update agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows update to check for updates but not install them\. The AWS\-ConfigureWindowsUpdate document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
@@ -323,49 +360,9 @@ The following command uses the Command ID to get the status of the command execu
 Get-SSMCommandInvocation -Details $true -CommandId $configureWindowsUpdateCommand.CommandId | select -ExpandProperty CommandPlugins
 ```
 
-## Update EC2Config Using the AWS\-UpdateEC2Config Document<a name="walkthrough-powershell-update-ec2config"></a>
-
-Using Run Command and the AWS\-EC2ConfigUpdate document, you can update the EC2Config service running on your Windows instances\. This command can update the EC2Config service to the latest version or a version you specify\.
-
-**View the description and available parameters**
-
-```
-Get-SSMDocumentDescription -Name "AWS-UpdateEC2Config"
-```
-
-**View more information about parameters**
-
-```
-Get-SSMDocumentDescription -Name "AWS-UpdateEC2Config" | select -ExpandProperty Parameters
-```
-
-### Update EC2Config to the latest version<a name="walkthrough-powershell-update-ec2config-latest-version"></a>
-
-```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName "AWS-UpdateEC2Config"
-```
-
-**Get command information with response data for the instance**  
-This command returns the output of the specified command from the previous Send\-SSMCommand:
-
-```
-Get-SSMCommandInvocation -CommandId ID -Details $true -InstanceId Instance-ID | select -ExpandProperty CommandPlugins
-```
-
-### Update EC2Config to a specific version<a name="walkthrough-powershell-update-ec2config-specific-version"></a>
-
-The following command will downgrade EC2Config to an older version:
-
-```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName "AWS-UpdateEC2Config" -Parameter @{'version'='3.8.354'; 'allowDowngrade'='true'}
-```
-
 ## Manage Windows Updates Using Run Command<a name="walkthough-powershell-windows-updates"></a>
 
-Run Command includes three documents to help you manage updates for Amazon EC2 Windows instances\.
-+ **AWS\-FindWindowsUpdates** — Scans an instance and determines which updates are missing\.
-+ **AWS\-InstallMissingWindowsUpdates** — Installs missing updates on your EC2 instance\.
-+ **AWS\-InstallSpecificUpdates** — Installs a specific update\.
+Using Run Command and the AWS\-InstallWindowsUpdates document, you can manage updates for Amazon EC2 Windows instances\. This command scans for or installs missing updates on your EC2 Windows instances and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting Managed Instance from Scripts](send-commands-reboot.md)\.
@@ -375,23 +372,35 @@ The following examples demonstrate how to perform the specified Windows Update m
 ### Search for all missing Windows updates<a name="walkthough-powershell-windows-updates-search"></a>
 
 ```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName 'AWS-FindWindowsUpdates' -Parameters @{'UpdateLevel'='All'}
+Send-SSMCommand `
+  -InstanceId Instance-ID `
+  -DocumentName 'AWS-InstallWindowsUpdates' `
+  -Parameters @{'Action'='Scan'}
 ```
 
 ### Install specific Windows updates<a name="walkthough-powershell-windows-updates-install-specific"></a>
 
 ```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName 'AWS-InstallSpecificWindowsUpdates' -Parameters @{'KbArticleIds'='123456,KB567890,987654'}
+Send-SSMCommand `
+  -InstanceId Instance-ID `
+  -DocumentName 'AWS-InstallWindowsUpdates' `
+  -Parameters @{'Action'='Install';'IncludeKbs'='KB4503308,KB890830,KB4507419';'AllowReboot'='True'}
 ```
 
 ### Install important missing Windows updates<a name="walkthough-powershell-windows-updates-install-missing"></a>
 
 ```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName 'AWS-InstallMissingWindowsUpdates' -Parameters @{'UpdateLevel'='Important'}
+Send-SSMCommand `
+  -InstanceId Instance-ID `
+  -DocumentName 'AWS-InstallWindowsUpdates' `
+  -Parameters @{'Action'='Install';'SeverityLevels'='Important';'AllowReboot'='True'}
 ```
 
 ### Install missing Windows updates with specific exclusions<a name="walkthough-powershell-windows-updates-install-exclusions"></a>
 
 ```
-Send-SSMCommand -InstanceId Instance-ID -DocumentName 'AWS-InstallMissingWindowsUpdates' -Parameters @{'UpdateLevel'='All';'ExcludeKbArticleIds'='KB567890,987654'}
+Send-SSMCommand `
+  -InstanceId i-047e6c6dcb97b18da `
+  -DocumentName 'AWS-InstallWindowsUpdates' `
+  -Parameters @{'Action'='Install';'ExcludeKbs'='KB2267602,KB4052623';'AllowReboot'='True'}
 ```

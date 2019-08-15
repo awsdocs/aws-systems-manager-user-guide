@@ -87,7 +87,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-The EC2 instance receiving the command must have an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
+The EC2 instance receiving the command must have an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
 
  **Document Steps** 
 

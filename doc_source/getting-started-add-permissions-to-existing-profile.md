@@ -1,6 +1,6 @@
 # Adding Session Manager Permissions to an Existing Instance Profile<a name="getting-started-add-permissions-to-existing-profile"></a>
 
-Follow these steps to embed Session Manager permissions in an existing IAM instance profile that does not rely on the AWS\-provided default policy **AmazonEC2RoleforSSM** for instance permissions\. Note that this procedure assumes that your existing profile already includes other Systems Manager `ssm` permissions for actions you want to allow access to\. This policy alone is not enough to use Session Manager\.
+Follow these steps to embed Session Manager permissions in an existing IAM instance profile that does not rely on the AWS\-provided default policy **AmazonSSMManagedInstanceCore** for instance permissions\. Note that this procedure assumes that your existing profile already includes other Systems Manager `ssm` permissions for actions you want to allow access to\. This policy alone is not enough to use Session Manager\.
 
 **To add Session Manager permissions to an existing instance profile \(console\)**
 

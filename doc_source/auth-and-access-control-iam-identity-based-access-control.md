@@ -62,7 +62,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 ## AWS Managed Policies for AWS Systems Manager<a name="managed-policies"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS *managed policies* grant necessary permissions for common use cases so you can avoid having to investigate which permissions are needed\. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS\. These AWS *managed policies* grant necessary permissions for common use cases so you can avoid having to investigate which permissions are needed\. \(You can also create your own custom IAM policies to allow permissions for Systems Manager actions and resources\.\) For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*\.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS Systems Manager:
 + **AmazonSSMFullAccess** – User trust policy that grants full access to the Systems Manager API and documents\.
@@ -74,15 +74,13 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMManagedInstanceCore** – Instance trust policy that enables an instance to use AWS Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by AWS Systems Manager\.
 + **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
-+ **AmazonEC2RoleforSSM** – Instance trust policy that does the following:
-  + Enables an instance to communicate with the Systems Manager API\.
-  + Allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain\.
-  + Allows the CloudWatch agent to run on an Amazon EC2 instance\.
-  + Provides access to all Amazon S3 buckets in your AWS account\.
-**Note**  
-The **AmazonEC2RoleforSSM** policy was originally provided to support all SSM Agent operations on an instance\.  Now you can control instance access permissions by using the **AmazonSSMManagedInstanceCore** policy, along with any other policies you need for your Systems Manager operations\. For information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
++ **AmazonEC2RoleforSSM** – The **AmazonEC2RoleforSSM** policy is being deprecated\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that take into account your system needs and security requirements\. However, as a starting point, you can use one or more of the following policies to provide permissions for Systems Manager to interact with your instances:
+  + **AmazonSSMManagedInstanceCore** – Instance trust policy that enables an instance to use AWS Systems Manager service core functionality\.
+  + **AmazonSSMDirectoryServiceAccess** – Instance trust policy that you can use to join Amazon EC2 instances to an AWS Directory Service domain\.
+  + **CloudWatchAgentServerPolicy** – Trust policy that you can use to install and run the CloudWatch agent on your instances to read instance metric and log data and write it to Amazon CloudWatch\.
+  + **A custom policy for Amazon S3 bucket access** – Trust policy that you can use if you plan to use your own Amazon S3 bucket as part of your Systems Manager operations, or if you are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\.
 
-You can also create your own custom IAM policies to allow permissions for Systems Manager actions and resources\. You can attach these custom policies to the IAM users or groups that require those permissions\.
+  For information about adding these policies to the instance profile you associate with your instances, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 

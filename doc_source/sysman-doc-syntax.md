@@ -121,7 +121,7 @@ mainSteps:
     - sudo yum --enablerepo=epel install -y clamav
 ```
 
-**Schema Version 2\.0 YAML Inventory Example**  
+**Schema Version 2\.2 YAML Inventory Example**  
 You can use the following YAML document with State Manager to collect inventory metadata about your instances\.
 
 ```

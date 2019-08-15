@@ -38,7 +38,7 @@ Windows, Linux
 
   Default: SSMRoleForManagedInstance
 
-  Description: \(Optional\) The name of the IAM role for the Amazon EC2 instance\. If this role does not exist, it will be created\. When specifying this value, verify that the role contains the **AmazonEC2RoleForSsm** Managed Policy\.
+  Description: \(Optional\) The name of the IAM role for the Amazon EC2 instance\. If this role does not exist, it will be created\. When specifying this value, verify that the role contains the **AmazonSSMManagedInstanceCore** Managed Policy\.
 
 **Examples**
 

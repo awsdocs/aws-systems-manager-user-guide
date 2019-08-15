@@ -2,9 +2,6 @@
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
 
-**Note**  
-This approach of adding multiple required and optional IAM policies to an instance profile replaces the practice of using of a single managed policy, **AmazonEC2RoleforSSM**\. 
-
 After you create the instance profile, you attach it to the instances that you want to use with Systems Manager, as described in the following step, [Step 5: Attach an IAM Instance Profile to an Amazon EC2 Instance](setup-launch-managed-instance.md)\.
 
 Note the following details about creating an IAM instance profile:
@@ -13,14 +10,14 @@ Note the following details about creating an IAM instance profile:
 
 ## About Policies for a Systems Manager Instance Profile<a name="instance-profile-policies-overview"></a>
 
-This section describes the policies you can add to your EC2 instance profile for Systems Manager\. The first policy, **AmazonSSMManagedInstanceCore**, is required in order to manage your instances using Systems Manager\. Depending on your operations plan, you might need one or more of the other three policies\.
+This section describes the policies you can add to your EC2 instance profile for Systems Manager\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that take into account your system needs and security requirements\. However, as a starting point, you use one or more of the following policies to grant permission for Systems Manager to interact with your instances\. The first policy, **AmazonSSMManagedInstanceCore**, enables an instance to use AWS Systems Manager service core functionality\. Depending on your operations plan, you might need permissions represented in one or more of the other three policies\.
 
 **Policy: AmazonSSMManagedInstanceCore**  
-Required\.  
+Required permissions\.  
 This AWS managed policy enables an instance to use Systems Manager service core functionality\.
 
 **Policy: A custom policy for Amazon S3 bucket access**  
-Required in either of the following cases:  
+Required permissions in either of the following cases:  
 + **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
 
   SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned S3 buckets\. These buckets are publicly accessible\. In a private VPC endpoint environment, however, you must explicitly provide access to these buckets\. For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md) and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
