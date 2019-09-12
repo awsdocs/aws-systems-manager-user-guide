@@ -51,7 +51,7 @@ Your VPC endpoint policy must allow at least access to the following Amazon S3 b
 **DNS in hybrid environment**  
 For information about configuring DNS to work with PrivateLink endpoints in hybrid environments, see [Private DNS](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-private-dns)\. If you want to use your own DNS, you can use Route 53 Resolver\. For more information, see [Resolving DNS Queries Between VPCs and Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide*\. 
 
-## Creating VPC EndPoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
+## Creating VPC Endpoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
 
 Use the following procedure to create three required and one optional separate VPC endpoints for Systems Manager\. All three endpoints are required for Systems Manager to work in a VPC\. The fourth is required only if you are using Session Manager capabilities\. This procedure links to related procedures in the Amazon VPC User Guide\. 
 
