@@ -75,7 +75,7 @@ It is recommended that the user who runs the automation have the **AmazonSSMAuto
             "iam:DetachRolePolicy"
          ],
          "Resource": [
-            "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+            "arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore"
          ],
          "Effect": "Allow"
       },
@@ -110,7 +110,7 @@ It is recommended that the user who runs the automation have the **AmazonSSMAuto
 
 1. aws:executeAwsApi \- delete the CloudWatch inline policy from the role created by the automation\.
 
-1. aws:executeAwsApi \- detach the **AmazonEC2RoleForSSM** managed policy from the role created by the automation\.
+1. aws:executeAwsApi \- detach the **AmazonSSMManagedInstanceCore** managed policy from the role created by the automation\.
 
 1. aws:executeAwsApi \- delete the IAM role created by the automation\.
 

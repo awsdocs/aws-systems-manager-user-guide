@@ -17,7 +17,7 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
@@ -28,7 +28,7 @@ In addition, the following walkthrough runs patching during a maintenance window
    \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and nonsecurity patches included in the source repository\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX" --tags "Key=Environment,Value=Production" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2016.03,AmazonLinux2016.09,AmazonLinux2017.03,AmazonLinux2017.09]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX_2" --tags "Key=Environment,Value=Production" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2,AmazonLinux2.0]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
    ```
 
    The system returns information like the following\.

@@ -2,17 +2,8 @@
 
 If you want to use the AWS CLI to start and terminate sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
-**Current Session Manager Plugin Version**  
-The plugin is updated occasionally with enhanced functionality\. The current version is **1\.1\.26\.0**\. 
-
-To see if you have the latest version, run the following command in the AWS CLI:
-
-**Note**  
-The command returns results only if the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
-
-```
-session-manager-plugin --version
-```
+**Use the Latest Version of the Session Manager Plugin**  
+The plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you are using the latest version of the plugin\. For more information, see [ Session Manager Plugin Latest Version and Release History](#plugin-version-history)\.
 
 **Installation Prerequisite**  
 AWS CLI version 1\.16\.12 or later must be installed on your local machine in order to use the Session Manager plugin\.
@@ -24,7 +15,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install the Session Manager Plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager Plugin Installation](#install-plugin-verify)
 + [\(Optional\) Enable Session Manager Plugin Logging](#install-plugin-configure-logs)
-+ [Session Manager Plugin Release History](#plugin-version-history)
++ [Session Manager Plugin Latest Version and Release History](#plugin-version-history)
 
 ## Install the Session Manager Plugin on Windows<a name="install-plugin-windows"></a>
 
@@ -46,7 +37,7 @@ For best results, we recommend starting sessions on Windows clients using the Wi
 1. Run the downloaded installer and follow the on\-screen the instructions\.
 
    Leave the install location box blank to install the plugin to the default directory:
-   + `C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\bin\` 
+   + `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
 **Note**  
@@ -243,17 +234,29 @@ If you use the specified default directory for storing logs, you must either run
 
 1. Save the file\.
 
-## Session Manager Plugin Release History<a name="plugin-version-history"></a>
+## Session Manager Plugin Latest Version and Release History<a name="plugin-version-history"></a>
 
 Your local machine must be running a supported version of the Session Manager plugin\. If you are running an earlier version, your Session Manager operations might not succeed\. 
 
 The current minimum supported version is 1\.1\.17\.0\. 
+
+The latest release is version 1\.1\.31\.0\.
+
+To see if you have the latest version, run the following command in the AWS CLI:
+
+**Note**  
+The command returns results only if the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
+
+```
+session-manager-plugin --version
+```
 
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.1\.31\.0 | September 6, 2019 | Enhancement: Update to keep port forwarding session open until remote server closes the connection\. | 
 |  1\.1\.26\.0  | July 30, 2019 |  **Enhancement**: Limit the rate of data transfer during a session\.  | 
 |  1\.1\.23\.0  | July 9, 2019 |  **Enhancement**: Add support for running SSH sessions using Session Manager\.  | 
 | 1\.1\.17\.0 | April 4, 2019 |  **Enhancement**: Add support for further encryption of session data using AWS Key Management Service \(AWS KMS\)\.  | 

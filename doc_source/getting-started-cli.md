@@ -1,4 +1,4 @@
-# Step 1: Install or Upgrade and then Configure the AWS CLI<a name="getting-started-cli"></a>
+# Step 1: Install or Upgrade the AWS CLI<a name="getting-started-cli"></a>
 
 This topic is for users who have *programmatic access* to use Systems Manager \(or any other AWS service\), and who want to run AWS CLI commands from their local machines\. 
 

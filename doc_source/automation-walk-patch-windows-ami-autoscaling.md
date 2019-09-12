@@ -6,7 +6,6 @@ The final step of the Automation workflow in this example uses an AWS Lambda fun
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
-+ Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** Automation document created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting Started with Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
@@ -37,7 +36,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 ## Task 2: Create an AWS Lambda Function<a name="automation-asg2"></a>
 
-Use the following procedure to create a Lambda function that automatically creates a new Auto Scaling group with the latest, patched AMI\.
+Use the following procedure to create a Lambda function that automatically updates an existing Auto Scaling group with the latest, patched AMI\.
 
 **To create a Lambda function**
 

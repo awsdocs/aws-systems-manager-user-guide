@@ -18,7 +18,7 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Copy and paste the following JSON sample into a simple text file and save it as recordingGroup\.json\.
 

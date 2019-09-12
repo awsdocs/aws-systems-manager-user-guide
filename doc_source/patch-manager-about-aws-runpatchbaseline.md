@@ -1,6 +1,8 @@
 # About the SSM Document AWS\-RunPatchBaseline<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
-AWS Systems Manager supports an SSM document for Patch Manager, **AWS\-RunPatchBaseline**, which performs security patching operations on instances\. This document supports both Linux and Windows instances, so it can be reliably run on either type of instance when managed by Systems Manager\. The document will perform the appropriate actions for each platform\.
+AWS Systems Manager supports an SSM document for Patch Manager, **AWS\-RunPatchBaseline**, which performs patching operations on instances for both security related and other types of updates\. You can use the document AWS\-RunPatchBaseline to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
+
+This document supports both Linux and Windows instances, so it can be reliably run on either type of instance when managed by Systems Manager\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
 Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.

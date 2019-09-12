@@ -1,6 +1,6 @@
-# Running Automation Workflows with Triggers using State Manager<a name="automation-sm-target"></a>
+# Running Automation Workflows with Triggers Using State Manager<a name="automation-sm-target"></a>
 
-You can start an Automation workflow by creating a State Manager Association with an Automation document\. By creating a State Manager Association with an Automation document, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
+You can start an Automation workflow by creating a State Manager association with an Automation document\. By creating a State Manager association with an Automation document, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
 + Attach a Systems Manager role to Amazon EC2 instances to make them *managed instances*\.
 + Enforce desired ingress and egress rules for a security group\.
 + Create or delete Amazon DynamoDB \(DynamoDB\) backups\.
@@ -9,23 +9,47 @@ You can start an Automation workflow by creating a State Manager Association wit
 + Start, restart, or stop managed instances and Amazon Relational Database Service \(Amazon RDS\) instances\.
 + Patch Windows and Linux AMIs\.
 
+Use the following procedures to create a State Manager Association that runs an Automation workflow using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
+
 **Before You Begin**  
 Be aware of the following important details before you run Automation workflows by using State Manager\.
 + Before you can create an association that runs an Automation document, verify that you configured permissions for Systems Manager Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
-+ State Manager associations that run Automation documents contribute to the maximum number of concurrently running Automations in your AWS account\. You can have a maximum of 25 concurrent Automations running at one time\.
-+ Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI\.
++ State Manager associations that run Automation documents contribute to the maximum number of concurrently running Automations in your AWS account\. You can have a maximum of 25 concurrent Automations running with a maximum of 75 child Automations running at one time\. For information, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
++ Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
+
+------
+#### [ Linux ]
 
   ```
-  aws iam create-service-linked-role --aws-service-name ssm.amazonaws.com
+  aws iam create-service-linked-role \
+    --aws-service-name ssm.amazonaws.com
   ```
+
+------
+#### [ Windows ]
+
+  ```
+  aws iam create-service-linked-role ^
+    --aws-service-name ssm.amazonaws.com
+  ```
+
+------
+#### [ PowerShell ]
+
+  ```
+  New-IAMServiceLinkedRole `
+    -AWSServiceName ssm.amazonaws.com
+  ```
+
+------
 
   For more information about service\-linked roles, see [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)\.
 
-## Creating an Association that Runs an Automation Workflow \(Console\)<a name="automation-sm-target-console"></a>
+## Creating an Association That Runs an Automation Workflow \(Console\)<a name="automation-sm-target-console"></a>
 
 The following procedure describes how to use the Systems Manager console to create a State Manager association that runs an Automation workflow\.
 
-**To create a State Manager association that runs a Systems Manager Automation Workflow \(Console\)**
+**To create a State Manager association that runs a Systems Manager Automation Workflow**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -74,58 +98,335 @@ Rate expressions are the preferred scheduling mechanism for State Manager associ
       + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the workflow to other resources\.
       + Choose **percentage** to enter a percentage of errors allowed before Automation stops sending the workflow to other resources\.
 
-   For more information about using targets and rate controls with Automation, see [Running Automation Workflows that Use Targets and Rate Controls](automation-working-targets-and-rate-controls.md)\.
+   For more information about using targets and rate controls with Automation, see [Running Automation Workflows That Use Targets and Rate Controls](automation-working-targets-and-rate-controls.md)\.
 
 1. Choose **Create Association**\. 
 **Important**  
 When you create an association, the association immediately runs against the specified targets\. The association then runs based on the cron or rate expression you chose\. If you chose **No schedule**, the association does not run again\.
 
-## Creating an Association that Runs an Automation Workflow \(CLI\)<a name="automation-sm-target-cli"></a>
+## Creating an Association That Runs an Automation Workflow \(Command Line\)<a name="automation-sm-target-commandline"></a>
 
-Use the following format to create an AWS CLI command that creates a State Manager association that runs an Automation workflow\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a State Manager association that runs an Automation workflow\.
+
+**To create an association that runs an Automation workflow**
+
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+
+1. Run the following command to view a list of documents\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm list-documents
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-documents
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMDocumentList
+   ```
+
+------
+
+   Note the name of the Automation document that you want to use for the association\.
+
+1. Run the following command to view details about the Automation document\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm describe-document \
+     --name document_name
+   ```
+
+   Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--automation-target-parameter-name` option\. This parameter determines the type of resource on which the Automation runs\.
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-document ^
+     --name document_name
+   ```
+
+   Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--automation-target-parameter-name` option\. This parameter determines the type of resource on which the Automation runs\.
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMDocumentDescription `
+     -Name document_name
+   ```
+
+   Note a parameter name \(for example, `InstanceId`\) that you want to use for the `AutomationTargetParameterName` option\. This parameter determines the type of resource on which the Automation runs\.
+
+------
+
+1. Create a command that runs an Automation workflow using a State Manager association\. Here are some template commands to help\.
+
+   *Targeting using tags*
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --association-name AssociationName \
+     --targets Key=tag:TagKey,Values=TagValue \
+     --name AutomationDocumentName \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) \
+     --automation-target-parameter-name (parameter to target) \
+     --schedule "cron_or_rate_expression"
+   ```
 
 **Note**  
-If you create an association by using the AWS CLI, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 
+If you create an association by using the AWS CLI, use the `--targets` parameter to target instances for the association\. Don't use the `--instance-id` parameter\. The `--instance-id` parameter is a legacy parameter\. 
 
-```
-aws ssm create-association --association-name AssociationName --targets Key=tag:TagKey,Values=TagValue --name DocumentName --parameters (if any) --automation-target-parameter-name (parameter to target) --schedule "cron_or_rate_expression"
-```
+------
+#### [ Windows ]
 
-The following example creates an association to start Amazon EC2 instances tagged with `"Environment,Linux"`\. The association uses the `AWS-StartEC2Instance` document and the specified automation assume role to start the targeted instances at 7:00 every Monday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
-
-```
-aws ssm create-association --association-name Start_EC2_Instances --targets Key=tag:Environment,Values=Linux --name AWS-StartEC2Instance --parameters  AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole --automation-target-parameter-name InstanceId  --schedule "cron(0 7 ? * MON *)" --max-errors "5" --max-concurrency "10" --compliance-severity "MEDIUM"
-```
-
-**Note**  
-If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
-
-## Creating an Association that Runs an Automation Workflow \(PowerShell\)<a name="automation-sm-target-ps"></a>
-
-Use the following format to create an AWS Tools for PowerShell command that creates a State Manager association that runs an Automation workflow\.
+   ```
+   aws ssm create-association ^
+     --association-name AssociationName ^
+     --targets Key=tag:TagKey,Values=TagValue ^
+     --name AutomationDocumentName ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) ^
+     --automation-target-parameter-name (parameter to target) ^
+     --schedule "cron_or_rate_expression"
+   ```
 
 **Note**  
-If you create an association by using AWS Tools for Windows PowerShell, use the `-Target` parameter to target instances for the association\. Don't use the `-InstanceID` parameter\. The `-InstanceID` parameter is a legacy parameter\. 
+If you create an association by using the AWS CLI, use the `--targets` parameter to target instances for the association\. Don't use the `--instance-id` parameter\. The `--instance-id` parameter is a legacy parameter\. 
 
-```
-New-SSMAssociation -AssociationName AssociationName -Target Targets -Name DocumentName -Parameters (if any) -AutomationTargetParameterName (parameter to target) -ScheduleExpression "cron_or_rate_expression"
-```
+------
+#### [ PowerShell ]
 
-The following example creates an association to start Amazon EC2 instances tagged with `"Environment,Linux"`\. The association uses the `AWS-StartEC2Instance` document and the specified automation assume role to start the targeted instances at 7:00 every Monday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "tag:TagKey"
+   $Targets.Values = "TagValue"
+   
+   New-SSMAssociation `
+     -AssociationName "AssociationName" `
+     -Target $Targets `
+     -Name "AutomationDocumentName" `
+     -Parameters @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM;
+       (Additional parameters, if any)" } `
+     -AutomationTargetParameterName "parameter_to_target" `
+     -ScheduleExpression "cron_or_rate_expression"
+   ```
 
-```
-$Target = New-Object Amazon.SimpleSystemsManagement.Model.Target
-$Target.Key = "tag:Environment"
-$Target.Values = "Linux"
+**Note**  
+If you create an association by using the AWS Tools for PowerShell, use the `Target` parameter to target instances for the association\. Don't use the `InstanceId` parameter\. The `InstanceId` parameter is a legacy parameter\. 
 
-New-SSMAssociation -AssociationName "Start_EC2_Instances" -Target $Target -Name "AWS-StartEC2Instance" -Parameters @{"AutomationAssumeRole"="arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"} -AutomationTargetParameterName "InstanceId" -ScheduleExpression "cron(0 2 ? * SUN *)" -ComplianceSeverity MEDIUM -MaxConcurrency 10 -MaxError 5
-```
+------
+
+   *Targeting using parameter values*
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --association-name AssociationName \
+     --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
+     --name AutomationDocumentName \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) \
+     --automation-target-parameter-name (parameter to target) \
+     --schedule "cron_or_rate_expression"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name AssociationName ^
+     --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
+     --name AutomationDocumentName ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) ^
+     --automation-target-parameter-name (parameter to target) ^
+     --schedule "cron_or_rate_expression"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ParameterValues"
+   $Targets.Values = "value_1","value_2","value_3"
+   
+   New-SSMAssociation `
+     -AssociationName "AssociationName" `
+     -Target $Targets `
+     -Name "AutomationDocumentName" `
+     -Parameters @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM;
+       (Additional parameters, if any)"} `
+     -AutomationTargetParameterName "parameter_to_target" `
+     -ScheduleExpression "cron_or_rate_expression"
+   ```
+
+------
+
+   *Targeting using AWS Resource Groups*
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --association-name AssociationName \
+     --targets Key=ResourceGroup,Values=Resource_Group_name \
+     --name AutomationDocumentName \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) \
+     --automation-target-parameter-name (parameter to target) \
+     --schedule "cron_or_rate_expression"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name AssociationName ^
+     --targets Key=ResourceGroup,Values=Resource_Group_name ^
+     --name AutomationDocumentName ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) ^
+     --automation-target-parameter-name (parameter to target) ^
+     --schedule "cron_or_rate_expression"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ResourceGroup"
+   $Targets.Values = "Resource_Group_Name"
+   
+   New-SSMAssociation `
+     -AssociationName "AssociationName" `
+     -Target $Targets `
+     -Name "AutomationDocumentName" `
+     -Parameters @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM;
+       (Additional parameters, if any)"} `
+     -AutomationTargetParameterName "parameter_to_target" `
+     -ScheduleExpression "cron_or_rate_expression"
+   ```
+
+------
+
+   The command returns details for the new association similar to the following\.
+
+------
+#### [ Linux ]
+
+   ```
+   {
+       "AssociationDescription": {
+           "ScheduleExpression": "cron(0 7 ? * MON *)",
+           "Name": "AWS-StartEC2Instance",
+           "Parameters": {
+               "AutomationAssumeRole": [
+                   "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"
+               ]
+           },
+           "Overview": {
+               "Status": "Pending",
+               "DetailedStatus": "Creating"
+           },
+           "AssociationId": "1450b4b7-bea2-4e4b-b340-01234EXAMPLE",
+           "DocumentVersion": "$DEFAULT",
+           "AutomationTargetParameterName": "InstanceId",
+           "LastUpdateAssociationDate": 1564686638.498,
+           "Date": 1564686638.498,
+           "AssociationVersion": "1",
+           "AssociationName": "CLI",
+           "Targets": [
+               {
+                   "Values": [
+                       "DEV"
+                   ],
+                   "Key": "tag:ENV"
+               }
+           ]
+       }
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+       "AssociationDescription": {
+           "ScheduleExpression": "cron(0 7 ? * MON *)",
+           "Name": "AWS-StartEC2Instance",
+           "Parameters": {
+               "AutomationAssumeRole": [
+                   "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"
+               ]
+           },
+           "Overview": {
+               "Status": "Pending",
+               "DetailedStatus": "Creating"
+           },
+           "AssociationId": "1450b4b7-bea2-4e4b-b340-01234EXAMPLE",
+           "DocumentVersion": "$DEFAULT",
+           "AutomationTargetParameterName": "InstanceId",
+           "LastUpdateAssociationDate": 1564686638.498,
+           "Date": 1564686638.498,
+           "AssociationVersion": "1",
+           "AssociationName": "CLI",
+           "Targets": [
+               {
+                   "Values": [
+                       "DEV"
+                   ],
+                   "Key": "tag:ENV"
+               }
+           ]
+       }
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Name                  : AWS-StartEC2Instance
+   InstanceId            : 
+   Date                  : 8/1/2019 7:31:38 PM
+   Status.Name           : 
+   Status.Date           : 
+   Status.Message        : 
+   Status.AdditionalInfo :
+   ```
+
+------
 
 **Note**  
 If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
 
 ## Troubleshooting State Manager Automation Executions<a name="systems-manager-state-manager-automation-documents-troubleshooting"></a>
 
-Systems Manager Automation enforces a limit of 25 concurrent executions and 75 queued executions per account, per Region\. If a State Manager association that runs an Automation document shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your execution may have reached the limit\. As a result, Systems Manager throttles the executions\. To resolve this issue, do the following:
+Systems Manager Automation enforces a limit of 25 concurrent executions, 75 child executions, and 1,000 queued executions per account, per Region\. If a State Manager association that runs an Automation document shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your execution may have reached the limit\. As a result, Systems Manager throttles the executions\. To resolve this issue, do the following:
 + Use a different rate or cron expression for your association\. For example, if the association is scheduled to run every 30 minutes, then change the expression so that it runs every hour or two\.
 + Delete existing Automation executions that have a status of **Pending**\. By deleting these executions, you clear the current queue\.

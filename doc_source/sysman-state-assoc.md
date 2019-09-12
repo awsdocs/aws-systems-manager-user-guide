@@ -1,9 +1,9 @@
 # Create an Association<a name="sysman-state-assoc"></a>
 
-This section describes how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
+The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
 **Important**  
-The following procedure is intended for creating an association with a `Command` or `Policy` document\. For information on creating an association that uses an `Automation` document, see [Running Automation Workflows with Triggers using State Manager](automation-sm-target.md)\.
+The following procedures are intended for creating an association with a `Command` or `Policy` document\. For information on creating an association that uses an `Automation` document, see [Running Automation Workflows with Triggers Using State Manager](automation-sm-target.md)\.
 
 When a State Manager association is created, the association immediately runs on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
 + Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
@@ -13,7 +13,7 @@ When a State Manager association is created, the association immediately runs on
 
 ## Create an Association \(Console\)<a name="sysman-state-assoc-console"></a>
 
-The following procedure describes how to use the Systems Manager console to create a State Manager association that uses targets and rate controls\.
+The following procedure describes how to use the Systems Manager console to create a State Manager association\.
 
 **To create a State Manager association**
 
@@ -50,62 +50,146 @@ If you use tags to create an association on one or more target instances, and th
 
 1. Choose **Create Association**\.
 
-## Create an Association \(CLI\)<a name="sysman-state-assoc-cli"></a>
+## Create an Association \(Command Line\)<a name="sysman-state-assoc-commandline"></a>
 
-Use the following format to create an AWS CLI command that creates a State Manager association\. 
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create an association\.
+
+**To create a State Manager association**
+
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+
+1. Use the following format to create a command that creates a State Manager association\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --targets Key=tag:TagKey,Values=TagValue \
+     --name document_name \
+     --schedule "cron_or_rate_expression" \
+     --parameters (if any)
+   ```
 
 **Note**  
 If you create an association by using the AWS CLI, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 
 
-```
-aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name document_name --schedule "cron_or_rate_expression" --parameters (if any)
-```
+------
+#### [ Windows ]
 
-The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of Medium\.
-
-```
-aws ssm create-association --association-name Update_SSM_Agent_Linux --targets Key=tag:Environment,Values=Linux --name AWS-UpdateSSMAgent  --compliance-severity "MEDIUM" --schedule "cron(0 2 ? * SUN *)"
-```
-
-The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\.
-
-```
-aws ssm create-association --association-name Update_SSM_Agent_Linux --name "AWS-UpdateSSMAgent" --targets "Key=instanceids,Values=*" --compliance-severity "MEDIUM" --schedule "cron(0 2 ? * SUN *)"
-```
+   ```
+   aws ssm create-association ^
+     --targets Key=tag:TagKey,Values=TagValue ^
+     --name document_name ^
+     --schedule "cron_or_rate_expression" ^
+     --parameters (if any)
+   ```
 
 **Note**  
-If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
+If you create an association by using the AWS CLI, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 
 
-## Create an Association \(PowerShell\)<a name="sysman-state-assoc-ps"></a>
+------
+#### [ PowerShell ]
 
-Use the following format to create an AWS Tools for PowerShell command that creates a State Manager association\.
+   ```
+   New-SSMAssociation `
+     -AssociationName document_name `
+     -Target Targets `
+     -ScheduleExpression "cron_or_rate_expression" `
+     -Parameters (if any)
+   ```
 
 **Note**  
 If you create an association by using AWS Tools for Windows PowerShell, use the `-Target` parameter to target instances for the association\. Don't use the `-InstanceID` parameter\. The `-InstanceID` parameter is a legacy parameter\. 
 
-```
-New-SSMAssociation -AssociationName document_name -Target Targets -ScheduleExpression "cron_or_rate_expression" -Parameters (if any)
-```
+------
 
-The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of Medium\.
 
-```
-$Target = New-Object Amazon.SimpleSystemsManagement.Model.Target
-$Target.Key = "tag:Environment"
-$Target.Values = "Linux"
+------
+#### [ Linux ]
 
-New-SSMAssociation -AssociationName Update_SSM_Agent_Linux -Name AWS-UpdateSSMAgent -Target $Target -ScheduleExpression "cron(0 2 ? * SUN *)" -ComplianceSeverity MEDIUM
-```
+   ```
+   aws ssm create-association \
+     --association-name Update_SSM_Agent_Linux \
+     --targets Key=tag:Environment,Values=Linux \
+     --name AWS-UpdateSSMAgent  \
+     --compliance-severity "MEDIUM" \
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
 
-The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\.
+------
+#### [ Windows ]
 
-```
-$Target = New-Object Amazon.SimpleSystemsManagement.Model.Target
-$Target.Key = "InstanceIds"
-$Target.Values = "*"
+   ```
+   aws ssm create-association ^
+     --association-name Update_SSM_Agent_Linux ^
+     --targets Key=tag:Environment,Values=Linux ^
+     --name AWS-UpdateSSMAgent  ^
+     --compliance-severity "MEDIUM" ^
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
 
-New-SSMAssociation -AssociationName Update_SSM_Agent_All -Name AWS-UpdateSSMAgent -Target $Target
-```
+------
+#### [ PowerShell ]
 
+   ```
+   New-SSMAssociation `
+     -AssociationName Update_SSM_Agent_Linux `
+     -Name AWS-UpdateSSMAgent `
+     -Target @{
+         "Key"="tag:Environment"
+         "Values"="Linux"
+       } `
+     -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -ComplianceSeverity MEDIUM
+   ```
+
+------
+
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --association-name Update_SSM_Agent_Linux \
+     --name "AWS-UpdateSSMAgent" \
+     --targets "Key=instanceids,Values=*" \
+     --compliance-severity "MEDIUM" \
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name Update_SSM_Agent_Linux ^
+     --name "AWS-UpdateSSMAgent" ^
+     --targets "Key=instanceids,Values=*" ^
+     --compliance-severity "MEDIUM" ^
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMAssociation `
+     -AssociationName Update_SSM_Agent_All `
+     -Name AWS-UpdateSSMAgent `
+     -Target @{
+         "Key"="InstanceIds"
+         "Values"="*"
+       } `
+     -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -ComplianceSeverity MEDIUM
+   ```
+
+------
 **Note**  
 If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 

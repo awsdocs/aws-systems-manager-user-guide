@@ -51,13 +51,15 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Create a Lambda function**\.
 
-1. On the **Select blueprint** page, choose **Blank Function**\.
+1. On the **Create function** page, choose **Author from scratch**\.
 
-1. On the **Configure triggers** page, choose **Next**\.
-
-1. On the **Configure function** page, type Automation\-UpdateSsmParam in the **Name** field, and enter a description, if you want\.
+1. For **Function name**, type **Automation\-UpdateSsmParam**\.
 
 1. In the **Runtime** list, choose **Python 2\.7**\.
+
+1. In the **Permissions** section, choose **Use an existing role** and choose the service role for Lambda that you created in Task 2\.
+
+1. Choose **Create function**\.
 
 1. In the **Lambda function code** section, delete the pre\-populated code in the field, and then paste the following code sample\.
 
@@ -118,11 +120,11 @@ Use the following procedure to create a Lambda function that automatically updat
        return reponseString
    ```
 
-1. In the **Lambda function handler and role** section, in the **Role** list, choose the service role for Lambda that you created in Task 2\.
+1. Choose **Save**\.
 
-1. Choose **Next**, and then choose **Create function**\.
+1. To test the Lambda function, from the **Select a test event** menu, choose **Configure test events**\.
 
-1. To test the Lambda function, from the **Actions** menu, choose **Configure Test Event**\.
+1. For **Event name**, enter a name for the test event, such as **MyTestEvent**\.
 
 1. Replace the existing text with the following JSON\.
 
@@ -133,7 +135,9 @@ Use the following procedure to create a Lambda function that automatically updat
    }
    ```
 
-1. Choose **Save and test**\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
+1. Choose **Create**\.
+
+1. Select **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
 
 ## Task 4: Create an Automation Document and Patch the AMI<a name="automation-pet4"></a>
 

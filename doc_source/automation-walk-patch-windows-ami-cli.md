@@ -81,7 +81,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` docume
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateWindowsAmi` document\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 

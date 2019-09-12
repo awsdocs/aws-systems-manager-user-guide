@@ -1,9 +1,13 @@
 # Running a Simple Automation Workflow<a name="automation-working-executing"></a>
 
-The following procedure describes how to run a simple Systems Manager Automation workflow\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
+The following procedures describe how to run a simple Systems Manager Automation workflow using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
 
 **Note**  
 For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
+
+## Running a Simple Automation Workflow \(Console\)<a name="automation-working-executing-console"></a>
+
+The following procedure describes how to use the Systems Manager console to run a simple Automation workflow\.
 
 **To run a simple Automation workflow**
 
@@ -28,4 +32,223 @@ You can view information about a document by choosing the document name\.
 
 1. Choose **Execute**\. 
 
-The console displays the status of the Automation execution\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md) for tips to common problems\.
+The console displays the status of the Automation execution\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
+
+## Running a Simple Automation Workflow \(Command Line\)<a name="automation-working-executing-commandline"></a>
+
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run a simple Automation workflow\.
+
+**To run a simple Automation workflow**
+
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+
+1. Run the following command to start a simple Automation workflow\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name DocumentName \
+     --parameters ParametersRequiredByDocument
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name DocumentName ^
+     --parameters ParametersRequiredByDocument
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Start-SSMAutomationExecution `
+     -DocumentName DocumentName `
+     -Parameter ParametersRequiredByDocument
+   ```
+
+------
+
+   Here is an example using the document `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name "AWS-RestartEC2Instance" \
+     --parameters "InstanceId=i-1234567890abcdef0"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name "AWS-RestartEC2Instance" ^
+     --parameters "InstanceId=i-1234567890abcdef0"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Start-SSMAutomationExecution `
+     -DocumentName AWS-RestartEC2Instance `
+     -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+   ```
+
+------
+
+   The system returns information like the following\.
+
+------
+#### [ Linux ]
+
+   ```
+   {
+       "AutomationExecutionId": "4105a4fc-f944-11e6-9d32-0123456789ab"
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+       "AutomationExecutionId": "4105a4fc-f944-11e6-9d32-0123456789ab"
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   4105a4fc-f944-11e6-9d32-0123456789ab
+   ```
+
+------
+
+1. Run the following command to retrieve the status of the Automation workflow\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm describe-automation-executions \
+     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-automation-executions ^
+     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMAutomationExecutionList | `
+     Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
+   ```
+
+------
+
+   The system returns information like the following\.
+
+------
+#### [ Linux ]
+
+   ```
+   {
+       "AutomationExecutionMetadataList": [
+           {
+               "AutomationExecutionStatus": "InProgress",
+               "CurrentStepName": "stopInstances",
+               "Outputs": {},
+               "DocumentName": "AWS-RestartEC2Instance",
+               "AutomationExecutionId": "4105a4fc-f944-11e6-9d32-0123456789ab",
+               "DocumentVersion": "1",
+               "ResolvedTargets": {
+                   "ParameterValues": [],
+                   "Truncated": false
+               },
+               "AutomationType": "Local",
+               "Mode": "Auto",
+               "ExecutionStartTime": 1564600648.159,
+               "CurrentAction": "aws:changeInstanceState",
+               "ExecutedBy": "arn:aws:sts::123456789012:assumed-role/Administrator/Admin",
+               "LogFile": "",
+               "Targets": []
+           }
+       ]
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+       "AutomationExecutionMetadataList": [
+           {
+               "AutomationExecutionStatus": "InProgress",
+               "CurrentStepName": "stopInstances",
+               "Outputs": {},
+               "DocumentName": "AWS-RestartEC2Instance",
+               "AutomationExecutionId": "4105a4fc-f944-11e6-9d32-0123456789ab",
+               "DocumentVersion": "1",
+               "ResolvedTargets": {
+                   "ParameterValues": [],
+                   "Truncated": false
+               },
+               "AutomationType": "Local",
+               "Mode": "Auto",
+               "ExecutionStartTime": 1564600648.159,
+               "CurrentAction": "aws:changeInstanceState",
+               "ExecutedBy": "arn:aws:sts::123456789012:assumed-role/Administrator/Admin",
+               "LogFile": "",
+               "Targets": []
+           }
+       ]
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   AutomationExecutionId       : 4105a4fc-f944-11e6-9d32-0123456789ab
+   AutomationExecutionStatus   : InProgress
+   AutomationType              : Local
+   CurrentAction               : aws:changeInstanceState
+   CurrentStepName             : startInstances
+   DocumentName                : AWS-RestartEC2Instance
+   DocumentVersion             : 1
+   ExecutedBy                  : arn:aws:sts::123456789012:assumed-role/Administrator/Admin
+   ExecutionEndTime            : 1/1/0001 12:00:00 AM
+   ExecutionStartTime          : 7/31/2019 7:17:28 PM
+   FailureMessage              : 
+   LogFile                     : 
+   MaxConcurrency              : 
+   MaxErrors                   : 
+   Mode                        : Auto
+   Outputs                     : {}
+   ParentAutomationExecutionId : 
+   ResolvedTargets             : Amazon.SimpleSystemsManagement.Model.ResolvedTargets
+   Target                      : 
+   TargetMaps                  : {}
+   TargetParameterName         : 
+   Targets                     : {}
+   ```
+
+------

@@ -1,6 +1,6 @@
 # Terminate a Session<a name="session-manager-working-with-sessions-end"></a>
 
-You can use the AWS Systems Manager console or the AWS CLI to terminate a session that you started to connect to an instance in your account\. By default, if there is no user activity after 20 minutes, a session is terminated\. After a session is terminated, it can't be resumed\. 
+You can use the AWS Systems Manager console or the AWS CLI to terminate a session that you started to connect to an instance in your account\. If there is no user activity after 20 minutes, a session is terminated\. After a session is terminated, it can't be resumed\. 
 
 **Topics**
 + [Terminating a Session \(Console\)](#stop-sys-console)

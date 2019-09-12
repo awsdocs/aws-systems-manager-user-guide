@@ -22,6 +22,9 @@ For more information, see [Logging AWS Systems Manager API Calls with AWS CloudT
 
 You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
+**Important**  
+When you use virtual hosted–style buckets with Secure Sockets Layer \(SSL\), the SSL wildcard certificate only matches buckets that don't contain periods\. To work around this, use HTTP or write your own certificate verification logic\. We recommend that you do not use periods \("\."\) in bucket names when using virtual hosted–style buckets\.
+
 **S3 Bucket Encryption**  
 In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
@@ -46,6 +49,8 @@ You can also use the AWS CLI to specify or change the S3 bucket that session dat
 1. \(Optional\) If you do not want to encrypt the log data that is sent to the S3 bucket, clear the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using the server\-side encryption key specified for the bucket\. You must also clear the check box if encryption is not enabled on the bucket\.
 
 1. For **S3 bucket name**, select one of the following:
+**Note**  
+We recommend that you do not use periods \("\."\) in bucket names when using virtual hosted–style buckets\. For more information about S3 bucket\-naming conventions, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
    + **Choose a bucket name from the list**: Select an S3 bucket that has already been created in your account to store session log data\.
    + **Enter a bucket name in the text box**: Enter the name of an S3 bucket that has already been created in your account to store session log data\.
 

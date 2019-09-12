@@ -46,7 +46,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
    aws configure
    ```
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. When prompted, enter the AWS Access key and Secret key you received when you created the Jenkins user in IAM\. Specify a default region\. For more information about configuring the AWS CLI see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 

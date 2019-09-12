@@ -3,6 +3,7 @@
 Use one of the following scripts to install SSM Agent on one of the following Linux instances\.
 + [Amazon Linux and Amazon Linux 2](#agent-install-al)
 + [Ubuntu Server](#agent-install-ubuntu)
++ [Debian Server](#agent-install-debian)
 + [Red Hat Enterprise Linux \(RHEL\)](#agent-install-rhel)
 + [CentOS](#agent-install-centos)
 + [SUSE Linux Enterprise Server \(SLES\) 12](#agent-install-sles)
@@ -202,6 +203,8 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    ```
 
    Run the following commands\.
+**Note**  
+Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
@@ -271,6 +274,8 @@ An updated version of SSM Agent is released whenever new capabilities are added 
    ```
 
    Run the following commands\.
+**Note**  
+Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb
@@ -328,6 +333,8 @@ Connect to your Debian Server instance and perform the steps in one of following
    ```
 
    Run the following commands\.
+**Note**  
+Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
@@ -375,6 +382,8 @@ An updated version of SSM Agent is released whenever new capabilities are added 
    ```
 
    Run the following commands\.
+**Note**  
+Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL\.
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
@@ -412,6 +421,8 @@ Connect to your RHEL instance and perform the following steps to install SSM Age
 **To install SSM Agent on Red Hat Enterprise Linux**
 
 1. Use one of the following commands to download and run the SSM Agent installer\.
+**Note**  
+Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs\.
 
    Intel \(x86\_64\) 64\-bit instances:
 
@@ -489,6 +500,8 @@ Connect to your CentOS instance and perform the following steps to install the S
 **To install SSM Agent on CentOS**
 
 1. Use one of the following commands to download and run the SSM Agent installer\.
+**Note**  
+Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs\.
 
    64\-bit instances:
 
@@ -572,6 +585,8 @@ Connect to your SLES instance and perform the following steps to install the SSM
    ```
 
 1. Run the following commands one at a time to download and run the SSM Agent installer\. 
+**Note**  
+Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL\.
 
    64\-bit instances:
 
@@ -672,7 +687,7 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West 1 Region, use the following URL:
 

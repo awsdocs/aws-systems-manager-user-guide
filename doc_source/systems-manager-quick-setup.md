@@ -183,7 +183,7 @@ If you enable this option in Quick Setup, then Systems Manager uses Patch Manage
 
 ## Install and Configure the CloudWatch Agent<a name="quick-setup-cloudwatch"></a>
 
-Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting Metrics and Logs from Amazon EC2 Instances and On\-Premises Servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting Metrics and Logs from Amazon EC2 Instances and On\-Premises Servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
 ## Update the CloudWatch Agent Once Every Four Weeks<a name="quick-setup-cloudwatch-2"></a>
 
@@ -206,7 +206,9 @@ To edit the association for a Quick Setup option, choose the **Edit** button in 
 
 ## Troubleshooting Quick Setup Results<a name="quick-setup-results-troubleshooting"></a>
 
-Use the following procedure to troubleshoot problems with Quick Setup configuration\.
+If a Quick Setup card shows **Not configured**, you might have missed a selection on the Quick Setup page\. As a first step in troubleshooting this problem, choose the **Edit all** button at the top of the Quick Setup results page and review your selections\. If you missed one or more, you can choose them and then choose **Reset** to configure those options\.
+
+If you still see a problem with one or more Quick Setup results cards, then use the following procedure to troubleshoot the issue\.
 
 **To troubleshoot a failed Quick Setup configuration**
 

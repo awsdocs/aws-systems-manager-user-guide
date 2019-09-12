@@ -3,7 +3,7 @@
 Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store can process\. Increased throughput enables you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to a large number of parameters\. You can increase the limit to 1,000 TPS on the **Settings** tab\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
-The Parameter Store throughput setting applies to the current AWS account and Region, which means it applies to all AWS Identity and Access Management \(IAM\) users in this AWS account\. The throughput setting applies to standard and advanced parameters\. 
+The Parameter Store throughput setting applies to all transactions created by all AWS Identity and Access Management \(IAM\) users in the current AWS account and Region\. The throughput setting applies to standard and advanced parameters\. 
 
 ## Configuring Permissions to Increase Parameter Store Throughput<a name="parameter-store-throughput-permissions"></a>
 
@@ -20,7 +20,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
 
 1. In the navigation pane, choose **Users**\.
 
-1. In the list, choose the name of the user to embed a policy in\.
+1. In the list, choose the name of the user to attach a policy to\.
 
 1. Choose the **Permissions** tab\.
 
@@ -54,7 +54,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **Parameter\-Store\-Throughput**\.
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **Parameter\-Store\-Throughput** or another name you prefer\.
 
 1. Choose **Create policy**\.
 
@@ -87,7 +87,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 
 ## Increasing Throughput \(Console\)<a name="parameter-store-throughput-increasing"></a>
 
-The following procedure shows you how to use the Systems Manager console to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+The following procedure shows how to use the Systems Manager console to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
 
 **To increase Parameter Store throughput**
 
@@ -109,7 +109,7 @@ If you no longer need increased throughput, or if you no longer want to incur ch
 
 ## Increasing Throughput \(AWS CLI\)<a name="parameter-store-throughput-increasing-cli"></a>
 
-The following procedure shows you how to use the AWS Command Line Interface \(AWS CLI\) to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+The following procedure shows how to use the AWS Command Line Interface \(AWS CLI\) to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
 
 **To increase Parameter Store throughput using the AWS CLI**
 
@@ -161,7 +161,7 @@ aws ssm reset-service-setting --setting-id arn:aws:ssm:us-east-1:123456789012:se
 
 ## Increasing Throughput \(PowerShell\)<a name="parameter-store-throughput-increasing-ps"></a>
 
-The following procedure shows you how to use the AWS Tools for Windows PowerShell to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
+The following procedure shows how to use the AWS Tools for Windows PowerShell to increase the number of transactions per second that Parameter Store can process for the current AWS account and Region\.
 
 **To increase Parameter Store throughput using PowerShell**
 

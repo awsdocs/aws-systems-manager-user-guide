@@ -16,7 +16,7 @@ Automation can simplify common IT tasks such as changing the state of one or mor
 + Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
-For information about how to run an Automation workflow by using State Manager, see [Running Automation Workflows with Triggers using State Manager](automation-sm-target.md)\.
+For information about how to run an Automation workflow by using State Manager, see [Running Automation Workflows with Triggers Using State Manager](automation-sm-target.md)\.
 
 **Safely perform disruptive tasks in bulk**  
 Systems Manager includes features that help you target large groups of instances by using Amazon EC2 tags, and velocity controls that help you roll out changes according to the limits you define\.
@@ -53,7 +53,7 @@ AWS Systems Manager Automation uses the following concepts\.
 | --- | --- | 
 |  Automation document  |  A Systems Manager Automation document defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation Documents](automation-documents.md)\.  | 
 |  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action or plugin\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. For more information, see the [Systems Manager Automation Actions Reference](automation-actions.md)\.  | 
-|  Automation queue  |  Each AWS account can run 25 Automations simultaneously\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 75 Automation executions\.  | 
+|  Automation queue  |  Each AWS account can run 25 Automations simultaneously with a maximum of 75 child Automations\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 1,000 Automation executions\.  | 
 
 **Topics**
 + [Automation Use Cases](#automation-use-cases)

@@ -67,14 +67,17 @@ This procedure also describes how to create the **AWS\-SystemsManager\-Automatio
 
 1. Download the [AWS\-SystemManager\-AutomationAdministrationRole\.zip folder](samples/AWS-SystemManager-AutomationAdministrationRole.zip) and repeat this procedure for the AWS\-SystemManager\-AutomationAdministrationRole role\. You only need to create the AWS\-SystemManager\-AutomationAdministrationRole role in the Automation management account\.
 
-## Run an Automation in Multiple Regions and Accounts<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
+## Run an Automation in Multiple Regions and Accounts \(Console\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
 
-Use the procedures in this section to run an Automation in multiple Regions and accounts from the Automation management account\. Before you begin, note the following information:
+The following procedure describes how to use the Systems Manager console to run an Automation in multiple Regions and accounts from the Automation management account\.
+
+**Before You Begin**  
+Before you complete the following procedure, note the following information:
 + AWS account IDs or OUs where you want to run the Automation\.
 + [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html) Regions where you want to run the Automation\.
 + The tag key and the tag value, or the name of the resource group, where you want to run the Automation\.
 
-**To run an Automation workflow in multiple Regions and accounts \(Console\)**
+**To run an Automation workflow in multiple Regions and accounts**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -115,6 +118,8 @@ You can view information about a document by choosing the document name\.
 
       If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
 
+      If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the Input parameters section\.
+
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
 You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources in multiple Regions and accounts by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance document, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags you specified\. 
@@ -131,71 +136,303 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\.
 
-**To run an Automation workflow in multiple Regions and accounts \(AWS CLI\)**
+## Run an Automation in Multiple Regions and Accounts \(Command Line\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing-commandline"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation in multiple Regions and accounts from the Automation management account\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+**Before You Begin**  
+Before you complete the following procedure, note the following information:
++ AWS account IDs or OUs where you want to run the Automation\.
++ [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html) Regions where you want to run the Automation\.
++ The tag key and the tag value, or the name of the resource group, where you want to run the Automation\.
 
-1. Run the following command to run an Automation workflow in multiple Regions and accounts\.
+**To run an Automation workflow in multiple Regions and accounts**
 
-   ```
-   aws ssm start-automation-execution
-   --document-name name_of_Automation_document
-   --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole
-   --target-parameter-name parameter_name (required)
-   --targets Key=tag_key,Values=tag_value
-   --target-locations Accounts=account_ID_1,account_ID_2,account_ID_3,Regions=Region_1,Region_2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
-   ```
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   Here are a few examples:
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
 
-   **Example 1**: This example restarts Amazon EC2 instances in the 1a2b3c4d5e6f7g8h and a1b2c3d4e5f6h7 accounts, which are located in the us\-east\-2 and us\-west\-1 Regions\. The instances must be tagged with Env\-PROD\.
+1. Use the following format to create a command to run an Automation workflow in multiple Regions and accounts\.
 
-   ```
-   aws ssm start-automation-execution
-   --document-name AWS-RestartEC2Instance
-   --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole
-   --target-parameter-name InstanceId
-   --targets Key=tag:Env,Values=PROD
-   --target-locations Accounts=1a2b3c4d5e6f7g8h,a1b2c3d4e5f6h7,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
-   ```
-
-   **Example 2**: This example restarts Amazon EC2 instances in the `1a2b3c4d5e6f7g8h` and `a1b2c3d4e5f6h7` accounts, which are located in the `eu-central-1` Region\. The instances must be a member of the `prod-instances` AWS resource group\.
+------
+#### [ Linux ]
 
    ```
-   aws ssm start-automation-execution
-   --document-name AWS-RestartEC2Instance
-   --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole
-   --target-parameter-name InstanceId
-   --targets Key=ResourceGroup,Values=prod-instances
-   --target-locations Accounts=1a2b3c4d5e6f7g8h,a1b2c3d4e5f6h7,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   aws ssm start-automation-execution \
+     --document-name name_of_Automation_document \
+     --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole \
+     --target-parameter-name parameter_name (required) \
+     --targets Key=tag_key,Values=tag_value \
+     --target-locations Accounts=account_ID_1,account_ID_2,account_ID_3,Regions=Region_1,Region_2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
-   **Example 3**: This example restarts Amazon EC2 instances in the `ou-1a2b3c-4d5e6c` AWS Organizational Unit\. The instances are located in the `us-west-1` and `us-west-2` Regions\. The instances must be a member of the `WebServices` AWS resource group\.
+------
+#### [ Windows ]
 
    ```
-   aws ssm start-automation-execution
-   --document-name AWS-RestartEC2Instance
-   --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole
-   --target-parameter-name InstanceId
-   --targets Key=ResourceGroup,Values=WebServices
-   --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2
+   aws ssm start-automation-execution ^
+     --document-name name_of_Automation_document ^
+     --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
+     --target-parameter-name parameter_name (required) ^
+     --targets Key=tag_key,Values=tag_value ^
+     --target-locations Accounts=account_ID_1,account_ID_2,account_ID_3,Regions=Region_1,Region_2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "target_key"
+   $Targets.Values = "target_value"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "name_of_Automation_document" `
+     -Parameter @{
+       "AutomationAssumeRole"="arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+     -TargetParameterName "parameter_name (required)" `
+     -Target $Targets `
+     -TargetLocation @{
+       "Accounts"="account_ID_1","account_ID_2","account_ID_3";
+       "Regions"="Region_1","Region_2";
+       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+   ```
+
+------
+
+   Here are a few examples\.
+
+   **Example 1**: This example restarts Amazon EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `us-east-2` and `us-west-1` Regions\. The instances must be tagged with the tag key\-pair value `Env-PROD`\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name AWS-RestartEC2Instance \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+     --target-parameter-name InstanceId \
+     --targets Key=tag:Env,Values=PROD \
+     --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name AWS-RestartEC2Instance ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+     --target-parameter-name InstanceId ^
+     --targets Key=tag:Env,Values=PROD ^
+     --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "tag:Env"
+   $Targets.Values = "PROD"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "AWS-RestartEC2Instance" `
+     -Parameter @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+     -TargetParameterName "InstanceId" `
+     -Target $Targets `
+     -TargetLocation @{
+       "Accounts"="123456789012","987654321098";
+       "Regions"="us-east-2","us-west-1";
+       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+   ```
+
+------
+
+   **Example 2**: This example restarts Amazon EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `eu-central-1` Region\. The instances must be members of the `prod-instances` AWS resource group\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name AWS-RestartEC2Instance \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+     --target-parameter-name InstanceId \
+     --targets Key=ResourceGroup,Values=prod-instances \
+     --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name AWS-RestartEC2Instance ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+     --target-parameter-name InstanceId ^
+     --targets Key=ResourceGroup,Values=prod-instances ^
+     --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ResourceGroup"
+   $Targets.Values = "prod-instances"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "AWS-RestartEC2Instance" `
+     -Parameter @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+     -TargetParameterName "InstanceId" `
+     -Target $Targets `
+     -TargetLocation @{
+       "Accounts"="123456789012","987654321098";
+       "Regions"="eu-central-1";
+       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+   ```
+
+------
+
+   **Example 3**: This example restarts Amazon EC2 instances in the `ou-1a2b3c-4d5e6c` AWS organizational unit \(OU\)\. The instances are located in the `us-west-1` and `us-west-2` Regions\. The instances must be members of the `WebServices` AWS resource group\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name AWS-RestartEC2Instance \
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+     --target-parameter-name InstanceId \
+     --targets Key=ResourceGroup,Values=WebServices \
+     --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name AWS-RestartEC2Instance ^
+     --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+     --target-parameter-name InstanceId ^
+     --targets Key=ResourceGroup,Values=WebServices ^
+     --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ResourceGroup"
+   $Targets.Values = "WebServices"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "AWS-RestartEC2Instance" `
+     -Parameter @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+     -TargetParameterName "InstanceId" `
+     -Target $Targets `
+     -TargetLocation @{
+       "Accounts"="ou-1a2b3c-4d5e6c";
+       "Regions"="us-west-1";
+       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+   ```
+
+------
+
+   The system returns information similar to the following\.
+
+------
+#### [ Linux ]
+
+   ```
+   {
+       "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+       "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+   ```
+
+------
 
 1. Run the following command to view the workflow execution\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm describe-automation-executions --filters Key=ExecutionId,Values=ID
+   aws ssm describe-automation-executions \
+     --filters Key=ExecutionId,Values=4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-automation-executions ^
+     --filters Key=ExecutionId,Values=4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMAutomationExecutionList | `
+     Where {$_.AutomationExecutionId -eq "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"}
+   ```
+
+------
 
 1. Run the following command to view details about the execution progress\.
 
-   ```
-   aws ssm get-automation-execution --automation-execution-id ID
-   ```
-**Note**  
-You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows you the status of the workflow actions\.
+------
+#### [ Linux ]
 
-**Related Content**  
+   ```
+   aws ssm get-automation-execution \
+     --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-automation-execution ^
+     --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMAutomationExecution `
+     -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+**Note**  
+You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows he status of the workflow actions\.
+
+## Related Content<a name="systems-manager-automation-multiple-accounts-and-regions-executing-related"></a>
+
 [Centralized multi\-account and multi\-Region patching with AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/centralized-multi-account-and-multi-region-patching-with-aws-systems-manager-automation/)

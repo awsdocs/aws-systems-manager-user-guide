@@ -29,6 +29,8 @@ The `--task-invocation-parameters` option is used to specify the parameters that
 **Note**  
 For information about using pseudo parameters in `--task-invocation-parameters` content, such as \{\{TARGET\_ID\}\}, see [About Pseudo Parameters](mw-cli-register-tasks-parameters.md)\. 
 
+Task invocation parameters options for maintenance window tasks
+
 
 | Maintenance window task type | Available parameters  | Example | 
 | --- | --- | --- | 

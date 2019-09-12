@@ -23,6 +23,8 @@ Use the following information to help you troubleshoot problems with Session Man
 
 **Problem 1**: You want to start a session on the **Start a session** console page, but an instance is not in the list\.
 + **Solution**: The instance you want to connect to might not have been configured to use with the AWS Systems Manager service\. To use an instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. 
+**Note**  
+If SSM Agent is already running on an instance when you attach the IAM instance profile, you might need to restart the agent before the instance is listed on the **Start a session** console page\.
 
 **Problem 2**: An instance you want to connect is in the list on the **Start a session** console page, but the page reports that "The instance you selected is not configured to use Session Manager\." 
 + **Solution A**: The instance has been configured for use with the AWS Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.

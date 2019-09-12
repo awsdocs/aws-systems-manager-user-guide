@@ -43,9 +43,9 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
             "Action": [
                 "ssm:GetDocument"
             ],
-            "Resource": "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
-        },
-        {
+            "Resource": [
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
             "Condition": {
                 "BoolIfExists": {
                     "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)

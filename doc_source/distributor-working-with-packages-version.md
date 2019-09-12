@@ -9,6 +9,9 @@ A new package version can:
 
 A newer version can use the same S3 bucket, but must have a URL with a different file name shown at the end\. You can use the AWS Systems Manager console or the AWS CLI to add the new version\. Uploading an installable file with the exact name as an existing installable file in the S3 bucket overwrites the existing file\. No installable files are copied over from the older version to the new version; you must upload installable files from the older version to have them be part of a new version\. After Distributor is finished creating your new package version, you can delete or repurpose the S3 bucket, because Distributor copies your software to an internal Systems Manager bucket as part of the versioning process\.
 
+**Note**  
+Each package is limited to a maximum of 25 versions\. You can delete versions that are no longer required\.
+
 **Topics**
 + [Adding a Package Version \(Console\)](#add-pkg-version)
 + [Adding a Package Version \(AWS CLI\)](#add-pkg-version-cli)

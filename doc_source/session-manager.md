@@ -13,7 +13,10 @@ Session Manager offers these benefits:
   Leaving inbound SSH ports and remote PowerShell ports open on your instances greatly increases the risk of entities running unauthorized or malicious commands on the instances\. Session Manager helps you improve your security posture by letting you close these inbound ports, freeing you from managing SSH keys and certificates, bastion hosts, and jump boxes\.
 + **One\-click access to instances from the console and CLI**
 
-  Using the AWS Systems Manager console, you can start a session with a single click\. Because permissions to instances are provided through IAM policies instead of SSH keys or other mechanisms, the connection time is greatly reduced\.
+  Using the AWS Systems Manager console, you can start a session with a single click\. Using the AWS CLI, you can also start a session that runs a single command or a sequence of commands\. Because permissions to instances are provided through IAM policies instead of SSH keys or other mechanisms, the connection time is greatly reduced\.
++ **Port forwarding**
+
+  Redirect any port inside your remote instance to a local port on a client\. After that, connect to the local port and access the server application that is running inside the instance\.
 + **Cross\-platform support for both Windows and Linux**
 
   Session Manager provides both Windows and Linux support from a single tool\. For example, you don't need to use an SSH client for Linux instances and an RDP connection for Windows instances\.
@@ -62,6 +65,12 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
 + **AWS PrivateLink support for instances without public IP addresses**
 
   You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. PrivateLink limits all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [\(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.
++ **Tunneling**
+
+  In a session, use a Session\-type SSM document to tunnel traffic, such as http or a custom protocol, between a local port on a client machine and a remote port on an instance\.
++ **Interactive Commands**
+
+  Create a Session\-type SSM document that uses a session to interactively run a single command, giving you a way to manage what users can do on an instance\.
 
 ## What Is a Session?<a name="what-is-a-session"></a>
 

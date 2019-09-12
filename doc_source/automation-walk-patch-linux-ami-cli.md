@@ -1,6 +1,6 @@
 # Patch a Linux AMI \(AWS CLI\)<a name="automation-walk-patch-linux-ami-cli"></a>
 
-This Systems Manager Automation walkthrough shows you how to use the AWS CLI and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. You can update any of the following Linux versions using this walkthrough: Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\.
+This Systems Manager Automation walkthrough shows you how to use the AWS CLI and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\. You can update a variety of Linux distributions using this walkthrough, including Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. For a full list of supported Linux versions, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
 
 The `AWS-UpdateLinuxAmi` document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the `AWS-UpdateLinuxAmi` document to perform the following types of tasks\.
 + Upgrade all distribution packages and Amazon software on an Amazon Linux, Red Hat, Ubuntu, SLES, or Cent OS Amazon Machine Image \(AMI\)\. This is the default document behavior\.
@@ -64,7 +64,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateLinuxAmi` document and run the Automation workflow\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\.
 

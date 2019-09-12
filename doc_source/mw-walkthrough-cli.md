@@ -17,7 +17,7 @@ Before you complete the following procedure, you must either have administrator 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Verify that an instance is ready to be registered as a target for a maintenance window\.
 

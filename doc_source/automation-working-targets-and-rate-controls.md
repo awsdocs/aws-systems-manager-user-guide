@@ -1,14 +1,16 @@
-# Running Automation Workflows that Use Targets and Rate Controls<a name="automation-working-targets-and-rate-controls"></a>
+# Running Automation Workflows That Use Targets and Rate Controls<a name="automation-working-targets-and-rate-controls"></a>
 
 AWS Systems Manager enables you to run Automation workflows on a fleet of AWS resources by using targets\. Additionally, you can control the execution of the Automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the Automation simultaneously\. An error threshold determines how many Automation executions are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
-For more information about Concurrency and Error thresholds, see [About Concurrency and Error Thresholds](automation-working-rate-controls.md)\. For more information about Targets, see [About Targets](automation-working-targets.md)\.
+For more information about concurrency and error thresholds, see [About Concurrency and Error Thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About Targets](automation-working-targets.md)\.
 
-The following procedures describe how to run an Automation workflow with targets and rate controls by using the Systems Manager console and the AWS CLI\.
+The following procedures describe how to run an Automation workflow with targets and rate controls by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
 ## Running an Automation workflow with targets and rate controls \(Console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 
-**To run an Automation workflow with targets and rate controls \(Console\)**
+The following procedure describes how to use the Systems Manager console to run an Automation workflow with targets and rate controls\.
+
+**To run an Automation workflow with targets and rate controls**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -35,6 +37,8 @@ You can view information about a document by choosing the document name\.
 
       If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
 
+      If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the Input parameters section\.
+
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
 You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance document, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags or Resource Group you specified\. 
@@ -51,66 +55,436 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\. 
 
-## Running an Automation workflow with targets and rate controls \(AWS CLI\)<a name="automation-working-targets-and-rate-controls-cli"></a>
+## Running an Automation Workflow with Targets and Rate Controls \(Command Line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
 
-**To run an Automation workflow with targets and rate controls \(AWS CLI\)**
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow with targets and rate controls\.
 
-1. Install and configure the AWS CLI, if you have not already\.
+**To run an Automation workflow with targets and rate controls**
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
 
 1. Run the following command to view a list of documents\.
+
+------
+#### [ Linux ]
 
    ```
    aws ssm list-documents
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-documents
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMDocumentList
+   ```
+
+------
+
    Note the name of the Automation document that you want to run\.
 
-1. Run the following command to view details about the Automation document\. Make a note of a parameter name \(for example, InstanceId\) that you want to use for the \-\-target\-parameter\-name option\. This parameter determines the type of resource on which the Automation runs\.
+1. Run the following command to view details about the Automation document\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the Automation runs\.
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm describe-document --name document_name
+   aws ssm describe-document \
+     --name document_name
    ```
 
-1. Create a command that uses the targets and rate control options you want to run\. Here are some AWS CLI template commands to help you\.
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-document ^
+     --name document_name
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMDocumentDescription `
+     -Name document_name
+   ```
+
+------
+
+1. Create a command that uses the targets and rate control options you want to run\. Here are some template commands to help\.
 
    *Targeting using tags*
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm start-automation-execution --document-name document_name --targets Key=tag:key_name,Values=value --target-parameter-name parameter_name --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" --max-concurrency 10 --max-errors 25%
+   aws ssm start-automation-execution \
+     --document-name document_name \
+     --targets Key=tag:key_name,Values=value \
+     --target-parameter-name parameter_name \
+     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
+     --max-concurrency 10 \
+     --max-errors 25%
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name document_name ^
+     --targets Key=tag:key_name,Values=value ^
+     --target-parameter-name parameter_name ^
+     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
+     --max-concurrency 10 ^
+     --max-errors 25%
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "tag:key_name"
+   $Targets.Values = "value"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "DocumentName" `
+     -Targets $Targets `
+     -TargetParameterName "Parameter_Name" `
+     -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
+     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+   ```
+
+------
 
    *Targeting using parameter values*
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm start-automation-execution --document-name document_name --target-parameter-name parameter_name --targets Key=ParameterValues,Values=value_1,value_2,value_3 --parameters "input_parameter_name1=input_parameter_value1" --max-concurrency 50% --max-errors 10%
+   aws ssm start-automation-execution \
+     --document-name document_name \
+     --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
+     --target-parameter-name parameter_name \
+     --parameters "input_parameter_name1=input_parameter_value1" \
+     --max-concurrency 10 \
+     --max-errors 25%
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name document_name ^
+     --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
+     --target-parameter-name parameter_name ^
+     --parameters "input_parameter_name1=input_parameter_value1" ^
+     --max-concurrency 10 ^
+     --max-errors 25%
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ParameterValues"
+   $Targets.Values = "value_1","value_2","value_3"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "DocumentName" `
+     -Targets $Targets `
+     -TargetParameterName "Parameter_Name" `
+     -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
+     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+   ```
+
+------
 
    *Targeting using AWS Resource Groups*
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm start-automation-execution --document-name document_name --target-parameter-name parameter_name --targets Key=ResourceGroup,Values=Resource_Group_name --max-concurrency 1 --max-errors 0
+   aws ssm start-automation-execution \
+     --document-name document_name \
+     --targets Key=ResourceGroup,Values=Resource_Group_name \
+     --target-parameter-name parameter_name \
+     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
+     --max-concurrency 10 \
+     --max-errors 25%
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name document_name ^
+     --targets Key=ResourceGroup,Values=Resource_Group_name ^
+     --target-parameter-name parameter_name ^
+     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
+     --max-concurrency 10 ^
+     --max-errors 25%
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ResourceGroup"
+   $Targets.Values = "Resource_Group_Name"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "DocumentName" `
+     -Targets $Targets `
+     -TargetParameterName "Parameter_Name" `
+     -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
+     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+   ```
+
+------
 
    The command returns an execution ID\. Copy this ID to the clipboard\. You can use this ID to view the status of the workflow\.
 
+------
+#### [ Linux ]
+
    ```
    {
-       "AutomationExecutionId": "ID"
+       "AutomationExecutionId": "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"
    }
    ```
 
-1. Run the following command to view the workflow execution\.
+------
+#### [ Windows ]
 
    ```
-   aws ssm describe-automation-executions
+   {
+       "AutomationExecutionId": "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"
+   }
    ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+
+1. Run the following command to view the workflow execution\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm describe-automation-executions \
+     --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-automation-executions ^
+     --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMAutomationExecutionList | `
+     Where {$_.AutomationExecutionId -eq "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"}
+   ```
+
+------
 
 1. To view details about the execution progress, run the following command\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-automation-execution --automation-execution-id ID
+   aws ssm get-automation-execution \
+     --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-automation-execution ^
+     --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMAutomationExecution `
+     -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   ```
+
+------
+
+   The system returns information like the following\.
+
+------
+#### [ Linux ]
+
+   ```
+   {
+       "AutomationExecution": {
+           "StepExecutionsTruncated": false,
+           "AutomationExecutionStatus": "Success",
+           "MaxConcurrency": "1",
+           "Parameters": {},
+           "MaxErrors": "1",
+           "Outputs": {},
+           "DocumentName": "AWS-StopEC2Instance",
+           "AutomationExecutionId": "a4a3c0e9-7efd-462a-8594-01234EXAMPLE",
+           "ResolvedTargets": {
+               "ParameterValues": [
+                   "i-02573cafcfEXAMPLE"
+               ],
+               "Truncated": false
+           },
+           "ExecutionEndTime": 1564681619.915,
+           "Targets": [
+               {
+                   "Values": [
+                       "DEV"
+                   ],
+                   "Key": "tag:ENV"
+               }
+           ],
+           "DocumentVersion": "1",
+           "ExecutionStartTime": 1564681576.09,
+           "ExecutedBy": "arn:aws:sts::123456789012:assumed-role/Administrator/Admin",
+           "StepExecutions": [
+               {
+                   "Inputs": {
+                       "InstanceId": "i-02573cafcfEXAMPLE"
+                   },
+                   "Outputs": {},
+                   "StepName": "i-02573cafcfEXAMPLE",
+                   "ExecutionEndTime": 1564681619.093,
+                   "StepExecutionId": "86c7b811-3896-4b78-b897-01234EXAMPLE",
+                   "ExecutionStartTime": 1564681576.836,
+                   "Action": "aws:executeAutomation",
+                   "StepStatus": "Success"
+               }
+           ],
+           "TargetParameterName": "InstanceId",
+           "Mode": "Auto"
+       }
+   }
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   {
+       "AutomationExecution": {
+           "StepExecutionsTruncated": false,
+           "AutomationExecutionStatus": "Success",
+           "MaxConcurrency": "1",
+           "Parameters": {},
+           "MaxErrors": "1",
+           "Outputs": {},
+           "DocumentName": "AWS-StopEC2Instance",
+           "AutomationExecutionId": "a4a3c0e9-7efd-462a-8594-01234EXAMPLE",
+           "ResolvedTargets": {
+               "ParameterValues": [
+                   "i-02573cafcfEXAMPLE"
+               ],
+               "Truncated": false
+           },
+           "ExecutionEndTime": 1564681619.915,
+           "Targets": [
+               {
+                   "Values": [
+                       "DEV"
+                   ],
+                   "Key": "tag:ENV"
+               }
+           ],
+           "DocumentVersion": "1",
+           "ExecutionStartTime": 1564681576.09,
+           "ExecutedBy": "arn:aws:sts::123456789012:assumed-role/Administrator/Admin",
+           "StepExecutions": [
+               {
+                   "Inputs": {
+                       "InstanceId": "i-02573cafcfEXAMPLE"
+                   },
+                   "Outputs": {},
+                   "StepName": "i-02573cafcfEXAMPLE",
+                   "ExecutionEndTime": 1564681619.093,
+                   "StepExecutionId": "86c7b811-3896-4b78-b897-01234EXAMPLE",
+                   "ExecutionStartTime": 1564681576.836,
+                   "Action": "aws:executeAutomation",
+                   "StepStatus": "Success"
+               }
+           ],
+           "TargetParameterName": "InstanceId",
+           "Mode": "Auto"
+       }
+   }
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   AutomationExecutionId       : a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+   AutomationExecutionStatus   : Success
+   CurrentAction               : 
+   CurrentStepName             : 
+   DocumentName                : AWS-StopEC2Instance
+   DocumentVersion             : 1
+   ExecutedBy                  : arn:aws:sts::123456789012:assumed-role/Administrator/Admin
+   ExecutionEndTime            : 8/1/2019 5:46:59 PM
+   ExecutionStartTime          : 8/1/2019 5:46:16 PM
+   FailureMessage              : 
+   MaxConcurrency              : 1
+   MaxErrors                   : 1
+   Mode                        : Auto
+   Outputs                     : {}
+   Parameters                  : {}
+   ParentAutomationExecutionId : 
+   ProgressCounters            : 
+   ResolvedTargets             : Amazon.SimpleSystemsManagement.Model.ResolvedTargets
+   StepExecutions              : {i-02573cafcfEXAMPLE}
+   StepExecutionsTruncated     : False
+   Target                      : 
+   TargetLocations             : {}
+   TargetMaps                  : {}
+   TargetParameterName         : InstanceId
+   Targets                     : {tag:Name}
+   ```
+
+------
 **Note**  
-You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows you the status of the workflow actions\.
+You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows the status of the workflow actions\.

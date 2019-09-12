@@ -14,7 +14,7 @@ Amazon
 
 **Platforms**
 
-Windows, Linux
+This document is *not* restricted to specific operating system\.
 
 **Parameters**
 + AutomationAssumeRole

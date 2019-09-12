@@ -2,7 +2,8 @@
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
 
-After you create the instance profile, you attach it to the instances that you want to use with Systems Manager, as described in the following step, [Step 5: Attach an IAM Instance Profile to an Amazon EC2 Instance](setup-launch-managed-instance.md)\.
+**Note**  
+You can use Systems Manager Quick Setup to quickly configure an instance profile on all instances in your AWS account\. Quick Setup can also create an assume role, which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip this step \(Step 4\) and Step 5\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
 
 Note the following details about creating an IAM instance profile:
 + If you are configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, you must configure your servers and VMs to use an IAM service role\. For more information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\.
@@ -10,7 +11,7 @@ Note the following details about creating an IAM instance profile:
 
 ## About Policies for a Systems Manager Instance Profile<a name="instance-profile-policies-overview"></a>
 
-This section describes the policies you can add to your EC2 instance profile for Systems Manager\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that take into account your system needs and security requirements\. However, as a starting point, you use one or more of the following policies to grant permission for Systems Manager to interact with your instances\. The first policy, **AmazonSSMManagedInstanceCore**, enables an instance to use AWS Systems Manager service core functionality\. Depending on your operations plan, you might need permissions represented in one or more of the other three policies\.
+This section describes the policies you can add to your EC2 instance profile for Systems Manager\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that take into account your system needs and security requirements\. However, as a starting point, you can use one or more of the following policies to grant permission for Systems Manager to interact with your instances\. The first policy, **AmazonSSMManagedInstanceCore**, enables an instance to use AWS Systems Manager service core functionality\. Depending on your operations plan, you might need permissions represented in one or more of the other three policies\.
 
 **Policy: AmazonSSMManagedInstanceCore**  
 Required permissions\.  
@@ -20,7 +21,16 @@ This AWS managed policy enables an instance to use Systems Manager service core 
 Required permissions in either of the following cases:  
 + **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
 
-  SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned S3 buckets\. These buckets are publicly accessible\. In a private VPC endpoint environment, however, you must explicitly provide access to these buckets\. For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md) and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
+  SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned S3 buckets\. These buckets are publicly accessible\. 
+
+  In a private VPC endpoint environment, however, you must explicitly provide access to these buckets:
+
+  ```
+  arn:aws:s3:::patch-baseline-snapshot-region/*
+  arn:aws:s3:::aws-ssm-region/*
+  ```
+
+   For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md), [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
 + **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
 
   Your EC2 instance profile for Systems Manager must grant access to an S3 bucket that you own for tasks like the following: 
@@ -72,8 +82,10 @@ For information about the AWS managed S3 buckets you provide access to in the po
                    "s3:GetObject",
                    "s3:PutObject",
                    "s3:PutObjectAcl" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+                   "s3:GetEncryptionConfiguration" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
                ],
-               "Resource": "arn:aws:s3:::my-bucket-name/*"
+               "Resource": "arn:aws:s3:::my-bucket-name/*",
+                           "arn:aws:s3:::my-bucket-name" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
            }
        ]
    }
@@ -84,6 +96,10 @@ For information about the AWS managed S3 buckets you provide access to in the po
    **2** The second `Statement` element is required only if you are using an S3 bucket that you created to use in your Systems Manager operations\.
 
    **3** The `PutObjectAcl` access control list permission is required only if you plan to support cross\-account access to S3 buckets in other accounts\.
+
+   **4** The `GetEncryptionConfiguration` element is required if your S3 bucket is configured to use encryption\.
+
+   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, arn:aws:s3:::*my\-bucket\-name*\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
 
 1. If you are using a VPC endpoint in your operations, do the following: 
 
@@ -130,13 +146,17 @@ Depending on whether you are creating a new role for your instance profile or ad
 
 1. Under **Select type of trusted entity**, choose **AWS service**\.
 
-1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.
+1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
 
-1. On the **Attached permissions policy** page, do the following:
-   + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
-   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a Custom S3 Bucket Policy for an Instance Profile](#instance-profile-custom-s3-policy), select the box next to its name\.
-   + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
-   + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
+1. On the **Attached permissions policy** page, do the following: 
+   + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore**\. Select the box next to its name\.   
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+
+     The console retains your selection even if you search for other policies\.
+   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a Custom S3 Bucket Policy for an Instance Profile](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
+   + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
+   + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
 
 1. Choose **Next: Tags**\.
 

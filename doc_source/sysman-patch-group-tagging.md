@@ -50,7 +50,7 @@ For EC2 instances, you can add tags by using the AWS Systems Manager console, th
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to add the `Patch Group` tag to an EC2 instance\.
 
@@ -86,7 +86,7 @@ For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Syste
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to add the `Patch Group` tag to a managed instance\.
 

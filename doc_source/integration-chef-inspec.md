@@ -95,7 +95,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run one of the following commands to run an InSpec profile from either GitHub or Amazon S3\.
 

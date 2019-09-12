@@ -125,7 +125,7 @@ The following procedure describes how to attach a label to a specific version of
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to view a list of parameters for which you have permission to attach a label\.
 **Note**  

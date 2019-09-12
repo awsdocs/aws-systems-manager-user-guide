@@ -18,7 +18,7 @@ To associate a specific patch baseline with your instances, you must add the pat
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 
 1. Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
 

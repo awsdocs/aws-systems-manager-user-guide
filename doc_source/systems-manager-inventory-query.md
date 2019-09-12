@@ -96,6 +96,11 @@ If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket
 
 Use the following procedure to view inventory data from multiple AWS Regions and accounts on the **Detailed Inventory View** page\.
 
+**Important**  
+The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.  
+
+![\[Displaying Inventory Dashboard | Detailed View | Settings tabs\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
+
 **To view inventory data from multiple Regions and accounts in the AWS Systems Manager console**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.

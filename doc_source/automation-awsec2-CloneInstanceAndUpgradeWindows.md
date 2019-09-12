@@ -34,7 +34,11 @@ Windows
 
 **Limitations**
 
-This Automation doesn't support upgrading Windows domain controllers, clusters, or Windows work stations\.
+This Automation doesn't support upgrading Windows domain controllers, clusters, or Windows work stations\. This Automation also doesn't support Windows instances with the following roles installed\.
++ Remote Desktop Session Host \(RDSH\)
++ Remote Desktop Connection Broker \(RDCB\)
++ Remote Desktop Virtualization Host \(RDVH\)
++ Remote Desktop Web Access \(RDWA\)
 
 **Parameters**
 + InstanceId

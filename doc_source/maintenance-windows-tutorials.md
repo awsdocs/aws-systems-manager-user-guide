@@ -9,7 +9,7 @@ This section includes tutorials that help you learn how to use the AWS Command L
 
 **Complete prerequisites**  
 Before trying these tutorials, complete the following prerequisites\.
-+ **Configure the AWS CLI on your local machine**: Before you can run AWS CLI commands, you must install and configure the CLI on your local machine\. For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
++ **Configure the AWS CLI on your local machine**: Before you can run AWS CLI commands, you must install and configure the CLI on your local machine\. For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
 + **Verify maintenance window roles and permissions**: An AWS administrator in your account must grant you the AWS Identity and Access Management \(IAM\) permissions you need to manage maintenance windows using the CLI\. For information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 + **Create or configure a Systems Manager\-compatible instance**: You need at least one Amazon EC2 instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
 

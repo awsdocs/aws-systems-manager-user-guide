@@ -1,5 +1,7 @@
 # Examples: Register Tasks with a Maintenance Window<a name="mw-cli-register-tasks-examples"></a>
 
+You can register a Systems Manager Run Command task with a maintenance window using the AWS CLI, as demonstrated in [Step 3: Register a Task with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
+
 In this topic, we provide examples of using the `register-task-with-maintenance-window` CLI command to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
 
 **Using the \-\-cli\-input\-json option**  
@@ -37,6 +39,8 @@ The following sections provide a sample AWS CLI command for registering a suppor
 The CLI commands we provide are formatted to run from a local Linux machine\. To run them from a local Windows machine, remove the line breaks \(\\\) from the ends of the lines\. The sample JSON content format works on both Linux and Windows local machines\.
 
 ### Register a Systems Manager Run Command Task<a name="register-tasks-tutorial-run-command"></a>
+
+ The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI: 
 
 **AWS CLI command:**
 
@@ -87,6 +91,8 @@ aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE \
 
 ### Register a Systems Manager Automation Task<a name="register-tasks-tutorial-automation"></a>
 
+ The following examples demonstrate how to register Systems Manager Automation tasks with a maintenance window using the AWS CLI: 
+
 **AWS CLI command:**
 
 ```
@@ -131,6 +137,8 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
 ```
 
 ### Register an AWS Lambda Task<a name="register-tasks-tutorial-lambda"></a>
+
+ The following examples demonstrate how to register AWS Lambda function tasks with a maintenance window using the AWS CLI\. 
 
 For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `targetId` and `targetType`\.
 
@@ -179,6 +187,8 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
 ```
 
 ### Register an AWS Step Functions Task<a name="register-tasks-tutorial-step-functions"></a>
+
+ The following examples demonstrate how to register AWS Step Functions state machine tasks with a maintenance window using the AWS CLI\.
 
 For these examples, the user who created the Step Functions state machine created a state machine named `SSMMyStateMachine` with a parameter called `targetId`\.
 
