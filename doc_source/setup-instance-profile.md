@@ -81,11 +81,13 @@ For information about the AWS managed S3 buckets you provide access to in the po
                "Action": [
                    "s3:GetObject",
                    "s3:PutObject",
-                   "s3:PutObjectAcl" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+                   "s3:PutObjectAcl", ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
                    "s3:GetEncryptionConfiguration" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
                ],
-               "Resource": "arn:aws:s3:::my-bucket-name/*",
-                           "arn:aws:s3:::my-bucket-name" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
+               "Resource": [
+                   "arn:aws:s3:::my-bucket-name/*",
+                   "arn:aws:s3:::my-bucket-name" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
+               ],   
            }
        ]
    }
