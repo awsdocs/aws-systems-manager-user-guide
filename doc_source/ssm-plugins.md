@@ -506,7 +506,9 @@ Required: Yes
   + commitID:*commitID*
 
     The default is `head`\.
-+ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your access token information\.
++ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your access token information, in the format `{{ssm-secure:secure-string-token}}`\.
+**Note**  
+This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters are not supported for any other fields, nor for any other SSM document plugins\.
 
 ```
 Example syntax:

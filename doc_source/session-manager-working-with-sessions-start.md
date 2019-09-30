@@ -80,7 +80,7 @@ To start a port forwarding session, run the following command from the CLI:
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
-aws ssm start-session --target instance-id --document-name AWS-StartPortForwardingSession --parameters ‘{“portNumber”:[“80”], “localPortNumber”:[“56789”]}’
+aws ssm start-session --target instance-id --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["80"], "localPortNumber":["56789"]}'
 ```
 
  *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.
@@ -99,7 +99,7 @@ To start an Interactive Command session, run the following command::
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
-aws ssm start-session --target instance-id --document-name TestInteractiveCommandSessionDocument --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}
+aws ssm start-session --target instance-id --document-name TestInteractiveCommandSessionDocument --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}'
 ```
 
  *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.

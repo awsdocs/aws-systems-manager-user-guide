@@ -25,7 +25,7 @@ However, the following situations still require that you specify a service role 
 + Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create a service role and an instance profile role for Automation, you can use one of the following methods\.
-+ [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)
++ [Method 1: Use AWS CloudFormation to Configure a Service Role for Automation](automation-cf.md)
 + [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)
 
 ### Service Role for Maintenance Windows Tasks<a name="setup-service-role-create-mw-tasks"></a>

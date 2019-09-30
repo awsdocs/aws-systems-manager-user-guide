@@ -12,7 +12,7 @@ Amazon Virtual Private Cloud \(Amazon VPC\) enables you to define a virtual netw
 
 **Topics**
 + [VPC Endpoint Restrictions and Limitations](#vpc-requirements-and-limitations)
-+ [Creating VPC EndPoints for Systems Manager](#sysman-setting-up-vpc-create)
++ [Creating VPC Endpoints for Systems Manager](#sysman-setting-up-vpc-create)
 
 ## VPC Endpoint Restrictions and Limitations<a name="vpc-requirements-and-limitations"></a>
 

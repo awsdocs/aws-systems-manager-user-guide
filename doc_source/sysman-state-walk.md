@@ -4,5 +4,6 @@ The following walkthroughs demonstrate how to create and configure State Manager
 
 **Topics**
 + [Creating Associations that Run MOF Files](systems-manager-state-manager-using-mof-file.md)
++ [Creating Associations that Run Ansible Playbooks](systems-manager-state-manager-ansible.md)
 + [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically Update PV Drivers on EC2 Windows Instances \(Console\)](sysman-state-pvdriver.md)

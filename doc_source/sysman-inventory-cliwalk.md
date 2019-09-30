@@ -5,7 +5,7 @@ The following procedures walk you through the process of configuring Inventory t
 `The aws:softwareInventory plugin can only be invoked via ssm-associate`\.
 
 **Note**  
-An instance can have only have one Inventory association configured at a time\. If you configure an instance with two or more Inventory associations, the association doesn't run and no inventory data is collected\.
+An instance can have only one Inventory association configured at a time\. If you configure an instance with two or more Inventory associations, the association doesn't run and no inventory data is collected\.
 
 ## Quickly Configure All of Your Managed Instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
 

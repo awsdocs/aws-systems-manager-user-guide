@@ -107,6 +107,14 @@ The following procedure describes how to change an account\-level setting\. This
 
 1. Choose the **Settings** tab\.
 
+   If you don't see the **Settings** tab, then do the following:
+
+   1. Verify that the console is open in the AWS Region where you created your managed instances\. You can switch Regions by using the list in the top, right corner of the console\. 
+
+   1. Verify that your instances meet Systems Manager requirements\. For information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+
+   1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\.
+
 1. Choose **Change account settings**\.
 
 1. Review the information in the pop\-up about changing account settings, and then, if you approve, choose the option to accept and continue\.

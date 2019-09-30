@@ -1,4 +1,4 @@
-# Running an Automation Workflow Step by Step<a name="automation-working-executing-manually"></a>
+# Running an Automation Workflow Manually<a name="automation-working-executing-manually"></a>
 
 The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run a Systems Manager Automation workflow using the manual execution mode\. By using the manual execution mode, the Automation workflow starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the workflow proceeds, which is useful if you need to review the result of a step before continuing\.
 

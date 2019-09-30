@@ -18,8 +18,6 @@ If you don't see your managed instances listed in the console, then do the follo
 
 1. Verify that your instances meet Systems Manager requirements\. For information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
-1. If you created new instances in the Amazon EC2 console that include SSM Agent and an instance profile role for Systems Manager, then you might need to wait a few minutes for the instances to reach the running status and for SSM Agent to ping the Systems Manager service in the cloud\.
-
 1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\.
 
 **Note**  
