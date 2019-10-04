@@ -788,7 +788,7 @@ Here is a schemaVersion 2\.2 example:
          "action":"aws:runPowerShellScript",
          "name":"DisplaySalutation",
          "inputs":{
-            "timeoutSeconds":60,
+            "timeoutSeconds":"60",
             "runCommand":[
                "$salutation = '{{ Salutation }}'",
                "",
