@@ -73,6 +73,6 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **SessionManagerPermissions**\.
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
 1. Choose **Create policy**\.

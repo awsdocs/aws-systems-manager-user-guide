@@ -44,7 +44,7 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 aws ssm start-session --target instance-id
 ```
 
- *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.
+ *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
@@ -61,7 +61,7 @@ ssh -i /path/my-key-pair.pem username@instance-id
 
  */path/my\-key\-pair\.pem* represents the path to your Privacy Enhanced Mail \(PEM\) certificate\.
 
- *username@instance\-id* represents the user name you use to connect to the instance, and the instance ID\. For example: `JaneDoe@i-02573cafcfEXAMPLE`\.
+ *username@instance\-id* represents the user name you use to connect to the instance, and the instance ID, such as `JaneDoe@i-02573cafcfEXAMPLE`\.
 
 **Tip**  
 When you start a session using SSH, you can copy local files to the target instance using the following command format\.  
@@ -83,11 +83,11 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 aws ssm start-session --target instance-id --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["80"], "localPortNumber":["56789"]}'
 ```
 
- *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.
+ *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 
-*portNumber* represents the remote port on the instance where traffic should be redirected to\. \. For example: 3389\. If this parameter is not specified, Session Manager assumes 80 as the default remote port\. 
+*portNumber* represents the remote port on the instance where traffic should be redirected to, such as `3389`\. If this parameter is not specified, Session Manager assumes `80` as the default remote port\. 
 
-*localPortNumber* represents the local port on the client where traffic should be redirected to\. For example: 56789\. 
+*localPortNumber* represents the local port on the client where traffic should be redirected to, such as `56789`\. 
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
@@ -102,7 +102,7 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 aws ssm start-session --target instance-id --document-name TestInteractiveCommandSessionDocument --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}'
 ```
 
- *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability\. For example: `i-02573cafcfEXAMPLE`\.
+ *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 

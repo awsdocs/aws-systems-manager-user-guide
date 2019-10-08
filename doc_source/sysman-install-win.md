@@ -14,17 +14,27 @@ This procedure applies to installing or reinstalling SSM Agent on an Amazon EC2 
 
 **To manually download and install the latest version of SSM Agent**
 
-1. Log in to your instance by using, for example, Remote Desktop or Windows PowerShell\.
+1. Log in to your instance by using Remote Desktop or Windows PowerShell\.
 
-1. Download the latest version of SSM Agent to your instance:
+1. Download the latest version of SSM Agent to your instance\. You have two options for downloading: 
+
+   **a\. PowerShell**
+
+   Run the following PowerShell command\. This command enables you to download SSM Agent without adjusting Internet Explorer \(IE\) Enhanced Security settings\.
+
+   ```
+   Invoke-WebRequest https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe -OutFile $env:USERPROFILE\Desktop\SSMAgent_latest.exe
+   ```
+**Note**  
+The URLs in this step let you download SSM Agent from *any* AWS region\. If you want to download the agent from a specific region, use a region\-specific URL instead:  
+`https://amazon-ssm-region.s3.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`  
+*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+
+   **b\. Download link**
+
+   Download the latest version of SSM Agent to your instance by using the following link\. If you want, update this URL with a region\-specific URL\.
 
    [https://s3\.amazonaws\.com/ec2\-downloads\-windows/SSMAgent/latest/windows\_amd64/AmazonSSMAgentSetup\.exe](https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe)
-
-   This URL lets you download SSM Agent from any AWS region\. If you want to download the agent from a specific region, use a region\-specific URL instead:
-
-   `https://amazon-ssm-region.s3.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`
-
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
 
 1. Run the downloaded `AmazonSSMAgentSetup.exe` file to install SSM Agent\.
 

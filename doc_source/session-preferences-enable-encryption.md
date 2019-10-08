@@ -33,7 +33,7 @@ There is a charge to use CMKs\. For information, see [AWS Key Management Service
 
      \-or\-
 
-     Choose the button next to **Enter a KMS key alias or KMS key ARN**\. Manually enter an AWS KMS key alias for a key created in your current account, or enter the key ARN for a key in another account\. For example:
+     Choose the button next to **Enter a KMS key alias or KMS key ARN**\. Manually enter an AWS KMS key alias for a key created in your current account, or enter the key ARN for a key in another account\. The following are examples\.
      + Key alias: `alias/my-kms-key-alias`
      + Key ARN: `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`
 

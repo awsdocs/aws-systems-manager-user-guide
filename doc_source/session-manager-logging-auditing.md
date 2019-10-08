@@ -91,7 +91,7 @@ For more information about working with CloudWatch Logs, see the *[Amazon CloudW
 
 ## Monitoring Session Activity Using Amazon CloudWatch Events \(Console\)<a name="session-manager-logging-auditing-cloudwatch-events"></a>
 
-CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or terminates a session, and then, for example, receive a notification through Amazon SNS about the event\. 
+CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 
 CloudWatch Events support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with CloudWatch Events to respond to most AWS Systems Manager events\.\)
 

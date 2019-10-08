@@ -15,7 +15,7 @@ For example:
 arn:aws:ssm:us-east-2:123456789012:session/JohnDoe-1a2b3c4d5eEXAMPLE
 ```
 
-You can use a pair of AWS\-supplied default IAM policies, one for end users and one for administrators, to supply permissions for Session Manager activities\. Or you can create custom IAM policies for different permissions requirements you might have\.
+You can use a pair of default IAM policies supplied by AWS, one for end users and one for administrators, to supply permissions for Session Manager activities\. Or you can create custom IAM policies for different permissions requirements you might have\.
 
 For more information about using variables in IAM policies, see [IAM Policy Elements: Variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html)\. 
 

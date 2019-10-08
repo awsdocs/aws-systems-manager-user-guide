@@ -24,7 +24,7 @@ The following procedure describes how to use the AWS CLI and the [update\-docume
    }
    ```
 
-1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and EC2 instances, provide the AWS KMS key to use for encryption\. For example:
+1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and EC2 instances, provide the AWS KMS key to use for encryption\. The following is an example\.
 
    ```
    {

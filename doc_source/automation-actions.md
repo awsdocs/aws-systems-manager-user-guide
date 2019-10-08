@@ -98,7 +98,8 @@ Type: Integer
 Required: No
 
 timeoutSeconds  
-The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\. There is no default value for this field\.  
+The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.   
+The `aws:changeInstanceState` action has a default `timeoutSeconds` value of 3600\. For all other actions, there is no default value\.  
 Type: Integer  
 Required: No
 
@@ -621,7 +622,7 @@ The `aws:branch` action supports `And`, `Or`, and `Not` operators\. For examples
 
 Changes or asserts the state of the instance\.
 
-This action can be used in assert mode \(do not run the API to change the state but verify the instance is in the desired state\.\) To use assert mode, set the CheckStateOnly parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an AMI\.
+This action can be used in assert mode \(do not run the API to change the state but verify the instance is in the desired state\.\) To use assert mode, set the `CheckStateOnly` parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an AMI\.
 
 **Input**
 

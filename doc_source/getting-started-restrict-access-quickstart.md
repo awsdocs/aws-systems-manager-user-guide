@@ -11,9 +11,9 @@ You can also use an AWS KMS key policy to control which IAM users, IAM roles, an
 
 ## Quickstart End User Policy for Session Manager<a name="restrict-access-quickstart-end-user"></a>
 
-Use the following example to create an IAM end user policy for Session Manager\. It provides end users the ability start a session to a particular instance and the ability to terminate only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+Use the following example to create an IAM end user policy for Session Manager\. It provides end users the ability start a session to a particular instance and the ability to end only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
 
-Replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
+Replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
 
 ```
 {
@@ -96,10 +96,10 @@ For information about AWS KMS and CMKs for encrypting session data, see [Enable 
 
 ## Quickstart Administrator Policy for Session Manager<a name="restrict-access-quickstart-admin"></a>
 
-Use the following example to create an IAM administrator policy for Session Manager\. It provides administrators the ability to start a session to instances that are tagged with `Key=Finance,Value=WebServers`, permission to create, update and delete preferences, and permission to terminate only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+Use the following example to create an IAM administrator policy for Session Manager\. It provides administrators the ability to start a session to instances that are tagged with `Key=Finance,Value=WebServers`, permission to create, update and delete preferences, and permission to end only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
 
 **Note**  
-Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
+Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
 
 ```
 {

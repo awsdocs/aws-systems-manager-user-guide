@@ -1,6 +1,6 @@
 # Enforce Document Permission Check for Default CLI Scenario<a name="getting-started-sessiondocumentaccesscheck"></a>
 
-When you configure Session Manager for your account, the system creates an SSM document named `SSM-SessionManagerRunShell`\. This SSM document stores your requirements for whether session data is saved in an Amazon S3 bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service, and whether Run As support is enabled for your sessions\. For example:
+When you configure Session Manager for your account, the system creates an SSM document named `SSM-SessionManagerRunShell`\. This SSM document stores your requirements for whether session data is saved in an Amazon S3 bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service, and whether Run As support is enabled for your sessions\. The following is an example\.
 
 ```
 {
@@ -44,7 +44,7 @@ For cases where the user doesn’t specify a document name in the `[start\-sessi
             }
 ```
 
-With this condition element set to true in the user’s associated IAM policy, explicit access to `SSM-SessionManagerRunShell` must be granted in the IAM policy\. For example: 
+With this condition element set to true in the user’s associated IAM policy, explicit access to `SSM-SessionManagerRunShell` must be granted in the IAM policy\. The following is an example\. 
 
 ```
 {

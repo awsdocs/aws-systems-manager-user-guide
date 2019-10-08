@@ -1,6 +1,6 @@
 # \(Optional\) Install the Session Manager Plugin for the AWS CLI<a name="session-manager-working-with-install-plugin"></a>
 
-If you want to use the AWS CLI to start and terminate sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
+If you want to use the AWS CLI to start and end sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
 **Use the Latest Version of the Session Manager Plugin**  
 The plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you are using the latest version of the plugin\. For more information, see [ Session Manager Plugin Latest Version and Release History](#plugin-version-history)\.
@@ -70,7 +70,7 @@ The bundled installer does not support installing to paths that contain spaces\.
    sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
    ```
 **Note**  
-The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. For example:  
+The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
 
    ```
    sudo /usr/local/bin/python3.6 sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin

@@ -48,7 +48,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
    + Create or verify that you have a Privacy Enhanced Mail Certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed instances\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a Session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
 
 **To disable SSH connections through Session Manager**
-+ Option 1: Open the [IAM policies page](https://console.aws.amazon.com/iam/home/policies), and then update the permissions policy for the user or role to block from starting Session Manager sessions\. For example, prepare to modify the user quickstart policy you created in [Quickstart End User Policy for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy, or replace any permissions that allow a user to start a session:
++ Option 1: Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role to block from starting Session Manager sessions\. For example, prepare to modify the user quickstart policy you created in [Quickstart End User Policy for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy, or replace any permissions that allow a user to start a session:
 
   ```
   {
