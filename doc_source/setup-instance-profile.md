@@ -48,9 +48,9 @@ Required only if you plan to install and run the CloudWatch agent on your instan
 Your instance profile needs this policy only if you will use CloudWatch features, such as CloudWatch Events or CloudWatch Logs\. \(You can also create a more restrictive policy that, for example, limits writing access to a specific CloudWatch Logs log stream\.\)  
 Using CloudWatch features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 
-## Task 1: \(Optional\) Create a Custom S3 Bucket Policy for an Instance Profile<a name="instance-profile-custom-s3-policy"></a>
+## Task 1: \(Optional\) Create a Custom Policy for Amazon S3 Bucket Access<a name="instance-profile-custom-s3-policy"></a>
 
-Creating a custom S3 bucket policy for your instance profile is required only if you are using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
+Creating a custom policy for Amazon S3 access is required only if you are using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
 
 For information about the AWS managed S3 buckets you provide access to in the policy below, see [About Minimum S3 Bucket Permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 
@@ -156,7 +156,7 @@ Depending on whether you are creating a new role for your instance profile or ad
 ![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
 
      The console retains your selection even if you search for other policies\.
-   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a Custom S3 Bucket Policy for an Instance Profile](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
+   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a Custom Policy for Amazon S3 Bucket Access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
    + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
 
@@ -182,7 +182,7 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 1. On the **Attach permission policies** page, do the following:
    + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
-   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a Custom S3 Bucket Policy for an Instance Profile](#instance-profile-custom-s3-policy)\.
+   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a Custom Policy for Amazon S3 Bucket Access](#instance-profile-custom-s3-policy)\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
    + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
 

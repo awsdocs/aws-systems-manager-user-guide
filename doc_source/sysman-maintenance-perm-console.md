@@ -56,6 +56,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
             "Principal":{
                "Service":[
                   "ssm.amazonaws.com",
+                  "ec2.amazonaws.com",
                   "sns.amazonaws.com"
                ]
             },
@@ -90,7 +91,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
       }
       ```
 
-      *sns\-access\-role\-arn* represents the ARN of the existing IAM role to be for sending SNS notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::111222333444:role/my-sns-access-role`\. 
+      *sns\-access\-role\-arn* represents the ARN of the existing IAM role to be for sending Amazon Simple Notification Service notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::111222333444:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
 **Note**  
 In the Systems Manager console, this ARN is selected in the ** IAM Role** list on the **Register run command task** page\. For information, see [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)\. In the Systems Manager API, this ARN is entered as the value of [ServiceRoleArn](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html#EC2-SendCommand-request-ServiceRoleArn) in the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) request\.
 

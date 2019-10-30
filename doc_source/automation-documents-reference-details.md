@@ -45,7 +45,7 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-DeleteSnapshot](automation-aws-deletesnapshot.md)
 + [AWS\-DetachEBSVolume](automation-aws-detachebsvolume.md)
 + [AWS\-DisablePublicAccessForSecurityGroup](automation-aws-disablepublicaccessforsecuritygroup.md)
-+ [AWS\-Disables3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
++ [AWS\-DisableS3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
 + [AWS\-EnableCloudTrail](automation-aws-enablecloudtrail.md)
 + [AWS\-Enables3BucketEncryption](automation-aws-enables3bucketencryption.md)
 + [AWSSupport\-ExecuteEC2Rescue](automation-awssupport-executeec2rescue.md)

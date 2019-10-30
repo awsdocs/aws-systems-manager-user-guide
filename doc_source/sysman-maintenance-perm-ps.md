@@ -28,6 +28,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
             "Principal":{
                "Service":[
                   "ssm.amazonaws.com",
+                  "ec2.amazonaws.com",
                   "sns.amazonaws.com"
                ]
             },

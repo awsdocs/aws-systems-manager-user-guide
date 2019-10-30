@@ -2,7 +2,7 @@
 
 You can use the AWS CLI to create a parameter that uses the `String`, `StringList`, or `SecureString` data type\. 
 
-For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and Use a Parameter in a Command \(AWS CLI\)](sysman-paramstore-cli.md)\.
+For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and Update a String Parameter \(AWS CLI\)](sysman-paramstore-cli.md)\.
 
 **Note**  
 Parameters are only available in the AWS Region where they were created\.

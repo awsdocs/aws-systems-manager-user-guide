@@ -150,7 +150,7 @@ Get-SSMCommandInvocation -CommandId $installAppCommand.CommandId -Details $true 
 
 ## Install a PowerShell Module Using the AWS\-InstallPowerShellModule JSON Document<a name="walkthrough-powershell-install-module"></a>
 
-You can use Run Command to install PowerShell modules on an EC2 instance\. For more information about PowerShell modules, see [Windows PowerShell Modules](https://msdn.microsoft.com/en-us/library/dd878324%28v=vs.85%29.aspx)\.
+You can use Run Command to install PowerShell modules on an EC2 instance\. For more information about PowerShell modules, see [Windows PowerShell Modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6)\.
 
 **View the description and available parameters**
 

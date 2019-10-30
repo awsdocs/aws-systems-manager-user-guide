@@ -1,4 +1,4 @@
-# AWS\-Disables3BucketPublicReadWrite<a name="automation-aws-disables3bucketpublicreadwrite"></a>
+# AWS\-DisableS3BucketPublicReadWrite<a name="automation-aws-disables3bucketpublicreadwrite"></a>
 
 **Description**
 

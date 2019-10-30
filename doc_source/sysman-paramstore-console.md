@@ -1,4 +1,4 @@
-# Walkthrough: Create and Use a Parameter in a Command \(Console\)<a name="sysman-paramstore-console"></a>
+# Walkthrough: Create and Test a Parameter in a Command \(Console\)<a name="sysman-paramstore-console"></a>
 
 The following procedure walks you through the process of creating a parameter in Parameter Store and then running a command that uses this parameter\.
 
@@ -28,10 +28,12 @@ The following procedure walks you through the process of creating a parameter in
 
 1. In the **Command document** list, choose `AWS-RunPowershellScript` \(Windows\) or `AWS-RunShellScript` \(Linux\)\. 
 
-1. Under **Target instances**, choose a managed instance in your account\.
+1. For **Command parameters**, enter **echo \{\{ssm:*parameter\-name*\}\}**\. For example: **echo \{\{ssm:/Test/helloWorld\}\}**\. 
 
-1. In the **Commands** field, enter **echo \{\{ssm:*parameter\-name*\}\}**, for example, **echo \{\{ssm:/Test/helloWorld\}\}**\. 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. Choose **Run**\.
 
-1. Scroll to the bottom of the **Command ID** page, select the button next to an instance ID, and then choose **View output**\. 
+1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of an instance where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as `My1stParameter`\.

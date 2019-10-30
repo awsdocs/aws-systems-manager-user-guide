@@ -161,22 +161,6 @@ If you want to give a user permission to use this document to send commands on a
 "arn:aws:ec2:us-east-2:*:instance/*"
 ```
 
-Note that the `Resource` section includes an Amazon S3 ARN entry:
-
-```
-arn:aws:s3:::S3-bucket-name
-```
-
-You can also format this entry as follows:
-
-```
-arn:aws:s3:::S3-bucket-name/*
-
--or-
-
-arn:aws:s3:::S3-bucket-name/S3-prefix-name
-```
-
 ```
 {
     "Version": "2012-10-17",
@@ -201,7 +185,7 @@ arn:aws:s3:::S3-bucket-name/S3-prefix-name
                 "arn:aws:ec2:us-east-2:*:instance/i-02573cafcfEXAMPLE",
                 "arn:aws:ec2:us-east-2:*:instance/i-0471e04240EXAMPLE",
                 "arn:aws:ec2:us-east-2:*:instance/i-07782c72faEXAMPLE",
-                "arn:aws:s3:::bucket_name",
+                
                 "arn:aws:ssm:us-east-2:*:document/SSM-document-name"
             ]
         },

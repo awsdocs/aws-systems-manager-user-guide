@@ -93,7 +93,7 @@ For information about other options you can use with the start\-session command,
 
 ## Starting a Session \(Interactive Commands\)<a name="sessions-start-interactive-commands"></a>
 
-To start an Interactive Command session, run the following command::
+To start an Interactive Command session, run the following command:
 
 **Note**  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
