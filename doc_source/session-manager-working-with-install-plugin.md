@@ -184,7 +184,7 @@ If you enable logging, the Session Manager plugin creates log files for both app
 
 1. Locate the `seelog.xml.template` file for the plugin\. 
 
-   The default location is `C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\seelog.xml.template`\.
+   The default location is `C:\Program Files\Amazon\SessionManagerPlugin\seelog.xml.template`\.
 
 1. Change the name of the file to `seelog.xml`\.
 

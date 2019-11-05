@@ -75,10 +75,10 @@ Before you create a Secure String parameter, read about the requirements for thi
 **Note**  
 To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assigned to your account, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
-   The following example uses an obfuscated name \(`elixir3131`\) for a password parameter and a CMK\.
+   The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and a CMK\.
 
    ```
-   aws ssm put-parameter --name /Finance/Payroll/elixir3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+   aws ssm put-parameter --name /Finance/Payroll/3l3vat3131 --value "P@sSwW)rd" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
    ```
 
 1. Run the following command to verify the details of the parameter\.

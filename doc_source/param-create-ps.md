@@ -75,10 +75,10 @@ Before you create a secure string parameter, read about the requirements for thi
 **Note**  
 To use the AWS\-managed customer master key \(CMK\) assigned to your account, remove the `-KeyId` parameter from the command\.
 
-   Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString"
+   Write-SSMParameter -Name "/Finance/Payroll/3l3vat3131" -Value "P@sSwW)rd" -Type "SecureString"
    ```
 
 1. Run the following command to verify the details of the parameter\.

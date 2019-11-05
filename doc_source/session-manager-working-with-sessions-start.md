@@ -59,7 +59,7 @@ To start a session using SSH, your target instance must be configured to support
 ssh -i /path/my-key-pair.pem username@instance-id
 ```
 
- */path/my\-key\-pair\.pem* represents the path to your Privacy Enhanced Mail \(PEM\) certificate\.
+ */path/my\-key\-pair\.pem* represents the path to the Privacy Enhanced Mail \(PEM\) certificate that is associated with the instance\. For example, for an Amazon EC2 instance, the key\-pair file you created or selected when you created the instance\.
 
  *username@instance\-id* represents the user name you use to connect to the instance, and the instance ID, such as `JaneDoe@i-02573cafcfEXAMPLE`\.
 
@@ -99,7 +99,7 @@ To start an Interactive Command session, run the following command:
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
-aws ssm start-session --target instance-id --document-name TestInteractiveCommandSessionDocument --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}'
+aws ssm start-session --target instance-id --document-name CustomCommandSessionDocument --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}'
 ```
 
  *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
