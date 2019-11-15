@@ -147,4 +147,4 @@ aws:changeInstanceState
 
 **Outputs**
 
-CreateImage\.ImageId
+createImage\.ImageId

@@ -1,6 +1,6 @@
 # Automate Updates to SSM Agent<a name="ssm-agent-automatic-updates"></a>
 
-AWS releases a new version of SSM Agent when we add or udpate Systems Manager capabilities\. If your instances use an older version of the agent, then you can't use the new capabilities or benefit from the updated capabilities\. For these reasons, we recommend that you automate the process of updating SSM Agent on your instances using any of the following methods\.
+AWS releases a new version of SSM Agent when we add or update Systems Manager capabilities\. If your instances use an older version of the agent, then you can't use the new capabilities or benefit from the updated capabilities\. For these reasons, we recommend that you automate the process of updating SSM Agent on your instances using any of the following methods\.
 
 
 ****  

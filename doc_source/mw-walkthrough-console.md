@@ -97,7 +97,7 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. For ** IAM service role**, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:

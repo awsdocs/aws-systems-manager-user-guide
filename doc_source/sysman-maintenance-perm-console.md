@@ -117,7 +117,7 @@ Depending on whether you are assigning the `iam: Passrole` permission to an indi
 
 1. Choose **Add inline policy**\.
 
-1. On the **Create policy** page, on the **Visual edtior** tab, in the **Select a service** area, choose ** IAM**\.
+1. On the **Create policy** page, on the **Visual editor** tab, in the **Select a service** area, choose ** IAM**\.
 
 1. In the **Actions** area, choose **PassRole**\.
 **Tip**  

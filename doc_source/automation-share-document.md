@@ -1,6 +1,6 @@
 # Sharing a Systems Manager Automation Document<a name="automation-share-document"></a>
 
-You can share a Systems Manager Automation document by using the AWS Systems Manager console, or by programmatically calling the `ModifyDocumentPermission` API operation using the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share an Automation document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
+You can share a Systems Manager Automation document, or playbook, by using the AWS Systems Manager console, or by programmatically calling the `ModifyDocumentPermission` API operation using the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share an Automation document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
 **Topics**
 + [Share an Automation Document \(Console\)](#automation-share-using-console)

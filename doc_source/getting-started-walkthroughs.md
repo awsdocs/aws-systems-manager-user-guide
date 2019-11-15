@@ -67,11 +67,11 @@ The [AWS Systems Manager Inventory](systems-manager-inventory.md) capability col
 
 **Automation**  
 The [AWS Systems Manager Automation](systems-manager-automation.md) capability allows you to safely automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and used stored configuration scripts share best practices with the rest of your organization\.
-+ Advanced: [Patch a Linux AMI \(Console\)](automation-walk-patch-linux-ami-console.md)
-+ Advanced: [Patch a Linux AMI \(AWS CLI\)](automation-walk-patch-linux-ami-cli.md)
-+ Advanced: [Patch a Windows AMI](automation-walk-patch-windows-ami-cli.md)
-+ Advanced: [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)
-+ Advanced: [Patch an AMI and Update an Auto Scaling Group](automation-walk-patch-windows-ami-autoscaling.md)
-+ Advanced: [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)
-+ Advanced: [Reset Passwords and SSH Keys on Amazon EC2 Instances](automation-ec2reset.md)
-+ Advanced: [Using Automation with Jenkins](automation-jenkins.md)
++ Advanced: [Walkthrough: Patch a Linux AMI \(Console\)](automation-walk-patch-linux-ami-console.md)
++ Advanced: [Walkthrough: Patch a Linux AMI \(AWS CLI\)](automation-walk-patch-linux-ami-cli.md)
++ Advanced: [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)
++ Advanced: [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)
++ Advanced: [Walkthrough: Patch an AMI and Update an Auto Scaling Group](automation-walk-patch-windows-ami-autoscaling.md)
++ Advanced: [Walkthrough: Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)
++ Advanced: [Walkthrough: Reset Passwords and SSH Keys on Amazon EC2 Instances](automation-ec2reset.md)
++ Advanced: [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)

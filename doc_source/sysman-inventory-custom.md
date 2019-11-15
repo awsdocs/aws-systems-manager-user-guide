@@ -541,7 +541,7 @@ Here are examples of each event:
       "action":"put",
       "resource-type":"managed-instance",
       "resource-id":"i-0ee2d86a2cfc371f6",
-      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema versison 1.0. You must send a version greater than 1.0",
+      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema version 1.0. You must send a version greater than 1.0",
       "type-name":"Custom:MyInfo"
    }
 }

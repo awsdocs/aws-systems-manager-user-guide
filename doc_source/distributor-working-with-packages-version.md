@@ -10,7 +10,7 @@ A new package version can:
 A newer version can use the same S3 bucket, but must have a URL with a different file name shown at the end\. You can use the AWS Systems Manager console or the AWS CLI to add the new version\. Uploading an installable file with the exact name as an existing installable file in the S3 bucket overwrites the existing file\. No installable files are copied over from the older version to the new version; you must upload installable files from the older version to have them be part of a new version\. After Distributor is finished creating your new package version, you can delete or repurpose the S3 bucket, because Distributor copies your software to an internal Systems Manager bucket as part of the versioning process\.
 
 **Note**  
-Each package is limited to a maximum of 25 versions\. You can delete versions that are no longer required\.
+Each package is held to a maximum of 25 versions\. You can delete versions that are no longer required\.
 
 **Topics**
 + [Adding a Package Version \(Console\)](#add-pkg-version)
@@ -34,25 +34,25 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. On the **Add version** page, choose **Simple**\.
 
-1. In **Version name**, enter a version name\. The version name for the new version must be different from older version names\. Version names can be a maximum of 512 characters, and cannot contain special characters\.
+1. For **Version name**, enter a version name\. The version name for the new version must be different from older version names\. Version names can be a maximum of 512 characters, and cannot contain special characters\.
 
 1. For **S3 bucket name**, choose an existing S3 bucket from the list\. This can be the same bucket that you used to store installable files for older versions, but the installable file names must be different to avoid overwriting existing installable files in the bucket\.
 
-1. In **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
+1. For **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
 
-1. In **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions are not automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
+1. For **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions are not automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
 
 1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown is not correct, choose the correct operating system from the drop\-down list\.
 
    In the **Simple** versioning workflow, because you upload each installable file only once, extra steps are required to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to instruct Distributor to target the same software at both Amazon Linux and Ubuntu operating systems\. You can do one of the following to work around this limitation\.
-   + Use the **Advanced** versioning workflow instead, zip each installable file into a ZIP file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Adding a Package Version \(Advanced\)](#add-pkg-version-adv)\.
-   + Manually edit the manifest file in the **Simple** workflow so that your ZIP file is targeted at multiple operating system platforms or versions\. For more information about how to do this, see the end of step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+   + Use the **Advanced** versioning workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Adding a Package Version \(Advanced\)](#add-pkg-version-adv)\.
+   + Manually edit the manifest file in the **Simple** workflow so that your \.zip file is targeted at multiple operating system platforms or versions\. For more information about how to do this, see the end of step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, or the exact, specific operating system release version to which you want your software to apply\. For more information about specifying a platform version, see step 4 in [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported architectures, see [Supported Package Platforms and Architectures](distributor.md#what-is-a-package-platforms)\.
 
-1. \(Optional\) Expand **Installation and uninstallation scripts**, and review the installation and uninstallation scripts that Distributor generates for your installable software\.
+1. \(Optional\) Expand **Scripts**, and review the installation and uninstallation scripts that Distributor generates for your installable software\.
 
 1. To add more installable software files to the new version, choose **Add software**\. Otherwise, go to the next step\.
 
@@ -82,15 +82,15 @@ To add a package version, [create a package](distributor-working-with-packages-c
 
 1. On the Distributor home page, choose the package to which you want to add another version, and then choose **Add version**\.
 
-1. In **Version name**, enter the exact value that is in the `version` entry of your manifest file\.
+1. For **Version name**, enter the exact value that is in the `version` entry of your manifest file\.
 
 1. For **S3 bucket name**, choose an existing S3 bucket from the list\. This can be the same bucket that you used to store installable files for older versions, but the installable file names must be different to avoid overwriting existing installable files in the bucket\.
 
-1. In **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
+1. For **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
 
-1. In **Manifest**, choose **Extract from package** to use a manifest that you uploaded to the S3 bucket with your ZIP files\.
+1. For **Manifest**, choose **Extract from package** to use a manifest that you uploaded to the S3 bucket with your \.zip files\.
 
-   \(Optional\) If you did not upload your revised JSON manifest to the S3 bucket where you stored your ZIP files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+   \(Optional\) If you did not upload your revised JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 1. When you are finished with the manifest, choose **Add package version**\.
 

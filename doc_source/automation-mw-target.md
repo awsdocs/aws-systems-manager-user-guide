@@ -4,7 +4,7 @@ You can start an Automation workflow by configuring an Automation document as a 
 
 For example, let's say you create an Automation document named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* document \(and corresponding workflow\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation workflow and creates an AMI of the registered targets\.
 
-For information about creating Automation documents, see [Working with Automation Documents](automation-documents.md)\.
+For information about creating Automation documents, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\.
 
 Use the following procedures to configure an Automation workflow as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
@@ -44,7 +44,7 @@ For example, if you choose the Automation document `AWS-CopySnapshot`, then the 
    + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation workflow at the same time\.
 **Note**  
 If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automation workflows that can run at the same time by specifying a percentage\.  
-When the maintenance window runs, a new Automation execution is initiated per target\. There is a limit of 25 concurrent executions of Automation and 75 child executions of Automation per AWS account\. If you specify a concurrency rate greater than 25, concurrent executions greater than 25 are automatically added to the execution queue\. For information, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\. 
+When the maintenance window runs, a new Automation execution is initiated per target\. There is a limit of 25 concurrent executions of Automation and 75 child executions of Automation per AWS account\. If you specify a concurrency rate greater than 25, concurrent executions greater than 25 are automatically added to the execution queue\. For information, see [AWS Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\. 
    + For **Error threshold**, specify when to stop running the automation workflow on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automation workflows when the fourth error is received\. Targets still processing the workflow might also send errors\.
 
 1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the Automation workflow:

@@ -56,7 +56,7 @@ Verify that you have permission in AWS Identity and Access Management \(IAM\) to
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user account\. This policy enables a user to view and change the default tier setting for parameters in a specifc Region in an AWS account\. 
+Use the following procedure to add an inline IAM policy to a user account\. This policy enables a user to view and change the default tier setting for parameters in a specific Region in an AWS account\. 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

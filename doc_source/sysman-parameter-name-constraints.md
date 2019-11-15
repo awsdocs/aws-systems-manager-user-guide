@@ -8,7 +8,7 @@ The requirements and constraints for parameter names include the following:
 + **Case sensitivity**: Parameter names are case sensitive\.
 + **Spaces**: Parameter names can't include spaces\.
 + **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-/`
-+ **Length**: The maximum length for the fully qualified parameter name you specify is 1011 characters\. \(The maximum storage length for the parameter name field in the system is 2048 characters\. However, this length includes capacity for additional system attributes that are not part of the name\.\)
++ **Length**: The maximum length for the fully qualified parameter name you specify is 1011 characters\. 
 + **Prefixes**: A parameter name *cannot* be prefixed with "aws" or "ssm" \(case\-insensitive\)\. For example, attempts to create parameters with the following names will fail with an exception:
   + awsTestParameter
   + SSM\-testparameter

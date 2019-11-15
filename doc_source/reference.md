@@ -8,7 +8,7 @@ In AWS Identity and Access Management \(IAM\), you can grant or deny a service a
  ** Supported Regions and Endpoints **  
 See [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
- ** Service Limits **  
+ **Service Quotas**  
 See [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
  **API Reference Guide**  

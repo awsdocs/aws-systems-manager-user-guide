@@ -4,7 +4,7 @@
 
 In this procedure, you use the AWS account root user to create your first user in AWS Identity and Access Management \(IAM\)\. You add this IAM user to an Administrators group, to ensure that you have access to all services and their resources in your account\. The next time that you access your AWS account, you should sign in with the credentials for this IAM user\.
 
-To create an IAM user with limited permissions, see [Step 3: Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
+To create an IAM user with restricted permissions, see [Step 3: Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
 
 **To create an administrator user for yourself and add the user to an administrators group \(console\)**
 

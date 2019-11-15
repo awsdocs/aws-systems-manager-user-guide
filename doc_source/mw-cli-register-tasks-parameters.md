@@ -19,7 +19,7 @@ For example, suppose that your payload for a Lambda task needs to reference the 
 }
 ```
 
-However, if you include multiple instance IDs in the custom `"targetId"` field, the operation fails\. Therefore, to run the task on multiple instances, you use the `{{TARGET_ID}}` and `{{TARGET_TYPE}}` pseudo parameters\. In this case, the ID of each instance in the target group is passed to the task execution through the `{{TARGET_ID}}` pseduo parameter, and the task runs on every instance in your target group:
+However, if you include multiple instance IDs in the custom `"targetId"` field, the operation fails\. Therefore, to run the task on multiple instances, you use the `{{TARGET_ID}}` and `{{TARGET_TYPE}}` pseudo parameters\. In this case, the ID of each instance in the target group is passed to the task execution through the `{{TARGET_ID}}` pseudo parameter, and the task runs on every instance in your target group:
 
 ```
 "TaskArn": "arn:aws:lambda:us-east-2:111122223333:function:SSMTestFunction",

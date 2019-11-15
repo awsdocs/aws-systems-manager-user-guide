@@ -1,6 +1,6 @@
 # Working with Parameter Versions<a name="sysman-paramstore-versions"></a>
 
-When you initially create a parameter, Parameter Store assigns version 1 to that parameter\. When you edit a parameter, Parameter Store automatically iterates the version number by 1\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\.
+When you initially create a parameter, Parameter Store assigns version `1` to that parameter\. When you edit a parameter, Parameter Store automatically iterates the version number by one\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\.
 
 Parameter versions provide a layer of protection in the event that a parameter is accidentally changed\. You can view the details, including the values, of all versions\. You can also use parameter versions to see how many times a parameter changed over a period of time\.
 

@@ -1,4 +1,4 @@
-# Run the EC2Rescue Tool on Unreachable Instances<a name="automation-ec2rescue"></a>
+# Walkthrough: Run the EC2Rescue Tool on Unreachable Instances<a name="automation-ec2rescue"></a>
 
 EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux and Windows Server instances\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 

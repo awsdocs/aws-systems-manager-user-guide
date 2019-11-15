@@ -99,7 +99,7 @@ Use [Patch Manager](systems-manager-patch.md) to automate the process of patchin
 ------
 #### [ Distributor ]
 
-Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
+Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. After you install a package for the first time, you can use Distributor to completely uninstall and reinstall a new package version, or perform an in\-place update that adds new or changed files only\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
 
 ------
 

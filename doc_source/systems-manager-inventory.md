@@ -16,7 +16,7 @@ The following table lists the types of metadata that you can collect with System
 | --- | --- | 
 |  Metadata types  | You can configure Inventory to collect the following types of metadata: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html)  To view a list of all metadata collected by Inventory, see [Metadata Collected by Inventory](sysman-inventory-schema.md)\.   | 
 |  Instances to collect information from  |  You can choose to inventory all instances in your AWS account, individually select instances, or target groups of instances by using Amazon EC2 tags\. For more information about performing inventory collection on all of your instances, see [Inventory All Managed Instances in Your AWS Account](sysman-inventory-configuring.md#inventory-management-inventory-all)\.  | 
-|  When to collect information  |  You can specify a collection interval in terms of minutes, hours, days, and weeks\. The shortest collection interval is every 30 minutes\.   | 
+|  When to collect information  |  You can specify a collection interval in terms of minutes, hours, and days\. The shortest collection interval is every 30 minutes\.   | 
 
 **Note**  
 Depending on the amount of data collected, the system can take several minutes to report the data to the output you specified\. After the information is collected, the metadata is sent over a secure HTTPS channel to a plain\-text AWS store that is accessible only from your AWS account\. 

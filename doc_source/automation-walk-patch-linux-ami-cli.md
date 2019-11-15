@@ -1,4 +1,4 @@
-# Patch a Linux AMI \(AWS CLI\)<a name="automation-walk-patch-linux-ami-cli"></a>
+# Walkthrough: Patch a Linux AMI \(AWS CLI\)<a name="automation-walk-patch-linux-ami-cli"></a>
 
 This Systems Manager Automation walkthrough shows you how to use the AWS CLI and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\. You can update a variety of Linux distributions using this walkthrough, including Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. For a full list of supported Linux versions, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
 

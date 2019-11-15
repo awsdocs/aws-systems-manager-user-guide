@@ -1,6 +1,6 @@
 # Creating Systems Manager Documents<a name="create-ssm-doc"></a>
 
-If the Systems Manager public documents limit the actions you want to perform on your managed instances, you can create your own documents\. When creating a new document, we recommend that you use schema version 2\.2 or later\. 
+If the Systems Manager public documents restrict the actions you want to perform on your managed instances, you can create your own documents\. When creating a new document, we recommend that you use schema version 2\.2 or later\. 
 
 **Before You Begin**  
 Before you create an SSM document, we recommend that you read about the different schemas, features, and syntax available for SSM documents\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.

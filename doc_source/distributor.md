@@ -11,7 +11,7 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 Distributor offers these benefits:
 + **One package, many platforms**
 
-  One document can have attached ZIP files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
+  One document can have attached \.zip files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
 + **Control package access across groups of managed instances**
 
   You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
@@ -33,7 +33,10 @@ Distributor offers these benefits:
   Distributor lets you deploy software packages to Amazon EC2 Windows and Linux instances\. For a list of supported instance operating system types, see [Supported Package Platforms and Architectures](#what-is-a-package-platforms)\.
 + **Deploy packages one time, or on an automated schedule**
 
-  You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\.
+  You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\. 
++ **Completely reinstall packages, or perform in\-place updates**
+
+  To install a new package version, you can completely uninstall the current version and install a new one in its place, or only update the current version with new and updated components, according to an *update script* that you provide\. Your package application is unavailable during a reinstallation, but can remain available during an in\-place update\. In\-place updates are especially useful for security monitoring applications or other scenarios where you need to avoid application downtime\.
 + **Console, CLI, PowerShell, and SDK access to Distributor capabilities**
 
   You can work with Distributor by using the AWS Systems Manager console, AWS CLI, AWS Tools for PowerShell, or the AWS SDK of your choice\.
@@ -47,10 +50,10 @@ Distributor offers these benefits:
 ## What Is a Package?<a name="what-is-a-package"></a>
 
 A *package* is a collection of installable software or assets that includes the following\.
-+ A ZIP file of software per target operating system platform\. Each ZIP file must include the following\.
++ A \.zip file of software per target operating system platform\. Each \.zip file must include the following\.
   + An install and an uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent reads and carries out the instructions in the install and uninstall scripts\.
   + An executable file\. SSM Agent must find this executable to install the package on target instances\.
-+ A JSON\-formatted manifest file that describes the package contents\. The manifest is not included in the ZIP file, but it is stored in the same Amazon S3 bucket as the ZIP files that form the package\. The manifest identifies the package version and maps the ZIP files in the package to target instance attributes, such as operating system version or architecture\. For information about how to create the manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
++ A JSON\-formatted manifest file that describes the package contents\. The manifest is not included in the \.zip file, but it is stored in the same Amazon S3 bucket as the \.zip files that form the package\. The manifest identifies the package version and maps the \.zip files in the package to target instance attributes, such as operating system version or architecture\. For information about how to create the manifest, see [Step 2: Create the JSON Package Manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 When you choose **Simple** package creation in the Distributor console, Distributor generates the installation and uninstallation scripts, file hashes, and the JSON package manifest for you, based on the software executable file name and target platforms and architectures\.
 

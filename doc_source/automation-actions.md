@@ -7,7 +7,7 @@ Systems Manager Automation runs steps defined in Automation documents\. Each ste
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
 **Important**  
-If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 **Topics**
 + [Common Properties In All Actions](#automation-common)
@@ -23,6 +23,7 @@ If you run an automation that invokes other services by using an AWS Identity an
 + [aws:deleteStack](#automation-action-deletestack)
 + [aws:executeAutomation](#automation-action-executeAutomation)
 + [aws:executeAwsApi](#automation-action-executeAwsApi)
++ [aws:executeScript](#automation-action-executeScript)
 + [aws:executeStateMachine](#automation-action-executeStateMachine)
 + [aws:invokeLambdaFunction](#automation-action-lamb)
 + [aws:pause](#automation-action-pause)
@@ -33,7 +34,7 @@ If you run an automation that invokes other services by using an AWS Identity an
 
 ## Common Properties In All Actions<a name="automation-common"></a>
 
-The following properties are common to all actions:
+Common properties are parameters or options that are found in all actions\. Some options define execution behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 
 *JSON*
 
@@ -1413,6 +1414,78 @@ Type
 The data type for the response element\.  
 Type: Varies  
 Required: Yes
+
+## aws:executeScript<a name="automation-action-executeScript"></a>
+
+Runs the python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, handler is not required\.\)
+
+**Input**  
+Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
+
+*JSON*
+
+```
+{
+    "action": "aws:executeScript",
+    "inputs": {
+        "Runtime": "python3.6",
+        "Handler": "script_handler",
+        "InputPayload": {
+            "parameter1": "parameter_value1",
+            "parameter2": "parameter_value2"
+        },
+        "Script": [
+            "def script_handler(events, context):",
+            "(script commands)"
+        ],
+        "Attachment": "zip-file-name-1.zip"
+    }
+}
+```
+
+*YAML*
+
+```
+action: "aws:executeScript"
+inputs: 
+ Runtime: "python3.6"
+ Handler: "script_handler"
+ InputPayload: 
+  "parameter1": "parameter_value1"
+  "parameter2": "parameter_value2"
+ Script: 
+  - 
+   "def script_handler(events, context):"
+  - 
+   "(script commands)"
+ Attachment: "zip-file-name-1.zip"
+```
+
+Runtime  
+The runtime language to be used for executing the provided script\. Currently, aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
+Supported values: **python3\.6** \| **python3\.7** \| **dotnetcore2\.1**  
+Type: String  
+Required: Yes
+
+Handler  
+The entry for script execution, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\. \(Not required for PowerShell\.\)  
+Type: String  
+Required: Yes \(Python\) \| No \(PowerShell\)
+
+InputPayload  
+A JSON or YAML object that will be passed to the first parameter of the handler\. This can be used to pass input data to the script\.  
+Type: String  
+Required: No
+
+Script  
+An embedded script that you want to run during the automation execution\.  
+Type: String  
+Required: No \(Python\) \| Yes \(PowerShell\)
+
+Attachment  
+The name of a standalone script file or \.zip file that can be invoked by the action\. To invoke a file for python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using and inline script\. Gzip is not supported\.  
+Type: String  
+Required: No
 
 ## aws:executeStateMachine<a name="automation-action-executeStateMachine"></a>
 

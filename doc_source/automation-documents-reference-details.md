@@ -2,7 +2,13 @@
 
 This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
 
-You can view the JSON for these documents in the Systems Manager console\.
+This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
+
+## View Automation document JSON content<a name="view-automation-json"></a>
+
+You can view the JSON content for Automation documents in the Systems Manager console\.
+
+**To view Automation document JSON content**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -16,10 +22,9 @@ You can view the JSON for these documents in the Systems Manager console\.
 
 1. Choose the **Content** tab\.
 
-**Note**  
-This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
-
 **Topics**
++ [View Automation document JSON content](#view-automation-json)
++ [Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)
 + [AWSSupport\-ActivateWindowsWithAmazonLicense](automation-awssupport-activatewindowswithamazonlicense.md)
 + [AWS\-ASGEnterStandby](automation-aws-asgenterstandby.md)
 + [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)
@@ -36,6 +41,8 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-CreateJiraIssue](automation-aws-createjiraissue.md)
 + [AWS\-CreateManagedLinuxInstance](automation-aws-createmanagedlinuxinstance.md)
 + [AWS\-CreateManagedWindowsInstance](automation-aws-createmanagedwindowsinstance.md)
++ [AWS\-CreateRdsSnapshot](automation-aws-createrdssnapshot.md)
++ [AWS\-CreateServiceNowIncident](automation-aws-createservicenowincident.md)
 + [AWS\-CreateSnapshot](automation-aws-createsnapshot.md)
 + [AWS\-DeleteCloudFormationStack](automation-aws-deletecloudformationstack.md)
 + [AWS\-DeleteDynamoDBBackup](automation-aws-deletedynamodbbackup.md)
@@ -56,6 +63,8 @@ This section does *not* include a separate page for documents that require appro
 + [AWS\-PatchInstanceWithRollback](automation-aws-patchinstancewithrollback.md)
 + [AWS\-PublishSNSNotification](automation-aws-publishsnsnotification.md)
 + [AWS\-RebootRDSInstance](automation-aws-rebootrdsinstance.md)
++ [AWS\-RunCfnLint](automation-aws-runcfnlint.md)
++ [AWS\-RunPacker](automation-aws-runpacker.md)
 + [AWSSupport\-ResetAccess](automation-awssupport-resetaccess.md)
 + [AWS\-ReleaseElasticIP](automation-aws-releaseelasticip.md)
 + [AWS\-ResizeInstance](automation-aws-resizeinstance.md)

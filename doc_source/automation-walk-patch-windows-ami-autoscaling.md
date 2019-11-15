@@ -1,6 +1,6 @@
-# Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
+# Walkthrough: Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
 
-The following example builds on the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
+The following example builds on the [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
 The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly\-patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 

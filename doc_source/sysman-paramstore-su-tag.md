@@ -1,6 +1,6 @@
 # Tagging Systems Manager Parameters<a name="sysman-paramstore-su-tag"></a>
 
-You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
+You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
 Tags are used to organize parameters\. For example, you can tag parameters for specific environments, departments, or users and groups\. After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags that the user can access\. For more information about restricting access to parameters by using tags, see [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)\.
 
@@ -9,7 +9,7 @@ For information about the Regions where Systems Manager is available, see [regio
 **Topics**
 + [Tag a Parameter \(Console\)](#sysman-paramstore-su-tag-sys)
 + [Tag a Parameter \(AWS CLI\)](#sysman-paramstore-su-tag-cli)
-+ [Tag a Parameter \(AWS Tools for Windows\)](#sysman-paramstore-su-tag-tfw)
++ [Tag a Parameter \(AWS Tools for PowerShell\)](#sysman-paramstore-su-tag-tfw)
 
 ## Tag a Parameter \(Console\)<a name="sysman-paramstore-su-tag-sys"></a>
 
@@ -53,7 +53,7 @@ For information about the Regions where Systems Manager is available, see [regio
    aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the_parameter_name"
    ```
 
-## Tag a Parameter \(AWS Tools for Windows\)<a name="sysman-paramstore-su-tag-tfw"></a>
+## Tag a Parameter \(AWS Tools for PowerShell\)<a name="sysman-paramstore-su-tag-tfw"></a>
 
 1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 

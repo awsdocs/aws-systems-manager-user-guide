@@ -28,8 +28,8 @@ You can tag your documents to help you quickly identify one or more documents ba
 **Sharing a Document**  
 You can make your documents public or share them with specific AWS accounts\. Sharing documents between accounts can be useful if, for example, you want all of the Amazon EC2 instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up\-to\-date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing Systems Manager Documents](ssm-sharing.md)\.
 
-**SSM Document Limits**  
-For information about SSM document limits, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
+**SSM Document Quotas**  
+For information about SSM document quotas, see [AWS Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
 
 **Topics**
 + [Systems Manager Pre\-Defined Documents](predefined-documents.md)

@@ -23,7 +23,7 @@ Running Automations across multiple Regions and accounts or OUs works as follows
 
 1. Use the procedure in this topic to create a second IAM role called **AWS\-SystemsManager\-AutomationAdministrationRole**\. This role gives the user permission to run Automation workflows in multiple AWS accounts and OUs\.
 
-1. Choose the Automation document, Regions, and accounts or OUs where you want to run the Automation workflow\.
+1. Choose the Automation document \(playbook\), Regions, and accounts or OUs where you want to run the Automation workflow\.
 
 1. Run the Automation\.
 

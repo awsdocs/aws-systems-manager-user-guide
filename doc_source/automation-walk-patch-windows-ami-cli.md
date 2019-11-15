@@ -1,4 +1,4 @@
-# Patch a Windows AMI<a name="automation-walk-patch-windows-ami-cli"></a>
+# Walkthrough: Patch a Windows Server AMI<a name="automation-walk-patch-windows-ami-cli"></a>
 
 The `AWS-UpdateWindowsAmi` document enables you to automate image maintenance tasks on your Amazon Windows AMIs without having to author the workflow in JSON or YAML\. This document is supported for Windows Server 2008 R2 or later\. You can use the `AWS-UpdateWindowsAmi` document to perform the following types of tasks\.
 + Install all Windows updates and upgrade Amazon software \(default behavior\)\.
