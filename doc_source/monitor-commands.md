@@ -23,7 +23,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Status | Details | 
 | --- | --- | 
 | Pending | The command was not yet received by the agent on the instance\. If the command is not received by the agent before the value specified by the Timeout \(seconds\) parameter is reached, then the status changes to Delivery Timed Out\. | 
-| In Progress | The command was received by the agent, or the command started executing on the instance\. Depending on the result of all command plugins, the status will change to Success, Failed, or Execution Timed Out\. If the agent is not available on the instance, the command status will show In Progress until the agent is available again\. The status will then change to a terminal state\.  | 
+| InProgress | The command was received by the agent, or the command started executing on the instance\. Depending on the result of all command plugins, the status will change to Success, Failed, or Execution Timed Out\. If the agent is not available on the instance, the command status will show In Progress until the agent is available again\. The status will then change to a terminal state\.  | 
 | Delayed | The system attempted to send the command to the instance but was not successful\. The system will retry again\. | 
 | Success | The command was received by SSM Agent on the instance and returned an exit code of zero\. This status does not mean the command was successfully processed on the instance\. This is a terminal state\.  To troubleshoot errors or get more information about the command execution, send a command that handles errors or exceptions by returning appropriate exit codes \(non\-zero exit codes for command failure\)\.  | 
 | Delivery Timed Out | The command was not delivered to the instance before the delivery timeout expired\. Delivery timeouts do not count against the parent command’s max\-errors limit, but they do contribute to whether the parent command status is Success or Incomplete\. This is a terminal state\. | 
@@ -41,7 +41,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Status | Details | 
 | --- | --- | 
 | Pending | The command was not yet received by an agent on any instances\. | 
-| In Progress | The command has been sent to at least one instance but has not reached a final state on all instances\.  | 
+| InProgress | The command has been sent to at least one instance but has not reached a final state on all instances\.  | 
 | Delayed | The system attempted to send the command to the instance but was not successful\. The system will retry again\. | 
 | Success | The command was received by SSM Agent on all specified or targeted instances and returned an exit code of zero\. All command invocations have reached a terminal state, and the value of max\-errors was not reached\. This status does not mean the command was successfully processed on all specified or targeted instances\. This is a terminal state\.  To troubleshoot errors or get more information about the command execution, send a command that handles errors or exceptions by returning appropriate exit codes \(non\-zero exit codes for command failure\)\.  | 
 | Delivery Timed Out | The command was not delivered to the instance before the delivery timeout expired\. The value of max\-errors or more command invocations shows a status of Delivery Timed Out\. This is a terminal state\. | 
