@@ -12,7 +12,7 @@ Each OpsItem in the AWS Management Console includes a **Runbooks** section, as s
 
 ![\[A list of Systems Manager Automation runbooks for remediating OpsItem issues\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_list.png)
 
-If the OpsItem was automatically created by CloudWatch \(as a result of the bulk method of setting up OpsItem rules, as described in [Enabling the Default CloudWatch Events Rules for Automatically Creating OpsItems](OpsCenter-creating-OpsItems.md#OpsCenter-automatically-create-OpsItems-1)\), then the list of runbooks is automatically filtered to reflect the *recommended* runbooks for the specific issue\. If the OpsItem was created manually or by specifying OpsItem as a target of a CloudWatch event, then the **Runbooks** section lists all SSM Automation runbooks\.
+If the OpsItem was automatically created by CloudWatch, then the list of runbooks is automatically filtered to reflect the *recommended* runbooks for the specific issue\. If the OpsItem was created manually or by specifying OpsItem as a target of a CloudWatch event, then the **Runbooks** section lists all SSM Automation runbooks\.
 
 You can view information about a runbook by either choosing the runbook name in the console or by using the [Systems Manager Automation Document Details Reference](automation-documents-reference-details.md)\.
 

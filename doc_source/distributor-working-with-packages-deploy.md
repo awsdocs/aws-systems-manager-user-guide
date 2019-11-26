@@ -71,7 +71,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. The **Command status** area reports the progress of the execution\. If the command is still in progress, choose the refresh icon in the top\-left corner of the console until the **Overall status** or **Detailed status** column shows **Success** or **Failed**\.
 
-1. In the **Targets and outputs** area, choose the button next to an instance name, and then choose **View outut**\.
+1. In the **Targets and outputs** area, choose the button next to an instance name, and then choose **View output**\.
 
    The command output page shows the results of your command execution\. 
 

@@ -11,6 +11,9 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 AMIs that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.  
 Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
 
+**SSM Agent and the Instance Metadata Service \(IMDS\)**  
+Systems Manager relies on Amazon EC2 instance metadata to function correctly\. Systems Manager accesses instance metadata by using version 1 of the Instance Metadata Service \(IMDSv1\)\. If you attach a resource policy that enforces IMDSv2\-only access, then SSM Agent doesn't work correctly\. SSM Agent reports that it is in an unhealthy state\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)\.
+
 **About the local ssm\-user account**  
 Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
 

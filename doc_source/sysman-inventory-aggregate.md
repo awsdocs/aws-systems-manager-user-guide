@@ -161,7 +161,7 @@ The command returns a JSON list of Inventory types and data types that support a
 }
 ```
 
-You can aggregate data for any of the listed Inventory types by creating a commmand that uses the following syntax:
+You can aggregate data for any of the listed Inventory types by creating a command that uses the following syntax:
 
 ```
 aws ssm get-inventory --aggregators "Expression=InventoryType.DataType"

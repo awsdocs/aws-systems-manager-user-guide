@@ -1,6 +1,6 @@
 # Walkthrough: Use Resource Data Sync to Aggregate Inventory Data<a name="sysman-inventory-resource-data-sync"></a>
 
-The following walkthrough describes how to create a Resource Data Sync configuration by using the AWS CLI\. A Resource Data Sync automatically ports Inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new Inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a Resource Data Sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
+The following walkthrough describes how to create a resource data sync configuration by using the AWS CLI\. A resource data sync automatically ports Inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new Inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
@@ -30,7 +30,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 }
 ```
 
-**To create a Resource Data Sync for Inventory**
+**To create a resource data sync for Inventory**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -105,7 +105,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
    aws s3 cp ./A file in the bucket s3://bucket-name/prefix/ --sse aws:kms --sse-kms-key-id "arn:aws:kms:region:AWS-account-ID:key/KMS-key-id" --region region
    ```
 
-1. Run the following command to create a Resource Data Sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
+1. Run the following command to create a resource data sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
 **Note**  
 If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
 
@@ -184,7 +184,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system partitions the table\.
 **Note**  
-If you create Resource Data Syncs from additional AWS Regions or accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
+If you create resource data syncs from additional AWS Regions or accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
 
 1. To preview your data, choose the view icon next to the AWS\_Application table\.  
 ![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)

@@ -25,7 +25,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
 
-1. Chooes **Next: Review**\.
+1. Choose **Next: Review**\.
 
 1. On the **Review** page, verify that **AWSLambdaExecute** and **AutoScalingFullAccess** are listed under **Policies**\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb-role.png)
@@ -168,7 +168,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
          },
         "targetASG":{
             "type":"String",
-            "description":"Autosaling group to Update"
+            "description":"Auto Scaling group to Update"
          }
       },
       "mainSteps":[

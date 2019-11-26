@@ -114,7 +114,7 @@ Tokens play an important role in reducing redundant code by making MOF files gen
 ## Prerequisites<a name="systems-manager-state-manager-using-mof-file-prereqs"></a>
 
 Before you create an association that runs MOF files, verify that your managed instances have the following prerequisites installed:
-+ Windows PowerShell version 5\.0 or later\. For more information, see [Windows PowerShell System Requirements](https://docs.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements?view=powershell-6#operating-system-requirements) on Microsoft\.com\.
++ Windows PowerShell version 5\.0 or later\. For more information, see [Windows PowerShell System Requirements](https://docs.microsoft.com/en-us/powershell/scripting/install/windows-powershell-system-requirements?view=powershell-6) on Microsoft\.com\.
 + [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/) version 3\.3\.261\.0 or later\.
 + SSM Agent version 2\.2 or later\.
 

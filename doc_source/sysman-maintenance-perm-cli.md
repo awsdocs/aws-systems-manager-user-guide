@@ -11,7 +11,7 @@ The following procedures describe how to use the AWS CLI to create the required 
 **Important**  
 A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
 [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
-[Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)
+[Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)
 [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.

@@ -9,6 +9,9 @@ For information about the AWS CLI, see the *[AWS Command Line Interface User Gui
 
 For information about all Systems Manager commands you can run using the AWS CLI, see [the Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
+**Important**  
+Beginning January 10th, 2020, AWS CLI version 1\.17 and later will no longer support Python 2\.6 or Python 3\.3\. After this date, the installer for the AWS CLI will require Python 2\.7, Python 3\.4, or a later version to successfully install the AWS CLI\. For more information, see [Using the AWS CLI version 1 with Python 2\.6 or Python 3\.3](https://docs.aws.amazon.com/cli/latest/userguide/deprecate-python-26-33.html) in the *IAM User Guide*\.
+
 **To install or upgrade and then configure the AWS CLI**
 
 1. Follow the instructions in [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide* to install or upgrade the AWS CLI on your local machine\.

@@ -6,6 +6,18 @@ Systems Manager Automation simplifies common maintenance and deployment tasks of
 + Receive notifications about Automation tasks and workflows by using Amazon CloudWatch Events\.
 + Monitor Automation progress and execution details by using the Amazon EC2 or the AWS Systems Manager console\. 
 
+**Primary Components**  
+AWS Systems Manager Automation uses the following components to run *automation workflows*\.
+
+
+****  
+
+| Concept | Details | 
+| --- | --- | 
+|  Automation document \(operational playbook\)  |  A Systems Manager Automation document, or playbook, defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can create your own Automation documents as well\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\. Automation documents are Systems Manager documents of type `Automation`, as opposed to `Command`, `Policy`, `Session` documents\. Automation documents currently support schema version 0\.3\. Command documents use schema version 1\.2, 2\.0, or 2\.2\. Policy documents use schema version 2\.0 or later\.  | 
+|  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action, or plugin\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. Automation supports 20 distinct action types\. For more information, see the [Systems Manager Automation Actions Reference](automation-actions.md)\.  | 
+|  Automation queue  |  Each AWS account can run 25 Automations simultaneously with a maximum of 75 child Automations\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 1,000 Automation executions\.  | 
+
 ## Automation Use Cases<a name="automation-use-cases"></a>
 
 This section includes common uses cases for AWS Systems Manager Automation\.
@@ -42,18 +54,6 @@ For an example of how to delegate access to an Automation workflow, see [Running
 Automation lets you share best practices with rest of your organization\.
 
 You can create best practices for resource management in Automation documents and easily share the documents across AWS Regions and groups\. You can also constrain the allowed values for the parameters the document accepts\.
-
-**Concepts**  
-AWS Systems Manager Automation uses the following concepts\.
-
-
-****  
-
-| Concept | Details | 
-| --- | --- | 
-|  Automation document  |  A Systems Manager Automation document defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\. Automation documents are Systems Manager documents of type `Automation`, as opposed to `Command`, `Policy`, `Session` documents\. Automation documents currently support schema version 0\.3\. Command documents use schema version 1\.2, 2\.0, or 2\.2\. Policy documents use schema version 2\.0 or later\.  | 
-|  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action or plugin\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. For more information, see the [Systems Manager Automation Actions Reference](automation-actions.md)\.  | 
-|  Automation queue  |  Each AWS account can run 25 Automations simultaneously with a maximum of 75 child Automations\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 1,000 Automation executions\.  | 
 
 **Topics**
 + [Automation Use Cases](#automation-use-cases)

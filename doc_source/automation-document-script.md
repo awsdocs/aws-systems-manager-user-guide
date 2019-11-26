@@ -10,7 +10,7 @@ For automation executions that do not use `aws:executeScript`, Automation uses o
 + The permissions of an IAM service role, or Assume role, that is specified in the Automation document or passed in as a parameter\.
 + If no IAM service role is specified, the permissions of the IAM user who started the automation execution\. 
 
-When a step in an Automation document includes the the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API actions\. Automation checks for this role in the following order:
+When a step in an Automation document includes the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API actions\. Automation checks for this role in the following order:
 + The permissions of an IAM service role, or Assume role, that is specified in the Automation document or passed in as a parameter\.
 + A resource tag applied to the Automation document with the tag key `AutomationScriptExecutionRole`\. In this case, Automation uses the IAM role that is specified as the tag value\. For example, `AutomationAssumeRole` or `arn:aws:iam::123456789012:role/AutomationAssumeRole` \.
 

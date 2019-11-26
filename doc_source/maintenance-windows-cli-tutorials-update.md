@@ -212,7 +212,7 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
    }
    ```
 
-1. Run the following command to update a Run Command task\. This example uses a Systems Manager Parameter Store parameter called `UpdateLevel`, which is formated as follows:'`{{ssm:UpdateLevel}}`'
+1. Run the following command to update a Run Command task\. This example uses a Systems Manager Parameter Store parameter called `UpdateLevel`, which is formatted as follows:'`{{ssm:UpdateLevel}}`'
 
    ```
    aws ssm update-maintenance-window-task --window-id "mw-0c50858d01EXAMPLE" --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"  --task-invocation-parameters "RunCommand={Comment=A comment for my task update,Parameters={UpdateLevel='{{ssm:UpdateLevel}}'}}"

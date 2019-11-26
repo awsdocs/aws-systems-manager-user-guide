@@ -2,7 +2,7 @@
 
 This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
 
-This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
+This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve – Pause an execution for manual approval](automation-actions.md#automation-action-approve) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
 
 ## View Automation document JSON content<a name="view-automation-json"></a>
 
@@ -55,6 +55,7 @@ You can view the JSON content for Automation documents in the Systems Manager co
 + [AWS\-DisableS3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
 + [AWS\-EnableCloudTrail](automation-aws-enablecloudtrail.md)
 + [AWS\-Enables3BucketEncryption](automation-aws-enables3bucketencryption.md)
++ [AWS\-ExportOpsDataToS3](automation-aws-exportopsdatatos3.md)
 + [AWSSupport\-ExecuteEC2Rescue](automation-awssupport-executeec2rescue.md)
 + [AWSSupport\-GrantPermissionsToIAMUser](automation-awssupport-grantpermissionstoiamuser.md)
 + [AWSSupport\-ManageRDPSettings](automation-awssupport-managerdpsettings.md)

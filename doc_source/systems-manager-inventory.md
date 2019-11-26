@@ -28,7 +28,7 @@ You can view the data in the AWS Systems Manager console on the **Inventory** pa
 **Note**  
 Inventory cards automatically filter out Amazon EC2 managed instances with a state of *Terminated* and *Stopped*\. For on\-premises managed instances, Inventory cards automatically filter out instances with a state of *Terminated*\. 
 
-If you create a Resource Data Sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)\.
+If you create a resource data sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)\.
 
 **Topics**
 + [Learn More About Systems Manager Inventory](sysman-inventory-about.md)

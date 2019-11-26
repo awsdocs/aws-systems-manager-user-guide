@@ -22,7 +22,7 @@ Before you perform these steps, follow the instructions in [Create a Package](di
 
 ### Adding a Package Version \(Simple\)<a name="add-pkg-version-simple"></a>
 
-To add a package version by using the **Simple** workflow, prepare updated installable files or add installables to support more platforms and architectures\. Then, use Distributor to upload new and updated installable files and add a package version\. The simplified **Add version** workflow in the Distributor console updates the manifest file and associated SSM document for you\.
+To add a package version by using the **Simple** workflow, prepare updated installable files or add installable files to support more platforms and architectures\. Then, use Distributor to upload new and updated installable files and add a package version\. The simplified **Add version** workflow in the Distributor console updates the manifest file and associated SSM document for you\.
 
 **To add a package version \(simple\)**
 

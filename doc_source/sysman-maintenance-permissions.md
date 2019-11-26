@@ -36,7 +36,7 @@ The type of role you should choose depends on the following factors:
 
 **Systems Manager service\-linked role**: We recommend that you use a Systems Manager service\-linked role in all other cases\.
 
-For more information about the Systems Manager service\-linked role, see [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)\.
+For more information about the Systems Manager service\-linked role, see [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)\.
 
 **Topics**
 + [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)

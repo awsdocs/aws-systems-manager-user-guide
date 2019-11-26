@@ -77,7 +77,7 @@ You must ensure the function defined in the handler has two parameters, `events`
        + **File name**: Enter the name of the file\.
        + **File checksum**: Enter the checksum of the file\. 
 **Tip**  
-The checksum is also known as the ETag value of the file\. You can retrieve this value from the object in the Amazon S3 console, or by using the `s3api` [list\-objects\-v2](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html;) command\.
+The checksum is also known as the ETag value of the file\. You can retrieve this value from the object in the Amazon S3 console, or by using the `s3api` [list\-objects\-v2](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html) command\.
 
 1. \(Optional\) Expand **Additional inputs** and do the following\.
    + For **Input name**, chose InputPayload\. \- Function input in YAML format\. 
@@ -97,7 +97,7 @@ To add more outputs, select **Add output**\.
 
 1. \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all Automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it is stopped\.
 
-   For more information, see [Common Properties In All Actions](automation-actions.md#automation-common)\.
+   For more information, see [Properties Shared by All Actions](automation-actions.md#automation-common)\.
 **Note**  
 To add more document steps, select **Add step** and repeat the procedure for creating a step\. To remove a document step, choose **Remove step**\.
 

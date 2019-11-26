@@ -10,29 +10,29 @@ You don't need to specify the outputs of an action or step\. The outputs are pre
 If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 **Topics**
-+ [Common Properties In All Actions](#automation-common)
-+ [aws:approve](#automation-action-approve)
-+ [aws:assertAwsResourceProperty](#automation-action-assertAwsResourceProperty)
-+ [aws:branch](#automation-action-branch)
-+ [aws:changeInstanceState](#automation-action-changestate)
-+ [aws:copyImage](#automation-action-copyimage)
-+ [aws:createImage](#automation-action-create)
-+ [aws:createStack](#automation-action-createstack)
-+ [aws:createTags](#automation-action-createtag)
-+ [aws:deleteImage](#automation-action-delete)
-+ [aws:deleteStack](#automation-action-deletestack)
-+ [aws:executeAutomation](#automation-action-executeAutomation)
-+ [aws:executeAwsApi](#automation-action-executeAwsApi)
-+ [aws:executeScript](#automation-action-executeScript)
-+ [aws:executeStateMachine](#automation-action-executeStateMachine)
-+ [aws:invokeLambdaFunction](#automation-action-lamb)
-+ [aws:pause](#automation-action-pause)
-+ [aws:runCommand](#automation-action-runcommand)
-+ [aws:runInstances](#automation-action-runinstance)
-+ [aws:sleep](#automation-action-sleep)
-+ [aws:waitForAwsResourceProperty](#automation-action-waitForAwsResourceProperty)
++ [Properties Shared by All Actions](#automation-common)
++ [aws:approve – Pause an execution for manual approval](#automation-action-approve)
++ [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](#automation-action-assertAwsResourceProperty)
++ [aws:branch – Run conditional automation steps](#automation-action-branch)
++ [aws:changeInstanceState – Change or assert instance state](#automation-action-changestate)
++ [aws:copyImage – Copy or encrypt an Amazon Machine Image](#automation-action-copyimage)
++ [aws:createImage – Create an Amazon Machine Image](#automation-action-create)
++ [aws:createStack – Create an AWS CloudFormation stack](#automation-action-createstack)
++ [aws:createTags – Create tags for AWS resources](#automation-action-createtag)
++ [aws:deleteImage – Delete an Amazon Machine Image](#automation-action-delete)
++ [aws:deleteStack – Delete an AWS CloudFormation stack](#automation-action-deletestack)
++ [aws:executeAutomation – Run another automation execution](#automation-action-executeAutomation)
++ [aws:executeAwsApi – Call and run AWS API actions](#automation-action-executeAwsApi)
++ [aws:executeScript – Run a script](#automation-action-executeScript)
++ [aws:executeStateMachine – Run an AWS Step Functions state machine](#automation-action-executeStateMachine)
++ [aws:invokeLambdaFunction – Invoke an AWS Lambda function](#automation-action-lamb)
++ [aws:pause – Pause an automation execution](#automation-action-pause)
++ [aws:runCommand – Run a command on a managed instance](#automation-action-runcommand)
++ [aws:runInstances – Launch an Amazon EC2 instance](#automation-action-runinstance)
++ [aws:sleep – Delay an automation execution](#automation-action-sleep)
++ [aws:waitForAwsResourceProperty – Wait on an AWS resource property](#automation-action-waitForAwsResourceProperty)
 
-## Common Properties In All Actions<a name="automation-common"></a>
+## Properties Shared by All Actions<a name="automation-common"></a>
 
 Common properties are parameters or options that are found in all actions\. Some options define execution behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 
@@ -89,7 +89,7 @@ Type: String
 Required: Yes
 
 action  
-The name of the action the step is to run\. [aws:runCommand](#automation-action-runcommand) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
+The name of the action the step is to run\. [aws:runCommand – Run a command on a managed instance](#automation-action-runcommand) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
 Type: String  
 Required: Yes
 
@@ -275,7 +275,7 @@ The properties specific to the action\.
 Type: Map  
 Required: Yes
 
-## aws:approve<a name="automation-action-approve"></a>
+## aws:approve – Pause an execution for manual approval<a name="automation-action-approve"></a>
 
 Temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. You can insert the approval step any place in the mainSteps section of your Automation document\. 
 
@@ -453,11 +453,14 @@ ApproverDecisions
 A JSON map that includes the approval decision of each approver\.  
 Type: MapList
 
-## aws:assertAwsResourceProperty<a name="automation-action-assertAwsResourceProperty"></a>
+## aws:assertAwsResourceProperty – Assert an AWS resource state or event state<a name="automation-action-assertAwsResourceProperty"></a>
 
 The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
 
 For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
+
+**Note**  
+The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:waitForAwsResourceProperty` step\.
 
 **Input**  
 Inputs are defined by the API action that you choose\. 
@@ -538,7 +541,7 @@ The expected status or state on which to continue the Automation workflow\. If y
 Type: Varies  
 Required: Yes
 
-## aws:branch<a name="automation-action-branch"></a>
+## aws:branch – Run conditional automation steps<a name="automation-action-branch"></a>
 
 The `aws:branch` action enables you to create a dynamic Automation workflow that evaluates different choices in a single step and then jumps to a different step in the Automation document based on the results of that evaluation\. 
 
@@ -619,11 +622,14 @@ Required: No
 **Note**  
 The `aws:branch` action supports `And`, `Or`, and `Not` operators\. For examples of `aws:branch` that use operators, see [Creating Dynamic Automation Workflows with Conditional Branching](automation-branchdocs.md)\.
 
-## aws:changeInstanceState<a name="automation-action-changestate"></a>
+## aws:changeInstanceState – Change or assert instance state<a name="automation-action-changestate"></a>
 
 Changes or asserts the state of the instance\.
 
 This action can be used in assert mode \(do not run the API to change the state but verify the instance is in the desired state\.\) To use assert mode, set the `CheckStateOnly` parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an AMI\.
+
+**Note**  
+The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:changeInstanceState` step\.
 
 **Input**
 
@@ -689,7 +695,7 @@ Required: No
 **Output**  
 None
 
-## aws:copyImage<a name="automation-action-copyimage"></a>
+## aws:copyImage – Copy or encrypt an Amazon Machine Image<a name="automation-action-copyimage"></a>
 
 Copies an AMI from any region into the current region\. This action can also encrypt the new AMI\.
 
@@ -771,7 +777,7 @@ ImageState
 The state of the copied image\.  
 Valid values: `available` \| `pending` \| `failed`
 
-## aws:createImage<a name="automation-action-create"></a>
+## aws:createImage – Create an Amazon Machine Image<a name="automation-action-create"></a>
 
 Creates a new AMI from an instance that is either running or stopped\. 
 
@@ -827,7 +833,7 @@ Required: No
 NoReboot  
 A boolean literal\.  
 By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image\. If the **No Reboot** option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image\. When this option is used, file system integrity on the created image can't be guaranteed\.   
-If you do not want the instance to run after you create an AMI image from it, first use the [aws:changeInstanceState](#automation-action-changestate) plugin to stop the instance, and then use this `aws:createImage` plugin with the **NoReboot** option set to `true`\.  
+If you do not want the instance to run after you create an AMI image from it, first use the [aws:changeInstanceState – Change or assert instance state](#automation-action-changestate) plugin to stop the instance, and then use this `aws:createImage` plugin with the **NoReboot** option set to `true`\.  
 Type: Boolean  
 Required: No
 
@@ -843,7 +849,7 @@ ImageState
 An execution script provided as a string literal value\. If a literal value is entered, then it must be Base64\-encoded\.  
 Required: No
 
-## aws:createStack<a name="automation-action-createstack"></a>
+## aws:createStack – Create an AWS CloudFormation stack<a name="automation-action-createstack"></a>
 
 Creates a new AWS CloudFormation stack from a template\.
 
@@ -1056,7 +1062,7 @@ Before you can use the `aws:createStack` action, you must assign the following p
 }
 ```
 
-## aws:createTags<a name="automation-action-createtag"></a>
+## aws:createTags – Create tags for AWS resources<a name="automation-action-createtag"></a>
 
 Create new tags for Amazon EC2 instances or Systems Manager managed instances\.
 
@@ -1131,7 +1137,7 @@ Valid Values: `EC2` \| `ManagedInstance` \| `MaintenanceWindow` \| `Parameter`
 **Output**  
 None
 
-## aws:deleteImage<a name="automation-action-delete"></a>
+## aws:deleteImage – Delete an Amazon Machine Image<a name="automation-action-delete"></a>
 
 Deletes the specified image and all related snapshots\.
 
@@ -1173,7 +1179,7 @@ Required: Yes
 **Output**  
 None
 
-## aws:deleteStack<a name="automation-action-deletestack"></a>
+## aws:deleteStack – Delete an AWS CloudFormation stack<a name="automation-action-deletestack"></a>
 
 Deletes an AWS CloudFormation stack\.
 
@@ -1250,7 +1256,7 @@ Before you can use the `aws:deleteStack` action, you must assign the following p
 }
 ```
 
-## aws:executeAutomation<a name="automation-action-executeAutomation"></a>
+## aws:executeAutomation – Run another automation execution<a name="automation-action-executeAutomation"></a>
 
 Runs a secondary Automation workflow by calling a secondary Automation document\. With this action, you can create Automation documents for your most common workflows, and reference those documents during an Automation execution\. This action can simplify your Automation documents by removing the need to duplicate steps across similar documents\.
 
@@ -1323,7 +1329,7 @@ Status
 The status of the secondary execution\.  
 Type: String
 
-## aws:executeAwsApi<a name="automation-action-executeAwsApi"></a>
+## aws:executeAwsApi – Call and run AWS API actions<a name="automation-action-executeAwsApi"></a>
 
 Calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
 
@@ -1415,7 +1421,7 @@ The data type for the response element\.
 Type: Varies  
 Required: Yes
 
-## aws:executeScript<a name="automation-action-executeScript"></a>
+## aws:executeScript – Run a script<a name="automation-action-executeScript"></a>
 
 Runs the python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, handler is not required\.\)
 
@@ -1487,7 +1493,7 @@ The name of a standalone script file or \.zip file that can be invoked by the ac
 Type: String  
 Required: No
 
-## aws:executeStateMachine<a name="automation-action-executeStateMachine"></a>
+## aws:executeStateMachine – Run an AWS Step Functions state machine<a name="automation-action-executeStateMachine"></a>
 
 Run an AWS Step Functions state machine\.
 
@@ -1535,7 +1541,7 @@ A string that contains the JSON input data for the execution\.
 Type: String  
 Required: No
 
-## aws:invokeLambdaFunction<a name="automation-action-lamb"></a>
+## aws:invokeLambdaFunction – Invoke an AWS Lambda function<a name="automation-action-lamb"></a>
 
 Invokes the specified Lambda function\.
 
@@ -1611,7 +1617,7 @@ The base64\-encoded logs for the Lambda function invocation\. Logs are present o
 Payload  
 The JSON representation of the object returned by the Lambda function\. Payload is present only if the invocation type is `RequestResponse`\.
 
-## aws:pause<a name="automation-action-pause"></a>
+## aws:pause – Pause an automation execution<a name="automation-action-pause"></a>
 
 This action pauses the Automation execution\. Once paused, the execution status is *Waiting*\. To continue the Automation execution, use the [SendAutomationSignal](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html) API action with the Resume signal type\. 
 
@@ -1638,7 +1644,7 @@ inputs: {}
 
 None  
 
-## aws:runCommand<a name="automation-action-runcommand"></a>
+## aws:runCommand – Run a command on a managed instance<a name="automation-action-runcommand"></a>
 
 Runs the specified commands\.
 
@@ -1805,7 +1811,7 @@ The response code of the command\.
 Output  
 The output of the command\.
 
-## aws:runInstances<a name="automation-action-runinstance"></a>
+## aws:runInstances – Launch an Amazon EC2 instance<a name="automation-action-runinstance"></a>
 
 Launches a new instance\.
 
@@ -1991,7 +1997,7 @@ Type: String
 Required: No
 
 TagSpecifications  
-The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [aws:createTags](#automation-action-createtag) action\.  
+The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [aws:createTags – Create tags for AWS resources](#automation-action-createtag) action\.  
 Type: MapList \(For more information, see [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html)\.\)  
 Required: No
 
@@ -2003,7 +2009,7 @@ Required: NoOutput
 InstanceIds  
 The IDs of the instances\.
 
-## aws:sleep<a name="automation-action-sleep"></a>
+## aws:sleep – Delay an automation execution<a name="automation-action-sleep"></a>
 
 Delays Automation execution for a specified amount of time\. This action uses the International Organization for Standardization \(ISO\) 8601 date and time format\. For more information about this date and time format, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)\.
 
@@ -2069,7 +2075,7 @@ Required: NoOutput
 
 None  
 
-## aws:waitForAwsResourceProperty<a name="automation-action-waitForAwsResourceProperty"></a>
+## aws:waitForAwsResourceProperty – Wait on an AWS resource property<a name="automation-action-waitForAwsResourceProperty"></a>
 
 The aws:waitForAwsResourceProperty action enables your Automation workflow to wait for a specific resource state or event state before continuing the workflow\. For more information and examples of how to use this action, see [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)\.
 

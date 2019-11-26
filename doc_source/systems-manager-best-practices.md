@@ -22,7 +22,7 @@ The title of each section here is an active link to the corresponding section in
 + [Use Parameter Store with ECS task definitions to store secrets](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)\.
 
 **[Patch Manager](systems-manager-patch.md)**
-+ Use patch manager to rollout patches at scale and increase fleet compliance visibility across your instances\.
++ Use patch manager to roll out patches at scale and increase fleet compliance visibility across your instances\.
 
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.

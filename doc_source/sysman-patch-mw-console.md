@@ -45,7 +45,7 @@ You must configure roles and permissions for Maintenance Windows before beginnin
 
 1. For **Command document**, choose **AWS\-RunPatchBaseline**\.
 
-1. For **Task priority**, choose a priority\. `One` is the highest priority\.
+1. For **Task priority**, choose a priority\. Zero \(`0`\) is the highest priority\.
 
 1. For **Targets**, under **Target by**, choose the maintenance window target you created earlier in this procedure\.
 

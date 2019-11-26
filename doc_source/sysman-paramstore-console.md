@@ -26,7 +26,7 @@ The following procedure walks you through the process of creating a parameter in
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose `AWS-RunPowershellScript` \(Windows\) or `AWS-RunShellScript` \(Linux\)\. 
+1. In the **Command document** list, choose `AWS-RunPowerShellScript` \(Windows\) or `AWS-RunShellScript` \(Linux\)\. 
 
 1. For **Command parameters**, enter **echo \{\{ssm:*parameter\-name*\}\}**\. For example: **echo \{\{ssm:/Test/helloWorld\}\}**\. 
 

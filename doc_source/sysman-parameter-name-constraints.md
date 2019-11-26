@@ -8,14 +8,18 @@ The requirements and constraints for parameter names include the following:
 + **Case sensitivity**: Parameter names are case sensitive\.
 + **Spaces**: Parameter names can't include spaces\.
 + **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-/`
-+ **Length**: The maximum length for the fully qualified parameter name you specify is 1011 characters\. 
++ **Length**: The maximum length for the fully qualified parameter name you specify is 1011 characters, including the full length of the parameter ARN\. For example, the following fully qualified parameter name is 65 characters, not 20 characters: 
+
+  ```
+  arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName
+  ```
 + **Prefixes**: A parameter name *cannot* be prefixed with "aws" or "ssm" \(case\-insensitive\)\. For example, attempts to create parameters with the following names will fail with an exception:
   + awsTestParameter
   + SSM\-testparameter
   + /aws/testparam1
 **Note**  
 When you specify a parameter in an SSM document, command, or script, you do include `ssm` as part of the syntax, as shown in the following examples\. Note that there is no space between brackets\.   
-Valid: \{\{ssm:*parameter\_name*\}\} and \{\{ ssm:*parameter\_name* \}\}, such as `{{ssm:addUsers}}`, and `{{ssm:addUsers }}`, 
+Valid: \{\{ssm:*parameter\_name*\}\} and \{\{ ssm:*parameter\_name* \}\}, such as `{{ssm:addUsers}}`, and `{{ ssm:addUsers }}`, 
 Invalid: `{{ssm:ssmAddUsers}}`
 + **Uniqueness**: A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
   + `/Test/TestParam1`

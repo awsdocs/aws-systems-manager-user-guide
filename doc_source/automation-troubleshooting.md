@@ -25,7 +25,7 @@ To solve this problem, you must create a new Automation document that includes t
 ```
 {
    "schemaVersion":"0.3",
-   "description":"Updates AMI with Linux distribution packages and Amazon software. For details,see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sysman-ami-walkthrough.html",
+   "description":"Updates AMI with Linux distribution packages and Amazon software. For details, see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sysman-ami-walkthrough.html",
    "assumeRole":"{{AutomationAssumeRole}}",
    "parameters":{
       "SourceAmiId":{
@@ -511,7 +511,7 @@ When a step fails, the failure message might indicate which service was being in
 | aws:deleteImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
 | aws:copyImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
 | aws:createTag | Amazon EC2, Systems Manager | [EC2 Resource and Tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html) |  | 
-| aws:invokeLambdaFunction | AWS Lambda | [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/) | [Troublshooting Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) | 
+| aws:invokeLambdaFunction | AWS Lambda | [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/) | [Troubleshooting Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html) | 
 
 ### Automation Service Internal Error<a name="automation-trbl-err"></a>
 

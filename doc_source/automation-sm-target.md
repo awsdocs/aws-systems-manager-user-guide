@@ -43,7 +43,7 @@ Be aware of the following important details before you run Automation workflows 
 
 ------
 
-  For more information about service\-linked roles, see [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)\.
+  For more information about service\-linked roles, see [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)\.
 
 ## Creating an Association That Runs an Automation Workflow \(Console\)<a name="automation-sm-target-console"></a>
 

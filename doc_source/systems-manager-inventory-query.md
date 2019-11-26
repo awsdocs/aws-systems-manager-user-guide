@@ -1,6 +1,6 @@
 # Querying Inventory Data from Multiple Regions and Accounts<a name="systems-manager-inventory-query"></a>
 
-AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from multiple AWS Regions and accounts\. Athena integration uses Resource Data Sync so that you can view inventory data from all of your managed instances on the **Inventory Detail View** page in the AWS Systems Manager console\.
+AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from multiple AWS Regions and accounts\. Athena integration uses resource data sync so that you can view inventory data from all of your managed instances on the **Inventory Detail View** page in the AWS Systems Manager console\.
 
 **Important**  
 This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Service \(Amazon S3\) bucket, and Amazon Athena to query the data\. Depending on how much data is crawled and queried, you can be charged for using these services\. With AWS Glue, you pay an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. With Athena, you are charged based on the amount of data scanned by each query\. We encourage you to view the pricing guidelines for these services before you use Amazon Athena integration with Systems Manager Inventory\. For more information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/) and [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)\.
@@ -8,9 +8,9 @@ This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Servi
 You can view inventory data on the **Inventory Detail View** page in all AWS Regions where [Amazon Athena is available\.](https://docs.aws.amazon.com/general/latest/gr/rande.html#athena) 
 
 **Before you begin**  
-Athena integration uses Resource Data Sync\. You must set up and configure Resource Data Sync to use this feature\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
+Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 
-Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by Resource Data Sync\. If you are not the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
+Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by resource data sync\. If you are not the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
 
 ## Configuring Access<a name="systems-manager-inventory-query-iam"></a>
 
@@ -87,9 +87,9 @@ Before you can query and view data from multiple accounts and Regions on the **I
 1. Choose **Create policy**\.
 
 **Important**  
-When you choose a Resource Data Sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for Resource Data Sync\. Systems Manager automatically attaches the following policies to the role:  
+When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
-**Amazon\-GlueServiceRoleForSSM**: This is an AWS managed policy that enables access to AWS Glue\.
+**AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
 If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ## Querying Data on the Detailed Inventory View Page<a name="systems-manager-inventory-query-detail-view"></a>
@@ -114,7 +114,7 @@ The Inventory **Detailed View ** page is only available in AWS Regions that offe
 1. Choose the **Detailed View** tab\.  
 ![\[Accessing the AWS Systems Manager Inventory Detailed View page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view.png)
 
-1. Choose the Resource Data Sync for which you want to query data\.  
+1. Choose the resource data sync for which you want to query data\.  
 ![\[Displaying Inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
 
 1. In the **Inventory Type** list, choose the type of inventory data that you want to query, and then press Enter\.  

@@ -88,7 +88,7 @@ The following items are required in each \.zip file:
 + An install and an uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent runs the instructions in the install and uninstall scripts\.
 
    For example, your installation scripts might run an installer \(such as \.rpm or \.msi\), they might copy files, or they might set configurations\.
-+ An executable file, installer packages \(\.rpm, \.deb, \.msi, etcetc\.\), other scripts, or configuration files\.
++ An executable file, installer packages \(\.rpm, \.deb, \.msi, etc\.\), other scripts, or configuration files\.
 
 **Optional files**  
 The following item is optional in each \.zip file:

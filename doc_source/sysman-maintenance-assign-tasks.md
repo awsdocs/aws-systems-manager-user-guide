@@ -12,7 +12,7 @@ The following four types of tasks can be added to a maintenance window:
 
 1. In the list of maintenance windows, choose a maintenance window \.
 
-1. Choose **Actions** and then,choose the option for the type of task you want to register with the maintenance window:
+1. Choose **Actions**, and then choose the option for the type of task you want to register with the maintenance window:
    + **Register Run command task**
    + **Register Automation task**
    + **Register Lambda task**
@@ -26,7 +26,7 @@ The following four types of tasks can be added to a maintenance window:
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 
-1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
+1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
