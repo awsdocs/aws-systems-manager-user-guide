@@ -379,7 +379,6 @@ mainSteps:
         StringEquals: Windows
       NextStep: runPowerShellCommand
 
-
     - And:
       - Variable: "{{GetInstance.pingStatus}}"
         StringEquals: running

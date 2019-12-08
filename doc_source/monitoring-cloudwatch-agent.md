@@ -1,4 +1,4 @@
-# Sending Logs to CloudWatch Logs \(CloudWatch agent\)<a name="monitoring-cloudwatch-agent"></a>
+# Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)<a name="monitoring-cloudwatch-agent"></a>
 
 You can configure and use the Amazon CloudWatch agent to collect metrics and logs from your instances instead of using SSM Agent for these tasks\. The CloudWatch agent enables you to gather more metrics on Amazon EC2 instances than are available using SSM Agent\. In addition, you can gather metrics from on\-premises servers using the CloudWatch agent\. 
 
@@ -8,10 +8,24 @@ You can also store agent configuration settings in the Systems Manager Parameter
 Currently, AWS Systems Manager supports migrating from SSM Agent to the CloudWatch agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch agent on other operating systems, and for complete information about using the CloudWatch agent, see [Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
 You can use the CloudWatch agent on other supported operating systems, but you will not be able to use Systems Manager to perform a tool migration\. 
 
-**Topics**
-+ [Migrate Windows Server Instance Log Collection to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate)
-+ [Store CloudWatch agent Configuration Settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)
-+ [Rolling Back to Log Collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)
+SSM Agent writes information about executions, scheduled actions, errors, and health statuses to log files on each instance\. Manually connecting to an instance to view log files and troubleshoot an issue with SSM Agent is time\-consuming\. For more efficient instance monitoring, you can configure either SSM Agent itself or the CloudWatch agent to send this log data to Amazon CloudWatch Logs\. 
+
+**Important**  
+The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. Support for using SSM Agent to send log data will be deprecated in the near future\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
+[Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](#monitoring-cloudwatch-agent)
+[Migrate Windows Server Instance Log Collection to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate)
+[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+
+Using CloudWatch Logs, you can monitor log data in real\-time, search and filter log data by creating one or more metric filters, and archive and retrieve historical data when you need it\. For more information about CloudWatch Logs, see the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
+
+Configuring an agent to send log data to Amazon CloudWatch Logs provides the following benefits:
++ Centralized log file storage for all of your SSM Agent log files\.
++ Quicker access to files to investigate errors\.
++ Indefinite log file retention \(configurable\)\.
++ Logs can be maintained and accessed regardless of the status of the instance\.
++ Access to other CloudWatch features such as metrics and alarms\.
+
+For information about monitoring Session Manager activity, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md)\.
 
 ## Migrate Windows Server Instance Log Collection to the CloudWatch agent<a name="monitoring-cloudwatch-agent-migrate"></a>
 

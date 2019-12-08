@@ -32,6 +32,10 @@ Your VPC endpoint policy must allow at least access to the following Amazon S3 b
 + The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets for the code to be retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
 
   To provide access to the buckets in your AWS Region, include the following permission in your endpoint policy:
+**Note**  
+In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, these buckets use different naming conventions\. For this AWS Region only, use the following two buckets instead\.  
+`patch-baseline-snapshot-me-south-1-uduvl7q8`
+`aws-patch-manager-me-south-1-a53fc9dce`
 
   ```
   arn:aws:s3:::patch-baseline-snapshot-region/*

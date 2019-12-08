@@ -1,6 +1,6 @@
 # Creating Automation Documents That Run Scripts<a name="automation-document-script"></a>
 
-AWS Systems Manager Automation documents, or playbooks, support running scripts as part of the automation workflow\. By using Automation documents, you can run scripts directly in AWS without having to create a separate compute environment to run your scripts\. Automation documents can run script steps alongside other automation step types, such as approvals, which lets you manually intervene in critical or ambiguous situations\. 
+AWS Systems Manager Automation documents, or playbooks, support running scripts as part of the automation workflow\. By using Automation documents, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because Automation documents can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. 
 
 ## Permissions for Running Automation Executions<a name="execution-permissions"></a>
 

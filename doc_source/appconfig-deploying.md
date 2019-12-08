@@ -10,7 +10,7 @@ Use the following procedure to deploy an AppConfig configuration by using the AW
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane choose **AppConfig**\.
+1. In the navigation pane, choose **AppConfig**\.
 
 1. On the **Applications** tab, choose an application, and then choose **View details**\.
 

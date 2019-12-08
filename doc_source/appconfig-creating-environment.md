@@ -1,9 +1,9 @@
 # Step 4: Create an Environment<a name="appconfig-creating-environment"></a>
 
-For each AWS AppConfig application, you define one or more environments\. An environment is a logical deployment group of AppConfig targets, such as applications in a `Beta` or `Production` environment\. You can also define environments for application subcomponents such as the `Web`, `Mobile` and `Back-end` components for your application\. You can configure Amazon CloudWatch alarms for each environment\. The system monitors alarms during a configuration deployment\. If an alarm is triggered, the system rolls back the configuration\. 
+For each AWS AppConfig application, you define one or more environments\. An environment is a logical deployment group of AppConfig targets, such as applications in a `Beta` or `Production` environment\. You can also define environments for application subcomponents such as the `Web`, `Mobile`, and `Back-end` components for your application\. You can configure Amazon CloudWatch alarms for each environment\. The system monitors alarms during a configuration deployment\. If an alarm is triggered, the system rolls back the configuration\. 
 
 **Before You Begin**  
-If you want to enable AppConfig to rollback a configuration in response to a CloudWatch alarm, then you must configure an AWS Identity and Access Management \(IAM\) role with permissions to enable AppConfig to respond to CloudWatch alarms\. You choose this role in the following procedure\. For more information, see [\(Optional\) Configuring Permissions for Rollback Based on CloudWatch Alarms](appconfig-getting-started-cloudwatch-alarms-permissions.md)\.
+If you want to enable AppConfig to roll back a configuration in response to a CloudWatch alarm, then you must configure an AWS Identity and Access Management \(IAM\) role with permissions to enable AppConfig to respond to CloudWatch alarms\. You choose this role in the following procedure\. For more information, see [\(Optional\) Configuring Permissions for Rollback Based on CloudWatch Alarms](appconfig-getting-started-cloudwatch-alarms-permissions.md)\.
 
 Use the following procedure to create an AppConfig environment by using the AWS Systems Manager console\.
 
@@ -21,7 +21,7 @@ Use the following procedure to create an AppConfig environment by using the AWS 
 
 1. For **Description**, enter information about the environment\.
 
-1. In the **Monitors** section, choose **Enable rollback on CloudWatch Alarms** if you want AppConfig to rollback a configuration when an alarm is triggered\.
+1. In the **Monitors** section, choose **Enable rollback on CloudWatch Alarms** if you want AppConfig to roll back a configuration when an alarm is triggered\.
 
 1. In the **IAM role** list, choose the IAM role with permission to roll back a configuration when an alarm is triggered\.
 

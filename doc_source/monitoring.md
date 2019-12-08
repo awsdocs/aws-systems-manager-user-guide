@@ -1,27 +1,22 @@
 # Monitoring AWS Systems Manager<a name="monitoring"></a>
 
-SSM Agent writes information about executions, scheduled actions, errors, and health statuses to log files on each instance\. Manually connecting to an instance to view log files and troubleshoot an issue with SSM Agent is time\-consuming\. For more efficient instance monitoring, you can configure either SSM Agent itself or the CloudWatch agent to send this log data to Amazon CloudWatch Logs\. 
+Monitoring is an important part of maintaining the reliability, availability, and performance of Systems Manager and your AWS solutions\. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multipoint failure if one occurs\. But before you start monitoring Systems Manager, you should create a monitoring plan that includes answers to the following questions: 
++ What are your monitoring goals?
++ What resources will you monitor?
++ How often will you monitor these resources?
++ What monitoring tools will you use?
++ Who will perform the monitoring tasks?
++ Who should be notified when something goes wrong?
 
-**Important**  
-The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. Support for using SSM Agent to send log data will be deprecated in the near future\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
-[Sending Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
-[Migrate Windows Server Instance Log Collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
-[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+After you have defined your monitoring goals and have created your monitoring plan, the next step is to establish a baseline for normal Systems Manager performance in your environment\. You should measure Systems Manager performance at various times and under different load conditions\. As you monitor Systems Manager, you should store a history of monitoring data that you've collected\. You can compare current Systems Manager performance to this historical data to help you to identify normal performance patterns and performance anomalies, and devise methods to address them\.
 
-Using CloudWatch Logs, you can monitor log data in real\-time, search and filter log data by creating one or more metric filters, and archive and retrieve historical data when you need it\. For more information about CloudWatch Logs, see the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
+For example, you can monitor the success or failure of operations such as Automation workflows, the application of patch baselines, maintenance window events, and configuration compliance\.
 
-Configuring an agent to send log data to Amazon CloudWatch Logs provides the following benefits:
-+ Centralized log file storage for all of your SSM Agent log files\.
-+ Quicker access to files to investigate errors\.
-+ Indefinite log file retention \(configurable\)\.
-+ Logs can be maintained and accessed regardless of the status of the instance\.
-+ Access to other CloudWatch features such as metrics and alarms\.
-
-For information about monitoring Session Manager activity, see [Auditing and Logging Session Activity](session-manager-logging-auditing.md)\.
+You can also monitor CPU utilization, disk I/O, and network utilization of your managed instances\. When performance falls outside your established baseline, you might need to reconfigure or optimize the instance to reduce CPU utilization, improve disk I/O, or reduce network traffic\. For more information about monitoring Amazon EC2 instances, see [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Topics**
-+ [Sending Logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
-+ [Sending Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
++ [Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
++ [Sending Instance Logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
 + [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
 + [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)
 + [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)

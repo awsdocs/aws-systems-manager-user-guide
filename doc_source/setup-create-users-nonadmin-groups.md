@@ -33,7 +33,7 @@ Use the following procedure to create a user group for your Systems Manager user
        This policy grants full access to the AWS Health APIs and Notifications and the Personal Health Dashboard\. It also provides access to portions of the Built\-In Insights Dashboard in the Systems Manager console\.
      + **AWSConfigUserAccess**
 
-       This policy provides read\-only access to use AWS Config, including searching by tags on resources, and reading all tags> It also provides access to portions of the Built\-In Insights Dashboard in the Systems Manager console\.
+       This policy provides read\-only access to use AWS Config, including searching by tags on resources, and reading all tags\. It also provides access to portions of the Built\-In Insights Dashboard in the Systems Manager console\.
      + **CloudWatchReadOnlyAccess**
 
        This policy provides read\-only access to CloudWatch, which is needed to view information on the **Dashboard by CloudWatch** in the Systems Manager console\.

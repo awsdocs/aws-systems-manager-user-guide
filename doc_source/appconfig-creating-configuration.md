@@ -36,7 +36,7 @@ An A/B testing configuration that enables customers to use different versions of
 
 You can create configurations as Systems Manager \(SSM\) documents in JSON or as Systems Manager Parameter Store parameters\. For information about creating a parameter in Parameter Store, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\. For information about creating an SSM document, see [Creating Systems Manager Documents](create-ssm-doc.md)\.
 
-For an SSM document configuration, start by creating a JSON Schema that uses the `ApplicationConfigurationSchema` document type\. A JSON schema defines the allowable properties for each application configuration setting\. The JSON Schema functions like a set of rules to ensure that new or updated configuration settings conform to the best practices required by your application\. 
+For an SSM document configuration, start by creating a JSON Schema that uses the `ApplicationConfigurationSchema` document type\. A JSON Schema defines the allowable properties for each application configuration setting\. The JSON Schema functions like a set of rules to ensure that new or updated configuration settings conform to the best practices required by your application\. 
 
 Here are some example JSON Schemas that could be saved as SSM documents that use the `ApplicationConfigurationSchema` document type\.
 
@@ -58,7 +58,7 @@ Here are some example JSON Schemas that could be saved as SSM documents that use
     }
 ```
 
-After you create the JSON Schema, you create the application as an SSM document that uses the `ApplicationConfiguration` document type\. When you save or update an SSM document that uses the `ApplicationConfiguration` document type, you specify the name of the corresponding `ApplicationConfigurationSchema` SSM document\. If the configuration data doesn't conform to the schema requirements, Systems Manager returns a validation error\. The system only creates a configuration that uses the `ApplicationConfiguration` document type, when it validates against the corresponding JSON Schema\.
+After you create the JSON Schema, you create the application as an SSM document that uses the `ApplicationConfiguration` document type\. When you save or update an SSM document that uses the `ApplicationConfiguration` document type, you specify the name of the corresponding `ApplicationConfigurationSchema` SSM document\. If the configuration data doesn't conform to the schema requirements, Systems Manager returns a validation error\. The system only creates a configuration that uses the `ApplicationConfiguration` document type, when the configuration validates against the corresponding JSON Schema\.
 
 Currently you can't create `ApplicationConfiguration` and `ApplicationConfigurationSchema` SSM documents in the console\. You must create them by using the AWS CLI, as shown in the following procedure\.
 

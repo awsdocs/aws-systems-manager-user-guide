@@ -1,11 +1,11 @@
 # Step 5: Create a Configuration Profile<a name="appconfig-creating-configuration-profile"></a>
 
 A configuration profile enables AWS AppConfig to access the source of your configuration data\. Valid configuration sources include Systems Manager \(SSM\) documents and Parameter Store parameters\. A configuration profile includes the following information\.
-+ The Uri location of the configuration data\. 
++ The URI location of the configuration data\. 
 + The AWS Identity and Access Management \(IAM\) role that provides access to the configuration data\.
 + \(Optional\) A validator for the configuration data\. You can use either a JSON Schema or an AWS Lambda function to validate your configuration profile\. A configuration profile can have a maximum of two validators\.
 
-You can create the IAM role that provides access to the configuration data by using AppConfig, as described in the following procedure\. Or you can create the IAM yourself and choose it from a list\. If you create the role by using AppConfig, the system creates the role and specifies one of the following permissions policies, depending on which type of configuration source you choose\.
+You can create the IAM role that provides access to the configuration data by using AppConfig, as described in the following procedure\. Or you can create the IAM role yourself and choose it from a list\. If you create the role by using AppConfig, the system creates the role and specifies one of the following permissions policies, depending on which type of configuration source you choose\.
 
 **Configuration source is an SSM document**
 
@@ -84,7 +84,7 @@ Use the following procedure to create an AppConfig configuration profile by usin
 
 1. On the **Select configuration source** page, choose either **AWS Systems Manager document** or **AWS Systems Manager parameter**\. Choose the document or the parameter from the list, and then choose **Next**\.
 
-1. On the **Add validators** page, choose either **JSON Schema** or **AWS Lambda**\. If you choose **JSON Schema**, enter the JSON Schema in the field\. If you choose **AWS Lambda** choose the function and the version from the list\. 
+1. On the **Add validators** page, choose either **JSON Schema** or **AWS Lambda**\. If you choose **JSON Schema**, enter the JSON Schema in the field\. If you choose **AWS Lambda**, choose the function and the version from the list\. 
 
 1. Choose **Next**\.
 

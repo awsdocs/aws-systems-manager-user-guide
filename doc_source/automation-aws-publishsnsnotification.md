@@ -27,7 +27,7 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The message to include in the SNS notification\.
-+ TopicARN
++ TopicArn
 
   Type: String
 
@@ -38,7 +38,7 @@ Windows, Linux
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-PublishSNSNotification --parameters Message=message,TopicARN=arn:aws:sns:us-east-1:123456789012:SNSTopicARN
+aws ssm start-automation-execution --document-name AWS-PublishSNSNotification --parameters Message=message,TopicArn=arn:aws:sns:us-east-1:123456789012:SNSTopicARN
 ```
 
 Retrieve the execution output

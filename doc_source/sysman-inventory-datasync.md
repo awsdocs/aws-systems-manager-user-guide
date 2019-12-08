@@ -94,7 +94,7 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Managed Instances**\.
 
-1. Choose **Resource Data Syncs**, and then choose **Create resource data sync**\.
+1. Choose **Configure Inventory**, **Resource Data Syncs**, and then choose **Create resource data sync**\.
 
 1. In the **Sync name** field, type a name for the sync configuration\.
 
@@ -106,7 +106,7 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
 **Note**  
 If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
 
-1. In the **KMS Key ARN** field, type or paste a KMS Key ARN to encrypt inventory data in Amazon S3\.
+1. \(Optional\) In the **KMS Key ARN** field, type or paste a KMS Key ARN to encrypt inventory data in Amazon S3\.
 
 1. Choose **Create**\.
 

@@ -21,14 +21,14 @@ AppConfig offers the following benefits\.
 + **Reduce errors in configuration changes**
 
   AppConfig reduces application downtime by enabling you to create rules to validate your configuration\. Configurations that aren't valid can't be deployed\. AppConfig provides two options for validating configurations\.
-  + For syntactic validation, you can use JSON schema\. AppConfig validates your configuration by using the JSON schema to ensure that configuration changes adhere to the application requirements\. 
-  + For semantic validation, you can call an AWS Lambda function that runs your configuration before your deploy it\.
+  + For syntactic validation, you can use a JSON schema\. AppConfig validates your configuration by using the JSON schema to ensure that configuration changes adhere to the application requirements\. 
+  + For semantic validation, you can call an AWS Lambda function that runs your configuration before you deploy it\.
 + **Update applications without interruptions**
 
   AppConfig deploys configuration changes to your targets at runtime without a heavy\-weight build process or taking your targets out of service\. 
 + **Control deployment of changes across your application**
 
-  When deploying configuration changes to your targets, AppConfig enables you to minimize risk by using a deployment strategy\. You can use the rate controls of a deployment strategy to determine how fast you want your application targets to receive a configuration change
+  When deploying configuration changes to your targets, AppConfig enables you to minimize risk by using a deployment strategy\. You can use the rate controls of a deployment strategy to determine how fast you want your application targets to receive a configuration change\.
 
 ## **What Types of Targets are Supported?**<a name="learn-more-appconfig-operating-systems"></a>
 
@@ -62,8 +62,8 @@ To configure AppConfig to work with your application, you set up three types of 
 | Resource | Details | 
 | --- | --- | 
 |  Application  |  An application in AppConfig is a logical unit of code that provides capabilities for your customers\. For example, an application can be a microservice that runs on Amazon EC2 instances, a mobile application installed by your users, a serverless application using Amazon API Gateway and AWS Lambda, or any system you run on behalf of others\.  | 
-|  Environment  |  For each application, you define one or more environments\. An environment is a logical deployment group of AppConfig applications, such as applications in a `Beta` or `Production` environment\. You can also define environments for application subcomponents such as the `Web`, `Mobile` and `Back-end` components for your application\. You can configure Amazon CloudWatch alarms for each environment\. The system monitors alarms during a configuration deployment\. If an alarm is triggered, the system rolls back the configuration\.  | 
-|  Configuration profile  |  A configuration profile includes source information for accessing your configuration data in either a Systems Manager \(SSM\) document or a Parameter Store parameter\. A configuration profile can also include optional Validators to ensure your configuration data is syntactically and semantically correct\. AppConfig performs a check using the validators when you start a deployment\. If any errors are detected, the deployment stops before making any changes to the targets of the configuration\.  | 
+|  Environment  |  For each application, you define one or more environments\. An environment is a logical deployment group of AppConfig applications, such as applications in a `Beta` or `Production` environment\. You can also define environments for application subcomponents such as the `Web`, `Mobile`, and `Back-end` components for your application\. You can configure Amazon CloudWatch alarms for each environment\. The system monitors alarms during a configuration deployment\. If an alarm is triggered, the system rolls back the configuration\.  | 
+|  Configuration profile  |  A configuration profile includes source information for accessing your configuration data in either a Systems Manager \(SSM\) document or a Parameter Store parameter\. A configuration profile can also include optional validators to ensure your configuration data is syntactically and semantically correct\. AppConfig performs a check using the validators when you start a deployment\. If any errors are detected, the deployment stops before making any changes to the targets of the configuration\.  | 
 
 ### Enable your application code to periodically check for and receive configuration data from AppConfig<a name="learn-more-appconfig-how-it-works-details-2"></a>
 
@@ -72,14 +72,14 @@ Using the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/API
 + A unique application instance identifier called a client ID\.
 + The last configuration version known by your application code\.
 
-When a new configuration is deployed \(which means there is a new version of the configuration\) AppConfig responds to the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) request and returns the new configuration data\.
+When a new configuration is deployed \(which means there is a new version of the configuration\), AppConfig responds to the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) request and returns the new configuration data\.
 
 ### Deploy a new or updated configuration<a name="learn-more-appconfig-how-it-works-details-3"></a>
 
 AppConfig enables you to deploy configurations in the manner that best suits the use case of your applications\. You can deploy changes in seconds or you can roll them out slowly to assess the impact of the changes\. The AppConfig resource that helps you control deployments is called a *deployment strategy*\. A deployment strategy includes the following information:
 + Total amount of time for a deployment to last\. \([DeploymentDurationInMinutes](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeploymentStrategy.html)\)\.
 + The percentage of targets to receive a deployed configuration during each interval\. \([GrowthFactor](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeploymentStrategy.html)\)\.
-+ The amount of time AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll\-back\. \([FinalBakeTimeInMinutes](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeploymentStrategy.html)\)\.
++ The amount of time AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic rollback\. \([FinalBakeTimeInMinutes](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeploymentStrategy.html)\)\.
 
 You can use built\-in deployment strategies that cover common scenarios or you can create your own\. After you create or choose a deployment strategy, you start the deployment\. Starting the deployment calls the [StartDeployment](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action\. The call includes the IDs of an application, environment, configuration profile, and \(optionally\) the configuration data version to deploy\. The call also includes the ID of the deployment strategy to use, which determines how the configuration data rolls out\.
 

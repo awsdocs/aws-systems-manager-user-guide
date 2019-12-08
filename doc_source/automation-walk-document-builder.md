@@ -1,6 +1,6 @@
 # Walkthrough: Using Document Builder to Create a Custom Automation Document<a name="automation-walk-document-builder"></a>
 
-The following walkthrough shows you how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
+The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
 
 The first step of the Automation document you create runs a python script to launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The second step runs another python script to keep monitoring for the instance status check to change to `ok` before an overall status of `Success` is reported for the automation execution\.
 
