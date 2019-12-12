@@ -105,7 +105,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
 
 1. If you are using a VPC endpoint in your operations, do the following: 
 
-   In the first `Statement` element, replace each *region* placeholder with the identifier of the AWS Region this policy will be used in\. For example, use `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   In the first `Statement` element, replace each *region* placeholder with the identifier of the AWS Region this policy will be used in\. For example, use `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 **Important**  
 We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to Amazon S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` element for each Region\.
 

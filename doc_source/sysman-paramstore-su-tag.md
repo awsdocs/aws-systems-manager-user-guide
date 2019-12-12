@@ -4,7 +4,7 @@ You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShe
 
 Tags are used to organize parameters\. For example, you can tag parameters for specific environments, departments, or users and groups\. After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags that the user can access\. For more information about restricting access to parameters by using tags, see [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)\.
 
-For information about the Regions where Systems Manager is available, see [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+For information about the Regions where Systems Manager is available, see [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 **Topics**
 + [Tag a Parameter \(Console\)](#sysman-paramstore-su-tag-sys)
@@ -67,7 +67,7 @@ For information about the Regions where Systems Manager is available, see [regio
    Set-DefaultAWSRegion -Region region
    ```
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Run the following command to list parameters that you can tag\.
 

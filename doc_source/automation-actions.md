@@ -7,7 +7,7 @@ Systems Manager Automation runs steps defined in Automation documents\. Each ste
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
 **Important**  
-If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 **Topics**
 + [Properties Shared by All Actions](#automation-common)
@@ -36,7 +36,29 @@ If you run an automation that invokes other services by using an AWS Identity an
 
 Common properties are parameters or options that are found in all actions\. Some options define execution behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+mainSteps:
+- name: name
+  action: action
+  maxAttempts: value
+  timeoutSeconds: value
+  onFailure: value
+  inputs:
+    ...
+- name: name
+  action: action
+  maxAttempts: value
+  timeoutSeconds: value
+  onFailure: value
+  inputs:
+      ...
+```
+
+------
+#### [ JSON ]
 
 ```
 "mainSteps": [
@@ -63,25 +85,7 @@ Common properties are parameters or options that are found in all actions\. Some
 ]
 ```
 
-*YAML*
-
-```
-mainSteps:
-- name: name
-  action: action
-  maxAttempts: value
-  timeoutSeconds: value
-  onFailure: value
-  inputs:
-    ...
-- name: name
-  action: action
-  maxAttempts: value
-  timeoutSeconds: value
-  onFailure: value
-  inputs:
-      ...
-```
+------
 
 name  
 An identifier that must be unique across all step names in the document\.  
@@ -116,7 +120,30 @@ Type: Boolean
 Valid values: true \| false  
 Required: No  
 Here is an example of how to enter this option in the mainSteps section of your document:  
-*JSON*  
+
+```
+mainSteps:
+- name: InstallMsiPackage
+  action: aws:runCommand
+  onFailure: step:PostFailure
+  maxAttempts: 2
+  inputs:
+    InstanceIds:
+    - i-1234567890EXAMPLE
+    - i-abcdefghiEXAMPLE
+    DocumentName: AWS-RunPowerShellScript
+    Parameters:
+      commands:
+      - msiexec /i {{packageName}}
+  nextStep: TestPackage
+- name: TestPackage
+  action: aws:invokeLambdaFunction
+  maxAttempts: 1
+  timeoutSeconds: 500
+  inputs:
+    FunctionName: TestLambdaFunction
+  isEnd: true
+```
 
 ```
 "mainSteps":[
@@ -150,7 +177,10 @@ Here is an example of how to enter this option in the mainSteps section of your 
    }
 ]
 ```
-*YAML*  
+
+nextStep  
+Specifies which step in an Automation workflow to process next after successfully completing a step\.  
+Here is an example of how to enter this option in the mainSteps section of your document:  
 
 ```
 mainSteps:
@@ -167,19 +197,7 @@ mainSteps:
       commands:
       - msiexec /i {{packageName}}
   nextStep: TestPackage
-- name: TestPackage
-  action: aws:invokeLambdaFunction
-  maxAttempts: 1
-  timeoutSeconds: 500
-  inputs:
-    FunctionName: TestLambdaFunction
-  isEnd: true
 ```
-
-nextStep  
-Specifies which step in an Automation workflow to process next after successfully completing a step\.  
-Here is an example of how to enter this option in the mainSteps section of your document:  
-*JSON*  
 
 ```
 "mainSteps":[
@@ -203,24 +221,6 @@ Here is an example of how to enter this option in the mainSteps section of your 
     }
 ]
 ```
-*YAML*  
-
-```
-mainSteps:
-- name: InstallMsiPackage
-  action: aws:runCommand
-  onFailure: step:PostFailure
-  maxAttempts: 2
-  inputs:
-    InstanceIds:
-    - i-1234567890EXAMPLE
-    - i-abcdefghiEXAMPLE
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - msiexec /i {{packageName}}
-  nextStep: TestPackage
-```
 
 isCritical  
 Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.  
@@ -228,7 +228,23 @@ Type: Boolean
 Valid values: true \| false  
 Required: No  
 Here is an example of how to enter this option in the mainSteps section of your document:  
-*JSON*  
+
+```
+mainSteps:
+- name: InstallMsiPackage
+  action: aws:runCommand
+  onFailure: step:SomeOtherStep
+  isCritical: false
+  maxAttempts: 2
+  inputs:
+    InstanceIds:
+    - i-1234567890EXAMPLE,i-abcdefghiEXAMPLE
+    DocumentName: AWS-RunPowerShellScript
+    Parameters:
+      commands:
+      - msiexec /i {{packageName}}
+  nextStep: TestPackage
+```
 
 ```
 "mainSteps":[
@@ -251,24 +267,6 @@ Here is an example of how to enter this option in the mainSteps section of your 
     }
 ]
 ```
-*YAML*  
-
-```
-mainSteps:
-- name: InstallMsiPackage
-  action: aws:runCommand
-  onFailure: step:SomeOtherStep
-  isCritical: false
-  maxAttempts: 2
-  inputs:
-    InstanceIds:
-    - i-1234567890EXAMPLE,i-abcdefghiEXAMPLE
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - msiexec /i {{packageName}}
-  nextStep: TestPackage
-```
 
 inputs  
 The properties specific to the action\.  
@@ -284,7 +282,43 @@ The default timeout for this action is 7 days \(604800 seconds\)\. You can limit
 
 In the following example, the aws:approve action temporarily pauses the Automation workflow until one approver either accepts or rejects the workflow\. Upon approval, the document runs a simple PowerShell command\. 
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+---
+description: RunInstancesDemo1
+schemaVersion: '0.3'
+assumeRole: "{{ assumeRole }}"
+parameters:
+  assumeRole:
+    type: String
+  message:
+    type: String
+mainSteps:
+- name: approve
+  action: aws:approve
+  timeoutSeconds: 1000
+  onFailure: Abort
+  inputs:
+    NotificationArn: arn:aws:sns:us-east-2:12345678901:AutomationApproval
+    Message: "{{ message }}"
+    MinRequiredApprovals: 1
+    Approvers:
+    - arn:aws:iam::12345678901:user/AWS-User-1
+- name: run
+  action: aws:runCommand
+  inputs:
+    InstanceIds:
+    - i-1a2b3c4d5e6f7g
+    DocumentName: AWS-RunPowerShellScript
+    Parameters:
+      commands:
+      - date
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -333,39 +367,7 @@ In the following example, the aws:approve action temporarily pauses the Automati
 }
 ```
 
-*YAML*
-
-```
----
-description: RunInstancesDemo1
-schemaVersion: '0.3'
-assumeRole: "{{ assumeRole }}"
-parameters:
-  assumeRole:
-    type: String
-  message:
-    type: String
-mainSteps:
-- name: approve
-  action: aws:approve
-  timeoutSeconds: 1000
-  onFailure: Abort
-  inputs:
-    NotificationArn: arn:aws:sns:us-east-2:12345678901:AutomationApproval
-    Message: "{{ message }}"
-    MinRequiredApprovals: 1
-    Approvers:
-    - arn:aws:iam::12345678901:user/AWS-User-1
-- name: run
-  action: aws:runCommand
-  inputs:
-    InstanceIds:
-    - i-1a2b3c4d5e6f7g
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - date
-```
+------
 
 You can approve or deny Automations that are waiting for approval in the console\.
 
@@ -390,7 +392,22 @@ You can approve or deny Automations that are waiting for approval in the console
 
 **Input**
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+NotificationArn: arn:aws:sns:us-west-1:12345678901:Automation-ApprovalRequest
+Message: Please approve this step of the Automation.
+MinRequiredApprovals: 3
+Approvers:
+- IamUser1
+- IamUser2
+- arn:aws:iam::12345678901:user/IamUser3
+- arn:aws:iam::12345678901:role/IamRole
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -406,18 +423,7 @@ You can approve or deny Automations that are waiting for approval in the console
 }
 ```
 
-*YAML*
-
-```
-NotificationArn: arn:aws:sns:us-west-1:12345678901:Automation-ApprovalRequest
-Message: Please approve this step of the Automation.
-MinRequiredApprovals: 3
-Approvers:
-- IamUser1
-- IamUser2
-- arn:aws:iam::12345678901:user/IamUser3
-- arn:aws:iam::12345678901:role/IamRole
-```
+------
 
 NotificationArn  
 The ARN of an Amazon SNS topic for Automation approvals\. When you specify an `aws:approve` step in an Automation document, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step\. The title of the Amazon SNS topic must be prefixed with "Automation"\.  
@@ -465,7 +471,22 @@ The default timeout value for this action is 3600 seconds \(one hour\)\. You can
 **Input**  
 Inputs are defined by the API action that you choose\. 
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+action: aws:assertAwsResourceProperty
+inputs:
+  Service: The official namespace of the service
+  Api: The API action or method name
+  API action inputs or parameters: A value
+  PropertySelector: Response object
+  DesiredValues:
+  - Desired property values
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -482,18 +503,7 @@ Inputs are defined by the API action that you choose\.
 }
 ```
 
-*YAML*
-
-```
-action: aws:assertAwsResourceProperty
-inputs:
-  Service: The official namespace of the service
-  Api: The API action or method name
-  API action inputs or parameters: A value
-  PropertySelector: Response object
-  DesiredValues:
-  - Desired property values
-```
+------
 
 Service  
 The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
@@ -507,7 +517,15 @@ Required: Yes
 
 API action inputs  
 One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\. Use the following format to specify more than one input\.  
-*JSON*  
+
+```
+inputs:
+  Service: The official namespace of the service
+  Api: The API action name
+  API input 1: A value
+  API Input 2: A value
+  API Input 3: A value
+```
 
 ```
 "inputs":{
@@ -517,16 +535,6 @@ One or more API action inputs\. You can view the available inputs \(also called 
       "API Input 2":"A value",
       "API Input 3":"A value"
 }
-```
-*YAML*  
-
-```
-inputs:
-  Service: The official namespace of the service
-  Api: The API action name
-  API input 1: A value
-  API Input 2: A value
-  API Input 3: A value
 ```
 Type: Determined by chosen API action  
 Required: Yes
@@ -633,7 +641,24 @@ The default timeout value for this action is 3600 seconds \(one hour\)\. You can
 
 **Input**
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: stopMyInstance
+action: aws:changeInstanceState
+maxAttempts: 3
+timeoutSeconds: 3600
+onFailure: Abort
+inputs:
+  InstanceIds:
+  - i-1234567890abcdef0
+  CheckStateOnly: true
+  DesiredState: stopped
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -650,20 +675,7 @@ The default timeout value for this action is 3600 seconds \(one hour\)\. You can
 }
 ```
 
-*YAML*
-
-```
-name: stopMyInstance
-action: aws:changeInstanceState
-maxAttempts: 3
-timeoutSeconds: 3600
-onFailure: Abort
-inputs:
-  InstanceIds:
-  - i-1234567890abcdef0
-  CheckStateOnly: true
-  DesiredState: stopped
-```
+------
 
 InstanceIds  
 The IDs of the instances\.  
@@ -704,7 +716,23 @@ This action supports most CopyImage parameters\. For more information, see [Copy
 
 The following example creates a copy of an AMI in the Seoul region \(`SourceImageID`: ami\-0fe10819\. `SourceRegion`: ap\-northeast\-2\)\. The new AMI is copied to the region where you initiated the Automation action\. The copied AMI will be encrypted because the optional `Encrypted` flag is set to `true`\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: createEncryptedCopy
+action: aws:copyImage
+maxAttempts: 3
+onFailure: Abort
+inputs:
+  SourceImageId: ami-0fe10819
+  SourceRegion: ap-northeast-2
+  ImageName: Encrypted Copy of LAMP base AMI in ap-northeast-2
+  Encrypted: true
+```
+
+------
+#### [ JSON ]
 
 ```
 {   
@@ -721,19 +749,7 @@ The following example creates a copy of an AMI in the Seoul region \(`SourceImag
 }
 ```
 
-*YAML*
-
-```
-name: createEncryptedCopy
-action: aws:copyImage
-maxAttempts: 3
-onFailure: Abort
-inputs:
-  SourceImageId: ami-0fe10819
-  SourceRegion: ap-northeast-2
-  ImageName: Encrypted Copy of LAMP base AMI in ap-northeast-2
-  Encrypted: true
-```
+------
 
 SourceRegion  
 The region where the source AMI currently exists\.  
@@ -784,7 +800,23 @@ Creates a new AMI from an instance that is either running or stopped\.
 **Input**  
 This action supports most CreateImage parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: createMyImage
+action: aws:createImage
+maxAttempts: 3
+onFailure: Abort
+inputs:
+  InstanceId: i-1234567890abcdef0
+  ImageName: AMI Created on{{global:DATE_TIME}}
+  NoReboot: true
+  ImageDescription: My newly created AMI
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -801,19 +833,7 @@ This action supports most CreateImage parameters\. For more information, see [Cr
 }
 ```
 
-*YAML*
-
-```
-name: createMyImage
-action: aws:createImage
-maxAttempts: 3
-onFailure: Abort
-inputs:
-  InstanceId: i-1234567890abcdef0
-  ImageName: AMI Created on{{global:DATE_TIME}}
-  NoReboot: true
-  ImageDescription: My newly created AMI
-```
+------
 
 InstanceId  
 The ID of the instance\.  
@@ -855,7 +875,24 @@ Creates a new AWS CloudFormation stack from a template\.
 
 **Input**
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: makeStack
+action: aws:createStack
+maxAttempts: 1
+onFailure: Abort
+inputs:
+  Capabilities:
+  - CAPABILITY_IAM
+  StackName: myStack
+  TemplateURL: http://s3.amazonaws.com/mybucket/myStackTemplate
+  TimeoutInMinutes: 5
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -874,20 +911,7 @@ Creates a new AWS CloudFormation stack from a template\.
 }
 ```
 
-*YAML*
-
-```
-name: makeStack
-action: aws:createStack
-maxAttempts: 1
-onFailure: Abort
-inputs:
-  Capabilities:
-  - CAPABILITY_IAM
-  StackName: myStack
-  TemplateURL: http://s3.amazonaws.com/mybucket/myStackTemplate
-  TimeoutInMinutes: 5
-```
+------
 
 Capabilities  
 A list of values that you specify before AWS CloudFormation can create certain stacks\. Some stack templates include resources that can affect permissions in your AWS account\. For example, creating new AWS Identity and Access Management \(IAM\) users can affect permissions in your account\. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter\.   
@@ -1071,7 +1095,28 @@ This action supports most EC2 CreateTags and SSM AddTagsToResource parameters\. 
 
 The following example shows how to tag an AMI and an instance as being production resources for a particular department\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: createTags
+action: aws:createTags
+maxAttempts: 3
+onFailure: Abort
+inputs:
+  ResourceType: EC2
+  ResourceIds:
+  - ami-9a3768fa
+  - i-02951acd5111a8169
+  Tags:
+  - Key: production
+    Value: ''
+  - Key: department
+    Value: devops
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1099,24 +1144,7 @@ The following example shows how to tag an AMI and an instance as being productio
 }
 ```
 
-*YAML*
-
-```
-name: createTags
-action: aws:createTags
-maxAttempts: 3
-onFailure: Abort
-inputs:
-  ResourceType: EC2
-  ResourceIds:
-  - ami-9a3768fa
-  - i-02951acd5111a8169
-  Tags:
-  - Key: production
-    Value: ''
-  - Key: department
-    Value: devops
-```
+------
 
 ResourceIds  
 The IDs of the resource\(s\) to be tagged\. If resource type is not “EC2”, this field can contain only a single item\.  
@@ -1144,7 +1172,21 @@ Deletes the specified image and all related snapshots\.
 **Input**  
 This action supports only one parameter\. For more information, see the documentation for [DeregisterImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html) and [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: deleteMyImage
+action: aws:deleteImage
+maxAttempts: 3
+timeoutSeconds: 180
+onFailure: Abort
+inputs:
+  ImageId: ami-12345678
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1159,17 +1201,7 @@ This action supports only one parameter\. For more information, see the document
 }
 ```
 
-*YAML*
-
-```
-name: deleteMyImage
-action: aws:deleteImage
-maxAttempts: 3
-timeoutSeconds: 180
-onFailure: Abort
-inputs:
-  ImageId: ami-12345678
-```
+------
 
 ImageId  
 The ID of the image to be deleted\.  
@@ -1185,7 +1217,20 @@ Deletes an AWS CloudFormation stack\.
 
 **Input**
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: deleteStack
+action: aws:deleteStack
+maxAttempts: 1
+onFailure: Abort
+inputs:
+  StackName: "{{stackName}}"
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1199,16 +1244,7 @@ Deletes an AWS CloudFormation stack\.
 }
 ```
 
-*YAML*
-
-```
-name: deleteStack
-action: aws:deleteStack
-maxAttempts: 1
-onFailure: Abort
-inputs:
-  StackName: "{{stackName}}"
-```
+------
 
 ClientRequestToken  
 A unique identifier for this `DeleteStack` request\. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to delete a stack with the same name\. You can retry `DeleteStack` requests to verify that AWS CloudFormation received them\.  
@@ -1267,7 +1303,24 @@ If you specify parameters in a secondary Automation that use an assume role \(a 
 
 **Input**
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: Secondary_Automation_Workflow
+action: aws:executeAutomation
+maxAttempts: 3
+timeoutSeconds: 3600
+onFailure: Abort
+inputs:
+  DocumentName: secondaryWorkflow
+  RuntimeParameters:
+    instanceIds:
+    - i-1234567890abcdef0
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1287,20 +1340,7 @@ If you specify parameters in a secondary Automation that use an assume role \(a 
 }
 ```
 
-*YAML*
-
-```
-name: Secondary_Automation_Workflow
-action: aws:executeAutomation
-maxAttempts: 3
-timeoutSeconds: 3600
-onFailure: Abort
-inputs:
-  DocumentName: secondaryWorkflow
-  RuntimeParameters:
-    instanceIds:
-    - i-1234567890abcdef0
-```
+------
 
 DocumentName  
 The name of the secondary Automation document to run during the step\. The document must belong to the same AWS account as the primary Automation document\.  
@@ -1336,7 +1376,23 @@ Calls and runs AWS API actions\. Most API actions are supported, although not al
 **Input**  
 Inputs are defined by the API action that you choose\. 
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+action: aws:executeAwsApi
+inputs:
+  Service: The official namespace of the service
+  Api: The API action or method name
+  API action inputs or parameters: A value
+outputs: # These are user-specified outputs
+- Name: The name for a user-specified output key
+  Selector: A response object specified by using jsonpath format
+  Type: The data type
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1356,19 +1412,7 @@ Inputs are defined by the API action that you choose\.
 }
 ```
 
-*YAML*
-
-```
-action: aws:executeAwsApi
-inputs:
-  Service: The official namespace of the service
-  Api: The API action or method name
-  API action inputs or parameters: A value
-outputs: # These are user-specified outputs
-- Name: The name for a user-specified output key
-  Selector: A response object specified by using jsonpath format
-  Type: The data type
-```
+------
 
 Service  
 The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
@@ -1382,7 +1426,15 @@ Required: Yes
 
 API action inputs  
 One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\.  
-*JSON*  
+
+```
+inputs:
+  Service: The official namespace of the service
+  Api: The API action name
+  API input 1: A value
+  API Input 2: A value
+  API Input 3: A value
+```
 
 ```
 "inputs":{
@@ -1392,16 +1444,6 @@ One or more API action inputs\. You can view the available inputs \(also called 
       "API Input 2":"A value",
       "API Input 3":"A value"
 }
-```
-*YAML*  
-
-```
-inputs:
-  Service: The official namespace of the service
-  Api: The API action name
-  API input 1: A value
-  API Input 2: A value
-  API Input 3: A value
 ```
 Type: Determined by chosen API action  
 Required: Yes
@@ -1428,7 +1470,27 @@ Runs the python or PowerShell script provided using the specified runtime and ha
 **Input**  
 Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+action: "aws:executeScript"
+inputs: 
+ Runtime: "python3.6"
+ Handler: "script_handler"
+ InputPayload: 
+  "parameter1": "parameter_value1"
+  "parameter2": "parameter_value2"
+ Script: 
+  - 
+   "def script_handler(events, context):"
+  - 
+   "(script commands)"
+ Attachment: "zip-file-name-1.zip"
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1449,23 +1511,7 @@ Provide the runtime and handler required to run the provided Python 3\.6, Python
 }
 ```
 
-*YAML*
-
-```
-action: "aws:executeScript"
-inputs: 
- Runtime: "python3.6"
- Handler: "script_handler"
- InputPayload: 
-  "parameter1": "parameter_value1"
-  "parameter2": "parameter_value2"
- Script: 
-  - 
-   "def script_handler(events, context):"
-  - 
-   "(script commands)"
- Attachment: "zip-file-name-1.zip"
-```
+------
 
 Runtime  
 The runtime language to be used for executing the provided script\. Currently, aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
@@ -1501,7 +1547,20 @@ Run an AWS Step Functions state machine\.
 
 This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: executeTheStateMachine
+action: aws:executeStateMachine
+inputs:
+  stateMachineArn: StateMachine_ARN
+  input: '{"parameters":"values"}'
+  name: name
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1515,16 +1574,7 @@ This action supports most parameters for the Step Functions [StartExecution](htt
 }
 ```
 
-*YAML*
-
-```
-name: executeTheStateMachine
-action: aws:executeStateMachine
-inputs:
-  stateMachineArn: StateMachine_ARN
-  input: '{"parameters":"values"}'
-  name: name
-```
+------
 
 stateMachineArn  
 The ARN of the Step Functions state machine\.  
@@ -1548,7 +1598,21 @@ Invokes the specified Lambda function\.
 **Input**  
 This action supports most invoked parameters for the Lambda service\. For more information, see [Invoke](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: invokeMyLambdaFunction
+action: aws:invokeLambdaFunction
+maxAttempts: 3
+timeoutSeconds: 120
+onFailure: Abort
+inputs:
+  FunctionName: MyLambdaFunction
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1563,17 +1627,7 @@ This action supports most invoked parameters for the Lambda service\. For more i
 }
 ```
 
-*YAML*
-
-```
-name: invokeMyLambdaFunction
-action: aws:invokeLambdaFunction
-maxAttempts: 3
-timeoutSeconds: 120
-onFailure: Abort
-inputs:
-  FunctionName: MyLambdaFunction
-```
+------
 
 FunctionName  
 The name of the Lambda function\. This function must exist\.  
@@ -1624,7 +1678,17 @@ This action pauses the Automation execution\. Once paused, the execution status 
 **Input**  
 The input is as follows\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: pauseThis
+action: aws:pause
+inputs: {}
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1634,13 +1698,7 @@ The input is as follows\.
 }
 ```
 
-*YAML*
-
-```
-name: pauseThis
-action: aws:pause
-inputs: {}
-```Output
+------Output
 
 None  
 
@@ -1654,7 +1712,23 @@ Automation only supports *output* of one Run Command action\. A document can inc
 **Input**  
 This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: installPowerShellModule
+action: aws:runCommand
+inputs:
+  DocumentName: AWS-InstallPowerShellModule
+  InstanceIds:
+  - i-1234567890abcdef0
+  Parameters:
+    source: 'https://my-s3-url.com/MyModule.zip '
+    sourceHash: ASDFWER12321WRW
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1671,19 +1745,7 @@ This action supports most send command parameters\. For more information, see [S
 }
 ```
 
-*YAML*
-
-```
-name: installPowerShellModule
-action: aws:runCommand
-inputs:
-  DocumentName: AWS-InstallPowerShellModule
-  InstanceIds:
-  - i-1234567890abcdef0
-  Parameters:
-    source: 'https://my-s3-url.com/MyModule.zip '
-    sourceHash: ASDFWER12321WRW
-```
+------
 
 DocumentName  
 The name of the Run Command document\.  
@@ -1818,7 +1880,32 @@ Launches a new instance\.
 **Input**  
 The action supports most API parameters\. For more information, see the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API documentation\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: launchInstance
+action: aws:runInstances
+maxAttempts: 3
+timeoutSeconds: 1200
+onFailure: Abort
+inputs:
+  ImageId: ami-12345678
+  InstanceType: t2.micro
+  MinInstanceCount: 1
+  MaxInstanceCount: 1
+  IamInstanceProfileName: myRunCmdRole
+  TagSpecifications:
+  - ResourceType: instance
+    Tags:
+    - Key: LaunchedBy
+      Value: SSMAutomation
+    - Key: Category
+      Value: HighAvailabilityFleetHost
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -1852,28 +1939,7 @@ The action supports most API parameters\. For more information, see the [RunInst
 }
 ```
 
-*YAML*
-
-```
-name: launchInstance
-action: aws:runInstances
-maxAttempts: 3
-timeoutSeconds: 1200
-onFailure: Abort
-inputs:
-  ImageId: ami-12345678
-  InstanceType: t2.micro
-  MinInstanceCount: 1
-  MaxInstanceCount: 1
-  IamInstanceProfileName: myRunCmdRole
-  TagSpecifications:
-  - ResourceType: instance
-    Tags:
-    - Key: LaunchedBy
-      Value: SSMAutomation
-    - Key: Category
-      Value: HighAvailabilityFleetHost
-```
+------
 
 ImageId  
 The ID of the Amazon Machine Image \(AMI\)\.  
@@ -2016,7 +2082,18 @@ Delays Automation execution for a specified amount of time\. This action uses th
 **Input**  
 You can delay execution for a specified duration\. 
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+name: sleep
+action: aws:sleep
+inputs:
+  Duration: PT10M
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -2028,18 +2105,22 @@ You can delay execution for a specified duration\.
 }
 ```
 
-*YAML*
+------
+
+You can also delay execution until a specified date and time\. If the specified date and time has passed, the action proceeds immediately\. 
+
+------
+#### [ YAML ]
 
 ```
 name: sleep
 action: aws:sleep
 inputs:
-  Duration: PT10M
+  Timestamp: '2020-01-01T01:00:00Z'
 ```
 
-You can also delay execution until a specified date and time\. If the specified date and time has passed, the action proceeds immediately\. 
-
-*JSON*
+------
+#### [ JSON ]
 
 ```
 {
@@ -2051,14 +2132,7 @@ You can also delay execution until a specified date and time\. If the specified 
 }
 ```
 
-*YAML*
-
-```
-name: sleep
-action: aws:sleep
-inputs:
-  Timestamp: '2020-01-01T01:00:00Z'
-```
+------
 
 **Note**  
 Automation currently supports a maximum delay of 604800 seconds \(7 days\)\.
@@ -2082,7 +2156,22 @@ The aws:waitForAwsResourceProperty action enables your Automation workflow to wa
 **Input**  
 Inputs are defined by the API action that you choose\.
 
-*JSON*
+------
+#### [ YAML ]
+
+```
+action: aws:waitForAwsResourceProperty
+inputs:
+  Service: The official namespace of the service
+  Api: The API action or method name
+  API action inputs or parameters: A value
+  PropertySelector: Response object
+  DesiredValues:
+  - Desired property value
+```
+
+------
+#### [ JSON ]
 
 ```
 {
@@ -2099,18 +2188,7 @@ Inputs are defined by the API action that you choose\.
 }
 ```
 
-*YAML*
-
-```
-action: aws:waitForAwsResourceProperty
-inputs:
-  Service: The official namespace of the service
-  Api: The API action or method name
-  API action inputs or parameters: A value
-  PropertySelector: Response object
-  DesiredValues:
-  - Desired property value
-```
+------
 
 Service  
 The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
@@ -2124,7 +2202,15 @@ Required: Yes
 
 API action inputs  
 One or more API action inputs\. You can view the available inputs \(also called parameters\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all methods for Amazon RDS are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to see the available parameters, such as **DBInstanceIdentifier**, **Name**, and **Values**\.  
-*JSON*  
+
+```
+inputs:
+  Service: The official namespace of the service
+  Api: The API action name
+  API input 1: A value
+  API Input 2: A value
+  API Input 3: A value
+```
 
 ```
 "inputs":{
@@ -2134,16 +2220,6 @@ One or more API action inputs\. You can view the available inputs \(also called 
       "API Input 2":"A value",
       "API Input 3":"A value"
 }
-```
-*YAML*  
-
-```
-inputs:
-  Service: The official namespace of the service
-  Api: The API action name
-  API input 1: A value
-  API Input 2: A value
-  API Input 3: A value
 ```
 Type: Determined by chosen API action  
 Required: Yes

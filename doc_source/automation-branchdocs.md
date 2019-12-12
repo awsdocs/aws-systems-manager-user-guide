@@ -112,7 +112,8 @@ If you don't want to specify a `Default` value, then you can specify the `isEnd`
 
 Use the following templates to help you construct the `aws:branch` step in your Automation documents:
 
-**YAML template**
+------
+#### [ YAML ]
 
 ```
 mainSteps:
@@ -130,7 +131,8 @@ mainSteps:
       step to jump to if all choices are false
 ```
 
-**JSON template**
+------
+#### [ JSON ]
 
 ```
 {
@@ -157,6 +159,8 @@ mainSteps:
    ]
 }
 ```
+
+------
 
 #### About Creating the Output Variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
 

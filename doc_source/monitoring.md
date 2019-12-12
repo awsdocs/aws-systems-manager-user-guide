@@ -18,5 +18,6 @@ You can also monitor CPU utilization, disk I/O, and network utilization of your 
 + [Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
 + [Sending Instance Logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
 + [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
++ [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)
 + [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)
-+ [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)
++ [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)

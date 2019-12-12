@@ -178,7 +178,7 @@ AWS Systems Manager supports the following condition keys:
 
 For information about using the `ssm:resourceTag/*` condition key, see the following topics:
 + [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-+ [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md) 
++ [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
 + [Restrict Session Access Based on Instance Tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 + [Controlling Access to Documents Using Tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
 + [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)

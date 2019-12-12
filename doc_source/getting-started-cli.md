@@ -27,7 +27,7 @@ The AWS CLI is frequently updated with new functionality\. Upgrade \(reinstall\)
    AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
    ```
 **Important**  
-When you configure the AWS CLI, you are prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in the [Region and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
+When you configure the AWS CLI, you are prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
 
    For more information about access keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*
 

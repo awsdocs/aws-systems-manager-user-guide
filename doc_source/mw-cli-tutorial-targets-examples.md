@@ -8,7 +8,7 @@ You can also specify one or more resource groups as the target of a maintenance 
 
 For more information about creating and managing resource groups, see [What is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide* and [Resource Groups and Tagging for AWS](http://aws.amazon.com/blogs/aws/resource-groups-and-tagging/) in the *AWS News Blog*\.
 
-For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [AWS Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
 **Topics**
 + [Example 1: Register Multiple Targets Using Instance IDs](#mw-target-example-1)

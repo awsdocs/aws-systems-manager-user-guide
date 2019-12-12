@@ -46,7 +46,7 @@ Amazon Simple Notification Service \(Amazon SNS\) is a web service that coordina
 
 You create a service role for Amazon SNS as part of the process of configuring the service for use with Systems Manager\. After you complete this configuration, you choose whether to receive notifications for particular Run Command commands or maintenance windows tasks at the time you create each one\. 
 
-For more information, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\. 
+For more information, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\. 
 
 ### Service Role for a Systems Manager Hybrid Environment<a name="setup-service-role-hybrid-environment"></a>
 

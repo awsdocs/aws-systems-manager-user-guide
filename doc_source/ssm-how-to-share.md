@@ -27,7 +27,7 @@ You can share Systems Manager document by using the Amazon EC2 console, the AWS 
 
 ## Share a Document \(AWS CLI\)<a name="share-using-cli"></a>
 
-The following procedure requires that you specify a region for your CLI session\. Run Command is currently available in the following Systems Manager [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+The following procedure requires that you specify an AWS Region for your AWS CLI session\. Run Command is currently available in the following Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Open the AWS CLI on your local computer and run the following command to specify your credentials\. 
 
@@ -40,7 +40,7 @@ The following procedure requires that you specify a region for your CLI session\
    Default output format [None]:
    ```
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Use the following command to list all of the Systems Manager documents that are available for you\. The list includes documents that you created and documents that were shared with you\. 
 
@@ -80,7 +80,7 @@ The following procedure requires that you specify a region for your CLI session\
 
 ## Share a Document \(AWS Tools for Windows PowerShell\)<a name="share-using-ps"></a>
 
-The following procedure requires that you specify a region for your PowerShell session\. Run Command is currently available in the following Systems Manager [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+The following procedure requires that you specify an AWS Region for your PowerShell session\. Run Command is currently available in the Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. 
 

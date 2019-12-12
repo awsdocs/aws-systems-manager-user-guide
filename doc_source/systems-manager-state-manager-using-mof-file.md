@@ -278,9 +278,9 @@ This error indicates that the script can't reach a remote service\. Most likely,
   The Report, Status, and Module Source bucket names should be formatted as follows:
 
   *bucket\-region*:*bucket\-name*\. Here is an example: us\-west\-1:my\-bucket
-+ If region\-specific syntax does not fix the problem, then make sure that the targeted instance\(s\) can access Amazon S3 in the desired region\. To verify this:
++ If Region\-specific syntax does not fix the problem, then make sure that the targeted instance\(s\) can access Amazon S3 in the desired region\. To verify this:
 
-  1. Find the endpoint name for Amazon S3 in the desired [Region](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)\.
+  1. Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region\. For information, see [Amazon S3 Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) in the *Amazon Web Services General Reference*\.
 
   1. Log on to the target instance and run the following ping command:
 

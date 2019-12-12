@@ -5,7 +5,7 @@ AWS Systems Manager Inventory integrates with Amazon Athena to help you query in
 **Important**  
 This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Service \(Amazon S3\) bucket, and Amazon Athena to query the data\. Depending on how much data is crawled and queried, you can be charged for using these services\. With AWS Glue, you pay an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. With Athena, you are charged based on the amount of data scanned by each query\. We encourage you to view the pricing guidelines for these services before you use Amazon Athena integration with Systems Manager Inventory\. For more information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/) and [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)\.
 
-You can view inventory data on the **Inventory Detail View** page in all AWS Regions where [Amazon Athena is available\.](https://docs.aws.amazon.com/general/latest/gr/rande.html#athena) 
+You can view inventory data on the **Inventory Detail View** page in all AWS Regions where Amazon Athena is available\. For a list of supported Regions, see [Amazon Athena Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/athena.html#athena_region) in the *Amazon Web Services General Reference*\.
 
 **Before you begin**  
 Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.

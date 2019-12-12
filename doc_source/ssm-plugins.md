@@ -316,7 +316,7 @@ Required: Yes
 **Region**  
 The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) and [Amazon CloudWatch Logs](https://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *AWS General Reference*\.   
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](url-aws-gen;cwl_region.html#cwl_region) and [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
 Required: Yes
 
 **SecretKey**  

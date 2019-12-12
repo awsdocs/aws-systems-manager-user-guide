@@ -27,7 +27,7 @@ Set-AWSCredentials –AccessKey key_name –SecretKey key_name
 ```
 
 **Set a default AWS Region**  
-Run the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\.
+Run the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ```
 Set-DefaultAWSRegion -Region us-east-2

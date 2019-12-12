@@ -19,9 +19,9 @@ Running Automations across multiple Regions and accounts or OUs works as follows
 
 1. Sign in to the AWS Identity and Access Management \(IAM\) account that you want to configure as the Automation Master account\.
 
-1. Use the procedure in this topic to create an IAM execution role called **AWS\-SystemsManager\-AutomationExecutionRole**\. This role gives the user permission to run Automation workflows\.
+1. Use the procedure in this topic to create the IAM execution role named **AWS\-SystemsManager\-AutomationExecutionRole**\. This role gives the user permission to run Automation workflows\.
 
-1. Use the procedure in this topic to create a second IAM role called **AWS\-SystemsManager\-AutomationAdministrationRole**\. This role gives the user permission to run Automation workflows in multiple AWS accounts and OUs\.
+1. Use the procedure in this topic to create the second IAM role, named **AWS\-SystemsManager\-AutomationAdministrationRole**\. This role gives the user permission to run Automation workflows in multiple AWS accounts and OUs\.
 
 1. Choose the Automation document \(playbook\), Regions, and accounts or OUs where you want to run the Automation workflow\.
 
@@ -37,7 +37,9 @@ This procedure also describes how to create the **AWS\-SystemsManager\-Automatio
 
 **To create the required IAM roles for Multi\-Region and Multi\-Account Automation Executions by using AWS CloudFormation**
 
-1. Download the [AWS\-SystemsManager\-AutomationExecutionRole\.zip folder](samples/AWS-SystemsManager-AutomationExecutionRole.zip)\. This folder includes the AWS\-SystemsManager\-AutomationExecutionRole\.json AWS CloudFormation template file\.
+1. Download and unzip the [AWS\-SystemsManager\-AutomationExecutionRole\.zip folder](samples/AWS-SystemsManager-AutomationExecutionRole.zip)\. This folder includes the AWS\-SystemsManager\-AutomationExecutionRole\.json AWS CloudFormation template file\.
+**Note**  
+We recommend not changing the role name as specified in the template to something besides `AWS-SystemsManager-AutomationExecutionRole`\. Otherwise, your multi\-Region and multi\-Account Automation workflows might fail\.
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
@@ -45,7 +47,7 @@ This procedure also describes how to create the **AWS\-SystemsManager\-Automatio
 
 1. In the **Choose a template section**, choose **Upload a template to Amazon S3**\.
 
-1. Choose **Browse**, and then choose the AWS\-SystemsManager\-AutomationExecutionRole\.json AWS CloudFormation template file\.
+1. Choose **Browse**, and then choose the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
 
 1. Choose **Next**\.
 
@@ -65,7 +67,9 @@ This procedure also describes how to create the **AWS\-SystemsManager\-Automatio
 
 1. Repeat this procedure in *every* account that you want to target to run multi\-Region and multi\-account Automations\.
 
-1. Download the [AWS\-SystemManager\-AutomationAdministrationRole\.zip folder](samples/AWS-SystemManager-AutomationAdministrationRole.zip) and repeat this procedure for the AWS\-SystemManager\-AutomationAdministrationRole role\. You only need to create the AWS\-SystemManager\-AutomationAdministrationRole role in the Automation management account\.
+1. Download the [AWS\-SystemManager\-AutomationAdministrationRole\.zip folder](samples/AWS-SystemManager-AutomationAdministrationRole.zip) and repeat this procedure for the **AWS\-SystemManager\-AutomationAdministrationRole** role\. You only need to create the **AWS\-SystemManager\-AutomationAdministrationRole** role in the Automation management account\.
+**Note**  
+We recommend not changing the role name as specified in the template to something besides `AWS-SystemsManager-AutomationAdministrationRole`\. Otherwise, your multi\-Region and multi\-Account Automation workflows might fail\.
 
 ## Run an Automation in Multiple Regions and Accounts \(Console\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
 
@@ -74,7 +78,7 @@ The following procedure describes how to use the Systems Manager console to run 
 **Before You Begin**  
 Before you complete the following procedure, note the following information:
 + AWS account IDs or OUs where you want to run the Automation\.
-+ [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html) Regions where you want to run the Automation\.
++ [Regions supported by Systems Manager](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) where you want to run the Automation\.
 + The tag key and the tag value, or the name of the resource group, where you want to run the Automation\.
 
 **To run an Automation workflow in multiple Regions and accounts**
@@ -143,7 +147,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 **Before You Begin**  
 Before you complete the following procedure, note the following information:
 + AWS account IDs or OUs where you want to run the Automation\.
-+ [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html) Regions where you want to run the Automation\.
++ [Regions supported by Systems Manager](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) where you want to run the Automation\.
 + The tag key and the tag value, or the name of the resource group, where you want to run the Automation\.
 
 **To run an Automation workflow in multiple Regions and accounts**

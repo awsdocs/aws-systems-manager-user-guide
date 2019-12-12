@@ -1,4 +1,4 @@
-# Configuring Amazon SNS Notifications for AWS Systems Manager<a name="monitoring-sns-notifications"></a>
+# Monitoring Systems Manager Status Changes Using Amazon SNS Notifications<a name="monitoring-sns-notifications"></a>
 
 You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands that you send using AWS Systems Manager Run Command or AWS Systems Manager Maintenance Windows\. Amazon SNS coordinates and manages sending and delivering notifications to clients or endpoints that are subscribed to Amazon SNS topics\. You can receive a notification whenever a command changes to a new state or to a specific state, such as *Failed* or *Timed Out*\. In cases where you send a command to multiple instances, you can receive a notification for each copy of the command sent to a specific instance\. Each copy is called an *invocation*\.
 

@@ -5,3 +5,4 @@ AWS Systems Manager provides the following capabilities for taking action agains
 **Topics**
 + [AWS Systems Manager Automation](systems-manager-automation.md)
 + [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)
++ [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)

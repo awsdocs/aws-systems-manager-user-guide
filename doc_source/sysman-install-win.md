@@ -20,7 +20,7 @@ This procedure applies to installing or reinstalling SSM Agent on an Amazon EC2 
 **Note**  
 The URLs in this step let you download SSM Agent from *any* AWS region\. If you want to download the agent from a specific region, use a region\-specific URL instead:  
 `https://amazon-ssm-region.s3.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`  
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.  
+*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.  
 **PowerShell**  
 Run the following three PowerShell commands in order\. These commands enable you to download SSM Agent without adjusting Internet Explorer \(IE\) Enhanced Security settings, and then install the agent and remove the installation file\.  
 
