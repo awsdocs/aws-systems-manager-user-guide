@@ -75,9 +75,9 @@ You must ensure the function defined in the handler has two parameters, `events`
        If you choose **Upload S3 File URL**, provide the following information:
        + **S3 file url**: Enter the location in an S3 bucket in your account where the file is stored\.
        + **File name**: Enter the name of the file\.
-       + **File checksum**: Enter the checksum of the file\. 
+       + **File checksum using the sha256 algorithm **: Enter the checksum of the file\. 
 **Tip**  
-The checksum is also known as the ETag value of the file\. You can retrieve this value from the object in the Amazon S3 console, or by using the `s3api` [list\-objects\-v2](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html) command\.
+You can calculate the checksum of the file in sha256 algorithm by using a tool like shasum in linux.ie: ‘shasum -a 256 /path/to/file’. In windows you can use the Get-FileHash PowerShell cmdlet to obtain the same information . Note that the ETag or md5 checksum will not work for this value. 
 
 1. \(Optional\) Expand **Additional inputs** and do the following\.
    + For **Input name**, chose InputPayload\. \- Function input in YAML format\. 
