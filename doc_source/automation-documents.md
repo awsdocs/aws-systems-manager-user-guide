@@ -28,6 +28,7 @@ For information about creating custom Automation documents that run scripts, see
 
 **Topics**
 + [Creating Automation Documents Using Document Builder](automation-document-builder.md)
++ [Creating an Automation Document Using the Editor](automation-document-editor.md)
 + [Creating Automation Documents That Run Scripts](automation-document-script.md)
 + [Creating Dynamic Automation Workflows with Conditional Branching](automation-branchdocs.md)
 + [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)

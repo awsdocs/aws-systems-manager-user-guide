@@ -4,9 +4,9 @@ You can create a user group for each policy and assign users to a group rather t
 
 You can create multiple user groups with different permission sets by omitting recommended or optional policies\. You can also create custom IAM policies to grant any combination of permissions for a user\. For example, you can grant a user group permission to use only the Session Manager capability in Systems Manager, as described in [Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)\.
 
-For additional examples of custom IAM policies for Systems Manager, see [Customer Managed Policy Examples](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies)\.
+For additional examples of custom IAM policies for Systems Manager, see [Customer Managed Policy Examples](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 
-For comprehensive information about using IAM policies for Systems Manager access, see [Authentication and Access Control for AWS Systems Manager](auth-and-access-control.md)\.
+For comprehensive information about using IAM policies for Systems Manager access, see [Identity and Access Management for AWS Systems Manager](security-iam.md)\.
 
 **To create a user group**
 

@@ -8,4 +8,5 @@ If you run an automation that invokes other services by using an AWS Identity an
 **Topics**
 + [Systems Manager Automation Actions Reference](automation-actions.md)
 + [Automation System Variables](automation-variables.md)
++ [Custom Automation Document Samples](automation-document-samples.md)
 + [Systems Manager Automation Document Details Reference](automation-documents-reference-details.md)

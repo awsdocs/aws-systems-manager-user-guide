@@ -62,7 +62,7 @@ This condition element applies only to the default `SSM-SessionManagerRunShell` 
 aws ssm start-session --target i-02573cafcfEXAMPLE
 ```
 
-For an example of specifying a Session Manager configuration document in a user’s IAM policy, see [Quickstart End User Policy for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
+For an example of specifying a Session Manager configuration document in a user’s IAM policy, see [Quickstart End User Policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
 
 **Other Scenarios**  
 Using the default `SSM-SessionManagerRunShell` configuration document is the only case when a document name can be omitted from the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` CLI command\. In other cases, the document name must be specified, and the system checks whether the user has been granted explicit access to the configuration document they specify\. 

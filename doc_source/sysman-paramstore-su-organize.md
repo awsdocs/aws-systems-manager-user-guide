@@ -27,7 +27,7 @@ You can create a hierarchy with a maximum of 15 levels\. We suggest that you cre
 
   `/Finance/Accountants/UserList`
 
-  `>/Finance/Analysts/UserList`
+  `/Finance/Analysts/UserList`
 
   `/HR/Employees/EU/UserList`
 

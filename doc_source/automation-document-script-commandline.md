@@ -104,3 +104,103 @@ New-SSMDocument `
 ```
 
 ------
+
+**Attach files from another Automation document in your AWS account**  
+Run the following command to create an Automation document using a script that is already attached to another Automation playbook in your account\.
+
+The format of the key value in this command is *document\-name/document\-version\-number/file\-name*\. For example:
+
+```
+"MyDocument/2/script.py"
+```
+
+------
+#### [ Linux ]
+
+```
+aws ssm create-document \
+  --name CustomAutomationScript \
+  --content file://AutomationDocument.yaml \
+  --document-format YAML \
+  --attachments Key=AttachmentReference,Values="document-name/document-version-number/file-name" \
+  --document-type Automation
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm create-document ^
+  --name CustomAutomationScript ^
+  --content file://AutomationDocument.yaml ^
+  --document-format YAML ^
+  --attachments Key=AttachmentReference,Values="document-name/document-version-number/file-name" ^
+  --document-type Automation
+```
+
+------
+#### [ PowerShell ]
+
+```
+New-SSMDocument `
+  -Name CustomAutomationScript `
+  -Content file://AutomationDocument.yaml `
+  -DocumentFormat YAML `
+  -Attachments @{
+      "Key"="AttachmentReference";
+      "Values"="document-name/document-version-number/file-name"
+    } `
+  -DocumentType Automation
+```
+
+------
+
+**Attach files from an Automation document in another AWS account**  
+Run the following command to create an Automation document using a script that is already attached to an Automation playbook that has been shared with you from another AWS account\.
+
+The format of the key value in this command is *document\-arn/document\-version\-number/file\-name*\. For example:
+
+```
+"arn:aws:ssm:us-east-2:123456789012:document/OtherAccountDocument/2/script.py"
+```
+
+------
+#### [ Linux ]
+
+```
+aws ssm create-document \
+  --name CustomAutomationScript \
+  --content file://AutomationDocument.yaml \
+  --document-format YAML \
+  --attachments Key=AttachmentReference,Values="document-arn/document-version-number/file-name/file-name" \
+  --document-type Automation
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm create-document ^
+  --name CustomAutomationScript ^
+  --content file://AutomationDocument.yaml ^
+  --document-format YAML ^
+  --attachments Key=AttachmentReference,Values="document-arn/document-version-number/file-name" ^
+  --document-type Automation
+```
+
+------
+#### [ PowerShell ]
+
+```
+New-SSMDocument `
+  -Name CustomAutomationScript `
+  -Content file://AutomationDocument.yaml `
+  -DocumentFormat YAML `
+  -Attachments @{
+      "Key"="AttachmentReference";
+      "Values"="document-arn/document-version-number/file-name"
+    } `
+  -DocumentType Automation
+```
+
+------

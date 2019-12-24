@@ -83,6 +83,17 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
       ]
    }
    ```
+**Note**  
+If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
+
+   ```
+   {
+            "Sid":" SSMBucketDelivery",
+            "Effect":"Allow",
+            "Principal":{
+               "Service":["ssm.amazonaws.com","ssm.ap-east-1.amazonaws.com"]
+            },
+   ```
 
 **To create a Resource Data Sync**
 

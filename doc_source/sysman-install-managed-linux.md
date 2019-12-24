@@ -16,7 +16,7 @@ For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-
 ```
 https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
-+ **Amazon Linux 2, Amazon Linux, RHEL, CentOS, and SLES 64\-bit**
++ **Amazon Linux 2, Amazon Linux, RHEL, Oracle Linux, CentOS, and SLES 64\-bit**
 
    https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
 + **Amazon Linux, RHEL, and CentOS 32\-bit**
@@ -56,7 +56,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo start amazon-ssm-agent
    ```
 
-   **On Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x**
+   **On Amazon Linux 2, RHEL 7\.x, Oracle Linux, and CentOS 7\.x**
 
    ```
    mkdir /tmp/ssm
@@ -79,7 +79,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo systemctl start amazon-ssm-agent
    ```
 
-   **On Ubuntu**
+   **On Ubuntu** \(using \.deb packages\)
 
    ```
    mkdir /tmp/ssm
@@ -88,6 +88,17 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo service amazon-ssm-agent stop
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
    sudo service amazon-ssm-agent start
+   ```
+
+    **On Ubuntu** \(using Snap packages\)
+
+   You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\. 
+
+   ```
+   sudo snap install amazon-ssm-agent --classic
+   sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
+   sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+   sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
    ```
 
    **On Debian**

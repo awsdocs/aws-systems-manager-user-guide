@@ -118,11 +118,15 @@ You can view information about a document by choosing the document name\.
 
    1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation document that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
 
-   1. Use the **Targets** list to choose how you want to target resources\. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\.
+   1. Use the **Targets** list to choose how you want to target resources\.
 
-      If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
+      1. If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the **Input parameters** section\.
 
-      If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the Input parameters section\.
+      1. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\.
+
+      1. If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
+
+      1. If you want to run an Automation playbook on all instances in the current AWS account and Region, then choose **All instances**\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  

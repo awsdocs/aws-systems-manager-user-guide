@@ -189,6 +189,16 @@ Amazon CloudWatch provides data and actionable insights to monitor your applicat
 
 If you enable this option, then Systems Manager automatically checks every four weeks for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
+## Choosing Targets for Quick Setup<a name="quick-setup-targets"></a>
+
+After you choose Quick Setup options, choose which instances you want to configure with those options in the **Targets** section\. Quick Setup includes the following options for targeting instances\.
++ **Choose all instances in the current AWS account and Region**: Quick Setup locates and applies the configuration options to all instances in the current AWS account and Region\.
++ **Specify instance tags**: Quick Setup uses the tag key and \(optional\) tag value that you specify to locate instances\.
++ **Choose instances manually**: Quick Setup enables you to choose one or more instances from a list\.
+
+**Note**  
+You can't use Quick Setup to configure options across accounts or Regions\.
+
 ## Working with Quick Setup Results<a name="quick-setup-results"></a>
 
 Systems Manager displays the results of Quick Setup in a separate card for each option you selected\. 

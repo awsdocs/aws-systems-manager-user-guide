@@ -83,7 +83,7 @@ Use the following procedure to create an IAM role and assign the policy you crea
        }
    ```
 
-1. On the **Review** page, enter **SSMCloudWatchAlarmDiscoveryRole** in the **Role name** field\. 
+1. On the **Review** page, enter a name in the **Role name** field\. 
 
 1. Choose **Create policy**\. The system returns you to the **Roles** page\.
 
@@ -97,7 +97,7 @@ Use the following procedure to configure the role you just created to trust AppC
 
 1. In the **Summary** page for the role you just created, choose the **Trust Relationships** tab, and then choose **Edit Trust Relationship**\.
 
-1. Edit the policy to include only "`ssm.amazonaws.com`", as shown in the following example:
+1. Edit the policy to include only "`appconfig.amazonaws.com`", as shown in the following example:
 
    ```
    {

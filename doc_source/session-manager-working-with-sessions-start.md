@@ -1,19 +1,23 @@
 # Start a Session<a name="session-manager-working-with-sessions-start"></a>
 
-You can use the AWS Systems Manager console, the AWS CLI, or SSH to start a session\.
+You can use the AWS Systems Manager console, the Amazon EC2 console, the AWS CLI, or SSH to start a session\.
 
 **Topics**
-+ [Starting a Session \(Console\)](#start-sys-console)
++ [Starting a Session \(Systems Manager Console\)](#start-sys-console)
++ [Starting a Session \(Amazon EC2 Console\)](#start-ec2-console)
 + [Starting a Session \(AWS CLI\)](#sessions-start-cli)
 + [Starting a Session \(SSH\)](#sessions-start-ssh)
 + [Starting a Session \(Port Forwarding\)](#sessions-start-port-forwarding)
 + [Starting a Session \(Interactive Commands\)](#sessions-start-interactive-commands)
 
-## Starting a Session \(Console\)<a name="start-sys-console"></a>
+## Starting a Session \(Systems Manager Console\)<a name="start-sys-console"></a>
 
 You can use the AWS Systems Manager console to start a session with an instance in your account\.
 
-**To start a session \(console\)**
+**Note**  
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
+
+**To start a session \( Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -33,11 +37,33 @@ You can use the AWS Systems Manager console to start a session with an instance 
 
 After the connection is made, you can run bash commands \(Linux\) or PowerShell commands \(Windows\) as you would through any other connection type\.
 
+## Starting a Session \(Amazon EC2 Console\)<a name="start-ec2-console"></a>
+
+You can use the Amazon Elastic Compute Cloud \(Amazon EC2\) console to start a session with an instance in your account\.
+
+**Note**  
+If you receive an error that you’re not authorized to perform one or more Systems Manager actions \(`ssm:command-name`, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\. Ask that person to update your policies to allow you to start sessions from the Amazon EC2 console\. If you are an administrator, see [Quickstart Default IAM Policies for Session Manager](getting-started-restrict-access-quickstart.md) for more information\.
+
+**To start a session \(Amazon EC2 console\)**
+
+1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
+
+1. In the navigation pane, choose **Instances**
+
+1. Select the instance and choose **Connect**\.
+
+1. For **Connection method**, choose **Session Manager**\.
+
+1. Choose **Connect**\.
+
+After the connection is made, you can run bash commands \(Linux\) or PowerShell commands \(Windows\) as you would through any other connection type\.
+
 ## Starting a Session \(AWS CLI\)<a name="sessions-start-cli"></a>
 
 To start a session using the AWS CLI, run the following command:
 
 **Note**  
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
@@ -53,6 +79,7 @@ For information about other options you can use with the start\-session command,
 To start a session using SSH, run the following command:
 
 **Note**  
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
 To start a session using SSH, your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
 ```
@@ -77,6 +104,7 @@ For information about other options you can use with the start\-session command,
 To start a port forwarding session, run the following command from the CLI:
 
 **Note**  
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
@@ -96,6 +124,7 @@ For information about other options you can use with the start\-session command,
 To start an Interactive Command session, run the following command:
 
 **Note**  
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```

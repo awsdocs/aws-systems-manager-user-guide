@@ -8,6 +8,7 @@ Use the following information to help you troubleshoot problems with Session Man
 + [Instance Not Available or Not Configured for Session Manager](#session-manager-troubleshooting-instances)
 + [Session Manager Plugin Not Found](#plugin-not-found)
 + [Session Manager Plugin Not Automatically Added to Command Line Path \(Windows\)](#windows-plugin-env-var-not-set)
++ [Blank Screen Displays After Starting a Session](#session-manager-troubleshooting-start-blank-screen)
 
 ## No Permission to Start a Session<a name="session-manager-troubleshooting-start-permissions"></a>
 
@@ -63,3 +64,8 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 1. Choose **OK** twice to apply the new settings\.
 
 1. Close any running command prompts and re\-open\.
+
+## Blank Screen Displays After Starting a Session<a name="session-manager-troubleshooting-start-blank-screen"></a>
+
+**Problem**: You start a session and Session Manager displays a blank screen\.
++ **Solution**: This issue can occur when the root volume on the instance is full\. Due to lack of disk space, SSM Agent on the instance stops working\. To resolve this issue, use Amazon CloudWatch to collect metrics and logs from the operating systems\. For information, see [Monitoring Memory and Disk Metrics for Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html) or [Monitoring Memory and Disk Metrics for Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/mon-scripts.html)\.

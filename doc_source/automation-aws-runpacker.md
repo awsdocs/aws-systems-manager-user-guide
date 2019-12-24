@@ -2,7 +2,10 @@
 
 **Description**
 
-This document uses the HashiCorp [Packer](https://www.packer.io/) tool to validate, fix, or build packer templates that are used to create machine images\. This document is using Packer v1\.4\.4\.
+This document uses the HashiCorp [Packer](https://www.packer.io/) tool to validate, fix, or build packer templates that are used to create machine images\. This document uses Packer v1\.4\.4\.
+
+**Note**  
+If you configured Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\) then the `associate_public_ip_address` parameter must be set to `true`\.
 
 **Document Type**
 
