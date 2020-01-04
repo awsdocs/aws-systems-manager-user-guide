@@ -38,6 +38,10 @@ A custom service role is not required if you choose to use a Systems Manager ser
    }
    ```
 
+1. \(Optional\) Modify the policy to restrict access or provide additional permissions as needed\. 
+
+   For information about the types of customizations you might choose to make, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+
 1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a maintenance window role; for example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step:
 
    ```

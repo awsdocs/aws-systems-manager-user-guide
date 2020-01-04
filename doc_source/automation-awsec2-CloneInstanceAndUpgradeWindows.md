@@ -25,6 +25,7 @@ Windows Server 2008 R2 Standard and DataCenter editions
 
 **Prerequisites**
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
++ You must specify a different VPC or subnet ID for the cloned instance\. If you don't, Systems Manager creates a new instance with the same name in the current VPC or subnet\. This results in a name conflict\.
 + The subnet ID specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
 + This Automation works only with Windows Server 2008 R2 instances\.
 + This Automation works only on instances with an unencrypted EBS root volume\. If the specified instance has an encrypted root volume, the Automation workflow fails\.

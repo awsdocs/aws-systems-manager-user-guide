@@ -37,6 +37,10 @@ A custom service role is not required if you choose to use a Systems Manager ser
    }
    ```
 
+1. \(Optional\) Modify the policy to restrict access or provide additional permissions as needed\. 
+
+   For information about the types of customizations you might choose to make, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+
 1. Open the AWS CLI and run the following command in the directory where you placed `mw-role-trust-policy.json` in order to create a maintenance window role called `mw-task-role`\. The command assigns the policy you created in the previous step to this role:
 
    ```

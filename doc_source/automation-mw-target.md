@@ -55,7 +55,7 @@ When the maintenance window runs, a new Automation execution is initiated per ta
 If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
    + **Use a custom service role**
 
-     If you want to use stricter permissions than those provided by the service\-linked role, you can create a custom service role for maintenance window tasks\. If you want to use Amazon SNS to send notifications related to maintenance window tasks run through Run Command, you can create a custom service role\.
+     If you want to use stricter permissions than those provided by the service\-linked role, you can create a custom service role for maintenance window tasks\.
 
      To create a custom service role, see one of the following topics:
      + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
@@ -67,7 +67,7 @@ If a service\-linked role has already been created for your account, choose **Us
 1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
 **Important**  
 For Automation documents, you can optionally specify an Automation Assume Role\. If you don't specify a role for this parameter, then the Automation workflow assumes the maintenance window service role you choose in step 11\. As such, you must ensure that the maintenance window service role you choose has the appropriate AWS Identity and Access Management \(IAM\) permissions to perform the actions defined within the Automation document\.   
-For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to run the Automation document `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation assume role that has `ec2:CreateSnapshot` permissions\. For information, see [Getting Started with Automation](automation-setup.md)\.
+For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to run the Automation document `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Getting Started with Automation](automation-setup.md)\.
 
 1. Choose **Register Automation task**\.
 

@@ -108,7 +108,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
    + **Use a custom service role**
 
-     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\.
+     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
 
      If you need to create a custom service role, see one of the following topics:
      + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)

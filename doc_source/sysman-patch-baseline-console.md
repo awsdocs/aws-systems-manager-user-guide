@@ -34,9 +34,9 @@ You can also create a patch baseline using the [Amazon EC2 Systems Manager conso
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto approval delay**: The number of days to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
-   + \(Optional\) **Compliance level**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance level**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
 
 1. In the **Approval rules for Microsoft applications** section, use the fields to create one or more auto\-approval rules\.
    + **Product family**: The general Microsoft product family for which you want to specify a rule, such as Office or Exchange Server\.
@@ -44,9 +44,9 @@ If an approved patch is reported as missing, the option you choose in **Complian
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule applies to, such as `Critical`\. The default selection is `All`\. 
    + **Auto approval delay**: The number of days to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
-   + \(Optional\) **Compliance level**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance level**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
 
 1. If you want to explicitly approve any patches in addition to those meeting your approval rules, do the following in the **Patch exceptions** section:
    + For **Approved patches**, enter a comma\-separated list of the patches you want to approve\.
@@ -97,9 +97,9 @@ For information about accepted formats for lists of approved patches and rejecte
    + **Classification**: The type of patches the approval rule applies to, such as `Security`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto approval delay**: The number of days to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
-   + \(Optional\) **Compliance level**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance level**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
    + **Include non\-security updates**: Select the check box to install nonsecurity Linux operating system patches made available in the source repository, in addition to the security\-related patches\. 
 **Note**  
 For SUSE Linux Enterprise Server, \(SLES\) it isn't necessary to select the check box because patches for security and nonsecurity issues are installed by default on SLES instances\. For more information, see the content for SLES in [How Security Patches Are Selected](patch-manager-how-it-works-selection.md)\.

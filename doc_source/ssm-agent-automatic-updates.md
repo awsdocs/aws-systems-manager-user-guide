@@ -13,9 +13,12 @@ AWS releases a new version of SSM Agent when we add or update Systems Manager ca
 
 If you prefer to update SSM Agent on your instances manually, you can subscribe to notifications that AWS publishes when a new version of the agent is released\. For information, see [Subscribe to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)\. After you subscribe to notifications, you can use Run Command to manually update one or more instances with the latest version\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
-## Automatically update SSM Agent<a name="ssm-agent-automatic-updates-console"></a>
+## Automatically Update SSM Agent<a name="ssm-agent-automatic-updates-console"></a>
 
-You can configure Systems Manager to automatically update SSM Agent on all managed instances in your AWS account\. If you enable this option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. 
+You can configure Systems Manager to automatically update SSM Agent on all managed instances in your AWS account\. If you enable this option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent to the latest released version using the SSM document `AWS-UpdateSSMAgent`\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 **To automatically update SSM Agent**
 

@@ -19,7 +19,12 @@ These procedures apply to installing or reinstalling SSM Agent on Amazon EC2 Lin
 
 ## Amazon Linux and Amazon Linux 2<a name="agent-install-al"></a>
 
-Connect to your Amazon Linux or Amazon Linux 2 instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Amazon Linux or Amazon Linux 2 instance and perform the following steps to install SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
+
+Perform these steps on each instance that will run commands using Systems Manager\.
 
 **Important**  
 SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\.
@@ -417,7 +422,12 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## Red Hat Enterprise Linux \(RHEL\)<a name="agent-install-rhel"></a>
 
-Connect to your RHEL instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your RHEL instance and perform the following steps to install SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
+
+Perform these steps on each instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on Red Hat Enterprise Linux**
 
@@ -496,7 +506,12 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## Oracle Linux<a name="agent-install-oracle"></a>
 
-Connect to your Oracle Linux 7\.5 or 7\.7 instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Oracle Linux 7\.5 or 7\.7 instance and perform the following steps to install SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
+
+Perform these steps on each instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on Oracle Linux 7\.5 and 7\.7**
 
@@ -539,7 +554,12 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## CentOS<a name="agent-install-centos"></a>
 
-Connect to your CentOS instance and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your CentOS instance and perform the following steps to install the SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
+
+Perform these steps on each instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on CentOS**
 

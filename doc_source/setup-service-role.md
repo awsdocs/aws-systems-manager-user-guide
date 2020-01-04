@@ -33,8 +33,8 @@ If you need to create a service role and an instance profile role for Automation
 To run tasks on your managed instances, the Maintenance Windows service must have permission to access those resources\. This permission can be granted using either a service\-linked role for Systems Manager or a custom service role that you create\.
 
 You create a custom service role in the following cases: 
-+ If you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\.
 + If you want to use a more restrictive set of permissions than those provided by the service\-linked role\.
++ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation documents require permissions for actions in other AWS services\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
 +  [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
