@@ -151,7 +151,7 @@ Depending on whether you are creating a new role for your instance profile or ad
 1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
 ![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
 
-1. On the **Attached permissions policy** page, do the following: 
+1. On the **Attach permissions policy** page, do the following: 
    + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore**\. Select the box next to its name\.   
 ![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
 

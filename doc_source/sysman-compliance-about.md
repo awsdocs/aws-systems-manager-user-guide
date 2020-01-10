@@ -56,7 +56,9 @@ Use the following procedure to view compliance data in the Systems Manager conso
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
 
-1. In the **Corresponding managed instances** area, choose an instance ID to view its detailed configuration compliance report\.
+1. In the **Details overview for resources** area, choose the ID of an instance\.
+
+1. On the **Instance ID** details page, select the **Configuration compliance** tab to view its detailed configuration compliance report\.
 
 **Note**  
 For information about fixing compliance issues, see [Remediating Compliance Issues](sysman-compliance-fixing.md)\.

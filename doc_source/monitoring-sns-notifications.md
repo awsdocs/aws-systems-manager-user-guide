@@ -125,11 +125,16 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\.
+1. Under **Select type of trusted entity**, choose **AWS service**\.
 
-1. In the **Select your use case** section, choose **EC2**, and then choose **Next: Permissions**\.
+1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
 
-1. On the **Attach permissions policies** page, select the check box to the left of the name of the custom policy you created in Task 2\. For example: **`SNSPublishPermissions`**\.
+1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **`SNSPublishPermissions`**\.
+
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
 1. On the **Review** page, type a name in the **Role name** box, and then type a description\.
 
@@ -137,9 +142,9 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. On the **Roles** page, choose the role you just created to open the **Summary** page\.
 
-1. Choose the **Trust Relationships** tab, and then choose **Edit Trust Relationship**\.
+1. Choose the **Trust relationships** tab, and then choose **Edit trust relationship**\.
 
-1. Add `, "ssm.amazonaws.com"` to the existing policy, as shown in the following code snippet:
+1. Replace the contents of the box with the following to add `ssm.amazonaws.com` to the policy:
 
    ```
    {
@@ -159,8 +164,6 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
        ]
    }
    ```
-**Note**  
-You must add a comma after the existing entry\. In the preceding example, the entry is `"ec2.amazonaws.com"`\. Otherwise, the JSON is invalid\.
 
 1. Choose **Update Trust Policy**\.
 
@@ -227,16 +230,16 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Choose **Add inline policy**\.
 
-1. On the **Set Permissions** page, choose **Policy Generator**, and then choose **Select**\.
+1. Choose the **Visual Editor** tab\.
 
-1. Verify that **Effect** is set to **Allow**\.
+1. For **Service**, choose **IAM**\.
 
-1. From **AWS Services **choose **AWS Identity and Access Management**\.
+1. For **Actions**, choose **PassRole**\.
 
-1. From **Actions** choose **PassRole**\.
+1. For **Resources**, choose **Specific**, and then choose **Add ARN**\.
 
-1. In the **Amazon Resource Name \(ARN\)** field, paste the ARN of the Amazon SNS IAM role created in Task 3\.
+1. In the **Specify ARN for role** box, paste the ARN of the Amazon SNS IAM role created in Task 3, and then choose **Add**\.
 
-1. Choose **Add Statement**, and then choose **Next**\.
+1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, choose **Apply Policy**\.
+1. On the **Review Policy** page, specify a name for the PassRole policy, and then choose **Create policy**\.

@@ -57,14 +57,6 @@ Even though the following download URLs show 'ec2\-downloads\-windows', these ar
 
 1. Run the following command to determine if SSM Agent is running\. The command should return the message "amazon\-ssm\-agent is running\."
 
-   **Amazon Linux**
-
-   ```
-   sudo status amazon-ssm-agent
-   ```
-
-   **Amazon Linux 2**
-
    ```
    sudo systemctl status amazon-ssm-agent
    ```

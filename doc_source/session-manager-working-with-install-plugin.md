@@ -240,7 +240,7 @@ Your local machine must be running a supported version of the Session Manager pl
 
 The current minimum supported version is 1\.1\.17\.0\. 
 
-The latest release is version 1\.1\.50\.0\.
+The latest release is version 1\.1\.54\.0\.
 
 To see if you have the latest version, run the following command in the AWS CLI:
 
@@ -256,6 +256,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.  | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
 |  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 
 | 1\.1\.33\.0 | September 26, 2019 | Enhancement: \(Port forwarding sessions only\) Send a disconnect signal to the server when the client drops the TCP connection\.  | 

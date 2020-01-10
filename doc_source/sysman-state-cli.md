@@ -67,4 +67,4 @@ State Manager associations do not support all cron and rate expressions\. For mo
    aws ssm  list-associations
    ```
 **Note**  
-If your instances are currently running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.
+If your instances *aren't* running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.

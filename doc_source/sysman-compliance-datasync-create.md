@@ -14,7 +14,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
 1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. Make a note of the bucket name and the AWS Region where you created it\.
 
-1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
+1. Open the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
 1. Copy and paste the following bucket policy into the policy editor\. Replace *Bucket\-Name* and *Account\-ID* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
 
@@ -59,7 +59,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Managed Instances**\.
 
-1. Choose **Resource Data Syncs**, and then choose **Create resource data sync**\.
+1. Choose **Configure Inventory**, **Resource Data Syncs**, and then choose **Create resource data sync**\.
 
 1. In the **Sync name** field, type a name for the sync configuration\.
 

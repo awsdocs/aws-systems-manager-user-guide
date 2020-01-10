@@ -9,6 +9,7 @@ If this is your first time using Run Command, we recommend executing commands ag
 
 **Topics**
 + [Running Commands from the Console](rc-console.md)
++ [Running PowerShell Scripts on Linux Instances](powershell-run-command-linux.md)
 + [Sending Commands that Use the Document Version Parameter](run-command-version.md)
 + [Using Targets and Rate Controls](send-commands-multiple.md)
 + [Rebooting Managed Instance from Scripts](send-commands-reboot.md)
