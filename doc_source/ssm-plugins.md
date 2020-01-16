@@ -499,14 +499,24 @@ Required: Yes
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
-+ getOptions: Extra options to retrieve content from a different branch or a different commit\. This parameter uses the following format:
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\.
+
+  This parameter uses the following format:
   + branch:*branch\_name*
 
     The default is `master`\.
+
+    `"branch"` is required only if your SSM document is stored in a branch other than `master`\.
   + commitID:*commitID*
 
     The default is `head`\.
-+ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your access token information, in the format `{{ssm-secure:secure-string-token}}`\.
+
+    To use the version of your SSM document in a commit other than the latest, specify the full commit ID\. For example:
+
+    ```
+    "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
+    ```
++ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your GitHub access token information, in the format `{{ssm-secure:secure-string-token-name}}`\.
 **Note**  
 This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters are not supported for any other fields, nor for any other SSM document plugins\.
 

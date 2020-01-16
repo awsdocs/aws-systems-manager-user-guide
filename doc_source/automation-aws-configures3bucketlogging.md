@@ -82,17 +82,3 @@ Retrieve the execution output
 ```
 aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
-
-**Document Steps**
-
-aws:executeAwsApi
-
-aws:executeAwsApi
-
-aws:executeAwsApi
-
-aws:sleep
-
-**Outputs**
-
-None

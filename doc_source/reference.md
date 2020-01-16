@@ -11,10 +11,10 @@ See [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/late
  **Service Quotas**  
 See [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
- **API Reference Guide**  
+ **API Reference**  
 See [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)\.
 
- **CLI Command Reference**  
+ **AWS CLI Command Reference**  
 See [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
  **AWS Tools for PowerShell Cmdlet Reference**  

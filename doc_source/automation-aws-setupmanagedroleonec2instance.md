@@ -53,19 +53,3 @@ Retrieve the execution output
 ```
 aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
-
-**Document Steps**
-
-aws:createStack
-
-aws:invokeLambdaFunction
-
-aws:invokeLambdaFunction
-
-aws:invokeLambdaFunction
-
-aws:deleteStack
-
-**Outputs**
-
-None

@@ -31,7 +31,7 @@ For parameters that you reference often, we recommend that you store those param
 
 **files**  
 The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
-For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating Automation Documents That Run Scripts](automation-document-script.md) and [](automation-walk-document-builder.md)\.  
+For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating Automation Documents That Run Scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to Create a Custom Automation Document](automation-walk-document-builder.md)\.  
 When you create an Automation document, or playbook, you specify attachment files using the option \-\-attachments \(AWS CLI\) or Attachments \(API and SDK\)\. You can specify the file location for both local files and files stored in Amazon S3 buckets\.  
 
 ```
