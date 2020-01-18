@@ -18,7 +18,7 @@ Configuring your hybrid environment for Systems Manager enables you to do the fo
 After you finish configuring your servers and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed instances*\. Amazon EC2 instances configured for Systems Manager are also described as managed instances\. In the console, however, the IDs of your hybrid instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\. Amazon EC2 instance IDs use the prefix "i\-"\.
 
 **About instance tiers**  
-AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [Step 7: \(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md) below\.
+AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md) below\.
 
 Complete the procedures in this section to configure your hybrid servers and VMs for Systems Manager\.
 
@@ -29,4 +29,5 @@ Complete the procedures in this section to configure your hybrid servers and VMs
 + [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)
 + [Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)
 + [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)
-+ [Step 7: \(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)
++ [Configuring Instance Tiers](systems-manager-managed-instances-tiers.md)
++ [Deregistering Managed Instances in a Hybrid Environment](systems-manager-managed-instances-advanced-deregister.md)

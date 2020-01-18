@@ -14,7 +14,7 @@ You can enable users in your AWS account to use the AWS CLI to establish Secure 
      + [Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)
      + [Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)
 **Note**  
-To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
+To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
 
 1. On the local machine from which you want to connect to a managed instance using SSH, do the following:
    + Ensure that version 1\.1\.23\.0 or later of the Session Manager plugin is installed\.

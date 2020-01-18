@@ -55,7 +55,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. For **Function name**, type **Automation\-UpdateSsmParam**\.
 
-1. In the **Runtime** list, choose **Python 2\.7**\.
+1. In the **Runtime** list, choose **Python 3\.8**\.
 
 1. In the **Permissions** section, choose **Use an existing role** and choose the service role for Lambda that you created in Task 2\.
 
