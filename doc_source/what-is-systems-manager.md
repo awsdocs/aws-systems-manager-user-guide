@@ -65,7 +65,7 @@ Some Systems Manager capabilities charge a fee\. For more information, see [AWS 
 **Related Content**  
 The following resources can help you work directly with Systems Manager\.  
 + **[AWS Blog & Podcast](http://aws.amazon.com/blogs/)** – Read blog posts about Systems Manager in the [AWS Management Tools Category](http://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/), as well as other posts that are tagged with [http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/](http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)\.
-+ **[Systems Manager Developer Forum](https://forums.aws.amazon.com//forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
++ **[Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
 + **[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the Systems Manager actions and data types\.
 + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
 + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 

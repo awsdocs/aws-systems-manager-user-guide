@@ -24,10 +24,10 @@ See [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Referenc
 See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 
  **Ask a Question**  
-[AWS Systems Manager Developer Forum](https://forums.aws.amazon.com//forum.jspa?forumID=185)
+[AWS Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)
 
  **AWS News Blog**  
-[Management Tools](https://aws.amazon.com//blogs/mt/)
+[Management Tools](https://aws.amazon.com/blogs/mt/)
 
 **Topics**
 + [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)

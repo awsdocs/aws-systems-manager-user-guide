@@ -107,7 +107,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 
 1. Run the following command to create a resource data sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
    ```
    aws ssm create-resource-data-sync --sync-name a name --s3-destination "BucketName=the name of the S3 bucket,Prefix=the name of the prefix, if specified,SyncFormat=JsonSerDe,Region=the region where the S3 bucket was created" 

@@ -19,7 +19,7 @@ If you delete a managed instance, resource data sync preserves the Inventory fil
 ## Create a Resource Data Sync for Inventory<a name="sysman-inventory-datasync-create"></a>
 
 Use the following procedure to create a resource data sync for Inventory by using the Amazon S3 and AWS Systems Manager consoles\. You can also use AWS CloudFormation to create or delete a resource data sync\. To use AWS CloudFormation, add the [AWS::SSM::ResourceDataSync](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html) resource to your AWS CloudFormation template\. For information, see one of the following documentation resources:
-+ [AWS CloudFormation Resource for Resource Data Sync in AWS Systems Manager](https://aws.amazon.com//blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
++ [AWS CloudFormation Resource for Resource Data Sync in AWS Systems Manager](https://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
 **Note**  
@@ -115,7 +115,7 @@ If you create a resource data sync for an AWS Region that came online since the 
 
 1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com//s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. \(Optional\) In the **KMS Key ARN** field, type or paste a KMS Key ARN to encrypt inventory data in Amazon S3\.
 

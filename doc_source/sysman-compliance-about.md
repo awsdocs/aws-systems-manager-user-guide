@@ -93,4 +93,4 @@ Systems Manager Configuration Compliance displays *current* patching and associa
 For information about how to choose and configure these specific resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
 
 **Note**  
-For information about AWS Config pricing, see [Pricing](https://aws.amazon.com//config/pricing/)\.
+For information about AWS Config pricing, see [Pricing](https://aws.amazon.com/config/pricing/)\.

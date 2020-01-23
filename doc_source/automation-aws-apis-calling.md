@@ -350,7 +350,7 @@ This sample walkthrough shows you how to create and run an Automation document i
 
    1. View the schema to see all available inputs for the [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-actions.md#automation-action-assertAwsResourceProperty) action\.
 
-   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
+   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
    1. Determine which Amazon RDS API action enables you to view the status of a database instance\. You can view the API actions \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
