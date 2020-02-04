@@ -19,3 +19,4 @@ If you create an SSM document for State Manager, you must associate the document
 + [Add a Systems Manager Document \(Console\)](create-ssm-console.md)
 + [Create an SSM Document \(AWS CLI\)](create-ssm-document-cli.md)
 + [Create an SSM Document \(Tools for Windows PowerShell\)](create-ssm-document-ps.md)
++ [Create an SSM Document \(AWS API\)](create-ssm-document-api.md)

@@ -9,11 +9,29 @@ You should already have created an Amazon EC2 instance to use in this step, as d
 
 **To register a target instance with a maintenance window \(AWS CLI\)**
 
-1. Run the following command:
+1. Run the following command on your local machine :
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"
+   aws ssm register-target-with-maintenance-window \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --resource-type "INSTANCE" \
+       --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-target-with-maintenance-window ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --resource-type "INSTANCE" ^
+       --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"
+   ```
+
+------
 
    The system returns information like the following
 
@@ -23,11 +41,25 @@ You should already have created an Amazon EC2 instance to use in this step, as d
    }
    ```
 
-1. Now run the following command to view details about your maintenance window target:
+1. Now run the following command on your local machine to view details about your maintenance window target:
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm describe-maintenance-window-targets --window-id "mw-0c50858d01EXAMPLE"
+   aws ssm describe-maintenance-window-targets \
+       --window-id "mw-0c50858d01EXAMPLE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-window-targets ^
+       --window-id "mw-0c50858d01EXAMPLE"
+   ```
+
+------
 
    The system returns information like the following:
 

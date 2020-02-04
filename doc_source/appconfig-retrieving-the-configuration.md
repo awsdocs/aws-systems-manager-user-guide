@@ -7,7 +7,7 @@ aws appconfig get-configuration \
 --application application_ID \
 --environment environment_ID \
 --configuration configuration_profile_ID \
---clientid client_ID \
+--client-id client_ID \
 output_filename
 ```
 
@@ -31,7 +31,7 @@ aws appconfig get-configuration \
 --environment environment_ID \
 --configuration configuration_profile_ID \
 --client-configuration-version previous_configuration_version_value \
---clientid client_ID \
+--client-id client_ID \
 output_filename
 ```
 

@@ -6,15 +6,37 @@ In our example, you create a maintenance window that runs every five minutes\. N
 
 **To create a maintenance window \(AWS CLI\)**
 
-1. Open the AWS CLI and run the following command to create a maintenance window that does the following:
+1. Open the AWS CLI and run the following command on your local machine to create a maintenance window that does the following:
    + Runs every five minutes for up to two hours \(as needed\)\.
    + Prevents new tasks from starting within one hour of the end of the maintenance window execution\.
    + Allows unassociated targets \(instances that you haven't registered with the maintenance window\)\.
    + Indicates through the use of custom tags that its creator intends to use it in a tutorial\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-maintenance-window --name "My-First-Maintenance-Window" --schedule "rate(5 minutes)" --duration 2 --cutoff 1 --allow-unassociated-targets --tags "Key=Purpose,Value=Tutorial"
+   aws ssm create-maintenance-window \
+       --name "My-First-Maintenance-Window" \
+       --schedule "rate(5 minutes)" \
+       --duration 2 --cutoff 1 \
+       --allow-unassociated-targets \
+       --tags "Key=Purpose,Value=Tutorial"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-maintenance-window ^
+       --name "My-First-Maintenance-Window" ^
+       --schedule "rate(5 minutes)" ^
+       --duration 2 --cutoff 1 ^
+       --allow-unassociated-targets ^
+       --tags "Key"="Purpose","Value"="Tutorial"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -26,9 +48,21 @@ In our example, you create a maintenance window that runs every five minutes\. N
 
 1. Now run this command to view details about this and any other maintenance windows already in your account:
 
+------
+#### [ Linux ]
+
    ```
    aws ssm describe-maintenance-windows
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-windows
+   ```
+
+------
 
    The system returns information like the following:
 

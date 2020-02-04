@@ -36,7 +36,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. In **Role name**, enter a name that identifies this role as a Maintenance Windows role; for example **my\-maintenance\-window\-role\.**
 
-1. Optional: Change the default role description to reflect the purpose of this role\. For example: "Performs Maintenance Window tasks on your behalf\." 
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: "Performs Maintenance Window tasks on your behalf\." 
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
@@ -48,25 +48,18 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Sid":"",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":[
-                  "ssm.amazonaws.com",
-                  "ec2.amazonaws.com",
-                  "sns.amazonaws.com"
-               ]
-            },
-            "Action":"sts:AssumeRole"
-         }
-      ]
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
    }
    ```
-**Note**  
-`"sns.amazonaws.com"` is required only if you plan to use Amazon SNS to send notifications related to maintenance window tasks run through Run Command\. See step 13 below for more information\.
 
 1. \(Optional\) Modify the policy to restrict access or provide additional permissions as needed\. 
 

@@ -41,6 +41,7 @@ The source code for SSM Agent is available on [GitHub](https://github.com/aws/am
 **Topics**
 + [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)
 + [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)
++ [Getting the Currently Installed SSM Agent Version](ssm-agent-get-version.md)
 + [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Automate Updates to SSM Agent](ssm-agent-automatic-updates.md)
 + [Subscribe to SSM Agent Notifications](ssm-agent-subscribe-notifications.md)

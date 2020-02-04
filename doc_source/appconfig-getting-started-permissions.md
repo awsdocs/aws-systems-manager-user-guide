@@ -34,9 +34,8 @@ For example, you can create a read\-only IAM permissions policy that includes on
         "appconfig:GetEnvironment",
         "appconfig:ListConfigurationProfiles",
         "appconfig:GetConfigurationProfile",
-        "appconfig:ListDeploymentStatregies",
-        "appconfig:GetDeploymentStategy",
-        "appconfig:ListConfigurationss",
+        "appconfig:ListDeploymentStrategies",
+        "appconfig:GetDeploymentStrategy",
         "appconfig:GetConfiguration",
         "appconfig:ListDeployments"
                

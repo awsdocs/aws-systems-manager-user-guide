@@ -18,11 +18,29 @@ For information about limits for the Maintenance Windows capability, in addition
 
 ## Example 1: Register Multiple Targets Using Instance IDs<a name="mw-target-example-1"></a>
 
-Use the following command format to register multiple instances as targets using their instance IDs:
+Run the following command on your local machine format to register multiple instances as targets using their instance IDs:
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE"
+aws ssm register-target-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --resource-type "INSTANCE" \
+    --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-target-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE ^
+    --resource-type "INSTANCE" ^
+    --target "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE
+```
+
+------
 
 **Recommended use**: Most useful when registering a unique group of instances with any maintenance window for the first time and they do *not* share a common instance tag\.
 
@@ -30,11 +48,29 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPL
 
 ## Example 2: Register Targets Using Resource Tags Applied to Instances<a name="mw-target-example-2"></a>
 
-Use the following command format to register instances that are all already tagged with a key\-value pair you have assigned:
+Run the following command on your local machine to register instances that are all already tagged with a key\-value pair you have assigned:
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=tag:Region,Values=East"
+aws ssm register-target-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --resource-type "INSTANCE" \
+    --target "Key=tag:Region,Values=East"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-target-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --resource-type "INSTANCE" ^
+    --target "Key=tag:Region,Values=East"
+```
+
+------
 
 **Recommended use**: Most useful when registering a unique group of instances with any maintenance window for the first time and they *do* share a common instance tag\.
 
@@ -45,11 +81,29 @@ You can tag a group of instances with the tag\-key **Patch Group** and assign th
 
 ## Example 3: Register Targets Using a Group of Tag Keys \(Without Tag Values\)<a name="mw-target-example-3"></a>
 
-Use the following command to register instances that all have one or more tag keys assigned to them, regardless of their key values\.
+Run the following command on your local machine to register instances that all have one or more tag keys assigned to them, regardless of their key values\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "INSTANCE" --target "Key=tag-key,Values=Name,Instance-Type,CostCenter"
+aws ssm register-target-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --resource-type "INSTANCE" \
+    --target "Key=tag-key,Values=Name,Instance-Type,CostCenter"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-target-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --resource-type "INSTANCE" ^
+    --target "Key=tag-key,Values=Name,Instance-Type,CostCenter"
+```
+
+------
 
 **Recommended use**: Useful when you want to target instances by specifying multiple tag *keys* \(without their values\) rather than just one tag\-key or a tag key\-value pair\.
 
@@ -57,11 +111,29 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPL
 
 ## Example 4: Register Targets Using a Resource Group Name<a name="mw-target-example-4"></a>
 
-Use the following command to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window do not act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
+Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window do not act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "RESOURCE_GROUP" --target "Key=resource-groups:Name,Values=MyResourceGroup"
+aws ssm register-target-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --resource-type "RESOURCE_GROUP" \    
+    --target "Key=resource-groups:Name,Values=MyResourceGroup"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-target-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --resource-type "RESOURCE_GROUP" ^
+    --target "Key=resource-groups:Name,Values=MyResourceGroup"
+```
+
+------
 
 **Recommended use**: Useful when you want to quickly specify a resource group as a target without evaluating whether all of its resource types will be targeted by a maintenance window, or when you know that the resource group contains only the resource types that your tasks perform actions on\.
 
@@ -69,11 +141,31 @@ aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPL
 
 ### Example 5: Register Targets by Filtering Resource Types in a Resource Group<a name="mw-target-example-5"></a>
 
-Use the following command to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
+Run the following command on your local machine to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-target-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --resource-type "RESOURCE_GROUP" --target "Key=resource-groups:Name,Values=MyResourceGroup" "Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::Instance,AWS::ECS::Cluster"
+aws ssm register-target-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --resource-type "RESOURCE_GROUP" \
+    --target "Key=resource-groups:Name,Values=MyResourceGroup" \
+    "Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::Instance,AWS::ECS::Cluster"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-target-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --resource-type "RESOURCE_GROUP" ^
+    --target "Key=resource-groups:Name,Values=MyResourceGroup" ^
+    "Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::Instance,AWS::ECS::Cluster"
+```
+
+------
 
 **Recommended use**: Useful when you want to maintain strict control over the types of AWS resources your maintenance window can run actions on, or when your resource group contains a large number of resource types and you want to avoid unnecessary error reports in your maintenance window logs\.
 

@@ -123,7 +123,7 @@ Currently, you can restrict access to the following `Get*` parameter\-related AP
 Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
 
 **Before You Begin**  
-Create and tag parameters\. For more information, see [Setting Up Parameter Store](sysman-paramstore-settingup.md)\.
+Create and tag parameters\. For more information, see [Getting Started with Parameter Store](sysman-paramstore-settingup.md)\.
 
 **To restrict a user's access to parameters by using tags**
 

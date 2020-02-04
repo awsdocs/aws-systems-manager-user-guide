@@ -1,4 +1,4 @@
-# Setting Up Parameter Store<a name="sysman-paramstore-settingup"></a>
+# Getting Started with Parameter Store<a name="sysman-paramstore-settingup"></a>
 
 To set up parameters in Systems Manager Parameter Store, you first configure AWS Identity and Access Management \(IAM\) policies that provide users in your account with permission to perform the actions you specify\. 
 

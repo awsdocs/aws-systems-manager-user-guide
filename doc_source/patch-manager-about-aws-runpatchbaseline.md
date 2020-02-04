@@ -244,7 +244,7 @@ When you choose the `RebootIfNeeded` option, the instance is rebooted if Patch M
 When you choose the `RebootIfNeeded` option, Patch Manager does not evaluate whether a reboot is *required* by the patch\. A reboot occurs whenever there are missing packages or packages with a status of `INSTALLED_PENDING_REBOOT`\.
 
 NoReboot  
-When you choose the `NoReboot` option, Patch Manager does not reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied\. It is also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\. 
+When you choose the `NoReboot` option, Patch Manager does not reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied, or you have applications or processes running on an instance that should not be disrupted by a patching operation reboot\. It is also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\.
 
 **Patch installation tracking file**: To track patch installation, especially patches that have been installed since the last system reboot, Systems Manager maintains a file on the managed instance\.
 

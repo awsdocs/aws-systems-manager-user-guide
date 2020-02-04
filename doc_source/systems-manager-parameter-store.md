@@ -33,7 +33,7 @@ To get started with Systems Manager Parameters, refer to the following sections:
 | Task | For More Information | 
 | --- | --- | 
 |  Learn about different types of Systems Manager parameters\.  |  [Learn More About Parameters](sysman-paramstore-about.md)  | 
-|  Configure parameter access and notifications\.  |  [Setting Up Parameter Store](sysman-paramstore-settingup.md)  | 
+|  Configure parameter access and notifications\.  |  [Getting Started with Parameter Store](sysman-paramstore-settingup.md)  | 
 |  Learn how to organize, create, and tag parameters\.  |  [Working with Parameters](sysman-paramstore-working.md)  | 
 |  Learn about creating and using Systems Manager parameters in a test environment\.  |  [Parameter Store Walkthroughs](sysman-paramstore-walk.md)  | 
 |  Learn how Parameter Store uses AWS Key Management Service \(KMS\) to manage secure string parameters\.  |  [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)  | 

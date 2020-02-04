@@ -16,25 +16,19 @@ A custom service role is not required if you choose to use a Systems Manager ser
 [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
-**Note**  
-`"sns.amazonaws.com"` is required only if you plan to use Amazon SNS to send notifications related to maintenance window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API\.
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Effect":"Allow",
-            "Principal":{
-               "Service":[
-                  "ssm.amazonaws.com",
-                  "ec2.amazonaws.com",
-                  "sns.amazonaws.com"
-               ]
-            },
-            "Action":"sts:AssumeRole"
-         }
-      ]
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
    }
    ```
 

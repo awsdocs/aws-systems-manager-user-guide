@@ -15,25 +15,19 @@ A custom service role is not required if you choose to use a Systems Manager ser
 [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
 
 1. Copy and paste the following trust policy into a text file\. Save the file with the following name and file extension: `mw-role-trust-policy.json`\.
-**Note**  
-`"sns.amazonaws.com"` is required only if you plan to use Amazon SNS to send notifications related to maintenance window tasks run through the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) API or `send-command` in the AWS CLI\.
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Effect":"Allow",
-            "Principal":{
-               "Service":[
-                  "ssm.amazonaws.com",
-                  "ec2.amazonaws.com",
-                  "sns.amazonaws.com"
-               ]
-            },
-            "Action":"sts:AssumeRole"
-         }
-      ]
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
    }
    ```
 
@@ -51,29 +45,25 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
    ```
    {
-      "Role":{
-         "AssumeRolePolicyDocument":{
-            "Version":"2012-10-17",
-            "Statement":[
-               {
-                  "Action":"sts:AssumeRole",
-                  "Effect":"Allow",
-                  "Principal":{
-                     "Service":[
-                        "ssm.amazonaws.com",
-                        "ec2.amazonaws.com",
-                        "sns.amazonaws.com"
-                     ]
-                  }
-               }
-            ]
-         },
-         "RoleId":"AROAIIZKPBKS2LEXAMPLE",
-         "CreateDate":"2017-04-04T03:40:17.373Z",
-         "RoleName":"mw-task-role",
-         "Path":"/",
-         "Arn":"arn:aws:iam::123456789012:role/mw-task-role"
-      }
+       "Role": {
+           "AssumeRolePolicyDocument": {
+               "Version": "2012-10-17",
+               "Statement": [
+                   {
+                       "Action": "sts:AssumeRole",
+                       "Effect": "Allow",
+                       "Principal": {
+                           "Service": "ssm.amazonaws.com"
+                       }
+                   }
+               ]
+           },
+           "RoleId": "AROAIIZKPBKS2LEXAMPLE",
+           "CreateDate": "2017-04-04T03:40:17.373Z",
+           "RoleName": "mw-task-role",
+           "Path": "/",
+           "Arn": "arn:aws:iam::123456789012:role/mw-task-role"
+       }
    }
    ```
 **Note**  
