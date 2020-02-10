@@ -208,7 +208,7 @@ Amazon's trademarks and trade dress may not be used in
                + [AWS-DisablePublicAccessForSecurityGroup](automation-aws-disablepublicaccessforsecuritygroup.md)
                + [AWS-DisableS3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
                + [AWS-EnableCloudTrail](automation-aws-enablecloudtrail.md)
-               + [AWS-Enables3BucketEncryption](automation-aws-enables3bucketencryption.md)
+               + [AWS-EnableS3BucketEncryption](automation-aws-enableS3bucketencryption.md)
                + [AWS-ExportOpsDataToS3](automation-aws-exportopsdatatos3.md)
                + [AWSSupport-ExecuteEC2Rescue](automation-awssupport-executeec2rescue.md)
                + [AWSSupport-GrantPermissionsToIAMUser](automation-awssupport-grantpermissionstoiamuser.md)

@@ -41,7 +41,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Change"
        ],
        "detail": {
-           "name": [
+           "parameter-name": [
                "parameter-1-name",
                "/parameter-2-name/level-2",
                "/parameter-3-name/level-2/level-3"
@@ -69,7 +69,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Change"
        ],
        "detail": {
-           "name": [
+           "parameter-name": [
                "/Oncall",
                "/Project/Teamlead"
            ],
@@ -121,7 +121,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Policy Action"
        ],
        "detail": {
-           "name": [
+           "parameter-name": [
                "parameter-1-name",
                "/parameter-2-name/level-2",
                "/parameter-3-name/level-2/level-3"
@@ -146,7 +146,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Policy Action"
        ],
        "detail": {
-           "name": [
+           "parameter-name": [
                "/OncallDuties"
            ],
            "policy-type": [

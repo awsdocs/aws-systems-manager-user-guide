@@ -45,6 +45,26 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 For information about canceling a command, see [Canceling a Command](rc-cancel.md)\. 
 
+## Rerunning Commands<a name="run-command-rerun"></a>
+
+Systems Manager includes two options to help you rerun a command from the **Run Command** page in the AWS Systems Manager console\. 
++ **Rerun**: This button enables you to run the same command without making changes to it\.
++ **Copy to new**: This button copies the settings of one command to a new command and gives you the option to edit those settings before you run it\.
+
+**To rerun a command**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Run Command**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Run Command**\.
+
+1. Choose a command to rerun\. You can rerun a command immediately after executing it from the command details page\. Or, you can choose a command that you previously executed from the **Command history** tab\.
+
+1. Choose either **Rerun** to run the same command without changes, or choose **Copy to new** to edit the command settings before you run it\.
+
 ## Update SSM Agent by using Run Command<a name="rc-console-agentexample"></a>
 
 The following procedure describes how to quickly update SSM Agent running on your Windows and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.

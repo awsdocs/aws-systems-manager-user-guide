@@ -127,7 +127,11 @@ Use the follow procedure to enable SSM Agent debug logging on Windows Server and
    ```
 
 1. Restart SSM Agent\.
-   + **Windows Server**: Use Windows Services Manager to restart the Amazon SSM Agent\.
+   + **Windows Server**: Run the following command:
+
+     ```
+      Restart-Service AmazonSSMAgent
+     ```
    + **Linux**: Run the following command:
 
      ```

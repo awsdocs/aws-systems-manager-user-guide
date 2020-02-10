@@ -20,13 +20,13 @@ If you are using a custom policy on your instances, then you must update the pol
       "logs:DescribeLogStreams",
       "logs:PutLogEvents"
    ],
-   "Resource":"*"
+   "Resource":"arn:aws:logs:::log-group:/aws/ssm/*"
 },
 ```
 
 ## Specifying CloudWatch Logs When You Send Commands<a name="sysman-rc-setting-up-cwlogs-send"></a>
 
-To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName*\.
+To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: /aws/ssm/*SystemsManagerDocumentName*\.
 
 If you run commands by using the AWS CLI, then you must specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example:
 

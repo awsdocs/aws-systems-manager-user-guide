@@ -1759,14 +1759,16 @@ Type: String
 Required: Yes
 
 InstanceIds  
-The instance IDs where you want the command to run\. You can specify a maximum of 50 IDs\. If you don't want to specify individual instance IDs, then you can send commands to a fleet of instances by using the Targets parameter\. The Targets parameter accepts Amazon EC2 tags\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
+The instance IDs where you want the command to run\. You can specify a maximum of 50 IDs\.   
+You can also use the pseudo parameter `{{RESOURCE_ID}}` in place of instance IDs to more easily run the command on all instances in the target group\. For more information about pseudo parameters, see [About Pseudo Parameters](mw-cli-register-tasks-parameters.md)\. \.  
+Another alternative is to send commands to a fleet of instances by using the Targets parameter\. The Targets parameter accepts Amazon EC2 tags\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
 Type: StringList  
-Required: No \(If you don't specify InstanceIds, then you must specify the Targets parameter\.\)
+Required: No \(If you don't specify InstanceIds or use the `{{RESOURCE_ID}}` pseudo parameter, then you must specify the Targets parameter\.\)
 
 Targets  
 An array of search criteria that targets instances by using a Key,Value combination that you specify\. Targets is required if you don't provide one or more instance IDs in the call\. For more information about how to use the Targets parameter, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.  
 Type: MapList \(The schema of the map in the list must match the object\. For information, see [Target](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Target.html) in the *AWS Systems Manager API Reference*\.  
-Required: No \(If you don't specify Targets, then you must specify InstanceIds\.\)  
+Required: No \(If you don't specify Targets, then you must specify InstanceIds or use the `{{RESOURCE_ID}}` pseudo parameter\.\)  
 Here is an example:  
 
 ```

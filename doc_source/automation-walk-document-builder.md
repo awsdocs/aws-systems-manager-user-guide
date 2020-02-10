@@ -239,7 +239,7 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
    1. For **Input name**, choose **InputPayload**\. For **Input value**, enter the following:
 
       ```
-      '{{ LaunchEc2Instance.payload }}'
+      {{ LaunchEc2Instance.payload }}
       ```
 
 1. Choose **Create automation** to save the document\.

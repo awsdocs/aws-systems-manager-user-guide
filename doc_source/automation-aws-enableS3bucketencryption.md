@@ -1,4 +1,4 @@
-# AWS\-Enables3BucketEncryption<a name="automation-aws-enables3bucketencryption"></a>
+# AWS\-EnableS3BucketEncryption<a name="automation-aws-enableS3bucketencryption"></a>
 
 **Description**
 

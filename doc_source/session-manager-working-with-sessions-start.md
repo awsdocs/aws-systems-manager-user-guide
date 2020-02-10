@@ -107,9 +107,27 @@ To start a port forwarding session, run the following command from the CLI:
 Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm start-session --target instance-id --document-name AWS-StartPortForwardingSession --parameters '{"portNumber":["80"], "localPortNumber":["56789"]}'
+aws ssm start-session \
+--target instance-id \
+--document-name AWS-StartPortForwardingSession \ 
+--parameters '{"portNumber":["80"], "localPortNumber":["56789"]}'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+--target instance-id ^
+--document-name AWS-StartPortForwardingSession ^
+--parameters portNumber="3389",localPortNumber="56789"
+```
+
+------
 
  *instance\-id* represents of the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 
