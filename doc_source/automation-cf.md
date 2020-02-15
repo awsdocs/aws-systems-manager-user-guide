@@ -18,15 +18,15 @@ Use the following procedure to create the required IAM role for Systems Manager 
 
 1. Choose **Create Stack**\.
 
-1. In the **Choose a template section**, choose **Upload a template to Amazon S3**\.
+1. In the **Specify template** section, choose **Upload a template file**\.
 
 1. Choose **Browse**, and then choose the `AWS-SystemsManager-AutomationServiceRole.yaml` AWS CloudFormation template file\.
 
 1. Choose **Next**\.
 
-1. On the **Specify Details** page, in the **Stack Name** field, enter a name\. 
+1. On the **Specify stack details** page, in the **Stack name** field, enter a name\. 
 
-1. On the **Options** page, you don’t need to make any selections\. Choose **Next**\.
+1. On the **Configure stack options** page, you don’t need to make any selections\. Choose **Next**\.
 
 1. On the **Review** page, scroll down and choose the **I acknowledge that AWS CloudFormation might create IAM resources** option\.
 
@@ -48,7 +48,7 @@ You do not need to copy role information using this procedure if you run the `AW
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
-1. Select the check box next to the Automation stack you created in the previous procedure\.
+1. Select the Automation **Stack name** you created in the previous procedure\.
 
 1. Choose the **Resources** tab\.
 

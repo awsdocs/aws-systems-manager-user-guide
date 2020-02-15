@@ -40,14 +40,18 @@ If you create your own patch baseline, you can choose which patches to auto\-app
 + Classification: For example, critical updates, security updates, and so on\.
 + Severity: For example, critical, important, and so on\.
 
-For each auto\-approval rule that you create, you can specify an auto\-approval delay\. This delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the Critical Updates classification and configure it for seven days auto\-approval delay, then a new critical patch released on January 7 will automatically be approved on January 14\.
+For each aapproval rule that you create, you can choose to specify an auto\-approval delay or specify a patch approval cutoff date\. 
+
+An auto\-approval delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the `CriticalUpdates` classification and configure it for seven days auto\-approval delay, then a new critical patch released on July 7 is automatically approved on July 14\.
 
 **Note**  
 If a Linux repository doesn’t provide release date information for packages, Systems Manager uses the build time of the package as the auto\-approval delay for Amazon Linux, Amazon Linux 2, RHEL, and CentOS\. If the system isn't able to find the build time of the package, Systems Manager treats the auto\-approval delay as having a value of zero\.
 
+When you specify an auto\-approval cutoff date, Patch Manager automatically applies all patches released on or before that date\. For example, if you specify July 7, 2020, as the cutoff date, no patches released on or after July 8, 2020, are installed automatically\.
+
 You can also specify a compliance severity level\. If an approved patch is reported as missing, `Compliance Level` is the severity of the compliance violation\. 
 
-By using multiple patch baselines with different auto\-approval delays, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines and auto\-approval delays for development and production environments\. This enables you to test patches in your development environment before they get deployed in your production environment\. 
+By using multiple patch baselines with different auto\-approval delays or cutoff dates, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines, auto\-approval delays, andcutoff dates for development and production environments\. This enables you to test patches in your development environment before they get deployed in your production environment\. 
 
 Keep the following in mind when you create a patch baseline:
 + Patch Manager provides one predefined patch baseline for each supported operating system\. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type\. 

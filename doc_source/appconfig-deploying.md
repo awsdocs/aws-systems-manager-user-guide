@@ -1,4 +1,4 @@
-# Step 7: Deploy a Configuration<a name="appconfig-deploying"></a>
+# Step 5: Deploy a Configuration<a name="appconfig-deploying"></a>
 
 Starting a deployment in AWS AppConfig calls the [StartDeployment](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html) API action\. This call includes the IDs of the AppConfig application, the environment, the configuration profile, and \(optionally\) the configuration data version to deploy\. The call also includes the ID of the deployment strategy to use, which determines how the configuration data is deployed\.
 

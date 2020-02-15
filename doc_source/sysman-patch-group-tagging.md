@@ -4,9 +4,12 @@ To help you organize your patching efforts, we recommend that you add instances 
 
 After you group your instances using tags, you must add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\. For more information, see the next procedure [Add a Patch Group to a Patch Baseline](sysman-patch-group-patchbaseline.md)\.
 
-## Add EC2 Instances to a Patch Group Using Tags<a name="sysman-patch-group-tagging-ec2"></a>
+## Add Amazon EC2 Instances to a Patch Group Using Tags<a name="sysman-patch-group-tagging-ec2"></a>
 
 For EC2 instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS CLI command `create-tags`, or the API action `CreateTags`\.
+
+**Note**  
+When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. Ensure that SSM Agent is installed and running on instances that you want to manage using Systems Manager\. For more information, see [Working with SSM Agent](ssm-agent.md)\.
 
 **To add EC2 instances to a patch group \(AWS Systems Manager console\)**
 
@@ -14,9 +17,7 @@ For EC2 instances, you can add tags by using the AWS Systems Manager console, th
 
 1. In the navigation pane, choose **Managed Instances**\.
 
-1. In the **Managed instances** list, choose a managed EC2 instance that you want to configure for patching\.
-
-1. Choose **View details**\.
+1. In the **Managed instances** list, choose a the ID of a managed EC2 instance that you want to configure for patching\.
 
 1. Select the **Tags** tab, then choose **Edit**\.
 
@@ -90,6 +91,24 @@ For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Syste
 
 1. Run the following command to add the `Patch Group` tag to a managed instance\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm add-tags-to-resource --resource-type "ManagedInstance" --resource-id "mi-0123456789abcdefg" --tags "Key=Patch Group,Value=GroupValue"
+   aws ssm add-tags-to-resource \
+       --resource-type "ManagedInstance" \
+       --resource-id "mi-0123456789abcdefg" \
+       --tags "Key=Patch Group,Value=GroupValue"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm add-tags-to-resource ^
+       --resource-type "ManagedInstance" ^
+       --resource-id "mi-0123456789abcdefg" ^
+       --tags "Key=Patch Group,Value=GroupValue"
+   ```
+
+------

@@ -6,15 +6,47 @@ You can also create a custom patch baseline to update Microsoft applications on 
 
 To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS CLI command demonstrates the minimal requirements to patch a product, such as Office 2016:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm create-patch-baseline --name "My-Windows-App-Baseline" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values='Office 2016'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
+aws ssm create-patch-baseline \
+    --name "My-Windows-App-Baseline" \
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values='Office 2016'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm create-patch-baseline ^
+    --name "My-Windows-App-Baseline" ^
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values='Office 2016'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
+```
+
+------
 
 If you specify the Microsoft application product family, each product you specify must be a supported member of the selected product family\. For example, to patch the product "Active Directory Rights Management Services Client 2\.0," you must specify its product family as "Active Directory" and not, for example, "Office" or "SQL Server\." The following AWS CLI command demonstrates a match pairing of product family and product:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm create-patch-baseline --name "My-Windows-App-Baseline" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT_FAMILY,Values='Active Directory'},{Key=PRODUCT,Values='Active Directory Rights Management Services Client 2.0'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
+aws ssm create-patch-baseline \
+    --name "My-Windows-App-Baseline" \
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT_FAMILY,Values='Active Directory'},{Key=PRODUCT,Values='Active Directory Rights Management Services Client 2.0'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm create-patch-baseline ^
+    --name "My-Windows-App-Baseline" ^
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT_FAMILY,Values='Active Directory'},{Key=PRODUCT,Values='Active Directory Rights Management Services Client 2.0'},{Key=PATCH_SET,Values='APPLICATION'}]},ApproveAfterDays=5}]"
+```
+
+------
 
 **Troubleshooting Mismatched Product Family/Product Pairs**  
 When you create a patch baseline in the console, you specify a product family and a product\. For example, you might choose:

@@ -22,9 +22,25 @@ To associate a specific patch baseline with your instances, you must add the pat
 
 1. Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id "pb-0123456789abcdef0" --patch-group "Development"
+   aws ssm register-patch-baseline-for-patch-group \
+       --baseline-id "pb-0123456789abcdef0" \
+       --patch-group "Development"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-patch-baseline-for-patch-group ^
+       --baseline-id "pb-0123456789abcdef0" ^
+       --patch-group "Development"
+   ```
+
+------
 
    The system returns information like the following:
 

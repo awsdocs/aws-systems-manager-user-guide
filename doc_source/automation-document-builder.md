@@ -69,7 +69,7 @@ If you specify a value of '`/`', the document can run on all types of resources\
    + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\.
    + Depending on the **Action type** selected, enter the required inputs for the action type in the **Step inputs** section\. For example, if you selected the action `aws:approve`, you must specify a value for the `Approvers` property\.
 
-     For information about the step input fields, see the entry in [Systems Manager Automation Actions Reference](automation-actions.md) for the action type you selected\. For example: [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-actions.md#automation-action-executeStateMachine)\.
+     For information about the step input fields, see the entry in [Systems Manager Automation Actions Reference](automation-actions.md) for the action type you selected\. For example: [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)\.
    + \(Optional\) For **Additional inputs**, provide any additional input values needed for your document\. The available input types depend on the action type you selected for the step\. \(Note that some action types require input values\.\)
 **Note**  
 To add more inputs, choose **Add optional input**\. To remove an input, choose the **X** \(Remove\) button\.

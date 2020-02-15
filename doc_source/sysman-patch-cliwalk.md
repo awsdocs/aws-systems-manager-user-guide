@@ -21,15 +21,59 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. \(Windows\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "WINDOWS" --tags "Key=Environment,Value=Production" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline \
+       --name "Production-Baseline" \
+       --operating-system "WINDOWS" \
+       --tags "Key=Environment,Value=Production" \
+       --description "Baseline containing all updates approved for production systems" \
+       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-patch-baseline ^
+       --name "Production-Baseline" ^
+       --operating-system "WINDOWS" ^
+       --tags "Key=Environment,Value=Production" ^
+       --description "Baseline containing all updates approved for production systems" ^
+       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]"
+   ```
+
+------
 
    \(Linux\) Run the following command to create a patch baseline named "Production\-Baseline" that approves patches for a production environment seven days after they are released, including both security and nonsecurity patches included in the source repository\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-patch-baseline --name "Production-Baseline" --operating-system "AMAZON_LINUX_2" --tags "Key=Environment,Value=Production" --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2,AmazonLinux2.0]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]" --description "Baseline containing all updates approved for production systems"
+   aws ssm create-patch-baseline \
+       --name "Production-Baseline" \
+       --operating-system "AMAZON_LINUX_2" \
+       --tags "Key=Environment,Value=Production" \
+       --description "Baseline containing all updates approved for production systems" \
+       --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2,AmazonLinux2.0]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-patch-baseline ^
+       --name "Production-Baseline" ^
+       --operating-system "AMAZON_LINUX_2" ^
+       --tags "Key=Environment,Value=Production" ^
+       --description "Baseline containing all updates approved for production systems" ^
+       --approval-rules  "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=PRODUCT,Values=[AmazonLinux2,AmazonLinux2.0]},{Key=SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[Security]}]},ApproveAfterDays=7,EnableNonSecurity=true}]"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -41,9 +85,25 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Run the following commands to register the "Production\-Baseline" patch baseline for three patch groups named "Production," "Database Servers," and "Front\-End Patch Group\."
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE --patch-group "Production"
+   aws ssm register-patch-baseline-for-patch-group \
+       --baseline-id pb-0c10e65780EXAMPLE \
+       --patch-group "Production"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-patch-baseline-for-patch-group ^
+       --baseline-id pb-0c10e65780EXAMPLE ^
+       --patch-group "Production"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -54,9 +114,25 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-patch-baseline-for-patch-group --baseline-id pb-0c10e65780EXAMPLE --patch-group "Database Servers"
+   aws ssm register-patch-baseline-for-patch-group \
+       --baseline-id pb-0c10e65780EXAMPLE \
+       --patch-group "Database Servers"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-patch-baseline-for-patch-group ^
+       --baseline-id pb-0c10e65780EXAMPLE ^
+       --patch-group "Database Servers"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -69,9 +145,33 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Run the following commands to create two maintenance windows for the production servers\. The first window run every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the maintenance window has been tagged to indicate that it is for a production environment\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-maintenance-window --name "Production-Tuesdays" --tags "Key=Environment,Value=Production" --schedule "cron(0 0 22 ? * TUE *)" --duration 1 --cutoff 0 --no-allow-unassociated-targets
+   aws ssm create-maintenance-window \
+       --name "Production-Tuesdays" \
+       --tags "Key=Environment,Value=Production" \
+       --schedule "cron(0 0 22 ? * TUE *)" \
+       --duration 1 \
+       --cutoff 0 \
+       --no-allow-unassociated-targets
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-maintenance-window ^
+       --name "Production-Tuesdays" ^
+       --tags "Key=Environment,Value=Production" ^
+       --schedule "cron(0 0 22 ? * TUE *)" ^
+       --duration 1 ^
+       --cutoff 0 ^
+       --no-allow-unassociated-targets
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -81,9 +181,33 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-maintenance-window --name "Production-Saturdays" --tags "Key=Environment,Value=Production" --schedule "cron(0 0 22 ? * SAT *)" --duration 2 --cutoff 0 --no-allow-unassociated-targets
+   aws ssm create-maintenance-window \
+       --name "Production-Saturdays" \
+       --tags "Key=Environment,Value=Production" \
+       --schedule "cron(0 0 22 ? * SAT *)" \
+       --duration 2 \
+       --cutoff 0 \
+       --no-allow-unassociated-targets
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-maintenance-window ^
+       --name "Production-Saturdays" ^
+       --tags "Key=Environment,Value=Production" ^
+       --schedule "cron(0 0 22 ? * SAT *)" ^
+       --duration 2 ^
+       --cutoff 0 ^
+       --no-allow-unassociated-targets
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -95,9 +219,29 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Run the following commands to register the Production servers with the two production maintenance windows\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-target-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=tag:Patch Group,Values=Production" --owner-information "Production servers" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window \
+       --window-id mw-0c66948c711a3b5bd \
+       --targets "Key=tag:Patch Group,Values=Production" \
+       --owner-information "Production servers" \
+       --resource-type "INSTANCE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-target-with-maintenance-window ^
+       --window-id mw-0c66948c711a3b5bd ^
+       --targets "Key=tag:Patch Group,Values=Production" ^
+       --owner-information "Production servers" ^
+       --resource-type "INSTANCE"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -107,9 +251,29 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-target-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=tag:Patch Group,Values=Database Servers" --owner-information "Database servers" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window \
+       --window-id mw-0c66948c711a3b5bd \
+       --targets "Key=tag:Patch Group,Values=Database Servers" \
+       --owner-information "Database servers" \
+       --resource-type "INSTANCE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-target-with-maintenance-window ^
+       --window-id mw-0c66948c711a3b5bd ^
+       --targets "Key=tag:Patch Group,Values=Database Servers" ^
+       --owner-information "Database servers" ^
+       --resource-type "INSTANCE"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -119,9 +283,29 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-target-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=tag:Patch Group,Values=Production" --owner-information "Production servers" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window \
+       --window-id mw-09e2a75baadd84e85 \
+       --targets "Key=tag:Patch Group,Values=Production" \
+       --owner-information "Production servers" \
+       --resource-type "INSTANCE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-target-with-maintenance-window ^
+       --window-id mw-09e2a75baadd84e85 ^
+       --targets "Key=tag:Patch Group,Values=Production" ^
+       --owner-information "Production servers" ^
+       --resource-type "INSTANCE"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -131,9 +315,29 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-target-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=tag:Patch Group,Values=Database Servers" --owner-information "Database servers" --resource-type "INSTANCE"
+   aws ssm register-target-with-maintenance-window \
+       --window-id mw-09e2a75baadd84e85 \
+       --targets "Key=tag:Patch Group,Values=Database Servers" \
+       --owner-information "Database servers" \
+       --resource-type "INSTANCE"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-target-with-maintenance-window ^
+       --window-id mw-09e2a75baadd84e85 ^
+       --targets "Key=tag:Patch Group,Values=Database Servers" ^
+       --owner-information "Database servers" ^
+       --resource-type "INSTANCE"
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -145,9 +349,39 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Run the following commands to register a patch task that only scans the production servers for missing updates in the first production maintenance window\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   aws ssm register-task-with-maintenance-window \
+       --window-id mw-0c66948c711a3b5bd \
+       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" \
+       --task-arn "AWS-RunPatchBaseline" \
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --task-type "RUN_COMMAND" \
+       --max-concurrency 2 \
+       --max-errors 1 \
+       --priority 1 \
+       --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --window-id mw-0c66948c711a3b5bd ^
+       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" ^
+       --task-arn "AWS-RunPatchBaseline" ^
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --task-type "RUN_COMMAND" ^
+       --max-concurrency 2 ^
+       --max-errors 1 ^
+       --priority 1 ^
+       --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -157,9 +391,39 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c66948c711a3b5bd --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   aws ssm register-task-with-maintenance-window \
+       --window-id mw-0c66948c711a3b5bd \
+       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" \
+       --task-arn "AWS-RunPatchBaseline" \
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --task-type "RUN_COMMAND" \
+       --max-concurrency 2 \
+       --max-errors 1 \
+       --priority 5 \
+       --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --window-id mw-0c66948c711a3b5bd \
+       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" ^
+       --task-arn "AWS-RunPatchBaseline" ^
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --task-type "RUN_COMMAND" ^
+       --max-concurrency 2 ^
+       --max-errors 1 ^
+       --priority 5 ^
+       --task-parameters '{\"Operation\":{\"Values\":[\"Scan\"]}}'
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -171,9 +435,39 @@ In addition, the following walkthrough runs patching during a maintenance window
 
 1. Run the following commands to register a patch task that installs missing updates on the productions servers in the second maintenance window\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 1 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   aws ssm register-task-with-maintenance-window \
+       --window-id mw-09e2a75baadd84e85 \
+       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" \
+       --task-arn "AWS-RunPatchBaseline" \
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --task-type "RUN_COMMAND" \
+       --max-concurrency 2 \
+       --max-errors 1 \
+       --priority 1 \
+       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --window-id mw-09e2a75baadd84e85 ^
+       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" ^
+       --task-arn "AWS-RunPatchBaseline" ^
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --task-type "RUN_COMMAND" ^
+       --max-concurrency 2 ^
+       --max-errors 1 ^
+       --priority 1 ^
+       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   ```
+
+------
 
    The system returns information like the following\.
 
@@ -183,9 +477,39 @@ In addition, the following walkthrough runs patching during a maintenance window
    }
    ```
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-09e2a75baadd84e85 --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" --task-arn "AWS-RunPatchBaseline" --service-role-arn "arn:aws:iam::12345678:role/MW-Role" --task-type "RUN_COMMAND" --max-concurrency 2 --max-errors 1 --priority 5 --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   aws ssm register-task-with-maintenance-window \
+       --window-id mw-09e2a75baadd84e85 \
+       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" \
+       --task-arn "AWS-RunPatchBaseline" \
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --task-type "RUN_COMMAND" \
+       -max-concurrency 2 \
+       --max-errors 1 \
+       --priority 5 \
+       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --window-id mw-09e2a75baadd84e85 ^
+       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" ^
+       --task-arn "AWS-RunPatchBaseline" ^
+       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --task-type "RUN_COMMAND" ^
+       -max-concurrency 2 ^
+       --max-errors 1 ^
+       --priority 5 ^
+       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+   ```
+
+------
 
    The system returns information like the following\.
 

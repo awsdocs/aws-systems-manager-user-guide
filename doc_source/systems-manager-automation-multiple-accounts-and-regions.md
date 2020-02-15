@@ -5,7 +5,7 @@ You can run AWS Systems Manager Automations across multiple AWS Regions and AWS 
 For example, you can centrally implement patching and security updates, remediate compliance drift on VPC configurations or Amazon S3 bucket policies, and manage resources, such as Amazon EC2 instances, at scale\. The following graphic shows an example of a user who is running the AWS\-RestartEC2Instances document in multiple Regions and accounts from an Automation management account\. The Automation locates the instances by using the specified tags in the specified Regions and accounts\.
 
 **Note**  
-When you run an Automation across multiple Regions and accounts, you target resources by using tags or the name of an AWS resource group\. The Automation fails to run on those resources that don't have the specified tag or that aren't included in the specified resource group\.
+When you run an Automation across multiple Regions and accounts, you target resources by using tags or the name of an AWS resource group\. The resource group must exist in each target account and Region, and the resource group name must be the same in each target account and Region\. The Automation fails to run on those resources that don't have the specified tag or that aren't included in the specified resource group\.
 
 ![\[Illustration showing Systems Manager Automation running in multiple Regions and multiple accounts.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-multi-region-and-multi-account.png)
 

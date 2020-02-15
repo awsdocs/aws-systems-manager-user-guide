@@ -33,4 +33,6 @@ For information about creating custom Automation documents that run scripts, see
 + [Creating Dynamic Automation Workflows with Conditional Branching](automation-branchdocs.md)
 + [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)
 + [Sharing a Systems Manager Automation Document](automation-share-document.md)
++ [Systems Manager Automation Actions Reference](automation-actions.md)
 + [Systems Manager Automation Documents Reference](automation-documents-reference.md)
++ [Custom Automation Document Samples](automation-document-samples.md)

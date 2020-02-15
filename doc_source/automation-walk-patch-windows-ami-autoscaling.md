@@ -161,6 +161,10 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "type":"String",
             "description":"AMI to patch"
          },
+         "subnetId":{
+           "type":"String",
+           "description":"The SubnetId where the instance is launched from the sourceAMIid."
+         },
          "targetAMIname":{
             "type":"String",
             "description":"Name of new AMI",
@@ -183,7 +187,8 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
                "InstanceType":"m3.large",
                "MinInstanceCount":1,
                "MaxInstanceCount":1,
-               "IamInstanceProfileName":"the name of the instance IAM role you created"
+               "IamInstanceProfileName":"the name of the instance IAM role you created",
+               "SubnetId":"{{ subnetId }}"
             }
          },
          {
@@ -267,7 +272,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Leave the **Targets and Rate Control** option disabled\.
 
-1. Specify a Windows AMI ID for **sourceAMIid** and your Auto Scaling group name for **targetASG**\.
+1. Specify a Windows AMI ID for **sourceAMIid**, your Auto Scaling group name for **targetASG**, and a value for the **subnetId** input parameter\.
 
 1. Choose **Execute automation**\.
 

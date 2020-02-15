@@ -48,21 +48,9 @@ In our example, you create a maintenance window that runs every five minutes\. N
 
 1. Now run this command to view details about this and any other maintenance windows already in your account:
 
-------
-#### [ Linux ]
-
    ```
    aws ssm describe-maintenance-windows
    ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm describe-maintenance-windows
-   ```
-
-------
 
    The system returns information like the following:
 

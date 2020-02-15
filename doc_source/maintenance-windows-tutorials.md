@@ -60,7 +60,7 @@ You also need the ID of the Amazon EC2 instance you plan to use in the tutorial\
 
 **Topics**
 + [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
-+ [Tutorial: View Information About a Maintenance Windows \(AWS CLI\)](maintenance-windows-cli-tutorials-describe.md)
++ [Tutorial: View Information About Maintenance Windows \(AWS CLI\)](maintenance-windows-cli-tutorials-describe.md)
 + [Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)
 + [Tutorial: Update a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)
 + [Tutorial: Delete a Maintenance Window \(AWS CLI\)](mw-cli-tutorial-delete-mw.md)
