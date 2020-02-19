@@ -7,5 +7,6 @@ Before you begin, you must configure Automation roles and permissions\. For more
 **Topics**
 + [Patching Amazon Machines Images](automation-walk-ami-patching.md)
 + [Using AWS Support Self\-Service Automations](automation-walk-support.md)
++ [Walkthrough: Using Input Transformers with Automation](automation-transformers.md)
 + [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)
 + [Walkthrough: Using Document Builder to Create a Custom Automation Document](automation-walk-document-builder.md)

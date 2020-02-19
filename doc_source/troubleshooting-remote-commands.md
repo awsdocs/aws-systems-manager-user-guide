@@ -135,5 +135,5 @@ Use the follow procedure to enable SSM Agent debug logging on Windows Server and
    + **Linux**: Run the following command:
 
      ```
-     sudo restart amazon-ssm-agent
+     sudo amazon-ssm-agent restart
      ```

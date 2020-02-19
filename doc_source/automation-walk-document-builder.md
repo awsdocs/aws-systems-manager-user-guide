@@ -2,7 +2,7 @@
 
 The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
 
-The first step of the Automation document you create runs a python script to launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The second step runs another python script to keep monitoring for the instance status check to change to `ok` before an overall status of `Success` is reported for the automation execution\.
+The first step of the Automation document you create runs a script to launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation execution\.
 
 **Before You Begin**  
 Before you begin this walkthrough, do the following: 
@@ -133,16 +133,21 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
       ```
       **About This Step**
       
-      This step first launches an EC2 instance using the ```aws:executeScript``` action and the provided python script.
+      This step first launches an EC2 instance using the ```aws:executeScript``` action and the provided script.
       ```
 
    1. Expand **Inputs**\.
 
-   1. For **Runtime**, choose **Python3\.6**\.
+   1. For **Runtime**, choose the runtime language to use to run the provided script\.
 
    1. For **Handler**, enter **launch\_instance**\. This is the function name declared in the following script\.
+**Note**  
+This is not required for PowerShell\.
 
-   1. For **Script**, replace the default contents with the following\.
+   1. For **Script**, replace the default contents with the following\. Be sure to match the script with the corresponding runtime value\.
+
+------
+#### [ Python ]
 
       ```
       def launch_instance(events, context):
@@ -163,6 +168,40 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
       
         return { 'InstanceId' : instance_id }
       ```
+
+------
+#### [ PowerShell ]
+
+      ```
+      Install-Module AWS.Tools.EC2 -Force
+      Import-Module AWS.Tools.EC2
+      
+      $payload = $env:InputPayload | ConvertFrom-Json
+      
+      $imageid = $payload.image_id
+      
+      $tagvalue = $payload.tag_value
+      
+      $instanceType = $payload.instance_type
+      
+      $type = New-Object Amazon.EC2.InstanceType -ArgumentList $instanceType
+      
+      $resource = New-Object Amazon.EC2.ResourceType -ArgumentList 'instance'
+      
+      $tag = @{Key='Name';Value=$tagValue}
+      
+      $tagSpecs = New-Object Amazon.EC2.Model.TagSpecification
+      
+      $tagSpecs.ResourceType = $resource
+      
+      $tagSpecs.Tags.Add($tag)
+      
+      $res = New-EC2Instance -ImageId $imageId -MinCount 1 -MaxCount 1 -InstanceType $type -TagSpecification $tagSpecs
+      
+      return $res.Instances.InstanceId
+      ```
+
+------
 
    1. Expand **Additional inputs**\. 
 
@@ -192,14 +231,19 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
       ```
       **About This Step**
       
-      The python script continuously polls the instance status check value for the instance launched in Step 1 until the ```ok``` status is returned.
+      The script continuously polls the instance status check value for the instance launched in Step 1 until the ```ok``` status is returned.
       ```
 
-   1. For **Runtime**, choose **Python3\.6**\.
+   1. For **Runtime**, choose the runtime language to be used for executing the provided script\.
 
    1. For **Handler**, enter **poll\_instance**\. This is the function name declared in the following script\.
+**Note**  
+This is not required for PowerShell\.
 
-   1. For **Script**, replace the default contents with the following\.
+   1. For **Script**, replace the default contents with the following\. Be sure to match the script with the corresponding runtime value\.
+
+------
+#### [ Python ]
 
       ```
       def poll_instance(events, context):
@@ -233,6 +277,28 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
       
         return {'Status': instance_status, 'InstanceId': instance_id}
       ```
+
+------
+#### [ PowerShell ]
+
+      ```
+      Install-Module AWS.Tools.EC2 -Force
+      Import-Module AWS.Tools.EC2
+      
+      $payload = $env:InputPayload | ConvertFrom-Json
+      
+      $status = Get-EC2InstanceStatus -InstanceId $payload.InstanceId
+      
+      while ($status.Status.Status -ne 'ok'){
+          Write-Host 'Polling get status of the instance', $payload.InstanceId
+          Start-Sleep -Seconds 5
+          $status = Get-EC2InstanceStatus -InstanceId $payload.InstanceId
+      }
+      
+      return @{Status = $status.Status.Status; InstanceId = $payload.InstanceId}
+      ```
+
+------
 
    1. Expand **Additional inputs**\. 
 

@@ -2,7 +2,7 @@
 
 The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
 
 For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
@@ -17,7 +17,8 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [List my patch baselines](#patch-manager-cli-commands-describe-patch-baselines-custom)
 + [Display a patch baseline](#patch-manager-cli-commands-get-patch-baseline)
 + [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline)
-+ [Set the default patch baseline](#patch-manager-cli-commands-register-default-patch-baseline)
++ [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline)
++ [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline)
 + [Register a patch group "Web Servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
 + [Register a patch group "Backend" with the AWS\-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend)
 + [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
@@ -33,7 +34,7 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 
 ## Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
 ------
 #### [ Linux ]
@@ -43,6 +44,9 @@ aws ssm create-patch-baseline \
     --name "Windows-Server-2012R2" \
     --tags "Key=Environment,Value=Production" \
     --description "Windows Server 2012 R2, Important and Critical security updates" \
+    --approved-patches "KB2032276,MS10-048" \
+    --rejected-patches "KB2124261" \
+    --rejected-patches-action "ALLOW_AS_DEPENDENCY" \
     --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
 ```
 
@@ -54,6 +58,9 @@ aws ssm create-patch-baseline ^
     --name "Windows-Server-2012R2" ^
     --tags "Key=Environment,Value=Production" ^
     --description "Windows Server 2012 R2, Important and Critical security updates" ^
+    --approved-patches "KB2032276,MS10-048" ^
+    --rejected-patches "KB2124261" ^
+    --rejected-patches-action "ALLOW_AS_DEPENDENCY" ^
     --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
 ```
 
@@ -535,7 +542,7 @@ The system returns information like the following\.
 }
 ```
 
-## Set the default patch baseline<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
+## Set a custom patch baseline as the default<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
 
 ------
 #### [ Linux ]
@@ -553,6 +560,36 @@ aws ssm register-default-patch-baseline \
 aws ssm register-default-patch-baseline ^
     --region us-east-2 ^
     --baseline-id "pb-0c10e65780EXAMPLE"
+```
+
+------
+
+The system returns information like the following:
+
+```
+{
+   "BaselineId":"pb-0c10e65780EXAMPLE"
+}
+```
+
+## Reset an AWS patch baseline as the default<a name="patch-manager-cli-commands-register-aws-patch-baseline"></a>
+
+------
+#### [ Linux ]
+
+```
+aws ssm register-default-patch-baseline \
+    --region us-east-2 \
+    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-default-patch-baseline ^
+    --region us-east-2 ^
+    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
 ```
 
 ------
