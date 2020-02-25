@@ -29,6 +29,8 @@ You can't add tags to or delete tags from an existing activation\. If you don't 
 **Note**  
 You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
 
+If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using Systems Manager, you can deregister it\. For information, see [Deregistering Managed Instances in a Hybrid Environment](systems-manager-managed-instances-advanced-deregister.md)\.
+
 **Topics**
 + [Create an Activation \(Console\)](#create-managed-instance-activation-console)
 + [Create a Managed Instance Activation \(Command Line\)](#create-managed-instance-activation-commandline)

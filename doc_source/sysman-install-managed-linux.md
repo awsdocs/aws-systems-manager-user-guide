@@ -142,5 +142,3 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 ```
 aws ssm deregister-managed-instance --instance-id "mi-1234567890"
 ```
-
-Continue to [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.

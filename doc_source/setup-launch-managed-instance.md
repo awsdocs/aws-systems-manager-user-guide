@@ -14,6 +14,7 @@ SSM Agent is installed by default on the following AMIs:
 + Amazon Linux 2
 + Ubuntu Server 16\.04
 + Ubuntu Server 18\.04
++ Amazon ECS\-Optimized
 
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.
 

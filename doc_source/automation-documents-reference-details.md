@@ -24,7 +24,6 @@ You can view the JSON content for Automation documents in the Systems Manager co
 
 **Topics**
 + [View Automation document JSON content](#view-automation-json)
-+ [Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)
 + [AWSSupport\-ActivateWindowsWithAmazonLicense](automation-awssupport-activatewindowswithamazonlicense.md)
 + [AWS\-ASGEnterStandby](automation-aws-asgenterstandby.md)
 + [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)

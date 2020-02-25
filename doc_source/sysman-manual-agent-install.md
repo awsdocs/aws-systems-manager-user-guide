@@ -28,7 +28,7 @@ Perform these steps on each instance that will run commands using Systems Manage
 
 **Important**  
 SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\.
-You must manually install SSM Agent on other versions of Linux, including non\-base images like *Amazon ECS\-Optimized AMIs*\.
+You must manually install SSM Agent on other versions of Linux\.
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
 
 **To install SSM Agent on Amazon Linux or Amazon Linux 2**

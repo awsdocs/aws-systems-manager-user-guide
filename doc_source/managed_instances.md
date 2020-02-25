@@ -32,9 +32,7 @@ For information about Systems Manager prerequisites, see [Systems Manager Prereq
 **Increase security posture on managed instances**  
 For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
-**Reset the password on a managed instance**  
-If you forget or want to change the password to one of your managed instances, you can reset it using the AWS Systems Manager **Managed Instances** console or the AWS CLI\. For more information, see [Resetting Passwords on Managed Instances](managed-instances-password-reset.md)\.
-
-**Related Content**
-+ For information about increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict Access to Root\-Level Commands Through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-+ AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-ssm.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
+**Topics**
++ [Configuring Instance Tiers](systems-manager-managed-instances-tiers.md)
++ [Resetting Passwords on Managed Instances](managed-instances-password-reset.md)
++ [Deregistering Managed Instances in a Hybrid Environment](systems-manager-managed-instances-advanced-deregister.md)

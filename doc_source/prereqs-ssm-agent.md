@@ -9,6 +9,7 @@ SSM Agent must be installed on each instance you want to use with Systems Manage
 + Amazon Linux 2
 + Ubuntu Server 16\.04
 + Ubuntu Server 18\.04
++ Amazon ECS\-Optimized
 
 On other AMIs, and on on\-premises servers and virtual machines for your hybrid environment, you must install the agent manually, as described in the table below\.
 

@@ -38,3 +38,4 @@ The following topics describe how to create Automation documents that run script
 + [Script Constraints for Automation Documents](#script-constraints)
 + [Creating an Automation Document that Runs a Script \(Console\)](automation-document-script-console.md)
 + [Creating an Automation Document that Runs Scripts \(Command Line\)](automation-document-script-commandline.md)
++ [Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)

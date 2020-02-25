@@ -20,6 +20,7 @@ Before trying these tutorials, complete the following prerequisites\.
   + Amazon Linux 2
   + Ubuntu Server 16\.04
   + Ubuntu Server 18\.04
+  + Amazon ECS\-Optimized
 
   For information about installing SSM Agent on an instance, see the following topics:
   + [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)
