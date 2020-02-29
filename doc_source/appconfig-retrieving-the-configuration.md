@@ -7,9 +7,9 @@ The `client-id` parameter in the following command is a unique, user\-specifed I
 
 ```
 aws appconfig get-configuration \
---application application_ID \
---environment environment_ID \
---configuration configuration_profile_ID \
+--application application_name_or_ID \
+--environment environment_name_or_ID \
+--configuration configuration_profile_name_or_ID \
 --client-id client_ID \
 outfile > output_filename
 ```
@@ -30,9 +30,9 @@ Sending `ConfigurationVersion` during subsequent polling for configuration updat
 
 ```
 aws appconfig get-configuration \
---application application_ID \
---environment environment_ID \
---configuration configuration_profile_ID \
+--application application_name_or_ID \
+--environment environment_name_or_ID \
+--configuration configuration_profile_name_or_ID \
 --client-configuration-version previous_configuration_version_value \
 --client-id client_ID \
 outfile > output_filename

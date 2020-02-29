@@ -151,7 +151,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run one of the following commands to create an association that runs Ansible playbooks by targeting instances using Amazon EC2 tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
 

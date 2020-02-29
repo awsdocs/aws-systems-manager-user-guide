@@ -64,17 +64,17 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateLinuxAmi` document and run the Automation workflow\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\.
 
    ```
    aws ssm start-automation-execution \
-   --document-name "AWS-UpdateLinuxAmi" \
-   --parameters \
-   "SourceAmiId=ami-0080e4c5bc078760e, \
-   IamInstanceProfileName=ManagedInstanceRole, \
-   AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'"
+       --document-name "AWS-UpdateLinuxAmi" \
+       --parameters \
+       SourceAmiId=ami-0080e4c5bc078760e, \
+       IamInstanceProfileName=ManagedInstanceRole, \
+       AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'"
    ```
 
    The command returns an execution ID\. Copy this ID to the clipboard\. You will use this ID to view the status of the workflow\.

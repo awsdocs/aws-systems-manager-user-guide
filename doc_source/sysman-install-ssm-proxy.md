@@ -2,7 +2,7 @@
 
 The information in this topic applies to Windows Server instances created in or after November 2016 that do *not* use the Nano installation option\.
 
-If your instance is a Windows Server 2003\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. For information about configuring EC2Config to use a proxy, see [Configure Proxy Settings for the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html#ec2config-proxy)\. 
+If your instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. For information about configuring EC2Config to use a proxy, see [Configure Proxy Settings for the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html#ec2config-proxy)\. 
 
 For Windows Server 2016 instances that use the Nano installation option \(Nano Server\), you must connect using PowerShell\. For more information, see [Connect to a Windows Server 2016 Nano Server Instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting-nano.html)\.
 

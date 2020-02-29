@@ -3,7 +3,7 @@
 AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an Amazon EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\. The agent processes requests from the Systems Manager service in the AWS Cloud, and then runs them as specified in the request\. SSM Agent then sends status and execution information back to the Systems Manager service by using the Amazon Message Delivery Service \(service prefix: `ec2messages`\)\.
 
 SSM Agent must be installed on each instance you want to use with Systems Manager\. SSM Agent is preinstalled, by default, on instances created from the following Amazon Machine Images \(AMIs\): 
-+ Windows Server 2003\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2

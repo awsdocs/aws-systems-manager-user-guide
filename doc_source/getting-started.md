@@ -13,7 +13,6 @@ The following is useful background information to help you get started:
 When you are ready, continue with the following steps\.
 
 **Topics**
-+ [Step 1: Install or Upgrade the AWS CLI](getting-started-cli.md)
-+ [Step 2: Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)
-+ [Step 3: Practice Installing or Updating SSM Agent on an Instance](getting-started-agent.md)
-+ [Step 4: Try Systems Manager Tutorials and Walkthroughs](getting-started-walkthroughs.md)
++ [Step 1: Install or Upgrade AWS Command Line Tools](getting-started-cli.md)
++ [Step 2: Practice Installing or Updating SSM Agent on an Instance](getting-started-agent.md)
++ [Step 3: Try Systems Manager Tutorials and Walkthroughs](getting-started-walkthroughs.md)

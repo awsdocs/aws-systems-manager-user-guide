@@ -6,7 +6,7 @@ This walkthrough shows how to work with parameters and parameter hierarchies by 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` data type\. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long\.
 

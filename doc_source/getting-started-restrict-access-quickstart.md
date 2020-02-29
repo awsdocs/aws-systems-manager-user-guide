@@ -220,7 +220,7 @@ These policies provide administrators the ability to start a session to instance
 You can create a policy that allows administrators to perform these tasks from only the Session Manager console and AWS CLI, from only the Amazon EC2 console, or from all three\.
 
 **Note**  
-Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
+Replace *tag\-key* and *tag\-value* with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
 
 Choose from the following tabs to view the sample policy for the access scenario you want to support\.
 
@@ -243,8 +243,8 @@ Use this sample policy to provider administrators with the ability to perform se
             ],
             "Condition": {
                 "StringLike": {
-                    "ssm:resourceTag/Finance": [
-                        "WebServers"
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
                     ]
                 }
             }
@@ -301,8 +301,8 @@ Use this sample policy to provider administrators with the ability to perform se
             ],
             "Condition": {
                 "StringLike": {
-                    "ssm:resourceTag/Finance": [
-                        "WebServers"
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
                     ]
                 }
             }
@@ -348,8 +348,8 @@ Use this sample policy to provider administrators with the ability to perform se
             ],
             "Condition": {
                 "StringLike": {
-                    "ssm:resourceTag/Finance": [
-                        "WebServers"
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
                     ]
                 }
             }

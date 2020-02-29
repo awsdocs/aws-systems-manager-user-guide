@@ -113,7 +113,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -217,7 +217,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -317,7 +317,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("/"\) you need to run the command from your command line tool\):
 
@@ -414,7 +414,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 
@@ -511,7 +511,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 

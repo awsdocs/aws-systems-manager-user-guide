@@ -147,7 +147,7 @@ Sends any text\-based log file to CloudWatch Logs\. The CloudWatch plugin create
 Be aware that if your application truncates or attempts to clean logs during polling, any logs specified for `LogDirectoryPath` can lose entries\. If, for example, you want to limit log file size, create a new log file when that limit is reached, and then continue writing data to the new file\.
 
 **ETW**  
-Sends Event Tracing for Windows \(ETW\) data to CloudWatch Logs\. Microsoft Windows Server 2003 is not supported\. 
+Sends Event Tracing for Windows \(ETW\) data to CloudWatch Logs\.
 
 **IIS**  
 Sends IIS log data to CloudWatch Logs\.

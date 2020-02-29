@@ -32,7 +32,7 @@ The following examples demonstrate various options you can use to view informati
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account\.
 

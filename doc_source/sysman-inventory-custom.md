@@ -90,7 +90,7 @@ The `SchemaDeleteOption` parameter includes the following options:
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 

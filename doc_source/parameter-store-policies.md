@@ -108,7 +108,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to add policies to an existing parameter\.
 

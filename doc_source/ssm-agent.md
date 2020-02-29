@@ -26,7 +26,7 @@ In order for the ssm\-user account to be created, the instance profile attached 
 
 **AMIs with SSM Agent preinstalled**  
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
-+ Windows Server 2003\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2

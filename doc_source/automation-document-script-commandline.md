@@ -10,7 +10,7 @@ Before you begin, ensure you have the following resources prepared\.
   For scripts, Automation supports Python 3\.6 and 3\.7, PowerShell Core 6\.0\.
 + Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-  For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+  For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 **Attach a single file from an S3 bucket**  
 Run the following command to create an Automation document using a script file stored in an Amazon S3 bucket\.

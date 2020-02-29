@@ -17,7 +17,7 @@ Before you complete the following procedure, you must either have administrator 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Verify that an instance is ready to be registered as a target for a maintenance window\.
 
@@ -71,7 +71,7 @@ Use the following procedure to create a maintenance window and specify its basic
 
    For information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
+   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.
 
    The system returns information like the following:
 

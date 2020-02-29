@@ -1,4 +1,4 @@
-# Step 4: Try Systems Manager Tutorials and Walkthroughs<a name="getting-started-walkthroughs"></a>
+# Step 3: Try Systems Manager Tutorials and Walkthroughs<a name="getting-started-walkthroughs"></a>
 
 This topic guides you to tutorials, walkthroughs, and basic tasks to help you learn how to use Systems Manager\.
 

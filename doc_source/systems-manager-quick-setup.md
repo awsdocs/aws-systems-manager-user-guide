@@ -148,7 +148,7 @@ Configuring an instance with an instance profile for Systems Manager does not gi
 ## Update Systems Manager \(SSM\) Agent<a name="quick-setup-ssm-agent"></a>
 
 SSM Agent is Amazon software that processes requests from the Systems Manager service in the AWS Cloud, and then runs them on your instance as specified in the request\. SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
-+ Windows Server 2003\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2

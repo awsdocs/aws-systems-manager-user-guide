@@ -16,7 +16,8 @@ If you create an activation by using either the AWS CLI or AWS Tools for Windows
 ```
 aws ssm create-activation \ 
   --default-instance-name MyWebServers \ 
-  --iam-role SSMServiceRole \ 
+  --description "Activation for Finance department webservers"
+  --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \ 
   --registration-limit 10 \ 
   --region us-east-2 \ 
   --tags "Key=Department,Value=Finance"
@@ -75,7 +76,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create an activation\.
 **Note**  
@@ -88,9 +89,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    aws ssm create-activation \ 
      --default-instance-name name \
      --iam-role iam-service-role-name \
-     --registration-limit number_of_managed_instances \
+     --registration-limit number-of-managed-instances \
      --region region \ 
-     --tags "Key=a_key,Value=a_value","Key=a_2nd_key,Value=a_2nd_value"
+     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -100,9 +101,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    aws ssm create-activation ^ 
      --default-instance-name name ^
      --iam-role iam-service-role-name ^
-     --registration-limit number_of_managed_instances ^
+     --registration-limit number-of-managed-instances ^
      --region region ^ 
-     --tags "Key=a_key,Value=a_value","Key=a_2nd_key,Value=a_2nd_value"
+     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -113,7 +114,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      -IamRole iam-service-role-name `
      -RegistrationLimit number-of-managed-instances `
      –Region region `
-     -Tag @{"Key"="a_key";"Value"="a_value"},@{"Key"="a_2nd_key";"Value"="a_2nd_value"}
+     -Tag @{"Key"="key-name-1";"Value"="key-value-1"},@{"Key"="key-name-2";"Value"="key-value-2"}
    ```
 
 ------
@@ -126,7 +127,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm create-activation \
      --default-instance-name MyWebServers \
-     --iam-role SSMServiceRole \
+     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
      --registration-limit 10 \ 
      --region us-east-2 \
      --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
@@ -138,7 +139,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm create-activation ^
      --default-instance-name MyWebServers ^
-     --iam-role SSMServiceRole ^
+     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
      --registration-limit 10 ^ 
      --region us-east-2 ^
      --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
@@ -149,7 +150,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    New-SSMActivation -DefaultInstanceName MyWebServers `
-     -IamRole SSMServiceRole `
+     -IamRole service-role/AmazonEC2RunCommandRoleForManagedInstances `
      -RegistrationLimit 10 `
      –Region us-east-2 `
      -Tag @{"Key"="Environment";"Value"="Production"},@{"Key"="Department";"Value"="Finance"}
