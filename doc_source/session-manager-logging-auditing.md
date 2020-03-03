@@ -10,6 +10,9 @@ In addition to providing information about current and completed sessions in the
 If you are using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.  
 If you are using Linux instances, ensure that the screen utility is installed\. If it is not, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
 
+**Limitations**  
+Auditing and logging is not available for SSH/SCP over session manager. This may be added in a future release\.
+
 Refer to the following topics for more information about auditing and logging options for Session Manager\.
 
 ## Audit Session Activity Using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
