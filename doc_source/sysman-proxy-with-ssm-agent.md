@@ -86,6 +86,9 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 **Note**  
 You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
+**Note**
+If you need to use a `%` character in these strings (for example in a proxy password), you need to escape it as `%%` or systemd will ignore the whole line\.
+
 1. Save your changes\. The system creates a file named `amazon-ssm-agent.override` \(or `override.conf` on Amazon Linux 2\) instances in the `etc/systemd/system/amazon-ssm-agent.service.d` folder\.
 
 1. Restart SSM Agent by using the following commands:
