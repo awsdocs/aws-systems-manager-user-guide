@@ -52,7 +52,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 
 1. Connect to the instance where you installed SSM Agent\.
 
-1. Run the following command:
+1. Run the following command (recommended: use tab completion to get the right service name, it may be `amazon-ssm-agent.service`):
 
    ```
    systemctl edit amazon-ssm-agent
@@ -71,7 +71,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
    ```
    [Service]
    Environment="http_proxy=http://hostname:port"
-   Environment="http_proxy=http://hostname:port"
+   Environment="https_proxy=http://hostname:port"
    Environment="no_proxy=169.254.169.254"
    ```
 
@@ -79,8 +79,8 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 
    ```
    [Service]
-   Environment="http://hostname:port"
-   Environment="https://hostname:port"
+   Environment="http_proxy=http://hostname:port"
+   Environment="https_proxy=https://hostname:port"
    Environment="no_proxy=169.254.169.254"
    ```
 **Note**  
