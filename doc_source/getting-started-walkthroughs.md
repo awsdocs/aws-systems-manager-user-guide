@@ -47,10 +47,8 @@ The [AWS Systems Manager State Manager](systems-manager-state.md) capability hel
 
 **Documents**  
 The [AWS Systems Manager Documents](sysman-ssm-docs.md) capability lets you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
-+ [Copy a Document](copy-document.md)
-+ [Add a Systems Manager Document \(Console\)](create-ssm-console.md)
-+ [Create an SSM Document \(AWS CLI\)](create-ssm-document-cli.md)
-+ [Create an SSM Document \(Tools for Windows PowerShell\)](create-ssm-document-ps.md)
++ [Create an SSM Document \(Console\)](create-ssm-console.md)
++ [Create an SSM Document \(Command Line\)](create-ssm-document-cli.md)
 
 **Parameter Store**  
 The [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md) capability provides a centralized store to manage your configuration data, whether plain\-text data such as database strings or secrets such as passwords\. This allows you to separate your secrets and configuration data from your code\. Parameters can be tagged and organized into hierarchies, helping you manage parameters more easily\.

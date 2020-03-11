@@ -11,7 +11,7 @@ aws appconfig get-configuration \
 --environment environment_name_or_ID \
 --configuration configuration_profile_name_or_ID \
 --client-id client_ID \
-outfile > output_filename
+output_filename
 ```
 
 The system responds with information in the following format\.
@@ -35,7 +35,7 @@ aws appconfig get-configuration \
 --configuration configuration_profile_name_or_ID \
 --client-configuration-version previous_configuration_version_value \
 --client-id client_ID \
-outfile > output_filename
+output_filename
 ```
 
 **Note**  

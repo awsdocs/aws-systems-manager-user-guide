@@ -79,7 +79,7 @@ The following procedure requires that you specify an AWS Region for your command
 #### [ Windows ]
 
    ```
-   aws ssm list-document
+   aws ssm list-documents
    ```
 
 ------

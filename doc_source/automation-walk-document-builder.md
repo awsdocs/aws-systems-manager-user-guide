@@ -283,7 +283,6 @@ This is not required for PowerShell\.
 
       ```
       Install-Module AWS.Tools.EC2 -Force
-      Import-Module AWS.Tools.EC2
       
       $payload = $env:InputPayload | ConvertFrom-Json
       

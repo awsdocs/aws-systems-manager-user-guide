@@ -80,9 +80,9 @@ Here is an example:
                     "Suite"
                 ]
             }
-        ]
+        ],
         "Parameters": {
-            "source": "https://my-s3-url.com/MyModule.zip ",
+            "source": "https://my-s3-url.com/MyModule.zip",
             "sourceHash": "ASDFWER12321WRW"
         }
     }
@@ -108,7 +108,7 @@ Here is an example:
         "DocumentName": "AWS-InstallPowerShellModule",
         "InstanceIds": ["i-1234567890abcdef0"],
         "Parameters": {
-            "source": "https://my-s3-url.com/MyModule.zip ",
+            "source": "https://my-s3-url.com/MyModule.zip",
             "sourceHash": "ASDFWER12321WRW"
         },
         "CloudWatchOutputConfig" : { 

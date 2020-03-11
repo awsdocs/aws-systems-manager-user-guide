@@ -13,5 +13,4 @@ To view details about the different versions of SSM Agent, see the [release note
 
 **Topics**
 + [Install and Configure SSM Agent on Amazon EC2 Windows Instances](sysman-install-win.md)
-+ [View SSM Agent Logs on Windows Instances](sysman-agent-logs-win.md)
 + [Configure SSM Agent to Use a Proxy for Windows Instances](sysman-install-ssm-proxy.md)

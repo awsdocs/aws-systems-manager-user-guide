@@ -67,7 +67,6 @@ If you experience problems executing commands using Run Command, there might be 
 
 **Topics**
 + [View SSM Agent Log Files](#systems-manager-ssm-agent-log-files)
-+ [Enable SSM Agent Debug Logging](#systems-manager-ssm-agent-debug-log-files)
 
 ### View SSM Agent Log Files<a name="systems-manager-ssm-agent-log-files"></a>
 
@@ -83,57 +82,3 @@ If you choose to view these logs by using Windows File Explorer, be sure to enab
 **On Linux**
 + /var/log/amazon/ssm/amazon\-ssm\-agent\.log
 + /var/log/amazon/ssm/errors\.log
-
-### Enable SSM Agent Debug Logging<a name="systems-manager-ssm-agent-debug-log-files"></a>
-
-Use the follow procedure to enable SSM Agent debug logging on Windows Server and Linux managed instances\.
-
-1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
-
-1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory:
-
-   1. **Windows Server**: %PROGRAMFILES%\\Amazon\\SSM\\seelog\.xml\.template
-
-   1. **Linux**: /etc/amazon/ssm/seelog\.xml\.template
-
-1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
-
-   ```
-   <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
-   ```
-
-1. **Windows only**: Locate the following entry:
-
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
-
-   Change this entry to use the following path:
-
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
-
-1. **Windows only**: Locate the following entry:
-
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"
-   ```
-
-   Change this entry to use the following path:
-
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"
-   ```
-
-1. Restart SSM Agent\.
-   + **Windows Server**: Run the following command:
-
-     ```
-      Restart-Service AmazonSSMAgent
-     ```
-   + **Linux**: Run the following command:
-
-     ```
-     sudo amazon-ssm-agent restart
-     ```

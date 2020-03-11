@@ -33,7 +33,6 @@ You can make your documents public or share them with specific AWS accounts\. Sh
 For information about SSM document quotas, see [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
 **Topics**
-+ [Systems Manager Pre\-Defined Documents](predefined-documents.md)
 + [SSM Document Schemas and Features](document-schemas-features.md)
 + [SSM Document Syntax](sysman-doc-syntax.md)
 + [Creating Systems Manager Documents](create-ssm-doc.md)

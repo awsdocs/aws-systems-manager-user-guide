@@ -19,5 +19,4 @@ To view details about the different versions of SSM Agent, see the [release note
 **Topics**
 + [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md)
 + [Configure SSM Agent to Use a Proxy](sysman-proxy-with-ssm-agent.md)
-+ [View SSM Agent Logs](sysman-agent-logs.md)
 + [Uninstall SSM Agent from Linux Instances](sysman-uninstall-agent.md)
