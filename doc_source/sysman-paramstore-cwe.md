@@ -41,7 +41,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Change"
        ],
        "detail": {
-           "parameter-name": [
+           "name": [
                "parameter-1-name",
                "/parameter-2-name/level-2",
                "/parameter-3-name/level-2/level-3"
@@ -69,7 +69,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Change"
        ],
        "detail": {
-           "parameter-name": [
+           "name": [
                "/Oncall",
                "/Project/Teamlead"
            ],

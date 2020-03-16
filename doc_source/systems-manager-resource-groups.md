@@ -4,9 +4,7 @@ A *resource group* is a collection of AWS resources that are all in the same AWS
 
 With AWS Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. After you add resources to a group you created in Resource Groups, use AWS Systems Manager tools such as Automation to simplify management tasks on your resource group\. You can also use the resource groups you create as the basis for viewing monitoring and configuration insights in Systems Manager\. 
 
-For information about granting the IAM users in your account access to Resource Groups and its Tag Editor in the AWS Management Console, see [Create Policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\.
+For more information about Resource Groups, see the *[AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/)*\. For information about granting the IAM users in your account access to Resource Groups and its Tag Editor in the AWS Management Console, see [Create Policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\.
 
-**Resources**
-+ *[AWS Resource Groups User Guide](https://docs.aws.amazon.com/ARG/latest/userguide/)*
-+ *[AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)*
-+ *[AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/)*
+**Topics**
++ [Viewing Operations Data for AWS Resource Groups](viewing-operations-data.md)
