@@ -1,11 +1,11 @@
 # Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI<a name="sysman-inventory-cliwalk"></a>
 
-The following procedures walk you through the process of configuring Inventory to collect metadata from your managed instances\. When you configure Inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the Inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
+The following procedures walk you through the process of configuring Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
 
 `The aws:softwareInventory plugin can only be invoked via ssm-associate`\.
 
 **Note**  
-An instance can have only one Inventory association configured at a time\. If you configure an instance with two or more Inventory associations, the association doesn't run and no inventory data is collected\.
+An instance can have only one inventory association configured at a time\. If you configure an instance with two or more inventory associations, the association doesn't run and no inventory data is collected\.
 
 ## Quickly Configure All of Your Managed Instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
 
@@ -28,7 +28,7 @@ This command does not enable inventory of file or Windows Registry metadata\. To
 
 ## Manually Configuring Inventory on Your Managed Instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
 
-Use the following procedure to manually configure Inventory on your managed instances by using instance IDs or tags\.
+Use the following procedure to manually configure Systems Manager Inventory on your managed instances by using instance IDs or tags\.
 
 **To manually configure your managed instances for inventory \(CLI\)**
 
@@ -36,7 +36,7 @@ Use the following procedure to manually configure Inventory on your managed inst
 
    For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
-1. Run the following command to create a State Manager association that runs Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
+1. Run the following command to create a State Manager association that runs Systems Manager Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
 
    ```
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=an instance ID" --schedule-expression "rate(240 minutes)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region-id\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"

@@ -9,10 +9,19 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 **Note**  
 AMIs that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.  
-Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" error when trying to deploy a new version of SSM Agent in a Region\.
+Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" or "updating amazon\-ssm\-agent to an older version, please enable allow downgrade to proceed" error when trying to deploy a new version of SSM Agent in a Region\.
 
 **SSM Agent and the Instance Metadata Service \(IMDS\)**  
 Systems Manager relies on Amazon EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+
+**SSM Agent credentials precedence**  
+The SSM Agent requires permissions provided by an IAM role to communicate with Systems Manager\. It's important to understand how these credentials are sourced and evaluated by the SSM Agent\. Otherwise, previously configured credentials on your managed instances might supersede your desired credential provider\. SSM Agent credentials are evaluated in the following order\.
+
+1. Environment variables \($HOME, %USERPROFILE%\)
+
+1. Shared credentials file \($HOME/\.aws/credentials, %USERPROFILE%\\\.aws\\credentials\)
+
+1. Instance profile
 
 **About the local ssm\-user account**  
 Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.

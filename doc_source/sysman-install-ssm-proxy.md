@@ -64,9 +64,11 @@ When configuring proxy settings for the SSM Agent on Windows instances, it's imp
 
 1. Internet Explorer settings
 
-**Important**  
-If you configured the SSM Agent to use a proxy and are using AWS Systems Manager services, such as Run Command and Patch Manager, that use PowerShell during their execution on Windows instances, you must also configure `WinINet` proxy settings on your Windows instances\. Otherwise, the operation might fail because `WinINet` proxy settings are used by PowerShell, and are not inherited from the SSM Agent proxy configuration\.  
-The following PowerShell commands return the current `WinINet` proxy settings and apply your proxy settings to `WinINet`\.  
+## SSM Agent Proxy Settings and Systems Manager Services<a name="ssm-agent-proxy-services"></a>
+
+If you configured the SSM Agent to use a proxy and are using AWS Systems Manager services, such as Run Command and Patch Manager, that use PowerShell or the Windows Update client during their execution on Windows instances, you must configure additional proxy settings\. Otherwise, the operation might fail because proxy settings used by PowerShell and the Windows Update client are not inherited from the SSM Agent proxy configuration\.
+
+For Run Command, you must configure `WinINet` proxy settings on your Windows instances\. The following PowerShell commands return the current `WinINet` proxy settings, and apply your proxy settings to `WinINet`\.
 
 ```
 [System.Net.WebRequest]::DefaultWebProxy
@@ -77,3 +79,13 @@ $WebProxy = New-Object System.Net.WebProxy($proxyServer,$true,$proxyBypass)
 
 [System.Net.WebRequest]::DefaultWebProxy = $WebProxy
 ```
+
+For Patch Manager, you must configure system\-wide proxy settings so the Windows Update client can scan for and download updates\. We recommend that you use Run Command to run the following commands because they run on the SYSTEM account, and the settings apply system\-wide\. The following netsh commands return the current proxy settings, and apply your proxy settings to the local system\.
+
+```
+netsh winhttp show proxy
+				
+netsh winhttp set proxy hostname:port
+```
+
+For more information about using Run Command, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
