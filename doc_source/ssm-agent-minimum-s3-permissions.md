@@ -34,7 +34,7 @@ Amazon S3 permissions required by SSM Agent
 | arn:aws:s3:::aws\-ssm\-document\-attachments\-region/\* |  Provides access to the Amazon S3 bucket containing Distributor packages\.  | 
 | arn:aws:s3:::patch\-baseline\-snapshot\-region/\* |  Provides access to the Amazon S3 bucket containing patch baseline snapshots\. This is required if you use the `AWS-RunPatchBaseline` SSM document or legacy `AWS-ApplyPatchBaseline` SSM document\.  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `patch-baseline-snapshot-me-south-1-uduvl7q8`     | 
 
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ## Example<a name="ssm-agent-minimum-s3-permissions-example"></a>
 

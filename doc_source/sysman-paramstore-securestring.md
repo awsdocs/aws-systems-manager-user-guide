@@ -1,7 +1,7 @@
-# About Secure String Parameters<a name="sysman-paramstore-securestring"></a>
+# Secure String Parameters<a name="sysman-paramstore-securestring"></a>
 
-A secure string parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plaintext, such as passwords or license keys, create those parameters using the `SecureString` datatype\. We recommend using secure string parameters for the following scenarios\.
-+ You want to use data/parameters across AWS services without exposing the values as plaintext in commands, functions, agent logs, or AWS CloudTrail logs\.
+A secure string parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plain text, such as passwords or license keys, create those parameters using the `SecureString` datatype\. We recommend using secure string parameters for the following scenarios\.
++ You want to use data/parameters across AWS services without exposing the values as plain text in commands, functions, agent logs, or AWS CloudTrail logs\.
 + You want to control who has access to sensitive data\.
 + You want to be able to audit when sensitive data is accessed \(AWS CloudTrail\)\.
 + You want to encrypt your sensitive data and you want to bring your own encryption keys to manage access\.

@@ -41,7 +41,7 @@ The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) ca
 
 **State Manager**  
 The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your Amazon EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
-+ [Creating Associations that Run MOF Files](systems-manager-state-manager-using-mof-file.md)
++ [Creating Associations That Run MOF Files](systems-manager-state-manager-using-mof-file.md)
 + [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically Update PV Drivers on EC2 Windows Instances \(Console\)](sysman-state-pvdriver.md)
 
@@ -52,7 +52,7 @@ The [AWS Systems Manager Documents](sysman-ssm-docs.md) capability lets you crea
 
 **Parameter Store**  
 The [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md) capability provides a centralized store to manage your configuration data, whether plain\-text data such as database strings or secrets such as passwords\. This allows you to separate your secrets and configuration data from your code\. Parameters can be tagged and organized into hierarchies, helping you manage parameters more easily\.
-+ [Walkthrough: Create and Test a Parameter in a Command \(Console\)](sysman-paramstore-console.md)
++ [Walkthrough: Create and Test a Parameter \(Console\)](sysman-paramstore-console.md)
 + [Walkthrough: Create and Update a String Parameter \(AWS CLI\)](sysman-paramstore-cli.md)
 + [Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)
 + Advanced: [Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)

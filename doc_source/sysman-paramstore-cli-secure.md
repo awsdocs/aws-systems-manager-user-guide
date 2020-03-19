@@ -1,6 +1,6 @@
 # Walkthrough: Create and Update a SecureString Parameter \(AWS CLI\)<a name="sysman-paramstore-cli-secure"></a>
 
-Use the following procedure to create a secure string parameter\. For more information about secure string parameters, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Use the following procedure to create a secure string parameter\. For more information about secure string parameters, see [Secure String Parameters](sysman-paramstore-securestring.md)\.
 
 **To create a secure string parameter using the AWS CLI**
 

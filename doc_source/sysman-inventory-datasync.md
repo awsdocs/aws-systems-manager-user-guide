@@ -14,7 +14,7 @@ Diagram 1 shows how resource data sync aggregates inventory data from managed in
 
 **Diagram 1: Resource Data Sync with Multiple AWS Accounts and AWS Regions**
 
-![\[Systems Manager resource data sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-inventory-datasync-vsd.png)
+![\[Systems Manager resource data sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync.png)
 
 If you delete a managed instance, resource data sync preserves the inventory file for the deleted instance\. For running instances, however, resource data sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:MangagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
 
@@ -49,7 +49,7 @@ Before you create a resource data sync, use the following procedure to create a 
                    ],
    ```
 
-   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix*/ from the ARN in the following policy\. 
+   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
 **Note**  
 For information about viewing your AWS account ID, see [Your AWS Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
 
@@ -154,7 +154,7 @@ Before you create a resource data sync for multiple accounts defined in AWS Orga
 
 1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *organization\-id* with the name of the Amazon S3 bucket you created and a valid AWS Organizations account ID\.
 
-   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix*/ from the ARN in the following policy\. 
+   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
 
    ```
    {

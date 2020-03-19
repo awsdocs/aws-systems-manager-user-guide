@@ -4,10 +4,10 @@ This section describes how to organize, create, and tag parameters, and how to c
 
 **Topics**
 + [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)
-+ [Working with Parameter Policies](parameter-store-policies.md)
-+ [Requirements and Constraints for Parameter Names](sysman-parameter-name-constraints.md)
++ [Assigning Parameter Policies](parameter-store-policies.md)
++ [About Requirements and Constraints for Parameter Names](sysman-parameter-name-constraints.md)
 + [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)
 + [Tagging Systems Manager Parameters](sysman-paramstore-su-tag.md)
 + [Searching for Systems Manager Parameters](parameter-search.md)
-+ [Working with Parameter Versions](sysman-paramstore-versions.md)
++ [Creating and Using Parameter Versions](sysman-paramstore-versions.md)
 + [Labeling Parameters](sysman-paramstore-labels.md)

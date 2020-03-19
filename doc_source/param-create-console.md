@@ -21,23 +21,23 @@ Parameters are only available in the AWS Region where they were created\.
 
 1. In the **Description** box, type a description that identifies this parameter as a test parameter\.
 
-1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
+1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
 
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
-**Note**  
-If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS customer master key \(CMK\) ID, a CMK ARN, an alias name, or an alias ARN, then the system uses `alias/aws/ssm`, which is the AWS managed CMK for Systems Manager\. If you don't want to use this key, then you can use a customer managed CMK\. For more information about secure string parameters, see [About Secure String Parameters](sysman-paramstore-securestring.md)\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
-When creating a secure string parameter in the console by using the `key-id` parameter with either a customer managed CMK alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:  
+   + If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS customer master key \(CMK\) ID, a CMK ARN, an alias name, or an alias ARN, then the system uses `alias/aws/ssm`, which is the AWS managed CMK for Systems Manager\. If you don't want to use this key, then you can use a customer managed CMK\. For more information about secure string parameters, see [Secure String Parameters](sysman-paramstore-securestring.md)\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
+   + When creating a secure string parameter in the console by using the `key-id` parameter with either a customer managed CMK alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:
 
      ```
      arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
      ```
-Here is an alias name example:  
+
+     Here is an alias name example:
 
      ```
      alias/MyAliasName
      ```
 
-1. In the **Value** box, type a value\. For example, type `MyFirstParameter`\. If you chose **Secure String**, the value is masked as you type\.
+1. In the **Value** box, type a value\. For example, type **MyFirstParameter** or **ami\-0dbf5ea29aEXAMPLE**\. If you chose **Secure String**, the value is masked as you type\.
 
 1. \(Optional\) In the **Tags** area, apply one or more tag key\-value pairs to the parameter\.
 
