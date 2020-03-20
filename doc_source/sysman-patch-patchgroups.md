@@ -80,4 +80,4 @@ The general process to scan or install patches using Run Command and Patch Manag
 
 ### Related Content<a name="sysman-patch-patchgroups-related"></a>
 
-[About Patch Compliance States](about-patch-compliance-states.md)
+[About Patch Compliance Status Values](about-patch-compliance-states.md)

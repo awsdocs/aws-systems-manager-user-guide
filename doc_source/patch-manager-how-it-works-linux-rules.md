@@ -27,7 +27,7 @@ For information about accepted formats for lists of approved patches and rejecte
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
@@ -48,7 +48,7 @@ For information about accepted formats for lists of approved patches and rejecte
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
 
@@ -75,7 +75,7 @@ In the response to this command, all upgradable packages are reported in this fo
 name, priority, section, archive, candidate version
 ```
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 
