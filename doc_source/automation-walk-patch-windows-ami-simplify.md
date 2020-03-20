@@ -214,7 +214,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
                   "{{ startInstances.InstanceIds }}"
                ],
                "Parameters":{
-                  "UpdateLevel":"Important"
+                  "SeverityLevels":"Important"
                }
             }
          },
