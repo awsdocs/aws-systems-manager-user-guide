@@ -66,7 +66,7 @@ For information about configuring DNS to work with PrivateLink endpoints in hybr
 
 ## Creating VPC Endpoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
 
-Use the following procedure to create three required and one optional separate VPC endpoints for Systems Manager\. All three endpoints are required for Systems Manager to work in a VPC\. The fourth is required only if you are using Session Manager capabilities\. This procedure links to related procedures in the Amazon VPC User Guide\. 
+Use the following procedure to create three required and 2 optional separate VPC endpoints for Systems Manager\. All three endpoints are required for Systems Manager to work in a VPC\. The fourth is required only if you are using Session Manager capabilities\. The fifth is required if one of this capabilities requires AWS tool downloads\. This procedure links to related procedures in the Amazon VPC User Guide\.
 
 **To create VPC endpoints for Systems Manager**
 
@@ -75,6 +75,7 @@ Use the following procedure to create three required and one optional separate V
    + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
    + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+   + **com\.amazonaws\.*region*\.s3**: This endpoint is required only if you are downloading AWS resources from S3\. Example: if triggering [Systems Manager agent updates](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-automatic-updates.html) (also requires the ssmmessages endpoint)\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
