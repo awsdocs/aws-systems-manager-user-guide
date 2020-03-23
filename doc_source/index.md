@@ -248,6 +248,7 @@ Amazon's trademarks and trade dress may not be used in
                + [AWS-StopRDSInstance](automation-aws-stoprdsinstance.md)
                + [AWS-TerminateEC2Instance](automation-aws-terminateec2instance.md)
                + [AWSSupport-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md)
+               + [AWSSupport-TroubleshootConnectivityToRDS](automation-awssupport-troubleshootconntords.md)
                + [AWSSupport-TroubleshootRDP](automation-awssupport-troubleshootrdp.md)
                + [AWSSupport-TroubleshootSSH](automation-awssupport-troubleshootssh.md)
                + [AWS-UpdateCloudFormationStack](automation-aws-updatecloudformationstack.md)

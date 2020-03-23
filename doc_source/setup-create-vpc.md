@@ -66,19 +66,23 @@ For information about configuring DNS to work with PrivateLink endpoints in hybr
 
 ## Creating VPC Endpoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
 
-Use the following procedure to create three required and 2 optional separate VPC endpoints for Systems Manager\. All three endpoints are required for Systems Manager to work in a VPC\. The fourth is required only if you are using Session Manager capabilities\. The fifth is required if one of this capabilities requires AWS tool downloads\. This procedure links to related procedures in the Amazon VPC User Guide\.
+Use the following information to create VPC interface and gateway endpoints for Systems Manager\. This topic links to procedures in the *Amazon VPC User Guide*\. 
 
 **To create VPC endpoints for Systems Manager**
 
-1. Follow the steps in [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the following endpoints:
+In the first step below, you create three required and one optional *interface* endpoints for Systems Manager\. The first three endpoints are required for Systems Manager to work in a VPC\. The fourth, `com.amazonaws.region.ssmmessages`, is required only if you are using Session Manager capabilities\.
+
+In the second step, you create the required *gateway* endpoint for Systems Manager to access Amazon S3\.
+**Note**  
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
+1. Follow the steps in [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the following interface endpoints:
    + **com\.amazonaws\.*region*\.ssm**: The endpoint for the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **com\.amazonaws\.*region*\.ec2**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
    + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
-   + **com\.amazonaws\.*region*\.s3**: This endpoint is required only if you are downloading AWS resources from S3\. Example: if triggering [Systems Manager agent updates](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-automatic-updates.html) (also requires the ssmmessages endpoint)\.
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
-
-1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create an endpoint for Amazon S3\. Systems Manager uses this endpoint to upload Amazon S3 output logs, and to update SSM Agent\.
+1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
+   + **com\.amazonaws\.*region*\.s3**: Systems Manager uses this endpoint to update SSM Agent and for tasks like uploading output logs you choose to store in Amazon S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
 
 Continue to [Step 7: \(Optional\) Create Systems Manager Service Roles](setup-service-role.md)\.
