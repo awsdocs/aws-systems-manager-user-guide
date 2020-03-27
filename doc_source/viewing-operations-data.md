@@ -1,8 +1,8 @@
 # Viewing Operations Data for AWS Resource Groups<a name="viewing-operations-data"></a>
 
-In the AWS Systems Manager console, the AWS Resource Groups page displays operations data for a selected group on four tabs: **Details**, **Config**, **CloudTrail**, **OpsItems**\. 
+In the AWS Systems Manager console, the AWS Resource Groups page displays operations data for a selected group on five tabs: **Details**, **Config**, **CloudTrail**, **Monitoring**, and **OpsItems**\. 
 
-![\[The four tabs that display operations data for a selected group in AWS Resource Groups.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/rg-operations-data-tabs.png)
+![\[The five tabs that display operations data for a selected group in AWS Resource Groups.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/rg-operations-data-tabs.png)
 
 **Note**  
 These tabs are not available when viewing a group in the Resource Groups console\.
@@ -16,7 +16,8 @@ You can use the information on these tabs to help you understand which resources
 | --- | --- | 
 |  **Details**  |  For tag\-based resource groups, this tab includes an overview of the group, the tags on which the group is based, and a list of the resources discovered by the resource group query\. For AWS CloudFormation stack\-based groups, this tab includes detailed information about the AWS CloudFormation stack, including stack events\. For tag\-based and AWS CloudFormation stack\-based resource groups, if a resource in the **Group resources** section includes a link, you can choose this link to view additional details about the selected resource\. Not all AWS resources are supported for the additional details view\. For more information, see [Resources Supported in the Additional Details View](#viewing-operations-data-supported) in this topic\.  | 
 |  **Config**  |  This tab includes AWS Config compliance and history information for resources in the selected group\.   | 
-|  **CloudTrail**  |  This tab lists AWS CloudTrail events for the resources in the selected group\.  | 
+|  **CloudTrail**  |  This tab lists AWS CloudTrail events for resources in the selected group\.  | 
+|  **Monitoring**  |  This tab lists Amazon CloudWatch alarms for resources in the selected group\. This tab also shows CloudWatch dashboards associated with your resource group\. The tab is empty if no alarms have been configured and no dashboards created for the selected resource group\.  | 
 |  **OpsItems**  |  This tab lists all operational work items \(OpsItems\) for AWS CloudFormation stack\-based resources in the selected group\. OpsItems for tag\-based resources are not supported\. For tag\-based resources, the OpsItems table is empty\. The table is also empty if no OpsItems were created for the AWS CloudFormation resources in this group\.  | 
 
 **Important**  
@@ -30,7 +31,7 @@ The **Details** tab for tag\-based and AWS CloudFormation stack\-based groups in
 
 For tag\-based and AWS CloudFormation stack\-based resource groups, if a resource in this section includes a link, you can choose this link to view additional details about the selected resource\. The additional details page includes operational data from multiple AWS services to help you quickly assess the status of a resource and recent actions applied to it\. 
 
-![\[additional details view for a selected resource in AWS Resource Groups.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/rg-operations-data-enhanced-details.png)
+![\[Additional details view for a selected resource in AWS Resource Groups.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/rg-operations-data-enhanced-details.png)
 
 Not all AWS resources are supported for the additional details view\. The following list shows the AWS services that are supported\. When listed in the **Group resources** section, these resources include a link to the additional details page\.
 

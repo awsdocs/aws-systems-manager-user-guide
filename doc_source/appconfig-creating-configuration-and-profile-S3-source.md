@@ -14,7 +14,7 @@ You can store configurations in Amazon S3\. When you create the configuration pr
 
 ## Configuring Permissions for a Configuration Stored as an Amazon S3 Object<a name="appconfig-creating-configuration-and-profile-S3-source-permissions"></a>
 
-When you create a configuration profile for a configuration stored as an Amazon S3 object, you must specify an ARN for an IAM role that that gives AppConfig permission to get the object\. The role must include the following permissions\.
+When you create a configuration profile for a configuration stored as an Amazon S3 object, you must specify an ARN for an IAM role that gives AppConfig permission to get the object\. The role must include the following permissions\.
 
 Permissions to access the Amazon S3 object
 + s3:GetObject
