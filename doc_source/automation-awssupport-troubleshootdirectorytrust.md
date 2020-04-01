@@ -96,4 +96,4 @@ evalDirectorySecurityGroup\.output \- Results from evaluating whether the securi
 
 evalAclEntries\.output \- Results from evaluating whether the network ACLs associated with the AWS Managed Microsoft AD allow the requisite traffic for trust creation\.
 
-evaluateRemoteDomainCidr\.output \- Results from evaluating whether the `RemoteDomainCidrs` are valid values\. Confirming that the AWS Managed Microsoft AD has conditional forwarders for the `RemoteDomainCidrs`, and that the requisite IP routes have been added to the AWS Managed Microsoft AD if the `RemoteDomainCidrs` are non\-RFC 1918 IP addresses\.
+evaluateRemoteDomainCidr\.output \- Results from evaluating whether the `RemoteDomainCidrs` are valid values\. Confirms that the AWS Managed Microsoft AD has conditional forwarders for the `RemoteDomainCidrs`, and that the requisite IP routes have been added to the AWS Managed Microsoft AD if the `RemoteDomainCidrs` are non\-RFC 1918 IP addresses\.

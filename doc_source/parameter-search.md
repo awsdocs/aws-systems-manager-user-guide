@@ -17,7 +17,7 @@ For information about using the Systems Manager console and AWS CLI to view info
 1. Click in the search box and choose how you want to search\. For example, Type or Name\.
 
 1. Provide information for the search type you selected\. For example:
-   + If you are searching by Type, choose from String, SecureString, or StringList\.
+   + If you are searching by Type, choose from String, StringList, or SecureString\.
    + If you are searching by Name, choose contains, equals, or begins\-with, and then enter all or part of a parameter name\.
 **Note**  
 In the console, the default search type for Name is contains\.
@@ -66,7 +66,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
-In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a secure string parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [Secure String Parameters](sysman-paramstore-securestring.md)\.
+In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
 
    If successful, the command returns output similar to the following\.
 

@@ -36,7 +36,7 @@ Amazon
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootConnectivityToRDS" --parameters "DBInstanceIdentifier=DBINSTANCEIDENTIFIER,InstanceId=INSTANCEID"
+aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootConnectivityToRDS" --parameters "DBInstanceIdentifier=DBINSTANCEIDENTIFIER,SourceInstance=INSTANCEID"
 ```
 
 **Required IAM Permissions**

@@ -98,7 +98,7 @@ Tokens play an important role in reducing redundant code by making MOF files gen
 + `tag`: Amazon EC2 or managed instance tags
 + `tagb64`: This is the same as tag, but the system uses base64 to decode the value\. This allows you to use special characters in tag values\.
 + `env`: Resolves environment variables\.
-+ `ssm`: Systems Manager Parameter Store values\. Only String and Secure String types are supported\.
++ `ssm`: Systems Manager Parameter Store values\. Only `String` and `SecureString` types are supported\.
 + `tagssm`: This is the same as tag, but if the tag is not set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a default global value, but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
 
 Here is Parameter Store example that uses the `ssm` token type\. 

@@ -72,7 +72,7 @@ An Amazon SNS *topic* is a communication channel that Run Command and Run Comman
 **Note**  
 After you create the topic, copy or make a note of the **Topic ARN**\. You specify this ARN when you send a command that is configured to return status notifications\.
 
-After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribe to a Topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 Amazon SNS sends a confirmation email from *AWS Notifications* to the email address that you specify\. Open the email and choose the **Confirm subscription** link\.
 

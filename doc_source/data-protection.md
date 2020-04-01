@@ -24,6 +24,10 @@ The types of parameters you can create in Parameter Store include `String`, `Str
 
 To encrypt `SecureString` parameter values, Parameter Store uses an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. AWS KMS uses either a customer managed CMK or an AWS managed CMK to encrypt the parameter value in an AWS managed database\.
 
+**Important**  
+Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
+For more information, see [Parameter Types and Examples](parameter-store-about-examples.md) and [SecureString Parameters](sysman-paramstore-securestring.md)\.
+
 **Content in Amazon S3 Buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 
 

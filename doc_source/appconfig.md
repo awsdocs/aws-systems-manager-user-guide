@@ -17,7 +17,7 @@ AppConfig supports multiple use cases\. Here are some examples\.
 AppConfig offers the following benefits\.
 + **Deploy changes across a set of targets quickly**
 
-  AppConfig simplifies the administration of applications at scale by deploying configuration changes from a central location\. AppConfig supports configurations stored in Systems Manager Parameter Store and Systems Manager \(SSM\) documents\. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\.
+  AppConfig simplifies the administration of applications at scale by deploying configuration changes from a central location\. AppConfig supports configurations stored in Systems Manager Parameter Store, Systems Manager \(SSM\) documents, and Amazon S3\. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\.
 + **Reduce errors in configuration changes**
 
   AppConfig reduces application downtime by enabling you to create rules to validate your configuration\. Configurations that aren't valid can't be deployed\. AppConfig provides two options for validating configurations\.

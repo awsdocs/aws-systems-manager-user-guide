@@ -2,10 +2,14 @@
 
 AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon EC2 instance IDs, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
+**Important**  
+Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
+For more information, see [Parameter Types and Examples](parameter-store-about-examples.md) and [SecureString Parameters](sysman-paramstore-securestring.md)\.
+
 Parameter Store offers the following benefits and features\.
 + Use a secure, scalable, hosted secrets management service with no servers to manage\.
 + Improve your security posture by separating your data from your code\.
-+ Store configuration data and secure strings in hierarchies and track versions\.
++ Store configuration data and encrypted strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.
 + Configure change notifications and trigger automated actions for both parameters and parameter policies\.
 + Tag parameters individually, and then secure access from different levels, including operational, parameter, Amazon EC2 tag, and path levels\. 
@@ -29,7 +33,7 @@ Parameter Store offers the following benefits and features\.
 
 **Topics**
 + [Parameter Types and Examples](parameter-store-about-examples.md)
-+ [Secure String Parameters](sysman-paramstore-securestring.md)
++ [SecureString Parameters](sysman-paramstore-securestring.md)
 + [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)
 + [Getting Started with Parameter Store](sysman-paramstore-settingup.md)
 + [Working with Parameters](sysman-paramstore-working.md)

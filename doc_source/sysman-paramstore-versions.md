@@ -8,34 +8,27 @@ You can reference specific parameter versions, including older versions, in comm
 
 ```
 {
-   "schemaVersion":"1.2",
-   "description":"Run a shell script or specify the commands to run.",
-   "parameters":{
-      "commands":{
-         "type":"StringList",
-         "description":"(Required) Specify a shell script or a command to run.",
-         "minItems":1,
-         "displayType":"textarea",
-         "default":"{{ssm:RunCommand:2}}"
-      },
-      "executionTimeout":{
-         "type":"String",
-         "default":"3600",
-         "description":"(Optional) The time in seconds for a command to complete before it is considered to have failed. Default is 3600 (1 hour). Maximum is 172800 (48 hours).",
-         "allowedPattern":"([1-9][0-9]{0,3})|(1[0-9]{1,4})|(2[0-7][0-9]{1,3})|(28[0-7][0-9]{1,2})|(28800)"
-      }
-   },
-   "runtimeConfig":{
-      "aws:runShellScript":{
-         "properties":[
-            {
-               "id":"0.aws:runShellScript",
-               "runCommand":"{{ commands }}",
-               "timeoutSeconds":"{{ executionTimeout }}"
+    "schemaVersion": "2.2",
+    "description": "Run a shell script or specify the commands to run.",
+    "parameters": {
+        "commands": {
+            "type": "String",
+            "description": "(Required) Specify a shell script or a command to run.",
+            "displayType": "textarea",
+            "default": "{{ssm:RunCommand:2}}"
+        }
+    },
+    "mainSteps": [
+        {
+            "action": "aws:runShellScript",
+            "name": "RunScript",
+            "inputs": {
+                "runCommand": [
+                    "{{commands}}"
+                ]
             }
-         ]
-      }
-   }
+        }
+    ]
 }
 ```
 

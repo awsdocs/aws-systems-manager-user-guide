@@ -1,34 +1,40 @@
 # Parameter Types and Examples<a name="parameter-store-about-examples"></a>
 
-A Parameter Store parameter is any piece of data that is saved in Parameter Store, such as a text string, a password, an Amazon Machine Image \(AMI\) IDs, a or license key, and so on\. You can centrally and securely reference this data in your scripts, commands, and SSM documents\. When you reference a parameter, you specify the parameter name by using the following convention:
+A Parameter Store parameter is any piece of data that is saved in Parameter Store, such as a block of text, a list of names, a password, an Amazon Machine Image \(AMI\) ID, a license key, and so on\. You can centrally and securely reference this data in your scripts, commands, and SSM documents\.
 
-`ssm:parameter-name`
+**Important**  
+Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
+For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
+
+When you reference a parameter, you specify the parameter name by using the following convention:
+
+\{\{`ssm:parameter-name`\}\}
 
 **Topics**
 + [Parameter Types](#parameter-types)
-+ [Parameter Examples](#parameter-examples)
++ [Parameter Examples \(AWS CLI\)](#parameter-examples)
 + [Integration Examples from the Community](#community-samples)
 
 ## Parameter Types<a name="parameter-types"></a>
 
-Parameter Store provides support for three types of parameters\. *String*, *String list*, and *Secure string*\. 
+Parameter Store provides support for three types of parameters\. `String`, `StringList`, and `SecureString`\. 
 
 String  
-The content of a String parameter is an unvalidated plain text string\. For example:  
+The content of a `String` parameter is an unvalidated plain text string\. For example:  
 + `abc123`
 + `Confidential. Do Not Distribute.`
 + `Example Corp.`
 
-String list  
-String list parameters contain a comma\-separated list of values\. For example:  
+StringList  
+`StringList` parameters contain a comma\-separated list of values\. For example:  
 `Monday,Wednesday,Friday`  
 `CSV,TSV,CLF,ELF,JSON`
 
-Secure string  
-The secure string parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or other types of data you need to protect\. Secure string data is encrypted and decrypted using a AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\.  
+SecureString  
+The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using a AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\.  
 Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager Secrets from Parameter Store Parameters](integration-ps-secretsmanager.md) in this guide\.
 
-## Parameter Examples<a name="parameter-examples"></a>
+## Parameter Examples \(AWS CLI\)<a name="parameter-examples"></a>
 
 The following is an example of a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
 
@@ -36,7 +42,7 @@ The following is an example of a Systems Manager parameter named `DNS-IP`\. The 
 aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands='echo {{ssm:DNS-IP}}'" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-2
 ```
 
-The next example parameter uses a secure string parameter named **SecurePassword**\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the Secure String parameter, and then resets the local administrator password without having to pass the password in clear text\.
+The next example command uses a `SecureString` parameter named **SecurePassword**\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
 ```
 aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-2
@@ -66,7 +72,7 @@ You can also reference Systems Manager parameters in the *Parameters* section of
 }
 ```
 
-Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with Parameter Store parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix\.
+Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with Parameter Store parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix:
 
 ```
 "runtimeConfig":{
@@ -80,7 +86,7 @@ Don't confuse the similar syntax for *local parameters* used in the `runtimeConf
 ```
 
 **Note**  
-SSM documents currently don't support references to secure string parameters\. This means that to use secure string parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples:  
+SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples:  
 **AWS CLI**  
 
 ```
@@ -121,9 +127,9 @@ These links are provided for informational purposes only, and should not be cons
   Learn how to store and retrieve application configuration settings at runtime for an application instead of hard\-coding the configuration values into a sample application's code and configuration files\. The sample application, a simple \.NET Core console application, shows how to use the AWS SDK for \.NET to retrieve configuration values from Parameter Store\.
 
   *March 8, 2019*
-+ [Using AWS Systems Manager Parameter Store Secure String parameters in AWS CloudFormation templates](http://aws.amazon.com/blogs/mt/using-aws-systems-manager-parameter-store-secure-string-parameters-in-aws-cloudformation-templates/)
++ [Using AWS Systems Manager Parameter Store SecureString parameters in AWS CloudFormation templates](http://aws.amazon.com/blogs/mt/using-aws-systems-manager-parameter-store-secure-string-parameters-in-aws-cloudformation-templates/)
 
-  Learn how to use plain text and secure string parameters in your AWS CloudFormation templates through the use of dynamic references to fetch parameter values\.
+  Learn how to use plain text and `SecureString` parameters in your AWS CloudFormation templates through the use of dynamic references to fetch parameter values\.
 
   *October 5, 2018*
 + [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)

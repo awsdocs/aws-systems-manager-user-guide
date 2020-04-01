@@ -20,7 +20,6 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 + [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)
 + [Set an Existing Patch Baseline as the Default](set-default-patch-baseline.md)
 + [Create a Patch Group](sysman-patch-group-tagging.md)
-+ [Add a Patch Group to a Patch Baseline](sysman-patch-group-patchbaseline.md)
 + [Create a Maintenance Window for Patching](sysman-patch-mw-console.md)
 + [Create a Patching Configuration \(Console\)](create-patching-configuration.md)
 + [Update or Delete a Patch Baseline \(Console\)](patch-baseline-update-or-delete.md)

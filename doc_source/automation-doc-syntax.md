@@ -21,7 +21,7 @@ In most cases, if no role is specified, AWS Systems Manager Automation can use t
 
 **parameters**  
 \(Optional\) The parameters the document accepts\.   
-For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Systems Manager parameters in this section of a document\. You can't reference Secure String Systems Manager parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.
+For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Systems Manager parameters in this section of a document\. You can't reference `SecureString` Systems Manager parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.
 
 **mainSteps**  
 \(Required\) An object that can include multiple steps\. A step includes one or more actions \(or plugins\), a unique name for the action, inputs \(parameters\) for those actions, and optional outputs that can be used by other steps in the automation execution\. For a list of supported actions and their properties, see [Systems Manager Automation Actions Reference](automation-actions.md)\.
