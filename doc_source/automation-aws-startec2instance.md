@@ -33,19 +33,9 @@ Windows, Linux
 Start the automation
 
 ```
-aws ssm start-automation-execution --document-name AWS-StartEC2Instance --parameters parameters
+aws ssm start-automation-execution --document-name AWS-StartEC2Instance --parameters "InstanceId=INSTANCEID"
 ```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
-
-**Document Steps**
-
-aws:changeInstanceState
 
 **Outputs**
 
-None
+The automation execution has no output\.

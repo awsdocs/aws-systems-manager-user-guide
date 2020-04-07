@@ -5,4 +5,4 @@ The topics in this section provide information to help you understand how the Pa
 **Topics**
 + [About Patching Configurations](about-patching-configurations.md)
 + [About SSM Documents for Patching Instances](patch-manager-ssm-documents.md)
-+ [About Patch Compliance States](about-patch-compliance-states.md)
++ [About Patch Compliance Status Values](about-patch-compliance-states.md)

@@ -116,6 +116,9 @@ This section includes examples of cron and rate expressions for State Manager as
 + Associations only support the following rate expressions: intervals of 30 minutes or greater and less than 31 days\.
 + If you specify the optional `Seconds` field, its value can only be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`
 
+**Note**  
+For an association that collects metadata for Systems Manager Inventory, we recommend using a rate expression\.
+
 The following table presents cron examples for associations using the required six fields\.
 
 

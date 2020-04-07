@@ -1,6 +1,6 @@
-# Simplify AMI Patching Using Automation, Lambda, and Parameter Store<a name="automation-walk-patch-windows-ami-simplify"></a>
+# Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store<a name="automation-walk-patch-windows-ami-simplify"></a>
 
-The following example expands on how to update a Windows AMI, as described in [Patch a Windows AMI](automation-walk-patch-windows-ami-cli.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
+The following example expands on how to update a Windows AMI, as described in [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
 
 The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 
@@ -16,8 +16,8 @@ Configure Automation roles and, optionally, CloudWatch Events for Automation\. F
 ## Task 1: Create a Parameter in Systems Manager Parameter Store<a name="automation-pet1"></a>
 
 Create a string parameter in Parameter Store that uses the following information:
-+ **Name**: latestAmi\.
-+ **Value**: a Windows AMI ID\. For example: ami\-188d6e0e\.
++ **Name**: `latestAmi`\.
++ **Value**: a Windows AMI ID\. For example:` ami-188d6e0e`\.
 
 For information about how to create a Parameter Store string parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
 
@@ -29,17 +29,23 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Roles**, and then choose **Create New Role**\.
+1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. For **Role name**, type a role name that can help you identify the purpose of this role, for example, lambda\-ssm\-role\. Role names must be unique within your AWS account\. After you type the name, choose **Next Step** at the bottom of the page\.
+1. Immediately under **Choose the service that will use this role**, choose **Lambda**, and then choose **Next: Permissions**\.
+
+1. On the **Attach permissions policies** page, do the following: 
+   + Use the **Search** field to locate the **AWSLambdaExecute**\. Select the box next to its name\. 
+   + Use the **Search** field to locate the **AmazonSSMFullAccess**\. Select the box next to its name\. 
+
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+
+1. For **Role name**, enter a name for your new role, such as **lambda\-ssm\-role** or another name that you prefer\. 
 **Note**  
 Because various entities might reference the role, you cannot change the name of the role after it has been created\.
 
-1. On the **Select Role Type** page, choose the **AWS Service Roles** section, and then choose **AWS Lambda**\.
-
-1. On the **Attach Policy** page, choose **AWSLambdaExecute** and **AmazonSSMFullAccess**, and then choose **Next Step**\.
-
-1. Choose **Create Role**\.
+1. Choose **Create role**\.
 
 ## Task 3: Create an AWS Lambda Function<a name="automation-pet3"></a>
 
@@ -49,19 +55,21 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at [https://console\.aws\.amazon\.com/lambda/](https://console.aws.amazon.com/lambda/)\.
 
-1. Choose **Create a Lambda function**\.
+1. Choose **Create function**\.
 
 1. On the **Create function** page, choose **Author from scratch**\.
 
 1. For **Function name**, type **Automation\-UpdateSsmParam**\.
 
-1. In the **Runtime** list, choose **Python 2\.7**\.
+1. In the **Runtime** list, choose **Python 3\.8**\.
 
-1. In the **Permissions** section, choose **Use an existing role** and choose the service role for Lambda that you created in Task 2\.
+1. In the **Permissions** section, expand **Choose or create an execution role**\.
+
+1. Choose **Use an existing role**, and then choose the service role for Lambda that you created in Task 2\.
 
 1. Choose **Create function**\.
 
-1. In the **Lambda function code** section, delete the pre\-populated code in the field, and then paste the following code sample\.
+1. In the **Function code** area, on the **lambda\_function** tab, delete the pre\-populated code in the field, and then paste the following code sample\.
 
    ```
    from __future__ import print_function
@@ -126,18 +134,18 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. For **Event name**, enter a name for the test event, such as **MyTestEvent**\.
 
-1. Replace the existing text with the following JSON\.
+1. Replace the existing text with the following JSON, replacing *your\-ami\-id* with the ID of the new AMI to set as your `latestAmi` parameter value\.
 
    ```
    {
       "parameterName":"latestAmi",
-      "parameterValue":"your AMI ID"
+      "parameterValue":"your-ami-id"
    }
    ```
 
 1. Choose **Create**\.
 
-1. Select **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
+1. Choose **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
 
 ## Task 4: Create an Automation Document and Patch the AMI<a name="automation-pet4"></a>
 
@@ -153,13 +161,13 @@ Use the following procedure to create and run an Automation document that patche
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. Choose **Create document**\.
+1. Choose **Create automation**\.
 
-1. In the **Name** field, type UpdateMyLatestWindowsAmi\.
+1. In the **Name** field, type **UpdateMyLatestWindowsAmi**\.
 
-1. In the **Document type** list, choose **Automation document**\.
+1. Choose the **Editor** tab, and then choose **Edit**\.
 
-1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
+1. Replace the default contents in the **Document editor** field with following JSON sample document\.
 **Note**  
 You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
 
@@ -201,12 +209,12 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "maxAttempts":1,
             "onFailure":"Continue",
             "inputs":{
-               "DocumentName":"AWS-InstallMissingWindowsUpdates",
+               "DocumentName":"AWS-InstallWindowsUpdates",
                "InstanceIds":[
                   "{{ startInstances.InstanceIds }}"
                ],
                "Parameters":{
-                  "UpdateLevel":"Important"
+                  "SeverityLevels":"Important"
                }
             }
          },
@@ -264,16 +272,18 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
    }
    ```
 
-1. Choose **Create document** to save the document\.
+1. Choose **Create automation** to save the document\.
 
-1. In the navigation pane, choose **Automations**, and then choose **Execute automation**\.
+1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
-1. In the **Automation document** list, choose **UpdateMyLatestWindowsAmi**\.
+1. In the **Choose document** page, choose the **Owned by me** tab, and then select the button in the **UpdateMyLatestWindowsAmi** card\.
 
-1. In the **Document details** section verify that **Document version** is set to **1**\.
+1. In the **Document details** section, verify that **Document version** is set to **1 \(Default\)**\.
 
-1. In the **Execution mode** section, choose **Execute the entire automation at once**\.
+1. Choose **Next**\.
 
-1. Leave the **Targets and Rate Control** option disabled\.
+1. Choose **Simple execution**\.
 
-1. After execution completes, choose **Parameter Store** in the navigation pane and confirm that the new value for latestAmi matches the value returned by the Automation workflow\. You can also verify the new AMI ID matches the Automation output in the **AMIs** section of the EC2 console\.
+1. Choose **Execute**\.
+
+1. After execution completes, choose **Parameter Store** in the navigation pane and confirm that the new value for `latestAmi` matches the value returned by the Automation workflow\. You can also verify the new AMI ID matches the Automation output in the **AMIs** section of the Amazon EC2 console\.

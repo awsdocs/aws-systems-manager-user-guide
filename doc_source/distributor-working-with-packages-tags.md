@@ -12,6 +12,6 @@ After you have added a package to AWS Systems Manager Distributor, you can edit 
 
 1. On the **Package details** tab, in **Tags**, choose **Edit**\.
 
-1. In **Add tags**, enter a tag key, or a tag key and value pair, and then choose **Add**\. Repeat if you want to add more tags\. To delete tags, choose **X** on the tag at the bottom of the window\.
+1. For **Add tags**, enter a tag key, or a tag key and value pair, and then choose **Add**\. Repeat if you want to add more tags\. To delete tags, choose **X** on the tag at the bottom of the window\.
 
 1. When you are finished adding tags to your package, choose **Save**\.

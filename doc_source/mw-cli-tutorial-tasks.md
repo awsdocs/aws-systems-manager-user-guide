@@ -10,19 +10,37 @@ When you are ready to register other task types, or use more of the available Ru
 
 **To register a task with a maintenance window**
 
-1. Depending on the operating system type on your local machine, run one of the following commands\. The version to run from a local Windows machine includes the escape characters \("/"\) that you need to run the command from your command line tool\.
+1. Run the following command on your local machine\. The version to run from a local Windows machine includes the escape characters \("/"\) that you need to run the command from your command line tool\.
 
-   **Windows** local machine:
-
-   ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE --task-arn "AWS-RunShellScript" --max-concurrency 1 --max-errors 1 --priority 10 --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"  --task-type "RUN_COMMAND" --task-invocation-parameters={\"RunCommand\":{\"Parameters\":{\"commands\":[\"df\"]}}}
-   ```
-
-   **Linux** local machine:
+------
+#### [ Linux ]
 
    ```
-   aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE --task-arn "AWS-RunShellScript" --max-concurrency 1 --max-errors 1 --priority 10 --targets "Key=InstanceIds,Values=i-0471e04240EXAMPLE" --task-type "RUN_COMMAND" --task-invocation-parameters '{"RunCommand":{"Parameters":{"commands":["df"]}}}'
+   aws ssm register-task-with-maintenance-window \
+       --window-id mw-0c50858d01EXAMPLE \
+       --task-arn "AWS-RunShellScript" \
+       --max-concurrency 1 --max-errors 1 \
+       --priority 10 \
+       --targets "Key=InstanceIds,Values=i-0471e04240EXAMPLE" \
+       --task-type "RUN_COMMAND" \
+       --task-invocation-parameters '{"RunCommand":{"Parameters":{"commands":["df"]}}}'
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --window-id mw-0c50858d01EXAMPLE ^
+       --task-arn "AWS-RunShellScript" ^
+       --max-concurrency 1 --max-errors 1 ^
+       --priority 10 ^
+       --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" ^
+       --task-type "RUN_COMMAND" ^
+       --task-invocation-parameters={\"RunCommand\":{\"Parameters\":{\"commands\":[\"df\"]}}}
+   ```
+
+------
 
    The system returns information similar to the following:
 
@@ -34,9 +52,23 @@ When you are ready to register other task types, or use more of the available Ru
 
 1. Now run the following command to view details about the maintenance window task you created\. 
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm describe-maintenance-window-tasks --window-id mw-0c50858d01EXAMPLE
+   aws ssm describe-maintenance-window-tasks \
+       --window-id mw-0c50858d01EXAMPLE
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-window-tasks ^
+       --window-id mw-0c50858d01EXAMPLE
+   ```
+
+------
 
 1. The system returns information similar to the following:
 
@@ -68,9 +100,23 @@ When you are ready to register other task types, or use more of the available Ru
 
 1. Wait until the task has had time to run, based on the schedule you specified in [Step 1: Create the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\. For example, if you specified **\-\-schedule "rate\(5 minutes\)"**, wait five minutes\. Then run the following command to view information about any executions that occurred for this task\. 
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm describe-maintenance-window-executions --window-id mw-0c50858d01EXAMPLE
+   aws ssm describe-maintenance-window-executions \
+       --window-id mw-0c50858d01EXAMPLE
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-window-executions ^
+       --window-id mw-0c50858d01EXAMPLE
+   ```
+
+------
 
    The system returns information similar to the following:
 
@@ -92,9 +138,17 @@ When you are ready to register other task types, or use more of the available Ru
 After the task completes successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week:  
 
 ```
-aws ssm update-maintenance-window --window-id mw-0c50858d01EXAMPLE --schedule "rate(7 days)"
+aws ssm update-maintenance-window \
+    --window-id mw-0c50858d01EXAMPLE \
+    --schedule "rate(7 days)"
 ```
-For information about managing maintenance window schedules, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.  
+
+```
+aws ssm update-maintenance-window ^
+    --window-id mw-0c50858d01EXAMPLE ^
+    --schedule "rate(7 days)"
+```
+For information about managing maintenance window schedules, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.  
 For information about using the AWS CLI to modify a maintenance window, see [Tutorial: Update a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
 
 For practice running AWS CLI commands to view more details about your maintenance window task and its executions, continue to [Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)\.

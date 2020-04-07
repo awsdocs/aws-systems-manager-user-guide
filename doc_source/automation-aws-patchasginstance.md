@@ -60,23 +60,3 @@ Retrieve the execution output
 ```
 aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
-
-**Document Steps**
-
-aws:createTags
-
-aws:executeAutomation
-
-aws:runCommand
-
-aws:sleep
-
-aws:executeAutomation
-
-aws:createTags
-
-aws:sleep
-
-**Outputs**
-
-None

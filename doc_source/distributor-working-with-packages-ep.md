@@ -12,7 +12,7 @@ After you have added a package to AWS Systems Manager Distributor, you can edit 
 
 1. On the **Package details** tab, choose **Edit permissions** to change permissions\.
 
-1. In **Edit permissions**, choose **Shared with specific accounts**\.
+1. For **Edit permissions**, choose **Shared with specific accounts**\.
 
 1. Under **Shared with specific accounts**, add AWS account numbers, one at a time\. When you are finished, choose **Save**\.
 **Note**  

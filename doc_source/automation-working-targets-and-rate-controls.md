@@ -33,11 +33,15 @@ You can view information about a document by choosing the document name\.
 
    1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation document that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
 
-   1. Use the **Targets** list to choose how you want to target resources\. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\.
+   1. Use the **Targets** list to choose how you want to target resources\.
 
-      If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
+      1. If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the **Input parameters** section\.
 
-      If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the Input parameters section\.
+      1. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list\.
+
+      1. If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
+
+      1. If you want to run an Automation playbook on all instances in the current AWS account and Region, then choose **All instances**\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
@@ -63,7 +67,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to view a list of documents\.
 
@@ -257,6 +261,53 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      -Targets $Targets `
      -TargetParameterName "Parameter_Name" `
      -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
+     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+   ```
+
+------
+
+   *Targeting all instances in the current AWS account and Region*
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm start-automation-execution \
+     --document-name document_name \
+     --targets "Key=AWS::EC2::Instance,Values=*"  \
+     --target-parameter-name instanceId \
+     --parameters "input_parameter_name1=input_parameter_value1" \
+     --max-concurrency 10 \
+     --max-errors 25%
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-automation-execution ^
+     --document-name document_name ^
+     --targets Key=AWS::EC2::Instance,Values=* ^
+     --target-parameter-name instanceId ^
+     --parameters "input_parameter_name1=input_parameter_value1" ^
+     --max-concurrency 10 ^
+     --max-errors 25%
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "AWS::EC2::Instance"
+   $Targets.Values = "*"
+   
+   Start-SSMAutomationExecution `
+     -DocumentName "DocumentName" `
+     -Targets $Targets `
+     -TargetParameterName "instanceId" `
+     -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
      -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
      -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
    ```

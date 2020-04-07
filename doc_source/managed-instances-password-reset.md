@@ -9,8 +9,8 @@ Before you can reset the password on an instance, the following requirements mus
 + The instance you want to change a password on must be a Systems Manager managed instance\. This means that SSM Agent is installed on the instance\. \(SSM Agent Version 2\.3\.668\.0 or later is required for changing passwords\.\) For information about installing or updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 + The password reset functionality uses the AWS Session Manager configuration that is set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current Region\. For more information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
-+ The AWS user who is changing the password must have the `ssm:SendCommand` permission for the instance\. For information, see [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md)\.
+Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
++ The AWS user who is changing the password must have the `ssm:SendCommand` permission for the instance\. For information, see [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
 
 **Restricting Access**  
 You can limit a user's ability to reset passwords to specific instances\. This is done by using identity\-based policies for the Session Manager `ssm:StartSession` action with the `AWS-PasswordReset` SSM document\. For more information, see [Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)\.
@@ -74,7 +74,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### Instance not available<a name="password-reset-troubleshooting-instances"></a>
 
 **Problem**: You want to reset the password for an Amazon EC2 instance on the **Managed instances** console page, but the instance is not in the list\.
-+ **Solution**: The instance you want to connect to might not be configured to use with the AWS Systems Manager service\. To use an Amazon EC2 instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, you must create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.\)
++ **Solution**: The instance you want to connect to might not be configured to use with the AWS Systems Manager service\. To use an Amazon EC2 instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, you must create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.\)
 
 ### SSM Agent not up\-to\-date \(console\)<a name="password-reset-troubleshooting-ssmagent-console"></a>
 
@@ -93,7 +93,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### No authorization to run `ssm:SendCommand`<a name="password-reset-troubleshooting-sendcommand"></a>
 
 **Problem**: You attempt to connect to an instance to change its password but receive an error message saying that you aren't authorized to run `ssm:SendCommand` on the instance\.
-+ **Solution**: Your IAM user policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up-cmdsec.md)\.
++ **Solution**: Your IAM user policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command Access Based on Instance Tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
 
 ### Session Manager error message<a name="password-reset-troubleshooting-session-manager"></a>
 

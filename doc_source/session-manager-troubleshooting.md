@@ -8,15 +8,16 @@ Use the following information to help you troubleshoot problems with Session Man
 + [Instance Not Available or Not Configured for Session Manager](#session-manager-troubleshooting-instances)
 + [Session Manager Plugin Not Found](#plugin-not-found)
 + [Session Manager Plugin Not Automatically Added to Command Line Path \(Windows\)](#windows-plugin-env-var-not-set)
++ [Blank Screen Displays After Starting a Session](#session-manager-troubleshooting-start-blank-screen)
 
 ## No Permission to Start a Session<a name="session-manager-troubleshooting-start-permissions"></a>
 
-**Problem**: You attempt to start a session, but the system tells you that you do not have the necessary permissions\.
+**Problem**: You try to start a session, but the system tells you that you do not have the necessary permissions\.
 + **Solution**: A system administrator has not granted you IAM policy permissions for starting Session Manager sessions\. For information, see [Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)\.
 
 ## No Permission to Change Session Preferences<a name="session-maner-troubleshooting-preferences-permissions"></a>
 
-**Problem**: You attempt to update global session preferences for your organization, but the system tells you that you do not have the necessary permissions\.
+**Problem**: You try to update global session preferences for your organization, but the system tells you that you do not have the necessary permissions\.
 + **Solution**: A system administrator has not granted you IAM policy permissions for setting Session Manager preferences\. For information, see [Grant or Deny a User Permissions to Update Session Manager Preferences](preference-setting-permissions.md)\.
 
 ## Instance Not Available or Not Configured for Session Manager<a name="session-manager-troubleshooting-instances"></a>
@@ -54,12 +55,17 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 
 1. Choose **PATH** and then choose **Edit**\.
 
-1. Add paths to the **Variable value** field, separated by semicolons\. For example: *`C:\existing\path`*;*`C:\new\path`*
+1. Add paths to the **Variable value** field, separated by semicolons, as shown in this example: *`C:\existing\path`*;*`C:\new\path`*
 
-   *`C:\existing\path`* represents the value already in the field\. *`C:\new\path`* represents the path you want to add\. For example:
+   *`C:\existing\path`* represents the value already in the field\. *`C:\new\path`* represents the path you want to add, as shown in these examples\.
    + **64\-bit machines**: `C:\Program Files\Amazon\SessionManagerPlugin\bin\`
    + **32\-bit machines**: `C:\Program Files (x86)\Amazon\SessionManagerPlugin\bin\` 
 
 1. Choose **OK** twice to apply the new settings\.
 
 1. Close any running command prompts and re\-open\.
+
+## Blank Screen Displays After Starting a Session<a name="session-manager-troubleshooting-start-blank-screen"></a>
+
+**Problem**: You start a session and Session Manager displays a blank screen\.
++ **Solution**: This issue can occur when the root volume on the instance is full\. Due to lack of disk space, SSM Agent on the instance stops working\. To resolve this issue, use Amazon CloudWatch to collect metrics and logs from the operating systems\. For information, see [Monitoring Memory and Disk Metrics for Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html) or [Monitoring Memory and Disk Metrics for Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/mon-scripts.html)\.

@@ -6,7 +6,7 @@ AWS Systems Manager provides the following capabilities for managing your Amazon
 + [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)
 + [AWS Systems Manager Inventory](systems-manager-inventory.md)
 + [AWS Systems Manager Managed Instances](managed_instances.md)
-+ [AWS Systems Manager Activations](activations.md)
++ [AWS Systems Manager Hybrid Activations](activations.md)
 + [AWS Systems Manager Session Manager](session-manager.md)
 + [AWS Systems Manager Run Command](execute-remote-commands.md)
 + [AWS Systems Manager State Manager](systems-manager-state.md)

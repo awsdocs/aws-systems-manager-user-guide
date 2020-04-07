@@ -148,12 +148,13 @@ Configuring an instance with an instance profile for Systems Manager does not gi
 ## Update Systems Manager \(SSM\) Agent<a name="quick-setup-ssm-agent"></a>
 
 SSM Agent is Amazon software that processes requests from the Systems Manager service in the AWS Cloud, and then runs them on your instance as specified in the request\. SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
-+ Windows Server 2003\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2
 + Ubuntu Server 16\.04
 + Ubuntu Server 18\.04
++ Amazon ECS\-Optimized
 
 If you enable this option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. For more information about SSM Agent, including information about how to manually install the agent, see [Working with SSM Agent](ssm-agent.md)\.
 
@@ -188,6 +189,16 @@ Amazon CloudWatch provides data and actionable insights to monitor your applicat
 ## Update the CloudWatch Agent Once Every Four Weeks<a name="quick-setup-cloudwatch-2"></a>
 
 If you enable this option, then Systems Manager automatically checks every four weeks for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
+
+## Choosing Targets for Quick Setup<a name="quick-setup-targets"></a>
+
+After you choose Quick Setup options, choose which instances you want to configure with those options in the **Targets** section\. Quick Setup includes the following options for targeting instances\.
++ **Choose all instances in the current AWS account and Region**: Quick Setup locates and applies the configuration options to all instances in the current AWS account and Region\.
++ **Specify instance tags**: Quick Setup uses the tag key and \(optional\) tag value that you specify to locate instances\.
++ **Choose instances manually**: Quick Setup enables you to choose one or more instances from a list\.
+
+**Note**  
+You can't use Quick Setup to configure options across accounts or Regions\.
 
 ## Working with Quick Setup Results<a name="quick-setup-results"></a>
 

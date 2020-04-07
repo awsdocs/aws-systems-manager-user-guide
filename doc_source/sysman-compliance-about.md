@@ -16,7 +16,7 @@ Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InS
 
 After you use Systems Manager Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\.
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## About State Manager Association Compliance<a name="sysman-compliance-about-association"></a>
 
@@ -56,7 +56,9 @@ Use the following procedure to view compliance data in the Systems Manager conso
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
 
-1. In the **Corresponding managed instances** area, choose an instance ID to view its detailed configuration compliance report\.
+1. In the **Details overview for resources** area, choose the ID of an instance\.
+
+1. On the **Instance ID** details page, select the **Configuration compliance** tab to view its detailed configuration compliance report\.
 
 **Note**  
 For information about fixing compliance issues, see [Remediating Compliance Issues](sysman-compliance-fixing.md)\.
@@ -80,7 +82,7 @@ Returns high\-level aggregated patch compliance state for a patch group\. \(API:
 Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
-For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
 
 ## Viewing Compliance Configuration History and Change Tracking<a name="sysman-compliance-history"></a>
 
@@ -91,4 +93,4 @@ Systems Manager Configuration Compliance displays *current* patching and associa
 For information about how to choose and configure these specific resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
 
 **Note**  
-For information about AWS Config pricing, see [Pricing](https://aws.amazon.com//config/pricing/)\.
+For information about AWS Config pricing, see [Pricing](https://aws.amazon.com/config/pricing/)\.

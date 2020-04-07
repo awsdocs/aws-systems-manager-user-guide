@@ -6,7 +6,7 @@ The following procedure walks you through the process of creating a State Manage
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before You Begin**  
-Before you complete the following procedure, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one running EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 **Note**  
 If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
@@ -15,9 +15,9 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
-1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
+1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 A\.M\. \(UTC\)\.
 
    ```
    aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 2 ? * SUN *)"
@@ -59,7 +59,7 @@ State Manager associations do not support all cron and rate expressions\. For mo
    }
    ```
 
-   The system attempts to create the association on the instance\(s\) and immediately apply the state\. The association status shows `Pending`\.
+   The system attempts to create the association on the instance or instances and immediately apply the state\. The association status shows `Pending`\.
 
 1. Run the following command to view an updated status of the association you just created\. 
 
@@ -67,4 +67,4 @@ State Manager associations do not support all cron and rate expressions\. For mo
    aws ssm  list-associations
    ```
 **Note**  
-If your instances are currently running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.
+If your instances aren't running the most recent version of the SSM Agent, the status shows `Failed`\. This is expected behavior\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.

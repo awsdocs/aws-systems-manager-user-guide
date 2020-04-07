@@ -14,7 +14,7 @@ You can configure CloudWatch Events to notify you of Run Command status changes,
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
 
-1. In the left navigation pane, choose **Events**, and then choose **Create rule**\.
+1. In the left navigation pane, under **Events**, choose **Rules**, and then choose **Create rule**\.
 
 1. Under **Event Source**, verify that **Event Pattern** is selected\.
 

@@ -88,6 +88,10 @@ Yes\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon
 
 Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed instances that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)\.
 
+## Is OpsCenter Available in All AWS Regions?<a name="OpsCenter-learn-more-regions"></a>
+
+No\. OpsCenter is not available in the BAH \(me\-south\-1\) and HKG \(ap\-east\-1\) Regions\. 
+
 ## What are the resource limits for OpsCenter?<a name="OpsCenter-learn-more-limits"></a>
 
 
@@ -111,6 +115,7 @@ Yes\. You can use OpsCenter to investigate and remediate issues with your on\-pr
 + [Does OpsCenter Integrate with My Existing Case Management System?](#OpsCenter-learn-more-case-management)
 + [Is There a Charge to Use OpsCenter?](#OpsCenter-learn-more-cost)
 + [Does OpsCenter Work with My On\-Premises and Hybrid Managed Instances?](#OpsCenter-learn-more-hybrid)
++ [Is OpsCenter Available in All AWS Regions?](#OpsCenter-learn-more-regions)
 + [What are the resource limits for OpsCenter?](#OpsCenter-learn-more-limits)
 + [Getting Started with OpsCenter](OpsCenter-getting-started.md)
 + [Creating OpsItems](OpsCenter-creating-OpsItems.md)

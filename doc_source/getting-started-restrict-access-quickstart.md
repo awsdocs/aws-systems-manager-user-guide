@@ -1,19 +1,31 @@
 # Quickstart Default IAM Policies for Session Manager<a name="getting-started-restrict-access-quickstart"></a>
 
-Use the following samples to help you create IAM policies that provide the most commonly needed permissions for Session Manager access\. 
+Use the samples in this section to help you create IAM policies that provide the most commonly needed permissions for Session Manager access\. 
 
 **Note**  
 You can also use an AWS KMS key policy to control which IAM users, IAM roles, and AWS accounts are given access to your CMK\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Topics**
-+ [Quickstart End User Policy for Session Manager](#restrict-access-quickstart-end-user)
++ [Quickstart End User Policies for Session Manager](#restrict-access-quickstart-end-user)
 + [Quickstart Administrator Policy for Session Manager](#restrict-access-quickstart-admin)
 
-## Quickstart End User Policy for Session Manager<a name="restrict-access-quickstart-end-user"></a>
+## Quickstart End User Policies for Session Manager<a name="restrict-access-quickstart-end-user"></a>
 
-Use the following example to create an IAM end user policy for Session Manager\. It provides end users the ability start a session to a particular instance and the ability to terminate only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+Use the following examples to create IAM end user policies for Session Manager\. 
 
-Replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
+You can create a policy that allows users to start sessions from only the Session Manager console and AWS CLI, from only the Amazon EC2 console, or from all three\.
+
+These policies provide end users the ability start a session to a particular instance and the ability to end only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+
+**Note**  
+In all the following sample policies, replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\. 
+
+Choose from the following tabs to view the sample policy for the range of session access you want to provide\.
+
+------
+#### [ Session Manager and CLI ]
+
+Use this sample policy to provider users with the ability to start sessions from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to start sessions from the Amazon EC2 console\.
 
 ```
 {
@@ -64,7 +76,7 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
         {
             "Effect": "Allow",
             "Action": [
-                "kms:GenerateDataKey"
+                "kms:GenerateDataKey" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
             ],
             "Resource": "key-name"
         }
@@ -72,14 +84,117 @@ Replace *instance\-id* with the ID of the instance you want to grant access to, 
 }
 ```
 
+------
+#### [ Amazon EC2 ]
+
+Use this sample policy to provider users with the ability to start sessions from only the Amazon EC2 console\. This policy doesn't provide all the permissions needed to start sessions from the Session Manager console and the AWS CLI\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/instance-id"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceInformation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Session Manager, CLI, and Amazon EC2 ]
+
+Use this sample policy to provider users with the ability to start sessions from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/instance-id"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeSessions",
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceInformation",
+                "ssm:DescribeInstanceProperties",
+                "ec2:DescribeInstances"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetDocument"
+            ],
+            "Resource": [
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:GenerateDataKey" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+            ],
+            "Resource": "key-name"
+        }
+    ]
+}
+```
+
+------
+
 **1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom configuration document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
 **2** If you specify the condition element `ssm:SessionDocumentAccessCheck` as `true`, the system checks that a user was granted explicit access to the configuration document `SSM-SessionManagerRunShell` before allowing a session to start\. For more information, see [Enforce Document Permission Check for Default CLI Scenario](getting-started-sessiondocumentaccesscheck.md)\.
 
-**About 'kms:GenerateDataKey**  
-The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
-
- If you will not use AWS KMS key encryption for your session data, remove the following content from the policy:
+**3** The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. If you won't use AWS KMS key encryption for your session data, remove the following content from the policy:
 
 ```
 ,
@@ -94,12 +209,25 @@ The `kms:GenerateDataKey` permission enables the creation of a data encryption k
 
 For information about AWS KMS and CMKs for encrypting session data, see [Enable AWS KMS Key Encryption of Session Data \(Console\)](session-preferences-enable-encryption.md)\.
 
+**4** The permission for [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) is needed for cases where a user attempts to start a session from the Amazon EC2 console, but a command must be sent to update SSM Agent first\.
+
 ## Quickstart Administrator Policy for Session Manager<a name="restrict-access-quickstart-admin"></a>
 
-Use the following example to create an IAM administrator policy for Session Manager\. It provides administrators the ability to start a session to instances that are tagged with `Key=Finance,Value=WebServers`, permission to create, update and delete preferences, and permission to terminate only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+Use the following examples to create IAM administrator policies for Session Manager\. 
+
+These policies provide administrators the ability to start a session to instances that are tagged with `Key=Finance,Value=WebServers`, permission to create, update and delete preferences, and permission to end only their own sessions\. Refer to [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
+
+You can create a policy that allows administrators to perform these tasks from only the Session Manager console and AWS CLI, from only the Amazon EC2 console, or from all three\.
 
 **Note**  
-Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID\. For example, `us-east-2` and `111122223333`\.
+Replace *tag\-key* and *tag\-value* with the tags applied to your instances\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
+
+Choose from the following tabs to view the sample policy for the access scenario you want to support\.
+
+------
+#### [ Session Manager and CLI ]
+
+Use this sample policy to provider administrators with the ability to perform session\-related tasks from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Amazon EC2 console\.
 
 ```
 {
@@ -115,8 +243,8 @@ Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied t
             ],
             "Condition": {
                 "StringLike": {
-                    "ssm:resourceTag/Finance": [
-                        "WebServers"
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
                     ]
                 }
             }
@@ -152,3 +280,113 @@ Update the tag/value pair `Key=Finance,Value=WebServers` with the tags applied t
     ]
 }
 ```
+
+------
+#### [ Amazon EC2 ]
+
+Use this sample policy to provider administrators with the ability to perform session\-related tasks from only the Amazon EC2\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Session Manager console and the AWS CLI\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceInformation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Session Manager, CLI, and Amazon EC2 ]
+
+Use this sample policy to provider administrators with the ability to perform session\-related tasks from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession",
+                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/tag-key": [
+                        "tag-value"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeSessions",
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceInformation",
+                "ssm:DescribeInstanceProperties",
+                "ec2:DescribeInstances"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:CreateDocument",
+                "ssm:UpdateDocument",
+                "ssm:GetDocument"
+            ],
+            "Resource": "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:session/${aws:username}-*"
+            ]
+        }
+    ]
+}
+```
+
+------
+
+**1** The permission for [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) is needed for cases where a user attempts to start a session from the Amazon EC2 console, but a command must be sent to update SSM Agent first\.

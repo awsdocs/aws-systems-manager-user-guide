@@ -45,25 +45,38 @@ If you plan to run a script that is stored in a private GitHub repository, then 
 
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
-
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *GitHub*\. 
    + In the **Source Info** box, type the required information to access the source in the following format:
 
      ```
-     {"owner":"owner_name", "repository": "repository_name", "path": "path_to_scripts_or_directory", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
-     ```
-
-     For example:
-
-     ```
-     {"owner":"TestUser1", "repository": "GitHubPrivateTest", "path": "scripts/webserver.yml", "tokenInfo":"{{ssm-secure:mySecureStringParameter}}" }
+     {
+         "owner": "owner_name",
+         "repository": "repository_name",
+         "branch": "branch_name",
+         "path": "path_to_scripts_or_directory",
+         "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}"
+     }
      ```
 
      This example downloads a file named `webserver.yml`\. 
+
+     ```
+     {
+         "owner": "TestUser1",
+         "repository": "GitHubPrivateTest",
+         "branch": "myBranch",
+         "path": "scripts/webserver.yml",
+         "tokenInfo": "{{ssm-secure:mySecureStringParameter}}"
+     }
+     ```
+**Note**  
+`"branch"` is required only if your SSM document is stored in a branch other than `master`\.  
+To use the version of your scripts that are in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
+
+     ```
+     "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
+     ```
    + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
 
      ```
@@ -72,6 +85,10 @@ If you choose to select instances manually, and an instance you expect to see is
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
    + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
@@ -79,16 +96,16 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -96,7 +113,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -130,34 +147,51 @@ This section includes procedures to help you run Python scripts from GitHub by u
 
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
-
-1. In **Command parameters**, do the following:
+1. For **Command parameters**, do the following:
    + In **Source Type**, select *GitHub*\. 
-   + In the **Source Info** text box, type the required information to access the source in the following format:
+   + In the **Source Info** box, type the required information to access the source in the following format:
 
      ```
-     {"owner":"owner_name", "repository": "repository_name", "path": "path_to_scripts_or_directory", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
+     {
+         "owner": "owner_name",
+         "repository": "repository_name",
+         "branch": "branch_name",
+         "path": "path_to_document",
+         "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}"
+     }
      ```
 
-     For example:
+     For example, the following downloads a directory of scripts named *complex\-script*\.:
 
      ```
-     {"owner":"TestUser1", "repository":"GitHubPrivateTest", "path": "scripts/python/complex-script","tokenInfo":"{{ssm-secure:mySecureStringParameter}}"}
+     {
+         "owner": "TestUser1",
+         "repository": "SSMTestDocsRepo",
+         "branch": "myBranch",
+         "path": "scripts/python/complex-script",
+         "tokenInfo": "{{ssm-secure:myAccessTokenParam}}"
+     }
      ```
+**Note**  
+`"branch"` is required only if your scripts are stored in a branch other than `master`\.  
+To use the version of your scripts that are in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
 
-     This example downloads a directory of scripts named *complex\-script*\.
-   + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
+     ```
+     "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
+     ```
+   + For **Command Line**, type parameters for the script execution\. Here is an example\.
 
      ```
      mainFile.py argument-1 argument-2
      ```
 
      This example runs *mainFile\.py*, which can then run other scripts in the *complex\-script* directory\.
-   + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-   + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
+   + \(Optional\) For **Working Directory**, type the name of a directory on the instance where you want to download and run the script\.
+   + \(Optional\) For **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
+
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
@@ -166,16 +200,16 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -183,7 +217,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -266,16 +300,16 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -283,7 +317,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("/"\) you need to run the command from your command line tool\):
 
@@ -363,16 +397,16 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -380,7 +414,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 
@@ -460,16 +494,16 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
@@ -477,7 +511,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 

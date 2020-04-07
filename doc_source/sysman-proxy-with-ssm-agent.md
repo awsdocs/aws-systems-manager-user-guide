@@ -1,6 +1,6 @@
 # Configure SSM Agent to Use a Proxy<a name="sysman-proxy-with-ssm-agent"></a>
 
-You can configure SSM Agent to communicate through an HTTP proxy by adding the `http_proxy`, `https_proxy`, and `no_proxy` settings to an amazon\-ssm\-agent\.override configuration file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for *upstart* and *systemd* environments\. 
+You can configure SSM Agent to communicate through an HTTP proxy by adding the `http_proxy`, `https_proxy`, and `no_proxy` settings to an `amazon-ssm-agent.override` configuration file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for *upstart* and *systemd* environments\. 
 
 **Note**  
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
@@ -14,11 +14,21 @@ Instances created from an Amazon Linux AMI that are using a proxy must be runnin
 
 1. Connect to the instance where you installed SSM Agent\.
 
-1. Open a simple editor like VIM, and specify the following settings:
+1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, specify one of the following setting options\.
+
+   **HTTP proxy server:**
 
    ```
    env http_proxy=http://hostname:port
-   env https_proxy=http(s)://hostname:port
+   env https_proxy=http://hostname:port
+   env no_proxy=169.254.169.254
+   ```
+
+   **HTTPS proxy server:**
+
+   ```
+   env http_proxy=http://hostname:port
+   env https_proxy=https://hostname:port
    env no_proxy=169.254.169.254
    ```
 **Note**  
@@ -54,12 +64,23 @@ The steps in the following procedure describe how to configure SSM Agent to use 
    systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
    ```
 
-1. Specify the following settings:
+1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, specify one of the following setting options\.
+
+   **HTTP proxy server:**
 
    ```
    [Service]
    Environment="http_proxy=http://hostname:port"
-   Environment="https_proxy=http(s)://hostname:port"
+   Environment="http_proxy=http://hostname:port"
+   Environment="no_proxy=169.254.169.254"
+   ```
+
+   **HTTPS proxy server:**
+
+   ```
+   [Service]
+   Environment="http_proxy=http://hostname:port"
+   Environment="https_proxy=https://hostname:port"
    Environment="no_proxy=169.254.169.254"
    ```
 **Note**  

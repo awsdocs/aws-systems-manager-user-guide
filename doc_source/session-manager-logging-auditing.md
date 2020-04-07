@@ -10,6 +10,8 @@ In addition to providing information about current and completed sessions in the
 If you are using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.  
 If you are using Linux instances, ensure that the screen utility is installed\. If it is not, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
 
+For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logs \(Console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
+
 Refer to the following topics for more information about auditing and logging options for Session Manager\.
 
 ## Audit Session Activity Using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
@@ -91,7 +93,7 @@ For more information about working with CloudWatch Logs, see the *[Amazon CloudW
 
 ## Monitoring Session Activity Using Amazon CloudWatch Events \(Console\)<a name="session-manager-logging-auditing-cloudwatch-events"></a>
 
-CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or terminates a session, and then, for example, receive a notification through Amazon SNS about the event\. 
+CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 
 CloudWatch Events support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with CloudWatch Events to respond to most AWS Systems Manager events\.\)
 

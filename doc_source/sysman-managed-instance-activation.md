@@ -8,7 +8,7 @@ Systems Manager immediately returns the Activation Code and ID to the console or
 **About activation expirations**  
 An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you previously registered with Systems Manager\. If an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\.
 
-Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicity deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
+Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
 **About activation tags**  
 If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is a Linux CLI example that includes tags\.
@@ -16,7 +16,8 @@ If you create an activation by using either the AWS CLI or AWS Tools for Windows
 ```
 aws ssm create-activation \ 
   --default-instance-name MyWebServers \ 
-  --iam-role SSMServiceRole \ 
+  --description "Activation for Finance department webservers"
+  --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \ 
   --registration-limit 10 \ 
   --region us-east-2 \ 
   --tags "Key=Department,Value=Finance"
@@ -28,6 +29,8 @@ You can't add tags to or delete tags from an existing activation\. If you don't 
 
 **Note**  
 You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
+
+If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using Systems Manager, you can deregister it\. For information, see [Deregistering Managed Instances in a Hybrid Environment](systems-manager-managed-instances-advanced-deregister.md)\.
 
 **Topics**
 + [Create an Activation \(Console\)](#create-managed-instance-activation-console)
@@ -73,11 +76,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create an activation\.
 **Note**  
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *AWS General Reference*\.
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ------
 #### [ Linux CLI ]
@@ -86,9 +89,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    aws ssm create-activation \ 
      --default-instance-name name \
      --iam-role iam-service-role-name \
-     --registration-limit number_of_managed_instances \
+     --registration-limit number-of-managed-instances \
      --region region \ 
-     --tags "Key=a_key,Value=a_value","Key=a_2nd_key,Value=a_2nd_value"
+     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -98,9 +101,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    aws ssm create-activation ^ 
      --default-instance-name name ^
      --iam-role iam-service-role-name ^
-     --registration-limit number_of_managed_instances ^
+     --registration-limit number-of-managed-instances ^
      --region region ^ 
-     --tags "Key=a_key,Value=a_value","Key=a_2nd_key,Value=a_2nd_value"
+     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -111,7 +114,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      -IamRole iam-service-role-name `
      -RegistrationLimit number-of-managed-instances `
      –Region region `
-     -Tag @{"Key"="a_key";"Value"="a_value"},@{"Key"="a_2nd_key";"Value"="a_2nd_value"}
+     -Tag @{"Key"="key-name-1";"Value"="key-value-1"},@{"Key"="key-name-2";"Value"="key-value-2"}
    ```
 
 ------
@@ -124,7 +127,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm create-activation \
      --default-instance-name MyWebServers \
-     --iam-role SSMServiceRole \
+     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
      --registration-limit 10 \ 
      --region us-east-2 \
      --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
@@ -136,7 +139,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm create-activation ^
      --default-instance-name MyWebServers ^
-     --iam-role SSMServiceRole ^
+     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
      --registration-limit 10 ^ 
      --region us-east-2 ^
      --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
@@ -147,7 +150,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    New-SSMActivation -DefaultInstanceName MyWebServers `
-     -IamRole SSMServiceRole `
+     -IamRole service-role/AmazonEC2RunCommandRoleForManagedInstances `
      -RegistrationLimit 10 `
      –Region us-east-2 `
      -Tag @{"Key"="Environment";"Value"="Production"},@{"Key"="Department";"Value"="Finance"}

@@ -27,7 +27,7 @@ For information about accepted formats for lists of approved patches and rejecte
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
@@ -48,7 +48,7 @@ For information about accepted formats for lists of approved patches and rejecte
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
 
@@ -56,7 +56,11 @@ On Ubuntu Server, the patch baseline service offers filtering on the *Priority* 
 
 1. On Ubuntu systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
 
-1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\. Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
+1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
+**Note**  
+Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
+
+    Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
@@ -75,7 +79,7 @@ In the response to this command, all upgradable packages are reported in this fo
 name, priority, section, archive, candidate version
 ```
 
-For information about patch compliance status values, see [About Patch Compliance States](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
 
 ## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 

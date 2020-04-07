@@ -4,7 +4,7 @@ When you send a command by using Run Command, you can specify where you want to 
 
 If you configured your instance or on\-premises hybrid machine to use the AWS Identity and Access Management \(IAM\) managed policies **AmazonSSMManagedInstanceCore** and **CloudWatchAgentServerPolicy**, then your instance requires no additional configuration to send output to CloudWatch Logs\. You simply need to choose this option if sending commands from the console, or add the `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter if using the AWS CLI, Tools for Windows PowerShell, or an API action\. The `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter are described in more detail later in this topic\.
 
-For information about adding policies to an instance profile for Amazon EC2 instances, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises instances and virtuals machines that you plan to use as managed instances, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\.
+For information about adding policies to an instance profile for Amazon EC2 instances, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises instances and virtual machines that you plan to use as managed instances, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\.
 
 For information about updating an existing instance profile, see [Add Permissions to a Systems Manager Instance Profile \(Console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
 
@@ -20,13 +20,13 @@ If you are using a custom policy on your instances, then you must update the pol
       "logs:DescribeLogStreams",
       "logs:PutLogEvents"
    ],
-   "Resource":"*"
+   "Resource":"arn:aws:logs:::log-group:/aws/ssm/*"
 },
 ```
 
 ## Specifying CloudWatch Logs When You Send Commands<a name="sysman-rc-setting-up-cwlogs-send"></a>
 
-To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: aws/ssm/*SystemsManagerDocumentName*\.
+To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: /aws/ssm/*SystemsManagerDocumentName*\.
 
 If you run commands by using the AWS CLI, then you must specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example:
 

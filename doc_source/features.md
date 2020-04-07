@@ -4,6 +4,7 @@ Systems Manager capabilities are grouped into the following capability types:
 
 **Topics**
 + [Operations Management](#features-operations-management)
++ [Application Management](#systems-manager-application-management)
 + [Actions & Change](#features-actions-and-change)
 + [Instances & Nodes](#features-instances-and-nodes)
 + [Shared Resources](#features-shared)
@@ -13,9 +14,9 @@ Systems Manager capabilities are grouped into the following capability types:
 Operations Management is a suite of capabilities that help you manage your AWS resources\. Choose the tabs to learn more\.
 
 ------
-#### [ CloudWatch Dashboards ]
+#### [ Explorer ]
 
-[Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
+[Explorer](Explorer.md) is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues\. 
 
 ------
 #### [ OpsCenter ]
@@ -23,9 +24,9 @@ Operations Management is a suite of capabilities that help you manage your AWS r
 [OpsCenter](OpsCenter.md) provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items \(OpsItems\) related to AWS resources\. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources\. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources\. OpsCenter also provides Systems Manager Automation documents \(runbooks\) that you can use to quickly resolve issues\. You can specify searchable, custom data for each OpsItem\. You can also view automatically\-generated summary reports about OpsItems by status and source\. 
 
 ------
-#### [ Resource Groups ]
+#### [ CloudWatch Dashboards ]
 
-[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(Amazon EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
+[Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
 
 ------
 #### [ Trusted Advisor & Personal Health Dashboard \(PHD\) ]
@@ -33,6 +34,27 @@ Operations Management is a suite of capabilities that help you manage your AWS r
 Systems Manager hosts two online tools to help you provision your resources and monitor your account for health events\. Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices\. For more information, see [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/)\.
 
 The AWS Personal Health Dashboard provides information about AWS Health events that can affect your account\. The information is presented in two ways: a dashboard that shows recent and upcoming events organized by category, and a full event log that shows all events from the past 90 days\. For more information, see [Getting Started with the AWS Personal Health Dashboard](https://docs.aws.amazon.com/health/latest/ug/getting-started-phd.html)\.
+
+------
+
+## Application Management<a name="systems-manager-application-management"></a>
+
+Application Management is a suite of capabilities that help you manage your applications running in AWS\. Choose the tabs to learn more\.
+
+------
+#### [ Resource Groups ]
+
+[AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(Amazon EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
+
+------
+#### [ AWS AppConfig ]
+
+[AppConfig](appconfig.md) helps you create, manage, and quickly deploy application configurations\. AppConfig supports controlled deployments to applications of any size\. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\. To prevent errors when deploying application configurations, AppConfig includes validators\. A validator provides a syntactic or semantic check to ensure that the configuration you want to deploy works as intended\. During a configuration deployment, AppConfig monitors the application to ensure that the deployment is successful\. If the system encounters an error or if the deployment triggers an alarm, AppConfig rolls back the change to minimize impact for your application users\.
+
+------
+#### [ Parameter Store ]
+
+[Parameter Store](systems-manager-parameter-store.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
 
 ------
 
@@ -99,7 +121,7 @@ Use [Patch Manager](systems-manager-patch.md) to automate the process of patchin
 ------
 #### [ Distributor ]
 
-Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
+Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. After you install a package for the first time, you can use Distributor to completely uninstall and reinstall a new package version, or perform an in\-place update that adds new or changed files only\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
 
 ------
 
@@ -111,10 +133,5 @@ Systems Manager uses the following shared resources for managing and configuring
 #### [ Systems Manager Documents ]
 
 A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the actions that Systems Manager performs\. SSM document types include *Command* documents, which are used by State Manager and Run Command, and *Automation* documents, which are used by Systems Manager Automation\. Systems Manager includes more dozens of pre\-configured documents that you can use by specifying parameters at runtime\. Documents can be expressed in JSON or YAML, and include steps and parameters that you specify\.
-
-------
-#### [ Parameter Store ]
-
-[Parameter Store](systems-manager-parameter-store.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
 
 ------

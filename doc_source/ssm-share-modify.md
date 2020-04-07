@@ -4,8 +4,7 @@ If you share a command, users can view and use that command until you either rem
 
 **Topics**
 + [Stop Sharing a Document \(Console\)](#unshare-using-console)
-+ [Stop Sharing a Document \(AWS CLI\)](#unshare-using-cli)
-+ [Stop Sharing a Document \(AWS Tools for Windows PowerShell\)](#unshare-using-ps)
++ [Stop Sharing a Document \(Command Line\)](#unshare-using-cli)
 
 ## Stop Sharing a Document \(Console\)<a name="unshare-using-console"></a>
 
@@ -25,18 +24,38 @@ If you share a command, users can view and use that command until you either rem
 
 1. Choose **X** to delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
 
-## Stop Sharing a Document \(AWS CLI\)<a name="unshare-using-cli"></a>
+## Stop Sharing a Document \(Command Line\)<a name="unshare-using-cli"></a>
 
-Open the AWS CLI on your local computer and run the following command to stop sharing a command\.
+Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to stop sharing a command\.
 
-```
-aws ssm modify-document-permission --name document name --permission-type Share --account-ids-to-remove 'AWS account ID'
-```
-
-## Stop Sharing a Document \(AWS Tools for Windows PowerShell\)<a name="unshare-using-ps"></a>
-
-Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to stop sharing a command\. 
+------
+#### [ Linux ]
 
 ```
-Edit-SSMDocumentPermission -Name document name –AccountIdsToRemove AWS account ID -PermissionType Share
+aws ssm modify-document-permission \
+    --name document name \
+    --permission-type Share \
+    --account-ids-to-remove 'AWS account ID'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm modify-document-permission ^
+    --name document name ^
+    --permission-type Share ^
+    --account-ids-to-remove "AWS account ID"
+```
+
+------
+#### [ PowerShell ]
+
+```
+Edit-SSMDocumentPermission `
+    -Name document name `
+    -PermissionType Share `
+    –AccountIdsToRemove AWS account ID
+```
+
+------

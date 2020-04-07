@@ -7,7 +7,7 @@ The following Systems Manager capabilities may have additional or alternative pr
 + **Distributor** \- See [Control User Access to Packages](distributor-getting-started-restrict-access.md)\.
 + **Maintenance Windows** \- See [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md) \(see the instructions for assigning the IAM PassRole policy to an IAM user or group\)\.
 
-For more information about using IAM policies to control user access to Systems Manager capabilities and resources, see [Using Identity\-based Policies \(IAM Policies\) for AWS Systems Manager](auth-and-access-control-iam-identity-based-access-control.md)\.
+For more information about using IAM policies to control user access to Systems Manager capabilities and resources, see [AWS Systems Manager Identity\-Based Policy Examples](security_iam_id-based-policy-examples.md)\.
 
 For information about how to change permissions for an IAM user account, group, or role, see [Changing Permissions for an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
 

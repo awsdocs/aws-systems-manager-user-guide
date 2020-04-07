@@ -1,11 +1,11 @@
-# Working with Parameter Policies<a name="parameter-store-policies"></a>
+# Assigning Parameter Policies<a name="parameter-store-policies"></a>
 
 Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\. The policies are described in more detail in this section\.
 
 Parameter Store enforces parameter policies by using asynchronous, periodic scans\. After you create a policy, you don't need to perform additional actions to enforce the policy\. Parameter Store independently performs the action defined by the policy according to the criteria you specified\. 
 
 **Note**  
-Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
 
 A parameter policy is a JSON array, as shown in the following table\. You can assign a policy when you create a new advanced parameter, or you can apply a policy by updating a parameter\. Parameter Store supports the following types of parameter policies\.
 
@@ -18,7 +18,7 @@ A parameter policy is a JSON array, as shown in the following table\. You can as
 
 You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers a CloudWatch Events event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
 
-The following example shows a [PutParameter](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new Secure String parameter named `ProdDB3`\.
+The following example shows a [PutParameter](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new `SecureString` parameter named `ProdDB3`\.
 
 ```
 PutParameterRequest
@@ -108,7 +108,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to add policies to an existing parameter\.
 
@@ -116,10 +116,10 @@ Use the following procedure to add policies to an existing parameter by using th
    aws ssm put-parameter --name "parameter_name" --value 'a value' --type parameter_type --policies "[{policies enclosed in brackets and curly braces}]" --overwrite
    ```
 
-   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and a AWS Key Management Service \(KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and a AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
    ```
-   aws ssm put-parameter --name "/Finance/Payroll/elixir3131" --value "P@sSwW)rd" --type "SecureString" --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite
+   aws ssm put-parameter --name "/Finance/Payroll/3l3vat3131" --value "P@sSwW)rd" --type "SecureString" --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -161,10 +161,10 @@ Use the following procedure to add policies to an existing parameter by using To
    Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Policies "[{policies enclosed in brackets and curly braces}]" -Overwrite
    ```
 
-   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`elixir3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite
+   Write-SSMParameter -Name "/Finance/Payroll/3l3vat3131" -Value "P@sSwW)rd" -Type "SecureString" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite
    ```
 
 1. Run the following command to verify the details of the parameter\.

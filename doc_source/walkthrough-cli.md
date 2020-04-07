@@ -14,13 +14,13 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Step 1: Getting Started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
 **To run commands using the AWS CLI**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. List all available documents
 

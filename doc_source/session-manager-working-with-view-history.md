@@ -38,4 +38,7 @@ To view a list of sessions in your account using the AWS CLI, run the following 
 aws ssm describe-sessions --state History
 ```
 
+**Note**  
+This command returns only results for connections to targets initiated using Session Manager\. It does not list connections made through other means, such as Remote Desktop Protocol \(RDP\) or the Secure Shell Protocol \(SSH\)\.
+
 For information about other options you can use with the describe\-sessions command, see [describe\-sessions](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-sessions.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

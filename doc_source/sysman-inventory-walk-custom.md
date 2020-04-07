@@ -1,12 +1,12 @@
 # Walkthrough: Assign Custom Inventory Metadata to an Instance<a name="sysman-inventory-walk-custom"></a>
 
-The following procedure walks you through the process of using the [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action to assign custom Inventory metadata to a managed instance\. This example assigns rack location information to an instance\. For more information about custom Inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
+The following procedure walks you through the process of using the [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action to assign custom inventory metadata to a managed instance\. This example assigns rack location information to an instance\. For more information about custom inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
-**To assign custom Inventory metadata to an instance**
+**To assign custom inventory metadata to an instance**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to assign rack location information to an instance\.
 

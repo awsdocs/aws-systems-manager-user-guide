@@ -45,31 +45,31 @@ You must configure roles and permissions for Maintenance Windows before beginnin
 
 1. For **Command document**, choose **AWS\-RunPatchBaseline**\.
 
-1. For **Task priority**, choose a priority\. `One` is the highest priority\.
+1. For **Task priority**, choose a priority\. Zero \(`0`\) is the highest priority\.
 
 1. For **Targets**, under **Target by**, choose the maintenance window target you created earlier in this procedure\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. For **Role**, enter the ARN of an IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. For **Parameters**:
    + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
-**Note**  
-The **Install** operation causes the instance to reboot \(if patches are installed\)\. The **Scan** operations does not cause a reboot\.
    + You don't need to enter anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
+   + You don't need to enter anything in the **Install Override List** field unless you want Patch Manager to use a different patch set than is specified for the patch baseline\. For information, see [Parameter name: `InstallOverrideList`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)\.
+   + For **Reboot option**, specify whether you want instances to reboot if patches are installed during the `Install` operation, or if Patch Manager detects other patches that were installed since the last instance reboot\. For information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.
    + \(Optional\) For **Comment**, enter a tracking note or reminder about this command\.
    + For **Timeout \(seconds\)**, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 

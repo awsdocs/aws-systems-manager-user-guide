@@ -1,6 +1,6 @@
-# Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
+# Walkthrough: Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
 
-The following example builds on the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
+The following example builds on the [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
 The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly\-patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
@@ -25,7 +25,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
 
-1. Chooes **Next: Review**\.
+1. Choose **Next: Review**\.
 
 1. On the **Review** page, verify that **AWSLambdaExecute** and **AutoScalingFullAccess** are listed under **Policies**\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb-role.png)
@@ -161,6 +161,10 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "type":"String",
             "description":"AMI to patch"
          },
+         "subnetId":{
+           "type":"String",
+           "description":"The SubnetId where the instance is launched from the sourceAMIid."
+         },
          "targetAMIname":{
             "type":"String",
             "description":"Name of new AMI",
@@ -168,7 +172,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
          },
         "targetASG":{
             "type":"String",
-            "description":"Autosaling group to Update"
+            "description":"Auto Scaling group to Update"
          }
       },
       "mainSteps":[
@@ -183,7 +187,8 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
                "InstanceType":"m3.large",
                "MinInstanceCount":1,
                "MaxInstanceCount":1,
-               "IamInstanceProfileName":"the name of the instance IAM role you created"
+               "IamInstanceProfileName":"the name of the instance IAM role you created",
+               "SubnetId":"{{ subnetId }}"
             }
          },
          {
@@ -192,7 +197,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "maxAttempts":1,
             "onFailure":"Continue",
             "inputs":{
-               "DocumentName":"AWS-InstallMissingWindowsUpdates",
+               "DocumentName":"AWS-InstallWindowsUpdates",
                "InstanceIds":[
                   "{{ startInstances.InstanceIds }}"
                ],
@@ -267,7 +272,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Leave the **Targets and Rate Control** option disabled\.
 
-1. Specify a Windows AMI ID for **sourceAMIid** and your Auto Scaling group name for **targetASG**\.
+1. Specify a Windows AMI ID for **sourceAMIid**, your Auto Scaling group name for **targetASG**, and a value for the **subnetId** input parameter\.
 
 1. Choose **Execute automation**\.
 

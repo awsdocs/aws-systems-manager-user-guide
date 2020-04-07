@@ -1,4 +1,4 @@
-# Patch a Windows AMI<a name="automation-walk-patch-windows-ami-cli"></a>
+# Walkthrough: Patch a Windows Server AMI<a name="automation-walk-patch-windows-ami-cli"></a>
 
 The `AWS-UpdateWindowsAmi` document enables you to automate image maintenance tasks on your Amazon Windows AMIs without having to author the workflow in JSON or YAML\. This document is supported for Windows Server 2008 R2 or later\. You can use the `AWS-UpdateWindowsAmi` document to perform the following types of tasks\.
 + Install all Windows updates and upgrade Amazon software \(default behavior\)\.
@@ -6,7 +6,7 @@ The `AWS-UpdateWindowsAmi` document enables you to automate image maintenance ta
 + Customize an AMI using your scripts\.
 
 **Before You Begin**  
-Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
+Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 Updates to SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.
@@ -19,7 +19,7 @@ The `AWS-UpdateWindowsAmi` document accepts the following input parameters\.
 | Parameter | Type | Description | 
 | --- | --- | --- | 
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Windows Server AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Windows AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)\.  | 
-|  IamInstanceProfileName  |  String  |  \(Required\) The name of the AWS Identity and Access Management \(IAM\) instance profile role you created in [Getting Started with Automation](automation-setup.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
+|  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Getting Started with Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by region\. The default type is t2\.medium\.  | 
@@ -81,7 +81,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` docume
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateWindowsAmi` document\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 

@@ -4,4 +4,3 @@ Systems Manager uses the following shared resources for managing and configuring
 
 **Topics**
 + [AWS Systems Manager Documents](sysman-ssm-docs.md)
-+ [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)

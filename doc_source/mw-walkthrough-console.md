@@ -88,7 +88,7 @@ Use the following procedure to register a Run Command task for the maintenance w
 **Note**  
 If the targets you registered in the preceding step are Windows Server 2012 R2 or earlier, you must use the `AWS-UpdateEC2Config` document\.
 
-1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
+1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
@@ -97,7 +97,7 @@ If you choose to select instances manually, and an instance you expect to see is
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. For ** IAM service role**, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
@@ -108,7 +108,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
    + **Use a custom service role**
 
-     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. Or you can create a custom service role if you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\.
+     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
 
      If you need to create a custom service role, see one of the following topics:
      + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)

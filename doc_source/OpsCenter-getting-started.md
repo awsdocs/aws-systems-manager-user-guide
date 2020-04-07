@@ -1,253 +1,128 @@
 # Getting Started with OpsCenter<a name="OpsCenter-getting-started"></a>
 
-Complete the following steps to get started with OpsCenter\. 
+Set up for Systems Manager OpsCenter is integrated with set up for Systems Manager Explorer\. Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues\. 
 
-**Topics**
-+ [Step 1: Configuring CloudWatch Events Permissions for Automatically Creating OpsItems](#OpsCenter-getting-started-service-permissions)
-+ [Step 2: Configuring User or Group Permissions for OpsCenter](#OpsCenter-getting-started-user-permissions)
-+ [Step 3: \(Optional\) Create OpsItem Guidelines for Your Organization](#OpsCenter-getting-started-guidelines)
+If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\. For more information, see [Getting Started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
-**Before You Begin**  
-Before you get started with OpsCenter, review the pricing details\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. Also, verify that your IAM user, group, or role has permission to use Systems Manager features and capabilities\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\. 
+## \(Optional\) Receive OpsItem Notifications<a name="OpsCenter-getting-started-sns"></a>
+
+You can configure OpsCenter to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic when the systems creates a new OpsItem or updates an existing OpsItem\. Complete the following tasks to receive notifications for OpsItems\.
++ [Task 1: Create and Subscribe to an Amazon SNS Topic](#OpsCenter-getting-started-sns-create-topic)
++ [Task 2: Update the Amazon SNS Access Policy](#OpsCenter-getting-started-sns-encryption-policy)
++ [Task 3: Update the AWS KMS Access Policy \(Optional\)](#OpsCenter-getting-started-sns-KMS-policy)
++ [Task 4: Enable Default OpsItems Rules to Send Notifications for New OpsItems](#OpsCenter-getting-started-sns-default-rules)
+
+### Task 1: Create and Subscribe to an Amazon SNS Topic<a name="OpsCenter-getting-started-sns-create-topic"></a>
+
+To receive notifications, you must create and subscribe to an Amazon SNS topic\. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) and [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
-OpsCenter enables you to remediate issues with AWS resources by using Systems Manager Automation documents \(runbooks\)\. To use this remediation capability, you must have permission to run Systems Manager Automation documents\. For more information, see [Getting Started with Automation](automation-setup.md)\.
+To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and account as the OpsItem\. If you are using OpsCenter in multiple Regions or accounts, then you must create and subscribe to an Amazon SNS topic in each Region or account where you want to receive OpsItem notifications\. 
 
-## Step 1: Configuring CloudWatch Events Permissions for Automatically Creating OpsItems<a name="OpsCenter-getting-started-service-permissions"></a>
+### Task 2: Update the Amazon SNS Access Policy<a name="OpsCenter-getting-started-sns-encryption-policy"></a>
 
-You can configure Amazon CloudWatch Events to automatically create OpsItems in response to events, such as a state change for an AWS resource, a change in security settings, or a service unavailable state\. By default, Amazon CloudWatch Events doesn't have permission to create OpsItems\. Grant permission by using an AWS Identity and Access Management \(IAM\) policy\. You assign the policy to a role, and then attach the role to CloudWatch Events\.
+Use the following procedure to update the Amazon SNS access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
-This section includes the following procedures\.
-+ [To create an OpsCenter policy for CloudWatch Events](#OpsCenter-getting-started-service-permissions-procedure-1)
-+ [To create an OpsCenter role for CloudWatch Events](#OpsCenter-getting-started-service-permissions-procedure-2)
-+ [To attach the OpsCenter policy to the OpsCenter role for CloudWatch Events](#OpsCenter-getting-started-service-permissions-procedure-3)
+1. Sign in to the AWS Management Console and open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.
 
-Use the following procedure to create an IAM policy that enables CloudWatch Events to automatically create OpsItems\.<a name="OpsCenter-getting-started-service-permissions-procedure-1"></a>
+1. In the navigation pane, choose **Topics**\.
 
-**To create an OpsCenter policy for CloudWatch Events**
+1. Choose the topic you created in task 1, and then choose **Edit**\.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. Expand **Access policy**\.  
+![\[Viewing the Access Policy of an Amazon SNS topic\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_access_policy.png)
 
-1. In the navigation pane, choose **Policies**\.
-
-1. Choose **Create policy**\.
-
-1. Choose the **JSON** tab\.
-
-1. Replace the default content with the following:
+1. Add the following Sid block to the existing policy\.
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": "ssm:CreateOpsItem",
-               "Resource": "*"
-           }
-       ]
-   }
-   ```
-
-1. Choose **Review policy**\.
-
-1. On the **Review policy** page, for **Name**, enter a name\. For example: **OpsCenter\-CWE\-Policy**\.
-
-1. For **Description**, enter information about this policy that identifies its purpose\.
-
-1. Choose **Create policy**\.
-
-Use the following procedure to create an IAM role that enables CloudWatch Events to automatically create OpsItems in OpsCenter\.<a name="OpsCenter-getting-started-service-permissions-procedure-2"></a>
-
-**To create an OpsCenter role for CloudWatch Events**
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Roles**\.
-
-1. Choose **Create role**\.
-
-1. On the **Create role** page, under **Select type of trusted entity**, verify that **AWS service** is selected\.
-
-1. Under **Choose the service that will use this role**, choose **CloudWatch Events**\.
-
-1. Under **Select your use case**, choose **CloudWatch Events**, and then choose **Next: Permissions**\.
-
-1. On the **Permissions** page, leave the default settings and choose **Next: Tags**\.
-
-1. \(Optional\) On the **Tags** page, specify key\-value tag pairs, and then choose **Next: Review**\.
-
-1. On the **Review** page, for **Role name**, enter a name\. For example: **OpsItem\-CWE\-Role**\.
-
-1. For **Description**, either leave the default description or enter information about this role that identifies its purpose\.
-
-1. Choose **Create role**\.
-
-Use the following procedure to attach the policy you created earlier to the role you just created\. <a name="OpsCenter-getting-started-service-permissions-procedure-3"></a>
-
-**To attach the OpsCenter policy to the OpsCenter role for CloudWatch Events**
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Roles**\.
-
-1. Locate the role you just created\.
-
-1. Choose the name of the role to open the **Summary** page\.
-
-1. \(Optional\) You can detach the policies that were automatically assigned to this role when you created it\. Choose the **X** beside each policy to detach it\.
-
-1. Choose **Attach policies**\.
-
-1. On the **Attach permissions** page, locate the OpsCenter policy that you created earlier\.
-
-1. Choose this policy, and then choose **Attach policy**\. IAM returns you to the **Roles** page\.
-
-1. Choose the name of the role to open the **Summary** page\.
-
-1. Copy the role ARN\. You must specify this ARN when you configure OpsCenter to automatically create OpsItems by using CloudWatch Events\. For more information, see [Enabling the Default CloudWatch Events Rules for Automatically Creating OpsItems](OpsCenter-creating-OpsItems.md#OpsCenter-automatically-create-OpsItems-1)\.
-
-CloudWatch Events now has the required permissions to automatically create OpsItems in OpsCenter\.
-
-## Step 2: Configuring User or Group Permissions for OpsCenter<a name="OpsCenter-getting-started-user-permissions"></a>
-
-OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create AWS Identity and Access Management \(IAM\) users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
-
-OpsCenter uses the following API actions\. You can use all features of OpsCenter if your IAM user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
-+ [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html)
-+ [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html)
-+ [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html)
-+ [GetOpsSummary](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html)
-+ [UpdateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateOpsItem.html)
-
-The following procedure describes how to add a full\-access inline policy to an IAM user\. If you prefer, you can specify read\-only permission by assigning the following inline policy to a user's account, group, or role\.
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ssm:GetOpsItem",
-        "ssm:GetOpsSummary",
-        "ssm:DescribeOpsItems"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\. For information about how to assign this policy to an IAM group, see [Attaching a Policy to an IAM Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html)\. 
-
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Users**\.
-
-1. In the list, choose a name\.
-
-1. Choose the **Permissions** tab\.
-
-1. On the right side of the page, under **Permission policies**, choose **Add inline policy**\. 
-
-1. Choose the **JSON** tab\.
-
-1. Replace the default content with the following:
-
-   ```
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
+         "Sid": "Allow OpsCenter to publish to this topic",
          "Effect": "Allow",
-         "Action": [
-           "ssm:GetOpsItem",
-           "ssm:UpdateOpsItem",
-           "ssm:DescribeOpsItems",
-           "ssm:CreateOpsItem",
-           "ssm:GetOpsSummary"
-   
-         ],
-         "Resource": "*"
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "SNS:Publish",
+          "Resource": "arn:aws:sns:AWS_Region:account_ID:topic_name"
        }
-     ]
-   }
    ```
 
-1. Choose **Review policy**\.
+   Enter this block after the existing Sid block\. In the following example, the new block is entered at line 29\.  
+![\[Editing the Access Policy of an Amazon SNS topic\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_access_policy_2.png)
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **OpsCenter\-Access\-Full**\.
+1. Choose **Save changes**\.
 
-1. Choose **Create policy**\.
+The system now sends notifications to the Amazon SNS topic when OpsItems are created or updated\.
 
-### Restricting Access to OpsItems by Using Tags<a name="OpsCenter-getting-started-user-permissions-tags"></a>
+**Important**  
+If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS KMS\) server\-side encryption key, then you must complete task 3\. If you want to configure OpsItems created by the default OpsItem rules to publish to the Amazon SNS topic, then you must also complete task 4\.
 
-You can also restrict access to OpsItems by using an inline IAM policy that specifies tags\. The policy uses the following format\. 
+### Task 3: Update the AWS KMS Access Policy \(Optional\)<a name="OpsCenter-getting-started-sns-KMS-policy"></a>
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "One_or_more_OpsItem_API_actions"
-             ],
-      "Resource": "*"
-	  ,
-	  "Condition": { "StringEquals": { "ssm:resourceTag/tag_key": "tag_value" } }
-    }
-  ]
-}
-```
+If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS customer master key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
-Here is an example that species a tag key of *Department* and a tag value of *Finance*\. With this policy, the user can only call the *GetOpsItem* API action to view OpsItems that were previously tagged with Key=Department and Value=Finance\. Users can't view any other OpsItems\.
+**Note**  
+OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ssm:GetOpsItem"
-             ],
-      "Resource": "*"
-	  ,
-	  "Condition": { "StringEquals": { "ssm:resourceTag/Department": "Finance" } }
-    }
-  ]
-}
-```
+1. Open the AWS KMS console at [https://console\.aws\.amazon\.com/kms](https://console.aws.amazon.com/kms)\.
 
-Here is an example that species API actions for viewing and updating OpsItems\. This policy also specifies two sets of tag key\-value pairs: Department\-Finance and Project\-Unity\.
+1. To change the AWS Region, use the Region selector in the upper\-right corner of the page\.
 
-```
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "ssm:GetOpsItem",
-            "ssm:UpdateOpsItem"
-         ],
-         "Resource":"*",
-         "Condition":{
-            "StringEquals":{
-               "ssm:resourceTag/Department":"Finance",
-               "ssm:resourceTag/Project":"Unity"
-            }
-         }
-      }
-   ]
-}
-```
+1. In the navigation pane, choose **Customer managed keys**\.
 
-For information about adding tags to an OpsItem, see [Creating OpsItems Manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.
+1. Choose the ID of the customer master key you chose when you created the topic\.
 
-## Step 3: \(Optional\) Create OpsItem Guidelines for Your Organization<a name="OpsCenter-getting-started-guidelines"></a>
+1. In the **Key policy** section, choose **Switch to policy view**\.
+
+1. Choose **Edit**\.
+
+1. Add the following Sid block to the existing policy\.
+
+   ```
+   {
+         "Sid": "Allow OpsItems to decrypt the key",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": ["kms:Decrypt", "kms:GenerateDataKey*"],
+          "Resource": "arn:aws:kms:AWS_Region:account_ID:key/key_ID"
+       }
+   ```
+
+   Enter this block after one of the existing Sid blocks\. In the following example, the new block is entered at line 14\.  
+![\[Editing the AWS KMS Access Policy of an Amazon SNS topic\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_KMS_access_policy.png)
+
+1. Choose **Save changes**\.
+
+### Task 4: Enable Default OpsItems Rules to Send Notifications for New OpsItems<a name="OpsCenter-getting-started-sns-default-rules"></a>
+
+Default OpsItems rules in Amazon CloudWatch Events aren't configured with an ARN for Amazon SNS notifications\. Use the following procedure to edit a rule in CloudWatch Events and enter a `notifications` block\. 
+
+**To add a notifications block to a default OpsItem rule**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **OpsCenter**\.
+
+1. Choose the **OpsItems** tab, and then choose **Configure sources**\.
+
+1. Choose the source rule that you want to configure with a `notification` block, as shown in the following example:  
+![\[Choosing a CloudWatch Events rule to add an Amazon SNS notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
+
+1. On the rule details page, choose **Edit**\.  
+![\[Choosing the edit button\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_3.png)
+
+1. Scroll to the **Select targets** section\.  
+![\[Locating the Select targets section.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_4.png)
+
+1. Enter the `notifications` block before the `resources` block, as shown here\.  
+![\[Adding a notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup.png)
+
+1. Scroll to the bottom of the rule details page and choose **Update**\.
+
+The next time the systems creates an OpsItem for the default rule, it publishes a notification to the Amazon SNS topic\.
+
+## \(Optional\) Create OpsItem Guidelines for Your Organization<a name="OpsCenter-getting-started-guidelines"></a>
 
 We recommend that each organization create a simple set of guidelines that promote consistency when creating and editing OpsItems\. Guidelines make it easier for users to locate and resolve OpsItems\. The guidelines for your organization should define best practices when users enter information into the following OpsItem fields\.
 

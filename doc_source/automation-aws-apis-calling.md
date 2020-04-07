@@ -1,6 +1,6 @@
 # Invoking Other AWS Services from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling"></a>
 
-You can invoke other AWS services and other Systems Manager capabilities in your Automation workflow by using the following Automation actions in your Automation documents\. 
+You can invoke other AWS services and other Systems Manager capabilities in your Automation workflow by using the following Automation actions in your Automation documents, or playbooks\. 
 + **aws:executeAwsApi**: This Automation action calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
 + **aws:waitForAwsResourceProperty**: This Automation action enables your workflow to wait for a specific resource state or event state before continuing the workflow\. For example, you can use this action with the Amazon Relational Database Service \(Amazon RDS\) [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API action to pause an Automation workflow so that a database instance has time to start\.
 + **aws:assertAwsResourceProperty**: This Automation action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
@@ -110,9 +110,9 @@ outputs:
 Each of the previously described Automation actions enables you to call a specific API action by specifying the service namespace, the API action name, the input parameters, and the output parameters\. Inputs are defined by the API action that you choose\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
 
 You can view the schema for each Automation action in the following locations:
-+ [aws:assertAwsResourceProperty](automation-actions.md#automation-action-assertAwsResourceProperty)
-+ [aws:executeAwsApi](automation-actions.md#automation-action-executeAwsApi)
-+ [aws:waitForAwsResourceProperty](automation-actions.md#automation-action-waitForAwsResourceProperty)
++ [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
++ [aws:executeAwsApi – Call and run AWS API actions](automation-action-executeAwsApi.md)
++ [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
 
 The schemas include descriptions of the required fields for using each action\.
 
@@ -320,7 +320,7 @@ Type: MapList
 ```
 
 **Important**  
-If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage actions`, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 ## Sample Walkthrough: Start an Amazon RDS Instance from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling-sample"></a>
 
@@ -348,9 +348,9 @@ This sample walkthrough shows you how to create and run an Automation document i
 
 1. For the first step of the workflow, you need to determine if the instance is already running\. You can use the aws:assertAwsResourceProperty action to determine and assert a specific instance status\. Before you can add the aws:assertAwsResourceProperty action to the document, you must determine and specify the required inputs\. The following list describes how to determine and specify the required inputs\. You can view an example of how to enter this information in the Automation document following the list\.
 
-   1. View the schema to see all available inputs for the [aws:assertAwsResourceProperty](automation-actions.md#automation-action-assertAwsResourceProperty) action\.
+   1. View the schema to see all available inputs for the [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md) action\.
 
-   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr//aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
+   1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
    1. Determine which Amazon RDS API action enables you to view the status of a database instance\. You can view the API actions \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
@@ -394,7 +394,7 @@ This sample walkthrough shows you how to create and run an Automation document i
 
 1. Specify an aws:executeAwsApi action in the mainSteps section to start the instance if the previous action determined that it is not started\.
 
-   1. View the schema to see all available inputs for [aws:executeAwsApi](automation-actions.md#automation-action-executeAwsApi)\. 
+   1. View the schema to see all available inputs for [aws:executeAwsApi – Call and run AWS API actions](automation-action-executeAwsApi.md)\. 
 
    1. Specify the Amazon RDS [StartDBInstance](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.start_db_instance) API action to start the instance\. 
 
@@ -437,7 +437,7 @@ This sample walkthrough shows you how to create and run an Automation document i
 
 1. Specify an aws:waitForAwsResourceProperty action in the mainSteps section to wait for the instance to start before finishing the Automation workflow\.
 
-   1. View the schema to see all available inputs for the [aws:waitForAwsResourceProperty](automation-actions.md#automation-action-waitForAwsResourceProperty)\. 
+   1. View the schema to see all available inputs for the [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)\. 
 
    1. Specify the Amazon RDS [DescribeDBInstances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) API action to determine the instance status\. 
 

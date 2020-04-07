@@ -1,6 +1,6 @@
 # Creating Dynamic Automation Workflows with Conditional Branching<a name="automation-branchdocs"></a>
 
-By default, the steps that you define in the `mainSteps` section of an Automation document run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire Automation workflow fails \(by default\)\. You can use the `aws:branch` Automation action and the Automation document options described in this section to create Automation workflows that perform *conditional branching*\. This means that you can create Automation workflows that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic Automation workflows:
+By default, the steps that you define in the `mainSteps` section of an Automation document, or playbook, run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire Automation workflow fails \(by default\)\. You can use the `aws:branch` Automation action and the Automation document options described in this section to create Automation workflows that perform *conditional branching*\. This means that you can create Automation workflows that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic Automation workflows:
 + **aws:branch**: This automation action enables you to create a dynamic Automation workflow that evaluates multiple choices in a single step and then jumps to a different step in the Automation document based on the results of that evaluation\.
 + **nextStep**: This option specifies which step in an Automation workflow to process next after successfully completing a step\. 
 + **isEnd**: This option stops an Automation execution at the end of a specific step\. The default value for this option is false\.
@@ -112,7 +112,8 @@ If you don't want to specify a `Default` value, then you can specify the `isEnd`
 
 Use the following templates to help you construct the `aws:branch` step in your Automation documents:
 
-**YAML template**
+------
+#### [ YAML ]
 
 ```
 mainSteps:
@@ -130,7 +131,8 @@ mainSteps:
       step to jump to if all choices are false
 ```
 
-**JSON template**
+------
+#### [ JSON ]
 
 ```
 {
@@ -157,6 +159,8 @@ mainSteps:
    ]
 }
 ```
+
+------
 
 #### About Creating the Output Variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
 
@@ -378,7 +382,6 @@ mainSteps:
       - Variable: "{{GetInstance.platform}}"
         StringEquals: Windows
       NextStep: runPowerShellCommand
-
 
     - And:
       - Variable: "{{GetInstance.pingStatus}}"

@@ -14,7 +14,6 @@ Your Amazon EC2 instances, on\-premises servers, and virtual machines \(VMs\) mu
 
 | Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 2003 and 2003 R2 | ✓ | ✓ |  | 
 | 2008 | ✓ | ✓ |  | 
 | 2008 R2 |  | ✓ |  | 
 | 2012 and 2012 R2 |  | ✓ |  | 
@@ -65,9 +64,21 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 6\.5 | ✓ | ✓ |  | 
 | 6\.9 | ✓ | ✓ |  | 
 | 7\.0 |  | ✓ |  | 
+| 7\.1 |  | ✓ |  | 
+| 7\.2 |  | ✓ |  | 
+| 7\.3 |  | ✓ |  | 
 | 7\.4 |  | ✓ |  | 
 | 7\.5 |  | ✓ |  | 
 | 7\.6 |  | ✓ | ✓ | 
+
+
+**Oracle Linux**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 7\.5 |  | ✓ |  | 
+| 7\.6 |  | ✓ |  | 
+| 7\.7 |  | ✓ |  | 
 
 
 **CentOS**  

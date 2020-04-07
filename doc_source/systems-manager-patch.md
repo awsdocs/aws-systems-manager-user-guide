@@ -30,5 +30,5 @@ To get started with Patch Manager, complete the tasks described in the following
 + [About Patching Operations](about-patching-operations.md)
 + [About Patch Baselines](about-patch-baselines.md)
 + [Working with Patch Manager \(Console\)](sysman-patch-working.md)
-+ [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)
++ [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)
 + [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)

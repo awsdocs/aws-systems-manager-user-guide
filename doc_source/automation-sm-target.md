@@ -14,7 +14,7 @@ Use the following procedures to create a State Manager Association that runs an 
 **Before You Begin**  
 Be aware of the following important details before you run Automation workflows by using State Manager\.
 + Before you can create an association that runs an Automation document, verify that you configured permissions for Systems Manager Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
-+ State Manager associations that run Automation documents contribute to the maximum number of concurrently running Automations in your AWS account\. You can have a maximum of 25 concurrent Automations running with a maximum of 75 child Automations running at one time\. For information, see [AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
++ State Manager associations that run Automation documents contribute to the maximum number of concurrently running Automations in your AWS account\. You can have a maximum of 25 concurrent Automations running with a maximum of 75 child Automations running at one time\. For information, see [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 
 ------
@@ -43,7 +43,7 @@ Be aware of the following important details before you run Automation workflows 
 
 ------
 
-  For more information about service\-linked roles, see [Service\-Linked Role Permissions for Systems Manager](using-service-linked-roles.md#slr-permissions)\.
+  For more information about service\-linked roles, see [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)\.
 
 ## Creating an Association That Runs an Automation Workflow \(Console\)<a name="automation-sm-target-console"></a>
 
@@ -112,7 +112,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to view a list of documents\.
 

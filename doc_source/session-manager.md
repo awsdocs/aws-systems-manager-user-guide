@@ -1,6 +1,6 @@
 # AWS Systems Manager Session Manager<a name="session-manager"></a>
 
-Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your Amazon EC2 instances\.
+Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon EC2 instances, on\-premises instances, and virtual machines \(VMs\) through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your managed instances\.
 
 ## How can Session Manager benefit my organization?<a name="session-manager-benefits"></a>
 
@@ -13,7 +13,7 @@ Session Manager offers these benefits:
   Leaving inbound SSH ports and remote PowerShell ports open on your instances greatly increases the risk of entities running unauthorized or malicious commands on the instances\. Session Manager helps you improve your security posture by letting you close these inbound ports, freeing you from managing SSH keys and certificates, bastion hosts, and jump boxes\.
 + **One\-click access to instances from the console and CLI**
 
-  Using the AWS Systems Manager console, you can start a session with a single click\. Using the AWS CLI, you can also start a session that runs a single command or a sequence of commands\. Because permissions to instances are provided through IAM policies instead of SSH keys or other mechanisms, the connection time is greatly reduced\.
+  Using the AWS Systems Manager console or Amazon EC2 console, you can start a session with a single click\. Using the AWS CLI, you can also start a session that runs a single command or a sequence of commands\. Because permissions to instances are provided through IAM policies instead of SSH keys or other mechanisms, the connection time is greatly reduced\.
 + **Port forwarding**
 
   Redirect any port inside your remote instance to a local port on a client\. After that, connect to the local port and access the server application that is running inside the instance\.
@@ -39,16 +39,18 @@ Session Manager offers these benefits:
 ## What Are the Main Features of Session Manager?<a name="session-manager-features"></a>
 + **Support for both Windows and Linux instances**
 
-  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For a list of supported Windows and Linux operating system types, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
+  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported Windows and Linux operating system types, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [\(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
+Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
 + **Console, CLI, and SDK access to Session Manager capabilities**
 
   You can work with Session Manager in the following ways:
 
   The **AWS Systems Manager console** includes access to all the Session Manager capabilities for both administrators and end\-users\. You can perform any task that's related to your sessions by using the Systems Manager console\. 
 
-  The **AWS CLI** includes access to Session Manager capabilities for end users\. You can start a session, view a list of sessions, and permanently terminate a session by using the AWS CLI\. 
+  The Amazon EC2 console provides the ability for end\-users to connect to the EC2 instances for which they have been granted session permissions\.
+
+  The **AWS CLI** includes access to Session Manager capabilities for end users\. You can start a session, view a list of sessions, and permanently end a session by using the AWS CLI\. 
 **Note**  
 To use the AWS CLI to run session commands, you must be using version 1\.16\.12 of the CLI \(or later\), and you must have installed the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
@@ -76,7 +78,7 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
 
 A session is a connection made to an instance using Session Manager\. Sessions are based on a secure bi\-directional communication channel between the client \(you\) and the remote managed instance that streams inputs and outputs for commands\. Traffic between a client and a managed instance is encrypted using TLS 1\.2, and requests to create the connection are signed using Sigv4\. This two\-way communication enables interactive bash and PowerShell access to instances\. You can also use an AWS Key Management Service \(AWS KMS\) key to further encrypt data beyond the default TLS encryption\.
 
-For example, say that John is an on\-call engineer in your IT department\. He receives notification of an issue that requires him to remotely connect to an instance, such as a failure that requires troubleshooting or a directive to change a simple configuration option on an instance\. Using the AWS Systems Manager console or the AWS CLI, John starts a session connecting him to the instance, runs commands on the instance needed to complete the task, and then terminates the session\.
+For example, say that John is an on\-call engineer in your IT department\. He receives notification of an issue that requires him to remotely connect to an instance, such as a failure that requires troubleshooting or a directive to change a simple configuration option on an instance\. Using the AWS Systems Manager console, the Amazon EC2 console, or the AWS CLI, John starts a session connecting him to the instance, runs commands on the instance needed to complete the task, and then ends the session\.
 
 When John sends that first command to start the session, the Session Manager service authenticates his ID, verifies the permissions granted to him by an IAM policy, checks configuration settings \(such as verifying allowed limits for the sessions\), and sends a message to SSM Agent to open the two\-way connection\. After the connection is established and John types the next command, the command output from SSM Agent is uploaded to this communication channel and sent back to his local machine\.
 

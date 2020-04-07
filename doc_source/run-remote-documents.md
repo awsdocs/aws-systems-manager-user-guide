@@ -28,27 +28,36 @@ Before you run a remote document, you must complete the following tasks\.
 
 1. In the **Document** list, choose **AWS\-RunDocument**\.
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
-
-1. \(Optional\) For **Rate control**:
-   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
-**Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
-   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
-
-1. In the **Source Type** list, choose an option\. 
+1. In **Command parameters**, for **Source Type**, choose an option\. 
    + If you choose **GitHub**, specify **Source Info** information in the following format:
 
      ```
-     {"owner":"owner_name", "repository": "repository_name", "path": "path_to_document", "tokenInfo":"{{ssm-secure:SecureString_parameter_name}}" }
+     {
+         "owner": "owner_name",
+         "repository": "repository_name",
+         "branch": "branch_name",
+         "path": "path_to_document",
+         "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}"
+     }
      ```
 
      For example:
 
      ```
-     {"owner":"TestUser1", "repository": "SSMTestDocsRepo", "path": "SSMDocs/mySSMdoc.yml", "tokenInfo":"{{ssm-secure:myAccessTokenParam}}" }
+     {
+         "owner": "TestUser1",
+         "repository": "SSMTestDocsRepo",
+         "path": "SSMDocs/mySSMdoc.yml",
+         "branch": "myBranch",
+         "tokenInfo": "{{ssm-secure:myAccessTokenParam}}"
+     }
+     ```
+**Note**  
+`"branch"` is required only if your SSM document is stored in a branch other than `master`\.  
+To use the version of your SSM document in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
+
+     ```
+     "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
      ```
    + If you choose **S3**, specify **Source Info** information in the following format:
 
@@ -73,6 +82,16 @@ If you selected targets by specifying tags applied to managed instances or by sp
      {"name": "mySSMdoc"}
      ```
 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+**Note**  
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+
 1. In the **Document Parameters** field, type parameters for the remote SSM document\. For example, if you run the AWS\-RunPowerShell document, you could specify:
 
    ```
@@ -95,16 +114,16 @@ If you selected targets by specifying tags applied to managed instances or by sp
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then limit the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
-1. In the **SNS Notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
