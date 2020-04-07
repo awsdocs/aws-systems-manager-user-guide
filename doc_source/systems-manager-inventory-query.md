@@ -92,12 +92,12 @@ When you choose a resource data sync on the **Inventory Detail View** page, Syst
 **AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
 If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
-## Querying Data on the Detailed Inventory View Page<a name="systems-manager-inventory-query-detail-view"></a>
+## Querying Data on the Inventory Detailed View Page<a name="systems-manager-inventory-query-detail-view"></a>
 
-Use the following procedure to view inventory data from multiple AWS Regions and accounts on the **Detailed Inventory View** page\.
+Use the following procedure to view inventory data from multiple AWS Regions and accounts on the Systems Manager Inventory **Detailed View** page\.
 
 **Important**  
-The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.  
+The Inventory **Detailed View** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Systems Manager Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.  
 
 ![\[Displaying Inventory Dashboard | Detailed View | Settings tabs\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
 
@@ -115,22 +115,22 @@ The Inventory **Detailed View ** page is only available in AWS Regions that offe
 ![\[Accessing the AWS Systems Manager Inventory Detailed View page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view.png)
 
 1. Choose the resource data sync for which you want to query data\.  
-![\[Displaying Inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
+![\[Displaying inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
 
 1. In the **Inventory Type** list, choose the type of inventory data that you want to query, and then press Enter\.  
-![\[Choosing an Inventory type in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-type.png)
+![\[Choosing an inventory type in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-type.png)
 
 1. To filter the data, choose the Filter bar, and then choose a filter option\.  
-![\[Filtering Inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-filter.png)
+![\[Filtering inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-filter.png)
 
    The following example shows AWSComponent inventory data filtered on the us\-east\-2 Region\.  
-![\[Filtering Inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-with-data.png)
+![\[Filtering inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-with-data.png)
 
 You can use the **Export to CSV** button to view the current query set in a spreadsheet application such as Microsoft Excel\. You can also use the **Query History** and **Run Advanced Queries** buttons to view history details and interact with your data in Amazon Athena\.
 
 ### Editing the AWS Glue Crawler Schedule<a name="systems-manager-inventory-glue-settings"></a>
 
-AWS Glue crawls the Systems Manager Inventory data in the central Amazon S3 bucket twice daily, by default\. If you frequently change the types of data to collect on your instances then you might want to crawl the data more frequently, as described in the following procedure\.
+AWS Glue crawls the inventory data in the central Amazon S3 bucket twice daily, by default\. If you frequently change the types of data to collect on your instances then you might want to crawl the data more frequently, as described in the following procedure\.
 
 **Important**  
 AWS Glue charges your account based on an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. Before you change the crawler schedule, view the [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) page\.
@@ -152,4 +152,4 @@ AWS Glue charges your account based on an hourly rate, billed by the second, for
 1. In the **Cron expression** field, specify a new schedule by using a cron format\. For more information about the cron format, see [Time\-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide*\.
 
 **Important**  
-You can pause the crawler to stop incurring charges from AWS Glue\. If you pause the crawler, or if you change the frequency so that the data is crawled less often, then the **Detailed Inventory View** might display data that is not current\.
+You can pause the crawler to stop incurring charges from AWS Glue\. If you pause the crawler, or if you change the frequency so that the data is crawled less often, then the Inventory **Detailed View** might display data that is not current\.

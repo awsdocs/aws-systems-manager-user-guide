@@ -12,15 +12,15 @@ This action supports most send command parameters\. For more information, see [S
 #### [ YAML ]
 
 ```
-name: installPowerShellModule
-action: aws:runCommand
+- name: checkMembership
+action: 'aws:runCommand'
 inputs:
-  DocumentName: AWS-InstallPowerShellModule
-  InstanceIds:
-  - i-1234567890abcdef0
-  Parameters:
-    source: 'https://my-s3-url.com/MyModule.zip '
-    sourceHash: ASDFWER12321WRW
+    DocumentName: AWS-RunPowerShellScript
+    InstanceIds:
+    - '{{InstanceIds}}'
+    Parameters:
+        commands:
+        - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
 ```
 
 ------
@@ -28,14 +28,17 @@ inputs:
 
 ```
 {
-    "name": "installPowerShellModule",
+    "name": "checkMembership",
     "action": "aws:runCommand",
     "inputs": {
-        "DocumentName": "AWS-InstallPowerShellModule",
-        "InstanceIds": ["i-1234567890abcdef0"],
+        "DocumentName": "AWS-RunPowerShellScript",
+        "InstanceIds": [
+            "{{InstanceIds}}"
+        ],
         "Parameters": {
-            "source": "https://my-s3-url.com/MyModule.zip ",
-            "sourceHash": "ASDFWER12321WRW"
+            "commands": [
+                "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
+            ]
         }
     }
 }
@@ -62,28 +65,47 @@ Required: No \(If you don't specify Targets, then you must specify InstanceIds o
 Here is an example:  
 
 ```
+- name: checkMembership
+action: aws:runCommand
+inputs:
+    DocumentName: AWS-RunPowerShellScript
+    Targets:
+    - Key: tag:Stage
+      Values:
+      - Gamma
+      - Beta
+    - Key: tag-key
+      Values:
+      - Suite
+    Parameters:
+        commands:
+        - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
+```
+
+```
 {
-    "name": "installPowerShellModule",
+    "name": "checkMembership",
     "action": "aws:runCommand",
     "inputs": {
-        "DocumentName": "AWS-InstallPowerShellModule",
+        "DocumentName": "AWS-RunPowerShellScript",
         "Targets": [                   
-            {
-                "Key": "tag:Stage",
-                "Values": [
-                    "Gamma", "Beta"
-                ]
-            },
-            {
-                "Key": "tag-key",
-                "Values": [
-                    "Suite"
-                ]
-            }
-        ]
+        {
+            "Key": "tag:Stage",
+            "Values": [
+                "Gamma", "Beta"
+            ]
+        },
+        {
+            "Key": "tag-key",
+            "Values": [
+                "Suite"
+            ]
+        }
+    ],
         "Parameters": {
-            "source": "https://my-s3-url.com/MyModule.zip ",
-            "sourceHash": "ASDFWER12321WRW"
+            "commands": [
+                "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
+            ]
         }
     }
 }
@@ -101,19 +123,37 @@ Required: No
 Here is an example:  
 
 ```
+- name: checkMembership
+action: aws:runCommand
+inputs:
+    DocumentName: AWS-RunPowerShellScript
+    InstanceIds:
+    - "{{InstanceIds}}"
+    Parameters:
+        commands:
+        - "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
+    CloudWatchOutputConfig:
+        CloudWatchLogGroupName: CloudWatchGroupForSSMAutomationService
+        CloudWatchOutputEnabled: true
+```
+
+```
 {
-    "name": "installPowerShellModule",
+    "name": "checkMembership",
     "action": "aws:runCommand",
     "inputs": {
-        "DocumentName": "AWS-InstallPowerShellModule",
-        "InstanceIds": ["i-1234567890abcdef0"],
+        "DocumentName": "AWS-RunPowerShellScript",
+        "InstanceIds": [
+            "{{InstanceIds}}"
+        ],
         "Parameters": {
-            "source": "https://my-s3-url.com/MyModule.zip ",
-            "sourceHash": "ASDFWER12321WRW"
+            "commands": [
+                "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
+            ]
         },
         "CloudWatchOutputConfig" : { 
-            "CloudWatchLogGroupName": "CloudWatchGroupForSSMAutomationService",
-            "CloudWatchOutputEnabled": true
+                "CloudWatchLogGroupName": "CloudWatchGroupForSSMAutomationService",
+                "CloudWatchOutputEnabled": true
         }
     }
 }
@@ -169,4 +209,133 @@ ResponseCode
 The response code of the command\.
 
 Output  
-The output of the command\.
+The output of the command\.  
+Here is an example:  
+
+```
+description: Example
+schemaVersion: '0.3'
+assumeRole: '{{ AutomationAssumeRole }}'
+parameters:
+  AutomationAssumeRole:
+    type: String
+    description: >-
+      (Optional) The ARN of the role that allows Automation to perform the
+      actions on your behalf. If no role is specified, Systems Manager
+      Automation uses your IAM permissions to execute this document.
+    default: ''
+  InstanceIds:
+    type: String
+    description: (Required) Target instances.
+mainSteps:
+  - name: checkMembership
+    action: 'aws:runCommand'
+    inputs:
+      DocumentName: AWS-RunPowerShellScript
+      InstanceIds:
+        - '{{InstanceIds}}'
+      Parameters:
+        commands:
+          - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
+    outputs:
+      - Name: isDomainJoined
+        Selector: '$.Outputs.Output[0]'
+        Type: Boolean
+    nextStep: branchOnMembership
+  - name: branchOnMembership
+    action: 'aws:branch'
+    onFailure: Abort
+    inputs:
+      Choices:
+        - NextStep: addToDomain
+          Not:
+            Variable: "{{checkMembership.isDomainJoined}}"
+            BooleanEquals: True
+    isEnd: true
+  - name: addToDomain
+    action: 'aws:runCommand'
+    onFailure: Abort
+    inputs:
+      DocumentName: domainJoin
+      InstanceIds:
+        - "{{InstanceIds}}"
+      Parameters:
+        directoryId: 'd-926EXAMPLE'
+        directoryName: 'example.com'
+```
+
+```
+{
+   "description": "Example",
+   "schemaVersion": "0.3",
+   "assumeRole": "{{ AutomationAssumeRole }}",
+   "parameters": {
+      "AutomationAssumeRole": {
+         "type": "String",
+         "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to execute this document.",
+         "default": ""
+      },
+      "InstanceIds": {
+         "type": "String",
+         "description": "(Required) Target instances."
+      }
+   },
+   "mainSteps": [
+      {
+         "name": "checkMembership",
+         "action": "aws:runCommand",
+         "inputs": {
+            "DocumentName": "AWS-RunPowerShellScript",
+            "InstanceIds": [
+               "{{InstanceIds}}"
+            ],
+            "Parameters": {
+               "commands": [
+                  "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
+               ]
+            }
+         },
+         "outputs": [
+            {
+               "Name": "isDomainJoined",
+               "Selector": "$.Outputs.Output[0]",
+               "Type": "Boolean"
+            }
+         ],
+         "nextStep": "branchOnMembership"
+      },
+      {
+         "name": "branchOnMembership",
+         "action": "aws:branch",
+         "onFailure": "Abort",
+         "inputs": {
+            "Choices": [
+               {
+                  "NextStep": "addToDomain",
+                  "Not": {
+                     "Variable": "{{checkMembership.isDomainJoined}}",
+                     "BooleanEquals": true
+                  }
+               }
+            ]
+         },
+         "isEnd": true
+      },
+      {
+         "name": "addToDomain",
+         "action": "aws:runCommand",
+         "onFailure": "Abort",
+         "inputs": {
+            "DocumentName": "domainJoin",
+            "InstanceIds": [
+               "{{InstanceIds}}"
+            ],
+            "Parameters": {
+               "directoryId": "d-926EXAMPLE",
+               "directoryName": "example.com"
+            }
+         }
+      }
+   ]
+}
+```

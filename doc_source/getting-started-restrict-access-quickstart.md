@@ -107,7 +107,7 @@ Use this sample policy to provider users with the ability to start sessions from
             "Effect": "Allow",
             "Action": [
                 "ssm:GetConnectionStatus",
-                "ssm:DescribeInstanceInformation",
+                "ssm:DescribeInstanceInformation"
             ],
             "Resource": "*"
         },

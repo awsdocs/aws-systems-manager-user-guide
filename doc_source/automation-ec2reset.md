@@ -207,7 +207,7 @@ If you don't see the option to specify a subnet ID, verify that you are using th
 
    1. For **EC2RescueInstanceType**, specify an instance type for the EC2Rescue instance\. The default instance type is `t2.small`\.
 
-   1. For **AssumeRole**, if you created roles for this Automation by using the AWS CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you noted inthe AWS CloudFormation console\.
+   1. For **AssumeRole**, if you created roles for this Automation by using the AWS CloudFormation procedure described earlier in this topic, then specify the AssumeRole ARN that you noted in the AWS CloudFormation console\.
 
 1. \(Optional\) In the **Tags** area, apply one or more tag key name/value pairs to help identify the execution, for example `Key=Purpose,Value=ResetAccess`\.
 

@@ -1,4 +1,4 @@
-# Working with Public Parameters<a name="parameter-store-public-parameters"></a>
+# Using Public Parameters<a name="parameter-store-public-parameters"></a>
 
 Some AWS services publish information about common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machines Images \(AMIs\) as public parameters\. You can call this information from your scripts and code by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
 

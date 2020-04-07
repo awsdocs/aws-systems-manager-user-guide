@@ -2,12 +2,12 @@
 
 Patch Manager includes a predefined patch baseline for each operating system supported by Patch Manager\. You can use these patch baselines \(you can't customize them\), or you can create your own\. The following procedure describes how to create your own custom patch baseline\. To learn more about patch baselines, see [About Predefined and Custom Patch Baselines](sysman-patch-baselines.md)\.
 
-Depending on the type of operating system you are using, Windows or Linux, use one of the following procedures\.
+Depending on the type of operating system you are using, Windows Server or Linux, use one of the following procedures\.
 
 **Note**  
 You can also create a patch baseline using the [Amazon EC2 Systems Manager console](https://console.aws.amazon.com/ec2/v2/home?#PatchBaselines:sort=BaselineId)\. However, this older version of Systems Manager lacks many current features and will be deprecated in the future\.
 
-**To create a custom patch baseline \(Windows\)**
+**To create a custom patch baseline \(Windows Server\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -102,6 +102,8 @@ For information about accepted formats for lists of approved patches and rejecte
    + **Classification**: The type of patches the approval rule applies to, such as `Security`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
+**Note**  
+Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
      + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released on or before that date\. For example, if you specify July 7, 2020, no patches released on or after July 8, 2020, are installed automatically\.
    + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.

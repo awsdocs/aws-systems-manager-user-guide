@@ -18,7 +18,7 @@ The following procedure describes how to use the AWS CLI and the [update\-docume
            "cloudWatchLogGroupName": "",
            "cloudWatchEncryptionEnabled": true,
            "kmsKeyId": "",
-           "runAsEnabled": "",
+           "runAsEnabled": true,
            "runAsDefaultUser": ""
        }
    }

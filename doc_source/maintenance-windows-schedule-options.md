@@ -52,7 +52,7 @@ Now you create a maintenance window with this option:
 For example:
 
 ```
-aws ssm create-maintenance-window --name "My-One-Time-Maintenance-Window --schedule "at(2020-07-07T15:55:00)" --duration 5 --cutoff 2 --allow-unassociated-targets
+aws ssm create-maintenance-window --name "My-One-Time-Maintenance-Window" --schedule "at(2020-07-07T15:55:00)" --duration 5 --cutoff 2 --allow-unassociated-targets
 ```
 
 This maintenance window runs just once, at 3:55 PM UTC time on July 7, 2020\. The maintenance window is enabled to run up to five hours, as needed, but new tasks are prevented from starting two hours before the end of the maintenance window period\.

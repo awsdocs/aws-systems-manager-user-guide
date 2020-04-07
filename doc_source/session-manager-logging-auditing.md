@@ -13,6 +13,8 @@ If you are using Linux instances, ensure that the screen utility is installed\. 
 **Limitations**  
 Auditing and logging is not available for SSH/SCP over session manager. This may be added in a future release\.
 
+For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logs \(Console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
+
 Refer to the following topics for more information about auditing and logging options for Session Manager\.
 
 ## Audit Session Activity Using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>

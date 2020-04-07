@@ -42,10 +42,10 @@ If you enable Run As support for sessions, the system checks for access permissi
 1. Select the check box next to **Enable Run As support for Linux instances**\.
 
 1. Do one of the following:
-   + Choose the **IAM console** link\. In the navigation pane, choose either **Users** or **Roles**\. Choose the entity \(user or role\) to add tags to, and then choose the **Tags** tab\. Enter `SSMSessionRunAs` for the key name\. Enter the name of a user account on your target instance for the key value\. Choose **Save changes**\. 
+   + **Option 1**: For **\(Optional\) Enter an operating system user name for starting sessions**, enter the name of the operating system user account on the target instance that you want to use to start sessions\.
+   + **Option 2**: Choose the **IAM console** link\. In the navigation pane, choose either **Users** or **Roles**\. Choose the entity \(user or role\) to add tags to, and then choose the **Tags** tab\. Enter `SSMSessionRunAs` for the key name\. Enter the name of a user account on your target instance for the key value\. Choose **Save changes**\. 
 
      The following is an example\.  
 ![\[Illustration of specifying tags for Session Manager Run As permission. Key = SSMSessionRunAs,Value=My-OS-User-Name\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssn-run-as-tags.png)
-   + For **\(Optional\) Enter an operating system user name for starting sessions**, enter the name of the operating system user account on the target instance that you want to use to start sessions\.
 
 1. Choose **Save**\.

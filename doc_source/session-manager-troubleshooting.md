@@ -38,6 +38,7 @@ If SSM Agent is already running on an instance when you attach the IAM instance 
 To always keep your agent up\-to\-date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 Run `AWS-UpdateSSMAgent` as part of a maintenance window\. For information about working with maintenance windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
++ **Solution C**: If the instance doesnt have internet connection, the vpc in which its running should have 'ssmmessges' vpc endpoint created in it\. This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager as in this case\.
 
 ## Session Manager Plugin Not Found<a name="plugin-not-found"></a>
 
@@ -69,3 +70,11 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 
 **Problem**: You start a session and Session Manager displays a blank screen\.
 + **Solution**: This issue can occur when the root volume on the instance is full\. Due to lack of disk space, SSM Agent on the instance stops working\. To resolve this issue, use Amazon CloudWatch to collect metrics and logs from the operating systems\. For information, see [Monitoring Memory and Disk Metrics for Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html) or [Monitoring Memory and Disk Metrics for Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/mon-scripts.html)\.
+
++ **Solution**: This issue could also have been caused by a mis-configured service endpoint. For example, if you are accessing the SSM service in the console using a URL like this:
+
+```
+https://us-west-2.console.aws.amazon.com/systems-manager/session-manager/sessions?region=us-west-1
+```
+
+You are connecting to the ssm endpoint in us-west-2, while you'll see all your instances in the web console from us-west-1 region. In this case, start-session call will succeed, but a blank screen will show up as you've used the wrong endpoint to access that instance.

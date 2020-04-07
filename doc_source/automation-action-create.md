@@ -71,5 +71,4 @@ ImageId
 The ID of the newly created image\.
 
 ImageState  
-An execution script provided as a string literal value\. If a literal value is entered, then it must be Base64\-encoded\.  
-Required: No
+The current state of the image\. If the state is available, the image is successfully registered and can be used to launch an instance\.

@@ -5,33 +5,35 @@ Amazon Windows AMIs contain a set of drivers to permit access to virtualized har
 The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\.
 
 **Before You Begin**  
-Before you complete the following procedure, verify that you have at least one Amazon EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one EC2 Windows instance running that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
 
 **To create a State Manager association that automatically updates PV drivers**
 
-1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/), expand **Systems Manager Services** in the navigation pane, and then choose **State Manager**\.
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/)\. 
+
+1. In the navigation pane, expand **Systems Manager Services**, and then choose **State Manager**\.
 
 1. Choose **Create Association**\.
 
-1. In the **Association Name** field, type a descriptive name\.
+1. In the **Association Name** field, enter a descriptive name\.
 
 1. In the **Select Document** list, choose **AWS\-ConfigureAWSPackage**\.
 
-1. In the **Select Targets by** section, choose an option\.
+1. In **Select Targets by**, choose an option\.
 **Note**  
 If you choose to target instances by using tags, and you specify tags that map to Linux instances, the association succeeds on the Windows instance, but fails on the Linux instances\. The overall status of the association shows **Failed**\.
 
-1. In the **Schedule** section, choose an option\. Updated PV drivers are only released a few times a year, so you can schedule the association to run once a month, if you want\.
+1. In **Schedule**, choose an option\. Updated PV drivers are released only a few times a year, so you can schedule the association to run once a month, if you want\.
 
-1. In the **Parameters** section, choose **Install** from the **Action** list\.
+1. In **Parameters**, choose **Install** from the **Action** list\.
 
-1. For **Name** list, enter **AWSPVDriver**\. You can leave the **Version** field empty\.
+1. For **Name**, enter **AWSPVDriver**\. You can leave the **Version** field empty\.
 
-1. In the **Advanced** section, choose **Write to S3** if you want to write association details to an Amazon S3 bucket\.
+1. In **Advanced**, choose **Write to S3** if you want to write association details to an S3 bucket\.
 
-1. Disregard the **S3Region** field\. This field is deprecated\. Specify the name of your bucket in the **S3Bucket Name** field\. If want to write output to a sub\-folder, specify the sub\-folder name in the **S3Key Prefix** field\. 
+1. Ignore **S3Region**\. This field is deprecated\. In the **S3Bucket Name** field, enter the name of your bucket\. If want to write output to a subfolder, specify the subfolder name in **S3Key Prefix**\. 
 
-1. Choose **Create Association**, and then choose **Close**\. The system attempts to create the association on the instance\(s\) and immediately apply the state\. The association status shows **Pending**\.
+1. Choose **Create Association**, and then choose **Close**\. The system attempts to create the association on the instance or instances and immediately apply the state\. The association status shows **Pending**\.
 
 1. In the right corner of the **Association** page, choose the refresh button\. If you created the association on one or more EC2 Windows instances, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
 

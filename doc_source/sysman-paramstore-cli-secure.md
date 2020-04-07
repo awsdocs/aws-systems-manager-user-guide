@@ -1,18 +1,18 @@
 # Walkthrough: Create and Update a SecureString Parameter \(AWS CLI\)<a name="sysman-paramstore-cli-secure"></a>
 
-Use the following procedure to create a secure string parameter\. For more information about secure string parameters, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Use the following procedure to create a `SecureString` parameter\. For more information about `SecureString` parameters, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
 
-**To create a secure string parameter using the AWS CLI**
+**To create a SecureString parameter using the AWS CLI**
 
 1. Run one of the following commands to create a parameter that uses the `SecureString` datatype\.
 
-   **Create a secure string parameter that uses a customer managed customer master key \(CMK\)**
+   **Create a `SecureString` parameter that uses a customer managed customer master key \(CMK\)**
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a value, for example P@ssW%rd#1" --type "SecureString"
    ```
 
-   **Create a secure string parameter that uses a custom AWS KMS key**
+   **Create a `SecureString` parameter that uses a custom AWS KMS key**
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type "SecureString" --key-id "your-AWS-user-account ID/the-custom-AWS KMS-key"
@@ -36,13 +36,13 @@ Use the following procedure to create a secure string parameter\. For more infor
    aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --overwrite
    ```
 
-   **Updating a secure string parameter that uses a customer managed customer master key \(CMK\)**
+   **Updating a `SecureString` parameter that uses a customer managed customer master key \(CMK\)**
 
    ```
    aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "the-CMK-ID" --overwrite
    ```
 
-   **Updating a secure string parameter that uses a customer managed CMK**
+   **Updating a `SecureString` parameter that uses a customer managed CMK**
 
    ```
    aws ssm put-parameter --name "the_name_that_you_specified" --value "new parameter value" --type "SecureString" --key-id "your-AWS-user-account-alias/the-CMK-ID" --overwrite
@@ -61,4 +61,4 @@ Use the following procedure to create a secure string parameter\. For more infor
    ```
 
 **Important**  
-Only the *value* of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
+Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
