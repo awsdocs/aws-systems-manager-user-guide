@@ -38,6 +38,7 @@ If SSM Agent is already running on an instance when you attach the IAM instance 
 To always keep your agent up\-to\-date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 Run `AWS-UpdateSSMAgent` as part of a maintenance window\. For information about working with maintenance windows, see [Working with Maintenance Windows \(Console\)](sysman-maintenance-working.md) and [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
++ **Solution C**: If the instance doesnt have internet connection, the vpc in which its running should have 'ssmmessges' vpc endpoint created in it\. This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager as in this case\.
 
 ## Session Manager Plugin Not Found<a name="plugin-not-found"></a>
 
