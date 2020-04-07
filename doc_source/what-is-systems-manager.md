@@ -16,7 +16,7 @@ For example, you can assign a resource tag of "`Operation=North Region OS Patchi
 After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in your North region\. If a problem arises with any of these resources, you can take corrective action immediately\. 
 
 **Capabilities in Systems Manager**  
-Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into four categories: *Operations Management*, *Actions & Change*, *Instances & Nodes*, and *Shared Resources*\.
+Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into five categories: *Operations Management*, *Application Management*, *Actions & Change*, *Instances & Nodes*, and *Shared Resources*\.
 
 This collection of capabilities is a powerful set of tools and features that you can use to perform many operational tasks\. For example:
 + Group AWS resources together by any purpose or activity you choose, such as application, environment, region, project, campaign, business unit, or software lifecycle\.
@@ -45,7 +45,7 @@ View a video introduction to Systems Manager \(Duration: 1:42\)
 View more AWS videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices)\.
 
 **Systems Manager Supported Regions**  
-AWS Systems Manager is available in the AWS Regions listed in the [AWS Systems Manager Supported Regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) table in the *AWS General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
+AWS Systems Manager is available in the AWS Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
 For on\-premises servers and VMs in your hybrid environment, we recommend that you choose the Region closest to your data center or computing environment\.
 
 **Systems Manager Pricing**  
@@ -65,11 +65,11 @@ Some Systems Manager capabilities charge a fee\. For more information, see [AWS 
 **Related Content**  
 The following resources can help you work directly with Systems Manager\.  
 + **[AWS Blog & Podcast](http://aws.amazon.com/blogs/)** – Read blog posts about Systems Manager in the [AWS Management Tools Category](http://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/), as well as other posts that are tagged with [http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/](http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)\.
-+ **[Systems Manager Developer Forum](https://forums.aws.amazon.com//forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
++ **[Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
 + **[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the Systems Manager actions and data types\.
 + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
-+ **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
-+ **[AWS Systems Manager Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)** in the *Amazon Web Services General Reference* – Provides the default limits for Systems Manager for an AWS account\. Unless otherwise noted, each limit is Region\-specific\.
++ **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
++ **[Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
 The following related resources can help you as you work with this service\.  
 + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.
 + ** [AWS Developer Tools](https://aws.amazon.com/tools/)** – Links to developer tools, SDKs, IDE toolkits, and command line tools for developing and managing AWS applications\.

@@ -20,6 +20,12 @@ sudo yum erase amazon-ssm-agent –y
   sudo snap remove amazon-ssm-agent
   ```
 
+**Debian Server**
+
+```
+sudo dpkg -r amazon-ssm-agent
+```
+
 **SLES**
 
 ```

@@ -15,7 +15,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 1. Copy and paste the following command block into AWS Tools for Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\.
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
    ```
    $code = "activation-code"
@@ -52,5 +52,12 @@ The command does the following:
   ```
 
 The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstanceInformation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceInformation.html)\.
+
+**Note**  
+You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:  
+
+```
+aws ssm deregister-managed-instance --instance-id "mi-1234567890"
+```
 
 Continue to [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.

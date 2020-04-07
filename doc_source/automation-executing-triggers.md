@@ -4,5 +4,5 @@ This section includes information about how to run Automation workflows using a 
 
 **Topics**
 + [Running Automation Workflows with Triggers using CloudWatch Events](automation-cwe-target.md)
-+ [Running Automation Workflows with Triggers using State Manager](automation-sm-target.md)
-+ [Running Automation Workflows with Triggers using a Maintenance Window](automation-mw-target.md)
++ [Running Automation Workflows with Triggers Using State Manager](automation-sm-target.md)
++ [Running Automation Workflows with Triggers using Maintenance Windows](automation-mw-target.md)

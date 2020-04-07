@@ -1,14 +1,14 @@
 # Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)<a name="sysman-paramstore-walk-hierarchies"></a>
 
-This walkthrough shows you how to work with parameters and parameter hierarchies by using the AWS CLI\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+This walkthrough shows how to work with parameters and parameter hierarchies by using the AWS CLI\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
 **To manage parameters using hierarchies**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` data type\. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long\.
+1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` parameter type\. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long\.
 
    ```
    aws ssm put-parameter --name "/MyService/Test/MaxConnections" --value 100 --allowed-pattern "\d{1,4}" --type String
@@ -30,7 +30,7 @@ This walkthrough shows you how to work with parameters and parameter hierarchies
                                allowedPattern: \d{1,4}
    ```
 
-1. Run the following command to create a secure string parameter that uses an AWS\-managed customer master key \(CMK\)\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
+1. Run the following command to create a `SecureString` parameter that uses an AWS\-managed customer master key \(CMK\)\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
 
    ```
    aws ssm put-parameter --name "/MyService/Test/my-password" --value "p#sW*rd33" --allowed-pattern ".{8,20}" --type SecureString

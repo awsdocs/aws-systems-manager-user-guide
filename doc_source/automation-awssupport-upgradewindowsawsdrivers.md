@@ -80,7 +80,9 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. If you are performing an offline upgrade, see the permissions required by [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
+The EC2 instance receiving the command must at minimum have an IAM role that includes permissions for **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. You can attach the `AmazonSSMManagedInstanceCore` Amazon managed policy to your IAM role to provide these permissions\. We recommend, however, using the Automation IAM role `AmazonSSMAutomationRole` for this purpose\. For more information, see [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)\.
+
+If you are performing an offline upgrade, see the permissions required by [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)\.
 
  **Document Steps** 
 

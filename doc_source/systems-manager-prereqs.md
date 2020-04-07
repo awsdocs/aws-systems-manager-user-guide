@@ -18,9 +18,11 @@ This topic provides an overview of these prerequisites\.
 
 1. For on\-premises servers and VMs, create an IAM service role for a hybrid environment\.
 
+1. Verify that you are allowing HTTPS \(port 443\) outbound traffic to the Systems Manager endpoints\.
+
 1. \(Recommended\) Create a VPC endpoint in Amazon Virtual Private Cloud to use with Systems Manager\. 
 
-1. On on\-premises servers, VMs, and EC2 instances created from AMIs that are not supplied by AWS, install a Transport Layer Security \(TLS certificate\)\.
+1. On on\-premises servers, VMs, and EC2 instances created from AMIs that are not supplied by AWS, install a Transport Layer Security \(TLS\) certificate\.
 
 1. For on\-premises servers and VMs, register the machines with Systems Manager through the managed instance activation process\.
 

@@ -1,12 +1,11 @@
-# Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
+# Walkthrough: Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
 
-The following example builds on the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
+The following example builds on the [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
 The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly\-patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
-+ Complete the [Simplify AMI Patching Using Automation, Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** Automation document created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting Started with Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
@@ -26,7 +25,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
 
-1. Chooes **Next: Review**\.
+1. Choose **Next: Review**\.
 
 1. On the **Review** page, verify that **AWSLambdaExecute** and **AutoScalingFullAccess** are listed under **Policies**\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb-role.png)
@@ -37,7 +36,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 ## Task 2: Create an AWS Lambda Function<a name="automation-asg2"></a>
 
-Use the following procedure to create a Lambda function that automatically creates a new Auto Scaling group with the latest, patched AMI\.
+Use the following procedure to create a Lambda function that automatically updates an existing Auto Scaling group with the latest, patched AMI\.
 
 **To create a Lambda function**
 
@@ -132,9 +131,7 @@ Use the following procedure to create a Lambda function that automatically creat
 
 Use the following procedure to create and run an Automation document that patches the AMI you specified for the **latestAmi** parameter\. The Automation workflow then updates the Auto Scaling group to use the latest, patched AMI\.
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**To create and run the Automation document \(AWS Systems Manager\)**
+**To create and run the Automation document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -164,6 +161,10 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "type":"String",
             "description":"AMI to patch"
          },
+         "subnetId":{
+           "type":"String",
+           "description":"The SubnetId where the instance is launched from the sourceAMIid."
+         },
          "targetAMIname":{
             "type":"String",
             "description":"Name of new AMI",
@@ -171,7 +172,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
          },
         "targetASG":{
             "type":"String",
-            "description":"Autosaling group to Update"
+            "description":"Auto Scaling group to Update"
          }
       },
       "mainSteps":[
@@ -186,7 +187,8 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
                "InstanceType":"m3.large",
                "MinInstanceCount":1,
                "MaxInstanceCount":1,
-               "IamInstanceProfileName":"the name of the instance IAM role you created"
+               "IamInstanceProfileName":"the name of the instance IAM role you created",
+               "SubnetId":"{{ subnetId }}"
             }
          },
          {
@@ -195,7 +197,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "maxAttempts":1,
             "onFailure":"Continue",
             "inputs":{
-               "DocumentName":"AWS-InstallMissingWindowsUpdates",
+               "DocumentName":"AWS-InstallWindowsUpdates",
                "InstanceIds":[
                   "{{ startInstances.InstanceIds }}"
                ],
@@ -270,147 +272,9 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Leave the **Targets and Rate Control** option disabled\.
 
-1. Specify a Windows AMI ID for **sourceAMIid** and your Auto Scaling group name for **targetASG**\.
+1. Specify a Windows AMI ID for **sourceAMIid**, your Auto Scaling group name for **targetASG**, and a value for the **subnetId** input parameter\.
 
 1. Choose **Execute automation**\.
-
-1. After execution completes, in the Amazon EC2 console, choose **Auto Scaling**, and then choose **Launch Configurations**\. Verify that you see the new launch configuration, and that it uses the new AMI ID\.
-
-1. Choose **Auto Scaling**, and then choose **Auto Scaling Groups**\. Verify that the Auto Scaling group uses the new launch configuration\.
-
-1. Terminate one or more instances in your Auto Scaling group\. Replacement instances will be launched with the new AMI ID\.
-
-**To create and run the Automation document \(Amazon EC2 Systems Manager\)**
-
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-
-1. In the navigation pane, choose **Documents**\.
-
-1. Choose **Create Document**\.
-
-1. In the **Name** field, type PatchAmiandUpdateAsg\.
-
-1. In the **Document Type** list, choose **Automation**\.
-
-1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
-**Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
-
-   ```
-   {
-      "description":"Systems Manager Automation Demo - Patch AMI and Update ASG",
-      "schemaVersion":"0.3",
-      "assumeRole":"the service role ARN you created",
-      "parameters":{
-         "sourceAMIid":{
-            "type":"String",
-            "description":"AMI to patch"
-         },
-         "targetAMIname":{
-            "type":"String",
-            "description":"Name of new AMI",
-            "default":"patchedAMI-{{global:DATE_TIME}}"
-         },
-        "targetASG":{
-            "type":"String",
-            "description":"Autosaling group to Update"
-         }
-      },
-      "mainSteps":[
-         {
-            "name":"startInstances",
-            "action":"aws:runInstances",
-            "timeoutSeconds":1200,
-            "maxAttempts":1,
-            "onFailure":"Abort",
-            "inputs":{
-               "ImageId":"{{ sourceAMIid }}",
-               "InstanceType":"m3.large",
-               "MinInstanceCount":1,
-               "MaxInstanceCount":1,
-               "IamInstanceProfileName":"the name of the instance IAM role you created"
-            }
-         },
-         {
-            "name":"installMissingWindowsUpdates",
-            "action":"aws:runCommand",
-            "maxAttempts":1,
-            "onFailure":"Continue",
-            "inputs":{
-               "DocumentName":"AWS-InstallMissingWindowsUpdates",
-               "InstanceIds":[
-                  "{{ startInstances.InstanceIds }}"
-               ],
-               "Parameters":{
-                  "UpdateLevel":"Important"
-               }
-            }
-         },
-         {
-            "name":"stopInstance",
-            "action":"aws:changeInstanceState",
-            "maxAttempts":1,
-            "onFailure":"Continue",
-            "inputs":{
-               "InstanceIds":[
-                  "{{ startInstances.InstanceIds }}"
-               ],
-               "DesiredState":"stopped"
-            }
-         },
-         {
-            "name":"createImage",
-            "action":"aws:createImage",
-            "maxAttempts":1,
-            "onFailure":"Continue",
-            "inputs":{
-               "InstanceId":"{{ startInstances.InstanceIds }}",
-               "ImageName":"{{ targetAMIname }}",
-               "NoReboot":true,
-               "ImageDescription":"AMI created by EC2 Automation"
-            }
-         },
-         {
-            "name":"terminateInstance",
-            "action":"aws:changeInstanceState",
-            "maxAttempts":1,
-            "onFailure":"Continue",
-            "inputs":{
-               "InstanceIds":[
-                  "{{ startInstances.InstanceIds }}"
-               ],
-               "DesiredState":"terminated"
-            }
-         },
-         {
-            "name":"updateASG",
-            "action":"aws:invokeLambdaFunction",
-            "timeoutSeconds":1200,
-            "maxAttempts":1,
-            "onFailure":"Abort",
-            "inputs": {
-               "FunctionName": "Automation-UpdateAsg",
-               "Payload": "{\"targetASG\":\"{{targetASG}}\", \"newAmiID\":\"{{createImage.ImageId}}\"}"
-            }
-         }
-      ],
-      "outputs":[
-         "createImage.ImageId"
-      ]
-   }
-   ```
-
-1. Choose **Create Document** to save the document\.
-
-1. Expand **Systems Manager Services** in the navigation pane, choose **Automations**, and then choose **Run automation**\.
-
-1. In the **Document name** list, choose **PatchAmiandUpdateAsg**\.
-
-1. In the **Version** list, choose **1**, and then choose **Run automation**\.
-
-1. Specify a Windows AMI ID for **sourceAMIid** and your Auto Scaling group name for **targetASG**\.
-
-1. Choose **Run automation**\.
 
 1. After execution completes, in the Amazon EC2 console, choose **Auto Scaling**, and then choose **Launch Configurations**\. Verify that you see the new launch configuration, and that it uses the new AMI ID\.
 

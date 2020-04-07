@@ -9,28 +9,43 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
-*region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West \(N\. California\) Region \(us\-west\-1\), use the following URL:
 
 ```
 https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
-+ **Amazon Linux 2, Amazon Linux, RHEL, CentOS, and SLES 64\-bit**
 
-   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
-+ **Amazon Linux, RHEL, and CentOS 32\-bit**
+------
+#### [ Amazon Linux 2, Amazon Linux, RHEL, Oracle Linux, CentOS, and SLES ]
++ **64\-bit**
+
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
++ **32\-bit**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
-+ **Ubuntu Server 64\-bit**
+
+------
+#### [ Ubuntu Server ]
++ **64\-bit**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
-+ **Ubuntu Server 32\-bit**
++ **32\-bit**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
-+ **Raspbian**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
+------
+#### [ Debian Server ]
++ **64\-bit**
+
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
+
+------
+#### [ Raspbian ]
++ https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
+
+------
 
 **To install SSM Agent on servers and VMs in your hybrid environment**
 
@@ -40,9 +55,10 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 
     Note that `sudo` is not necessary if you are a root user\.
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   **On Amazon Linux, RHEL 6\.x, and CentOS 6\.x**
+------
+#### [ Amazon Linux, RHEL 6\.x, and CentOS 6\.x ]
 
    ```
    mkdir /tmp/ssm
@@ -53,7 +69,8 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo start amazon-ssm-agent
    ```
 
-   **On Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x**
+------
+#### [ Amazon Linux 2, RHEL 7\.x, Oracle Linux, and CentOS 7\.x ]
 
    ```
    mkdir /tmp/ssm
@@ -64,7 +81,8 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo systemctl start amazon-ssm-agent
    ```
 
-   **On SLES**
+------
+#### [ SLES ]
 
    ```
    mkdir /tmp/ssm
@@ -76,18 +94,43 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo systemctl start amazon-ssm-agent
    ```
 
-   **On Ubuntu**
+------
+#### [ Ubuntu ]
+   + **Using \.deb packages**
+
+     ```
+     mkdir /tmp/ssm
+     curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+     sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+     sudo service amazon-ssm-agent stop
+     sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+     sudo service amazon-ssm-agent start
+     ```
+   + **Using Snap packages**
+
+     You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
+
+     ```
+     sudo snap install amazon-ssm-agent --classic
+     sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
+     sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+     sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
+     ```
+
+------
+#### [ Debian ]
 
    ```
    mkdir /tmp/ssm
-   curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
    sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
    sudo service amazon-ssm-agent stop
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
    sudo service amazon-ssm-agent start
    ```
 
-   **On Raspbian**
+------
+#### [ Raspbian ]
 
    ```
    mkdir /tmp/ssm
@@ -97,6 +140,8 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
    sudo service amazon-ssm-agent start
    ```
+
+------
 **Note**  
 If you see the following error in the SSM Agent error logs, then the machine ID did not persist after a reboot:  
 `Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint does not match`  
@@ -111,4 +156,9 @@ Run the following command to make the machine ID persist after a reboot\.
 
 The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Amazon EC2 console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
-Continue to [Step 7: \(Optional\) Enable the Advanced\-Instances Tier](systems-manager-managedinstances-advanced.md)\.
+**Note**  
+You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:  
+
+```
+aws ssm deregister-managed-instance --instance-id "mi-1234567890"
+```

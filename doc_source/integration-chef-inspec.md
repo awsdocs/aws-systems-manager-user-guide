@@ -73,13 +73,13 @@ This section includes information about how to run an InSpec Compliance scan by 
 
    For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running Scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags or selecting instances manually\.
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
 If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In the **Specify schedule** section, use the schedule builder options to create a schedule for when you want the Compliance scan to run\.
 
-1. In the **Output options** section, if you want to save the command output to a file, select the **Write command output to an Amazon S3 bucket**\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
@@ -95,7 +95,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run one of the following commands to run an InSpec profile from either GitHub or Amazon S3\.
 

@@ -1,18 +1,9 @@
 # \(Optional\) Install the Session Manager Plugin for the AWS CLI<a name="session-manager-working-with-install-plugin"></a>
 
-If you want to use the AWS CLI to start and terminate sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
+If you want to use the AWS CLI to start and end sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
-**Current Session Manager Plugin Version**  
-The plugin is updated occasionally with enhanced functionality\. The current version is **1\.1\.17\.0**\. 
-
-To see if you have the latest version, run the following command in the AWS CLI:
-
-**Note**  
-The command returns results only if the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
-
-```
-session-manager-plugin --version
-```
+**Use the Latest Version of the Session Manager Plugin**  
+The plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you are using the latest version of the plugin\. For more information, see [ Session Manager Plugin Latest Version and Release History](#plugin-version-history)\.
 
 **Installation Prerequisite**  
 AWS CLI version 1\.16\.12 or later must be installed on your local machine in order to use the Session Manager plugin\.
@@ -24,7 +15,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install the Session Manager Plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager Plugin Installation](#install-plugin-verify)
 + [\(Optional\) Enable Session Manager Plugin Logging](#install-plugin-configure-logs)
-+ [Session Manager Plugin Release History](#plugin-version-history)
++ [Session Manager Plugin Latest Version and Release History](#plugin-version-history)
 
 ## Install the Session Manager Plugin on Windows<a name="install-plugin-windows"></a>
 
@@ -46,7 +37,7 @@ For best results, we recommend starting sessions on Windows clients using the Wi
 1. Run the downloaded installer and follow the on\-screen the instructions\.
 
    Leave the install location box blank to install the plugin to the default directory:
-   + `C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\bin\` 
+   + `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
 **Note**  
@@ -79,7 +70,7 @@ The bundled installer does not support installing to paths that contain spaces\.
    sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
    ```
 **Note**  
-The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. For example:  
+The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
 
    ```
    sudo /usr/local/bin/python3.6 sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
@@ -179,12 +170,6 @@ This command will work only if your Session Manager administrator has granted yo
 aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 ```
 
-If your servers are not running in the default us-east-1 region, add the region parameter:
-
-```
-aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access --region your-region
-```
-
 ## \(Optional\) Enable Session Manager Plugin Logging<a name="install-plugin-configure-logs"></a>
 
 The Session Manager plugin includes an option to enable logging for sessions that you run\. By default, logging is disabled\.
@@ -199,7 +184,7 @@ If you enable logging, the Session Manager plugin creates log files for both app
 
 1. Locate the `seelog.xml.template` file for the plugin\. 
 
-   The default location is `C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\seelog.xml.template`\.
+   The default location is `C:\Program Files\Amazon\SessionManagerPlugin\seelog.xml.template`\.
 
 1. Change the name of the file to `seelog.xml`\.
 
@@ -249,17 +234,35 @@ If you use the specified default directory for storing logs, you must either run
 
 1. Save the file\.
 
-## Session Manager Plugin Release History<a name="plugin-version-history"></a>
+## Session Manager Plugin Latest Version and Release History<a name="plugin-version-history"></a>
 
 Your local machine must be running a supported version of the Session Manager plugin\. If you are running an earlier version, your Session Manager operations might not succeed\. 
 
 The current minimum supported version is 1\.1\.17\.0\. 
 
+The latest release is version 1\.1\.54\.0\.
+
+To see if you have the latest version, run the following command in the AWS CLI:
+
+**Note**  
+The command returns results only if the plugin is located in the default installation directory for your operating system type\. You can also check the version in the contents of the `VERSION` file in the directory where you have installed the plugin\.
+
+```
+session-manager-plugin --version
+```
+
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
 
-| Version> | Release date | Details | 
+| Version | Release date | Details | 
 | --- | --- | --- | 
-| 1\.1\.17\.0 | April 4, 2019 |  **Enhancement**: Add support for further encryption of session data using AWS Key Management Service \(AWS KMS\)\.  | 
+| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.  | 
+|  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
+|  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 
+| 1\.1\.33\.0 | September 26, 2019 | Enhancement: \(Port forwarding sessions only\) Send a disconnect signal to the server when the client drops the TCP connection\.  | 
+| 1\.1\.31\.0 | September 6, 2019 | Enhancement: Update to keep port forwarding session open until remote server closes the connection\. | 
+|  1\.1\.26\.0  | July 30, 2019 |  **Enhancement**: Update to limit the rate of data transfer during a session\.  | 
+|  1\.1\.23\.0  | July 9, 2019 |  **Enhancement**: Added support for running SSH sessions using Session Manager\.  | 
+| 1\.1\.17\.0 | April 4, 2019 |  **Enhancement**: Added support for further encryption of session data using AWS Key Management Service \(AWS KMS\)\.  | 
 | 1\.0\.37\.0 | September 20, 2018 |  **Enhancement**: Bug fix for Windows version\.  | 
 | 1\.0\.0\.0 | September 11, 2018 |  Initial release of the Session Manager plugin\.  | 

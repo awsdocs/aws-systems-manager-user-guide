@@ -7,7 +7,7 @@ If the pre\-configured metadata types collected by Systems Manager Inventory don
 **Important**  
 Systems Manager Inventory collects *only* metadata from your managed instances\. Inventory does not access proprietary information or data\.
 
-The following table lists the types of metadata that you can collect with Systems Manager Inventory\.
+The following table lists the types of metadata that you can collect with Systems Manager Inventory\. The table also lists the instances you can collect inventory information from and the collection intervals you can specify\.
 
 
 ****  
@@ -16,7 +16,7 @@ The following table lists the types of metadata that you can collect with System
 | --- | --- | 
 |  Metadata types  | You can configure Inventory to collect the following types of metadata: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html)  To view a list of all metadata collected by Inventory, see [Metadata Collected by Inventory](sysman-inventory-schema.md)\.   | 
 |  Instances to collect information from  |  You can choose to inventory all instances in your AWS account, individually select instances, or target groups of instances by using Amazon EC2 tags\. For more information about performing inventory collection on all of your instances, see [Inventory All Managed Instances in Your AWS Account](sysman-inventory-configuring.md#inventory-management-inventory-all)\.  | 
-|  When to collect information  |  You can specify a collection interval in terms of minutes, hours, days, and weeks\. The shortest collection interval is every 30 minutes\.   | 
+|  When to collect information  |  You can specify a collection interval in terms of minutes, hours, and days\. The shortest collection interval is every 30 minutes\.   | 
 
 **Note**  
 Depending on the amount of data collected, the system can take several minutes to report the data to the output you specified\. After the information is collected, the metadata is sent over a secure HTTPS channel to a plain\-text AWS store that is accessible only from your AWS account\. 
@@ -28,7 +28,7 @@ You can view the data in the AWS Systems Manager console on the **Inventory** pa
 **Note**  
 Inventory cards automatically filter out Amazon EC2 managed instances with a state of *Terminated* and *Stopped*\. For on\-premises managed instances, Inventory cards automatically filter out instances with a state of *Terminated*\. 
 
-If you create a Resource Data Sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)\.
+If you create a resource data sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)\.
 
 **Topics**
 + [Learn More About Systems Manager Inventory](sysman-inventory-about.md)

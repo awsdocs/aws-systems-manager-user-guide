@@ -90,7 +90,7 @@ The `SchemaDeleteOption` parameter includes the following options:
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 
@@ -541,7 +541,7 @@ Here are examples of each event:
       "action":"put",
       "resource-type":"managed-instance",
       "resource-id":"i-0ee2d86a2cfc371f6",
-      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema versison 1.0. You must send a version greater than 1.0",
+      "action-reason":"The inventory item with type name Custom:MyInfo was sent with a disabled schema version 1.0. You must send a version greater than 1.0",
       "type-name":"Custom:MyInfo"
    }
 }

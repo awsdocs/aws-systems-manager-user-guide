@@ -14,7 +14,7 @@ Amazon
 
 **Platforms**
 
-Windows, Linux
+This document is *not* restricted to specific operating system\.
 
 **Parameters**
 + AutomationAssumeRole
@@ -51,17 +51,3 @@ Retrieve the execution output
 ```
 aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
-
-**Document Steps**
-
-aws:createStack
-
-aws:invokeLambdaFunction
-
-aws:invokeLambdaFunction
-
-aws:deleteStack
-
-**Outputs**
-
-createDynamoDbBackup\.Payload

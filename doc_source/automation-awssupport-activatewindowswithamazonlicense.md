@@ -2,7 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon by contacting SSM Agent installed on your managed instance\. Optionally, you can remediate Windows activation offline, which requires a stop and start of your EC2 instance\. If Windows is not activated, the document verifies, and when needed repairs, the Windows route table \(route to Amazon KMS servers\), the KMS settings \(server and port\), and attempts to activate Windows\. Note: this document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
+The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an Amazon EC2 Windows Server instance with a license provided by Amazon\. The automation verifies and configures required key management service operating system settings and attempts activation\. This includes operating system routes to Amazon's key management servers, and key management service operating system settings\. Setting the `AllowOffline` parameter to `True` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance\.
+
+**Note**  
+This document cannot be used on Bring Your Own License \(BYOL\) Windows instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
 
  **Document Type** 
 
@@ -39,7 +42,9 @@ Windows
 
   Default: False
 
-  Description: \(Optional\) Set it to true if you allow an offline Windows activation remediation in case the online troubleshooting fails, or the provided instance is not a managed instance\. Note: The offline method requires the provided EC2 instance be stopped and then started\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
+  Description: \(Optional\) Set it to True if you allow an offline Windows activation remediation in case the online troubleshooting fails, or if the provided instance is not a managed instance\.
+**Important**  
+The offline method requires that the provided EC2 instance be stopped and then started\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
 + SubnetId
 
   Type: String
@@ -81,7 +86,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, see the permissions needed by **AWSSupport\-StartEC2RescueWorkflow**\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, see the permissions needed by **AWSSupport\-StartEC2RescueWorkflow**\.
 
  **Document Steps** 
 

@@ -16,7 +16,7 @@ In this example, your custom SSM document includes the following plugins to perf
 
 1. The `aws:runDocument` plugin to run the `AWS-UpdateSSMAgent` document, which updates SSM Agent to the latest version\.
 
-1. The `aws:runDocument` plugin to run the AWS\-ApplyPatchBaseline document, which installs all whitelisted patches\.
+1. The `aws:runDocument` plugin to run the legacy AWS\-ApplyPatchBaseline document, which installs all whitelisted patches\.
 
 1. The `aws:runDocument` plugin to run the AWS\-InstallApplication document, which installs the antivirus software\.
 

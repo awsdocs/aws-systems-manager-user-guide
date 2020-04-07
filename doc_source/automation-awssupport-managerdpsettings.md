@@ -76,7 +76,7 @@ aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings
 Restore the default RDP port \(3389\), disable NLA, enable remote connections
 
 ```
-aws ssm start-automation-execution --document-name "ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
+aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
 ```
 
 Retrieve the execution output
@@ -87,7 +87,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
  **Required IAM Permissions** 
 
-The EC2 instance receiving the command must have an IAM role with the **AmazonEC2RoleforSSM** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
+The EC2 instance receiving the command must have an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
 
  **Document Steps** 
 

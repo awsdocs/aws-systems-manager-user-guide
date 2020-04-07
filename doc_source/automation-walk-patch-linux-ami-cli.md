@@ -1,6 +1,6 @@
-# Patch a Linux AMI \(AWS CLI\)<a name="automation-walk-patch-linux-ami-cli"></a>
+# Walkthrough: Patch a Linux AMI \(AWS CLI\)<a name="automation-walk-patch-linux-ami-cli"></a>
 
-This Systems Manager Automation walkthrough shows you how to use the AWS CLI and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. You can update any of the following Linux versions using this walkthrough: Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\.
+This Systems Manager Automation walkthrough shows you how to use the AWS CLI and the Systems Manager `AWS-UpdateLinuxAmi` document to automatically patch a Linux AMI with the latest versions of packages that you specify\. The `AWS-UpdateLinuxAmi` document also automates the installation of additional site\-specific packages and configurations\. You can update a variety of Linux distributions using this walkthrough, including Ubuntu, CentOS, RHEL, SLES, or Amazon Linux AMIs\. For a full list of supported Linux versions, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
 
 The `AWS-UpdateLinuxAmi` document enables you to automate image\-maintenance tasks without having to author the workflow in JSON or YAML\. You can use the `AWS-UpdateLinuxAmi` document to perform the following types of tasks\.
 + Upgrade all distribution packages and Amazon software on an Amazon Linux, Red Hat, Ubuntu, SLES, or Cent OS Amazon Machine Image \(AMI\)\. This is the default document behavior\.
@@ -8,7 +8,7 @@ The `AWS-UpdateLinuxAmi` document enables you to automate image\-maintenance tas
 + Install additional software packages\.
 
 **Before You Begin**  
-Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\.
+Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting Started with Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
 
 The `AWS-UpdateLinuxAmi` document accepts the following input parameters\.
 
@@ -18,7 +18,7 @@ The `AWS-UpdateLinuxAmi` document accepts the following input parameters\.
 | Parameter | Type | Description | 
 | --- | --- | --- | 
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Amazon EC2 Linux AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)\.  | 
-|  IamInstanceProfileName  |  String  |  \(Required\) The name of the AWS Identity and Access Management \(IAM\) instance profile role you created in [Getting Started with Automation](automation-setup.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
+|  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Getting Started with Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by region\. The default type is t2\.micro\.  | 
@@ -64,17 +64,17 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to run the `AWS-UpdateLinuxAmi` document and run the Automation workflow\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\.
 
    ```
    aws ssm start-automation-execution \
-   --document-name "AWS-UpdateLinuxAmi" \
-   --parameters \
-   "SourceAmiId=ami-0080e4c5bc078760e, \
-   IamInstanceProfileName=ManagedInstanceRole, \
-   AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'"
+       --document-name "AWS-UpdateLinuxAmi" \
+       --parameters \
+       SourceAmiId=ami-0080e4c5bc078760e, \
+       IamInstanceProfileName=ManagedInstanceRole, \
+       AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'"
    ```
 
    The command returns an execution ID\. Copy this ID to the clipboard\. You will use this ID to view the status of the workflow\.

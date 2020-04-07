@@ -4,7 +4,7 @@
 
 The `AWSEC2-SQLServerDBRestore` document restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud \(EC2\) Linux instance\. You may provide your own EC2 instance running SQL Server 2017 Linux\. If an EC2 instance is not provided, the automation workflow launches and configures a new Ubuntu 16\.04 EC2 instance with SQL Server 2017\. The automation supports restoring full, differential, and transactional log backups\. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided\.
 
-To automate both backup and restore of an on\-premises SQL Server database to an Amazon EC2 instance running SQL Server 2017 Linux, see the AWS\-signed PowerShell script [MigrateSQLServerToEC2Linux\.ps1](https://s3-us-west-1.amazonaws.com/awsec2-server-upgrade-prod/MigrateSQLServerToEC2Linux.ps1)\. 
+To automate both backup and restore of an on\-premises SQL Server database to an Amazon EC2 instance running SQL Server 2017 Linux, you can use the AWS\-signed PowerShell script [samples/MigrateSQLServerToEC2Linux.zip](samples/MigrateSQLServerToEC2Linux.zip)\. 
 
 **Important**  
 This automation workflow resets the SQL Server server administrator \(SA\) user password every time the workflow runs\. After the automation workflow is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
@@ -25,7 +25,7 @@ Linux
 + This Automation document only works with Linux EC2 instances running SQL Server\.
 + This Automation workflow must be run by a user with, at minimum, the permissions designated in the **Required IAM Permissions** section below\.
 + If you are providing your own EC2 instance:
-  + Configure the EC2 instance with an AWS Identity and Access Management \(IAM\) instance profile that has the `AmazonEC2RoleForSSM` managed policy attached\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+  + Configure the EC2 instance with an AWS Identity and Access Management \(IAM\) instance profile that has the `AmazonSSMManagedInstanceCore` managed policy attached\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
   + Verify that SSM Agent is installed on your EC2 instance\. For more information, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.
   + Verify that the EC2 instance has enough free disk space to download and restore the SQL Server backups\.
 
@@ -105,7 +105,7 @@ The user who runs the Automation workflow must have the following permissions:
 
   Type: String
 
-  Description: \(Optional\) The IAM instance profile to attach to the new EC2 instance\. The IAM instance profile must have the `AmazonEC2RoleForSSM` managed policy attached\.
+  Description: \(Optional\) The IAM instance profile to attach to the new EC2 instance\. The IAM instance profile must have the `AmazonSSMManagedInstanceCore` managed policy attached\.
 + DataDirectorySize
 
   Type: String

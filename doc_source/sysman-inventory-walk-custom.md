@@ -1,12 +1,12 @@
 # Walkthrough: Assign Custom Inventory Metadata to an Instance<a name="sysman-inventory-walk-custom"></a>
 
-The following procedure walks you through the process of using the [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action to assign custom Inventory metadata to a managed instance\. This example assigns rack location information to an instance\. For more information about custom Inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
+The following procedure walks you through the process of using the [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action to assign custom inventory metadata to a managed instance\. This example assigns rack location information to an instance\. For more information about custom inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
-**To assign custom Inventory metadata to an instance**
+**To assign custom inventory metadata to an instance**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to assign rack location information to an instance\.
 
@@ -36,36 +36,26 @@ The following procedure walks you through the process of using the [PutInventory
    }
    ```
 
-1. Run the following command to view the custom metadata\.
+1. Run the following command to view the custom inventory schema\.
 
    ```
-   aws ssm get-inventory
+   aws ssm get-inventory-schema --type-name Custom:RackInfo
    ```
 
    The system responds with information like the following\.
 
    ```
    {
-       "Entities": [
+       "Schemas": [
            {
-               "Data": {
-                   "AWS:InstanceInformation": {
-                       "Content": [
-                           {
-                               "ComputerName": "WIN-9JHCEPEGORG.WORKGROUP", 
-                               "InstanceId": "ID", 
-                               "ResourceType": "EC2Instance", 
-                               "AgentVersion": "3.19.1153", 
-                               "PlatformVersion": "6.3.9600", 
-                               "PlatformName": "Windows Server 2012 R2 Standard", 
-                               "PlatformType": "Windows"
-                           }
-                       ], 
-                       "TypeName": "AWS:InstanceInformation", 
-                       "SchemaVersion": "1.0"
+               "TypeName": "Custom:RackInfo",
+               "Version": "1.0",
+               "Attributes": [
+                   {
+                       "DataType": "STRING",
+                       "Name": "RackLocation"
                    }
-               }, 
-               "Id": "ID"
+               ]
            }
        ]
    }

@@ -1,6 +1,6 @@
 # Using Targets and Rate Controls to Send Commands to a Fleet<a name="send-commands-multiple"></a>
 
-You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\.
+You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
 
 **Note**  
 You can also use the `targets` parameter to target a list of specific instance IDs, as described in the next section\.
@@ -14,18 +14,31 @@ To control command execution across hundreds or thousands of instances, Run Comm
 
 ## Targeting Multiple Instances<a name="send-commands-targeting"></a>
 
-You can run a command and target instances by specifying either Amazon EC2 tags or instance IDs\. The `targets` parameter uses the following syntax in the AWS CLI:
+You can run a command and target instances by specifying tags applied to managed instances, AWS resource group names, or instance IDs\. 
 
-Example 1: Targeting Tags
+**Note**  
+Sample commands in this section are truncated using `[...]`\. 
+
+For use with the AWS CLI `[send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html)` command, the `targets` parameter supports the syntax demonstrated in the following examples:
+
+**Example 1: Targeting Tags**
 
 ```
 aws ssm send-command --document-name name --targets Key=tag:tag_name,Values=tag_value [...]
 ```
 
-**Note**  
-Example commands in this section are truncated using \[\.\.\.\]\.
+**Example 2: Targeting an AWS Resource Group**
 
-Example 2: Targeting Instance IDs
+You can specify a maximum of one resource group name per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\. 
+
+**Note**  
+In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
+
+```
+aws ssm send-command --document-name --targets Key=resource-groups:name,Values=resource-group-name [...]
+```
+
+**Example 3: Targeting Instance IDs**
 
 ```
 aws ssm send-command --document-name name --targets Key=instanceids,Values=ID1,ID2,ID3 [...]
@@ -72,19 +85,19 @@ You can specify a maximum of 5 keys, and 5 values for each key\.
 
 If either a tag key \(the tag name\) or a tag value includes spaces, then you must enclose the tag key or the value in quotation marks, as show in the following examples\.
 
-Example 1: Spaces in `Value` tag\.
+**Example 1: Spaces in `Value` tag\.**
 
 ```
 aws ssm send-command --document-name name --targets Key=tag:OS,Values="Windows Server 2016 Nano" [...]
 ```
 
-Example 2: Spaces in `tag` key and `Value`\.
+**Example 2: Spaces in `tag` key and `Value`\.**
 
 ```
 aws ssm send-command --document-name name --targets Key="tag:Operating System",Values="Windows Server 2016 Nano" [...]
 ```
 
-Example 3: Spaces in one item in a list of `Values`\.
+**Example 3: Spaces in one item in a list of `Values`\.**
 
 ```
 aws ssm send-command --document-name name --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" [...]

@@ -2,7 +2,7 @@
 
 The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
 
 For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
@@ -17,7 +17,8 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [List my patch baselines](#patch-manager-cli-commands-describe-patch-baselines-custom)
 + [Display a patch baseline](#patch-manager-cli-commands-get-patch-baseline)
 + [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline)
-+ [Set the default patch baseline](#patch-manager-cli-commands-register-default-patch-baseline)
++ [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline)
++ [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline)
 + [Register a patch group "Web Servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
 + [Register a patch group "Backend" with the AWS\-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend)
 + [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
@@ -33,11 +34,37 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 
 ## Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm create-patch-baseline --name "Windows-Server-2012R2" --tags "Key=Environment,Value=Production" --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]" --description "Windows Server 2012 R2, Important and Critical security updates"
+aws ssm create-patch-baseline \
+    --name "Windows-Server-2012R2" \
+    --tags "Key=Environment,Value=Production" \
+    --description "Windows Server 2012 R2, Important and Critical security updates" \
+    --approved-patches "KB2032276,MS10-048" \
+    --rejected-patches "KB2124261" \
+    --rejected-patches-action "ALLOW_AS_DEPENDENCY" \
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm create-patch-baseline ^
+    --name "Windows-Server-2012R2" ^
+    --tags "Key=Environment,Value=Production" ^
+    --description "Windows Server 2012 R2, Important and Critical security updates" ^
+    --approved-patches "KB2032276,MS10-048" ^
+    --rejected-patches "KB2124261" ^
+    --rejected-patches-action "ALLOW_AS_DEPENDENCY" ^
+    --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Important,Critical]},{Key=CLASSIFICATION,Values=SecurityUpdates},{Key=PRODUCT,Values=WindowsServer2012R2}]},ApproveAfterDays=5}]"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -126,9 +153,27 @@ The following command adds two patches as rejected and one patch as approved to 
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE --rejected-patches "KB2032276" "MS10-048" --approved-patches "KB2124261"
+aws ssm update-patch-baseline \
+    --baseline-id pb-0c10e65780EXAMPLE \
+    --rejected-patches "KB2032276" "MS10-048" \
+    --approved-patches "KB2124261"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm update-patch-baseline ^
+    --baseline-id pb-0c10e65780EXAMPLE ^
+    --rejected-patches "KB2032276" "MS10-048" ^
+    --approved-patches "KB2124261"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -186,9 +231,25 @@ The system returns information like the following\.
 
 ## Rename a patch baseline<a name="patch-manager-cli-commands-rename-patch-baseline"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm update-patch-baseline --baseline-id pb-0c10e65780EXAMPLE --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
+aws ssm update-patch-baseline \
+    --baseline-id pb-0c10e65780EXAMPLE \
+    --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm update-patch-baseline ^
+    --baseline-id pb-0c10e65780EXAMPLE ^
+    --name "Windows-Server-2012-R2-Important-and-Critical-Security-Updates"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -287,9 +348,25 @@ The system returns information like the following\.
 
 Here is another command that lists all patch baselines in a Region\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-patch-baselines --region us-east-2 --filters "Key=OWNER,Values=[All]"
+aws ssm describe-patch-baselines \
+    --region us-east-2 \
+    --filters "Key=OWNER,Values=[All]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-patch-baselines ^
+    --region us-east-2 ^
+    --filters "Key=OWNER,Values=[All]"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -314,9 +391,25 @@ The system returns information like the following\.
 
 ## List all AWS\-provided patch baselines<a name="patch-manager-cli-commands-describe-patch-baselines-aws"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-patch-baselines --region us-east-2 --filters "Key=OWNER,Values=[AWS]"
+aws ssm describe-patch-baselines \
+    --region us-east-2 \
+    --filters "Key=OWNER,Values=[AWS]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-patch-baselines ^
+    --region us-east-2 ^
+    --filters "Key=OWNER,Values=[AWS]"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -335,9 +428,25 @@ The system returns information like the following\.
 
 ## List my patch baselines<a name="patch-manager-cli-commands-describe-patch-baselines-custom"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-patch-baselines --region us-east-2 --filters "Key=OWNER,Values=[Self]"
+aws ssm describe-patch-baselines \
+    --region us-east-2 \
+    --filters "Key=OWNER,Values=[Self]"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-patch-baselines ^
+    --region us-east-2 ^
+    --filters "Key=OWNER,Values=[Self]"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -433,11 +542,57 @@ The system returns information like the following\.
 }
 ```
 
-## Set the default patch baseline<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
+## Set a custom patch baseline as the default<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
+
+------
+#### [ Linux ]
 
 ```
-aws ssm register-default-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE"
+aws ssm register-default-patch-baseline \
+    --region us-east-2 \
+    --baseline-id "pb-0c10e65780EXAMPLE"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-default-patch-baseline ^
+    --region us-east-2 ^
+    --baseline-id "pb-0c10e65780EXAMPLE"
+```
+
+------
+
+The system returns information like the following:
+
+```
+{
+   "BaselineId":"pb-0c10e65780EXAMPLE"
+}
+```
+
+## Reset an AWS patch baseline as the default<a name="patch-manager-cli-commands-register-aws-patch-baseline"></a>
+
+------
+#### [ Linux ]
+
+```
+aws ssm register-default-patch-baseline \
+    --region us-east-2 \
+    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-default-patch-baseline ^
+    --region us-east-2 ^
+    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
+```
+
+------
 
 The system returns information like the following:
 
@@ -449,9 +604,25 @@ The system returns information like the following:
 
 ## Register a patch group "Web Servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm register-patch-baseline-for-patch-group --baseline-id "pb-0c10e65780EXAMPLE" --patch-group "Web Servers"
+aws ssm register-patch-baseline-for-patch-group \
+    --baseline-id "pb-0c10e65780EXAMPLE" \
+    --patch-group "Web Servers"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-patch-baseline-for-patch-group ^
+    --baseline-id "pb-0c10e65780EXAMPLE" ^
+    --patch-group "Web Servers"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -464,9 +635,27 @@ The system returns information like the following\.
 
 ## Register a patch group "Backend" with the AWS\-provided patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm register-patch-baseline-for-patch-group --region us-east-2 --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE" --patch-group "Backend"
+aws ssm register-patch-baseline-for-patch-group \
+    --region us-east-2 \
+    --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE" \
+    --patch-group "Backend"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-patch-baseline-for-patch-group ^
+    --region us-east-2 ^
+    --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE" ^
+    --patch-group "Backend"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -512,9 +701,27 @@ The system returns information like the following\.
 
 ## Deregister a patch group from a patch baseline<a name="patch-manager-cli-commands-deregister-patch-baseline-for-patch-group"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm deregister-patch-baseline-for-patch-group --region us-east-2 --patch-group "Production" --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
+aws ssm deregister-patch-baseline-for-patch-group \
+    --region us-east-2 \
+    --patch-group "Production" \
+    --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm deregister-patch-baseline-for-patch-group ^
+    --region us-east-2 ^
+    --patch-group "Production" ^
+    --baseline-id "arn:aws:ssm:us-east-2:111122223333:patchbaseline/pb-0c10e65780EXAMPLE"
+```
+
+------
 
 The system returns information like the following\.
 
@@ -527,9 +734,21 @@ The system returns information like the following\.
 
 ## Get all patches defined by a patch baseline<a name="patch-manager-cli-commands-describe-effective-patches-for-patch-baseline"></a>
 
+------
+#### [ Linux ]
+
+*This command is supported for Windows Server patch baselines only\.*
+
+------
+#### [ Windows ]
+
 ```
-aws ssm describe-effective-patches-for-patch-baseline --region us-east-2 --baseline-id "pb-0c10e65780EXAMPLE"
+aws ssm describe-effective-patches-for-patch-baseline ^
+    --region us-east-2 ^
+    --baseline-id "pb-0c10e65780EXAMPLE"
 ```
+
+------
 
 The system returns information like the following\.
 
@@ -547,7 +766,12 @@ The system returns information like the following\.
             "ProductFamily":"Windows",
             "Product":"WindowsServer2012R2",
             "Vendor":"Microsoft",
-            "Description":"A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
+            "Description":"A security issue has been identified in a Microsoft software 
+               product that could affect your system. You can help protect your system 
+               by installing this update from Microsoft. For a complete listing of the 
+               issues that are included in this update, see the associated Microsoft 
+               Knowledge Base article. After you install this update, you may have to 
+               restart your system.",
             "Classification":"SecurityUpdates",
             "Title":"Security Update for Windows Server 2012 R2 Preview (KB2876331)",
             "ReleaseDate":1384279200.0,
@@ -568,7 +792,14 @@ The system returns information like the following\.
             "ProductFamily":"Windows",
             "Product":"WindowsServer2012R2",
             "Vendor":"Microsoft",
-            "Description":"Windows Server 2012 R2 Update is a cumulative set of security updates, critical updates and updates. You must install Windows Server 2012 R2 Update to ensure that your computer can continue to receive future Windows Updates, including security updates. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article for more information. After you install this item, you may have to restart your computer.",
+            "Description":"Windows Server 2012 R2 Update is a cumulative 
+               set of security updates, critical updates and updates. You 
+               must install Windows Server 2012 R2 Update to ensure that 
+               your computer can continue to receive future Windows Updates, 
+               including security updates. For a complete listing of the 
+               issues that are included in this update, see the associated 
+               Microsoft Knowledge Base article for more information. After 
+               you install this item, you may have to restart your computer.",
             "Classification":"SecurityUpdates",
             "Title":"Windows Server 2012 R2 Update (KB2919355)",
             "ReleaseDate":1428426000.0,
@@ -584,9 +815,25 @@ The system returns information like the following\.
 
 ## Get all patches for Windows Server 2012 that have a MSRC severity of Critical<a name="patch-manager-cli-commands-describe-available-patches"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-available-patches --region us-east-2 --filters Key=PRODUCT,Values=WindowsServer2012 Key=MSRC_SEVERITY,Values=Critical
+aws ssm describe-available-patches \
+    --region us-east-2 \
+    --filters Key=PRODUCT,Values=WindowsServer2012 Key=MSRC_SEVERITY,Values=Critical
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-available-patches ^
+    --region us-east-2 ^
+    --filters Key=PRODUCT,Values=WindowsServer2012 Key=MSRC_SEVERITY,Values=Critical
+```
+
+------
 
 The system returns information like the following\.
 
@@ -598,7 +845,11 @@ The system returns information like the following\.
          "ProductFamily":"Windows",
          "Product":"WindowsServer2012",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could allow an unauthenticated remote attacker to compromise your system and gain control over it. You can help protect your system by installing this update from Microsoft. After you install this update, you may have to restart your system.",
+         "Description":"A security issue has been identified that could 
+           allow an unauthenticated remote attacker to compromise your 
+           system and gain control over it. You can help protect your 
+           system by installing this update from Microsoft. After you 
+           install this update, you may have to restart your system.",
          "Classification":"SecurityUpdates",
          "Title":"Security Update for Windows Server 2012 (KB2727528)",
          "ReleaseDate":1352829600.0,
@@ -613,9 +864,14 @@ The system returns information like the following\.
          "ProductFamily":"Windows",
          "Product":"WindowsServer2012",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could allow an unauthenticated remote attacker to compromise your system and gain control over it. You can help protect your system by installing this update from Microsoft. After you install this update, you may have to restart your system.",
+         "Description":"A security issue has been identified that could 
+           allow an unauthenticated remote attacker to compromise your 
+           system and gain control over it. You can help protect your 
+           system by installing this update from Microsoft. After you 
+           install this update, you may have to restart your system.",
          "Classification":"SecurityUpdates",
-         "Title":"Security Update for Microsoft .NET Framework 3.5 on Windows 8 and Windows Server 2012 for x64-based Systems (KB2729462)",
+         "Title":"Security Update for Microsoft .NET Framework 3.5 on 
+           Windows 8 and Windows Server 2012 for x64-based Systems (KB2729462)",
          "ReleaseDate":1352829600.0,
          "MsrcClassification":"Critical",
          "Language":"All",
@@ -644,7 +900,11 @@ The system returns information like the following\.
          "ProductFamily":"Windows",
          "Product":"WindowsServer2008R2",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could allow an unauthenticated remote attacker to compromise your system and gain control over it. You can help protect your system by installing this update from Microsoft. After you install this update, you may have to restart your system.",
+         "Description":"A security issue has been identified that could allow an 
+           unauthenticated remote attacker to compromise your system and gain 
+           control over it. You can help protect your system by installing this 
+           update from Microsoft. After you install this update, you may have to
+           restart your system.",
          "Classification":"SecurityUpdates",
          "Title":"Security Update for Windows Server 2008 R2 x64 Edition (KB2032276)",
          "ReleaseDate":1279040400.0,
@@ -659,7 +919,11 @@ The system returns information like the following\.
          "ProductFamily":"Windows",
          "Product":"Windows7",
          "Vendor":"Microsoft",
-         "Description":"A security issue has been identified that could allow an unauthenticated remote attacker to compromise your system and gain control over it. You can help protect your system by installing this update from Microsoft. After you install this update, you may have to restart your system.",
+         "Description":"A security issue has been identified that could allow 
+           an unauthenticated remote attacker to compromise your system and gain 
+           control over it. You can help protect your system by installing this 
+           update from Microsoft. After you install this update, you may have 
+           to restart your system.",
          "Classification":"SecurityUpdates",
          "Title":"Security Update for Windows 7 (KB2124261)",
          "ReleaseDate":1284483600.0,
@@ -674,29 +938,95 @@ The system returns information like the following\.
 
 ## Tag a patch baseline<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm add-tags-to-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE" --tags "Key=Project,Value=Testing"
+aws ssm add-tags-to-resource \
+    --resource-type "PatchBaseline" \
+    --resource-id "pb-0c10e65780EXAMPLE" \
+    --tags "Key=Project,Value=Testing"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm add-tags-to-resource ^
+    --resource-type "PatchBaseline" ^
+    --resource-id "pb-0c10e65780EXAMPLE" ^
+    --tags "Key=Project,Value=Testing"
+```
+
+------
 
 ## List the tags for a patch baseline<a name="patch-manager-cli-commands-list-tags-for-resource"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm list-tags-for-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE"
+aws ssm list-tags-for-resource \
+    --resource-type "PatchBaseline" \
+    --resource-id "pb-0c10e65780EXAMPLE"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm list-tags-for-resource ^
+    --resource-type "PatchBaseline" ^
+    --resource-id "pb-0c10e65780EXAMPLE"
+```
+
+------
 
 ## Remove a tag from a patch baseline<a name="patch-manager-cli-commands-remove-tags-from-resource"></a>
 
+------
+#### [ Linux ]
+
 ```
-aws ssm remove-tags-from-resource --resource-type "PatchBaseline" --resource-id "pb-0c10e65780EXAMPLE" --tag-keys "Project"
+aws ssm remove-tags-from-resource \
+    --resource-type "PatchBaseline" \
+    --resource-id "pb-0c10e65780EXAMPLE" \
+    --tag-keys "Project"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm remove-tags-from-resource ^
+    --resource-type "PatchBaseline" ^
+    --resource-id "pb-0c10e65780EXAMPLE" ^
+    --tag-keys "Project"
+```
+
+------
 
 ## Get patch summary states per\-instance<a name="patch-manager-cli-commands-describe-instance-patch-states"></a>
 
 The per\-instance summary gives you a number of patches in the following states per instance: "NotApplicable", "Missing", "Failed", "InstalledOther" and "Installed"\. 
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-instance-patch-states --instance-ids i-08ee91c0b17045407 i-09a618aec652973a9 i-0a00def7faa94f1c i-0fff3aab684d01b23
+aws ssm describe-instance-patch-states \
+    --instance-ids i-08ee91c0b17045407 i-09a618aec652973a9
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-instance-patch-states ^
+    --instance-ids i-08ee91c0b17045407 i-09a618aec652973a9
+```
+
+------
 
 The system returns information like the following\.
 
@@ -704,33 +1034,41 @@ The system returns information like the following\.
 {
    "InstancePatchStates":[
       {
-         "OperationStartTime":"2016-12-09T05:00:00Z",
-         "FailedCount":0,
-         "InstanceId":"i-08ee91c0b17045407",
-         "OwnerInformation":"",
-         "NotApplicableCount":2077,
-         "OperationEndTime":"2016-12-09T05:02:37Z",
-         "PatchGroup":"Production",
-         "InstalledOtherCount":186,
-         "MissingCount":7,
-         "SnapshotId":"b0e65479-79be-4288-9f88-81c96bc3ed5e",
-         "Operation":"Scan",
-         "InstalledCount":72
-      },
-      {
-         "OperationStartTime":"2016-12-09T04:59:09Z",
-         "FailedCount":0,
-         "InstanceId":"i-09a618aec652973a9",
-         "OwnerInformation":"",
-         "NotApplicableCount":1637,
-         "OperationEndTime":"2016-12-09T05:03:57Z",
-         "PatchGroup":"Production",
-         "InstalledOtherCount":388,
-         "MissingCount":2,
-         "SnapshotId":"b0e65479-79be-4288-9f88-81c96bc3ed5e",
-         "Operation":"Scan",
-         "InstalledCount":141
-      }
+            "InstanceId": "i-08ee91c0b17045407",
+            "PatchGroup": "",
+            "BaselineId": "pb-0e392de35e7c563b7",
+            "SnapshotId": "6d03d6c5-f79d-41d0-8d0e-00a9aEXAMPLE",
+            "InstalledCount": 50,
+            "InstalledOtherCount": 353,
+            "InstalledPendingRebootCount": 0,
+            "InstalledRejectedCount": 0,
+            "MissingCount": 0,
+            "FailedCount": 0,
+            "UnreportedNotApplicableCount": -1,
+            "NotApplicableCount": 671,
+            "OperationStartTime": "2020-01-24T12:37:56-08:00",
+            "OperationEndTime": "2020-01-24T12:37:59-08:00",
+            "Operation": "Scan",
+            "RebootOption": "NoReboot"
+        },
+        {
+            "InstanceId": "i-09a618aec652973a9",
+            "PatchGroup": "",
+            "BaselineId": "pb-07e6d4e9bc703f2e3",
+            "SnapshotId": "c7e0441b-1eae-411b-8aa7-973e6EXAMPLE",
+            "InstalledCount": 36,
+            "InstalledOtherCount": 396,
+            "InstalledPendingRebootCount": 0,
+            "InstalledRejectedCount": 0,
+            "MissingCount": 3,
+            "FailedCount": 0,
+            "UnreportedNotApplicableCount": -1,
+            "NotApplicableCount": 420,
+            "OperationStartTime": "2020-01-24T12:37:34-08:00",
+            "OperationEndTime": "2020-01-24T12:37:37-08:00",
+            "Operation": "Scan",
+            "RebootOption": "NoReboot"
+        }
      ---output truncated---
 ```
 
@@ -747,28 +1085,28 @@ The system returns information like the following\.
    "NextToken":"--token string truncated--",
    "Patches":[
       {
-         "KBId":"KB2919355",
-         "Severity":"Critical",
-         "Classification":"SecurityUpdates",
-         "Title":"Windows 8.1 Update for x64-based Systems (KB2919355)",
-         "State":"Installed",
-         "InstalledTime":"2014-03-18T12:00:00Z"
-      },
-      {
-         "KBId":"KB2977765",
-         "Severity":"Important",
-         "Classification":"SecurityUpdates",
-         "Title":"Security Update for Microsoft .NET Framework 4.5.1 and 4.5.2 on Windows 8.1 and Windows Server 2012 R2 x64-based Systems (KB2977765)",
-         "State":"Installed",
-         "InstalledTime":"2014-10-15T12:00:00Z"
-      },
-      {
-         "KBId":"KB2978126",
-         "Severity":"Important",
-         "Classification":"SecurityUpdates",
-         "Title":"Security Update for Microsoft .NET Framework 4.5.1 and 4.5.2 on Windows 8.1 (KB2978126)",
-         "State":"Installed",
-         "InstalledTime":"2014-11-18T12:00:00Z"
-      },
+            "Title": "bind-libs.x86_64:32:9.8.2-0.68.rc1.60.amzn1",
+            "KBId": "bind-libs.x86_64",
+            "Classification": "Security",
+            "Severity": "Important",
+            "State": "Installed",
+            "InstalledTime": "2019-08-26T11:05:24-07:00"
+        },
+        {
+            "Title": "bind-utils.x86_64:32:9.8.2-0.68.rc1.60.amzn1",
+            "KBId": "bind-utils.x86_64",
+            "Classification": "Security",
+            "Severity": "Important",
+            "State": "Installed",
+            "InstalledTime": "2019-08-26T11:05:32-07:00"
+        },
+        {
+            "Title": "dhclient.x86_64:12:4.1.1-53.P1.28.amzn1",
+            "KBId": "dhclient.x86_64",
+            "Classification": "Security",
+            "Severity": "Important",
+            "State": "Installed",
+            "InstalledTime": "2019-08-26T11:05:31-07:00"
+        },
     ---output truncated---
 ```

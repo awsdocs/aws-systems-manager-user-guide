@@ -11,7 +11,7 @@ The following example uses three hierarchy levels in the name to identify the fo
 `/Dev/DBServer/MySQL/db-string13`
 
 You can create a hierarchy with a maximum of 15 levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment, as shown in the following examples:
-+ Your [Continuous integration](https://aws.amazon.com//devops/continuous-integration/) and [Continuous delivery](https://aws.amazon.com/devops/continuous-delivery/) environment \(CI/CD workflows\)
++ Your [Continuous integration](https://aws.amazon.com/devops/continuous-integration/) and [Continuous delivery](https://aws.amazon.com/devops/continuous-delivery/) environment \(CI/CD workflows\)
 
   `/Dev/DBServer/MySQL/db-string`
 
@@ -27,7 +27,7 @@ You can create a hierarchy with a maximum of 15 levels\. We suggest that you cre
 
   `/Finance/Accountants/UserList`
 
-  `>/Finance/Analysts/UserList`
+  `/Finance/Analysts/UserList`
 
   `/HR/Employees/EU/UserList`
 
@@ -56,14 +56,14 @@ Another benefit of using hierarchies is the ability to query for all parameters 
 aws ssm get-parameters-by-path --path /Dev/Web/IIS
 ```
 
-To view decrypted secure string parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
+To view decrypted `SecureString` parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
 
 ```
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
 **Restricting IAM Permissions Using Hierarchies**  
-Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Parameter Store API actions, you can provide or restrict access to all parameters in one level of a hierarchy\. The following example policy allows all Parameter Store operations on all parameters for the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. The user can't create parameters because the `PutParameter` action is explicitly denied\. This policy also forbids the user from calling the `GetParametersByPath` action\. 
+Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Parameter Store API actions, you can provide or restrict access to all parameters in one level of a hierarchy\. The following example policy allows all Parameter Store operations on all parameters for the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. The user can't create parameters because the `PutParameter` action is explicitly denied\. This policy also forbids the user from calling the `GetParametersByPath` action for parameters within the /Dev/ERP/Oracle/\* hierarchy\. 
 
 ```
 {

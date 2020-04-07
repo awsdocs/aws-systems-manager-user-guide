@@ -8,4 +8,4 @@ The walkthroughs in this section show you how to run commands with Run Command u
 
 You can also view sample commands in the following references\.
 + [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)
-+ [Systems Manager AWS Tools for Windows PowerShell Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html)
++ [Systems Manager AWS Tools for Windows PowerShell Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/SimpleSystemsManagement_cmdlets.html)

@@ -16,9 +16,29 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 1. Open the AWS CLI and run the following command to update a target to include a name and a description:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window-target --window-id "mw-0c50858d01EXAMPLE" --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --name "My-Maintenance-Window-Target" --description "Description for my maintenance window target"
+   aws ssm update-maintenance-window-target \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --name "My-Maintenance-Window-Target" \
+       --description "Description for my maintenance window target"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-target ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --name "My-Maintenance-Window-Target" ^
+       --description "Description for my maintenance window target"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -41,9 +61,31 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update does not include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window-target --window-id "mw-0c50858d01EXAMPLE" --window-target-id "d208dedf-3f6b-41ff-ace8-8e751EXAMPLE" --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE" --name "My-Maintenance-Window-Target" --replace
+   aws ssm update-maintenance-window-target \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-target-id "d208dedf-3f6b-41ff-ace8-8e751EXAMPLE" \
+       --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE" \
+       --name "My-Maintenance-Window-Target" \
+       --replace
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-target ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-target-id "d208dedf-3f6b-41ff-ace8-8e751EXAMPLE" ^
+       --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE" ^
+       --name "My-Maintenance-Window-Target" ^
+       --replace
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -68,17 +110,63 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
    Run the following command to specify a date and time range for regularly scheduled maintenance window executions:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --start-date "2020-10-01T10:10:10Z" --end-date "2020-11-01T10:10:10Z"
+   aws ssm update-maintenance-window \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --start-date "2020-10-01T10:10:10Z" \
+       --end-date "2020-11-01T10:10:10Z"
    ```
 
-1. If you created a Run Command task, run the following command to update it:
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --start-date "2020-10-01T10:10:10Z" ^
+       --end-date "2020-11-01T10:10:10Z"
+   ```
+
+------
+
+1. Run the following command to update a Run Command task\.
 **Tip**  
 If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window-task --window-id "mw-0c50858d01EXAMPLE" --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --task-arn "AWS-RunShellScript" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters "RunCommand={Comment=Revising my Run Command task,Parameters={commands=df}}" --priority 1 --max-concurrency 10 --max-errors 4 --name "My-Task-Name" --description "A description for my Run Command task"
+   aws ssm update-maintenance-window-task \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --task-arn "AWS-RunShellScript" \
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --task-invocation-parameters "RunCommand={Comment=Revising my Run Command task,Parameters={commands=df}}" \
+       --priority 1 --max-concurrency 10 --max-errors 4 \
+       --name "My-Task-Name" --description "A description for my Run Command task"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-task ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --task-arn "AWS-RunShellScript" ^
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --task-invocation-parameters "RunCommand={Comment=Revising my Run Command task,Parameters={commands=df}}" ^
+       --priority 1 --max-concurrency 10 --max-errors 4 ^
+       --name "My-Task-Name" --description "A description for my Run Command task"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -115,11 +203,41 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
    }
    ```
 
-1. If you are updating a Lambda task, adapt and run the following command to update the task:
+1. Adapt and run the following command to update a Lambda task\.
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm update-maintenance-window-task --window-id mw-0c50858d01EXAMPLE --window-task-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters '{"Lambda":{"Payload":"{\"targetId\":\"{{TARGET_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' --priority 1 --max-concurrency 10 --max-errors 5 --name "New-Lambda-Task-Name" --description "A description for my Lambda task"
+   aws ssm update-maintenance-window-task \
+       --window-id mw-0c50858d01EXAMPLE \
+       --window-task-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE \
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" \
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --task-invocation-parameters '{"Lambda":{"Payload":"{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' \
+       --priority 1 --max-concurrency 10 --max-errors 5 \
+       --name "New-Lambda-Task-Name" \
+       --description "A description for my Lambda task"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-task ^
+       --window-id mw-0c50858d01EXAMPLE ^
+       --window-task-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE ^
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" ^
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --task-invocation-parameters '{"Lambda":{"Payload":"{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' ^
+       --priority 1 --max-concurrency 10 --max-errors 5 ^
+       --name "New-Lambda-Task-Name" ^
+       --description "A description for my Lambda task"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -151,9 +269,39 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
 
 1. If you are updating an AWS Step Functions task, adapt and run the following command to update its task\-invocation\-parameters:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window-task --window-id "mw-0c50858d01EXAMPLE" --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{ TARGET_ID }}\"}"}}' --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
+   aws ssm update-maintenance-window-task \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" \
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}}' \
+       --priority 0 --max-concurrency 10 --max-errors 5 \
+       --name "My-Step-Functions-Task" \
+       --description "A description for my Step Functions task"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-task ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" ^
+       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}}' ^
+       --priority 0 --max-concurrency 10 --max-errors 5 ^
+       --name "My-Step-Functions-Task" ^
+       --description "A description for my Step Functions task"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -174,7 +322,7 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
        "TaskParameters": {},
        "TaskInvocationParameters": {
            "StepFunctions": {
-               "Input": "{\"instanceId\":\"{{ TARGET_ID }}\"}"
+               "Input": "{\"instanceId\":\"{{RESOURCE_ID}}\"}"
            }
        },
        "Priority": 0,
@@ -187,21 +335,58 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
 
 1. Run the following command to unregister a target from a maintenance window\. This example uses the `safe` parameter to determine if the target is referenced by any tasks and therefore safe to unregister:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm deregister-target-from-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --safe
+   aws ssm deregister-target-from-maintenance-window \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --safe
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm deregister-target-from-maintenance-window ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --safe
+   ```
+
+------
 
    The system returns information like the following:
 
    ```
-   An error occurred (TargetInUseException) when calling the DeregisterTargetFromMaintenanceWindow operation: This Target cannot be deregistered because it is still referenced in Task: 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+   An error occurred (TargetInUseException) when calling the DeregisterTargetFromMaintenanceWindow operation: 
+   This Target cannot be deregistered because it is still referenced in Task: 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
    ```
 
 1. Run the following command to unregister a target from a maintenance window even if the target is referenced by a task\. You can force the unregister operation by using the `no-safe` parameter:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm deregister-target-from-maintenance-window --window-id "mw-0c50858d01EXAMPLE" --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --no-safe 
+   aws ssm deregister-target-from-maintenance-window \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+       --no-safe
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm deregister-target-from-maintenance-window ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-target-id "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+       --no-safe
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -212,11 +397,31 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
    }
    ```
 
-1. Run the following command to update a Run Command task\. This example uses a Systems Manager Parameter Store parameter called `UpdateLevel`, which is formated as follows:'`{{ssm:UpdateLevel}}`'
+1. Run the following command to update a Run Command task\. This example uses a Systems Manager Parameter Store parameter called `UpdateLevel`, which is formatted as follows: '`{{ssm:UpdateLevel}}`'
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm update-maintenance-window-task --window-id "mw-0c50858d01EXAMPLE" --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"  --task-invocation-parameters "RunCommand={Comment=A comment for my task update,Parameters={UpdateLevel='{{ssm:UpdateLevel}}'}}"
+   aws ssm update-maintenance-window-task \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
+       --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"  \
+       --task-invocation-parameters "RunCommand={Comment=A comment for my task update,Parameters={UpdateLevel='{{ssm:UpdateLevel}}'}}"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-task ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
+       --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE"  ^
+       --task-invocation-parameters "RunCommand={Comment=A comment for my task update,Parameters={UpdateLevel='{{ssm:UpdateLevel}}'}}"
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -253,9 +458,35 @@ If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipc
 
 1. Run the following command to update an Automation task to specify WINDOW\_ID and WINDOW\_TASK\_ID parameters for the `task-invocation-parameters` parameter:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-maintenance-window-task --window-id "mw-0c50858d01EXAMPLE" --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE --task-arn "AutoTestDoc" --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM --task-invocation-parameters "Automation={Parameters={instanceId='{{TARGET_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" --priority 3 --max-concurrency 10 --max-errors 5
+   aws ssm update-maintenance-window-task \
+       --window-id "mw-0c50858d01EXAMPLE" \
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
+       --task-arn "AutoTestDoc" \
+       --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM \
+       --task-invocation-parameters "Automation={Parameters={instanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" \
+       --priority 3 --max-concurrency 10 --max-errors 5
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-maintenance-window-task ^
+       --window-id "mw-0c50858d01EXAMPLE" ^
+       --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
+       --task-arn "AutoTestDoc" ^
+       --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM ^
+       --task-invocation-parameters "Automation={Parameters={instanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" ^
+       --priority 3 --max-concurrency 10 --max-errors 5
+   ```
+
+------
 
    The system returns information like the following:
 

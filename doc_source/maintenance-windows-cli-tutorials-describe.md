@@ -1,4 +1,4 @@
-# Tutorial: View Information About a Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
+# Tutorial: View Information About Maintenance Windows \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-describe"></a>
 
 This tutorial includes commands to help you update or get information about your maintenance windows, tasks, executions, and invocations\. The examples are organized by command to demonstrate how to use command options to filter for the type of detail you want to see\.
 
@@ -147,9 +147,25 @@ The system returns information like the following:
 **Display the targets for a maintenance window matching a specific owner information value**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-targets --window-id "mw-6e5c9d4b7cEXAMPLE" --filters "Key=Type,Values=INSTANCE"
+aws ssm describe-maintenance-window-targets \
+    --window-id "mw-6e5c9d4b7cEXAMPLE" \
+    --filters "Key=OwnerInformation,Values=CostCenter1"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-targets ^
+    --window-id "mw-6e5c9d4b7cEXAMPLE" ^
+    --filters "Key=OwnerInformation,Values=CostCenter1"
+```
+
+------
 
 **Note**  
 The supported filter keys are `Type`, `WindowTargetId` and `OwnerInformation`\.
@@ -160,19 +176,19 @@ The system returns information like the following:
 {
     "Targets": [
         {
-            "WindowId": "mw-6e5c9d4b7cEXAMPLE",
+            "WindowId": "mw-0c50858d01EXAMPLE",
             "WindowTargetId": "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE",
             "ResourceType": "INSTANCE",
             "Targets": [
                 {
-                    "Key": "InstanceIds",
+                    "Key": "tag:Name",
                     "Values": [
-                        "i-02573cafcfEXAMPLE",
-                        "i-0471e04240EXAMPLE",
-                        "i-07782c72faEXAMPLE"
+                        "Production"
                     ]
                 }
-            ]
+            ],
+            "OwnerInformation": "CostCenter1",
+            "Name": "Target1"
         }
     ]
 }
@@ -183,9 +199,25 @@ The system returns information like the following:
 **Show all registered tasks that invoke the AWS\-RunPowerShellScript Run Command**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-0c50858d01EXAMPLE" --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
+aws ssm describe-maintenance-window-tasks \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-tasks ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --filters "Key=TaskArn,Values=AWS-RunPowerShellScript"
+```
+
+------
 
 The system returns information like the following:
 
@@ -243,9 +275,25 @@ The system returns information like the following:
 **Show all registered tasks that have a priority of "3"**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=Priority,Values=3"
+aws ssm describe-maintenance-window-tasks \
+    --window-id "mw-9a8b7c6d5eEXAMPLE" \
+    --filters "Key=Priority,Values=3"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-tasks ^
+    --window-id "mw-9a8b7c6d5eEXAMPLE" ^
+    --filters "Key=Priority,Values=3"
+```
+
+------
 
 The system returns information like the following:
 
@@ -281,9 +329,25 @@ The system returns information like the following:
 **Show all registered tasks that have a priority of "1" and use Run Command**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-tasks --window-id "mw-0c50858d01EXAMPLE" --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
+aws ssm describe-maintenance-window-tasks \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-tasks ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --filters "Key=Priority,Values=1" "Key=TaskType,Values=RUN_COMMAND"
+```
+
+------
 
 The system returns information like the following:
 
@@ -339,9 +403,27 @@ The system returns information like the following:
 **List information about the maintenance window targets or tasks associated with a specific instance**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-windows-for-target --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" --max-results 10
+aws ssm describe-maintenance-windows-for-target \
+    --resource-type INSTANCE \
+    --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" \
+    --max-results 10
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-windows-for-target ^
+    --resource-type INSTANCE ^
+    --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" ^
+    --max-results 10
+```
+
+------
 
 The system returns information like the following:
 
@@ -365,9 +447,25 @@ The system returns information like the following:
 **List all tasks run before a certain date**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedBefore,Values=2019-05-12T05:00:00Z"
+aws ssm describe-maintenance-window-executions \
+    --window-id "mw-9a8b7c6d5eEXAMPLE" \
+    --filters "Key=ExecutedBefore,Values=2019-05-12T05:00:00Z"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-executions ^
+    --window-id "mw-9a8b7c6d5eEXAMPLE" ^
+    --filters "Key=ExecutedBefore,Values=2019-05-12T05:00:00Z"
+```
+
+------
 
 The system returns information like the following:
 
@@ -403,9 +501,25 @@ The system returns information like the following:
 **List all tasks run after a certain date**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-executions --window-id "mw-9a8b7c6d5eEXAMPLE" --filters "Key=ExecutedAfter,Values=2018-12-31T17:00:00Z"
+aws ssm describe-maintenance-window-executions \
+    --window-id "mw-9a8b7c6d5eEXAMPLE" \
+    --filters "Key=ExecutedAfter,Values=2018-12-31T17:00:00Z"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-executions ^
+    --window-id "mw-9a8b7c6d5eEXAMPLE" ^
+    --filters "Key=ExecutedAfter,Values=2018-12-31T17:00:00Z"
+```
+
+------
 
 The system returns information like the following:
 
@@ -443,9 +557,27 @@ The system returns information like the following:
 **Display the next ten scheduled maintenance window runs for a particular instance**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-schedule --resource-type INSTANCE --targets "Key=InstanceIds,Values=i-07782c72faEXAMPLE" --max-results 10
+aws ssm describe-maintenance-window-schedule \
+    --resource-type INSTANCE \
+    --targets "Key=InstanceIds,Values=i-07782c72faEXAMPLE" \
+    --max-results 10
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-schedule ^
+    --resource-type INSTANCE ^
+    --targets "Key=InstanceIds,Values=i-07782c72faEXAMPLE" ^
+    --max-results 10
+```
+
+------
 
 The system returns information like the following:
 
@@ -510,9 +642,25 @@ The system returns information like the following:
 **Display the maintenance window schedule for instances tagged with a certain key\-value pair**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-schedule --resource-type INSTANCE --targets "Key=tag:prod,Values=rhel7"
+aws ssm describe-maintenance-window-schedule \
+    --resource-type INSTANCE \
+    --targets "Key=tag:prod,Values=rhel7"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-schedule ^
+    --resource-type INSTANCE ^
+    --targets "Key=tag:prod,Values=rhel7"
+```
+
+------
 
 The system returns information like the following:
 
@@ -552,9 +700,25 @@ The system returns information like the following:
 **Display start times for next four runs of a maintenance window**  
 Run the following command:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm describe-maintenance-window-schedule --window-id "mw-0c50858d01EXAMPLE" --max-results "4"
+aws ssm describe-maintenance-window-schedule \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --max-results "4"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-maintenance-window-schedule ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --max-results "4"
+```
+
+------
 
 The system returns information like the following:
 

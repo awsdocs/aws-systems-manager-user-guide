@@ -12,9 +12,9 @@ You create a patch group by using Amazon EC2 tags\. Unlike other tagging scenari
 **Note**  
 An instance can only be in one patch group\.
 
-After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Create a Patch Group](sysman-patch-group-tagging.md) and [Add a Patch Group to a Patch Baseline](sysman-patch-group-patchbaseline.md)\.
+After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Create a Patch Group](sysman-patch-group-tagging.md) and [Add a Patch Group to a Patch Baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
-To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Tutorial: Patch a Server Environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
+To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
 ## How It Works<a name="how-it-works-patch-groups"></a>
 
@@ -65,7 +65,7 @@ The general process to scan or install patches using Run Command and Patch Manag
 
      1. Patch Manager verifies that the default Windows patch baseline is `pb-0123456789abcdef0` and notifies SSM Agent\.
 
-     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-9876543210abcdef0` and proceeds to the next step\.
+     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step\.
    + **No matching patch group value associated with a patch baseline:**
 
      1. SSM Agent, which is installed on EC2 instances in group three, receives the command issued in Step 1 to begin a patching operation\. SSM Agent validates that the EC2 instances have the patch group tag\-value `QA` applied and queries Patch Manager for an associated patch baseline\.
@@ -74,10 +74,10 @@ The general process to scan or install patches using Run Command and Patch Manag
 
      1. Patch Manager notifies SSM Agent to use the default Windows patch baseline `pb-0123456789abcdef0`\.
 
-     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-9876543210abcdef0` and proceeds to the next step\.
+     1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step\.
 
 1. **Patch scan or install**: After determining the appropriate patch baseline to use, SSM Agent begins either scanning for or installing patches based on the operation value specified in Step 1\. The patches that are scanned for or installed are determined by the approval rules and patch exceptions defined in the patch baseline snapshot provided by Patch Manager\.
 
 ### Related Content<a name="sysman-patch-patchgroups-related"></a>
 
-[About Patch Compliance States](about-patch-compliance-states.md)
+[About Patch Compliance Status Values](about-patch-compliance-states.md)

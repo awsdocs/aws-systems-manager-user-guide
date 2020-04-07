@@ -1,32 +1,85 @@
 # Tagging Systems Manager Documents<a name="sysman-ssm-docs-tagging"></a>
 
-You can use the Systems Manager console, the AWS CLI, the AWS Tools for Windows, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
+You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
 Tagging is useful when you have many resources of the same type — you can quickly identify a specific resource based on the tags you've assigned to it\. Each tag consists of a *key* and an optional *value*, both of which you define\. 
 
-For example, you can tag documents for specific environments, departments, users, groups, or periods\. After you tag a document, you can restrict access to it by creating an IAM policy that specifies the tags that a user can access\. For more information about restricting access to documents by using tags, see [Controlling Access to Documents Using Tags](#sysman-ssm-docs-tagging-access)\.
+For example, you can tag documents for specific environments, departments, users, groups, or periods\. After you tag a document, you can restrict access to it by creating an IAM policy that specifies the tags that a user can access\. 
+
+For more general information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference* \.
+
+For more information about restricting access to documents by using tags, see [Controlling Access to Documents Using Tags](#sysman-ssm-docs-tagging-access)\.
 
 **Topics**
-+ [Tag a Document \(AWS CLI\)](#sysman-ssm-docs-tagging-cli)
-+ [Tag a Document \(AWS Tools for Windows\)](#sysman-ssm-docs-tagging-tfw)
-+ [Tag a Document \(Console\)](#sysman-ssm-docs-tagging-console)
++ [Tag a Document \(Command Line\)](#sysman-ssm-docs-tagging-cli)
 + [Controlling Access to Documents Using Tags](#sysman-ssm-docs-tagging-access)
 
-## Tag a Document \(AWS CLI\)<a name="sysman-ssm-docs-tagging-cli"></a>
+## Tag a Document \(Command Line\)<a name="sysman-ssm-docs-tagging-cli"></a>
 
-1. At a terminal \(Linux, macOS, or Unix\) or command prompt \(Windows\), run the list\-documents command to list the documents that you can tag\.
+1. Using your preferred command line tool, run the following command to list the documents that you can tag\.
+
+------
+#### [ Linux ]
 
    ```
    aws ssm list-documents
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-documents
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Get-SSMDocumentList
+   ```
+
+------
+
    Note the name of a document that you want to tag\.
 
 1. Run the following command to tag a document\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm add-tags-to-resource --resource-type "Document" --resource-id "document-name" --tags "Key=key,Value=value"
+   aws ssm add-tags-to-resource \
+       --resource-type "Document" \
+       --resource-id "document-name" \
+       --tags "Key=key,Value=value"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm add-tags-to-resource ^
+       --resource-type "Document" ^
+       --resource-id "document-name" ^
+       --tags "Key=key,Value=value"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
+   $tag.Key = "key"
+   $tag.Value = "value"
+   
+   Add-SSMResourceTag `
+       -ResourceType "Document" `
+       -ResourceId "document-name" `
+       -Tag $tag
+   ```
+
+------
 
    *document\-name* the name of the Systems Manager document you want to tag\.
 
@@ -38,54 +91,34 @@ For example, you can tag documents for specific environments, departments, users
 
 1. Run the following command to verify the document tags\.
 
-   ```
-   aws ssm list-tags-for-resource --resource-type "Document" --resource-id "document-name"
-   ```
-
-## Tag a Document \(AWS Tools for Windows\)<a name="sysman-ssm-docs-tagging-tfw"></a>
-
-1. Open AWS Tools for Windows PowerShell and run the following command to list documents that you can tag:
+------
+#### [ Linux ]
 
    ```
-   Get-SSMDocumentList
+   aws ssm list-tags-for-resource \
+       --resource-type "Document" \
+       --resource-id "document-name"
    ```
 
-1. Run the following commands one at a time to tag a document:
+------
+#### [ Windows ]
 
    ```
-   $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
-   $tag1.Key = "key"
-   $tag1.Value = "value"
-   Add-SSMResourceTag -ResourceType "Document" -ResourceId "document-name" -Tag $tag1
+   aws ssm list-tags-for-resource ^
+       --resource-type "Document" ^
+       --resource-id "document-name"
    ```
 
-   *document\-name* the name of the Systems Manager document you want to tag\.
-
-   *key* is the name of a custom key you supply\. For example, *region* or *quarter*\.
-
-   *value* is the custom content for the value you want to supply for that key\. For example, *west* or *Q318*\.
-
-   If successful, the command has no output\.
-
-1. Run the following command to verify the document tags:
+------
+#### [ PowerShell ]
 
    ```
-   Get-SSMResourceTag -ResourceType "Document" -ResourceId "document-name"
+   Get-SSMResourceTag `
+       -ResourceType "Document" `
+       -ResourceId "document-name"
    ```
 
-## Tag a Document \(Console\)<a name="sysman-ssm-docs-tagging-console"></a>
-
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
-
-1. In the left navigation, choose **Documents**\.
-
-1. Choose the name of an existing document, and then choose the **Tags** tab\.
-
-1. In the first box, enter a key for the tag, such as **Region**\.
-
-1. In the second box, enter a value for the tag, such as **West**\.
-
-1. Choose **Save**\.
+------
 
 ## Controlling Access to Documents Using Tags<a name="sysman-ssm-docs-tagging-access"></a>
 

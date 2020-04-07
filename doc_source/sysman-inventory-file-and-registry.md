@@ -47,7 +47,7 @@ Here are some examples of how to specify the parameters when performing an inven
 ```
 {
 "Path": string, 
-"Recursive": boolean,
+"Recursive": true,
 "ValueNames": array[string] // optional
 }
 ```

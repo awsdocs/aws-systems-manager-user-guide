@@ -1,5 +1,7 @@
 # Examples: Register Tasks with a Maintenance Window<a name="mw-cli-register-tasks-examples"></a>
 
+You can register a Systems Manager Run Command task with a maintenance window using the AWS CLI, as demonstrated in [Step 3: Register a Task with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
+
 In this topic, we provide examples of using the `register-task-with-maintenance-window` CLI command to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
 
 **Using the \-\-cli\-input\-json option**  
@@ -15,12 +17,26 @@ To use the sample JSON file content we provide in the following examples, do the
 
 1. In the same directory where you stored the file, run the following command\. Substitute your file name for *MyFile\.json*\. 
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm register-task-with-maintenance-window --cli-input-json file://MyFile.json
+   aws ssm register-task-with-maintenance-window \
+       --cli-input-json file://MyFile.json
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws ssm register-task-with-maintenance-window ^
+       --cli-input-json file://MyFile.json
+   ```
+
+------
+
 **About pseudo parameters**  
-In some examples, we use *pseudo parameters* as the method to pass ID information to your tasks\. For example, `{{TARGET_ID}}` is used to pass instance ID information to Automation, Lambda, and Step Functions tasks in our examples\. For more information about pseudo parameters in `--task-invocation-parameters` content, see [About Pseudo Parameters](mw-cli-register-tasks-parameters.md)\. 
+In some examples, we use *pseudo parameters* as the method to pass ID information to your tasks\. For instance, `{{RESOURCE_ID}}` is used to pass IDs of AWS resources to Automation, Lambda, and Step Functions tasks\. For more information about pseudo parameters in `--task-invocation-parameters` content, see [About Pseudo Parameters](mw-cli-register-tasks-parameters.md)\. 
 
 **More information**  
 For information about some fundamental `register-task-with-maintenance-window` options, see [About register\-task\-with\-maintenance\-windows Options](mw-cli-task-options.md)\.
@@ -33,19 +49,39 @@ For comprehensive information about command options, see the following topics:
 
 The following sections provide a sample AWS CLI command for registering a supported task type and a JSON sample that can be used with the `--cli-input-json` option\.
 
-**Note**  
-The CLI commands we provide are formatted to run from a local Linux machine\. To run them from a local Windows machine, remove the line breaks \(\\\) from the ends of the lines\. The sample JSON content format works on both Linux and Windows local machines\.
-
 ### Register a Systems Manager Run Command Task<a name="register-tasks-tutorial-run-command"></a>
+
+ The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI\.
 
 **AWS CLI command:**
 
+------
+#### [ Linux ]
+
 ```
-aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE \
---task-arn "AWS-RunShellScript" --max-concurrency 1 --max-errors 1 --priority 10 \
---targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" --task-type "RUN_COMMAND" \
---task-invocation-parameters "{"RunCommand":{"Parameters":{"commands":["df"]}}}"
+aws ssm register-task-with-maintenance-window \
+    --window-id mw-0c50858d01EXAMPLE \
+    --task-arn "AWS-RunShellScript" \
+    --max-concurrency 1 --max-errors 1 --priority 10 \
+    --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" \
+    --task-type "RUN_COMMAND" \
+    --task-invocation-parameters "{"RunCommand":{"Parameters":{"commands":["df"]}}}"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-task-with-maintenance-window ^
+    --window-id mw-0c50858d01EXAMPLE ^
+    --task-arn "AWS-RunShellScript" ^
+    --max-concurrency 1 --max-errors 1 --priority 10 ^
+    --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" ^
+    --task-type "RUN_COMMAND" ^
+    --task-invocation-parameters "{"RunCommand":{"Parameters":{"commands":["df"]}}}"
+```
+
+------
 
 **JSON content to use with `--cli-input-json` file option:**
 
@@ -87,18 +123,43 @@ aws ssm register-task-with-maintenance-window --window-id mw-0c50858d01EXAMPLE \
 
 ### Register a Systems Manager Automation Task<a name="register-tasks-tutorial-automation"></a>
 
+The following examples demonstrate how to register Systems Manager Automation tasks with a maintenance window using the AWS CLI: 
+
 **AWS CLI command:**
 
+------
+#### [ Linux ]
+
+The following command restarts Amazon EC2 instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
+
 ```
-aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" \
---targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
---task-arn "AWS-RestartEC2Instance" \
---service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
---task-type AUTOMATION \
---task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{TARGET_ID}}'}}" \
---priority 0 --max-concurrency 10 --max-errors 5 --name "My-Automation-Task" \
---description "A description for my Automation task"
+aws ssm register-task-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
+    --task-arn "AWS-RestartEC2Instance" \
+    --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
+    --task-type AUTOMATION \
+    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{RESOURCE_ID}}'}}" \
+    --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" \
+    --description "Automation task to restart EC2 instances"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-task-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
+    --task-arn "AWS-RestartEC2Instance" ^
+    --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole ^
+    --task-type AUTOMATION ^
+    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{TARGET_ID}}'}}" ^
+    --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" ^
+    --description "Automation task to restart EC2 instances"
+```
+
+------
 
 **JSON content to use with `--cli-input-json` file option:**
 
@@ -122,7 +183,7 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
             "DocumentVersion": "1",
             "Parameters": {
                 "instanceId": [
-                    "{{TARGET_ID}}"
+                    "{{RESOURCE_ID}}"
                 ]
             }
         }
@@ -132,21 +193,42 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
 
 ### Register an AWS Lambda Task<a name="register-tasks-tutorial-lambda"></a>
 
-For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `targetId` and `targetType`\.
+ The following examples demonstrate how to register AWS Lambda function tasks with a maintenance window using the AWS CLI\. 
+
+For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `instanceId` and `targetType`\.
 
 **Important**  
 The IAM policy for Maintenance Windows requires that you prefix Lambda function \(or alias\) names with `SSM`\. Before you proceed to register this type of task, you must update its name in AWS Lambda to include SSM\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
 
 **AWS CLI command:**
 
+------
+#### [ Linux ]
+
 ```
-aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" \
---targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" --priority 2 \
---max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" \
---description "A description for my LAMBDA example task" --task-type "LAMBDA" \
---task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" \
---task-invocation-parameters '{"Lambda":{\"Payload\":{\"targetId\":\"{{TARGET_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
+aws ssm register-task-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+    --priority 2 --max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" \
+    --description "A description for my LAMBDA example task" --task-type "LAMBDA" \
+    --task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" \
+    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-task-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+    --priority 2 --max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" ^
+    --description "A description for my LAMBDA example task" --task-type "LAMBDA" ^
+    --task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" ^
+    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
+```
+
+------
 
 **JSON content to use with `--cli-input-json` file option:**
 
@@ -168,7 +250,7 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
     "TaskInvocationParameters": {
         "Lambda": {
             "ClientContext": "ew0KICAi--truncated--0KIEXAMPLE",
-            "Payload": "{ \"targetId\": \"{{TARGET_ID}}\", \"targetType\": \"{{TARGET_TYPE}}\" }",
+            "Payload": "{ \"instanceId\": \"{{RESOURCE_ID}}\", \"targetType\": \"{{TARGET_TYPE}}\" }",
             "Qualifier": "$LATEST"
         }
     },
@@ -180,22 +262,44 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
 
 ### Register an AWS Step Functions Task<a name="register-tasks-tutorial-step-functions"></a>
 
-For these examples, the user who created the Step Functions state machine created a state machine named `SSMMyStateMachine` with a parameter called `targetId`\.
+ The following examples demonstrate how to register AWS Step Functions state machine tasks with a maintenance window using the AWS CLI\.
+
+For these examples, the user who created the Step Functions state machine created a state machine named `SSMMyStateMachine` with a parameter called `instanceId`\.
 
 **Important**  
 The IAM policy for Maintenance Windows requires that you prefix Step Functions state machine names with `SSM`\. Before you proceed to register this type of task, you must update its name in AWS Step Functions to include `SSM`\. For example, if your state machine name is `MyStateMachine`, change it to `SSMMyStateMachine`\.
 
 **AWS CLI command:**
 
+------
+#### [ Linux ]
+
 ```
-aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE" \
---targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
---task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \ 
---task-type STEP_FUNCTIONS \
---task-invocation-parameters '{"StepFunctions":{"Input":"{\"targetId\":\"{{TARGET_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' \
---priority 0 --max-concurrency 10 --max-errors 5 \
---name "My-Step-Functions-Task" --description "A description for my Step Functions task"
+aws ssm register-task-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
+    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
+    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \ 
+    --task-type STEP_FUNCTIONS \
+    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' \
+    --priority 0 --max-concurrency 10 --max-errors 5 \
+    --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-task-with-maintenance-window ^
+    --window-id "mw-0c50858d01EXAMPLE" ^
+    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
+    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \^
+    --task-type STEP_FUNCTIONS ^
+    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' ^
+    --priority 0 --max-concurrency 10 --max-errors 5 ^
+    --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
+```
+
+------
 
 **JSON content to use with `--cli-input-json` file option:**
 
@@ -216,7 +320,7 @@ aws ssm register-task-with-maintenance-window --window-id "mw-0c50858d01EXAMPLE"
     "MaxErrors": "10",
     "TaskInvocationParameters": {
         "StepFunctions": {
-            "Input": "{ \"targetId\": \"{{TARGET_ID}}\" }",
+            "Input": "{ \"instanceId\": \"{{TARGET_ID}}\" }",
             "Name": "{{INVOCATION_ID}}"
         }
     },

@@ -1,57 +1,11 @@
 # Creating OpsItems<a name="OpsCenter-creating-OpsItems"></a>
 
-You can create OpsItems automatically or manually\. To automatically create OpsItems, you can choose a bulk option that configures multiple services in Amazon CloudWatch Events to create OpsItems for common resource issues\. Or, if you prefer, you can selectively configure **SSM OpsItems** as the target of specific events in CloudWatch Events\.
+You can create OpsItems automatically or manually\. When you initially configure OpsCenter by using Integrated Setup, you enable Amazon CloudWatch Events to automatically create OpsItems based on common rules\. You can also create OpsItems selectively by configuring **SSM OpsItems** as the target of specific events in CloudWatch Events\. For information about enabling default CloudWatch Events rules for creating OpsItems by using Integrated Setup, see [Getting Started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
 This section includes the following topics\.
-+ [Enabling the Default CloudWatch Events Rules for Automatically Creating OpsItems](#OpsCenter-automatically-create-OpsItems-1)
 + [Configuring CloudWatch Events to Automatically Create OpsItems for Specific Events](#OpsCenter-automatically-create-OpsItems-2)
++ [Integrating with CloudWatch Application Insights for \.NET and SQL Server](#OpsCenter-getting-started-user-CloudWatch-Application-Insights)
 + [Creating OpsItems Manually](#OpsCenter-manually-create-OpsItems)
-
-## Enabling the Default CloudWatch Events Rules for Automatically Creating OpsItems<a name="OpsCenter-automatically-create-OpsItems-1"></a>
-
-This section describes how to configure the default CloudWatch Events rules for automatically creating OpsItems in response to the following events from AWS services\. Enabling these default rules is optional, but recommended\. If you don't want CloudWatch Events to create OpsItems for these events, then you can specify OpsCenter as the target of specific CloudWatch Events events\. For more information, see [Configuring CloudWatch Events to Automatically Create OpsItems for Specific Events](#OpsCenter-automatically-create-OpsItems-2)\.
-
-
-****  
-
-| AWS Service | Event | 
-| --- | --- | 
-|  Amazon EC2  |  `Instance State Change (Stopped, Terminated)`  | 
-|  Amazon EC2  |  `SSM Maintenance Window Execution (Failed, Timed Out`  | 
-|  Amazon EBS  |  `Snapshot Notification (Copy, Create, Share, Failed)`  | 
-|  Amazon EC2 Auto Scaling  |  `EC2 Instance (Launch Unsuccessful, Termination Unsuccessful`  | 
-|  AWS Health  |  `Amazon Relational Database Service (RDS) Maintenance Scheduled`  | 
-|  AWS Health  |  `RDS Issue Notification` \(example: `RDS Connectivity Issue`\)  | 
-|  AWS Health  |  `EC2 Maintenance Scheduled`  | 
-|  AWS Health  |  `EC2 Issue Notification` \(example: `Instance Auto Recovery Failure`\)  | 
-|  AWS Health  |  `EBS Issue Notification` \(example: `Degraded EBS Volume Performance`\)  | 
-
-**Note**  
-In the following procedure, you must specify an IAM role with a permissions policy that enables CloudWatch Events to create OpsItems in OpsCenter\. For information about how to create this role, see [Getting Started with OpsCenter](OpsCenter-getting-started.md)\. 
-
-**To configure CloudWatch Events to automatically create OpsItems from multiple AWS services**
-
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
-
-1. In the navigation pane, choose **OpsCenter**\.
-
-1. Choose **Configure sources**\.
-
-1. Under **Step 2: OpsItem source setup**, for **IAM Role**, paste the ARN of the IAM role ARN that enables CloudWatch Events to create OpsItems in OpsCenter\.
-
-1. Choose **Set up**\.
-
-1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
-
-1. In the navigation pane, choose **Rules**\. Verify that the list includes new rules that begin with **SSMOpsCenter\-\***, such as **SSMOpsCenter\-AutoScaling\-Instance\-Launch\-Failure** and **SSMOpsCenter\-RDS\-Issue**\. 
-**Note**  
-If you want, you can edit the new rules in CloudWatch\.
-
-After an OpsItem is created from an event, you can view the event details by opening the OpsItem and scrolling down to the **Operational data** section\.
-
-![\[Viewing operational data to view event details.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_2.png)
-
-For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
 
 ## Configuring CloudWatch Events to Automatically Create OpsItems for Specific Events<a name="OpsCenter-automatically-create-OpsItems-2"></a>
 
@@ -86,6 +40,10 @@ After an OpsItem is created from an event, you can view the event details by ope
 ![\[Viewing operational data to view event details.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_2.png)
 
 For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
+
+## Integrating with CloudWatch Application Insights for \.NET and SQL Server<a name="OpsCenter-getting-started-user-CloudWatch-Application-Insights"></a>
+
+OpsCenter integrates with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\. For information about how to configure Application Insights to create OpsItems, see [Setting Up Your Application](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-setting-up.html) in the *Amazon CloudWatch User Guide*\.
 
 ## Creating OpsItems Manually<a name="OpsCenter-manually-create-OpsItems"></a>
 

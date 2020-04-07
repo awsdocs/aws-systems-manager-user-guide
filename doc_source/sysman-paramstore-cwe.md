@@ -3,7 +3,7 @@
 The topics in this section explain how to use Amazon CloudWatch Events and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to Systems Manager parameters\. You can create a CloudWatch rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
 
 **Note**  
-Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Working with Parameter Policies](parameter-store-policies.md) and [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning Parameter Policies](parameter-store-policies.md) and [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
 
 The topics below also explain how to trigger other actions on a target for specific parameter events\. For example, you can run an AWS Lambda function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. CloudWatch Events also supports running Run Command commands and Automations executions, and actions in many other AWS services\. For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)*\.
 
@@ -42,7 +42,7 @@ You are modifying sample code we provide instead of using the event pattern buil
        ],
        "detail": {
            "name": [
-               "/parameter-1-name",
+               "parameter-1-name",
                "/parameter-2-name/level-2",
                "/parameter-3-name/level-2/level-3"
            ],
@@ -96,7 +96,7 @@ You are modifying sample code we provide instead of using the event pattern buil
 
 ## Configure CloudWatch Events for Parameter Policies<a name="cwe-parameter-policy-status"></a>
 
-This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed, You set up notification for these events using the following procedure\. For more information, see [Working with Parameter Policies](parameter-store-policies.md) and [About Advanced Parameters](parameter-store-advanced-parameters.md)\.
+This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed, You set up notification for these events using the following procedure\. For more information, see [Assigning Parameter Policies](parameter-store-policies.md) and [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
 
 **To configure CloudWatch Events for Systems Manager parameter policies**
 
@@ -121,8 +121,8 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Policy Action"
        ],
        "detail": {
-           "name": [
-               "/parameter-1-name",
+           "parameter-name": [
+               "parameter-1-name",
                "/parameter-2-name/level-2",
                "/parameter-3-name/level-2/level-3"
            ],
@@ -146,7 +146,7 @@ You are modifying sample code we provide instead of using the event pattern buil
            "Parameter Store Policy Action"
        ],
        "detail": {
-           "name": [
+           "parameter-name": [
                "/OncallDuties"
            ],
            "policy-type": [

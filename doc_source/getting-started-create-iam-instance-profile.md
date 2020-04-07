@@ -78,7 +78,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **SessionManagerPermissions**\.
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
 1.  \(Optional\) For **Description**, enter a description for the policy\. 
 
@@ -90,11 +90,11 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 1. Choose **Next: Permissions**\.
 
-1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created\. For example: **SessionManagerPermissions**\.
+1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
 
 1. Choose **Next: Review**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile\. For example **MySessionManagerInstanceProfile**\.
+1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile, such as **MySessionManagerInstanceProfile**\.
 
 1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
 
@@ -168,7 +168,7 @@ To output session logs to an Amazon S3 bucket owned by a different AWS account, 
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **SessionManagerPermissions**\.
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
 1.  \(Optional\) For **Description**, enter a description for the policy\. 
 
@@ -180,11 +180,11 @@ To output session logs to an Amazon S3 bucket owned by a different AWS account, 
 
 1. Choose **Next: Permissions**\.
 
-1.  On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created\. For example: **SessionManagerPermissions**\.
+1.  On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
 
 1. Choose **Next: Review**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile\. For example **MySessionManagerInstanceProfile**\.
+1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile, such as **MySessionManagerInstanceProfile**\.
 
 1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
 

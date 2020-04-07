@@ -24,7 +24,7 @@ Some of the plugins described here run only on either Windows Server instances o
 + [aws:runShellScript](#aws-runShellScript)
 + [aws:softwareInventory](#aws-softwareinventory)
 + [aws:updateAgent](#aws-updateagent)
-+ [aws:updateSSMAgent](#aws-updatessmagent)
++ [aws:updateSsmAgent](#aws-updatessmagent)
 
 ## Top\-level Elements<a name="top-level"></a>
 
@@ -85,24 +85,98 @@ This section includes examples of each parameter `type`\.
 
 ## aws:applications<a name="aws-applications"></a>
 
-Install, repair, or uninstall applications on an EC2 instance\. This plugin only runs on Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Install, repair, or uninstall applications on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="applications-syntax"></a>
 
+#### Schema 2\.2<a name="applications-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"runtimeConfig":{
-        "aws:applications":{
-            "properties":[
-                {
-                    "id":"0.aws:applications",
-                    "action":"{{ action }}",
-                    "parameters":"{{ parameters }}",
-                    "source":"{{ source }}",
-                    "sourceHash":"{{ sourceHash }}"
-                }
-            ]
-        }
+---
+schemaVersion: '2.2'
+description: aws:applications plugin
+parameters:
+  source:
+    description: "(Required) Source of msi."
+    type: String
+mainSteps:
+- action: aws:applications
+  name: example
+  inputs:
+    action: Install
+    source: "{{ source }}"
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion":"2.2",
+  "description":"aws:applications",
+  "parameters":{
+    "source":{
+    "description":"(Required) Source of msi.",
+    "type":"String"
+    }
+  },
+  "mainSteps":[
+    {
+      "action":"aws:applications",
+      "name":"example",
+      "inputs":{
+        "action":"Install",
+        "source":"{{ source }}"
+      }
+    }
+  ]
+}
+```
+
+------
+
+#### Schema 1\.2<a name="applications-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:applications:
+    properties:
+    - id: 0.aws:applications
+      action: "{{ action }}"
+      parameters: "{{ parameters }}"
+      source: "{{ source }}"
+      sourceHash: "{{ sourceHash }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:applications":{
+         "properties":[
+            {
+               "id":"0.aws:applications",
+               "action":"{{ action }}",
+               "parameters":"{{ parameters }}",
+               "source":"{{ source }}",
+               "sourceHash":"{{ sourceHash }}"
+            }
+         ]
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="applications-properties"></a>
 
@@ -129,7 +203,13 @@ Required: No
 
 ## aws:cloudWatch<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+
+**Important**  
+This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
+[Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
+[Migrate Windows Server Instance Log Collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
+[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
 
 You can export and monitor the following data types:
 
@@ -141,7 +221,7 @@ Sends any text\-based log file to CloudWatch Logs\. The CloudWatch plugin create
 Be aware that if your application truncates or attempts to clean logs during polling, any logs specified for `LogDirectoryPath` can lose entries\. If, for example, you want to limit log file size, create a new log file when that limit is reached, and then continue writing data to the new file\.
 
 **ETW**  
-Sends Event Tracing for Windows \(ETW\) data to CloudWatch Logs\. Microsoft Windows Server 2003 is not supported\. 
+Sends Event Tracing for Windows \(ETW\) data to CloudWatch Logs\.
 
 **IIS**  
 Sends IIS log data to CloudWatch Logs\.
@@ -310,7 +390,7 @@ Required: Yes
 **Region**  
 The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) and [Amazon CloudWatch Logs](https://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *AWS General Reference*\.   
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](url-aws-gen;cwl_region.html#cwl_region) and [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
 Required: Yes
 
 **SecretKey**  
@@ -343,21 +423,65 @@ Required: Yes
 
 ## aws:configureDocker<a name="aws-configuredocker"></a>
 
-\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin runs only on Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin is supported on Linux and Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. 
 
 ### Syntax<a name="configuredocker-syntax"></a>
 
+#### Schema 2\.2<a name="configuredocker-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
+---
+schemaVersion: '2.2'
+description: aws:configureDocker
+parameters:
+  action:
+    description: "(Required) The type of action to perform."
+    type: String
+    default: Install
+    allowedValues:
+    - Install
+    - Uninstall
+mainSteps:
+- action: aws:configureDocker
+  name: configureDocker
+  inputs:
+    action: "{{ action }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:configureDocker plugin",
+  "parameters": {
+    "action": {
+      "description": "(Required) The type of action to perform.",
+      "type": "String",
+      "default": "Install",
+      "allowedValues": [
+        "Install",
+        "Uninstall"
+      ]
+    }
+  },
+  "mainSteps": [
     {
       "action": "aws:configureDocker",
-      "name": "ConfigureDocker",
+      "name": "configureDocker",
       "inputs": {
         "action": "{{ action }}"
       }
     }
   ]
+}
 ```
+
+------
 
 ### Inputs<a name="configuredocker-properties"></a>
 
@@ -369,9 +493,9 @@ Required: Yes
 
 ## aws:configurePackage<a name="aws-configurepackage"></a>
 
-\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. This plugin runs on Microsoft Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
+\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
 
-Available packages for Microsoft Windows Server include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
+Available packages for Windows Server include the following: AWSPVDriver, AWSNVMe, AwsEnaNetworkDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
 
 Available packages for Linux operating systems include the following: AmazonCloudWatchAgent and AWSSupport\-EC2Rescue\.
 
@@ -379,24 +503,75 @@ For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="configurepackage-syntax"></a>
 
+#### Schema 2\.2<a name="configurepackage-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
-   {
-		"action": "aws:configurePackage",
-		"name": "configurePackage",
-		"inputs": {
-			"name": "{{ name }}",
-			"action": "{{ action }}",
-			"version": "{{ version }}"
-		}
-	}
-]
+---
+schemaVersion: '2.2'
+description: aws:configurePackage
+parameters:
+  name:
+    description: "(Required) The name of the AWS package to install or uninstall."
+    type: String
+  action:
+    description: "(Required) The type of action to perform."
+    type: String
+    default: Install
+    allowedValues:
+    - Install
+    - Uninstall
+mainSteps:
+- action: aws:configurePackage
+  name: configurePackage
+  inputs:
+    name: "{{ name }}"
+    action: "{{ action }}"
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:configurePackage",
+  "parameters": {
+    "name": {
+      "description": "(Required) The name of the AWS package to install or uninstall.",
+      "type": "String"
+    },
+    "action": {
+      "description": "(Required) The type of action to perform.",
+      "type": "String",
+      "default": "Install",
+      "allowedValues": [
+        "Install",
+        "Uninstall"
+      ]
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:configurePackage",
+      "name": "configurePackage",
+      "inputs": {
+        "name": "{{ name }}",
+        "action": "{{ action }}"
+      }
+    }
+  ]
+}
+```
+
+------
 
 ### Inputs<a name="configurepackage-properties"></a>
 
 **name**  
-The name of the AWS package to install or uninstall\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, IntelSriovDriver, AwsVssComponents, and AmazonCloudWatchAgent\.  
+The name of the AWS package to install or uninstall\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent\.  
 Type: String  
 Required: Yes
 
@@ -413,21 +588,101 @@ Required: No
 
 ## aws:domainJoin<a name="aws-domainJoin"></a>
 
-Join an Amazon EC2 instance to a domain\. This plugin only runs on Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Join an Amazon EC2 instance to a domain\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 
+#### Schema 2\.2<a name="domainJoin-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"runtimeConfig":{
-        "aws:domainJoin":{
-            "properties":{
-                "directoryId":"{{ directoryId }}",
-                "directoryName":"{{ directoryName }}",
-                "directoryOU":"{{ directoryOU }}",
-                "dnsIpAddresses":"{{ dnsIpAddresses }}"
-            }
-        }
+---
+schemaVersion: '2.2'
+description: aws:domainJoin
+parameters:
+  directoryId:
+    description: "(Required) The ID of the directory."
+    type: String
+  directoryName:
+    description: "(Required) The name of the domain."
+    type: String
+mainSteps:
+- action: aws:domainJoin
+  name: domainJoin
+  inputs:
+    directoryId: "{{ directoryId }}"
+    directoryName: "{{ directoryName }}"
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:domainJoin",
+  "parameters": {
+    "directoryId": {
+      "description": "(Required) The ID of the directory.",
+      "type": "String"
+    },
+    "directoryName": {
+      "description": "(Required) The name of the domain.",
+      "type": "String"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:domainJoin",
+      "name": "domainJoin",
+      "inputs": {
+        "directoryId": "{{ directoryId }}",
+        "directoryName": "{{ directoryName }}"
+      }
+    }
+  ]
+}
+```
+
+------
+
+#### Schema 1\.2<a name="domainJoin-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:domainJoin:
+    properties:
+      directoryId: "{{ directoryId }}"
+      directoryName: "{{ directoryName }}"
+      directoryOU: "{{ directoryOU }}"
+      dnsIpAddresses: "{{ dnsIpAddresses }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:domainJoin":{
+         "properties":{
+            "directoryId":"{{ directoryId }}",
+            "directoryName":"{{ directoryName }}",
+            "directoryOU":"{{ directoryOU }}",
+            "dnsIpAddresses":"{{ dnsIpAddresses }}"
+         }
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="domainJoin-properties"></a>
 
@@ -465,18 +720,62 @@ For examples, see [Joining a Windows Server Instance to an AWS Directory Service
 
 ### Syntax<a name="downloadContent-syntax"></a>
 
+#### Schema 2\.2<a name="downloadContent-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
+---
+schemaVersion: '2.2'
+description: aws:downloadContent
+parameters:
+  sourceType:
+    description: "(Required) The download source."
+    type: String
+  sourceInfo:
+    description: "(Required) The information required to retrieve the content from
+      the required source."
+    type: String
+mainSteps:
+- action: aws:downloadContent
+  name: downloadContent
+  inputs:
+    sourceType: "{{ sourceType }}"
+    sourceInfo: "{{ sourceInfo }}"
+```
+
+------
+#### [ JSON ]
+
+```
 {
-   "action":"aws:downloadContent",
-   "name":"downloadContent",
-   "inputs":{
-      "sourceType":"{{ sourceType }}",
-      "sourceInfo":"{{ sourceInfo }}",
-      "destinationPath":"{{ destinationPath }}"
-   }
+  "schemaVersion": "2.2",
+  "description": "aws:downloadContent",
+  "parameters": {
+    "sourceType": {
+    "description": "(Required) The download source.",
+    "type": "String"
+  },
+  "sourceInfo": {
+    "description": "(Required) The information required to retrieve the content from the required source.",
+    "type": "String"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:downloadContent",
+      "name": "downloadContent",
+      "inputs": {
+        "sourceType":"{{ sourceType }}",
+        "sourceInfo":"{{ sourceInfo }}"
+      }
+    }
+  ]
 }
 ```
+
+------
 
 ### Inputs<a name="downloadContent-inputs"></a>
 
@@ -493,14 +792,26 @@ Required: Yes
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
-+ getOptions: Extra options to retrieve content from a different branch or a different commit\. This parameter uses the following format:
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\.
+
+  This parameter uses the following format:
   + branch:*branch\_name*
 
     The default is `master`\.
+
+    `"branch"` is required only if your SSM document is stored in a branch other than `master`\.
   + commitID:*commitID*
 
     The default is `head`\.
-+ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your access token information\.
+
+    To use the version of your SSM document in a commit other than the latest, specify the full commit ID\. For example:
+
+    ```
+    "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
+    ```
++ tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your GitHub access token information, in the format `{{ssm-secure:secure-string-token-name}}`\.
+**Note**  
+This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters are not supported for any other fields, nor for any other SSM document plugins\.
 
 ```
 Example syntax:
@@ -545,36 +856,109 @@ Required: No
 
 ## aws:psModule<a name="aws-psModule"></a>
 
-Install PowerShell modules on an EC2 instance\. This plugin only runs on Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Install PowerShell modules on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="psModule-syntax"></a>
 
+#### Schema 2\.2<a name="psModule-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"runtimeConfig":{
-        "aws:psModule":{
-            "properties":[
-                {
-                    "id":"0.aws:psModule",
-                    "runCommand":"{{ commands }}",
-                    "source":"{{ source }}",
-                    "sourceHash":"{{ sourceHash }}",
-                    "workingDirectory":"{{ workingDirectory }}",
-                    "timeoutSeconds":"{{ executionTimeout }}"
-                }
-            ]
+---
+schemaVersion: '2.2'
+description: aws:psModule
+parameters:
+  source:
+    description: "(Required) The URL or local path on the instance to the application
+      .zip file."
+    type: String
+mainSteps:
+- action: aws:psModule
+  name: psModule
+  inputs:
+    source: "{{ source }}"
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:psModule",
+  "parameters": {
+    "source": {
+      "description": "(Required) The URL or local path on the instance to the application .zip file.",
+      "type": "String"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:psModule",
+      "name": "psModule",
+      "inputs": {
+        "source": "{{ source }}"
+      }
+    }
+  ]
+}
+```
+
+------
+
+#### Schema 1\.2<a name="domainJoin-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:psModule:
+    properties:
+    - runCommand: "{{ commands }}"
+      source: "{{ source }}"
+      sourceHash: "{{ sourceHash }}"
+      workingDirectory: "{{ workingDirectory }}"
+      timeoutSeconds: "{{ executionTimeout }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:psModule":{
+         "properties":[
+            {
+               "runCommand":"{{ commands }}",
+               "source":"{{ source }}",
+               "sourceHash":"{{ sourceHash }}",
+               "workingDirectory":"{{ workingDirectory }}",
+               "timeoutSeconds":"{{ executionTimeout }}"
+            }
+         ]
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="psModule-properties"></a>
 
 **runCommand**  
 The PowerShell command to run after the module is installed\.  
-Type: List or Array  
+Type: StringList  
 Required: No
 
 **source**  
 The URL or local path on the instance to the application `.zip` file\.  
 Type: String  
-Required: No
+Required: Yes
 
 **sourceHash**  
 The SHA256 hash of the `.zip` file\.  
@@ -597,13 +981,56 @@ Required: No
 
 ### Syntax<a name="refreshassociation-syntax"></a>
 
+#### Schema 2\.2<a name="refreshassociation-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"action":"aws:refreshAssociation",
-      "name":"refreshAssociation",
+---
+schemaVersion: '2.2'
+description: aws:refreshAssociation
+parameters:
+  associationIds:
+    description: "(Optional) List of association IDs. If empty, all associations bound
+      to the specified target are applied."
+    type: StringList
+mainSteps:
+- action: aws:refreshAssociation
+  name: refreshAssociation
+  inputs:
+    associationIds:
+    - "{{ associationIds }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:refreshAssociation",
+  "parameters": {
+    "associationIds": {
+      "description": "(Optional) List of association IDs. If empty, all associations bound to the specified target are applied.",
+      "type": "StringList"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:refreshAssociation",
+      "name": "refreshAssociation",
       "inputs": {
-        "associationIds": "{{ associationIds }}"
+        "associationIds": [
+          "{{ associationIds }}"
+        ]
       }
+    }
+  ]
+}
 ```
+
+------
 
 ### Inputs<a name="refreshassociation-properties"></a>
 
@@ -618,24 +1045,56 @@ Required: No
 
 ### Syntax<a name="rundockeraction-syntax"></a>
 
+#### Schema 2\.2<a name="rundockeraction-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
-    {
-      "action": "aws:runDockerAction",
-      "name": "RunDockerAction",
-      "inputs": {
-        "action": "{{ action }}",
-        "container": "{{ container }}",
-        "image": "{{ image }}",
-        "memory": "{{ memory }}",
-        "cpuShares": "{{ cpuShares }}",
-        "volume": "{{ volume }}",
-        "cmd": "{{ cmd }}",
-        "env": "{{ env }}",
-        "user": "{{ user }}",
-        "publish": "{{ publish }}"
+---
+mainSteps:
+- action: aws:runDockerAction
+  name: RunDockerAction
+  inputs:
+    action: "{{ action }}"
+    container: "{{ container }}"
+    image: "{{ image }}"
+    memory: "{{ memory }}"
+    cpuShares: "{{ cpuShares }}"
+    volume: "{{ volume }}"
+    cmd: "{{ cmd }}"
+    env: "{{ env }}"
+    user: "{{ user }}"
+    publish: "{{ publish }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "mainSteps":[
+      {
+         "action":"aws:runDockerAction",
+         "name":"RunDockerAction",
+         "inputs":{
+            "action":"{{ action }}",
+            "container":"{{ container }}",
+            "image":"{{ image }}",
+            "memory":"{{ memory }}",
+            "cpuShares":"{{ cpuShares }}",
+            "volume":"{{ volume }}",
+            "cmd":"{{ cmd }}",
+            "env":"{{ env }}",
+            "user":"{{ user }}",
+            "publish":"{{ publish }}"
+         }
       }
+   ]
+}
 ```
+
+------
 
 ### Inputs<a name="rundockeraction-properties"></a>
 
@@ -695,18 +1154,59 @@ Required: No
 
 ### Syntax<a name="rundocument-syntax"></a>
 
+#### Schema 2\.2<a name="aws-rundocument-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
+---
+schemaVersion: '2.2'
+description: aws:runDocument
+parameters:
+  documentType:
+    description: "(Required) The document type to run."
+    type: String
+    allowedValues:
+    - LocalPath
+    - SSMDocument
+mainSteps:
+- action: aws:runDocument
+  name: runDocument
+  inputs:
+    documentType: "{{ documentType }}"
+```
+
+------
+#### [ JSON ]
+
+```
 {
-   "action":"aws:runDocument",
-   "name":"runDocument",
-   "inputs":{
-      "documentType":"{{ documentType }}",
-      "documentPath":"{{ documentPath }}",
-      "documentParameters":"{{ documentParameters }}"
-   }
+  "schemaVersion": "2.2",
+  "description": "aws:runDocument",
+  "parameters": {
+    "documentType": {
+      "description": "(Required) The document type to run.",
+      "type": "String",
+      "allowedValues": [
+        "LocalPath",
+        "SSMDocument"
+      ]
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:runDocument",
+      "name": "runDocument",
+      "inputs": {
+        "documentType": "{{ documentType }}"
+      }
+    }
+  ]
 }
 ```
+
+------
 
 ### Inputs<a name="rundocument-properties"></a>
 
@@ -727,81 +1227,108 @@ Required: No
 
 ## aws:runPowerShellScript<a name="aws-runPowerShellScript"></a>
 
-Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows and Linux operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows Server and Linux operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="runPowerShellScript-syntax"></a>
 
-**Syntax for 1\.2 SSM document**
+#### Schema 2\.2<a name="runPowerShellScript-syntax-2.2"></a>
+
+------
+#### [ YAML ]
 
 ```
-"runtimeConfig":{
-        "aws:runPowerShellScript":{
-            "properties":[
-                {
-                    "id":"0.aws:runPowerShellScript",
-                    "runCommand":"{{ commands }}",
-                    "workingDirectory":"{{ workingDirectory }}",
-                    "timeoutSeconds":"{{ executionTimeout }}"
-                }
-            ]
+---
+schemaVersion: '2.2'
+description: aws:runPowerShellScript
+parameters:
+  commands:
+    type: String
+    description: "(Required) The commands to run or the path to an existing script
+      on the instance."
+    default: Write-Host "Hello World"
+mainSteps:
+- action: aws:runPowerShellScript
+  name: runPowerShellScript
+  inputs:
+    timeoutSeconds: '60'
+    runCommand:
+    - "{{ commands }}"
 ```
 
-**Syntax for 2\.2 SSM document**
-
-```
-"mainSteps": [
-   {
-      "action":"aws:runPowerShellScript",
-      "name":"step name",
-      "inputs":{
-         "timeoutSeconds":"Timeout in seconds",
-         "runCommand":"[Command to run]"
-                }
-    }
-   ]
-```
-
-Here is a schemaVersion 2\.2 example:
+------
+#### [ JSON ]
 
 ```
 {
-   "schemaVersion":"2.2",
-   "description":"Simple test document using the aws:runPowerShellScript plugin.",
-   "parameters":{
-      "Salutation":{
-         "type":"String",
-         "description":"(Optional) This is an optional parameter that will be displayed in the output of the command if specified.",
-         "allowedPattern":"[a-zA-Z]",
-         "default":"World"
+  "schemaVersion": "2.2",
+  "description": "aws:runPowerShellScript",
+  "parameters": {
+    "commands": {
+      "type": "String",
+      "description": "(Required) The commands to run or the path to an existing script on the instance.",
+      "default": "Write-Host \"Hello World\""
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:runPowerShellScript",
+      "name": "runPowerShellScript",
+      "inputs": {
+        "timeoutSeconds": "60",
+        "runCommand": [
+          "{{ commands }}"
+        ]
       }
-   },
-   "mainSteps":[
-      {
-         "action":"aws:runPowerShellScript",
-         "name":"DisplaySalutation",
-         "inputs":{
-            "timeoutSeconds":60,
-            "runCommand":[
-               "$salutation = '{{ Salutation }}'",
-               "",
-               "if ( [String]::IsNullOrWhitespace( $salutation ) )",
-               "{",
-               "  $salutation = 'anonymous'",
-               "}",
-               "",
-               "Write-Host ('Hello {0}' -f $salutation)"
-            ]
-         }
-      }
-   ]
+    }
+  ]
 }
 ```
+
+------
+
+#### Schema 1\.2<a name="runPowerShellScript-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:runPowerShellScript:
+    properties:
+    - id: 0.aws:runPowerShellScript
+      runCommand: "{{ commands }}"
+      workingDirectory: "{{ workingDirectory }}"
+      timeoutSeconds: "{{ executionTimeout }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:runPowerShellScript":{
+         "properties":[
+            {
+               "id":"0.aws:runPowerShellScript",
+               "runCommand":"{{ commands }}",
+               "workingDirectory":"{{ workingDirectory }}",
+               "timeoutSeconds":"{{ executionTimeout }}"
+            }
+         ]
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="runPowerShellScript-properties"></a>
 
 **runCommand**  
 Specify the commands to run or the path to an existing script on the instance\.  
-Type: List or Array  
+Type: StringList  
 Required: Yes
 
 **timeoutSeconds**  
@@ -820,57 +1347,52 @@ Run Linux shell scripts or specify the path to a script to run\. This plugin onl
 
 ### Syntax<a name="runShellScript-syntax"></a>
 
-**Syntax for 1\.2 SSM document**
+#### Schema 2\.2<a name="runShellScript-syntax-2.2"></a>
+
+------
+#### [ YAML ]
 
 ```
-"runtimeConfig":{
-        "aws:runShellScript":{
-            "properties":[
-                {
-                    "id":"0.aws:runShellScript",
-                    "runCommand":"{{ commands }}",
-                    "workingDirectory":"{{ workingDirectory }}",
-                    "timeoutSeconds":"{{ executionTimeout }}"
-                }
-            ]
+---
+schemaVersion: '2.2'
+description: aws:runShellScript
+parameters:
+  commands:
+    type: String
+    description: "(Required) The commands to run or the path to an existing script
+      on the instance."
+    default: echo Hello World
+mainSteps:
+- action: aws:runShellScript
+  name: runShellScript
+  inputs:
+    timeoutSeconds: '60'
+    runCommand:
+    - "{{ commands }}"
 ```
 
-**Syntax for 2\.2 SSM document**
-
-```
-"mainSteps": [
-   {
-      "action":"aws:runShellScript",
-      "name":"step name",
-      "inputs":{
-         "timeoutSeconds":"Timeout in seconds",
-         "runCommand":"[Command to run]"
-                }
-    }
-   ]
-```
-
-Here is a schemaVersion 2\.2 example:
+------
+#### [ JSON ]
 
 ```
 {
   "schemaVersion": "2.2",
-  "description": "Simple test document using the aws:runShellScript plugin.",
+  "description": "aws:runShellScript",
   "parameters": {
-    "salutation": {
+    "commands": {
       "type": "String",
-      "description": "(Optional) This is an optional parameter that will be displayed in the output of the command if specified.",
-	  "default": "Hello World"
+      "description": "(Required) The commands to run or the path to an existing script on the instance.",
+      "default": "echo Hello World"
     }
   },
   "mainSteps": [
     {
       "action": "aws:runShellScript",
-      "name": "DisplaySalutation",
+      "name": "runShellScript",
       "inputs": {
-        "timeoutSeconds": 60,
+        "timeoutSeconds": "60",
         "runCommand": [
-          "echo {{ salutation }}"
+          "{{ commands }}"
         ]
       }
     }
@@ -878,11 +1400,49 @@ Here is a schemaVersion 2\.2 example:
 }
 ```
 
+------
+
+#### Schema 1\.2<a name="runShellScript-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:runShellScript:
+    properties:
+    - runCommand: "{{ commands }}"
+      workingDirectory: "{{ workingDirectory }}"
+      timeoutSeconds: "{{ executionTimeout }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:runShellScript":{
+         "properties":[
+            {
+               "runCommand":"{{ commands }}",
+               "workingDirectory":"{{ workingDirectory }}",
+               "timeoutSeconds":"{{ executionTimeout }}"
+            }
+         ]
+      }
+   }
+}
+```
+
+------
+
 ### Properties<a name="runShellScript-properties"></a>
 
 **runCommand**  
 Specify the commands to run or the path to an existing script on the instance\.  
-Type: List or Array  
+Type: StringList  
 Required: Yes
 
 **timeoutSeconds**  
@@ -901,26 +1461,56 @@ Required: No
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 
+#### Schema 2\.2<a name="softwareinventory-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"mainSteps": [
-    {
-      "action": "aws:softwareInventory",
-      "name": "collectSoftwareInventoryItems",
-      "inputs": {
-        "applications": "{{ applications }}",
-        "awsComponents": "{{ awsComponents }}",
-        "networkConfig": "{{ networkConfig }}",
-        "files": "{{ files }}",
-        "services": "{{ services }}",
-        "windowsRoles": "{{ windowsRoles }}",
-        "windowsRegistry": "{{ windowsRegistry}}",
-        "windowsUpdates": "{{ windowsUpdates }}",
-        "instanceDetailedInformation": "{{ instanceDetailedInformation }}",
-        "customInventory": "{{ customInventory }}"
+---
+mainSteps:
+- action: aws:softwareInventory
+  name: collectSoftwareInventoryItems
+  inputs:
+    applications: "{{ applications }}"
+    awsComponents: "{{ awsComponents }}"
+    networkConfig: "{{ networkConfig }}"
+    files: "{{ files }}"
+    services: "{{ services }}"
+    windowsRoles: "{{ windowsRoles }}"
+    windowsRegistry: "{{ windowsRegistry}}"
+    windowsUpdates: "{{ windowsUpdates }}"
+    instanceDetailedInformation: "{{ instanceDetailedInformation }}"
+    customInventory: "{{ customInventory }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "mainSteps":[
+      {
+         "action":"aws:softwareInventory",
+         "name":"collectSoftwareInventoryItems",
+         "inputs":{
+            "applications":"{{ applications }}",
+            "awsComponents":"{{ awsComponents }}",
+            "networkConfig":"{{ networkConfig }}",
+            "files":"{{ files }}",
+            "services":"{{ services }}",
+            "windowsRoles":"{{ windowsRoles }}",
+            "windowsRegistry":"{{ windowsRegistry}}",
+            "windowsUpdates":"{{ windowsUpdates }}",
+            "instanceDetailedInformation":"{{ instanceDetailedInformation }}",
+            "customInventory":"{{ customInventory }}"
+         }
       }
-    }
-  ]
+   ]
+}
 ```
+
+------
 
 ### Inputs<a name="softwareinventory-properties"></a>
 
@@ -980,18 +1570,80 @@ Update the EC2Config service to the latest version or specify an older version\.
 
 ### Syntax<a name="updateagent-syntax"></a>
 
+#### Schema 2\.2<a name="updateagent-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"runtimeConfig": {
-        "aws:updateAgent": {
-            "properties": {
-                "agentName": "Ec2Config",
-                "source": "https://s3.region.amazonaws.com/aws-ssm-region/manifest.json",
-                "allowDowngrade": "{{ allowDowngrade }}",
-                "targetVersion": "{{ version }}"
-            }
-        }
-     }
+---
+schemaVersion: '2.2'
+description: aws:updateAgent
+mainSteps:
+- action: aws:updateAgent
+  name: updateAgent
+  inputs:
+    agentName: Ec2Config
+    source: https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:updateAgent",
+  "mainSteps": [
+    {
+      "action": "aws:updateAgent",
+      "name": "updateAgent",
+      "inputs": {
+        "agentName": "Ec2Config",
+        "source": "https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json"
+      }
+    }
+  ]
+}
+```
+
+------
+
+#### Schema 1\.2<a name="updateagent-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:updateAgent:
+    properties:
+      agentName: Ec2Config
+      source: https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json
+      allowDowngrade: "{{ allowDowngrade }}"
+      targetVersion: "{{ version }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:updateAgent":{
+         "properties":{
+            "agentName":"Ec2Config",
+            "source":"https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json",
+            "allowDowngrade":"{{ allowDowngrade }}",
+            "targetVersion":"{{ version }}"
+         }
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="updateagent-properties"></a>
 
@@ -1015,26 +1667,109 @@ A specific version of the EC2Config service to install\. If not specified, the s
 Type: String  
 Required: No
 
-## aws:updateSSMAgent<a name="aws-updatessmagent"></a>
+## aws:updateSsmAgent<a name="aws-updatessmagent"></a>
 
-Update SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateSSMagent-syntax"></a>
 
+#### Schema 2\.2<a name="updateaSSMgent-syntax-2.2"></a>
+
+------
+#### [ YAML ]
+
 ```
-"runtimeConfig": {
-        "aws:updateSsmAgent": {
-            "properties": [
-                {
-                "agentName": "amazon-ssm-agent",
-                "source": "https://s3.region.amazonaws.com/aws-ssm-region/manifest.json",
-                "allowDowngrade": "{{ allowDowngrade }}",
-                "targetVersion": "{{ version }}"
-                }
-            ]
-        }
+---
+schemaVersion: '2.2'
+description: aws:updateSsmAgent
+parameters:
+  allowDowngrade:
+    default: 'false'
+    description: "(Optional) Allow the Amazon SSM Agent service to be downgraded to
+      an earlier version. If set to false, the service can be upgraded to newer versions
+      only (default). If set to true, specify the earlier version."
+    type: String
+    allowedValues:
+    - 'true'
+    - 'false'
+mainSteps:
+- action: aws:updateSsmAgent
+  name: updateSSMAgent
+  inputs:
+    agentName: amazon-ssm-agent
+    source: https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json
+    allowDowngrade: "{{ allowDowngrade }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "aws:updateSsmAgent",
+  "parameters": {
+    "allowDowngrade": {
+      "default": "false",
+      "description": "(Required) Allow the Amazon SSM Agent service to be downgraded to an earlier version. If set to false, the service can be upgraded to newer versions only (default). If set to true, specify the earlier version.",
+      "type": "String",
+      "allowedValues": [
+        "true",
+        "false"
+      ]
     }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:updateSsmAgent",
+      "name": "updateSSMAgent",
+      "inputs": {
+        "agentName": "amazon-ssm-agent",
+        "source": "https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json",
+        "allowDowngrade": "{{ allowDowngrade }}"
+      }
+    }
+  ]
+}
 ```
+
+------
+
+#### Schema 1\.2<a name="updateaSSMgent-syntax-1.2"></a>
+
+------
+#### [ YAML ]
+
+```
+---
+runtimeConfig:
+  aws:updateSsmAgent:
+    properties:
+    - agentName: amazon-ssm-agent
+      source: https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json
+      allowDowngrade: "{{ allowDowngrade }}"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "runtimeConfig":{
+      "aws:updateSsmAgent":{
+         "properties":[
+            {
+               "agentName":"amazon-ssm-agent",
+               "source":"https://s3.{Region}.amazonaws.com/aws-ssm-{Region}/manifest.json",
+               "allowDowngrade":"{{ allowDowngrade }}"
+            }
+         ]
+      }
+   }
+}
+```
+
+------
 
 ### Properties<a name="updateSSMagent-properties"></a>
 
@@ -1044,9 +1779,9 @@ Type: String
 Required: Yes
 
 **allowDowngrade**  
-Allow SSM Agent to be downgraded to an earlier version\. If set to false, the agent can be upgraded to newer versions only \(default\)\. If set to true, specify the earlier version\.   
+Allow the SSM Agent to be downgraded to an earlier version\. If set to false, the agent can be upgraded to newer versions only \(default\)\. If set to true, specify the earlier version\.   
 Type: Boolean  
-Required: No
+Required: Yes
 
 **source**  
 The location where Systems Manager copies the SSM Agent version to install\. You can't change this location\.  

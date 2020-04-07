@@ -6,6 +6,18 @@ Systems Manager Automation simplifies common maintenance and deployment tasks of
 + Receive notifications about Automation tasks and workflows by using Amazon CloudWatch Events\.
 + Monitor Automation progress and execution details by using the Amazon EC2 or the AWS Systems Manager console\. 
 
+**Primary Components**  
+AWS Systems Manager Automation uses the following components to run *automation workflows*\.
+
+
+****  
+
+| Concept | Details | 
+| --- | --- | 
+|  Automation document \(operational playbook\)  |  A Systems Manager Automation document, or playbook, defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can create your own Automation documents as well\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\. Automation documents are Systems Manager documents of type `Automation`, as opposed to `Command`, `Policy`, `Session` documents\. Automation documents currently support schema version 0\.3\. Command documents use schema version 1\.2, 2\.0, or 2\.2\. Policy documents use schema version 2\.0 or later\.  | 
+|  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action, or plugin\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. Automation supports 20 distinct action types\. For more information, see the [Systems Manager Automation Actions Reference](automation-actions.md)\.  | 
+|  Automation queue  |  Each AWS account can run 25 Automations simultaneously with a maximum of 75 child Automations\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 1,000 Automation executions\.  | 
+
 ## Automation Use Cases<a name="automation-use-cases"></a>
 
 This section includes common uses cases for AWS Systems Manager Automation\.
@@ -16,7 +28,7 @@ Automation can simplify common IT tasks such as changing the state of one or mor
 + Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
-For information about how to run an Automation workflow by using State Manager, see [Running Automation Workflows with Triggers using State Manager](automation-sm-target.md)\.
+For information about how to run an Automation workflow by using State Manager, see [Running Automation Workflows with Triggers Using State Manager](automation-sm-target.md)\.
 
 **Safely perform disruptive tasks in bulk**  
 Systems Manager includes features that help you target large groups of instances by using Amazon EC2 tags, and velocity controls that help you roll out changes according to the limits you define\.
@@ -26,7 +38,7 @@ Use the AWS\-RestartEC2InstanceWithApproval document to target an AWS resource g
 **Simplify complex tasks**  
 Automation offers one\-click automations for simplifying complex tasks such as creating golden Amazon Machines Images \(AMIs\), and recovering unreachable EC2 instances\. Here are some examples:
 + Use the `AWS-UpdateLinuxAmi` and `AWS-UpdateWindowsAmi` documents to create golden AMIs from a source AMI\. You can run custom scripts before and after updates are applied\. You can also include or exclude specific packages from being installed\. For examples of how to run these workflows, see [Automation Walkthroughs](automation-walk.md)\.
-+ Use the AWSSupport\-ExecuteEC2Rescue document to recover impaired instances\. An instance can become unreachable for a variety of reasons, including network misconfigurations, RDP issues, or firewall settings\. Troubleshooting and regaining access to the instance previously required dozens of manual steps before you could regain access\. The AWSSupport\-ExecuteEC2Rescue document lets you regain access by specifying an instance ID and clicking a button\. For an example of how to run this workflow, see [Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.
++ Use the AWSSupport\-ExecuteEC2Rescue document to recover impaired instances\. An instance can become unreachable for a variety of reasons, including network misconfigurations, RDP issues, or firewall settings\. Troubleshooting and regaining access to the instance previously required dozens of manual steps before you could regain access\. The AWSSupport\-ExecuteEC2Rescue document lets you regain access by specifying an instance ID and clicking a button\. For an example of how to run this workflow, see [Walkthrough: Run the EC2Rescue Tool on Unreachable Instances](automation-ec2rescue.md)\.
 
 **Enhance operations security**  
 Using delegated administration, you can restrict or elevate user permissions for various types of tasks\. 
@@ -43,22 +55,10 @@ Automation lets you share best practices with rest of your organization\.
 
 You can create best practices for resource management in Automation documents and easily share the documents across AWS Regions and groups\. You can also constrain the allowed values for the parameters the document accepts\.
 
-**Concepts**  
-AWS Systems Manager Automation uses the following concepts\.
-
-
-****  
-
-| Concept | Details | 
-| --- | --- | 
-|  Automation document  |  A Systems Manager Automation document defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation Documents](automation-documents.md)\.  | 
-|  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action or plugin\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. For more information, see the [Systems Manager Automation Actions Reference](automation-actions.md)\.  | 
-|  Automation queue  |  Each AWS account can run 25 Automations simultaneously\. If you attempt to run more than this, Systems Manager adds the additional executions to a queue and displays a status of Pending\. When an Automation completes \(or reaches a terminal state\), the first execution in the queue starts\. Each AWS account can queue 75 Automation executions\.  | 
-
 **Topics**
 + [Automation Use Cases](#automation-use-cases)
 + [Getting Started with Automation](automation-setup.md)
 + [Working with Automation Executions](automation-working.md)
-+ [Working with Automation Documents](automation-documents.md)
++ [Working with Automation Documents \(Playbooks\)](automation-documents.md)
 + [Automation Walkthroughs](automation-walk.md)
 + [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)

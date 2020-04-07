@@ -6,7 +6,7 @@ The following procedure walks you through the process of using the [PutComplianc
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade and then Configure the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to assign custom compliance metadata to an instance\. Currently the only supported resource type is `ManagedInstance`\.
 

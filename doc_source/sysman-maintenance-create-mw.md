@@ -3,17 +3,11 @@
 In this procedure, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run during the maintenance window execution\.
 
 **Note**  
-For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
+For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.
 
 **To create a Maintenance Window \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
-
-   \-or\-
-
-   Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
-**Note**  
-If you are using the Amazon EC2 console, some field names and locations may differ slightly\.
 
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
@@ -31,7 +25,9 @@ If you are using the Amazon EC2 console, some field names and locations may diff
 
    For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-1. For **Duration**, enter the number of hours the maintenance window should run\.
+1. For **Duration**, enter the number of hours the maintenance window will run\. The value you specify determines the specific end time for the maintenance window based on the time it begins\. No maintenance window tasks are permitted to start after the resulting endtime minus the number of hours you specify for **Stop initiating tasks** in the next step\.
+
+   For example, if the maintenance window starts at 3 PM, the duration is three hours, and the **Stop initiating tasks** value is one hour, no maintenance window tasks can start after 5 PM\.
 
 1. For **Stop initiating tasks**, enter the number of hours before the end of the maintenance window that the system should stop scheduling new tasks to run\.
 

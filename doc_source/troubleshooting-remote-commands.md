@@ -13,6 +13,7 @@ Run Command provides status details with each command execution\. For more infor
 In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\. If an instance you expect to see is not listed, check the following requirements:
 + **SSM Agent**: Make sure the latest version of SSM Agent is installed on the instance\. Only Amazon EC2 Windows Amazon Machine Images \(AMIs\) and some Linux AMIs are pre\-configured with SSM Agent\. For information about installing or reinstalling SSM Agent on an instance, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md) or [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
 + ** IAM instance role**: Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. 
++ **Service Endpoint connectivity**: Verify that the instance has connectivity to the Systems Manager service endpoints\. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS \(port 443\) outbound traffic to the service endpoints\. For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.
 + **Target operating system type**: Double\-check that you have selected an SSM document that supports the type of instance you want to update\. Most SSM documents support both Windows and Linux instances, but some do not\. For example, if you select the SSM document `AWS-InstallPowerShellModule`, which applies only to Windows instances, you will not see Linux instances in the target instances list\.
 
 ## Getting Status Information on Windows Instances<a name="rc-healthapi-win"></a>
@@ -66,7 +67,6 @@ If you experience problems executing commands using Run Command, there might be 
 
 **Topics**
 + [View SSM Agent Log Files](#systems-manager-ssm-agent-log-files)
-+ [Enable SSM Agent Debug Logging](#systems-manager-ssm-agent-debug-log-files)
 
 ### View SSM Agent Log Files<a name="systems-manager-ssm-agent-log-files"></a>
 
@@ -82,53 +82,3 @@ If you choose to view these logs by using Windows File Explorer, be sure to enab
 **On Linux**
 + /var/log/amazon/ssm/amazon\-ssm\-agent\.log
 + /var/log/amazon/ssm/errors\.log
-
-### Enable SSM Agent Debug Logging<a name="systems-manager-ssm-agent-debug-log-files"></a>
-
-Use the follow procedure to enable SSM Agent debug logging on Windows Server and Linux managed instances\.
-
-1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
-
-1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory:
-
-   1. **Windows Server**: %PROGRAMFILES%\\Amazon\\SSM\\seelog\.xml\.template
-
-   1. **Linux**: /etc/amazon/ssm/seelog\.xml\.template
-
-1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
-
-   ```
-   <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
-   ```
-
-1. **Windows only**: Locate the following entry:
-
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
-
-   Change this entry to use the following path:
-
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
-
-1. **Windows only**: Locate the following entry:
-
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"
-   ```
-
-   Change this entry to use the following path:
-
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"
-   ```
-
-1. Restart SSM Agent\.
-   + **Windows Server**: Use Windows Services Manager to restart the Amazon SSM Agent.
-   + **Linux**: Run the following command:
-
-     ```
-     sudo restart amazon-ssm-agent
-     ```

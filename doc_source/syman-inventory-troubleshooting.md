@@ -2,6 +2,12 @@
 
 This topic includes information about how to troubleshoot common errors or problems with Systems Manager Inventory\.
 
+**Console doesn't display Inventory Dashboard \| Detailed View \| Settings tabs**
+
+The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.
+
+![\[Displaying Inventory Dashboard | Detailed View | Settings tabs\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
+
 **UnsupportedAgent**
 
 If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.

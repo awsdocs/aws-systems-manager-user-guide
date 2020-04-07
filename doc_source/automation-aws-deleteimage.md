@@ -41,11 +41,3 @@ Retrieve the execution output
 ```
 aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
 ```
-
-**Document Steps**
-
-aws:deleteImage
-
-**Outputs**
-
-None

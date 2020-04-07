@@ -4,14 +4,11 @@ If you share a command, users can view and use that command until you either rem
 
 **Topics**
 + [Stop Sharing a Document \(Console\)](#unshare-using-console)
-+ [Stop Sharing a Document \(AWS CLI\)](#unshare-using-cli)
-+ [Stop Sharing a Document \(AWS Tools for Windows PowerShell\)](#unshare-using-ps)
++ [Stop Sharing a Document \(Command Line\)](#unshare-using-cli)
 
 ## Stop Sharing a Document \(Console\)<a name="unshare-using-console"></a>
 
-Depending on the service you are using, AWS Systems Manager or Amazon EC2 Systems Manager, use one of the following procedures:
-
-**Stop sharing a document \(AWS Systems Manager\)**
+**Stop sharing a document**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -27,30 +24,38 @@ Depending on the service you are using, AWS Systems Manager or Amazon EC2 System
 
 1. Choose **X** to delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
 
-**Stop sharing a document \(Amazon EC2 Systems Manager\)**
+## Stop Sharing a Document \(Command Line\)<a name="unshare-using-cli"></a>
 
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
+Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to stop sharing a command\.
 
-1. In the navigation pane, choose **Documents**\.
-
-1. In the documents list, choose the document you want to stop sharing\. Choose the **Permissions** tab and verify that you are the document owner\. Only a document owner can stop sharing a document\.
-
-1. Choose **Edit**\.
-
-1. Delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
-
-## Stop Sharing a Document \(AWS CLI\)<a name="unshare-using-cli"></a>
-
-Open the AWS CLI on your local computer and run the following command to stop sharing a command\.
+------
+#### [ Linux ]
 
 ```
-aws ssm modify-document-permission --name document name --permission-type Share --account-ids-to-remove 'AWS account ID'
+aws ssm modify-document-permission \
+    --name document name \
+    --permission-type Share \
+    --account-ids-to-remove 'AWS account ID'
 ```
 
-## Stop Sharing a Document \(AWS Tools for Windows PowerShell\)<a name="unshare-using-ps"></a>
-
-Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to stop sharing a command\. 
+------
+#### [ Windows ]
 
 ```
-Edit-SSMDocumentPermission -Name document name –AccountIdsToRemove AWS account ID -PermissionType Share
+aws ssm modify-document-permission ^
+    --name document name ^
+    --permission-type Share ^
+    --account-ids-to-remove "AWS account ID"
 ```
+
+------
+#### [ PowerShell ]
+
+```
+Edit-SSMDocumentPermission `
+    -Name document name `
+    -PermissionType Share `
+    –AccountIdsToRemove AWS account ID
+```
+
+------

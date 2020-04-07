@@ -25,7 +25,7 @@ However, the following situations still require that you specify a service role 
 + Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create a service role and an instance profile role for Automation, you can use one of the following methods\.
-+ [Method 1: Use AWS CloudFormation to Configure Roles for Automation](automation-cf.md)
++ [Method 1: Use AWS CloudFormation to Configure a Service Role for Automation](automation-cf.md)
 + [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)
 
 ### Service Role for Maintenance Windows Tasks<a name="setup-service-role-create-mw-tasks"></a>
@@ -33,8 +33,8 @@ If you need to create a service role and an instance profile role for Automation
 To run tasks on your managed instances, the Maintenance Windows service must have permission to access those resources\. This permission can be granted using either a service\-linked role for Systems Manager or a custom service role that you create\.
 
 You create a custom service role in the following cases: 
-+ If you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to maintenance window tasks run through Run Command\.
 + If you want to use a more restrictive set of permissions than those provided by the service\-linked role\.
++ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation documents require permissions for actions in other AWS services\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
 +  [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
@@ -46,7 +46,7 @@ Amazon Simple Notification Service \(Amazon SNS\) is a web service that coordina
 
 You create a service role for Amazon SNS as part of the process of configuring the service for use with Systems Manager\. After you complete this configuration, you choose whether to receive notifications for particular Run Command commands or maintenance windows tasks at the time you create each one\. 
 
-For more information, see [Configuring Amazon SNS Notifications for AWS Systems Manager](monitoring-sns-notifications.md)\. 
+For more information, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\. 
 
 ### Service Role for a Systems Manager Hybrid Environment<a name="setup-service-role-hybrid-environment"></a>
 

@@ -1,15 +1,15 @@
 # Create a Systems Manager Parameter \(Tools for Windows PowerShell\)<a name="param-create-ps"></a>
 
-You can use Tools for Windows PowerShell to create a parameter that uses the `String`, `StringList`, or `SecureString` data type\. 
+You can use Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. 
 
 **Note**  
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
-+ [Create a `String` or `StringList` parameter \(Tools for Windows PowerShell\)](#param-create-ps-string-stringlist)
-+ [Create a Secure String parameter \(Tools for Windows PowerShell\)](#param-create-ps-securestring)
++ [Create a String or StringList parameter \(Tools for Windows PowerShell\)](#param-create-ps-string-stringlist)
++ [Create a SecureString Parameter \(Tools for Windows PowerShell\)](#param-create-ps-securestring)
 
-## Create a `String` or `StringList` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string-stringlist"></a>
+## Create a String or StringList parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string-stringlist"></a>
 
 1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
@@ -23,7 +23,7 @@ Parameters are only available in the AWS Region where they were created\.
    Set-DefaultAWSRegion -Region region
    ```
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Run the following command to create a parameter\.
 
@@ -47,9 +47,9 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
    (Get-SSMParameterValue -Name "the_parameter_name_you_specified").Parameters
    ```
 
-## Create a Secure String parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
+## Create a SecureString Parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
 
-Before you create a secure string parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
 
 1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
 
@@ -63,7 +63,7 @@ Before you create a secure string parameter, read about the requirements for thi
    Set-DefaultAWSRegion -Region region
    ```
 
-   *region* represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in the [AWS Systems Manager Table of Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) topic in the *AWS General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Run the following command to create a parameter\.
 
@@ -75,10 +75,13 @@ Before you create a secure string parameter, read about the requirements for thi
 **Note**  
 To use the AWS\-managed customer master key \(CMK\) assigned to your account, remove the `-KeyId` parameter from the command\.
 
-   Here is an example that uses an obfuscated name \(elixir3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/elixir3131" -Value "P@sSwW)rd" -Type "SecureString"
+   Write-SSMParameter `
+       -Name "/Finance/Payroll/3l3vat3131" `
+       -Value "P@sSwW)rd" `
+       -Type "SecureString"
    ```
 
 1. Run the following command to verify the details of the parameter\.
