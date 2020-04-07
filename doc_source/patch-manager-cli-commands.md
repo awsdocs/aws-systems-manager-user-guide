@@ -737,11 +737,7 @@ The system returns information like the following\.
 ------
 #### [ Linux ]
 
-```
-aws ssm describe-effective-patches-for-patch-baseline \
-    --region us-east-2 \
-    --baseline-id "pb-0c10e65780EXAMPLE"
-```
+*This command is supported for Windows Server patch baselines only\.*
 
 ------
 #### [ Windows ]

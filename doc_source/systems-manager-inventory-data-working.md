@@ -1,6 +1,6 @@
 # Working with Systems Manager Inventory Data<a name="systems-manager-inventory-data-working"></a>
 
-This section includes topics that describe how to query and aggregate Inventory data\. 
+This section includes topics that describe how to query and aggregate inventory data\. 
 
 **Topics**
 + [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)

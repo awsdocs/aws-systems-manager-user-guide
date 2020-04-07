@@ -1,11 +1,11 @@
-# Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
+# Walkthrough: Create a SecureString Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows how to join a Windows instance to a domain using Systems Manager secure string parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as a secure string\. 
+This walkthrough shows how to join a Windows instance to a domain using Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as an encrypted string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
-**To create a secure string parameter and join an instance to a domain**
+**To create a SecureString parameter and join an instance to a domain**
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
@@ -15,7 +15,7 @@ This walkthrough assumes that you already specified your domain name and DNS ser
    Write-SSMParameter -Name "domainJoinPassword" -Value "PASSWORD" -Type SecureString
    ```
 **Important**  
-Only the *value* of a secure string parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
+Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
 
 1. Attach the following IAM policies to the IAM role permissions for your instance: 
    + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy enables a managed instance to use Systems Manager service core functionality\.

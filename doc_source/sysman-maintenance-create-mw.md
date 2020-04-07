@@ -3,7 +3,7 @@
 In this procedure, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run during the maintenance window execution\.
 
 **Note**  
-For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)\.
+For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.
 
 **To create a Maintenance Window \(console\)**
 

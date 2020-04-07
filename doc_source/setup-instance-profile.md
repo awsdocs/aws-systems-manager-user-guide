@@ -47,6 +47,11 @@ This AWS managed policy allows SSM Agent to access AWS Directory Service on your
 Required only if you plan to install and run the CloudWatch agent on your instances to read metric and log data on an instance and write it to Amazon CloudWatch\. These help you monitor, analyze, and quickly respond to issues or changes to your AWS resources\.  
 Your instance profile needs this policy only if you will use CloudWatch features, such as CloudWatch Events or CloudWatch Logs\. \(You can also create a more restrictive policy that, for example, limits writing access to a specific CloudWatch Logs log stream\.\)  
 Using CloudWatch features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
+To create an instance profile with permissions for additional Systems Manager services, see the following resources\.  
++ [Control Access to Systems Manager Parameters](sysman-paramstore-access.md)
++ [Getting Started with Automation](automation-setup.md)
++ [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)
++ [Setting Up Run Command](sysman-rc-setting-up.md)
 
 ## Task 1: \(Optional\) Create a Custom Policy for Amazon S3 Bucket Access<a name="instance-profile-custom-s3-policy"></a>
 

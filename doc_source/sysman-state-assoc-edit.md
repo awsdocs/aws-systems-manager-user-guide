@@ -1,6 +1,6 @@
 # Edit and Create a New Version of an Association<a name="sysman-state-assoc-edit"></a>
 
-You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon S3 bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
+You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an S3 bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
 The following procedures describe how to edit and create a new version of an association using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell\. 
 
@@ -9,7 +9,7 @@ The following procedures describe how to edit and create a new version of an ass
 The following procedure describes how to use the Systems Manager console to edit and create a new version of an association\.
 
 **Note**  
-This procedure requires that you have write access to an existing S3 bucket\. If you have not used Amazon S3 before, be aware that you will incur charges for using Amazon S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
+This procedure requires that you have write access to an existing S3 bucket\. If you have not used Amazon S3 before, be aware that you are charged for storage, data transfer, and more\. For more information, see [Amazon S3 Pricing](http://aws.amazon.com/s3/pricing/)\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
 **To edit a State Manager association**
 
@@ -23,14 +23,14 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. Choose the association you created in the previous procedure, and then choose **Edit**\.
 
-1. In the **Name** field, type a new name\. For example, type **TestHostnameAssociation2**\.
+1. In the **Name** field, enter a new name \(for example, **TestHostnameAssociation2**\)\.
 
-1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
+1. In **Specify schedule**, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
 
-1. \(Optional\) To write the command output to an Amazon S3 bucket, do the following in the **Output options** section: 
+1. \(Optional\) To write the command output to an S3 bucket, in **Output options**, do the following:
    + Choose **Enable writing output to S3**\.
-   + In the **S3 bucket name** field, type the name of an S3 bucket you have write access to\.
-   + \(Optional\) To write output to a folder in the bucket, type its name in the **S3 key prefix** field\. If no folder exists with the name you specify, State Manager creates it for you\.
+   + In the **S3 bucket name** field, enter the name of an S3 bucket you have write access to\.
+   + \(Optional\) To write output to a folder in the bucket, enter its name in **S3 key prefix**\. If no folder exists with the name you specify, State Manager creates it for you\.
 
 1. Choose **Edit association**\.
 
@@ -52,7 +52,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Use the following format to create a command to edit and create a new version of an existing State Manager association\.
 
@@ -69,7 +69,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule, but you don't specify `--schedule-expression` when updating, the new association version does not have a schedule expression\.
 
 ------
 #### [ Windows ]
@@ -84,7 +84,7 @@ To retain existing parameter values of your association, such as association nam
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses the default values \(none\)\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses the default values \(none\)\. For example, if your existing association has a cron schedule, but you don't specify `--schedule-expression` when updating, the new association version does not have a schedule expression\.
 
 ------
 #### [ PowerShell ]
@@ -101,11 +101,11 @@ To retain existing parameter values of your association, such as association nam
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `-ScheduleExpression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule, but you don't specify `-ScheduleExpression` when updating, the new association version does not have a schedule expression\.
 
 ------
 
-   The following example updates an existing association to change the name to `TestHostnameAssociation2`\. The new association version runs every hour and writes the output of commands to the specified Amazon S3 bucket\.
+   The following example updates an existing association to change the name to `TestHostnameAssociation2`\. The new association version runs every hour and writes the output of commands to the specified S3 bucket\.
 
 ------
 #### [ Linux ]

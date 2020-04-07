@@ -84,7 +84,7 @@ Before you complete the following procedure, you must create a maintenance windo
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Create a command to configure an Automation workflow as a registered task for a maintenance window\. Here are some template commands to help\.
 

@@ -2,23 +2,23 @@
 
 You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API action\. This action allows you to quickly see the status, detailed status, results, last execution time, and more information for a State Manager association\. This API action also includes filters to help you quickly locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view only those executions that were processed after the specified date and time\.
 
-If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API action\. This action shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then quickly see which resource or instance failed to run an association\. With the resource ID you can then view the command execution details to see exactly which step in a command failed\.
+If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API action\. This action shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then quickly see which resource or instance failed to run an association\. With the resource ID, you can then view the command execution details to see exactly which step in a command failed\.
 
 The examples in this section also include information about how to use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API action to run an association immediately and only one time\. You can use this API action when you investigate failed association executions\. If you see that an association failed, you can make a change on the resource, and then immediately run the association to see if the change on the resource allows the association to run successfully\.
 
 ## Viewing Association Histories \(Console\)<a name="sysman-state-assoc-history-console"></a>
 
-Use the following procedure to view the execution history for a specific association ID and then view execution details for one or more resources\. 
+Use the following procedure to view the execution history for an association ID and then view execution details for one or more resources\. 
 
-**To view execution history for a specific association ID**
+**To view execution history for an association ID**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. Choose **State Manager**\.
 
-1. In the **Association id** field, choose an association for which you want to view the history\.
+1. In **Association id**, choose an association for which you want to view the history\.
 
-1. Choose the **View details** button\.
+1. Choose **View details**\.
 
 1. Choose the **Execution history** tab\.
 
@@ -28,9 +28,9 @@ Use the search box filters to locate the execution for which you want to view de
 
 ![\[Filtering the list of State Manager association executions.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
 
-1. Choose an execution ID\. The **Association execution targets** page opens\. This page shows all of the resources that ran the association\.
+1. Choose an execution ID\. The **Association execution targets** page shows all of the resources that ran the association\.
 
-1. Choose a resource ID to view specific information about that resource\.
+1. Choose a resource ID to view information about that resource\.
 **Note**  
 Use the search box filters to locate the resource for which you want to view details\.  
 
@@ -38,19 +38,19 @@ Use the search box filters to locate the resource for which you want to view det
 
 1. If you are investigating an association that failed to run, you can use the **Apply association now** button to run an association immediately and only one time\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.
 
-1. Choose the **Apply association now** button\. After the execution is complete, verify that the association execution succeeded\.
+1. Choose **Apply association now**\. After the execution is complete, verify that the association execution succeeded\.
 
 ## Viewing Association Histories \(Command Line\)<a name="sysman-state-assoc-history-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to view the execution history for a specific association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to view the execution history for an association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
 
-**To view execution history for a specific association ID**
+**To view execution history for an association ID**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md) or [Install or Upgrade the AWS Tools for PowerShell](getting-started-ps.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
-1. Run the following command to view a list of executions for a specific association ID\.
+1. Run the following command to view a list of executions for an association ID\.
 
 ------
 #### [ Linux ]
@@ -62,7 +62,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
+ This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for an association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
 
 ------
 #### [ Windows ]
@@ -74,7 +74,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
+ This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and `Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
 
 ------
 #### [ PowerShell ]
@@ -86,7 +86,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `-Filter` parameter and ` @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}` value\.
+ This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `-Filter` parameter and `@{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}` value\.
 
 ------
 
@@ -225,7 +225,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following returns all associations that were *successfully* run after a specific date and time\.
+   The following returns all associations that were successfully run after a specific date and time\.
 
 ------
 #### [ Linux ]
@@ -265,7 +265,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to view all targets where the specific execution ran\.
+1. Run the following command to view all targets where the execution ran\.
 
 ------
 #### [ Linux ]
@@ -296,7 +296,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   You can limit the results by using one or more filters\. The following example returns information about all targets where the specific association failed to run\.
+   You can limit the results by using one or more filters\. The following example returns information about all targets where the association failed to run\.
 
 ------
 #### [ Linux ]
@@ -333,7 +333,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example returns information about a specific managed instance where an association failed to run\.
+   The following example returns information about a managed instance where an association failed to run\.
 
 ------
 #### [ Linux ]

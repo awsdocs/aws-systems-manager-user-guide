@@ -76,19 +76,23 @@ For information about other options you can use with the start\-session command,
 
 ## Starting a Session \(SSH\)<a name="sessions-start-ssh"></a>
 
-To start a session using SSH, run the following command:
+**SSH Connection Requirements**  
+Take note of the following requirements for starting a session using SSH\.
++ Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
++ You must use the user on the instance associated with the Privacy Enhanced Mail \(PEM\) certificate, not the `ssm-user` account that is used for other types of session connections\. For example, on Amazon EC2 instances for Linux, the default user is `ec2-user`\. For information about identifying the default user for each instance type, see [Get Information About Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
-Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.  
-To start a session using SSH, your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting Started with Session Manager](session-manager-getting-started.md)\.
+
+To start a session using SSH, run the following command:
 
 ```
 ssh -i /path/my-key-pair.pem username@instance-id
 ```
 
- */path/my\-key\-pair\.pem* represents the path to the Privacy Enhanced Mail \(PEM\) certificate that is associated with the instance\. For example, for an Amazon EC2 instance, the key\-pair file you created or selected when you created the instance\.
+ */path/my\-key\-pair\.pem* represents the path to the PEM certificate that is associated with the instance\. For example, for an Amazon EC2 instance, the key\-pair file you created or selected when you created the instance\.
 
- *username@instance\-id* represents the user name you use to connect to the instance, and the instance ID, such as `JaneDoe@i-02573cafcfEXAMPLE`\.
+ *username@instance\-id* represents the default user name for your instance type, and the instance ID, such as `ec2-user@i-02573cafcfEXAMPLE`\.
 
 **Tip**  
 When you start a session using SSH, you can copy local files to the target instance using the following command format\.  

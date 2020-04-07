@@ -1,4 +1,4 @@
-# Step 4: Try Systems Manager Tutorials and Walkthroughs<a name="getting-started-walkthroughs"></a>
+# Step 3: Try Systems Manager Tutorials and Walkthroughs<a name="getting-started-walkthroughs"></a>
 
 This topic guides you to tutorials, walkthroughs, and basic tasks to help you learn how to use Systems Manager\.
 
@@ -41,23 +41,21 @@ The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) ca
 
 **State Manager**  
 The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your Amazon EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
-+ [Creating Associations that Run MOF Files](systems-manager-state-manager-using-mof-file.md)
++ [Creating Associations That Run MOF Files](systems-manager-state-manager-using-mof-file.md)
 + [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically Update PV Drivers on EC2 Windows Instances \(Console\)](sysman-state-pvdriver.md)
 
 **Documents**  
 The [AWS Systems Manager Documents](sysman-ssm-docs.md) capability lets you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
-+ [Copy a Document](copy-document.md)
-+ [Add a Systems Manager Document \(Console\)](create-ssm-console.md)
-+ [Create an SSM Document \(AWS CLI\)](create-ssm-document-cli.md)
-+ [Create an SSM Document \(Tools for Windows PowerShell\)](create-ssm-document-ps.md)
++ [Create an SSM Document \(Console\)](create-ssm-console.md)
++ [Create an SSM Document \(Command Line\)](create-ssm-document-cli.md)
 
 **Parameter Store**  
 The [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md) capability provides a centralized store to manage your configuration data, whether plain\-text data such as database strings or secrets such as passwords\. This allows you to separate your secrets and configuration data from your code\. Parameters can be tagged and organized into hierarchies, helping you manage parameters more easily\.
-+ [Walkthrough: Create and Test a Parameter in a Command \(Console\)](sysman-paramstore-console.md)
++ [Walkthrough: Create and Test a String Parameter \(Console\)](sysman-paramstore-console.md)
 + [Walkthrough: Create and Update a String Parameter \(AWS CLI\)](sysman-paramstore-cli.md)
 + [Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)
-+ Advanced: [Walkthrough: Create a Secure String Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
++ Advanced: [Walkthrough: Create a SecureString Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
 
 **Inventory**  
 The [AWS Systems Manager Inventory](systems-manager-inventory.md) capability collects information about your instances and the software installed on them, helping you to understand your system configurations and installed applications\.

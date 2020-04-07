@@ -70,3 +70,11 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 
 **Problem**: You start a session and Session Manager displays a blank screen\.
 + **Solution**: This issue can occur when the root volume on the instance is full\. Due to lack of disk space, SSM Agent on the instance stops working\. To resolve this issue, use Amazon CloudWatch to collect metrics and logs from the operating systems\. For information, see [Monitoring Memory and Disk Metrics for Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html) or [Monitoring Memory and Disk Metrics for Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/mon-scripts.html)\.
+
++ **Solution**: This issue could also have been caused by a mis-configured service endpoint. For example, if you are accessing the SSM service in the console using a URL like this:
+
+```
+https://us-west-2.console.aws.amazon.com/systems-manager/session-manager/sessions?region=us-west-1
+```
+
+You are connecting to the ssm endpoint in us-west-2, while you'll see all your instances in the web console from us-west-1 region. In this case, start-session call will succeed, but a blank screen will show up as you've used the wrong endpoint to access that instance.

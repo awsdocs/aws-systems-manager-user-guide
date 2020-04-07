@@ -1,4 +1,4 @@
-# About Advanced Parameters<a name="parameter-store-advanced-parameters"></a>
+# Standard and Advanced Parameter Tiers<a name="parameter-store-advanced-parameters"></a>
 
 AWS Systems Manager Parameter Store includes *standard parameters * and *advanced parameters*\. You individually configure parameters to use either the standard\-parameter tier \(the default tier\) or the advanced\-parameter tier\. 
 
@@ -15,7 +15,7 @@ The following table describes the differences between the tiers\.
 | --- | --- | --- | 
 |  Total number of parameters allowed \(per AWS account and Region\)  |  10,000  |  100,000  | 
 |  Maximum size of a parameter value  |  4 KB  |  8 KB  | 
-|  Parameter policies available  |  No  |  Yes For more information, see [Working with Parameter Policies](parameter-store-policies.md)\.  | 
+|  Parameter policies available  |  No  |  Yes For more information, see [Assigning Parameter Policies](parameter-store-policies.md)\.  | 
 |  Cost  |  No additional charge  |  Charges apply For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.  | 
 
 ## Change a Standard Parameter to an Advanced Parameter<a name="parameter-store-advanced-parameters-enabling"></a>

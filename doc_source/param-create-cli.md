@@ -1,6 +1,6 @@
 # Create a Systems Manager Parameter \(AWS CLI\)<a name="param-create-cli"></a>
 
-You can use the AWS CLI to create a parameter that uses the `String`, `StringList`, or `SecureString` data type\. 
+You can use the AWS CLI to create `String`, `StringList`, and `SecureString` parameter types\. 
 
 For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and Update a String Parameter \(AWS CLI\)](sysman-paramstore-cli.md)\.
 
@@ -8,35 +8,40 @@ For more information about using the AWS CLI to create parameters, see [Walkthro
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
-+ [Create a `String` or `StringList` Parameter \(AWS CLI\)](#param-create-cli-string-stringlist)
-+ [Create a Secure String Parameter \(AWS CLI\)](#param-create-cli-securestring)
++ [Create a String or StringList Parameter \(AWS CLI\)](#param-create-cli-string-stringlist)
++ [Create a SecureString Parameter \(AWS CLI\)](#param-create-cli-securestring)
 
-## Create a `String` or `StringList` Parameter \(AWS CLI\)<a name="param-create-cli-string-stringlist"></a>
+## Create a String or StringList Parameter \(AWS CLI\)<a name="param-create-cli-string-stringlist"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a parameter value, or a comma-separated list of values" --type String or StringList
    ```
-
-   If successful, the command returns the version number of the parameter\.
+**Note**  
+If successful, the command returns the version number of the parameter\.
 
    This example adds two key\-value pair tags to a parameter\. \(Depending on the operating system type on your local machine, run one of the following commands\. The version to run from a local Windows machine includes the escape characters \("\\"\) that you need to run the command from your command line tool\.\)
 
    **Windows** local machine:
 
    ```
-   aws ssm put-parameter --name parameter-name --value "parameter-value, or a comma-separated-list-of-values" --type "String" --tags [{\"Key\":\"Region1\",\"Value\":\"East1\"},{\"Key\":\"Environment1\",\"Value\":\"Production1\"}]
+   aws ssm put-parameter --name parameter-name ^
+   --value "parameter-value, or a comma-separated-list-of-values" ^
+   --type "String" ^
+   --tags [{\"Key\":\"Region1\",\"Value\":\"East1\"},{\"Key\":\"Environment1\",\"Value\":\"Production1\"}]
    ```
 
    **Linux** local machine:
 
    ```
-   aws ssm put-parameter --name parameter-name --value "parameter-value, or a comma-separated-list-of-values" --type "String" --tags '[{"Key":"Region","Value":"East"},{"Key":"Environment", "Value":"Production"}]'
+   aws ssm put-parameter --name parameter-name \
+   --value "parameter-value, or a comma-separated-list-of-values" \
+   --type "String" --tags '[{"Key":"Region","Value":"East"},{"Key":"Environment", "Value":"Production"}]'
    ```
 
    Here is an example that uses the `StringList` data type\.
@@ -59,13 +64,13 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
    aws ssm get-parameters --name "/IAD/ERP/Oracle/addUsers"
    ```
 
-## Create a Secure String Parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
+## Create a SecureString Parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
 
-Before you create a Secure String parameter, read about the requirements for this type of parameter\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
 

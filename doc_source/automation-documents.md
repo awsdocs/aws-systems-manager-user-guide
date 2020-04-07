@@ -17,7 +17,7 @@ If you run an automation that invokes other services by using an AWS Identity an
 
 For information about the actions or plugins that you can specify in a Systems Manager Automation document, see [Systems Manager Automation Actions Reference](automation-actions.md)\.
 
-For information about the AWS managed Automation documents that run scripts, see [ Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)\.
+For information about the AWS managed Automation documents that run scripts, see [Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)\.
 
 For information about using Document Builder to create a custom Automation document, see [Creating Automation Documents Using Document Builder](automation-document-builder.md)\. 
 
@@ -32,7 +32,6 @@ For information about creating custom Automation documents that run scripts, see
 + [Creating Automation Documents That Run Scripts](automation-document-script.md)
 + [Creating Dynamic Automation Workflows with Conditional Branching](automation-branchdocs.md)
 + [Invoking Other AWS Services from a Systems Manager Automation Workflow](automation-aws-apis-calling.md)
-+ [Sharing a Systems Manager Automation Document](automation-share-document.md)
 + [Systems Manager Automation Actions Reference](automation-actions.md)
 + [Systems Manager Automation Documents Reference](automation-documents-reference.md)
 + [Custom Automation Document Samples](automation-document-samples.md)

@@ -9,17 +9,18 @@ This section includes tutorials that help you learn how to use the AWS Command L
 
 **Complete prerequisites**  
 Before trying these tutorials, complete the following prerequisites\.
-+ **Configure the AWS CLI on your local machine**: Before you can run AWS CLI commands, you must install and configure the CLI on your local machine\. For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
++ **Configure the AWS CLI on your local machine**: Before you can run AWS CLI commands, you must install and configure the CLI on your local machine\. For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 + **Verify maintenance window roles and permissions**: An AWS administrator in your account must grant you the AWS Identity and Access Management \(IAM\) permissions you need to manage maintenance windows using the CLI\. For information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
 + **Create or configure a Systems Manager\-compatible instance**: You need at least one Amazon EC2 instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
 
   We recommend launching an instance from one of the following Amazon Machine Image \(AMI\) types\. SSM Agent is preinstalled on each one:
-  + Windows Server 2003\-2012 R2 AMIs published in November 2016 or later
+  + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
   + Windows Server 2016 and 2019
   + Amazon Linux
   + Amazon Linux 2
   + Ubuntu Server 16\.04
   + Ubuntu Server 18\.04
+  + Amazon ECS\-Optimized
 
   For information about installing SSM Agent on an instance, see the following topics:
   + [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)

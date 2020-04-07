@@ -8,13 +8,13 @@ When you configure inventory collection, you start by creating a Systems Manager
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
 ```
 
-Also note that an instance can have only have one Inventory association configured at a time\. If you configure an instance with two or more associations, the Inventory association doesn't run and no inventory data is collected\.
+Also note that an instance can have only have one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\.
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.
 + Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Automatically Update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
-+ \(Optional\) Create a resource data sync to centrally store Inventory data in an Amazon S3 bucket\. Resource data sync then automatically updates the centralized data when new Inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
++ \(Optional\) Create a resource data sync to centrally store inventory data in an Amazon S3 bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with Custom Inventory](sysman-inventory-custom.md)\.
 
 ## Inventory All Managed Instances in Your AWS Account<a name="inventory-management-inventory-all"></a>
@@ -29,7 +29,7 @@ Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or
 
 ### Configuring Inventory Collection with One Click \(Console\)<a name="sysman-inventory-config-collection-one-click"></a>
 
-Use the following procedure to configure all managed instances in your AWS account and in a single AWS Region for Inventory with one click from the Systems Manager console\.
+Use the following procedure to configure Systems Manager Inventory for all managed instances in your AWS account and in a single AWS Region\. 
 
 **To configure all of your managed instances in the current Region for Systems Manager Inventory**
 
@@ -49,9 +49,9 @@ Use the following procedure to configure all managed instances in your AWS accou
 
    Depending on the number of managed instances in your account, it can take several minutes for the global inventory association to be applied\. Wait a few minutes and then refresh the page\. Verify that the graphic changes to reflect that inventory is configured on all of your managed instances\.
 
-## Configuring Collection by Using the Console<a name="sysman-inventory-config-collection"></a>
+### Configuring Collection by Using the Console<a name="sysman-inventory-config-collection"></a>
 
-This section includes information about how to configure Systems Manager Inventory to collect metadata from your managed instances by using the Systems Manager console\. You can quickly collect metadata from all instances in a specific AWS account \(and any future instances that might be created in that account\) or you can selectively collect Inventory data by using tags or instance IDs\.
+This section includes information about how to configure Systems Manager Inventory to collect metadata from your managed instances by using the Systems Manager console\. You can quickly collect metadata from all instances in a specific AWS account \(and any future instances that might be created in that account\) or you can selectively collect inventory data by using tags or instance IDs\.
 
 **To configure inventory collection**
 

@@ -6,7 +6,7 @@ The following procedure walks you through the process of creating and storing a 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
 
@@ -36,10 +36,13 @@ The following procedure walks you through the process of creating and storing a 
    {
        "Parameters": [
            {
+               "Name": "helloworld",
+               "Type": "String",
                "LastModifiedUser": "arn:aws:iam::123456789012:user/User's name",
                "LastModifiedDate": 1494529763.156,
-               "Type": "String",
-               "Name": "helloworld"
+               "Version": 1,
+               "Tier": "Standard",
+               "Policies": []           
            }
        ]
    }
@@ -65,10 +68,14 @@ The following procedure walks you through the process of creating and storing a 
    {
        "InvalidParameters": [],
        "Parameters": [
-           {
-               "Type": "String",
+           {            
                "Name": "/Test/IAD/helloWorld",
-               "Value": "good day sunshine"
+               "Type": "String",
+               "Value": "good day sunshine",
+               "Version": 2,
+               "LastModifiedDate": "2020-02-25T15:55:33.677000-08:00",
+               "ARN": "arn:aws:ssm:us-east-2:123456789012:parameter/Test/IAD/helloWorld"
+               
            }
        ]
    }

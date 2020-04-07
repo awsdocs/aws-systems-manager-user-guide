@@ -1,6 +1,8 @@
-# Add a Systems Manager Document \(Console\)<a name="create-ssm-console"></a>
+# Create an SSM Document \(Console\)<a name="create-ssm-console"></a>
 
-**Add a Systems Manager Document**
+After you create the content for your custom SSM document, as described in [Writing SSM Document Content](create-ssm-doc.md#writing-ssm-doc-content), you can use the Systems Manager console to create an SSM document using your content\.
+
+**To create an SSM document \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -16,6 +18,6 @@
 
 1. In the **Document type** list, choose the type of document you want to create\.
 
-1. Delete the brackets in the **Content** field, and then paste the document you created earlier\.
+1. Delete the brackets in the **Content** field, and then paste the document content you created earlier\.
 
 1. Choose **Create document** to save the document\.

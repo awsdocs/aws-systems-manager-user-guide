@@ -3,15 +3,15 @@
 You must configure a client to retrieve configuration updates by integrating with the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) API action\. You can integrate using the AWS SDK\. The following AWS CLI command demonstrates how to retrieve a configuration\. This call includes the IDs of the AppConfig application, the environment, the configuration profile, and a unique client ID\. The configuration content is saved to the output filename\. 
 
 **Note**  
-The `client-id` parameter in the following command is a unique, user\-specifed ID to identify the client for the configuration\. This ID enables AppConfig to deploy the configuration in intervals, as defined in the deployment strategy\. 
+The `client-id` parameter in the following command is a unique, user\-specified ID to identify the client for the configuration\. This ID enables AppConfig to deploy the configuration in intervals, as defined in the deployment strategy\. 
 
 ```
 aws appconfig get-configuration \
---application application_ID \
---environment environment_ID \
---configuration configuration_profile_ID \
+--application application_name_or_ID \
+--environment environment_name_or_ID \
+--configuration configuration_profile_name_or_ID \
 --client-id client_ID \
-outfile > output_filename
+output_filename
 ```
 
 The system responds with information in the following format\.
@@ -30,12 +30,12 @@ Sending `ConfigurationVersion` during subsequent polling for configuration updat
 
 ```
 aws appconfig get-configuration \
---application application_ID \
---environment environment_ID \
---configuration configuration_profile_ID \
+--application application_name_or_ID \
+--environment environment_name_or_ID \
+--configuration configuration_profile_name_or_ID \
 --client-configuration-version previous_configuration_version_value \
 --client-id client_ID \
-outfile > output_filename
+output_filename
 ```
 
 **Note**  

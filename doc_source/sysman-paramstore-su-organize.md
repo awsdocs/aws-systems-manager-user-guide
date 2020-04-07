@@ -56,7 +56,7 @@ Another benefit of using hierarchies is the ability to query for all parameters 
 aws ssm get-parameters-by-path --path /Dev/Web/IIS
 ```
 
-To view decrypted secure string parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
+To view decrypted `SecureString` parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example\.
 
 ```
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption

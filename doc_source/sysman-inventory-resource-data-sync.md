@@ -1,12 +1,12 @@
 # Walkthrough: Use Resource Data Sync to Aggregate Inventory Data<a name="sysman-inventory-resource-data-sync"></a>
 
-The following walkthrough describes how to create a resource data sync configuration by using the AWS CLI\. A resource data sync automatically ports Inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new Inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
+The following walkthrough describes how to create a resource data sync configuration by using the AWS CLI\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
-Before you start this walkthrough, you must collect Inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect Inventory data, see [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)\.
+Before you start this walkthrough, you must collect inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect inventory metadata, see [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)\.
 
 \(Optional\) If you want to encrypt the sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\.
 
@@ -34,11 +34,11 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service Getting Started Guide\. Make a note of the bucket name and the AWS Region where you created it\.
+1. Create a bucket to store your aggregated inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service Getting Started Guide\. Make a note of the bucket name and the AWS Region where you created it\.
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix*/ from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {
@@ -97,7 +97,7 @@ Before you start this walkthrough, you must collect Inventory metadata from your
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 
@@ -113,7 +113,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
    aws ssm create-resource-data-sync --sync-name a name --s3-destination "BucketName=the name of the S3 bucket,Prefix=the name of the prefix, if specified,SyncFormat=JsonSerDe,Region=the region where the S3 bucket was created" 
    ```
 
-   You can use the `region` parameter to specify where the sync configuration should be created\. In the following example, Inventory data from the us\-west\-1 Region, will be synchronized in the Amazon S3 bucket in the us\-west\-2 Region\.
+   You can use the `region` parameter to specify where the sync configuration should be created\. In the following example, inventory data from the us\-west\-1 Region, will be synchronized in the Amazon S3 bucket in the us\-west\-2 Region\.
 
    ```
    aws ssm create-resource-data-sync --sync-name InventoryDataWest --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" --region us-west-1
@@ -201,7 +201,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
 
    The query returns a count of different versions of aws\-cfn\-bootstrap, which is an AWS application present on Amazon EC2 Linux and Windows instances\.
 
-1. Individually copy and paste the following statements into the query editor, replace *bucket\-name* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional Inventory tables in Athena\.
+1. Individually copy and paste the following statements into the query editor, replace *bucket\-name* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional inventory tables in Athena\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_AWSComponent (

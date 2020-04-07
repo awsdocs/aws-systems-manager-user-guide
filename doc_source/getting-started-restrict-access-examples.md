@@ -91,11 +91,11 @@ You can create IAM policies that enable a user to start sessions to instances th
          "Resource":"*",
          "Condition":{
             "StringLike":{
-               "ssm:resourceTag/tag_key1":[
-                  "tag_value1"
+               "ssm:resourceTag/tag-key1":[
+                  "tag-value1"
                ],
-               "ssm:resourceTag/tag_key2":[
-                  "tag_value2"
+               "ssm:resourceTag/tag-key2":[
+                  "tag-value2"
                ]
             }
          }

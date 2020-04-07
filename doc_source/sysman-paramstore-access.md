@@ -72,7 +72,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
 
 You can control access so that instances can run only parameters that you specify\. 
 
-If you choose the `SecureString` data type when you create your parameter, Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS\-managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
+If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS\-managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
 
 You can view the AWS\-managed CMK by running the following command from the AWS CLI:
 
@@ -80,7 +80,7 @@ You can view the AWS\-managed CMK by running the following command from the AWS 
 aws kms describe-key --key-id alias/aws/ssm
 ```
 
-The following example enables instances to get a parameter value only for parameters that begin with "prod\-" If the parameter is a secure string, then the instance decrypts the string using AWS KMS\.
+The following example enables instances to get a parameter value only for parameters that begin with "prod\-" If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
 Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.

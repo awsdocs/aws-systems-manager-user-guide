@@ -31,5 +31,4 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 
 **Topics**
 + [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
-+ [Reference: Maintenance Windows Scheduling and Active Period Options](reference-maintenance-windows-schedule-options.md)
 + [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)

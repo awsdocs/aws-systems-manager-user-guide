@@ -1,8 +1,8 @@
-# Walkthrough: Create and Test a Parameter in a Command \(Console\)<a name="sysman-paramstore-console"></a>
+# Walkthrough: Create and Test a String Parameter \(Console\)<a name="sysman-paramstore-console"></a>
 
-The following procedure walks you through the process of creating a parameter in Parameter Store and then running a command that uses this parameter\.
+The following procedure walks you through the process of creating a String parameter in Parameter Store and then running a command that uses this parameter\.
 
-**To create a parameter using Parameter Store**
+**To create a String parameter using Parameter Store**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

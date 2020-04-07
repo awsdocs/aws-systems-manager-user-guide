@@ -1,11 +1,11 @@
 # Creating Associations that Run Ansible Playbooks<a name="systems-manager-state-manager-ansible"></a>
 
 You can create State Manager associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` document\. This document offers the following benefits for running playbooks:
-+ Support for running complex playbooks
-+ Support for downloading playbooks from GitHub and Amazon Simple Storage Service \(Amazon S3\)
-+ Support for compressed playbook structure
-+ Enhanced logging
-+ Ability to specify which playbook to run when playbooks are bundled
++ Support for running complex playbooks\.
++ Support for downloading playbooks from GitHub and Amazon Simple Storage Service \(Amazon S3\)\.
++ Support for compressed playbook structure\.
++ Enhanced logging\.
++ Ability to specify which playbook to run when playbooks are bundled\.
 
 **Note**  
 Systems Manager includes two SSM documents that enable you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.
@@ -57,7 +57,7 @@ The `AWS-ApplyAnsiblePlaybooks` document enables you to run compressed \.zip fil
 
 **Enhanced logging**
 
-The `AWS-ApplyAnsiblePlaybooks` document includes an optional parameter for specifying different levels of logging\. Specify \-v for low verbosity, \-vv or –vvv for medium verbosity, and \-vvvv for debug level logging\. These options directly map to Ansible verbosity options\.
+The `AWS-ApplyAnsiblePlaybooks` document includes an optional parameter for specifying different levels of logging\. Specify `-v` for low verbosity, `-vv` or `–vvv` for medium verbosity, and `-vvvv` for debug level logging\. These options directly map to Ansible verbosity options\.
 
 **Ability to specify which playbook to run when playbooks are bundled**
 
@@ -65,7 +65,7 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for speci
 
 ## Installed Dependencies<a name="systems-manager-state-manager-ansible-depedencies"></a>
 
-If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that the following dependencies are installed on your instances\. If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
+If you specify `True` for the `InstallDependencies` parameter, then Systems Manager verifies that the following dependencies are installed on your instances\. If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
 + **Ubuntu/Debian**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
 + **Amazon Linux**: Ansible
 + **RHEL**: Python 3, Ansible, Unzip
@@ -74,17 +74,17 @@ If you specify **True** for the **InstallDependencies** parameter, then Systems 
 
 The following procedure describes how to use the Systems Manager console to create a State Manager association that runs Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` document\.
 
-**To create an association that runs Ansible playbooks \(Console\)**
+**To create an association that runs Ansible playbooks**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. In the navigation pane, choose **State Manager**, and then choose **Create association**\.
 
-1. For **Name**, specify a name that helps you remember the purpose of the association\.
+1. For **Name**, enter a name that helps you remember the purpose of the association\.
 
 1. In the **Document** list, choose **AWS\-ApplyAnsiblePlaybooks**\.
 
-1. In the **Parameters** section, for **Source Type**, choose either **GitHub** or **S3**\.
+1. In **Parameters**, for **Source Type**, choose either **GitHub** or **S3**\.
 
    **GitHub**
 
@@ -122,21 +122,21 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. For **Targets**, choose an option\. For information about using targets, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
-1. In the **Specify schedule** section, choose either **On schedule** or **No schedule**\. If you choose **On schedule**, then use the buttons provided to create a cron or rate schedule for the association\. 
+1. In **Specify schedule**, choose either **On schedule** or **No schedule**\. If you choose **On schedule**, use the buttons provided to create a cron or rate schedule for the association\. 
 
-1. In the **Advanced options** section, for **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager Association Compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
+1. In **Advanced options**, for **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager Association Compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-1. In the **Rate control** section, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [Using Targets and Rate Controls with State Manager Associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
-   In the **Concurrency** section, choose an option: 
+   In **Concurrency**, choose an option: 
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
    + Choose **percentage** to enter a percentage of the target set that can run the association simultaneously\.
 
-   In the **Error threshold** section, choose an option:
+   In **Error threshold**, choose an option:
    + Choose **errors** to enter an absolute number of errors that are allowed before State Manager stops running associations on additional targets\.
    + Choose **percentage** to enter a percentage of errors that are allowed before State Manager stops running associations on additional targets\.
 
-1. In the **Output options** section, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an Amazon S3 bucket\.
+1. In **Output options**, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an S3 bucket\.
 
 1. Choose **Create Association**\.
 
@@ -147,11 +147,11 @@ If you use tags to create an association on one or more target instances, and th
 
 The following procedure describes how to use the AWS CLI to create a State Manager association that runs Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` document\. 
 
-**To create an association that runs Ansible playbooks \(CLI\)**
+**To create an association that runs Ansible playbooks**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Run one of the following commands to create an association that runs Ansible playbooks by targeting instances using Amazon EC2 tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
 

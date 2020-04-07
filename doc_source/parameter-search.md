@@ -17,7 +17,7 @@ For information about using the Systems Manager console and AWS CLI to view info
 1. Click in the search box and choose how you want to search\. For example, Type or Name\.
 
 1. Provide information for the search type you selected\. For example:
-   + If you are searching by Type, choose from String, SecureString, or StringList\.
+   + If you are searching by Type, choose from String, StringList, or SecureString\.
    + If you are searching by Name, choose contains, equals, or begins\-with, and then enter all or part of a parameter name\.
 **Note**  
 In the console, the default search type for Name is contains\.
@@ -32,7 +32,7 @@ The following examples demonstrate various options you can use to view informati
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade the AWS CLI](getting-started-cli.md)\.
+   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
 
 1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account\.
 
@@ -66,7 +66,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
-In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a secure string parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [About Secure String Parameters](sysman-paramstore-securestring.md)\.
+In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
 
    If successful, the command returns output similar to the following\.
 

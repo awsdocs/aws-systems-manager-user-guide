@@ -40,7 +40,10 @@ If you create your own patch baseline, you can choose which patches to auto\-app
 + Classification: For example, critical updates, security updates, and so on\.
 + Severity: For example, critical, important, and so on\.
 
-For each aapproval rule that you create, you can choose to specify an auto\-approval delay or specify a patch approval cutoff date\. 
+For each approval rule that you create, you can choose to specify an auto\-approval delay or specify a patch approval cutoff date\. 
+
+**Note**  
+Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
 
 An auto\-approval delay is the number of days to wait after the patch was released, before the patch is automatically approved for patching\. For example, if you create a rule using the `CriticalUpdates` classification and configure it for seven days auto\-approval delay, then a new critical patch released on July 7 is automatically approved on July 14\.
 

@@ -4,7 +4,7 @@
 
 The `AWSEC2-SQLServerDBRestore` document restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud \(EC2\) Linux instance\. You may provide your own EC2 instance running SQL Server 2017 Linux\. If an EC2 instance is not provided, the automation workflow launches and configures a new Ubuntu 16\.04 EC2 instance with SQL Server 2017\. The automation supports restoring full, differential, and transactional log backups\. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided\.
 
-To automate both backup and restore of an on\-premises SQL Server database to an Amazon EC2 instance running SQL Server 2017 Linux, see the AWS\-signed PowerShell script [MigrateSQLServerToEC2Linux\.ps1](https://s3-us-west-1.amazonaws.com/awsec2-server-upgrade-prod/MigrateSQLServerToEC2Linux.ps1)\. 
+To automate both backup and restore of an on\-premises SQL Server database to an Amazon EC2 instance running SQL Server 2017 Linux, you can use the AWS\-signed PowerShell script [samples/MigrateSQLServerToEC2Linux.zip](samples/MigrateSQLServerToEC2Linux.zip)\. 
 
 **Important**  
 This automation workflow resets the SQL Server server administrator \(SA\) user password every time the workflow runs\. After the automation workflow is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
