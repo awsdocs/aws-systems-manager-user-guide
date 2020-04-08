@@ -1,18 +1,23 @@
-# SSM Document Syntax<a name="sysman-doc-syntax"></a>
+# SSM document syntax<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later\. Documents that use this schema version include the following top\-level elements\. For information about the properties that you can specify in these elements, see [Top\-level Elements](ssm-plugins.md#top-level)\.
+The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later\. 
+
+**Note**  
+For information about the syntax of Automation documents, which use schema 0\.3, see [Automation document schema and syntax](automation-doc-syntax.md)\.
+
+Documents that use schema version 2\.2 or later include the following top\-level elements\. For information about the properties that you can specify in these elements, see [Top\-level elements](ssm-plugins.md#top-level)\.
 + `schemaVersion`: The schema version to use\.
 + `Description`: Information you provide to describe the purpose of the document\.
 + `Parameters`: The parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Systems Manager parameters in this section of a document\. You can't reference `SecureString` Systems Manager parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.
-+ `mainSteps`: An object that can include multiple steps \(plugins\)\. Steps include one or more actions, an optional precondition, a unique name of the action, and inputs \(parameters\) for those actions\. For a list of supported plugins and plugin properties, see [SSM Document Plugin Reference](ssm-plugins.md)\.
++ `mainSteps`: An object that can include multiple steps \(plugins\)\. Steps include one or more actions, an optional precondition, a unique name of the action, and inputs \(parameters\) for those actions\. For a list of supported plugins and plugin properties, see [SSM document plugin reference](ssm-plugins.md)\.
 **Important**  
 The name of the action can't include a space\. If a name includes a space, you will receive an InvalidDocumentContent error\.
 
 **Topics**
-+ [Schema Version 2\.2](#documents-schema-twox)
-+ [Schema Version 1\.2](#documents-schema-onex)
++ [Schema version 2\.2](#documents-schema-twox)
++ [Schema version 1\.2](#documents-schema-onex)
 
-## Schema Version 2\.2<a name="documents-schema-twox"></a>
+## Schema version 2\.2<a name="documents-schema-twox"></a>
 
 The following example shows the top\-level elements of a schema version 2\.2 document in JSON\.
 
@@ -103,7 +108,7 @@ Schema version 2\.2 provides cross\-platform support\. This means that within a 
 }
 ```
 
-### Schema Version Examples 2\.2<a name="documents-schema-2"></a>
+### Schema version examples 2\.2<a name="documents-schema-2"></a>
 
 You can use the following YAML document with State Manager to download and install the ClamAV antivirus software\. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed\. If not, State Manager reruns this document\.
 
@@ -233,7 +238,7 @@ On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2
 }
 ```
 
-## Schema Version 1\.2<a name="documents-schema-onex"></a>
+## Schema version 1\.2<a name="documents-schema-onex"></a>
 
 The following example shows the top\-level elements of a schema version 1\.2 document\.
 

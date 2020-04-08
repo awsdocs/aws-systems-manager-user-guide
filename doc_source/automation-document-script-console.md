@@ -1,4 +1,4 @@
-# Creating an Automation Document that Runs a Script \(Console\)<a name="automation-document-script-console"></a>
+# Creating an Automation document that runs a script \(console\)<a name="automation-document-script-console"></a>
 
 **To create an Automation document that runs a script**
 
@@ -22,7 +22,7 @@ Toggle between **Hide preview** and **Show preview** to see what your descriptio
 
 1. \(Optional\) For **Assume role**, enter the name or ARN of a service role to perform actions on your behalf\. If you don't specify a role, Automation uses the access permissions of the user who invokes the automation execution\.
 **Important**  
-For Automation documents not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for Running Automation Executions](automation-document-script.md#execution-permissions)\.
+For Automation documents not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
 
 1. \(Optional\) For **Outputs**, enter any outputs for the execution of this document to make available for other processes\. 
 
@@ -49,7 +49,7 @@ If you specify a value of '`/`', the document can run on all types of resources\
 1. In the **Step 1** section, provide the following information\.
    + For **Step name**, enter a descriptive name for the first step of the automation workflow\.
    + For **Action type**, select **Run a script** \(**aws:executeScript**\)\.
-   + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\.
+   + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\. 
 
 1. Expand the **Inputs** section and provide the following information\.
    + For **Runtime**, choose the type of script you are adding\. Currently, Automation supports Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\.
@@ -91,13 +91,13 @@ You can calculate the checksum of the file in sha256 by using a tool like shasum
 
    **Name**: `message` \| **Selector**: $\.Payload\.message \| **Type**: **String**
 
-   For more information about outputs, see [Working with Inputs and Outputs](automation-aws-apis-calling.md#automation-aws-apis-calling-input-output)\.
+   For more information about outputs, see [Working with inputs and outputs](automation-aws-apis-calling.md#automation-aws-apis-calling-input-output)\.
 **Tip**  
 To add more outputs, select **Add output**\. 
 
 1. \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all Automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it is stopped\.
 
-   For more information, see [Properties Shared by All Actions](automation-actions.md#automation-common)\.
+   For more information, see [Properties shared by all actions](automation-actions.md#automation-common)\.
 **Note**  
 To add more document steps, select **Add step** and repeat the procedure for creating a step\. To remove a document step, choose **Remove step**\.
 

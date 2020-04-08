@@ -3,24 +3,24 @@
 The following sample walkthrough shows you how to use the AWS CLI to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
-+ [Step 1: Getting Started](#walkthrough-cli-settings)
-+ [Step 2: Run Shell Scripts](#walkthrough-cli-run-scripts)
-+ [Step 3: Send a Command Using the AWS\-RunShellScript document \- Example 1](#walkthrough-cli-example-1)
-+ [Step 4: Send a Command Using the AWS\-RunShellScript document \- Example 2](#walkthrough-cli-example-2)
-+ [Additional Examples](#walkthrough-cli-examples)
++ [Step 1: Getting started](#walkthrough-cli-settings)
++ [Step 2: Run shell scripts](#walkthrough-cli-run-scripts)
++ [Step 3: Send a command using the AWS\-RunShellScript document \- Example 1](#walkthrough-cli-example-1)
++ [Step 4: Send a command using the AWS\-RunShellScript document \- Example 2](#walkthrough-cli-example-2)
++ [Additional examples](#walkthrough-cli-examples)
 
-## Step 1: Getting Started<a name="walkthrough-cli-settings"></a>
+## Step 1: Getting started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **To run commands using the AWS CLI**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. List all available documents
 
@@ -46,7 +46,7 @@ To run the commands in this walkthrough, you must replace the instance and comma
    aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance ID
    ```
 
-## Step 2: Run Shell Scripts<a name="walkthrough-cli-run-scripts"></a>
+## Step 2: Run shell scripts<a name="walkthrough-cli-run-scripts"></a>
 
 Using Run Command and the AWS\-RunShellScript document, you can run any command or script on an EC2 instance as if you were logged on locally\.
 
@@ -62,7 +62,7 @@ Using Run Command and the AWS\-RunShellScript document, you can run any command 
   aws ssm describe-document --name "AWS-RunShellScript" --query "Document.Parameters[*]"
   ```
 
-## Step 3: Send a Command Using the AWS\-RunShellScript document \- Example 1<a name="walkthrough-cli-example-1"></a>
+## Step 3: Send a command using the AWS\-RunShellScript document \- Example 1<a name="walkthrough-cli-example-1"></a>
 
 Use the following command to get IP information for an instance\.
 
@@ -77,7 +77,7 @@ The following command uses the Command ID that was returned from the previous co
 aws ssm list-command-invocations --command-id $sh_command_id --details
 ```
 
-## Step 4: Send a Command Using the AWS\-RunShellScript document \- Example 2<a name="walkthrough-cli-example-2"></a>
+## Step 4: Send a command using the AWS\-RunShellScript document \- Example 2<a name="walkthrough-cli-example-2"></a>
 
 The following command displays the default user account running the commands\. 
 
@@ -106,7 +106,7 @@ The following command returns the output of the original aws ssm send\-command f
 aws ssm list-command-invocations --instance-id instance ID --command-id "command_ID" --details
 ```
 
-## Additional Examples<a name="walkthrough-cli-examples"></a>
+## Additional examples<a name="walkthrough-cli-examples"></a>
 
 The following command returns the version of Python running on an instance\.
 

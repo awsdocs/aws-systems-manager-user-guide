@@ -1,4 +1,4 @@
-# Metadata Collected by Inventory<a name="sysman-inventory-schema"></a>
+# Metadata collected by inventory<a name="sysman-inventory-schema"></a>
 
 The following sample shows the complete list of metadata collected by each Inventory plugin\.
 

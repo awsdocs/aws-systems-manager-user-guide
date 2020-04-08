@@ -1,4 +1,4 @@
-# Creating Dynamic Automation Workflows with Conditional Branching<a name="automation-branchdocs"></a>
+# Creating dynamic Automation workflows with conditional branching<a name="automation-branchdocs"></a>
 
 By default, the steps that you define in the `mainSteps` section of an Automation document, or playbook, run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire Automation workflow fails \(by default\)\. You can use the `aws:branch` Automation action and the Automation document options described in this section to create Automation workflows that perform *conditional branching*\. This means that you can create Automation workflows that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic Automation workflows:
 + **aws:branch**: This automation action enables you to create a dynamic Automation workflow that evaluates multiple choices in a single step and then jumps to a different step in the Automation document based on the results of that evaluation\.
@@ -7,7 +7,7 @@ By default, the steps that you define in the `mainSteps` section of an Automatio
 + **isCritical**: This option designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.
 + **onFailure**: This option indicates whether the workflow should abort, continue, or go to a different step on failure\. The default value for this option is abort\.
 
-The following section describes the `aws:branch` Automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` workflow options, see [Examples of How to Use Dynamic Workflow Options](#automation-branchdocs-examples)\.
+The following section describes the `aws:branch` Automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` workflow options, see [Examples of how to use dynamic workflow options](#automation-branchdocs-examples)\.
 
 ## Working with the aws:branch action<a name="automation-branchdocs-awsbranch"></a>
 
@@ -84,7 +84,7 @@ When you create an `aws:branch` step in an Automation document, you define the `
 
   `Variable: "{{previousStepName.outputFieldName}}"`
 **Note**  
-Creating the output variable is described in more detail in the next section, [About Creating the Output Variable](#automation-branchdocs-awsbranch-creating-output)\.
+Creating the output variable is described in more detail in the next section, [About creating the output variable](#automation-branchdocs-awsbranch-creating-output)\.
 + **Operation**: The criteria used to evaluate the choice, such as `StringEquals: Linux`\. The `aws:branch` action supports the following operations:
 
 **String operations**
@@ -162,7 +162,7 @@ mainSteps:
 
 ------
 
-#### About Creating the Output Variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
+#### About creating the output variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
 
 To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format:
 
@@ -237,7 +237,7 @@ Here is a JSON example that shows how * "Variable": "\{\{ describeInstance\.Plat
     }
 ```
 
-### Example aws:branch Automation Documents<a name="automation-branchdocs-awsbranch-examples-docs"></a>
+### Example aws:branch Automation documents<a name="automation-branchdocs-awsbranch-examples-docs"></a>
 
 Here are some example Automation documents that use `aws:branch`\.
 
@@ -363,7 +363,7 @@ mainSteps:
     Duration: PT3S
 ```
 
-### Creating Complex Branching Documents with Operators<a name="automation-branchdocs-awsbranch-operators"></a>
+### Creating complex branching documents with operators<a name="automation-branchdocs-awsbranch-operators"></a>
 
 You can create complex branching documents by using the `And`, `Or`, and `Not` operators in your `aws:branch` steps\.
 
@@ -431,7 +431,7 @@ mainSteps:
       sleep3
 ```
 
-## Examples of How to Use Dynamic Workflow Options<a name="automation-branchdocs-examples"></a>
+## Examples of how to use dynamic workflow options<a name="automation-branchdocs-examples"></a>
 
 This section includes different examples of how to use dynamic workflow options in an Automation document\. Each example in this section extends the following Automation document\. This document has two actions\. The first action is named `InstallMsiPackage`\. It uses the `aws:runCommand` action to install an application on a Windows Server instance\. The second action is named `TestInstall`\. It uses the `aws:invokeLambdaFunction` action to perform a test of the installed application if the application installed successfully\. Step one specifies `onFailure: Abort`\. This means that if the application did not install successfully, the Automation workflow execution stops before step two\.
 

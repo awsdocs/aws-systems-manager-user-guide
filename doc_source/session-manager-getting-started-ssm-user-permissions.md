@@ -1,19 +1,19 @@
-# Step 6: \(Optional\) Disable or Enable ssm\-user Account Administrative Permissions<a name="session-manager-getting-started-ssm-user-permissions"></a>
+# Step 6: \(Optional\) disable or enable ssm\-user account administrative permissions<a name="session-manager-getting-started-ssm-user-permissions"></a>
 
 When a version of SSM Agent that supports Session Manager starts on an instance, it creates a user account with root or administrator privileges called *ssm\-user*\. On Linux machines, the account is added to `/etc/sudoers`\. On Windows machines, it is added to the Administrators group\. Sessions are launched using the credentials of this user account\.
 
 If you want to prevent Session Manager users from running administrative commands on an instance, you can update its *ssm\-user* permissions\. You can also restore these permissions after they have been removed\.
 
 **Topics**
-+ [Managing ssm\-user sudo Account Permissions on Linux](#ssm-user-permissions-linux)
-+ [Managing ssm\-user Administrator Account Permissions on Windows Server](#ssm-user-permissions-windows)
++ [Managing ssm\-user sudo account permissions on Linux](#ssm-user-permissions-linux)
++ [Managing ssm\-user Administrator account permissions on Windows server](#ssm-user-permissions-windows)
 
-## Managing ssm\-user sudo Account Permissions on Linux<a name="ssm-user-permissions-linux"></a>
+## Managing ssm\-user sudo account permissions on Linux<a name="ssm-user-permissions-linux"></a>
 
 Use one of the following procedures to disable or enable the ssm\-user account sudo permissions on Linux instances:
 
 **Use Run Command to modify ssm\-user sudo permissions \(console\)**
-+ Use the procedure in [Running Commands from the Console](rc-console.md) with the following values:
++ Use the procedure in [Running commands from the console](rc-console.md) with the following values:
   + For **Command document**, choose `AWS-RunShellScript`\.
   + To remove sudo access, in the **Command parameters** area, paste the following in the **Commands** box:
 
@@ -63,12 +63,12 @@ Use one of the following procedures to disable or enable the ssm\-user account s
 
 1. Save the file\.
 
-## Managing ssm\-user Administrator Account Permissions on Windows Server<a name="ssm-user-permissions-windows"></a>
+## Managing ssm\-user Administrator account permissions on Windows server<a name="ssm-user-permissions-windows"></a>
 
 Use one of the following procedures to disable or enable the ssm\-user account Administrator permissions on Windows Server instances:
 
 **Use Run Command to modify Administrator permissions \(console\)**
-+ Use the procedure in [Running Commands from the Console](rc-console.md) with the following values:
++ Use the procedure in [Running commands from the console](rc-console.md) with the following values:
 
   For **Command document**, choose `AWS-RunPowerShellScript`\.
 
@@ -86,7 +86,7 @@ Use one of the following procedures to disable or enable the ssm\-user account A
   net localgroup "Administrators" "ssm-user" /add
   ```
 
-**Use the PowerShell or Command Prompt window to modify Administrator permissions**
+**Use the PowerShell or command prompt window to modify Administrator permissions**
 
 1. Connect to the instance and open the PowerShell or Command Prompt window\.
 

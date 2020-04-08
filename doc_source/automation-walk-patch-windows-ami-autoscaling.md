@@ -1,15 +1,15 @@
-# Walkthrough: Patch an AMI and Update an Auto Scaling Group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
+# Walkthrough: Patch an AMI and update an Auto Scaling group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
 
-The following example builds on the [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
+The following example builds on the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
 The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly\-patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting Started with Automation](automation-setup.md)\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting started with Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
-## Task 1: Create an IAM Role for AWS Lambda<a name="automation-asg1"></a>
+## Task 1: Create an IAM role for AWS Lambda<a name="automation-asg1"></a>
 
 Use the following procedure to create an IAM service role for AWS Lambda\. This role includes the **AWSLambdaExecute** and **AutoScalingFullAccess** managed policies\. These policies give Lambda permission to create a new Auto Scaling group with the latest, patched AMI using a Lambda function\.
 
@@ -34,7 +34,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
-## Task 2: Create an AWS Lambda Function<a name="automation-asg2"></a>
+## Task 2: Create an AWS Lambda function<a name="automation-asg2"></a>
 
 Use the following procedure to create a Lambda function that automatically updates an existing Auto Scaling group with the latest, patched AMI\.
 
@@ -127,7 +127,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Test**\. The output states that the Auto Scaling group was successfully updated with a new launch configuration\.
 
-## Task 3: Create an Automation Document, Patch the AMI, and Update the Auto Scaling Group<a name="automation-asg3"></a>
+## Task 3: Create an Automation document, patch the AMI, and update the Auto Scaling group<a name="automation-asg3"></a>
 
 Use the following procedure to create and run an Automation document that patches the AMI you specified for the **latestAmi** parameter\. The Automation workflow then updates the Auto Scaling group to use the latest, patched AMI\.
 
@@ -149,7 +149,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting Started with Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting started with Automation](automation-setup.md)\.
 
    ```
    {

@@ -1,4 +1,4 @@
-# Working with File and Windows Registry Inventory<a name="sysman-inventory-file-and-registry"></a>
+# Working with file and Windows registry inventory<a name="sysman-inventory-file-and-registry"></a>
 
 Systems Manager Inventory enables you to search and inventory files on Windows and Linux operating systems\. You can also search and inventory the Windows Registry\.
 

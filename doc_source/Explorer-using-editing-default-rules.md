@@ -1,4 +1,4 @@
-# Editing Default Rules for OpsItems<a name="Explorer-using-editing-default-rules"></a>
+# Editing default rules for OpsItems<a name="Explorer-using-editing-default-rules"></a>
 
 When you complete Integrated Setup, the system enables more than a dozen rules in Amazon CloudWatch Events\. These rules automatically create OpsItems in Systems Manager OpsCenter\. Systems Manager Explorer then displays aggregated information about the OpsItems\.
 

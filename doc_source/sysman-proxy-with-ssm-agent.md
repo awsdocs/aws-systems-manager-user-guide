@@ -1,16 +1,16 @@
-# Configure SSM Agent to Use a Proxy<a name="sysman-proxy-with-ssm-agent"></a>
+# Configure SSM Agent to use a proxy<a name="sysman-proxy-with-ssm-agent"></a>
 
 You can configure SSM Agent to communicate through an HTTP proxy by adding the `http_proxy`, `https_proxy`, and `no_proxy` settings to an `amazon-ssm-agent.override` configuration file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for *upstart* and *systemd* environments\. 
 
 **Note**  
-Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
+Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
 
 **Topics**
-+ [Configure SSM Agent to Use a Proxy \(Upstart\)](#ssm-agent-proxy-upstart)
-+ [Configure SSM Agent to Use a Proxy \(systemd\)](#ssm-agent-proxy-systemd)
-+ [Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server](sysman-proxy-with-ssm-agent-al-python-requests.md)
++ [Configure SSM Agent to use a proxy \(upstart\)](#ssm-agent-proxy-upstart)
++ [Configure SSM Agent to use a proxy \(systemd\)](#ssm-agent-proxy-systemd)
++ [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)
 
-## Configure SSM Agent to Use a Proxy \(Upstart\)<a name="ssm-agent-proxy-upstart"></a>
+## Configure SSM Agent to use a proxy \(upstart\)<a name="ssm-agent-proxy-upstart"></a>
 
 1. Connect to the instance where you installed SSM Agent\.
 
@@ -46,7 +46,7 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
 **Note**  
 For more information about working with `.override` files in Upstart environments, see [init: Upstart init daemon job configuration](https://www.systutorials.com/docs/linux/man/5-init/)\.
 
-## Configure SSM Agent to Use a Proxy \(systemd\)<a name="ssm-agent-proxy-systemd"></a>
+## Configure SSM Agent to use a proxy \(systemd\)<a name="ssm-agent-proxy-systemd"></a>
 
 The steps in the following procedure describe how to configure SSM Agent to use a proxy in systemd environments\. Some of the steps in this procedure contain explicit instructions for Ubuntu Server instances installed by using Snap\.
 

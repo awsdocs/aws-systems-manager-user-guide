@@ -1,4 +1,4 @@
-# Getting Started with Systems Manager Explorer and OpsCenter<a name="Explorer-setup"></a>
+# Getting started with Systems Manager Explorer and OpsCenter<a name="Explorer-setup"></a>
 
 Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer and Systems Manager OpsCenter\. In this documentation, Explorer and OpsCenter Setup is called *Integrated Setup*\. If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\. Integrated Setup performs the following tasks\.
 
@@ -15,7 +15,7 @@ After you complete Integrated Setup, we recommend that you [Set up Explorer to d
 **Note**  
 You can change setup configurations at any time on the **Settings** page\.
 
-## Before You Begin<a name="Explorer-setup-related-services"></a>
+## Before you begin<a name="Explorer-setup-related-services"></a>
 
 Explorer and OpsCenter collect information from, or interact with, other AWS services and Systems Manager capabilities\. We recommend that you set up and configure these other services or capabilities before you use Integrated Setup\.
 
@@ -26,6 +26,6 @@ The following table includes tasks that enable Explorer and OpsCenter to collect
 
 | Task | Information | 
 | --- | --- | 
-|  Verify permissions in Systems Manager Automation  |  Explorer and OpsCenter enable you to remediate issues with AWS resources by using Systems Manager Automation documents \(runbooks\)\. To use this remediation capability, you must have permission to run Systems Manager Automation documents\. For more information, see [Getting Started with Automation](automation-setup.md)\.  | 
+|  Verify permissions in Systems Manager Automation  |  Explorer and OpsCenter enable you to remediate issues with AWS resources by using Systems Manager Automation documents \(runbooks\)\. To use this remediation capability, you must have permission to run Systems Manager Automation documents\. For more information, see [Getting started with Automation](automation-setup.md)\.  | 
 |  Set up and configure Systems Manager Patch Manager  |  Explorer includes a widget that provides information about patch compliance\. To view data in this widget, you must configure patching\. For more information, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\.  | 
 |  Enable AWS Config Configuration Recorder  |  Explorer uses data provided by AWS Config configuration recorder to populate widgets with information about your Amazon EC2 instances\. To ensure that these widgets display data, enable AWS Config configuration recorder\. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)\.  After you enable configuration recorder, Systems Manager can take up to six hours to display data in Explorer widgets that display information about your Amazon EC2 instances\.   | 

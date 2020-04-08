@@ -1,10 +1,10 @@
-# Running Automation Workflows with Triggers using CloudWatch Events<a name="automation-cwe-target"></a>
+# Running Automation workflows with triggers using CloudWatch Events<a name="automation-cwe-target"></a>
 
 You can start an Automation workflow by specifying an Automation document as the target of an Amazon CloudWatch event\. You can start workflows according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create an Automation document named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* document \(and corresponding workflow\) as a target of a CloudWatch event, you first create a new CloudWatch Events rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* document as the target of the event using the CloudWatch console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\. When a new instance starts, the system runs the workflow and installs software\.
 
-For information about creating Automation documents, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\.
+For information about creating Automation documents, see [Working with Automation documents \(Playbooks\)](automation-documents.md)\.
 
-## Creating a CloudWatch Event that Runs an Automation Workflow \(Console\)<a name="automation-cwe-target-console"></a>
+## Creating a CloudWatch event that runs an Automation workflow \(console\)<a name="automation-cwe-target-console"></a>
 
 Use the following procedure to configure an Automation workflow as the target of a CloudWatch event\.
 
@@ -32,7 +32,7 @@ Required parameters have an asterisk \(\*\) next to the parameter name\. To crea
 
 1. Choose **Configure details** and complete the wizard\.
 
-## Create a CloudWatch Event that Runs an Automation Document \(Command Line\)<a name="automation-cwe-target-commandline"></a>
+## Create a CloudWatch event that runs an Automation document \(command line\)<a name="automation-cwe-target-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a CloudWatch event rule and configure an Automation document as the target\.
 
@@ -40,7 +40,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Create a command to specify a new CloudWatch event rule\. Here are some template commands to help\.
 

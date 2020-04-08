@@ -1,6 +1,6 @@
-# SSM Document Plugin Reference<a name="ssm-plugins"></a>
+# SSM document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation Actions Reference](automation-actions.md)\.
+This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of a Systems Manager document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
@@ -8,7 +8,7 @@ Systems Manager determines the actions to perform on a managed instance by readi
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.
 
 **Topics**
-+ [Top\-level Elements](#top-level)
++ [Top\-level elements](#top-level)
 + [`type` Examples](#top-level-properties-type)
 + [aws:applications](#aws-applications)
 + [aws:cloudWatch](#aws-cloudWatch)
@@ -26,7 +26,7 @@ Some of the plugins described here run only on either Windows Server instances o
 + [aws:updateAgent](#aws-updateagent)
 + [aws:updateSsmAgent](#aws-updatessmagent)
 
-## Top\-level Elements<a name="top-level"></a>
+## Top\-level elements<a name="top-level"></a>
 
 The top\-level elements are common for all Systems Manager documents\. Top\-level elements provide the structure of the Systems Manager document\.
 
@@ -49,8 +49,65 @@ The `parameters` structure accepts the following fields and values:
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` Examples](#top-level-properties-type) in the next section\.
 + `description`: \(Optional\) A description of the parameter\.
 + `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
-+ `allowedValues`: \(Optional\) Allowed values for the parameter\.
-+ `allowedPattern`: \(Optional\) The regular expression the parameter must match\.
++ `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that is not allowed, the execution fails to start\.
+
+------
+#### [ YAML ]
+
+  ```
+  DirectoryType:
+    type: String
+    description: "(Required) The directory type to launch."
+    default: AwsMad
+    allowedValues:
+    - AdConnector
+    - AwsMad
+    - SimpleAd
+  ```
+
+------
+#### [ JSON ]
+
+  ```
+  "DirectoryType": {
+      "type": "String",
+      "description": "(Required) The directory type to launch.",
+      "default": "AwsMad",
+      "allowedValues": [
+          "AdConnector",
+          "AwsMad",
+          "SimpleAd"
+      ]
+  }
+  ```
+
+------
++ `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.
+
+------
+#### [ YAML ]
+
+  ```
+  InstanceId:
+    type: String
+    description: "(Required) The instance ID to target."
+    allowedPattern: "^i-[a-z0-9]{8,17}$"
+    default: ''
+  ```
+
+------
+#### [ JSON ]
+
+  ```
+  "InstanceId": {
+      "type": "String",
+      "description": "(Required) The instance ID to target.",
+      "allowedPattern": "^i-[a-z0-9]{8,17}$",
+      "default": ""
+  }
+  ```
+
+------
 + `displayType`: \(Optional\) Used to display either a `textfield` or a `textarea` in the AWS console\. `textfield` is a single\-line text box\. `textarea` is a multi\-line text area\.
 + `minItems`: \(Optional\) The minimum number of items allowed\.
 + `maxItems`: \(Optional\) The maximum number of items allowed\.
@@ -207,9 +264,9 @@ Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs a
 
 **Important**  
 This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
-[Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
-[Migrate Windows Server Instance Log Collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
-[Collect Metrics from Amazon Elastic Compute Cloud Instances and On\-Premises Servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+[Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
+[Migrate Windows Server instance log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
+[Collect metrics from Amazon Elastic Compute Cloud instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
 
 You can export and monitor the following data types:
 
@@ -257,7 +314,7 @@ The destination where your log data is sent\. You can add more sections with uni
     }
 ```
 
-### Settings and Properties<a name="cloudWatch-properties"></a>
+### Settings and properties<a name="cloudWatch-properties"></a>
 
 **AccessKey**  
 Your access key ID\. This property is required unless you launched your instance using an IAM role\. This property cannot be used with SSM\.  
@@ -390,7 +447,7 @@ Required: Yes
 **Region**  
 The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](url-aws-gen;cwl_region.html#cwl_region) and [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](url-aws-gen;cwl_region.html#cwl_region) and [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
 Required: Yes
 
 **SecretKey**  
@@ -1525,7 +1582,7 @@ Type: String
 Required: No
 
 **files**  
-\(Optional, requires SSM Agent version 2\.2\.64\.0 or later\) Collect metadata for files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few\. For more information about collecting file inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.  
+\(Optional, requires SSM Agent version 2\.2\.64\.0 or later\) Collect metadata for files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few\. For more information about collecting file inventory, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.  
 Type: String  
 Required: No
 
@@ -1550,7 +1607,7 @@ Type: String
 Required: No
 
 **windowsRegistry**  
-\(Optional, Windows OS only, requires SSM Agent version 2\.2\.64\.0 or later\) Collect Windows Registry keys and values\. You can choose a key path and collect all keys and values recursively\. You can also collect a specific registry key and its value for a specific path\. Inventory collects the key path, name, type, and the value\. For more information about collecting Windows Registry inventory, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.  
+\(Optional, Windows OS only, requires SSM Agent version 2\.2\.64\.0 or later\) Collect Windows Registry keys and values\. You can choose a key path and collect all keys and values recursively\. You can also collect a specific registry key and its value for a specific path\. Inventory collects the key path, name, type, and the value\. For more information about collecting Windows Registry inventory, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.  
 Type: String  
 Required: No
 
@@ -1560,7 +1617,7 @@ Type: String
 Required: No
 
 **customInventory**  
-\(Optional\) Collect custom inventory data\. For more information about custom inventory, see [Working with Custom Inventory](sysman-inventory-custom.md)  
+\(Optional\) Collect custom inventory data\. For more information about custom inventory, see [Working with custom inventory](sysman-inventory-custom.md)  
 Type: String  
 Required: No
 

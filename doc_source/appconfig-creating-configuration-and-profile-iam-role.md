@@ -1,4 +1,4 @@
-# About the Configuration Profile IAM Role<a name="appconfig-creating-configuration-and-profile-iam-role"></a>
+# About the configuration profile IAM role<a name="appconfig-creating-configuration-and-profile-iam-role"></a>
 
 You can create the IAM role that provides access to the configuration data by using AppConfig, as described in the following procedure\. Or you can create the IAM role yourself and choose it from a list\. If you create the role by using AppConfig, the system creates the role and specifies one of the following permissions policies, depending on which type of configuration source you choose\.
 

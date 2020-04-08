@@ -1,4 +1,4 @@
-# About Predefined and Custom Patch Baselines<a name="sysman-patch-baselines"></a>
+# About predefined and custom patch baselines<a name="sysman-patch-baselines"></a>
 
 A patch baseline defines which patches are approved for installation on your instances\. You can specify approved or rejected patches one by one\. You can also create auto\-approval rules to specify that certain types of updates \(for example, critical updates\) should be automatically approved\. The rejected list overrides both the rules and the approve list\. 
 
@@ -7,19 +7,19 @@ To use a list of approved patches to install specific packages, you first remove
 Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
 
 **Topics**
-+ [About Predefined Baselines](#patch-manager-baselines-pre-defined)
-+ [About Custom Baselines](#patch-manager-baselines-custom)
++ [About predefined baselines](#patch-manager-baselines-pre-defined)
++ [About custom baselines](#patch-manager-baselines-custom)
 
-## About Predefined Baselines<a name="patch-manager-baselines-pre-defined"></a>
+## About predefined baselines<a name="patch-manager-baselines-pre-defined"></a>
 
 The following table describes the predefined patch baselines provided with Patch Manager\.
 
-For information about which versions of each operating system Patch Manager supports, see [Patch Manager Prerequisites](patch-manager-prerequisites.md)\.
+For information about which versions of each operating system Patch Manager supports, see [Patch Manager prerequisites](patch-manager-prerequisites.md)\.
 
 
 ****  
 
-| Name | Supported Operating System | Details | 
+| Name | Supported operating system | Details | 
 | --- | --- | --- | 
 |  `AWS-AmazonLinuxDefaultPatchBaseline`  |  Amazon Linux  |  Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important"\. Patches are auto\-approved seven days after release\. Also auto\-approves all patches with a classification of "Bugfix" seven days after release\.  | 
 | AWS\-AmazonLinux2DefaultPatchBaseline | Amazon Linux 2 | Approves all operating system patches that are classified as "Security" and that have a severity level of "Critical" or "Important"\. Patches are auto\-approved seven days after release\. Also approves all patches with a classification of "Bugfix" seven days after release\. | 
@@ -31,7 +31,7 @@ For information about which versions of each operating system Patch Manager supp
 | AWS\-WindowsPredefinedPatchBaseline\-OS |  Windows Server  |  Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
 | AWS\-WindowsPredefinedPatchBaseline\-OS\-Applications | Windows Server | For the Windows Server operating system, approves all patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. For Microsoft applications, approves all patches\. Patches for both OS and applications are auto\-approved seven days after release\. | 
 
-## About Custom Baselines<a name="patch-manager-baselines-custom"></a>
+## About custom baselines<a name="patch-manager-baselines-custom"></a>
 
 If you create your own patch baseline, you can choose which patches to auto\-approve by using the following categories\.
 + Operating system: Windows, Amazon Linux, Ubuntu Server, and so on\.
@@ -65,6 +65,6 @@ For Windows Server, two predefined patch baselines are provided\. The patch base
 + An instance can have only one patch baseline defined for it\.
 + The formats of package names you can add to lists of approved patches and rejected patches for a patch baseline depend on the type of operating system you are patching\.
 
-  For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+  For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
-For information about creating a patch baseline, see [Create a Custom Patch Baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
+For information about creating a patch baseline, see [Create a custom patch baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.

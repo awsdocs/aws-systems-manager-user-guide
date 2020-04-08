@@ -1,4 +1,4 @@
-# About Patch Groups<a name="sysman-patch-patchgroups"></a>
+# About patch groups<a name="sysman-patch-patchgroups"></a>
 
 You can use a *patch group* to associate instances with a specific patch baseline\. Patch groups help ensure that you are deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
@@ -12,11 +12,11 @@ You create a patch group by using Amazon EC2 tags\. Unlike other tagging scenari
 **Note**  
 An instance can only be in one patch group\.
 
-After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Create a Patch Group](sysman-patch-group-tagging.md) and [Add a Patch Group to a Patch Baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
+After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Create a patch group](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
-To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
+To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
-## How It Works<a name="how-it-works-patch-groups"></a>
+## How it works<a name="how-it-works-patch-groups"></a>
 
 When the system runs the task to apply a patch baseline to an instance, SSM Agent verifies that a patch group value is defined for the instance\. If the instance is assigned to a patch group, Patch Manager then verifies which patch baseline is registered to that group\. If a patch baseline is found for that group, Patch Manager notifies SSM Agent to use the associated patch baseline\. If an instance isn't configured for a patch group, Patch Manager automatically notifies SSM Agent to use the currently configured default patch baseline\.
 
@@ -27,7 +27,7 @@ In this example, we have three groups of Windows EC2 instances with the followin
 
 ****  
 
-| EC2 Instances Group | Tags | 
+| EC2 instances group | Tags | 
 | --- | --- | 
 |  Group 1  |  `key=OS,value=Windows` `key=Patch Group,value=DEV`  | 
 |  Group 2  |  `key=OS,value=Windows`  | 
@@ -38,7 +38,7 @@ For this example, we also have these two Windows patch baselines:
 
 ****  
 
-| Patch Baseline ID | Default | Associated Patch Group | 
+| Patch baseline ID | Default | Associated patch group | 
 | --- | --- | --- | 
 |  `pb-0123456789abcdef0`  |  Yes  |  `Default`  | 
 |  `pb-9876543210abcdef0`  |  No  |  `DEV`  | 
@@ -78,6 +78,6 @@ The general process to scan or install patches using Run Command and Patch Manag
 
 1. **Patch scan or install**: After determining the appropriate patch baseline to use, SSM Agent begins either scanning for or installing patches based on the operation value specified in Step 1\. The patches that are scanned for or installed are determined by the approval rules and patch exceptions defined in the patch baseline snapshot provided by Patch Manager\.
 
-### Related Content<a name="sysman-patch-patchgroups-related"></a>
+### Related content<a name="sysman-patch-patchgroups-related"></a>
 
-[About Patch Compliance Status Values](about-patch-compliance-states.md)
+[About patch compliance status values](about-patch-compliance-states.md)

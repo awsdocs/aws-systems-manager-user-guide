@@ -29,7 +29,7 @@ The Systems Manager resource types that you can tag in order to add them to reso
 + Patch baselines
 
 **Permissions to work with resource groups and Tag Editor**  
-Before users in your AWS account can work with resource groups and tags in the Resource Groups service and Tag Editor, a user with administrator access must provide the users with the necessary permissions\. For information about granting the Systems Manager users in your account access to Resource Groups and Tag Editor in the AWS Management Console, see [Task 1: Create Policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\.
+Before users in your AWS account can work with resource groups and tags in the Resource Groups service and Tag Editor, a user with administrator access must provide the users with the necessary permissions\. For information about granting the Systems Manager users in your account access to Resource Groups and Tag Editor in the AWS Management Console, see [Task 1: Create policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\.
 
 **Using the Tag Editor**  
 Using the Tag Editor is the most efficient way to add many resource types to a resource group\. You can view all supported resource types in your account from the same page\. For resources of certain types, choose just the resources you want to add to the resource group, and add the tags to them in bulk\. For information about using the Tag Editor, see [Find Resources to Tag](https://docs.aws.amazon.com/ARG/latest/userguide/find-resources-to-tag.html) and [Manage Tags](https://docs.aws.amazon.com/ARG/latest/userguide/tagging-resources.html) in the *AWS Resource Groups User Guide*\.
@@ -62,7 +62,7 @@ Third, you can specify a resource group as the target for the following:
 + A package installation or update operation in Distributor\. 
 
 **Topics**
-+ [Viewing Operations Data for AWS Resource Groups](viewing-operations-data.md)
++ [Viewing operations data for AWS Resource Groups](viewing-operations-data.md)
 
 **Related AWS Blog Posts**  
 Refer to the following AWS blog posts for more information about resource groups\.

@@ -3,19 +3,19 @@
 If you want to use the AWS CLI to start and end sessions that connect you to your managed instances, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
 **Use the Latest Version of the Session Manager Plugin**  
-The plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you are using the latest version of the plugin\. For more information, see [ Session Manager Plugin Latest Version and Release History](#plugin-version-history)\.
+The plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you are using the latest version of the plugin\. For more information, see [ Session Manager Plugin latest version and release history](#plugin-version-history)\.
 
 **Installation Prerequisite**  
 AWS CLI version 1\.16\.12 or later must be installed on your local machine in order to use the Session Manager plugin\.
 
 **Topics**
 + [Install the Session Manager Plugin on Windows](#install-plugin-windows)
-+ [Install and Uninstall the Session Manager Plugin on macOS](#install-plugin-macos)
++ [Install and uninstall the Session Manager Plugin on macOS](#install-plugin-macos)
 + [Install Session Manager Plugin on Linux](#install-plugin-linux)
 + [Install the Session Manager Plugin on Ubuntu Server](#install-plugin-debian)
-+ [Verify the Session Manager Plugin Installation](#install-plugin-verify)
-+ [\(Optional\) Enable Session Manager Plugin Logging](#install-plugin-configure-logs)
-+ [Session Manager Plugin Latest Version and Release History](#plugin-version-history)
++ [Verify the Session Manager Plugin installation](#install-plugin-verify)
++ [\(Optional\) enable Session Manager Plugin logging](#install-plugin-configure-logs)
++ [Session Manager Plugin latest version and release history](#plugin-version-history)
 
 ## Install the Session Manager Plugin on Windows<a name="install-plugin-windows"></a>
 
@@ -39,11 +39,11 @@ For best results, we recommend starting sessions on Windows clients using the Wi
    Leave the install location box blank to install the plugin to the default directory:
    + `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
 
-1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
+1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin installation](#install-plugin-verify)\.
 **Note**  
-If Windows is unable to find the executable, you might need to re\-open the command prompt or add the installation directory to your `PATH` environment variable manually\. For information, see the troubleshooting topic [Session Manager Plugin Not Automatically Added to Command Line Path \(Windows\)](session-manager-troubleshooting.md#windows-plugin-env-var-not-set)\.
+If Windows is unable to find the executable, you might need to re\-open the command prompt or add the installation directory to your `PATH` environment variable manually\. For information, see the troubleshooting topic [Session Manager Plugin not automatically added to command line path \(Windows\)](session-manager-troubleshooting.md#windows-plugin-env-var-not-set)\.
 
-## Install and Uninstall the Session Manager Plugin on macOS<a name="install-plugin-macos"></a>
+## Install and uninstall the Session Manager Plugin on macOS<a name="install-plugin-macos"></a>
 
 You can install the Session Manager plugin on macOS using the bundled installer\.
 
@@ -84,7 +84,7 @@ The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the ins
    ./sessionmanager-bundle/install -h
    ```
 
-1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
+1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin installation](#install-plugin-verify)\.
 
 **Note**  
 If you ever want to uninstall the plugin, run the following two commands, one at a time:  
@@ -117,7 +117,7 @@ sudo rm /usr/local/bin/session-manager-plugin
    sudo yum install -y session-manager-plugin.rpm
    ```
 
-1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
+1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin installation](#install-plugin-verify)\.
 
 **Note**  
 If you ever want to uninstall the plugin, run `sudo yum erase session-manager-plugin -y`
@@ -142,12 +142,12 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
    sudo dpkg -i session-manager-plugin.deb
    ```
 
-1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin Installation](#install-plugin-verify)\.
+1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin installation](#install-plugin-verify)\.
 
 **Note**  
 If you ever want to uninstall the plugin, run `sudo dpkg -r session-manager-plugin`
 
-## Verify the Session Manager Plugin Installation<a name="install-plugin-verify"></a>
+## Verify the Session Manager Plugin installation<a name="install-plugin-verify"></a>
 
 Run the following commands to verify that the Session Manager plugin installed successfully:
 
@@ -170,17 +170,17 @@ This command will work only if your Session Manager administrator has granted yo
 aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 ```
 
-## \(Optional\) Enable Session Manager Plugin Logging<a name="install-plugin-configure-logs"></a>
+## \(Optional\) enable Session Manager Plugin logging<a name="install-plugin-configure-logs"></a>
 
 The Session Manager plugin includes an option to enable logging for sessions that you run\. By default, logging is disabled\.
 
 If you enable logging, the Session Manager plugin creates log files for both application activity \(`session-manager-plugin.log`\) and errors \(`errors.log`\) on your local machine\.
 
 **Topics**
-+ [Enable Logging for the Session Manager Plugin \(Windows\)](#configure-logs-windows)
-+ [Enable Logging for the Session Manager Plugin \(Linux and macOS\)](#configure-logs-linux)
++ [Enable logging for the Session Manager Plugin \(Windows\)](#configure-logs-windows)
++ [Enable logging for the Session Manager Plugin \(Linux and macOS\)](#configure-logs-linux)
 
-### Enable Logging for the Session Manager Plugin \(Windows\)<a name="configure-logs-windows"></a>
+### Enable logging for the Session Manager Plugin \(Windows\)<a name="configure-logs-windows"></a>
 
 1. Locate the `seelog.xml.template` file for the plugin\. 
 
@@ -206,7 +206,7 @@ Do not change the file names or logging will not work correctly\.
 
 1. Save the file\.
 
-### Enable Logging for the Session Manager Plugin \(Linux and macOS\)<a name="configure-logs-linux"></a>
+### Enable logging for the Session Manager Plugin \(Linux and macOS\)<a name="configure-logs-linux"></a>
 
 1. Locate the `seelog.xml.template` file for the plugin\. 
 
@@ -234,7 +234,7 @@ If you use the specified default directory for storing logs, you must either run
 
 1. Save the file\.
 
-## Session Manager Plugin Latest Version and Release History<a name="plugin-version-history"></a>
+## Session Manager Plugin latest version and release history<a name="plugin-version-history"></a>
 
 Your local machine must be running a supported version of the Session Manager plugin\. If you are running an earlier version, your Session Manager operations might not succeed\. 
 

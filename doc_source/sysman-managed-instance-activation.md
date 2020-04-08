@@ -1,4 +1,4 @@
-# Step 4: Create a Managed\-Instance Activation for a Hybrid Environment<a name="sysman-managed-instance-activation"></a>
+# Step 4: Create a managed\-instance activation for a hybrid environment<a name="sysman-managed-instance-activation"></a>
 
 To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
 
@@ -30,13 +30,13 @@ You can't add tags to or delete tags from an existing activation\. If you don't 
 **Note**  
 You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
 
-If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using Systems Manager, you can deregister it\. For information, see [Deregistering Managed Instances in a Hybrid Environment](systems-manager-managed-instances-advanced-deregister.md)\.
+If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using Systems Manager, you can deregister it\. For information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
 
 **Topics**
-+ [Create an Activation \(Console\)](#create-managed-instance-activation-console)
-+ [Create a Managed Instance Activation \(Command Line\)](#create-managed-instance-activation-commandline)
++ [Create an activation \(console\)](#create-managed-instance-activation-console)
++ [Create a managed instance activation \(command line\)](#create-managed-instance-activation-commandline)
 
-## Create an Activation \(Console\)<a name="create-managed-instance-activation-console"></a>
+## Create an activation \(console\)<a name="create-managed-instance-activation-console"></a>
 
 **To create a managed\-instance activation**
 
@@ -68,7 +68,7 @@ If you want to register additional managed instances after the expiry date, you 
 
 1. Choose **Create activation**\. Systems Manager immediately returns the Activation Code and ID to the console\. 
 
-## Create a Managed Instance Activation \(Command Line\)<a name="create-managed-instance-activation-commandline"></a>
+## Create a managed instance activation \(command line\)<a name="create-managed-instance-activation-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a managed instance activation\.
 
@@ -76,11 +76,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create an activation\.
 **Note**  
-*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ------
 #### [ Linux CLI ]
@@ -160,4 +160,4 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    If the activation is created successfully, the system immediately returns an Activation Code and ID\.
 
-Continue to [Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)](sysman-install-managed-win.md)\.
+Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.

@@ -1,13 +1,13 @@
 # Creating OpsItems<a name="OpsCenter-creating-OpsItems"></a>
 
-You can create OpsItems automatically or manually\. When you initially configure OpsCenter by using Integrated Setup, you enable Amazon CloudWatch Events to automatically create OpsItems based on common rules\. You can also create OpsItems selectively by configuring **SSM OpsItems** as the target of specific events in CloudWatch Events\. For information about enabling default CloudWatch Events rules for creating OpsItems by using Integrated Setup, see [Getting Started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
+You can create OpsItems automatically or manually\. When you initially configure OpsCenter by using Integrated Setup, you enable Amazon CloudWatch Events to automatically create OpsItems based on common rules\. You can also create OpsItems selectively by configuring **SSM OpsItems** as the target of specific events in CloudWatch Events\. For information about enabling default CloudWatch Events rules for creating OpsItems by using Integrated Setup, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
 This section includes the following topics\.
-+ [Configuring CloudWatch Events to Automatically Create OpsItems for Specific Events](#OpsCenter-automatically-create-OpsItems-2)
++ [Configuring CloudWatch Events to automatically create OpsItems for specific events](#OpsCenter-automatically-create-OpsItems-2)
 + [Integrating with CloudWatch Application Insights for \.NET and SQL Server](#OpsCenter-getting-started-user-CloudWatch-Application-Insights)
-+ [Creating OpsItems Manually](#OpsCenter-manually-create-OpsItems)
++ [Creating OpsItems manually](#OpsCenter-manually-create-OpsItems)
 
-## Configuring CloudWatch Events to Automatically Create OpsItems for Specific Events<a name="OpsCenter-automatically-create-OpsItems-2"></a>
+## Configuring CloudWatch Events to automatically create OpsItems for specific events<a name="OpsCenter-automatically-create-OpsItems-2"></a>
 
 Use the following procedure to configure **SSM OpsItems** as the target of a CloudWatch event\. When CloudWatch receives the event, it creates a new OpsItem\.
 
@@ -23,7 +23,7 @@ Use the following procedure to configure **SSM OpsItems** as the target of a Clo
 
 1. For **Configure input**, verify that **Matched event** is selected\.
 
-1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required permissions\. Or, choose **Use existing role** and choose the IAM role you created that gives CloudWatch permission to create OpsItems in OpsCenter\. For more information about the required role and permissions, see [Getting Started with OpsCenter](OpsCenter-getting-started.md)\.
+1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required permissions\. Or, choose **Use existing role** and choose the IAM role you created that gives CloudWatch permission to create OpsItems in OpsCenter\. For more information about the required role and permissions, see [Getting started with OpsCenter](OpsCenter-getting-started.md)\.
 
 1. Choose **Configure details**\. CloudWatch opens the **Step 2: Configure rule details** page\.
 
@@ -45,7 +45,7 @@ For information about how to configure the options in an OpsItem, see [Working w
 
 OpsCenter integrates with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\. For information about how to configure Application Insights to create OpsItems, see [Setting Up Your Application](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-setting-up.html) in the *Amazon CloudWatch User Guide*\.
 
-## Creating OpsItems Manually<a name="OpsCenter-manually-create-OpsItems"></a>
+## Creating OpsItems manually<a name="OpsCenter-manually-create-OpsItems"></a>
 
 This section includes procedures for manually create OpsItems for issues that aren't automatically created by Amazon CloudWatch Events\.
 
@@ -53,7 +53,7 @@ This section includes procedures for manually create OpsItems for issues that ar
 If you manually create an OpsItem for an impacted AWS resource, then collect information about that resource so that you can create an Amazon Resource Name \(ARN\)\. If you specify an ARN when you create an OpsItem, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 **Note**  
-OpsCenter does not support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported Resources Reference](OpsCenter-related-resources-reference.md)\.
+OpsCenter does not support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
 This section includes the following procedures\.
 + [To manually create an OpsItem \(console\)](#OpsCenter-manually-create-OpsItems-console)
@@ -77,7 +77,7 @@ You can't edit the **Source** field after you create the OpsItem\.
 
 1. For **Description**, enter information about this OpsItem including \(if applicable\) steps for reproducing the issue\. 
 
-1. For **Deduplication string**, enter words the system should use to check for duplicate OpsItems\. For more information about deduplication strings, see [Reducing Duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
+1. For **Deduplication string**, enter words the system should use to check for duplicate OpsItems\. For more information about deduplication strings, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
 
 1. \(Optional\) For **Notifications**, specify the SNS topic ARN where you want notifications sent when this OpsItem is updated\. You must specify an Amazon SNS ARN that is in the same AWS Region as the OpsItem\.
 
@@ -152,7 +152,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data file:///Users/TestUser1/Desktop/OpsItems/opsData.json --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=EC2,Value=Production"
    ```
 **Note**  
-For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using Quotation Marks with Strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#quoting-strings) in the *AWS Command Line Interface User Guide*\.
+For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using quotation marks with strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#quoting-strings) in the *AWS Command Line Interface User Guide*\.
 
    The system returns information like the following:
 

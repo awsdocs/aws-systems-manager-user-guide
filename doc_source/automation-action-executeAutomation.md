@@ -5,7 +5,7 @@ Runs a secondary Automation workflow by calling a secondary Automation document\
 The secondary Automation runs in the context of the user who initiated the primary Automation\. This means that the secondary Automation uses the same IAM role or user account as the user who started the first Automation\.
 
 **Important**  
-If you specify parameters in a secondary Automation that use an assume role \(a role that uses the iam:passRole policy\), then the user or role that initiated the primary Automation must have permission to pass the assume role specified in the secondary Automation\. For more information about setting up an assume role for Automation, see [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)\.
+If you specify parameters in a secondary Automation that use an assume role \(a role that uses the iam:passRole policy\), then the user or role that initiated the primary Automation must have permission to pass the assume role specified in the secondary Automation\. For more information about setting up an assume role for Automation, see [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
 
 **Input**
 

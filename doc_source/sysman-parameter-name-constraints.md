@@ -1,4 +1,4 @@
-# About Requirements and Constraints for Parameter Names<a name="sysman-parameter-name-constraints"></a>
+# About requirements and constraints for parameter names<a name="sysman-parameter-name-constraints"></a>
 
 Use the information in this topic to help you specify valid values for parameter names when you create a parameter\. 
 

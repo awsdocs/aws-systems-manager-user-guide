@@ -1,4 +1,4 @@
-# Invoking Other AWS Services from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling"></a>
+# Invoking other AWS services from a Systems Manager Automation workflow<a name="automation-aws-apis-calling"></a>
 
 You can invoke other AWS services and other Systems Manager capabilities in your Automation workflow by using the following Automation actions in your Automation documents, or playbooks\. 
 + **aws:executeAwsApi**: This Automation action calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
@@ -105,7 +105,7 @@ outputs:
 ...
 ```
 
-## Working with Inputs and Outputs<a name="automation-aws-apis-calling-input-output"></a>
+## Working with inputs and outputs<a name="automation-aws-apis-calling-input-output"></a>
 
 Each of the previously described Automation actions enables you to call a specific API action by specifying the service namespace, the API action name, the input parameters, and the output parameters\. Inputs are defined by the API action that you choose\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
 
@@ -163,7 +163,7 @@ Here is an example to help illustrate this concept for the `aws:waitForAwsResour
 
 In the `aws:waitForAwsResourceProperty` step `waitUntilInstanceStateRunning`, the workflow invokes the `DescribeInstanceStatus` API action and receives a response from `ec2`\. The workflow then applies `PropertySelector - "$.InstanceStatuses[0].InstanceState.Name"` to the response and checks if the specified returned value matches a value in the `DesiredValues` list \(in this case `running`\)\. The step repeats the process until the response returns an instance state of `running`\. 
 
-## Using JSONPath in an Automation Workflow<a name="automation-aws-apis-calling-json-path"></a>
+## Using JSONPath in an Automation workflow<a name="automation-aws-apis-calling-json-path"></a>
 
 A JSONPath expression is a string beginning with "$\." that is used to select one of more components within a JSON element\. The following list includes information about JSONPath operators that are supported by Systems Manager Automation:
 + **Dot\-notated child \(\.\)**: Use with a JSON object\. This operator selects the value of a specific key\.
@@ -320,9 +320,9 @@ Type: MapList
 ```
 
 **Important**  
-If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
 
-## Sample Walkthrough: Start an Amazon RDS Instance from a Systems Manager Automation Workflow<a name="automation-aws-apis-calling-sample"></a>
+## Sample walkthrough: Start an Amazon RDS instance from a Systems Manager Automation workflow<a name="automation-aws-apis-calling-sample"></a>
 
 This sample walkthrough shows you how to create and run an Automation document in YAML that uses all three API actions to see if an Amazon Relational Database Service \(Amazon RDS\) database instance is running\. If the instance isn't running, the workflow starts it\. 
 
@@ -516,14 +516,14 @@ This sample walkthrough shows you how to create and run an Automation document i
    aws ssm get-automation-execution --automation-execution-id automation_execution_id
    ```
 
-## Predefined Automation Documents that Invoke AWS APIs<a name="automation-aws-apis-calling-docs"></a>
+## Predefined Automation documents that invoke AWS APIs<a name="automation-aws-apis-calling-docs"></a>
 
 Systems Manager Automation includes the following predefined SSM Automation documents that invoke AWS APIs\. 
 
 
 ****  
 
-| Document Name | Purpose | 
+| Document name | Purpose | 
 | --- | --- | 
 |  [AWS\-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description)  |  Start an Amazon RDS instance\.  | 
 |  [AWS\-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description)  |  Stop an Amazon RDS instance\.  | 

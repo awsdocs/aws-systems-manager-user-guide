@@ -1,4 +1,4 @@
-# Configure SSM Agent to Use a Proxy for Windows Instances<a name="sysman-install-ssm-proxy"></a>
+# Configure SSM Agent to use a proxy for Windows instances<a name="sysman-install-ssm-proxy"></a>
 
 The information in this topic applies to Windows Server instances created in or after November 2016 that do *not* use the Nano installation option\.
 
@@ -24,7 +24,7 @@ If your instance is a Windows Server 2008\-2012 R2 instance created *before* Nov
    Restart-Service AmazonSSMAgent
    ```
 
-After running the preceding command, you can review the SSM Agent logs to confirm the proxy settings were applied\. Entries in the logs look similar to the following\. For more information about SSM Agent logs, see [View SSM Agent Logs](sysman-agent-logs.md)\.
+After running the preceding command, you can review the SSM Agent logs to confirm the proxy settings were applied\. Entries in the logs look similar to the following\. For more information about SSM Agent logs, see [View SSM Agent logs](sysman-agent-logs.md)\.
 
 ```
 2020-02-24 15:31:54 INFO Getting IE proxy configuration for current user: The operation completed successfully.
@@ -50,7 +50,7 @@ After running the preceding command, you can review the SSM Agent logs to confir
    Restart-Service AmazonSSMAgent
    ```
 
-## SSM Agent Proxy Setting Precedence<a name="ssm-agent-proxy-precedence"></a>
+## SSM Agent proxy setting precedence<a name="ssm-agent-proxy-precedence"></a>
 
 When configuring proxy settings for the SSM Agent on Windows instances, it's important to understand these settings are evaluated and applied to the agent configuration when the SSM Agent is started\. How you configure your proxy settings for a Windows instance can determine whether other settings might supersede your desired settings\. SSM Agent proxy settings are evaluated in the following order\.
 
@@ -64,7 +64,7 @@ When configuring proxy settings for the SSM Agent on Windows instances, it's imp
 
 1. Internet Explorer settings
 
-## SSM Agent Proxy Settings and Systems Manager Services<a name="ssm-agent-proxy-services"></a>
+## SSM Agent proxy settings and Systems Manager services<a name="ssm-agent-proxy-services"></a>
 
 If you configured the SSM Agent to use a proxy and are using AWS Systems Manager services, such as Run Command and Patch Manager, that use PowerShell or the Windows Update client during their execution on Windows instances, you must configure additional proxy settings\. Otherwise, the operation might fail because proxy settings used by PowerShell and the Windows Update client are not inherited from the SSM Agent proxy configuration\.
 
@@ -88,4 +88,4 @@ netsh winhttp show proxy
 netsh winhttp set proxy hostname:port
 ```
 
-For more information about using Run Command, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
+For more information about using Run Command, see [Running commands using Systems Manager Run Command](run-command.md)\.

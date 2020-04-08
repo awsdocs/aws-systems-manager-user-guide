@@ -1,8 +1,8 @@
-# Running an Automation Workflow as the Current Authenticated User<a name="automation-walk-security-user"></a>
+# Running an Automation workflow as the current authenticated user<a name="automation-walk-security-user"></a>
 
 The following procedures describe how to run an Automation workflow that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. Running the Automation workflow in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, or playbook, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this Automation\.
 
-## Running an Automation Workflow as the Current Authenticated User \(Console\)<a name="automation-walk-security-user-console"></a>
+## Running an Automation workflow as the current authenticated user \(console\)<a name="automation-walk-security-user-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run an Automation workflow as the current authenticated user\.
 
@@ -31,7 +31,7 @@ This procedure uses the **Simple execution** mode\. However, you can alternative
 
 1. Choose **Execute**\. The console displays the status of the Automation execution\.
 
-## Running an Automation Workflow as the Current Authenticated User \(Command Line\)<a name="automation-walk-security-user-commandline"></a>
+## Running an Automation workflow as the current authenticated user \(command line\)<a name="automation-walk-security-user-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow as the current authenticated user\.
 
@@ -39,7 +39,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to start an Automation workflow as the current authenticated user\.
 

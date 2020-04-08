@@ -1,4 +1,4 @@
-# Step 4: Create a Deployment Strategy<a name="appconfig-creating-deployment-strategy"></a>
+# Step 4: Create a deployment strategy<a name="appconfig-creating-deployment-strategy"></a>
 
 An AWS AppConfig deployment strategy defines the following important aspects of a configuration deployment\.
 
@@ -10,7 +10,7 @@ An AWS AppConfig deployment strategy defines the following important aspects of 
 |  Deployment type  | Deployment type defines how the configuration deploys or *rolls out*\. AppConfig supports **Linear** and **Exponential** deployment types\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-deployment-strategy.html)  | 
 |  Step percentage  |  This setting specifies the percentage of callers to target during each step of the deployment\.  | 
 |  Deployment time  |  This setting specifies an amount of time during which AppConfig deploys to hosts\. This is not a timeout value\. It is a window of time during which the deployment is processed in intervals\.  | 
-|  Bake time  |  This setting specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms before proceeding to the next step of a deployment or before considering the deployment to be complete\. If an alarm is triggered during this time, AppConfig rolls back the deployment\. You must configure permissions for AppConfig to roll back based on CloudWatch alarms\. For more information, see [\(Optional\) Configuring Permissions for Rollback Based on CloudWatch Alarms](appconfig-getting-started-cloudwatch-alarms-permissions.md)\.  | 
+|  Bake time  |  This setting specifies the amount of time AppConfig monitors for Amazon CloudWatch alarms before proceeding to the next step of a deployment or before considering the deployment to be complete\. If an alarm is triggered during this time, AppConfig rolls back the deployment\. You must configure permissions for AppConfig to roll back based on CloudWatch alarms\. For more information, see [\(Optional\) Configuring permissions for rollback based on CloudWatch alarms](appconfig-getting-started-cloudwatch-alarms-permissions.md)\.  | 
 
 You can create a maximum of 20 deployment strategies\. When you deploy a configuration, you can choose the deployment strategy that works best for the application and the environment\.
 
@@ -40,4 +40,4 @@ Use the following procedure to create an AppConfig deployment strategy by using 
 
 1. Choose **Create deployment strategy**\.
 
-AppConfig creates the deployment strategy\. Proceed to [Step 5: Deploy a Configuration](appconfig-deploying.md)\.
+AppConfig creates the deployment strategy\. Proceed to [Step 5: Deploy a configuration](appconfig-deploying.md)\.

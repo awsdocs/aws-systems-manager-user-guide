@@ -1,4 +1,4 @@
-# About Validators<a name="appconfig-creating-configuration-and-profile-validators"></a>
+# About validators<a name="appconfig-creating-configuration-and-profile-validators"></a>
 
 When you create a configuration and configuration profile using the procedure in this topic, you can specify up to two validators\. A validator ensures that your configuration data is syntactically and semantically correct\. You can create validators in either JSON Schema or as an AWS Lambda function\.
 

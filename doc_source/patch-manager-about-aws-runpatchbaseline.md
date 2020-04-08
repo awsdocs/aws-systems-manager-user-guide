@@ -1,4 +1,4 @@
-# About the SSM Document AWS\-RunPatchBaseline<a name="patch-manager-about-aws-runpatchbaseline"></a>
+# About the SSM document AWS\-RunPatchBaseline<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
 AWS Systems Manager supports an SSM document for Patch Manager, **AWS\-RunPatchBaseline**, which performs patching operations on instances for both security related and other types of updates\. You can use the document AWS\-RunPatchBaseline to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
@@ -27,9 +27,9 @@ After all approved and applicable updates have been installed, with reboots perf
 **Note**  
 If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.
 
-For information about viewing patch compliance data, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
+For information about viewing patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
 
-## AWS\-RunPatchBaseline Parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
+## AWS\-RunPatchBaseline parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
 
 **AWS\-RunPatchBaseline** supports four parameters\. The `Operation` parameter is required\. The `InstallOverrideList` and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a maintenance window, and let Patch Manager supply the value automatically when the document is run as part of a maintenance window operation\.
 
@@ -58,9 +58,9 @@ When you choose the `Install` option, **AWS\-RunPatchBaseline** attempts to inst
 `Snapshot ID` is a unique ID \(GUID\) used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. Although the parameter is defined as optional, our best practice recommendation depends on whether or not you are running **AWS\-RunPatchBaseline** in a maintenance window, as described in the following table\.
 
 
-**AWS\-RunPatchBaseline Best Practices**  
+**AWS\-RunPatchBaseline best practices**  
 
-| Mode | Best Practice | Details | 
+| Mode | Best practice | Details | 
 | --- | --- | --- | 
 | Running AWS\-RunPatchBaseline inside a maintenance window | Do not supply a Snapshot ID\. Patch Manager will supply it for you\. |  If you use a maintenance window to run **AWS\-RunPatchBaseline**, you should not provide your own generated Snapshot ID\. In this scenario, Systems Manager provides a GUID value based on the maintenance window execution ID\. This ensures that a correct ID is used for all the invocations of **AWS\-RunPatchBaseline** in that maintenance window\.  If you do specify a value in this scenario, note that the snapshot of the patch baseline might not remain in place for more than 24 hours\. After that, a new snapshot will be generated even if you specify the same ID after the snapshot expires\.   | 
 | Running AWS\-RunPatchBaseline outside of a maintenance window | Generate and specify a custom GUID value for the Snapshot ID\.¹ |  When you are not using a maintenance window to run **AWS\-RunPatchBaseline**, we recommend that you generate and specify a unique Snapshot ID for each patch baseline, particularly if you are running the **AWS\-RunPatchBaseline** document on multiple instances in the same operation\. If you do not specify an ID in this scenario, Systems Manager generates a different Snapshot ID for each instance the command is sent to\. This might result in varying sets of patches being specified among the instances\. For instance, say that you are running the **AWS\-RunPatchBaseline** document directly via Run Command and targeting a group of 50 instances\. Specifying a custom Snapshot ID results in the generation of a single baseline snapshot that is used to evaluate and patch all the instances, ensuring that they end up in a consistent state\.   | 
@@ -112,7 +112,7 @@ The **id** field is required\. Use it to specify patches using Microsoft Knowled
 **id**  
 The **id** field is required\. Use it to specify patches using the package name and architecture\. For example: `'dhclient.x86_64'`\. You can use wildcards in id to indicate multiple packages\. For example: `'dhcp*'` and `'dhcp*1.*'`\.
 
-**title**  
+**Title**  
 The **title** field is optional, but on Linux systems it does provide additional filtering capabilities\. If you use **title**, it should contain the package version information in the one of the following formats:
 
   YUM/SUSE Linux Enterprise Server \(SLES\):

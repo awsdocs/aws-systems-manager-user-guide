@@ -1,4 +1,4 @@
-# Running an Automation Workflow by Using Delegated Administration<a name="automation-walk-security-delegated"></a>
+# Running an Automation workflow by using delegated administration<a name="automation-walk-security-delegated"></a>
 
 When you run an AWS Systems Manager Automation workflow, by default, the Automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the execution\. This means, for example, if your IAM user account has administrator permissions, then the Automation runs with administrator permissions and full access to the resources being configured by the Automation workflow\. As a security best practice, we recommend that you run Automation workflows by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run Automation is called *delegated administration*\.
 
@@ -25,16 +25,16 @@ As a security best practice, we recommend that you always use a service role to 
 The procedures in this section link to topics in other AWS guides or other Systems Manager topics\. We recommend that you open links to other topics in a new tab in your web browser so you don't lose your place in this topic\.
 
 **Topics**
-+ [Create a Test User Account](#automation-walk-security-operator)
-+ [Create an IAM Service Role for Automation](#automation-walk-security-service-role)
-+ [Create a custom Automation Document](#automation-walk-security-document)
-+ [Run the Custom Automation Document](#automation-walk-security-execute)
++ [Create a test user account](#automation-walk-security-operator)
++ [Create an IAM service role for Automation](#automation-walk-security-service-role)
++ [Create a custom Automation document](#automation-walk-security-document)
++ [Run the custom Automation document](#automation-walk-security-execute)
 
-## Create a Test User Account<a name="automation-walk-security-operator"></a>
+## Create a test user account<a name="automation-walk-security-operator"></a>
 
 This section describes how to create an IAM test user account with restricted permissions\. The permissions set allows the user to run Automation workflows, but the user doesn't have access to the AWS resources targeted by Automation\. The operator can also view the results of the Automation workflows\. You start by creating the custom IAM permissions policy, and then you create the user account and assign permissions to it\. 
 
-**Create an IAM Test User**
+**Create an IAM test user**
 
 1. Create a permissions policy named OperatorRestrictedPermissions\. For information about how to create a new IAM permissions policy, see [Create an IAM Policy \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) in the IAM User Guide\. Create the policy on the JSON tab, and specify the following permissions set\.
 
@@ -64,19 +64,19 @@ This section describes how to create an IAM test user account with restricted pe
 
 1. Note the user name, password, and the **Console login link**\. You will log into this account later in this topic\.
 
-## Create an IAM Service Role for Automation<a name="automation-walk-security-service-role"></a>
+## Create an IAM service role for Automation<a name="automation-walk-security-service-role"></a>
 
 The following procedure links to other topics to help you create the service role and to configure Automation to trust this role\.
 
 **To create the service role and enable Automation to trust it**
 
-1. Create the Automation service role\. For information, see [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role)\.
+1. Create the Automation service role\. For information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
 
 1. Note the service role Amazon Resource Name \(ARN\)\. You will specify this ARN in the next procedure\.
 
-1. Configure a trust policy so that Automation trusts the service role\. For more information, see [Task 2: Add a Trust Relationship for Automation](automation-permissions.md#automation-trust2)\.
+1. Configure a trust policy so that Automation trusts the service role\. For more information, see [Task 2: Add a trust relationship for Automation](automation-permissions.md#automation-trust2)\.
 
-## Create a custom Automation Document<a name="automation-walk-security-document"></a>
+## Create a custom Automation document<a name="automation-walk-security-document"></a>
 
 This section describes how to create a custom Automation document that restarts Amazon EC2 instances\. AWS provides a default SSM document for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that document to show you how to enter the service role in a document when you create your own\. By specifying the service role directly in the document, the user running the document does not require iam:PassRole permissions\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
 
@@ -132,7 +132,7 @@ This section describes how to create a custom Automation document that restarts 
 
 1. Choose **Create document**\. 
 
-## Run the Custom Automation Document<a name="automation-walk-security-execute"></a>
+## Run the custom Automation document<a name="automation-walk-security-execute"></a>
 
 The following procedure describes how to run the document you just created using the restricted operator role you created earlier in this topic\. The user can run the document you created earlier because their IAM account permissions enable them to see and run the document\. The user can't, however, log on to the instances that you will restart with this Automation workflow\.
 

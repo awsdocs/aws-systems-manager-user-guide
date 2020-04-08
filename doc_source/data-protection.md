@@ -1,4 +1,4 @@
-# Data Protection in AWS Systems Manager<a name="data-protection"></a>
+# Data protection in AWS Systems Manager<a name="data-protection"></a>
 
 AWS Systems Manager conforms to the AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/), which includes regulations and guidelines for data protection\. AWS is responsible for protecting the global infrastructure that runs all the AWS services\. AWS maintains control over data hosted on this infrastructure, including the security configuration controls for handling customer content and personal data\. AWS customers and APN partners, acting either as data controllers or data processors, are responsible for any personal data that they put in the AWS Cloud\. 
 
@@ -15,9 +15,9 @@ We strongly recommend that you never put sensitive identifying information, such
 
 For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
-## Data Encryption<a name="data-encryption"></a>
+## Data encryption<a name="data-encryption"></a>
 
-### Encryption at Rest<a name="encryption-at-rest"></a>
+### Encryption at rest<a name="encryption-at-rest"></a>
 
 **Parameter Store Parameters**  
 The types of parameters you can create in Parameter Store include `String`, `StringList`, and `SecureString`\.
@@ -26,7 +26,7 @@ To encrypt `SecureString` parameter values, Parameter Store uses an AWS Key Mana
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [Parameter Types and Examples](parameter-store-about-examples.md) and [SecureString Parameters](sysman-paramstore-securestring.md)\.
+For more information, see [Parameter types and examples](parameter-store-about-examples.md) and [SecureString parameters](sysman-paramstore-securestring.md)\.
 
 **Content in Amazon S3 Buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 
@@ -59,7 +59,7 @@ The following are types of data you might have streamed to a CloudWatch Logs log
 + Session Manager session history logs
 + Logs from SSM Agent on your managed instances
 
-### Encryption in Transit<a name="encryption-in-transit"></a>
+### Encryption in transit<a name="encryption-in-transit"></a>
 
 We recommend that you use an encryption protocol such as Transport Layer Security \(TLS\) to encrypt sensitive data in transit between clients and your instances\.
 
@@ -77,8 +77,8 @@ By default, Session Manager uses TLS 1\.2 to encrypt session data transmitted be
 **Run Command access**  
 By default, remote access to your instances using Run Command is encrypted using TLS 1\.2, and requests to create a connection are signed using SigV4\.
 
-## Internetwork Traffic Privacy<a name="internetwork-privacy"></a>
+## Internetwork traffic privacy<a name="internetwork-privacy"></a>
 
-You can use Amazon Virtual Private Cloud \(Amazon VPC\) to create boundaries between resources in your managed instances and control traffic between them, your on\-premises network, and the internet\. For details, see [\(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\. 
+You can use Amazon Virtual Private Cloud \(Amazon VPC\) to create boundaries between resources in your managed instances and control traffic between them, your on\-premises network, and the internet\. For details, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
 
 For more information about Amazon Virtual Private Cloud security, see [Security](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html) in the *Amazon VPC User Guide*\.

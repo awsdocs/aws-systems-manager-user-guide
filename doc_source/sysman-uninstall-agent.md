@@ -1,4 +1,4 @@
-# Uninstall SSM Agent from Linux Instances<a name="sysman-uninstall-agent"></a>
+# Uninstall SSM Agent from Linux instances<a name="sysman-uninstall-agent"></a>
 
 Use the following commands to uninstall SSM Agent\.
 

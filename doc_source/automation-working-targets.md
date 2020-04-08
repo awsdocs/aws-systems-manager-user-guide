@@ -1,4 +1,4 @@
-# About Targets<a name="automation-working-targets"></a>
+# About targets<a name="automation-working-targets"></a>
 
 The `Targets` parameter enables you to quickly define which resources in your fleet can run an Automation workflow\. For example, if you want to run an Automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon EC2 tags with the `Targets` parameter\.
 
@@ -9,7 +9,7 @@ Any `input parameters` that you specify at runtime \(either in the **Input param
 
 You can target resources for an Automation execution by using tags, Resource Groups, and parameter values\. Additionally, you can use the `TargetMaps` option to target multiple parameter values from the command line or a file\. The following section describes each of these targeting options in more detail\.
 
-## Targeting Tags<a name="automation-working-targets-tags"></a>
+## Targeting tags<a name="automation-working-targets-tags"></a>
 
 Many AWS resources support tags, including Amazon EC2 and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups, and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run Automation workflows on your AWS resources by targeting tags\. A tag is a key\-value pair, such as Operating\_System\-Linux or Department\-Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
 
@@ -60,7 +60,7 @@ The following console example uses a Resource Group called t2\-micro\-instances\
 
 ![\[Using an AWS resource group to target a Systems Manager Automation execution\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-resource-groups.png)
 
-## Targeting Parameter Values<a name="automation-working-targets-parameter-values"></a>
+## Targeting parameter values<a name="automation-working-targets-parameter-values"></a>
 
 You can also target a parameter value\. You enter `ParameterValues` as the key and then enter the specific resource value where you want the Automation workflow to run\. If you specify multiple values, Systems Manager runs a child Automation workflow on each value specified\.
 
@@ -75,7 +75,7 @@ aws ssm start-automation-execution --document-name AWS-CreateImage --target-para
 **Note**  
 AutomationAssumeRole is not a valid parameter\. Don’t choose this item when running Automation workflows that target a parameter value\.
 
-### Targeting Parameter Value Maps<a name="automation-working-targets-maps"></a>
+### Targeting parameter value maps<a name="automation-working-targets-maps"></a>
 
 The `TargetMaps` option expands your ability to target `ParameterValues`\. You can enter an array of parameter values by using `TargetMaps` at the command line\. You can specify a maximum of 50 parameter values at the command line\. If you want to run commands that specify more than 50 parameter values, then you can enter the values in a JSON file\. You can then call the file from the command line\.
 
@@ -189,7 +189,7 @@ The user can run the Automation and create the five Amazon EC2 instances defined
 aws ssm start-automation-execution --document-name AMI_Testing --target-parameter-name imageId --target-maps file:///home/TestUser/workspace/runinstances/AMI_instance_types.json
 ```
 
-## Targeting All Instances<a name="automation-working-targets-all-instances"></a>
+## Targeting all instances<a name="automation-working-targets-all-instances"></a>
 
 You can run an Automation on all managed instances in the current AWS account and Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your AWS account and the current Region, you can choose the **AWS\-RestartEC2Instance** playbook and then choose **All instances** from the **Targets** list\.
 

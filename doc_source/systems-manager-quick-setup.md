@@ -13,9 +13,9 @@ To access Quick Setup, choose **Quick Setup** in the navigation pane of the Syst
 ![\[Accessing AWS Quick Setup\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/quick-setup-access.png)
 
 **Note**  
-You can change Quick Setup configurations at any time\. Before you do, we recommend that you learn how to change configurations by using the Quick Setup Results page\. For more information, see [Working with Quick Setup Results](#quick-setup-results)\.
+You can change Quick Setup configurations at any time\. Before you do, we recommend that you learn how to change configurations by using the Quick Setup Results page\. For more information, see [Working with Quick Setup results](#quick-setup-results)\.
 
-## Permissions Roles<a name="quick-setup-instance-profile"></a>
+## Permissions roles<a name="quick-setup-instance-profile"></a>
 
 By default, Systems Manager doesn't have permission to communicate with or perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile and an IAM service role \(or *assume* role\)\. An instance profile is a container that passes IAM role information to an Amazon EC2 instance at launch\. A service role enables Systems Manager to run commands on your instances\. For more information about instance profiles, see [Using Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*\. For more information about service roles, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
 
@@ -24,7 +24,7 @@ You can choose to have Quick Setup create and configure these roles for you by c
 **Note**  
 Quick Setup doesn't override instance profiles that already exist on your instances\.
 
-### Details about the Default Instance Profile<a name="quick-setup-instance-profile-details"></a>
+### Details about the default instance profile<a name="quick-setup-instance-profile-details"></a>
 
 In the **Instance profile role** section, if you choose **Use the default role**, then Quick Setup creates a new IAM instance profile that uses the **AmazonSSMManagedInstanceCore** policy and one additional policy\. The **AmazonSSMManagedInstanceCore** policy enables Systems Manager to perform the following actions on your instances\.
 
@@ -80,7 +80,7 @@ In the **Instance profile role** section, if you choose **Use the default role**
 ```
 
 **Note**  
-For information about the `ssmmessages*` and `ec2messages*` actions, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+For information about the `ssmmessages*` and `ec2messages*` actions, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 Quick Setup also adds the following policy to the instance profile\. This policy enables trusted communications between the Systems Manager service in the cloud and your Amazon EC2 instances\.
 
@@ -99,7 +99,7 @@ Quick Setup also adds the following policy to the instance profile\. This policy
 }
 ```
 
-### Details about the Service Role<a name="quick-setup-service-role-details"></a>
+### Details about the service role<a name="quick-setup-service-role-details"></a>
 
 In the **Systems Manager service role** section, if you choose **Use the default role**, then Quick Setup creates a new IAM service role that includes the following policies\. The first policy enables Systems Manager to perform the following actions on your instances\.
 
@@ -143,7 +143,7 @@ The following policy enables Systems Manager to perform the actions in the previ
 ```
 
 **Note**  
-Configuring an instance with an instance profile for Systems Manager does not give a user access to run commands or use Systems Manager capabilities on that instance\. Your IAM user, group, or role must be configured with a separate permissions policy that enables you to perform actions on your instances by using Systems Manager\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+Configuring an instance with an instance profile for Systems Manager does not give a user access to run commands or use Systems Manager capabilities on that instance\. Your IAM user, group, or role must be configured with a separate permissions policy that enables you to perform actions on your instances by using Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 ## Update Systems Manager \(SSM\) Agent<a name="quick-setup-ssm-agent"></a>
 
@@ -158,7 +158,7 @@ SSM Agent is Amazon software that processes requests from the Systems Manager se
 
 If you enable this option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. For more information about SSM Agent, including information about how to manually install the agent, see [Working with SSM Agent](ssm-agent.md)\.
 
-## Collect Inventory from Your Instances<a name="quick-setup-inventory"></a>
+## Collect inventory from your instances<a name="quick-setup-inventory"></a>
 
 AWS Systems Manager Inventory provides visibility into your computing environment\. You can use Inventory to collect *metadata* from your managed instances\. You can store this metadata in a central Amazon Simple Storage Service \(Amazon S3\) bucket\. Then use built\-in tools to query the data and quickly determine which instances are running the software and configurations required by your software policy, and which instances need to be updated\. Quick Setup configures collection of the following types of metadata:
 + **AWS components**: EC2 driver, agents, versions, and more\.
@@ -170,7 +170,7 @@ AWS Systems Manager Inventory provides visibility into your computing environmen
 + **Windows updates**: Hotfix ID, installed by, installed date, and more \(Windows instances only\)\.
 
 You can configure Systems Manager Inventory to collect the following additional types of metadata from your instances\. For more information, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
-+ **Custom inventory**: Metadata that was assigned to a managed instance as described in [Working with Custom Inventory](sysman-inventory-custom.md)\.
++ **Custom inventory**: Metadata that was assigned to a managed instance as described in [Working with custom inventory](sysman-inventory-custom.md)\.
 + **Files**: Name, size, version, installed date, modification time, last accessed time, and more\.
 + **Tags**: Tags assigned to your instances\.
 + **Windows Registry**: Registry key path, value name, value type, and value\.
@@ -178,19 +178,19 @@ You can configure Systems Manager Inventory to collect the following additional 
 **Important**  
 A *global* Inventory configuration is created from the one\-click configuration option on the **Inventory page** and targets all instances in your AWS account\. If you already have a global Inventory configuration enabled on your instances, then enabling Inventory collection in Quick Setup creates another schedule to collect Inventory data for the specified or targeted instances\. There is no conflict\. However, if you already have a non\-global Inventory configuration enabled on some of your instances, then the configuration you created earlier will fail\. Inventory collection does not support more than one specific configuration per instance\. To resolve this issue, either deploy a global inventory configuration or delete the conflict configuration\.
 
-## Scan Instances for Missing Patches Daily<a name="quick-setup-patching"></a>
+## Scan instances for missing patches daily<a name="quick-setup-patching"></a>
 
 If you enable this option in Quick Setup, then Systems Manager uses Patch Manager to scan your instances each day and generate a simple report in the **Compliance** page\. The report shows how many instances are patch\-compliant according to the *default patch baseline*\. The report includes a list of each instance and its compliance status\. You can navigate this list to see details about noncompliant instances\. For more information about patching operations and patch baselines, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\. To view compliance information, see the Systems Manager [Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
-## Install and Configure the CloudWatch Agent<a name="quick-setup-cloudwatch"></a>
+## Install and configure the CloudWatch agent<a name="quick-setup-cloudwatch"></a>
 
 Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting Metrics and Logs from Amazon EC2 Instances and On\-Premises Servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
-## Update the CloudWatch Agent Once Every Four Weeks<a name="quick-setup-cloudwatch-2"></a>
+## Update the CloudWatch agent once every four weeks<a name="quick-setup-cloudwatch-2"></a>
 
 If you enable this option, then Systems Manager automatically checks every four weeks for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
-## Choosing Targets for Quick Setup<a name="quick-setup-targets"></a>
+## Choosing targets for Quick Setup<a name="quick-setup-targets"></a>
 
 After you choose Quick Setup options, choose which instances you want to configure with those options in the **Targets** section\. Quick Setup includes the following options for targeting instances\.
 + **Choose all instances in the current AWS account and Region**: Quick Setup locates and applies the configuration options to all instances in the current AWS account and Region\.
@@ -200,7 +200,7 @@ After you choose Quick Setup options, choose which instances you want to configu
 **Note**  
 You can't use Quick Setup to configure options across accounts or Regions\.
 
-## Working with Quick Setup Results<a name="quick-setup-results"></a>
+## Working with Quick Setup results<a name="quick-setup-results"></a>
 
 Systems Manager displays the results of Quick Setup in a separate card for each option you selected\. 
 
@@ -215,7 +215,7 @@ A **Configuration status** of **Not configured**, means you didn't choose the op
 
 To edit the association for a Quick Setup option, choose the **Edit** button in the option card\. If you edit the association, * don't* choose a different SSM Document in the **Edit Association** page\. If you choose a different SSM Document, the option becomes unavailable in Quick Setup\. Change only the parameters and targets of the association\. When you save your changes to the association, State Manager automatically runs the association\.
 
-## Troubleshooting Quick Setup Results<a name="quick-setup-results-troubleshooting"></a>
+## Troubleshooting Quick Setup results<a name="quick-setup-results-troubleshooting"></a>
 
 If a Quick Setup card shows **Not configured**, you might have missed a selection on the Quick Setup page\. As a first step in troubleshooting this problem, choose the **Edit all** button at the top of the Quick Setup results page and review your selections\. If you missed one or more, you can choose them and then choose **Reset** to configure those options\.
 
@@ -239,7 +239,7 @@ If you still see a problem with one or more Quick Setup results cards, then use 
 
 If viewing the step output doesn't help troubleshoot the problem, then you can recreate the association to see if the problem persists\. To recreate the association, you must first delete all associations that already exist for the Quick Setup option\. You can delete an association by using the **Delete** button in the Quick Setup results card\. You can also delete the association by choosing **State Manager** in the navigation pane\. After you delete the association, run Quick Setup again to see if the problem persists\.
 
-## Running Quick Setup Again<a name="quick-setup-results-running-again"></a>
+## Running Quick Setup again<a name="quick-setup-results-running-again"></a>
 
 You can run Quick Setup again by choosing the **Edit all** button on the Quick Setup results page\. You can choose or clear options\. If you clear an option, Systems Manager doesn't delete the association\. For example, if you previously selected the **Collect inventory from your instances every 30 minutes** option, and you clear the option when you run Quick Setup again, the original association still exists\. You must either delete the association from the Quick Setup results page or from the **State Manager** page\.
 

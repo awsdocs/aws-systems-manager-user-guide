@@ -1,21 +1,21 @@
-# Parameter Types and Examples<a name="parameter-store-about-examples"></a>
+# Parameter types and examples<a name="parameter-store-about-examples"></a>
 
 A Parameter Store parameter is any piece of data that is saved in Parameter Store, such as a block of text, a list of names, a password, an Amazon Machine Image \(AMI\) ID, a license key, and so on\. You can centrally and securely reference this data in your scripts, commands, and SSM documents\.
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
+For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
 
 When you reference a parameter, you specify the parameter name by using the following convention:
 
 \{\{`ssm:parameter-name`\}\}
 
 **Topics**
-+ [Parameter Types](#parameter-types)
-+ [Parameter Examples \(AWS CLI\)](#parameter-examples)
-+ [Integration Examples from the Community](#community-samples)
++ [Parameter types](#parameter-types)
++ [Parameter examples \(AWS CLI\)](#parameter-examples)
++ [Integration examples from the community](#community-samples)
 
-## Parameter Types<a name="parameter-types"></a>
+## Parameter types<a name="parameter-types"></a>
 
 Parameter Store provides support for three types of parameters\. `String`, `StringList`, and `SecureString`\. 
 
@@ -32,9 +32,9 @@ StringList
 
 SecureString  
 The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using a AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\.  
-Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager Secrets from Parameter Store Parameters](integration-ps-secretsmanager.md) in this guide\.
+Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md) in this guide\.
 
-## Parameter Examples \(AWS CLI\)<a name="parameter-examples"></a>
+## Parameter examples \(AWS CLI\)<a name="parameter-examples"></a>
 
 The following is an example of a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
 
@@ -106,7 +106,7 @@ $secure = (Get-SSMParameterValue -Names parameter_name -WithDecryption $True).Pa
 $cred = New-Object System.Management.Automation.PSCredential -argumentlist user_name,$secure
 ```
 
-## Integration Examples from the Community<a name="community-samples"></a>
+## Integration examples from the community<a name="community-samples"></a>
 
 The following section provide links to blog posts, articles, and community\-provided examples for using Parameter Store parameters\. 
 

@@ -1,9 +1,9 @@
-# Set Up Notifications or Trigger Actions Based on Parameter Store Events<a name="sysman-paramstore-cwe"></a>
+# Set up notifications or trigger actions based on Parameter Store events<a name="sysman-paramstore-cwe"></a>
 
 The topics in this section explain how to use Amazon CloudWatch Events and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to Systems Manager parameters\. You can create a CloudWatch rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
 
 **Note**  
-Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning Parameter Policies](parameter-store-policies.md) and [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)\.
 
 The topics below also explain how to trigger other actions on a target for specific parameter events\. For example, you can run an AWS Lambda function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. CloudWatch Events also supports running Run Command commands and Automations executions, and actions in many other AWS services\. For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)*\.
 
@@ -11,10 +11,10 @@ The topics below also explain how to trigger other actions on a target for speci
 Create any resources you need to specify the target action for the rule you create\. For example, if the rule you create is for sending a notification, first create an Amazon SNS topic\. For more information, see [Getting Started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Topics**
-+ [Configure CloudWatch Events for Parameters](#cwe-parameter-changes)
-+ [Configure CloudWatch Events for Parameter Policies](#cwe-parameter-policy-status)
++ [Configure CloudWatch Events for parameters](#cwe-parameter-changes)
++ [Configure CloudWatch Events for parameter policies](#cwe-parameter-policy-status)
 
-## Configure CloudWatch Events for Parameters<a name="cwe-parameter-changes"></a>
+## Configure CloudWatch Events for parameters<a name="cwe-parameter-changes"></a>
 
 This topic explains how to create a CloudWatch Events rule that invokes a target based on events that happen to one or more parameters in your AWS account\.
 
@@ -94,9 +94,9 @@ You are modifying sample code we provide instead of using the event pattern buil
 
 1. Choose **Create rule**\.
 
-## Configure CloudWatch Events for Parameter Policies<a name="cwe-parameter-policy-status"></a>
+## Configure CloudWatch Events for parameter policies<a name="cwe-parameter-policy-status"></a>
 
-This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed, You set up notification for these events using the following procedure\. For more information, see [Assigning Parameter Policies](parameter-store-policies.md) and [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
+This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed, You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)\.
 
 **To configure CloudWatch Events for Systems Manager parameter policies**
 

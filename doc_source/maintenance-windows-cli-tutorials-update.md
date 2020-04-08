@@ -1,4 +1,4 @@
-# Tutorial: Update a Maintenance Window \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-update"></a>
+# Tutorial: Update a maintenance window \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-update"></a>
 
 This tutorial demonstrates how to use the AWS CLI to update a maintenance window\. It also shows you how to update different task types, including those for Systems Manager Run Command, Systems Manager Automation, AWS Lambda, and AWS Step Functions\. 
 
@@ -8,7 +8,7 @@ The examples in this section use the following Systems Manager actions for updat
 + [UpdateMaintenanceWindowTask](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindowTask.html)
 + [DeregisterTargetFromMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterTargetFromMaintenanceWindow.html)
 
-For information about using the Systems Manager console to update a maintenance window, see [Update or Delete a Maintenance Window \(Console\)](sysman-maintenance-update.md)\. 
+For information about using the Systems Manager console to update a maintenance window, see [Update or delete a maintenance window \(console\)](sysman-maintenance-update.md)\. 
 
 As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 

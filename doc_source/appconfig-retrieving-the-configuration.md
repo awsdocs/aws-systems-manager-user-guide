@@ -1,4 +1,4 @@
-# Step 6: Retrieving the Configuration<a name="appconfig-retrieving-the-configuration"></a>
+# Step 6: Retrieving the configuration<a name="appconfig-retrieving-the-configuration"></a>
 
 You must configure a client to retrieve configuration updates by integrating with the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) API action\. You can integrate using the AWS SDK\. The following AWS CLI command demonstrates how to retrieve a configuration\. This call includes the IDs of the AppConfig application, the environment, the configuration profile, and a unique client ID\. The configuration content is saved to the output filename\. 
 

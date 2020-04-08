@@ -1,4 +1,4 @@
-# Canceling a Command<a name="rc-cancel"></a>
+# Canceling a command<a name="rc-cancel"></a>
 
 You can attempt to cancel a command as long as the service shows that it is in either a Pending or Executing state\. However, even if a command is still in one of these states, we cannot guarantee that the command will be terminated and the underlying process stopped\. 
 
@@ -23,4 +23,4 @@ Use the following command\.
 aws ssm cancel-command --command-id "command  ID" --instance-ids "instance ID"
 ```
 
-For information about the status of a cancelled command, see [Understanding Command Statuses](monitor-commands.md)\.
+For information about the status of a cancelled command, see [Understanding command statuses](monitor-commands.md)\.

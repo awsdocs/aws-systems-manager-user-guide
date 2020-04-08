@@ -1,4 +1,4 @@
-# Assign Tasks to a Maintenance Window \(Console\)<a name="sysman-maintenance-assign-tasks"></a>
+# Assign tasks to a maintenance window \(console\)<a name="sysman-maintenance-assign-tasks"></a>
 
 In this procedure, you add a task to a maintenance window\. Tasks are the actions performed on a resource during a maintenance window execution\. 
 
@@ -30,7 +30,7 @@ The following four types of tasks can be added to a maintenance window:
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -49,11 +49,11 @@ If a service\-linked role has already been created for your account, choose **Us
      You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
 
      If you need to create a custom service role, see one of the following topics:
-     + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
-     + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-     + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+     + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
+     + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
+     + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
 

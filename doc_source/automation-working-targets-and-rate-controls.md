@@ -1,12 +1,12 @@
-# Running Automation Workflows That Use Targets and Rate Controls<a name="automation-working-targets-and-rate-controls"></a>
+# Running Automation workflows that use targets and rate controls<a name="automation-working-targets-and-rate-controls"></a>
 
 AWS Systems Manager enables you to run Automation workflows on a fleet of AWS resources by using targets\. Additionally, you can control the execution of the Automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the Automation simultaneously\. An error threshold determines how many Automation executions are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
-For more information about concurrency and error thresholds, see [About Concurrency and Error Thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About Targets](automation-working-targets.md)\.
+For more information about concurrency and error thresholds, see [About concurrency and error thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About targets](automation-working-targets.md)\.
 
 The following procedures describe how to run an Automation workflow with targets and rate controls by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
-## Running an Automation workflow with targets and rate controls \(Console\)<a name="automation-working-targets-and-rate-controls-console"></a>
+## Running an Automation workflow with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run an Automation workflow with targets and rate controls\.
 
@@ -59,7 +59,7 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\. 
 
-## Running an Automation Workflow with Targets and Rate Controls \(Command Line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
+## Running an Automation workflow with targets and rate controls \(command line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow with targets and rate controls\.
 
@@ -67,7 +67,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to view a list of documents\.
 

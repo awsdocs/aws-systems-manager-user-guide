@@ -1,14 +1,14 @@
-# Running Scripts from GitHub and Amazon S3<a name="integration-remote-scripts"></a>
+# Running scripts from GitHub and Amazon S3<a name="integration-remote-scripts"></a>
 
 This section describes how to use the `AWS-RunRemoteScript` pre\-defined SSM document to download scripts from GitHub and Amazon S3, including Ansible Playbooks, Python, Ruby, and PowerShell scripts\. By using this document, you no longer need to manually port scripts into Amazon EC2 or wrap them in SSM documents\. Systems Manager integration with GitHub and Amazon S3 promotes *infrastructure as code*, which reduces the time it takes to manage instances while standardizing configurations across your fleet\. 
 
-You can also create custom SSM documents that enable you to download and run scripts or other SSM documents from remote locations\. For more information, see [Creating Composite Documents](composite-docs.md)\.
+You can also create custom SSM documents that enable you to download and run scripts or other SSM documents from remote locations\. For more information, see [Creating composite documents](composite-docs.md)\.
 
 **Topics**
-+ [Running Scripts from GitHub](#integration-github)
-+ [Running Scripts from Amazon S3](#integration-s3)
++ [Running scripts from GitHub](#integration-github)
++ [Running scripts from Amazon S3](#integration-s3)
 
-## Running Scripts from GitHub<a name="integration-github"></a>
+## Running scripts from GitHub<a name="integration-github"></a>
 
 This section describes how to download and run scripts from a private or public GitHub repository\. You can run different types of scripts, including Ansible Playbooks, Python, Ruby, and PowerShell scripts\. 
 
@@ -20,16 +20,16 @@ Note the following important details about running scripts from GitHub\.
 
 **Topics**
 + [Run Ansible Playbooks from GitHub](#integration-github-ansible)
-+ [Run Python Scripts from GitHub](#integration-github-python)
++ [Run Python scripts from GitHub](#integration-github-python)
 
 ### Run Ansible Playbooks from GitHub<a name="integration-github-ansible"></a>
 
 This section includes procedures to help you run Ansible Playbooks from GitHub by using either the console or the AWS CLI\.
 
 **Before You Begin**  
-If you plan to run a script that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
+If you plan to run a script that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
-#### Run an Ansible Playbook from GitHub \(Console\)<a name="integration-github-ansible-console"></a>
+#### Run an Ansible Playbook from GitHub \(console\)<a name="integration-github-ansible-console"></a>
 
 **Run an Ansible Playbook from GitHub**
 
@@ -87,7 +87,7 @@ To use the version of your scripts that are in a particular *commit* in your rep
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
@@ -101,19 +101,19 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
-#### Run an Ansible Playbook from GitHub by Using the AWS CLI<a name="integration-github-ansible-cli"></a>
+#### Run an Ansible Playbook from GitHub by using the AWS CLI<a name="integration-github-ansible-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -127,13 +127,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "i-1234abcd" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"TestUser1\", \"repository\": \"GitHubPrivateTest\", \"path\": \"scripts/webserver.yml\", \"tokenInfo\":\"{{ssm-secure:mySecureStringParameter}}\" }"],"commandLine":["ansible-playbook -i “localhost,” --check -c local webserver.yml"]}'
    ```
 
-### Run Python Scripts from GitHub<a name="integration-github-python"></a>
+### Run Python scripts from GitHub<a name="integration-github-python"></a>
 
 This section includes procedures to help you run Python scripts from GitHub by using either the console or the AWS CLI\. 
 
-#### Run a Python Script from GitHub \(Console\)<a name="integration-github-python-console"></a>
+#### Run a Python script from GitHub \(console\)<a name="integration-github-python-console"></a>
 
-**Run a Python Script from GitHub**
+**Run a Python script from GitHub**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -191,7 +191,7 @@ To use the version of your scripts that are in a particular *commit* in your rep
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
@@ -205,19 +205,19 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
-#### Run a Python Script from GitHub by Using the AWS CLI<a name="integration-github-python-cli"></a>
+#### Run a Python script from GitHub by using the AWS CLI<a name="integration-github-python-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to download and run a script from GitHub\.
 
@@ -233,7 +233,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    This example downloads a directory of scripts name complex\-script\. The `commandLine` entry runs mainFile\.py, which can then run other scripts in the complex\-script directory\.
 
-## Running Scripts from Amazon S3<a name="integration-s3"></a>
+## Running scripts from Amazon S3<a name="integration-s3"></a>
 
 This section describes how to download and run scripts from Amazon S3\. You can run different types of scripts, including Ansible Playbooks, Python, Ruby, Shell, and PowerShell\. 
 
@@ -244,17 +244,17 @@ Note the following important details about running scripts from Amazon S3\.
 + Verify that your AWS Identity and Access Management \(IAM\) user account, role, or group has permission to read from the S3 bucket\.
 
 **Topics**
-+ [Run Ruby Scripts from Amazon S3](#integration-s3-ruby)
-+ [Run Shell Scripts from Amazon S3](#integration-s3-shell)
-+ [Run PowerShell Script from Amazon S3](#integration-S3-PowerShell)
++ [Run Ruby scripts from Amazon S3](#integration-s3-ruby)
++ [Run shell scripts from Amazon S3](#integration-s3-shell)
++ [Run a PowerShell script from Amazon S3](#integration-S3-PowerShell)
 
-### Run Ruby Scripts from Amazon S3<a name="integration-s3-ruby"></a>
+### Run Ruby scripts from Amazon S3<a name="integration-s3-ruby"></a>
 
 This section includes procedures to help you run Ruby scripts from Amazon S3 by using either the Systems Manager console or the AWS CLI\.
 
-#### Run a Ruby Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
+#### Run a Ruby script from Amazon S3 \(console\)<a name="integration-s3-ruby-console"></a>
 
-**Run a Ruby Script from Amazon S3**
+**Run a Ruby script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -267,10 +267,6 @@ This section includes procedures to help you run Ruby scripts from Amazon S3 by 
 1. Choose **Run command**\.
 
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *S3*\. 
@@ -293,6 +289,10 @@ If you choose to select instances manually, and an instance you expect to see is
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
    + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
@@ -305,19 +305,19 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
-#### Run a Ruby Script from Amazon S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
+#### Run a Ruby script from Amazon S3 by using the AWS CLI<a name="integration-s3-ruby-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("/"\) you need to run the command from your command line tool\):
 
@@ -345,13 +345,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/RubyTest/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}'
    ```
 
-### Run Shell Scripts from Amazon S3<a name="integration-s3-shell"></a>
+### Run shell scripts from Amazon S3<a name="integration-s3-shell"></a>
 
 This section includes procedures to help you run Shell scripts from Amazon S3 by using either the Systems Manager console or the AWS CLI\.
 
-#### Run a Shell Script from Amazon S3 \(Console\)<a name="integration-s3-ruby-console"></a>
+#### Run a shell script from Amazon S3 \(console\)<a name="integration-s3-ruby-console"></a>
 
-**Run a Shell Script from Amazon S3**
+**Run a shell script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -364,10 +364,6 @@ This section includes procedures to help you run Shell scripts from Amazon S3 by
 1. Choose **Run command**\.
 
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *S3*\. 
@@ -390,6 +386,10 @@ If you choose to select instances manually, and an instance you expect to see is
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
    + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
@@ -402,19 +402,19 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
-#### Run a Shell Script from Amazon S3 by using the AWS CLI<a name="integration-s3-shell-cli"></a>
+#### Run a shell script from Amazon S3 by using the AWS CLI<a name="integration-s3-shell-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 
@@ -442,13 +442,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command --document-name "AWS-RunRemoteScript" --targets "Key=instanceids,Values=i-1234567890abcdef0" --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/ShellTest/scripts/shell/helloWorld.sh\"}"],"commandLine":["helloWorld.sh argument-1 argument-2"]}'
    ```
 
-### Run PowerShell Script from Amazon S3<a name="integration-S3-PowerShell"></a>
+### Run a PowerShell script from Amazon S3<a name="integration-S3-PowerShell"></a>
 
 This section includes procedures to help you run PowerShell scripts from Amazon S3 by using either the EC2 console or the AWS CLI\.
 
-#### Run a PowerShell Script from Amazon S3 \(Console\)<a name="integration-S3-PowerShell-console"></a>
+#### Run a PowerShell script from Amazon S3 \(console\)<a name="integration-S3-PowerShell-console"></a>
 
-**Run a PowerShell Script from Amazon S3**
+**Run a PowerShell script from Amazon S3**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -461,10 +461,6 @@ This section includes procedures to help you run PowerShell scripts from Amazon 
 1. Choose **Run command**\.
 
 1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
-
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select *S3*\. 
@@ -487,6 +483,10 @@ If you choose to select instances manually, and an instance you expect to see is
    + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
+1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+**Note**  
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
    + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
@@ -499,19 +499,19 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. Choose **Run**\.
 
-#### Run a PowerShell Script from S3 by Using the AWS CLI<a name="integration-s3-powershell-cli"></a>
+#### Run a PowerShell script from S3 by using the AWS CLI<a name="integration-s3-powershell-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Depending on the operating system type on your local machine, run one of the following commands to download and run a script from Amazon S3 \(the Windows version includes the escape characters \("\\"\) you need to run the command from your command line tool\):
 

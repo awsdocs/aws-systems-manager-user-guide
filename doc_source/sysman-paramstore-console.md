@@ -1,4 +1,4 @@
-# Walkthrough: Create and Test a String Parameter \(Console\)<a name="sysman-paramstore-console"></a>
+# Walkthrough: Create and test a String parameter \(console\)<a name="sysman-paramstore-console"></a>
 
 The following procedure walks you through the process of creating a String parameter in Parameter Store and then running a command that uses this parameter\.
 
@@ -12,7 +12,7 @@ The following procedure walks you through the process of creating a String param
 
 1. In the **Name** box, enter a hierarchy and a name\. For example, enter **/Test/helloWorld**\.
 
-   For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+   For more information about parameter hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
 1. In the **Description** field, enter a description that identifies this parameter as a test parameter\.
 
@@ -32,7 +32,7 @@ The following procedure walks you through the process of creating a String param
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. Choose **Run**\.
 

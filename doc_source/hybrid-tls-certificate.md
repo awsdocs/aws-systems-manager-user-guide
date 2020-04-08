@@ -1,4 +1,4 @@
-# Step 3: Install a TLS certificate on On\-Premises Servers and VMs<a name="hybrid-tls-certificate"></a>
+# Step 3: Install a TLS certificate on on\-premises servers and VMs<a name="hybrid-tls-certificate"></a>
 
 A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. AWS services use these certificates to encrypt calls to other AWS services\.
 
@@ -17,4 +17,4 @@ If certificates in your computing environment are managed by a Group Policy Obje
 
 For more information about the Amazon Root and Starfield certificates, see the blog post [How to Prepare for AWS’s Move to Its Own Certificate Authority](http://aws.amazon.com/blogs/security/how-to-prepare-for-aws-move-to-its-own-certificate-authority/)\.
 
-Continue to [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\.
+Continue to [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\.

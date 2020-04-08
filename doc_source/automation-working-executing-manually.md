@@ -1,13 +1,13 @@
-# Running an Automation Workflow Manually<a name="automation-working-executing-manually"></a>
+# Running an Automation workflow manually<a name="automation-working-executing-manually"></a>
 
 The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run a Systems Manager Automation workflow using the manual execution mode\. By using the manual execution mode, the Automation workflow starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the workflow proceeds, which is useful if you need to review the result of a step before continuing\.
 
 The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, or playbook, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
+For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation workflows by using different security models](automation-walk-security.md)\. 
 
-## Running an Automation Workflow Step by Step \(Console\)<a name="automation-working-executing-manually-console"></a>
+## Running an Automation workflow step by step \(console\)<a name="automation-working-executing-manually-console"></a>
 
 The following procedure shows how to use the Systems Manager console to manually run an Automation workflow step by step\.
 
@@ -40,7 +40,7 @@ The console displays the status of the Automation execution\. If the Automation 
 
 1. After you complete all steps specified in the Automation document, choose **Complete and view results** to finish the Automation workflow and view the results\.
 
-## Running an Automation Workflow Step by Step \(Command Line\)<a name="automation-working-executing-manually-commandline"></a>
+## Running an Automation workflow step by step \(command line\)<a name="automation-working-executing-manually-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to manually run an Automation workflow step by step\.
 
@@ -48,7 +48,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to start a manual Automation workflow\.
 

@@ -1,10 +1,10 @@
-# SecureString Parameters<a name="sysman-paramstore-securestring"></a>
+# SecureString parameters<a name="sysman-paramstore-securestring"></a>
 
 A `SecureString` parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plain text, such as passwords or license keys, create those parameters using the `SecureString` datatype\.
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [Parameter Types and Examples](parameter-store-about-examples.md)\.
+For more information, see [Parameter types and examples](parameter-store-about-examples.md)\.
 
 We recommend using `SecureString` parameters for the following scenarios\.
 + You want to use data/parameters across AWS services without exposing the values as plain text in commands, functions, agent logs, or AWS CloudTrail logs\.
@@ -24,7 +24,7 @@ aws kms describe-key --key-id alias/aws/ssm
 **Important**  
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
 
-## Create a SecureString Parameter Using a KMS Customer Master Key<a name="sysman-param-defaultkms"></a>
+## Create a SecureString parameter using a KMS customer master key<a name="sysman-param-defaultkms"></a>
 
 If you create a `SecureString` parameter by using the AWS\-managed CMK in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 
@@ -34,7 +34,7 @@ The following AWS CLI example shows the command to create a new `SecureString` p
 aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString
 ```
 
-## Create a SecureString Parameter Using a Customer Managed CMK<a name="sysman-param-customkms"></a>
+## Create a SecureString parameter using a customer managed CMK<a name="sysman-param-customkms"></a>
 
 To use a customer managed CMK instead of the AWS\-managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
 + Key ARN example:
@@ -67,7 +67,7 @@ You can manually create a parameter with an encrypted value\. In this case, beca
 
 By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
 
-## Using SecureString Parameters With Other AWS Services<a name="sysman-paramstore-securelam"></a>
+## Using SecureString parameters with other AWS services<a name="sysman-paramstore-securelam"></a>
 
 You can also use `SecureString` parameters with other AWS services\. In the following example, the AWS Lambda function retrieves a `SecureString` parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.
 
@@ -91,7 +91,7 @@ def lambda_handler(event, context):
 ```
 
 **Related topics**  
-For an example of how to create and use a `SecureString` parameter, see [Walkthrough: Create a SecureString Parameter and Join an Instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blog posts\.
+For an example of how to create and use a `SecureString` parameter, see [Walkthrough: Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blog posts\.
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)

@@ -1,4 +1,4 @@
-# Walkthrough: Run the EC2Rescue Tool on Unreachable Instances<a name="automation-ec2rescue"></a>
+# Walkthrough: Run the EC2Rescue tool on unreachable instances<a name="automation-ec2rescue"></a>
 
 EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux and Windows Server instances\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
@@ -8,7 +8,7 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and po
 
 **Linux**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information, see the [aws\-ec2rescue\-linux](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\. 
 
-## How It Works<a name="automation-ec2rescue-how"></a>
+## How it works<a name="automation-ec2rescue-how"></a>
 
 Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** document works as follows:
 + You specify the ID of the unreachable instance and run the Automation workflow\.
@@ -19,20 +19,20 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Resc
 + The system uses Run Command to run EC2Rescue on the helper instance\. EC2Rescue identifies and attempts to fix issues on the attached, original root volume\. When finished, EC2Rescue reattaches the root volume back to the original instance\.
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
 
-## Before You Begin<a name="automation-ec2rescue-begin"></a>
+## Before you begin<a name="automation-ec2rescue-begin"></a>
 
 Before you run the following Automation, do the following:
 + Copy the instance ID of the unreachable instance\. You will specify this ID in the procedure\.
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/adminguide/VPC_Appendix_Limits.html#vpc-limits-vpcs-subnets)\. 
-+ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an Automation Workflow by Using an IAM Service Role](automation-walk-security-assume.md)\.
++ Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an Automation workflow by using an IAM service role](automation-walk-security-assume.md)\.
 
-### Granting AWSSupport\-EC2Rescue Permissions to Perform Actions On Your Instances<a name="automation-ec2rescue-access"></a>
+### Granting AWSSupport\-EC2Rescue permissions to perform actions on your instances<a name="automation-ec2rescue-access"></a>
 
 EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
-+ [Granting Permissions By Using IAM Policies](#automation-ec2rescue-access-iam)
-+ [Granting Permissions By Using An AWS CloudFormation Template](#automation-ec2rescue-access-cfn)
++ [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam)
++ [Granting permissions by using an AWS CloudFormation template](#automation-ec2rescue-access-cfn)
 
-#### Granting Permissions By Using IAM Policies<a name="automation-ec2rescue-access-iam"></a>
+#### Granting permissions by using IAM policies<a name="automation-ec2rescue-access-iam"></a>
 
 You can either attach the following IAM policy to your IAM user account, group, or role as an inline policy; or, you can create a new IAM managed policy and attach it to your user account, group, or role\. For more information about adding an inline policy to your user account, group, or role see [Working With Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html)\. For more information about creating a new managed policy, see [Working With Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html)\.
 
@@ -117,7 +117,7 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
 }
 ```
 
-#### Granting Permissions By Using An AWS CloudFormation Template<a name="automation-ec2rescue-access-cfn"></a>
+#### Granting permissions by using an AWS CloudFormation template<a name="automation-ec2rescue-access-cfn"></a>
 
 AWS CloudFormation automates the process of creating IAM roles and policies by using a preconfigured template\. Use the following procedure to create the required IAM roles and policies for the EC2Rescue Automation by using AWS CloudFormation\.
 

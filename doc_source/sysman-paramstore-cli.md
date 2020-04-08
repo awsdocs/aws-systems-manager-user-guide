@@ -1,4 +1,4 @@
-# Walkthrough: Create and Update a String Parameter \(AWS CLI\)<a name="sysman-paramstore-cli"></a>
+# Walkthrough: Create and update a String parameter \(AWS CLI\)<a name="sysman-paramstore-cli"></a>
 
 The following procedure walks you through the process of creating and storing a parameter of the type `String` using the AWS CLI\.
 
@@ -6,15 +6,15 @@ The following procedure walks you through the process of creating and storing a 
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
    aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String
    ```
 
-   Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+   Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
    aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String

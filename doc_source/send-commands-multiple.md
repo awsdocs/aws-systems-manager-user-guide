@@ -1,4 +1,4 @@
-# Using Targets and Rate Controls to Send Commands to a Fleet<a name="send-commands-multiple"></a>
+# Using targets and rate controls to send commands to a fleet<a name="send-commands-multiple"></a>
 
 You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Select Targets by Specifying a Tag** option in the Amazon EC2 console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
 
@@ -8,11 +8,11 @@ You can also use the `targets` parameter to target a list of specific instance I
 To control command execution across hundreds or thousands of instances, Run Command also includes parameters for restricting how many instances can simultaneously process a request and how many errors can be thrown by a command before the command is terminated\.
 
 **Topics**
-+ [Targeting Multiple Instances](#send-commands-targeting)
-+ [Using Concurrency Controls](#send-commands-velocity)
-+ [Using Error Controls](#send-commands-maxerrors)
++ [Targeting multiple instances](#send-commands-targeting)
++ [Using concurrency controls](#send-commands-velocity)
++ [Using error controls](#send-commands-maxerrors)
 
-## Targeting Multiple Instances<a name="send-commands-targeting"></a>
+## Targeting multiple instances<a name="send-commands-targeting"></a>
 
 You can run a command and target instances by specifying tags applied to managed instances, AWS resource group names, or instance IDs\. 
 
@@ -103,7 +103,7 @@ aws ssm send-command --document-name name --targets Key="tag:Operating System",V
 aws ssm send-command --document-name name --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" [...]
 ```
 
-## Using Concurrency Controls<a name="send-commands-velocity"></a>
+## Using concurrency controls<a name="send-commands-velocity"></a>
 
 You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Execute on** field in the Amazon EC2 console\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation completes before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter:
 
@@ -115,7 +115,7 @@ aws ssm send-command --document-name name --max-concurrency 10 --targets Key=tag
 aws ssm send-command --document-name name --max-concurrency 10% --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database [...]
 ```
 
-## Using Error Controls<a name="send-commands-maxerrors"></a>
+## Using error controls<a name="send-commands-maxerrors"></a>
 
 You can also control the execution of a command to hundreds or thousands of instances by setting an error limit using the `max-errors` parameters \(the **Stop after \_\_ errors** field in the Amazon EC2 console\)\. The parameter specifies how many errors are allowed before the system stops sending the command to additional instances\. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%\. If you specify 3, for example, the system stops sending the command when the fourth error is received\. If you specify 0, then the system stops sending the command to additional instances after the first error result is returned\. If you send a command to 50 instances and set `max-errors` to 10%, then the system stops sending the command to additional instances when the sixth error is received\.
 

@@ -1,23 +1,23 @@
-# Install or Update Packages<a name="distributor-working-with-packages-deploy"></a>
+# Install or update packages<a name="distributor-working-with-packages-deploy"></a>
 
 You can use the AWS Management Console or the AWS CLI to deploy packages to your AWS Systems Manager managed instances by using AWS Systems Manager Distributor\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\.
 
 
-| Preference | AWS Systems Manager Action | More Information | 
+| Preference | AWS Systems Manager action | More information | 
 | --- | --- | --- | 
 |  Install or update a package immediately\.  |  Run Command  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/distributor-working-with-packages-deploy.html)  | 
 |  Install or update a package on a schedule, so that the installation always includes the default version\.  |  State Manager  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/distributor-working-with-packages-deploy.html)  | 
-|  Automatically install a package on new instances that have a specific tag or set of tags\. For example, installing the Amazon CloudWatch agent on new instances\.  |  State Manager  |  One way to do this is to apply tags to new instances, and then specify the tags as targets in your State Manager association\. State Manager automatically installs the package in an association on instances that have matching tags\. See [Create an Association That Uses Targets and Rate Controls \(Console\)](systems-manager-state-manager-targets-and-rate-controls.md#sysman-state-targets-console)\.  | 
+|  Automatically install a package on new instances that have a specific tag or set of tags\. For example, installing the Amazon CloudWatch agent on new instances\.  |  State Manager  |  One way to do this is to apply tags to new instances, and then specify the tags as targets in your State Manager association\. State Manager automatically installs the package in an association on instances that have matching tags\. See [Create an association that uses targets and rate controls \(console\)](systems-manager-state-manager-targets-and-rate-controls.md#sysman-state-targets-console)\.  | 
 
 **Topics**
-+ [Installing or Updating a Package One Time \(Console\)](#distributor-deploy-pkg-console)
-+ [Scheduling a Package Installation or Update \(Console\)](#distributor-deploy-sm-pkg-console)
-+ [Installing a Package One Time \(AWS CLI\)](#distributor-deploy-pkg-cli)
-+ [Updating a Package One Time \(AWS CLI\)](#distributor-update-pkg-cli)
-+ [Scheduling a Package Installation \(AWS CLI\)](#distributor-smdeploy-pkg-cli)
-+ [Scheduling a Package Update \(AWS CLI\)](#distributor-smupdate-pkg-cli)
++ [Installing or updating a package one time \(console\)](#distributor-deploy-pkg-console)
++ [Scheduling a package installation or update \(console\)](#distributor-deploy-sm-pkg-console)
++ [Installing a package one time \(AWS CLI\)](#distributor-deploy-pkg-cli)
++ [Updating a package one time \(AWS CLI\)](#distributor-update-pkg-cli)
++ [Scheduling a package installation \(AWS CLI\)](#distributor-smdeploy-pkg-cli)
++ [Scheduling a package update \(AWS CLI\)](#distributor-smupdate-pkg-cli)
 
-## Installing or Updating a Package One Time \(Console\)<a name="distributor-deploy-pkg-console"></a>
+## Installing or updating a package one time \(console\)<a name="distributor-deploy-pkg-console"></a>
 
 You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to perform the installation\.
 
@@ -29,7 +29,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. On the Distributor home page, choose the package that you want to install\.
 
-1. For **Packages**, choose **Install one time**\.
+1. Choose **Install one time**\.
 
    This command opens Systems Manager Run Command with the command document `AWS-ConfigureAWSPackage` and your Distributor package already selected\.
 
@@ -47,7 +47,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
@@ -61,11 +61,11 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. When you are ready to install the package, choose **Run**\.
 
@@ -77,7 +77,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. \(Optional\) If you chose to write command output to an Amazon S3 bucket, choose **Amazon S3** to view the output log data\.
 
-## Scheduling a Package Installation or Update \(Console\)<a name="distributor-deploy-sm-pkg-console"></a>
+## Scheduling a package installation or update \(console\)<a name="distributor-deploy-sm-pkg-console"></a>
 
 You can use the AWS Systems Manager console to schedule the installation or update of a package\. When you schedule package installation or update, Distributor uses [AWS Systems Manager State Manager](systems-manager-state.md) to install or update\.
 
@@ -109,17 +109,17 @@ You can use the AWS Systems Manager console to schedule the installation or upda
 
 1. For **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
-1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an Association](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
+1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an association](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
 
 1. Choose **Create Association**\.
 
 1. On the **Association** page, choose the button next to the association you created, and then choose **Apply association now**\.
 
-   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an Association](sysman-state-assoc.md) in this guide\.
+   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an association](sysman-state-assoc.md) in this guide\.
 
-For more information about working with the options in **Advanced options**, **Rate control**, and **Output options**, see [Create an Association](sysman-state-assoc.md)\. 
+For more information about working with the options in **Advanced options**, **Rate control**, and **Output options**, see [Create an association](sysman-state-assoc.md)\. 
 
-## Installing a Package One Time \(AWS CLI\)<a name="distributor-deploy-pkg-cli"></a>
+## Installing a package one time \(AWS CLI\)<a name="distributor-deploy-pkg-cli"></a>
 
 You can run send\-command in the AWS CLI to install a Distributor package one time\. If the package is already installed, the application will be taken offline while the package is uninstalled and the new version installed in its place\.
 
@@ -140,7 +140,7 @@ The default behavior for `installationType` is `Uninstall and reinstall`\. You c
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
 
-## Updating a Package One Time \(AWS CLI\)<a name="distributor-update-pkg-cli"></a>
+## Updating a package one time \(AWS CLI\)<a name="distributor-update-pkg-cli"></a>
 
 You can run send\-command in the AWS CLI to update a Distributor package without taking the associated application offline\. Only new or updated files in the package are replaced\.
 
@@ -161,7 +161,7 @@ When you add new or changed files, you must include `"installationType":["In-pla
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
 
-## Scheduling a Package Installation \(AWS CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
+## Scheduling a package installation \(AWS CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
 
 You can run create\-association in the AWS CLI to install a Distributor package on a schedule\. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`\. The following command uses the key `InstanceIds` to specify target instances\. If the package is already installed, the application will be taken offline while the package is uninstalled and the new version installed in its place\.
 
@@ -180,7 +180,7 @@ aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"acti
 
 For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
-## Scheduling a Package Update \(AWS CLI\)<a name="distributor-smupdate-pkg-cli"></a>
+## Scheduling a package update \(AWS CLI\)<a name="distributor-smupdate-pkg-cli"></a>
 
 You can run create\-association in the AWS CLI to update a Distributor package on a schedule without taking the associated application offline\. Only new or updated files in the package are replaced\. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`\. The following command uses the key `InstanceIds` to specify target instances\.
 

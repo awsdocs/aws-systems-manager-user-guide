@@ -63,7 +63,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --query '
 
 ****  
 
-| Step Number | Step Name | Automation Action | 
+| Step number | Step name | Automation action | 
 | --- | --- | --- | 
 |  1  |  createDocumentStack  |  aws:createStack  | 
 |  2  |  IdentifyRootVolume  |  aws:invokeLambdaFunction  | 

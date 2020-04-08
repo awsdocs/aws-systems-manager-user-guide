@@ -1,4 +1,4 @@
-# Step 1: Create the Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-create-mw"></a>
+# Step 1: Create the maintenance window \(AWS CLI\)<a name="mw-cli-tutorial-create-mw"></a>
 
 In this step, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the instance it updates and the task it runs\.
 
@@ -69,4 +69,4 @@ In our example, you create a maintenance window that runs every five minutes\. N
    }
    ```
 
-Continue to [Step 2: Register a Target Instance with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-targets.md)\.
+Continue to [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)\.

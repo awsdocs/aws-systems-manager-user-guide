@@ -1,4 +1,4 @@
-# Rebooting Managed Instance from Scripts<a name="send-commands-reboot"></a>
+# Rebooting managed instance from scripts<a name="send-commands-reboot"></a>
 
 If the scripts that you run by using Run Command reboot managed instances, then you must specify an exit code in your script\. If you attempt to reboot an instance from a script by using some other mechanism, the script execution status might not be updated correctly, even if the reboot is the last step in your script\. For Windows managed instances, you specify `exit 3010` in your script\. For Linux managed instances, you specify `exit 194`\. The exit code instructs SSM Agent to reboot the managed instance, and then restart the script after the reboot completed\. Before starting the reboot, SSM Agent informs the Systems Manager service in the cloud that communication will be disrupted during the server reboot\.
 
@@ -35,11 +35,11 @@ The following script samples use exit codes to restart instances\. The Windows e
 **Windows example**
 
 ```
-$hyperV = Get-WindowsFeature -Name Hyper-V
-if(-not $hyperV.Installed)
+$telnet = Get-WindowsFeature -Name Telnet-Client
+if (-not $telnet.Installed)
 	{ 
-		# Install Hyper-V and then send a reboot request to SSM Agent.
-		Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+		# Install Telnet and then send a reboot request to SSM Agent.
+		Install-WindowsFeature -Name "Telnet-Client"
 		exit 3010 
 	}
 ```

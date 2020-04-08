@@ -1,15 +1,15 @@
-# Tutorial: Patch a Server Environment \(Command Line\)<a name="sysman-patch-cliwalk"></a>
+# Tutorial: Patch a server environment \(command line\)<a name="sysman-patch-cliwalk"></a>
 
 The following procedure describes how to patch a server environment by using a custom patch baseline, patch groups, and a maintenance window\.
 
-**Before You Begin**
+**Before you begin**
 + Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
-+ Configure roles and permissions for the Maintenance Windows capability\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
++ Configure roles and permissions for the Maintenance Windows capability\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\.
 + Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-  For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+  For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-**To configure Patch Manager and patch instances \(Command Line\)**
+**To configure Patch Manager and patch instances \(command line\)**
 
 1. Run the following command to create a patch baseline named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they are released\. In addition, the patch baseline is tagged to indicate that it is for a production environment\.
 **Note**  
@@ -571,4 +571,4 @@ It is expected to see zeroes for the number of instances in the summary until th
    }
    ```
 
-For examples of other AWS CLI commands you can use for your Patch Manager configuration tasks, see [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)\.
+For examples of other AWS CLI commands you can use for your Patch Manager configuration tasks, see [AWS CLI commands for Patch Manager](patch-manager-cli-commands.md)\.

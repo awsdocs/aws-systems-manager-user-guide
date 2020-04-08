@@ -1,4 +1,4 @@
-# Creating a Configuration and a Configuration Profile<a name="appconfig-creating-configuration-and-profile-console"></a>
+# Creating a configuration and a configuration profile<a name="appconfig-creating-configuration-and-profile-console"></a>
 
 Use the following procedure to create an AppConfig configuration and a configuration profile by using the AWS Systems Manager console\.
 
@@ -46,4 +46,4 @@ Configuration data stored in SSM documents must validate against an associated J
 
 1. Choose **Create configuration profile**\.
 
-AppConfig creates the configuration profile\. Proceed to [Step 4: Create a Deployment Strategy](appconfig-creating-deployment-strategy.md)\.
+AppConfig creates the configuration profile\. Proceed to [Step 4: Create a deployment strategy](appconfig-creating-deployment-strategy.md)\.

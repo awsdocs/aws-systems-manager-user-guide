@@ -1,12 +1,12 @@
-# Modify Permissions for a Shared Document<a name="ssm-share-modify"></a>
+# Modify permissions for a shared document<a name="ssm-share-modify"></a>
 
 If you share a command, users can view and use that command until you either remove access to the Systems Manager document or delete the Systems Manager document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
 
 **Topics**
-+ [Stop Sharing a Document \(Console\)](#unshare-using-console)
-+ [Stop Sharing a Document \(Command Line\)](#unshare-using-cli)
++ [Stop sharing a document \(console\)](#unshare-using-console)
++ [Stop sharing a document \(command line\)](#unshare-using-cli)
 
-## Stop Sharing a Document \(Console\)<a name="unshare-using-console"></a>
+## Stop sharing a document \(console\)<a name="unshare-using-console"></a>
 
 **Stop sharing a document**
 
@@ -24,7 +24,7 @@ If you share a command, users can view and use that command until you either rem
 
 1. Choose **X** to delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
 
-## Stop Sharing a Document \(Command Line\)<a name="unshare-using-cli"></a>
+## Stop sharing a document \(command line\)<a name="unshare-using-cli"></a>
 
 Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to stop sharing a command\.
 

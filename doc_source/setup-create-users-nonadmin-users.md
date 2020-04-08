@@ -1,4 +1,4 @@
-# Task 3: Create Users and Assign Permissions<a name="setup-create-users-nonadmin-users"></a>
+# Task 3: Create users and assign permissions<a name="setup-create-users-nonadmin-users"></a>
 
 Create IAM users for the individuals who require access to AWS Systems Manager, and add each user to the appropriate user group to ensure that they have the right level of permissions\. 
 
@@ -63,4 +63,4 @@ The user's password is not included in the generated email\. You must provide th
 
 1. Choose **Add permissions**\.
 
-Continue to [Step 4: Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+Continue to [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.

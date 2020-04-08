@@ -21,23 +21,23 @@ The following table describes the different types of SSM documents\.
 You can create and save different versions of documents\. You can then specify a default version for each document\. The default version of a document can be updated to a newer version or reverted to an older version of the document\. When you change the content of a document, Systems Manager automatically increments the version of the document\. You can retrieve and use previous versions of a document\.
 
 **Customizing a Document**  
-If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your AWS account\. For more information about how to create a Systems Manager document, see [Creating Systems Manager Documents](create-ssm-doc.md)\.
+If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your AWS account\. For more information about how to create a Systems Manager document, see [Creating Systems Manager documents](create-ssm-doc.md)\.
 
 **Tagging a Document**  
-You can tag your documents to help you quickly identify one or more documents based on the tags you've assigned to them\. For example, you can tag documents for specific environments, departments, users, groups, or periods\. You can also restrict access to documents by creating an IAM policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager Documents](sysman-ssm-docs-tagging.md)\.
+You can tag your documents to help you quickly identify one or more documents based on the tags you've assigned to them\. For example, you can tag documents for specific environments, departments, users, groups, or periods\. You can also restrict access to documents by creating an IAM policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager documents](sysman-ssm-docs-tagging.md)\.
 
 **Sharing a Document**  
-You can make your documents public or share them with specific AWS accounts\. Sharing documents between accounts can be useful if, for example, you want all of the Amazon EC2 instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up\-to\-date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing Systems Manager Documents](ssm-sharing.md)\.
+You can make your documents public or share them with specific AWS accounts\. Sharing documents between accounts can be useful if, for example, you want all of the Amazon EC2 instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up\-to\-date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing Systems Manager documents](ssm-sharing.md)\.
 
 **SSM Document Quotas**  
-For information about SSM document quotas, see [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+For information about SSM document quotas, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
 **Topics**
-+ [SSM Document Schemas and Features](document-schemas-features.md)
-+ [SSM Document Syntax](sysman-doc-syntax.md)
-+ [Creating Systems Manager Documents](create-ssm-doc.md)
-+ [Tagging Systems Manager Documents](sysman-ssm-docs-tagging.md)
-+ [Sharing Systems Manager Documents](ssm-sharing.md)
-+ [Creating Composite Documents](composite-docs.md)
-+ [Running Documents from Remote Locations](run-remote-documents.md)
-+ [SSM Document Plugin Reference](ssm-plugins.md)
++ [SSM document schemas and features](document-schemas-features.md)
++ [SSM document syntax](sysman-doc-syntax.md)
++ [Creating Systems Manager documents](create-ssm-doc.md)
++ [Tagging Systems Manager documents](sysman-ssm-docs-tagging.md)
++ [Sharing Systems Manager documents](ssm-sharing.md)
++ [Creating composite documents](composite-docs.md)
++ [Running documents from remote locations](run-remote-documents.md)
++ [SSM document plugin reference](ssm-plugins.md)

@@ -1,11 +1,11 @@
-# Running a Simple Automation Workflow<a name="automation-working-executing"></a>
+# Running a simple Automation workflow<a name="automation-working-executing"></a>
 
 The following procedures describe how to run a simple Systems Manager Automation workflow using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, or playbook, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
+For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation workflows by using different security models](automation-walk-security.md)\. 
 
-## Running a Simple Automation Workflow \(Console\)<a name="automation-working-executing-console"></a>
+## Running a simple Automation workflow \(console\)<a name="automation-working-executing-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run a simple Automation workflow\.
 
@@ -34,7 +34,7 @@ You can view information about a document by choosing the document name\.
 
 The console displays the status of the Automation execution\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
-## Running a Simple Automation Workflow \(Command Line\)<a name="automation-working-executing-commandline"></a>
+## Running a simple Automation workflow \(command line\)<a name="automation-working-executing-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run a simple Automation workflow\.
 
@@ -42,7 +42,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to start a simple Automation workflow\.
 

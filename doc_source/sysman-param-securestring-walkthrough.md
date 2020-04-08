@@ -1,4 +1,4 @@
-# Walkthrough: Create a SecureString Parameter and Join an Instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
+# Walkthrough: Create a SecureString parameter and join an instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
 This walkthrough shows how to join a Windows instance to a domain using Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as an encrypted string\. 
 
@@ -24,7 +24,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 
      Examples: You can write output for Run Command commands or Session Manager sessions to an S3 bucket, and then use this output later for auditing or troubleshooting\. You store access scripts or custom patch baseline lists in an S3 bucket, and then reference the script or list when you run a command, or when a patch baseline is applied\.
 
-     For information about creating a custom policy for Amazon S3 bucket access, see [Create a Custom S3 Bucket Policy for an Instance Profile](setup-instance-profile.md#instance-profile-custom-s3-policy)
+     For information about creating a custom policy for Amazon S3 bucket access, see [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)
 **Note**  
 Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to use it\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
    + **CloudWatchAgentServerPolicy** – Optional\. This AWS managed policy allows you to run the CloudWatch agent on managed instances\. This policy makes it possible to read information on an instance and write it to Amazon CloudWatch\. Your instance profile needs this policy only if you will use CloudWatch features, such as CloudWatch Events or CloudWatch Logs\.

@@ -1,4 +1,4 @@
-# Aggregating Inventory Data<a name="sysman-inventory-aggregate"></a>
+# Aggregating inventory data<a name="sysman-inventory-aggregate"></a>
 
 After you configure your managed instances for AWS Systems Manager Inventory, you can view aggregated counts of inventory data\. For example, say you configured dozens or hundreds of managed instances to collect the AWS:Application inventory type\. By using the information in this section, you can see an exact count of how many instances are configured to collect this data\.
 
@@ -11,13 +11,13 @@ Note the following important details about aggregation counts of inventory data:
 + Inventory shows data that has been sent by an instance over the course of its lifetime\. If an instance was previously configured to report a specific inventory data type, for example AWS:Network, and later you change the configuration to stop collecting that type, aggregation counts still show AWS:Network data until the instance has been terminated\.
 + If an instance was previously configured to collect inventory data, and you terminate that instance, inventory counts still show data for the deleted instance for 30 days\.
 
-For information about how to quickly configure and collect inventory data from all instances in a specific AWS account \(and any future instances that might be created in that account\) see [Configuring Collection by Using the Console](sysman-inventory-configuring.md#sysman-inventory-config-collection)\.
+For information about how to quickly configure and collect inventory data from all instances in a specific AWS account \(and any future instances that might be created in that account\) see [Configuring collection by using the console](sysman-inventory-configuring.md#sysman-inventory-config-collection)\.
 
 **Topics**
-+ [Aggregating Inventory Data to See Counts of Instances that Collect Specific Types of Data](#sysman-inventory-aggregate-type)
-+ [Aggregating Inventory Data with Groups to See Which Instances Are and Aren't Configured to Collect an Inventory Type](#sysman-inventory-aggregate-groups)
++ [Aggregating inventory data to see counts of instances that collect specific types of data](#sysman-inventory-aggregate-type)
++ [Aggregating inventory data with groups to see which instances are and aren't configured to collect an inventory type](#sysman-inventory-aggregate-groups)
 
-## Aggregating Inventory Data to See Counts of Instances that Collect Specific Types of Data<a name="sysman-inventory-aggregate-type"></a>
+## Aggregating inventory data to see counts of instances that collect specific types of data<a name="sysman-inventory-aggregate-type"></a>
 
 You can use the [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more inventory types and data types\. For example, the AWS:InstanceInformation inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the AWS:InstanceInformation\.PlatformType data type\. Here is an example AWS CLI command and output:
 
@@ -288,7 +288,7 @@ The command returns information like the following:
 }
 ```
 
-## Aggregating Inventory Data with Groups to See Which Instances Are and Aren't Configured to Collect an Inventory Type<a name="sysman-inventory-aggregate-groups"></a>
+## Aggregating inventory data with groups to see which instances are and aren't configured to collect an inventory type<a name="sysman-inventory-aggregate-groups"></a>
 
 Groups enable you to quickly see a count of which managed instances are and aren’t configured to collect one or more inventory types\. With groups, you specify one or more inventory types and a filter that uses the `exists` operator\.
 

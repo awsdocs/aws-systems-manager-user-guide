@@ -3,15 +3,15 @@
 This section describes how to configure the options available in an OpsItem\. For information about creating OpsItems, see [Creating OpsItems](OpsCenter-creating-OpsItems.md)\. 
 
 **Topics**
-+ [Working with Related Resources](#OpsCenter-working-with-OpsItems-related-resources)
-+ [Editing OpsItem Details](#OpsCenter-working-with-OpsItems-editing-details)
-+ [Working with Related and Similar OpsItems](#OpsCenter-working-with-OpsItems-similar)
-+ [Working with Operational Data](#OpsCenter-working-operational-data)
-+ [Reducing Duplicate OpsItems](#OpsCenter-working-deduplication)
++ [Working with related resources](#OpsCenter-working-with-OpsItems-related-resources)
++ [Editing OpsItem details](#OpsCenter-working-with-OpsItems-editing-details)
++ [Working with related and similar OpsItems](#OpsCenter-working-with-OpsItems-similar)
++ [Working with operational data](#OpsCenter-working-operational-data)
++ [Reducing duplicate OpsItems](#OpsCenter-working-deduplication)
 
-## Working with Related Resources<a name="OpsCenter-working-with-OpsItems-related-resources"></a>
+## Working with related resources<a name="OpsCenter-working-with-OpsItems-related-resources"></a>
 
-A related resource is the impacted resource \(the resource that needs to be investigated or the resource that triggered the Amazon CloudWatch Events event that created the OpsItem\)\. Each OpsItem has a **Related resources** section\. If CloudWatch Events creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an Amazon EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported Resources Reference](OpsCenter-related-resources-reference.md)\.
+A related resource is the impacted resource \(the resource that needs to be investigated or the resource that triggered the Amazon CloudWatch Events event that created the OpsItem\)\. Each OpsItem has a **Related resources** section\. If CloudWatch Events creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an Amazon EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
 **Note**  
 You can manually add the ARNs of additional related resources\. Each OpsItem can list a maximum of 100 related resource ARNs\.
@@ -40,7 +40,7 @@ You can manually add the ARNs of additional related resources\. Each OpsItem can
 **Note**  
 If you don't know the ARN of the resource, you can manually create it\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
-## Editing OpsItem Details<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
+## Editing OpsItem details<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
 
 The **OpsItem details** section includes information about the OpsItem, including the description, title, source, OpsItem ID, and the status, to name a few\.
 
@@ -60,7 +60,7 @@ When you edit an OpsItem, you can specify a status\. The **Status** list include
 |  In progress  |  Active in the system and being worked on by an engineer\.   | 
 |  Resolved  |  Not active in the system, but available in Search and when using the **Resolved** filter on the OpsItem **Overview** page\. You can edit a resolved OpsItem to change the status to **Open** or **In progress**\.  | 
 
-You can view reports about OpsItem statuses on the **Summary** tab\. For more information, see [Viewing OpsCenter Summary Reports](OpsCenter-reports.md)\.
+You can view reports about OpsItem statuses on the **Summary** tab\. For more information, see [Viewing OpsCenter summary reports](OpsCenter-reports.md)\.
 
 **About OpsItem Priority**  
 When you edit an OpsItem, you can choose a priority for that OpsItem by choosing a value between 1 and 5\. We recommend that your organization determine what each priority level means and a corresponding service level agreement for each\.
@@ -85,7 +85,7 @@ The SNS topic must exist in the same AWS Region as the OpsItem\. If they are in 
 
 1. When you are finished, choose **Save**\.
 
-## Working with Related and Similar OpsItems<a name="OpsCenter-working-with-OpsItems-similar"></a>
+## Working with related and similar OpsItems<a name="OpsCenter-working-with-OpsItems-similar"></a>
 
 The Related and Similar OpsItem features are designed to help you investigate operations issues while providing context about the scope of an issue\. In the **Related OpsItems** section, you can specify a maximum of 10 IDs for other OpsItems that are related to the current OpsItem\. OpsItems can be related in different ways, including a parent\-child relationship between OpsItems, a root cause, or a duplicate\. 
 
@@ -95,7 +95,7 @@ The **Similar OpsItems** feature is a system\-generated list of OpsItems that ma
 
 ![\[Viewing similar OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_5.png)
 
-**To add a related OpsItem from Similar OpsItems**
+**To add a related OpsItem from similar OpsItems**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -109,7 +109,7 @@ The **Similar OpsItems** feature is a system\-generated list of OpsItems that ma
 
 1. Choose **Add**\.
 
-## Working with Operational Data<a name="OpsCenter-working-operational-data"></a>
+## Working with operational data<a name="OpsCenter-working-operational-data"></a>
 
 Operational data is custom data that provides useful reference details about the OpsItem\. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data\. You enter operational data as key\-value pairs\. The key has a maximum length of 128 characters\. The value has a maximum size of 20 KB\. You can enter multiple key\-value pairs of operational data\.
 
@@ -143,7 +143,7 @@ After you create operational data, you can edit the key and the value, remove th
 **Note**  
 You can filter OpsItems by using the **Operational data** operator on the OpsItems page\. In the Search box, choose **Operational data**, and then enter a key\-value pair in JSON\. You must enter the key\-value pair by using the following format: `{"key":"key_name","value":"a_value"}`
 
-## Reducing Duplicate OpsItems<a name="OpsCenter-working-deduplication"></a>
+## Reducing duplicate OpsItems<a name="OpsCenter-working-deduplication"></a>
 
 OpsCenter uses a combination of built\-in logic and configurable deduplication strings to help avoid creating duplicate OpsItems\. Deduplication built\-in logic is applied anytime the [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) API action is called\. When creating the OpsItem, Systems Manager creates and stores a hash based on the deduplication string and the resource that trigged the OpsItem\. When a request is made to create a new OpsItem, the system checks the deduplication string of the new request\. If a matching hash exists for this deduplication string, then Systems Manager doesn't create a new OpsItem\. 
 
@@ -152,7 +152,7 @@ Note the following information about OpsCenter and deduplication:
 + If the system finds a matching deduplication string in an OpsItem, and that OpsItem has a status of `Open`, then the new OpsItem isn't created\. If a matching deduplication string is found in an OpsItem that has a status of `Resolved`, then the system creates a new OpsItem\.
 + If the system finds a matching deduplication string in an OpsItem, but the resources are different, then the system creates the new OpsItem\.
 
-### Configuring Deduplication Strings<a name="OpsCenter-working-deduplication-configuring"></a>
+### Configuring deduplication strings<a name="OpsCenter-working-deduplication-configuring"></a>
 
 OpsCenter includes the following options for configuring deduplication strings\.
 + **Edit preconfigured deduplication strings**: Each of the OpsItem default CloudWatch Events rules includes a preconfigured deduplication string\. You can edit these deduplication strings in CloudWatch Events\.
@@ -165,13 +165,13 @@ After the system creates an OpsItem, it populates the **Deduplication string** f
 After you create an OpsItem, you *can't* edit or change the deduplication strings in that OpsItem\.
 
 This sections includes the following procedures for configuring deduplication strings\.
-+ [Editing a deduplication String in an OpsCenter Default CloudWatch Events Rule](#OpsCenter-working-deduplication-editing-cwe)
-+ [Specifying a deduplication String by Using the AWS CLI](#OpsCenter-working-deduplication-configuring-manual-cli)
++ [Editing a deduplication string in an OpsCenter default CloudWatch Events rule](#OpsCenter-working-deduplication-editing-cwe)
++ [Specifying a deduplication string by using the AWS CLI](#OpsCenter-working-deduplication-configuring-manual-cli)
 
 **Note**  
-For information about entering deduplication strings when you manually create an OpsItem in the console, see [Creating OpsItems Manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.
+For information about entering deduplication strings when you manually create an OpsItem in the console, see [Creating OpsItems manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.
 
-#### Editing a deduplication String in an OpsCenter Default CloudWatch Events Rule<a name="OpsCenter-working-deduplication-editing-cwe"></a>
+#### Editing a deduplication string in an OpsCenter default CloudWatch Events rule<a name="OpsCenter-working-deduplication-editing-cwe"></a>
 
 Use the following procedure to specify a deduplication string for a CloudWatch Events rule that targets OpsCenter\.
 
@@ -201,7 +201,7 @@ Use the following procedure to specify a deduplication string for a CloudWatch E
 
 1. Edit the deduplications strings, and then choose **Configure details** to finish updating the rule\.
 
-#### Specifying a deduplication String by Using the AWS CLI<a name="OpsCenter-working-deduplication-configuring-manual-cli"></a>
+#### Specifying a deduplication string by using the AWS CLI<a name="OpsCenter-working-deduplication-configuring-manual-cli"></a>
 
 You can specify a deduplication string when you manually create a new OpsItem by using the AWS CLI\. You enter the deduplication string by using the `OperationalData` parameter\. The parameter syntax uses JSON, as shown here\.
 

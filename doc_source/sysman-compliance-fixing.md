@@ -1,12 +1,12 @@
-# Remediating Compliance Issues<a name="sysman-compliance-fixing"></a>
+# Remediating compliance issues<a name="sysman-compliance-fixing"></a>
 
 You can quickly remediate patch and association compliance issues by using Systems Manager Run Command\. You can target either instance IDs or Amazon EC2 tags and run the AWS\-RunPatchBaseline document or the AWS\-RefreshAssociation document\. If refreshing the association or re\-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command executions did not resolve the problem\. 
 
-For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the SSM Document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
+For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
-For more information about associations, see [Working with Associations in Systems Manager](systems-manager-associations.md)\.
+For more information about associations, see [Working with associations in Systems Manager](systems-manager-associations.md)\.
 
-For more information about running a command, see [Running Commands Using Systems Manager Run Command](run-command.md)\.
+For more information about running a command, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 **Specify Configuration Compliance as the target of a CloudWatch Events event**  
 You can also configure CloudWatch Events to perform an action in response to Configuration Compliance events\. For example, if one or more instances fail to install Critical patch updates or run an association that installs anti\-virus software, then you can configure CloudWatch to run the AWS\-RunPatchBaseline document or the AWS\-RefreshAssocation document when the Configuration Compliance event occurs\. 

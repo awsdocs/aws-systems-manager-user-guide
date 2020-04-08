@@ -1,4 +1,4 @@
-# Step 1: Sign Up for AWS<a name="setup-sign-up"></a>
+# Step 1: Sign up for AWS<a name="setup-sign-up"></a>
 
 If you do not have an AWS account, complete the following steps to create one\.
 
@@ -10,4 +10,4 @@ If you do not have an AWS account, complete the following steps to create one\.
 
    Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-Continue to [Step 2: Create an Admin IAM User for AWS](setup-create-admin-user.md)\.
+Continue to [Step 2: Create an Admin IAM user for AWS](setup-create-admin-user.md)\.

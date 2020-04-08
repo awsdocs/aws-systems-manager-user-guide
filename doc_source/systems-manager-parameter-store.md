@@ -4,7 +4,7 @@ AWS Systems Manager Parameter Store provides secure, hierarchical storage for co
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [Parameter Types and Examples](parameter-store-about-examples.md) and [SecureString Parameters](sysman-paramstore-securestring.md)\.
+For more information, see [Parameter types and examples](parameter-store-about-examples.md) and [SecureString parameters](sysman-paramstore-securestring.md)\.
 
 Parameter Store offers the following benefits and features\.
 + Use a secure, scalable, hosted secrets management service with no servers to manage\.
@@ -32,12 +32,12 @@ Parameter Store offers the following benefits and features\.
   + AWS CloudTrail
 
 **Topics**
-+ [Parameter Types and Examples](parameter-store-about-examples.md)
-+ [SecureString Parameters](sysman-paramstore-securestring.md)
-+ [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)
-+ [Getting Started with Parameter Store](sysman-paramstore-settingup.md)
-+ [Working with Parameters](sysman-paramstore-working.md)
-+ [Using Public Parameters](parameter-store-public-parameters.md)
-+ [Increasing Parameter Store Throughput](parameter-store-throughput.md)
-+ [Specifying a Default Parameter Tier](ps-default-tier.md)
-+ [Parameter Store Walkthroughs](sysman-paramstore-walk.md)
++ [Parameter types and examples](parameter-store-about-examples.md)
++ [SecureString parameters](sysman-paramstore-securestring.md)
++ [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)
++ [Getting started with Parameter Store](sysman-paramstore-settingup.md)
++ [Working with parameters](sysman-paramstore-working.md)
++ [Using public parameters](parameter-store-public-parameters.md)
++ [Increasing Parameter Store throughput](parameter-store-throughput.md)
++ [Specifying a default parameter tier](ps-default-tier.md)
++ [Parameter Store walkthroughs](sysman-paramstore-walk.md)

@@ -1,8 +1,8 @@
-# About Package Name Formats for Approved and Rejected Patch Lists<a name="patch-manager-approved-rejected-package-name-formats"></a>
+# About package name formats for approved and rejected patch lists<a name="patch-manager-approved-rejected-package-name-formats"></a>
 
 The formats of package names you can add to lists of approved patches and rejected patches depend on the type of operating system you are patching\.
 
-## Package Name Formats for Windows Operating Systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
+## Package name formats for Windows operating systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
 
 For Windows operating systems, specify patches using Microsoft Knowledge Base IDs and Microsoft Security Bulletin IDs; for example:
 
@@ -10,7 +10,7 @@ For Windows operating systems, specify patches using Microsoft Knowledge Base ID
 KB2032276,KB2124261,MS10-048
 ```
 
-## Package Name Formats for Linux Operating Systems<a name="patch-manager-approved-rejected-package-name-formats-linux"></a>
+## Package name formats for Linux operating systems<a name="patch-manager-approved-rejected-package-name-formats-linux"></a>
 
 The formats you can specify for approved and rejected patches in your patch baseline vary by Linux type\. More specifically, the formats that are supported depend on the package manager used by the type of Linux operating system\.
 

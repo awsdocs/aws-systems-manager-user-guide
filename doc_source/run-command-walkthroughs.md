@@ -1,4 +1,4 @@
-# Run Command Walkthroughs<a name="run-command-walkthroughs"></a>
+# Run Command walkthroughs<a name="run-command-walkthroughs"></a>
 
 The walkthroughs in this section show you how to run commands with Run Command using either the AWS Command Line Interface or AWS Tools for Windows PowerShell\.
 

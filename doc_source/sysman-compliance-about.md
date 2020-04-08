@@ -1,28 +1,28 @@
-# Working With Configuration Compliance<a name="sysman-compliance-about"></a>
+# Working with Configuration Compliance<a name="sysman-compliance-about"></a>
 
 Configuration Compliance collects and reports data about the status of Patch Manager patching, State Manager associations, and custom compliance types\. This section includes details about each of these compliance types and how to view Systems Manager compliance data\. This section also includes information about how to view compliance history and change tracking\.
 
 **Note**  
-Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec Profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
+Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
 
 **Topics**
-+ [About Patch Compliance](#sysman-compliance-monitor-patch)
-+ [About State Manager Association Compliance](#sysman-compliance-about-association)
-+ [About Custom Compliance](#sysman-compliance-custom)
-+ [Viewing Current Compliance Data](#compliance-view-results)
-+ [Viewing Compliance Configuration History and Change Tracking](#sysman-compliance-history)
++ [About patch compliance](#sysman-compliance-monitor-patch)
++ [About State Manager association compliance](#sysman-compliance-about-association)
++ [About custom compliance](#sysman-compliance-custom)
++ [Viewing current compliance data](#compliance-view-results)
++ [Viewing compliance configuration history and change tracking](#sysman-compliance-history)
 
-## About Patch Compliance<a name="sysman-compliance-monitor-patch"></a>
+## About patch compliance<a name="sysman-compliance-monitor-patch"></a>
 
 After you use Systems Manager Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\.
 
-For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
 
-## About State Manager Association Compliance<a name="sysman-compliance-about-association"></a>
+## About State Manager association compliance<a name="sysman-compliance-about-association"></a>
 
 After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\. For associations, Configuration Compliance shows statuses of `Compliant` or `Non-compliant` and the severity level assigned to the association, such as `Critical` or `Medium`\.
 
-## About Custom Compliance<a name="sysman-compliance-custom"></a>
+## About custom compliance<a name="sysman-compliance-custom"></a>
 
 You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to explicitly note which managed instances are running older versions of software X\. Currently you can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
 
@@ -32,17 +32,17 @@ aws ssm put-compliance-items --resource-id i-1234567890abcdef0 --resource-type M
 
 Compliance managers can then view summaries or create reports about which instances are or aren't compliant\. You can assign a maximum of 10 different custom compliance types to an instance\.
 
-For an example of how to create a custom compliance type and view compliance data, see [Configuration Compliance Walkthrough \(AWS CLI\)](sysman-compliance-walk.md)\.
+For an example of how to create a custom compliance type and view compliance data, see [Configuration Compliance walkthrough \(AWS CLI\)](sysman-compliance-walk.md)\.
 
-## Viewing Current Compliance Data<a name="compliance-view-results"></a>
+## Viewing current compliance data<a name="compliance-view-results"></a>
 
-This section describes how to view compliance data in the AWS Systems Manager console and by using the AWS CLI\. For information about how to view patch and association compliance history and change tracking, see [Viewing Compliance Configuration History and Change Tracking](#sysman-compliance-history)\.
+This section describes how to view compliance data in the AWS Systems Manager console and by using the AWS CLI\. For information about how to view patch and association compliance history and change tracking, see [Viewing compliance configuration history and change tracking](#sysman-compliance-history)\.
 
 **Topics**
-+ [Viewing Current Compliance Data \(Console\)](#compliance-view-results-console)
-+ [Viewing Current Compliance Data \(AWS CLI\)](#compliance-view-data-cli)
++ [Viewing current compliance data \(console\)](#compliance-view-results-console)
++ [Viewing current compliance data \(AWS CLI\)](#compliance-view-data-cli)
 
-### Viewing Current Compliance Data \(Console\)<a name="compliance-view-results-console"></a>
+### Viewing current compliance data \(console\)<a name="compliance-view-results-console"></a>
 
 Use the following procedure to view compliance data in the Systems Manager console\.
 
@@ -61,9 +61,9 @@ Use the following procedure to view compliance data in the Systems Manager conso
 1. On the **Instance ID** details page, select the **Configuration compliance** tab to view its detailed configuration compliance report\.
 
 **Note**  
-For information about fixing compliance issues, see [Remediating Compliance Issues](sysman-compliance-fixing.md)\.
+For information about fixing compliance issues, see [Remediating compliance issues](sysman-compliance-fixing.md)\.
 
-### Viewing Current Compliance Data \(AWS CLI\)<a name="compliance-view-data-cli"></a>
+### Viewing current compliance data \(AWS CLI\)<a name="compliance-view-data-cli"></a>
 
 You can view summaries of compliance data for patching, associations, and custom compliance types in the in the AWS CLI by using the following AWS CLI commands\. 
 
@@ -82,9 +82,9 @@ Returns high\-level aggregated patch compliance state for a patch group\. \(API:
 Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
-For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
+For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
 
-## Viewing Compliance Configuration History and Change Tracking<a name="sysman-compliance-history"></a>
+## Viewing compliance configuration history and change tracking<a name="sysman-compliance-history"></a>
 
 Systems Manager Configuration Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
 + SSM:PatchCompliance

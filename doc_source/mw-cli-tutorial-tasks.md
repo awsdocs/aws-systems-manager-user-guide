@@ -1,4 +1,4 @@
-# Step 3: Register a Task with the Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-tasks"></a>
+# Step 3: Register a task with the maintenance window \(AWS CLI\)<a name="mw-cli-tutorial-tasks"></a>
 
 In this step of the tutorial, you register a Run Command task that runs the `df` command on your Amazon EC2 instance for Linux\. The results of this standard Linux command show how much space is free and how much is used on the disk file system of your instance\.
 
@@ -6,7 +6,7 @@ In this step of the tutorial, you register a Run Command task that runs the `df`
 
 If you are targeting an Amazon EC2 instance for Windows Server instance instead of Linux, replace df in the following command with ipconfig\. Output from this command lists details about the IP address, subnet mask, and default gateway for adapters on the target instance\.
 
-When you are ready to register other task types, or use more of the available Run Command options, see [Examples: Register Tasks with a Maintenance Window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
+When you are ready to register other task types, or use more of the available Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
 
 **To register a task with a maintenance window**
 
@@ -98,7 +98,7 @@ When you are ready to register other task types, or use more of the available Ru
    }
    ```
 
-1. Wait until the task has had time to run, based on the schedule you specified in [Step 1: Create the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\. For example, if you specified **\-\-schedule "rate\(5 minutes\)"**, wait five minutes\. Then run the following command to view information about any executions that occurred for this task\. 
+1. Wait until the task has had time to run, based on the schedule you specified in [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\. For example, if you specified **\-\-schedule "rate\(5 minutes\)"**, wait five minutes\. Then run the following command to view information about any executions that occurred for this task\. 
 
 ------
 #### [ Linux ]
@@ -148,10 +148,10 @@ aws ssm update-maintenance-window ^
     --window-id mw-0c50858d01EXAMPLE ^
     --schedule "rate(7 days)"
 ```
-For information about managing maintenance window schedules, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.  
-For information about using the AWS CLI to modify a maintenance window, see [Tutorial: Update a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
+For information about managing maintenance window schedules, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  
+For information about using the AWS CLI to modify a maintenance window, see [Tutorial: Update a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
 
-For practice running AWS CLI commands to view more details about your maintenance window task and its executions, continue to [Tutorial: View Information About Tasks and Task Executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)\.
+For practice running AWS CLI commands to view more details about your maintenance window task and its executions, continue to [Tutorial: View information about tasks and task executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)\.
 
 **About tutorial command output**  
 It's beyond the scope of this tutorial to use the AWS CLI to view the *output* of the Run Command command associated with your maintenance window task executions\.

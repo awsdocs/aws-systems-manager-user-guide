@@ -1,12 +1,12 @@
-# Getting Started with Session Manager<a name="session-manager-getting-started"></a>
+# Getting started with Session Manager<a name="session-manager-getting-started"></a>
 
 Before you use Session Manager to connect to the Amazon EC2 instances in your account, complete the steps in the following topics\.
 
 **Topics**
-+ [Step 1: Complete Session Manager Prerequisites](session-manager-prerequisites.md)
-+ [Step 2: Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)
-+ [Step 3: Control User Session Access to Instances](session-manager-getting-started-restrict-access.md)
-+ [Step 4: Configure Session Preferences](session-manager-getting-started-configure-preferences.md)
-+ [Step 5: \(Optional\) Use PrivateLink to Set Up a VPC Endpoint for Session Manager](session-manager-getting-started-privatelink.md)
-+ [Step 6: \(Optional\) Disable or Enable ssm\-user Account Administrative Permissions](session-manager-getting-started-ssm-user-permissions.md)
-+ [Step 7: \(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)
++ [Step 1: Complete Session Manager prerequisites](session-manager-prerequisites.md)
++ [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
++ [Step 3: Control user session access to instances](session-manager-getting-started-restrict-access.md)
++ [Step 4: Configure session preferences](session-manager-getting-started-configure-preferences.md)
++ [Step 5: \(Optional\) use PrivateLink to set up a VPC endpoint for Session Manager](session-manager-getting-started-privatelink.md)
++ [Step 6: \(Optional\) disable or enable ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)
++ [Step 7: \(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)

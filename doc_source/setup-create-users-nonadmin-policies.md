@@ -1,4 +1,4 @@
-# Task 1: Create Policies for Tag Editor and Resource Groups<a name="setup-create-users-nonadmin-policies"></a>
+# Task 1: Create policies for Tag Editor and Resource Groups<a name="setup-create-users-nonadmin-policies"></a>
 
 You can use *resource groups* to organize your AWS resources\. Resource groups make it easier to manage and automate tasks on large numbers of resources across AWS at one time\. 
 
@@ -46,4 +46,4 @@ The following procedure shows how to create a custom policy that allows your acc
 
 1. On the **Review policy** page, for **Name**, enter **SSMTagEditorAndResourceGroupAccess** or another name that you prefer, and then choose **Create policy**\.
 
-Continue to [Task 2: Create User Groups](setup-create-users-nonadmin-groups.md)\.
+Continue to [Task 2: Create user groups](setup-create-users-nonadmin-groups.md)\.

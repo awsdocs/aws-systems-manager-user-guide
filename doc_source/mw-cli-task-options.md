@@ -1,4 +1,4 @@
-# About register\-task\-with\-maintenance\-windows Options<a name="mw-cli-task-options"></a>
+# About register\-task\-with\-maintenance\-windows options<a name="mw-cli-task-options"></a>
 
 The register\-task\-with\-maintenance\-window command provides several options for configuring a task according to your needs\. Some are required, some are optional, and some apply to only a single maintenance window task type\.
 
@@ -21,13 +21,13 @@ The role for Systems Manager to assume when running the maintenance window task\
 
 Specifying a service role ARN is optional\. If you do not specify a service role ARN, Systems Manager creates a service\-linked role or uses your account's service\-linked role\. 
 
-Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
+Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 
 **About the `--task-invocation-parameters` option**  
 The `--task-invocation-parameters` option is used to specify the parameters that are unique to each of the four task types\. The supported parameters for each of the four task types are described in the following table\.
 
 **Note**  
-For information about using pseudo parameters in `--task-invocation-parameters` content, such as \{\{TARGET\_ID\}\}, see [About Pseudo Parameters](mw-cli-register-tasks-parameters.md)\. 
+For information about using pseudo parameters in `--task-invocation-parameters` content, such as \{\{TARGET\_ID\}\}, see [About pseudo parameters](mw-cli-register-tasks-parameters.md)\. 
 
 Task invocation parameters options for maintenance window tasks
 

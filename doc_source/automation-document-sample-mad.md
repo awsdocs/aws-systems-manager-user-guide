@@ -1,4 +1,4 @@
-# Deploy VPC Architecture and Microsoft Active Directory Domain Controllers<a name="automation-document-sample-mad"></a>
+# Deploy VPC architecture and Microsoft Active Directory domain controllers<a name="automation-document-sample-mad"></a>
 
  To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
 

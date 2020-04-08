@@ -1,4 +1,4 @@
-# What Is AWS Systems Manager?<a name="what-is-systems-manager"></a>
+# What is AWS Systems Manager?<a name="what-is-systems-manager"></a>
 
 AWS Systems Manager is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed instances* and reporting on \(or taking corrective action on\) any policy violations it detects\.
 
@@ -45,13 +45,13 @@ View a video introduction to Systems Manager \(Duration: 1:42\)
 View more AWS videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices)\.
 
 **Systems Manager Supported Regions**  
-AWS Systems Manager is available in the AWS Regions listed in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
+AWS Systems Manager is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
 For on\-premises servers and VMs in your hybrid environment, we recommend that you choose the Region closest to your data center or computing environment\.
 
 **Systems Manager Pricing**  
 Some Systems Manager capabilities charge a fee\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
-**Systems Manager Service Name History**  
+**Systems Manager Service Name history**  
  AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:  
 + **Systems Manager Agent**: SSM Agent
 + **Systems Manager parameters**: SSM parameters
@@ -69,7 +69,7 @@ The following resources can help you work directly with Systems Manager\.
 + **[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the Systems Manager actions and data types\.
 + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
 + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
-+ **[Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
++ **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
 The following related resources can help you as you work with this service\.  
 + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.
 + ** [AWS Developer Tools](https://aws.amazon.com/tools/)** – Links to developer tools, SDKs, IDE toolkits, and command line tools for developing and managing AWS applications\.
@@ -80,9 +80,9 @@ The following related resources can help you as you work with this service\.
 + ** [AWS Site Terms](https://aws.amazon.com/terms/)** – Detailed information about our copyright and trademark; your account, license, and site access; and other topics\.
 
 **Topics**
-+ [Systems Manager Capabilities](features.md)
-+ [How Systems Manager Works](how-it-works.md)
++ [Systems Manager capabilities](features.md)
++ [How Systems Manager works](how-it-works.md)
 + [About SSM Agent](prereqs-ssm-agent.md)
-+ [Supported Operating Systems](prereqs-operating-systems.md)
++ [Supported operating systems](prereqs-operating-systems.md)
 + [Accessing Systems Manager](access-methods.md)
-+ [Systems Manager Prerequisites](systems-manager-prereqs.md)
++ [Systems Manager prerequisites](systems-manager-prereqs.md)

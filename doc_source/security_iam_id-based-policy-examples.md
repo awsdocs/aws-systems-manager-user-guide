@@ -1,4 +1,4 @@
-# AWS Systems Manager Identity\-Based Policy Examples<a name="security_iam_id-based-policy-examples"></a>
+# AWS Systems Manager identity\-based policy examples<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Systems Manager resources\. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
 
@@ -24,13 +24,13 @@ The following is an example of a permissions policy that allows a user to delete
 To learn how to create an IAM identity\-based policy using these example JSON policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*\.
 
 **Topics**
-+ [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices)
-+ [Using the Systems Manager Console](#security_iam_id-based-policy-examples-console)
-+ [Allow Users to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions)
-+ [Customer Managed Policy Examples](#customer-managed-policies)
-+ [Viewing Systems Manager Documents Based on Tags](#security_iam_id-based-policy-examples-view-documents-tags)
++ [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
++ [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)
++ [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
++ [Customer managed policy examples](#customer-managed-policies)
++ [Viewing Systems Manager documents based on tags](#security_iam_id-based-policy-examples-view-documents-tags)
 
-## Policy Best Practices<a name="security_iam_service-with-iam-policy-best-practices"></a>
+## Policy best practices<a name="security_iam_service-with-iam-policy-best-practices"></a>
 
 Identity\-based policies are very powerful\. They determine whether someone can create, access, or delete Systems Manager resources in your account\. These actions can incur costs for your AWS account\. When you create or edit identity\-based policies, follow these guidelines and recommendations:
 + **Get Started Using AWS Managed Policies** – To start using Systems Manager quickly, use AWS managed policies to give your employees the permissions they need\. These policies are already available in your account and are maintained and updated by AWS\. For more information, see [Get Started Using Permissions With AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-use-aws-defined-policies) in the *IAM User Guide*\.
@@ -38,7 +38,7 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 + **Enable MFA for Sensitive Operations** – For extra security, require IAM users to use multi\-factor authentication \(MFA\) to access sensitive resources or API operations\. For more information, see [Using Multi\-Factor Authentication \(MFA\) in AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) in the *IAM User Guide*\.
 + **Use Policy Conditions for Extra Security** – To the extent that it's practical, define the conditions under which your identity\-based policies allow access to a resource\. For example, you can write conditions to specify a range of allowable IP addresses that a request must come from\. You can also write conditions to allow requests only within a specified date or time range, or to require the use of SSL or MFA\. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
 
-## Using the Systems Manager Console<a name="security_iam_id-based-policy-examples-console"></a>
+## Using the Systems Manager console<a name="security_iam_id-based-policy-examples-console"></a>
 
 To access the AWS Systems Manager console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Systems Manager resources and other resources in your AWS account\. 
 
@@ -71,61 +71,59 @@ If you create an identity\-based policy that is more restrictive than the minimu
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\.
 
-## Allow Users to View Their Own Permissions<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
+## Allow users to view their own permissions<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity\. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API\.
 
 ```
 {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "ViewOwnUserInfo",
-               "Effect": "Allow",
-               "Action": [
-                   "iam:GetUserPolicy",
-                   "iam:ListGroupsForUser",
-                   "iam:ListAttachedUserPolicies",
-                   "iam:ListUserPolicies",
-                   "iam:GetUser"
-               ],
-               "Resource": [
-                   "arn:aws:iam::*:user/${aws:username}"
-               ]
-           },
-           {
-               "Sid": "NavigateInConsole",
-               "Effect": "Allow",
-               "Action": [
-                   "iam:GetGroupPolicy",
-                   "iam:GetPolicyVersion",
-                   "iam:GetPolicy",
-                   "iam:ListAttachedGroupPolicies",
-                   "iam:ListGroupPolicies",
-                   "iam:ListPolicyVersions",
-                   "iam:ListPolicies",
-                   "iam:ListUsers"
-               ],
-               "Resource": "*"
-           }
-       ]
-   }
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                  "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-## Customer Managed Policy Examples<a name="customer-managed-policies"></a>
+## Customer managed policy examples<a name="customer-managed-policies"></a>
 
 You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
-The following examples of user policies grant permissions for various AWS Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager Console](#security_iam_id-based-policy-examples-console)\.
+The following examples of user policies grant permissions for various AWS Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\.
 
  **Examples** 
-+  [Example 1: Allow a User to Perform Systems Manager Operations in a Single Region](#identity-based-policies-example-1) 
-+  [Example 2: Allow a User to List Documents for a Single Region](#identity-based-policies-example-2) 
++  [Example 1: Allow a user to perform Systems Manager operations in a single Region](#identity-based-policies-example-1) 
++  [Example 2: Allow a user to list documents for a single Region](#identity-based-policies-example-2) 
 
-### Example 1: Allow a User to Perform Systems Manager Operations in a Single Region<a name="identity-based-policies-example-1"></a>
+### Example 1: Allow a user to perform Systems Manager operations in a single Region<a name="identity-based-policies-example-1"></a>
 
 The following example grants permissions to perform AWS Systems Manager operations only in the **us\-west\-2** Region:
 
@@ -146,7 +144,7 @@ The following example grants permissions to perform AWS Systems Manager operatio
 }
 ```
 
-### Example 2: Allow a User to List Documents for a Single Region<a name="identity-based-policies-example-2"></a>
+### Example 2: Allow a user to list documents for a single Region<a name="identity-based-policies-example-2"></a>
 
 The following example grants permissions to list all document names that begin with **Update** in the **us\-west\-2** Region:
 
@@ -167,7 +165,7 @@ The following example grants permissions to list all document names that begin w
 }
 ```
 
-### Example 3: Allow a User to Use a Specific SSM Document to Run Commands on Specific Instances<a name="identity-based-policies-example-3"></a>
+### Example 3: Allow a user to use a specific SSM document to run commands on specific instances<a name="identity-based-policies-example-3"></a>
 
  The following example IAM policy allows a user to do the following\.
 + List Systems Manager documents and document versions\.
@@ -264,7 +262,7 @@ If you want to give a user permission to use this document to send commands on a
 }
 ```
 
-## Viewing Systems Manager Documents Based on Tags<a name="security_iam_id-based-policy-examples-view-documents-tags"></a>
+## Viewing Systems Manager documents based on tags<a name="security_iam_id-based-policy-examples-view-documents-tags"></a>
 
 You can use conditions in your identity\-based policy to control access to Systems Manager resources based on tags\. This example shows how you might create a policy that allows viewing an SSM document\. However, permission is granted only if the document tag `Owner` has the value of that user's user name\. This policy also grants the permissions necessary to complete this action on the console\.
 

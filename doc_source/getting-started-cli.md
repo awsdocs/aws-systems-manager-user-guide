@@ -1,9 +1,9 @@
-# Step 1: Install or Upgrade AWS Command Line Tools<a name="getting-started-cli"></a>
+# Step 1: Install or upgrade AWS command line tools<a name="getting-started-cli"></a>
 
 This topic is for users who have *programmatic access* to use Systems Manager \(or any other AWS service\), and who want to run AWS CLI or AWS Tools for Windows PowerShell commands from their local machines\. 
 
 **Note**  
-Programmatic access and *console access* are different permissions that can be granted to a user account by an AWS account administrator\. A user can be granted one or both access types\. For information, see [ Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
+Programmatic access and *console access* are different permissions that can be granted to a user account by an AWS account administrator\. A user can be granted one or both access types\. For information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 For information about the AWS CLI, see the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)*\. For information about the AWS Tools for Windows PowerShell, see the *[AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)*\.
 
@@ -30,7 +30,7 @@ The AWS CLI is frequently updated with new functionality\. Upgrade \(reinstall\)
    AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
    ```
 **Important**  
-When you configure the AWS CLI, you are prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
+When you configure the AWS CLI, you are prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
 
    For more information about access keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*
 
@@ -62,7 +62,7 @@ AWS Tools for PowerShell is frequently updated with new functionality\. Upgrade 
    -StoreAs MyProfileName
    ```
 **Important**  
-When you configure AWS Tools for PowerShell, you can run `Set-DefaultAWSRegion` to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
+When you configure AWS Tools for PowerShell, you can run `Set-DefaultAWSRegion` to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
 
    For more information about access keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*\.
 

@@ -1,4 +1,4 @@
-# Using Targets and Rate Controls with State Manager Associations<a name="systems-manager-state-manager-targets-and-rate-controls"></a>
+# Using targets and rate controls with State Manager associations<a name="systems-manager-state-manager-targets-and-rate-controls"></a>
 
 AWS Systems Manager enables you to create State Manager associations on a fleet of managed instances by using targets\. You can also control the execution of these associations across your fleet by specifying a concurrency value and an error threshold\. The concurrency value specifies how many resources are allowed to run the association simultaneously\. An error threshold specifies how many association executions can fail before Systems Manager sends a command to each instance configured with that association\. The command stops the association from running until the next scheduled execution\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
@@ -26,14 +26,14 @@ State Manager error thresholds have the following restrictions and limitations:
 You can create associations on tens, hundreds, or thousands of instances by using the `targets` parameter\. The `targets` parameter accepts a `Key,Value` combination based on resource tags that you specified for your instances\. When you run the request to create the association, the system locates and attempts to create the association on all instances that match the specified criteria\. After the association is created and assigned to the instance or to a target set of instances, then State Manager immediately runs the association\.
 
 **Note**  
-When you create an association, you specify when the schedule runs\. You must specify the schedule by using a cron or rate expression\. There are many tools on the internet to help you create these expressions\. For more information about cron and rate expressions, see [Cron and Rate Expressions for Associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
+When you create an association, you specify when the schedule runs\. You must specify the schedule by using a cron or rate expression\. There are many tools on the internet to help you create these expressions\. For more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
 
-## Create an Association That Uses Targets and Rate Controls \(Console\)<a name="sysman-state-targets-console"></a>
+## Create an association that uses targets and rate controls \(console\)<a name="sysman-state-targets-console"></a>
 
 The following procedure describes how to use the Systems Manager console to create a State Manager association that uses targets and rate controls\.
 
 **Important**  
-The following procedure is intended for creating an association with a `Command` or `Policy` document\. For information on creating an association that uses an `Automation` document, see [Running Automation Workflows with Triggers Using State Manager](automation-sm-target.md)\.
+The following procedure is intended for creating an association with a `Command` or `Policy` document\. For information on creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
 
 **To create a State Manager association that uses targets and rate controls**
 
@@ -54,7 +54,7 @@ If you use tags to create an association on one or more target instances, and th
 1. In **Specify schedule**, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, use the buttons provided to create a cron or rate schedule for the association\. 
 
 1. In **Advanced options**:
-   + In **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager Association Compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
+   + In **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
 1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\.
 
@@ -70,7 +70,7 @@ If you use tags to create an association on one or more target instances, and th
 
 1. Choose **Create Association**\.
 
-## Create an Association That Uses Targets and Rate Controls \(Command Line\)<a name="sysman-state-targets-commandline"></a>
+## Create an association that uses targets and rate controls \(command line\)<a name="sysman-state-targets-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a State Manager association that uses targets and rate controls\.
 
@@ -78,7 +78,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Use the following format to create a command that creates a State Manager association that uses targets and rate controls\.
 

@@ -10,7 +10,7 @@ When a calendar entry is open by default, actions can run by default, but are bl
 **`DEFAULT_CLOSED`**, or Closed by default  
 When a calendar entry is closed by default, actions that are tracking Change Calendar do not run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
 
-## Who Should Use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
+## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
 + Any AWS customer who creates or runs Systems Manager Automation documents\.
 + Administrators who are responsible for keeping the configurations of AWS Systems Manager managed instances consistent, stable, and functional\.
 
@@ -28,8 +28,8 @@ The following are some benefits of Systems Manager Change Calendar\.
   You can run the Systems Manager `GetCalendarState` API operation to show you the current state of the calendar, the state at a specified time, or the next time that the calendar state is scheduled to change\.
 
 **Topics**
-+ [Who Should Use Change Calendar?](#systems-manager-change-calendar-who)
++ [Who should use Change Calendar?](#systems-manager-change-calendar-who)
 + [Benefits of Change Calendar](#systems-manager-change-calendar-benefits)
-+ [Getting Started with Change Calendar](systems-manager-change-calendar-prereqs.md)
++ [Getting started with Change Calendar](systems-manager-change-calendar-prereqs.md)
 + [Working with Change Calendar](systems-manager-change-calendar-working.md)
-+ [Add Change Calendar Dependencies to Automation Documents](systems-manager-change-calendar-automations.md)
++ [Add Change Calendar dependencies to Automation documents](systems-manager-change-calendar-automations.md)

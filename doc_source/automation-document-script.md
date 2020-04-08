@@ -1,8 +1,8 @@
-# Creating Automation Documents That Run Scripts<a name="automation-document-script"></a>
+# Creating Automation documents that run scripts<a name="automation-document-script"></a>
 
 AWS Systems Manager Automation documents, or playbooks, support running scripts as part of the automation workflow\. By using Automation documents, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because Automation documents can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. 
 
-## Permissions for Running Automation Executions<a name="execution-permissions"></a>
+## Permissions for running Automation executions<a name="execution-permissions"></a>
 
 To run an automation execution, Systems Manager must use the permissions of an AWS Identity and Access Management \(IAM\) role\. The method that Automation uses to determine which role's permissions to use depends on a few factors, and whether a step uses the `aws:executeScript` action\. 
 
@@ -16,13 +16,13 @@ When a step in an Automation document includes the `aws:executeScript` action, h
 
   If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
 
-For more information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an Automation Workflow by Using an IAM Service Role](automation-walk-security-assume.md)\.
+For more information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an Automation workflow by using an IAM service role](automation-walk-security-assume.md)\.
 
-## Adding Scripts to Automation Documents<a name="adding-scripts"></a>
+## Adding scripts to Automation documents<a name="adding-scripts"></a>
 
 You can add scripts to your Automation documents by including the script inline as part of a step in the document\. You can also attach scripts to the document by uploading the scripts from your local machine or by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket where the scripts are located\. After a step that runs a script completes, the output of the script is available as a JSON object, which you can then use as input for subsequent steps in your Automation workflow\.
 
-## Script Constraints for Automation Documents<a name="script-constraints"></a>
+## Script constraints for Automation documents<a name="script-constraints"></a>
 
 The Automation action `aws:executeScript` currently supports running Python 3\.6, Python 3\.7, and PowerShell Core 6\.0 scripts\.
 
@@ -33,9 +33,9 @@ Your account is charged for running scripts using Automation\. Automation steps 
 The following topics describe how to create Automation documents that run scripts\.
 
 **Topics**
-+ [Permissions for Running Automation Executions](#execution-permissions)
-+ [Adding Scripts to Automation Documents](#adding-scripts)
-+ [Script Constraints for Automation Documents](#script-constraints)
-+ [Creating an Automation Document that Runs a Script \(Console\)](automation-document-script-console.md)
-+ [Creating an Automation Document that Runs Scripts \(Command Line\)](automation-document-script-commandline.md)
-+ [Amazon Managed Automation Documents that Run Scripts](runbook-scripts.md)
++ [Permissions for running Automation executions](#execution-permissions)
++ [Adding scripts to Automation documents](#adding-scripts)
++ [Script constraints for Automation documents](#script-constraints)
++ [Creating an Automation document that runs a script \(console\)](automation-document-script-console.md)
++ [Creating an Automation document that runs scripts \(command line\)](automation-document-script-commandline.md)
++ [Amazon managed Automation documents that run scripts](runbook-scripts.md)

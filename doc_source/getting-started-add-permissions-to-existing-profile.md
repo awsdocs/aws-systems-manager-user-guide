@@ -1,4 +1,4 @@
-# Adding Session Manager Permissions to an Existing Instance Profile<a name="getting-started-add-permissions-to-existing-profile"></a>
+# Adding Session Manager permissions to an existing instance profile<a name="getting-started-add-permissions-to-existing-profile"></a>
 
 Follow these steps to embed Session Manager permissions in an existing IAM instance profile that does not rely on the AWS\-provided default policy **AmazonSSMManagedInstanceCore** for instance permissions\. Note that this procedure assumes that your existing profile already includes other Systems Manager `ssm` permissions for actions you want to allow access to\. This policy alone is not enough to use Session Manager\.
 
@@ -51,7 +51,7 @@ Follow these steps to embed Session Manager permissions in an existing IAM insta
    ```
 
 **About 'ssmmessages'**  
-For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)\.
+For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 **About 'kms:Decrypt'**  
 In this policy, the `kms:Decrypt` permission enables customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
@@ -69,7 +69,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
            }
    ```
 
-   For information about using AWS KMS and a CMK to encrypt session data, see [Enable AWS KMS Key Encryption of Session Data \(Console\)](session-preferences-enable-encryption.md)\.
+   For information about using AWS KMS and a CMK to encrypt session data, see [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 1. Choose **Review policy**\.
 

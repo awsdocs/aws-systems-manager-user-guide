@@ -1,12 +1,12 @@
-# Share a Systems Manager Document<a name="ssm-how-to-share"></a>
+# Share a Systems Manager document<a name="ssm-how-to-share"></a>
 
 You can share Systems Manager documents by using the AWS Systems Manager console\. You can also share Systems Manager documents programmatically by calling the `ModifyDocumentPermission` API action using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
 **Topics**
-+ [Share a Document \(Console\)](#share-using-console)
-+ [Share a Document \(Command Line\)](#share-using-cli)
++ [Share a document \(console\)](#share-using-console)
++ [Share a document \(command line\)](#share-using-cli)
 
-## Share a Document \(Console\)<a name="share-using-console"></a>
+## Share a document \(console\)<a name="share-using-console"></a>
 
 **Share a document**
 
@@ -24,7 +24,7 @@ You can share Systems Manager documents by using the AWS Systems Manager console
 
 1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add permission**, and then choose **Save**\. 
 
-## Share a Document \(Command Line\)<a name="share-using-cli"></a>
+## Share a document \(command line\)<a name="share-using-cli"></a>
 
 The following procedure requires that you specify an AWS Region for your command line session\.
 
@@ -64,7 +64,7 @@ The following procedure requires that you specify an AWS Region for your command
 
 ------
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Use the following command to list all of the Systems Manager documents that are available for you\. The list includes documents that you created and documents that were shared with you\.
 

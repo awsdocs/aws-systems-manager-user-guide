@@ -1,11 +1,11 @@
-# Working with Custom Inventory<a name="sysman-inventory-custom"></a>
+# Working with custom inventory<a name="sysman-inventory-custom"></a>
 
 You can assign any metadata you want to your instances by creating *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata\. You can then port all inventory metadata to a central Amazon S3 bucket by using [Resource Data Sync](sysman-inventory-resource-data-sync.html) and query the data\.
 
 **Note**  
 Systems Manager supports a maximum of 20 custom inventory types per AWS account\.
 
-To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign Custom Inventory Metadata to an Instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
+To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
 
 The following example JSON file with custom inventory specifies rack information about an on\-premises server\. This examples specifies one type of custom inventory data \(`"TypeName": "Custom:RackInformation"`\), with multiple entries under `Content` that describe the data\.
 
@@ -68,14 +68,14 @@ After you create the file, you must save it on the instance\. The following tabl
 
 ****  
 
-| Operating System | Path | 
+| Operating system | Path | 
 | --- | --- | 
 |  Windows  |  %SystemDrive%\\ProgramData\\Amazon\\SSM\\InstanceData\\<instance\-id>\\inventory\\custom  | 
 |  Linux  |  /var/lib/amazon/ssm/<instance\-id>/inventory/custom  | 
 
 For an example of how to use custom inventory, see [Get Disk Utilization of Your Fleet Using EC2 Systems Manager Custom Inventory Types](http://aws.amazon.com/blogs/mt/get-disk-utilization-of-your-fleet-using-ec2-systems-manager-custom-inventory-types/)\.
 
-## Deleting Custom Inventory<a name="sysman-inventory-delete"></a>
+## Deleting custom inventory<a name="sysman-inventory-delete"></a>
 
 You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS CLI to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
 
@@ -90,7 +90,7 @@ The `SchemaDeleteOption` parameter includes the following options:
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to use the `dry-run` option to see which data will be deleted from the system\. This command doesn't delete any data\.
 
@@ -122,7 +122,7 @@ The `SchemaDeleteOption` parameter includes the following options:
    }
    ```
 
-   For information about how to understand the delete inventory summary, see [Understanding the Delete Inventory Summary](#sysman-inventory-delete-summary)\.
+   For information about how to understand the delete inventory summary, see [Understanding the delete inventory summary](#sysman-inventory-delete-summary)\.
 
 1. Run the following command to delete all data for a custom inventory type\.
 
@@ -229,7 +229,7 @@ The output of this command doesn't show the deletion progress\. For this reason,
    }
    ```
 
-### Viewing the Deletion Status<a name="sysman-inventory-delete-status"></a>
+### Viewing the deletion status<a name="sysman-inventory-delete-status"></a>
 
 You can check the status of a delete operation by using the describe\-inventory\-deletions AWS CLI command\. You can specify a deletion ID to view the status of a specific delete operation\. Or, you can omit the deletion ID to view a list of all deletions run in the last 30 days\.
 
@@ -347,7 +347,7 @@ You can check the status of a delete operation by using the describe\-inventory\
     "NextToken": "next-token"
    ```
 
-### Understanding the Delete Inventory Summary<a name="sysman-inventory-delete-summary"></a>
+### Understanding the delete inventory summary<a name="sysman-inventory-delete-summary"></a>
 
 To help you understand the contents of the delete inventory summary, consider the following example\. A user assigned Custom:RackSpace inventory to three instances\. Inventory items 1 and 2 use custom type version 1\.0 \("SchemaVersion":"1\.0"\)\. Inventory item 3 uses custom type version 2\.0 \("SchemaVersion":"2\.0"\)\.
 
@@ -463,7 +463,7 @@ The system returns information like the following\.
 }
 ```
 
-### Viewing Inventory Delete Actions in CloudWatch Events<a name="sysman-inventory-delete-cwe"></a>
+### Viewing inventory delete actions in CloudWatch Events<a name="sysman-inventory-delete-cwe"></a>
 
 You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom inventory\. CloudWatch Events offers three types of events for custom inventory delete operations:
 + **Delete action for an instance**: If the custom inventory for a specific managed instance was successfully deleted or not\. 

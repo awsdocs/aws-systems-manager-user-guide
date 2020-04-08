@@ -1,4 +1,4 @@
-# How Systems Manager Works<a name="how-it-works"></a>
+# How Systems Manager works<a name="how-it-works"></a>
 
 Diagram 1 below shows a general example of the different processes that Systems Manager performs when executing an action like sending a command to your fleet of servers or performing an inventory of the applications running on your on\-premises servers\. Each Systems Manager capability, for example Run Command and Maintenance Windows, uses a similar process of set up, execution, processing, and reporting\. 
 

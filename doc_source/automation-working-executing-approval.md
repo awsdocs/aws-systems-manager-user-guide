@@ -1,9 +1,9 @@
-# Running an Automation Workflow with Approvers<a name="automation-working-executing-approval"></a>
+# Running an Automation workflow with approvers<a name="automation-working-executing-approval"></a>
 
 The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run an AWS Systems Manager Automation workflow with approvals using simple execution\. The workflow uses the Automation action `aws:approve`, which temporarily pauses the Automation workflow until the designated principals either approve or deny the action\. The Automation workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, or playbook, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation Workflows by Using Different Security Models](automation-walk-security.md)\. 
+For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation workflows by using different security models](automation-walk-security.md)\. 
 
 **Before You Begin**  
 In addition to the standard inputs required by the Automation document, the `aws:approve` action requires the following two parameters: 
@@ -12,7 +12,7 @@ In addition to the standard inputs required by the Automation document, the `aws
 
 This procedure assumes that you have already created an Amazon SNS topic, which is required to deliver the approval request\. For information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) in the *Amazon Simple Notification Service Developer Guide*\.
 
-## Running an Automation Workflow with Approvers \(Console\)<a name="automation-working-executing-approval-console"></a>
+## Running an Automation workflow with approvers \(console\)<a name="automation-working-executing-approval-console"></a>
 
 **To run an Automation workflow with approvers**
 
@@ -63,7 +63,7 @@ If you chose to approve the Automation workflow, the workflow continues to run t
 
 1. Choose **Submit**\.
 
-## Running an Automation Workflow with Approvers \(Command Line\)<a name="automation-working-executing-approval-commandline"></a>
+## Running an Automation workflow with approvers \(command line\)<a name="automation-working-executing-approval-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow with approvers\.
 
@@ -71,7 +71,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Use the following command to run an Automation workflow with approvers\. In the document name section, specify an Automation document that includes the Automation action, `aws:approve`\.
 

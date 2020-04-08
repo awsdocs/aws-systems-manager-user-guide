@@ -1,8 +1,8 @@
-# Walkthrough: Using Input Transformers with Automation<a name="automation-transformers"></a>
+# Walkthrough: Using input transformers with Automation<a name="automation-transformers"></a>
 
 This Systems Manager Automation walkthrough shows how to use the input transformer feature of Amazon CloudWatch Events to extract the `instance-id` of an Amazon EC2 instance from an instance state change event\. We use the input transformer to pass that data to the `AWS-CreateImage` Systems Manager Automation document target as the `InstanceId` input parameter\. The rule is triggered when any instance changes to the `stopped` state\.
 
-For more information about working with input transformers, see [Tutorial: Use Input Transformer to Customize What is Passed to the Event Target](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-Input-Transformer-Tutorial.html)\.
+For more information about working with input transformers, see [Tutorial: Use Input Transformer to Customize What is Passed to the Event Target](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-Input-Transformer-Tutorial.html) in the *Amazon CloudWatch Events User Guide*\.
 
 **Before You Begin**  
 Verify that you added the required permissions and trust policy for CloudWatch Events to your Systems Manager Automation service role\. For more information, see [Overview of Managing Access Permissions to Your CloudWatch Events Resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/iam-access-control-identity-based-cwe.html)\.

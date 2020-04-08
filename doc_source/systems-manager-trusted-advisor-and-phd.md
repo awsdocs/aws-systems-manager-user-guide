@@ -1,4 +1,4 @@
-# Trusted Advisor and Personal Health Dashboards Hosted by Systems Manager<a name="systems-manager-trusted-advisor-and-phd"></a>
+# Trusted Advisor and Personal Health Dashboards hosted by Systems Manager<a name="systems-manager-trusted-advisor-and-phd"></a>
 
 Systems Manager hosts two online tools to help you provision your resources and monitor your account for health events\. Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices\. For more information, see [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/)\.
 

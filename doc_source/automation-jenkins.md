@@ -9,8 +9,8 @@ Be sure to follow Jenkins security best\-practices when configuring your instanc
 
 **Before You Begin**  
 Complete the following tasks before you configure Automation with Jenkins\.
-+ Complete the [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting Started with Automation](automation-setup.md)\.
++ Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting started with Automation](automation-setup.md)\.
 + After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The Automation workflow uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during execution\.
 
 **To create a user account for the Jenkins server**
@@ -46,7 +46,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
    aws configure
    ```
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. When prompted, enter the AWS Access key and Secret key you received when you created the Jenkins user in IAM\. Specify a default region\. For more information about configuring the AWS CLI see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 
@@ -68,7 +68,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
    aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document
    ```
 
-   The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI Patching Using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
+   The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
 
    ```
    aws --region region-id ssm start-automation-execution \

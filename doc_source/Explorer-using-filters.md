@@ -1,8 +1,8 @@
-# Customizing the Display and Using Filters<a name="Explorer-using-filters"></a>
+# Customizing the display and using filters<a name="Explorer-using-filters"></a>
 
 You can customize widget layout in Systems Manager Explorer by using a drag\-and\-drop capability\. You can also customize the OpsData and OpsItems displayed in Explorer by using filters, as described in this topic\. 
 
-## Customizing Widget Layout<a name="Explorer-using-filters-customize"></a>
+## Customizing widget layout<a name="Explorer-using-filters-customize"></a>
 
 Use the following procedure to customize widget layout in Explorer\.
 
@@ -21,7 +21,7 @@ Use the following procedure to customize widget layout in Explorer\.
 
 If you decide that you don't like the new layout, choose **Reset layout** to move all widgets back to their original location\.
 
-## Using Filters to the Change the Data Displayed in Explorer<a name="Explorer-using-filters-filtering"></a>
+## Using filters to the change the data displayed in Explorer<a name="Explorer-using-filters-filtering"></a>
 
 By default, Explorer displays data for the current AWS account and the current Region\. If you create one or more resource data syncs, you can use filters to change which sync is active\. You can then choose to display data for a specific Region or all Regions\. You can also use the Search bar to filter on different OpsItem and key\-tag criteria\.
 

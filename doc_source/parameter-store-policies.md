@@ -1,11 +1,11 @@
-# Assigning Parameter Policies<a name="parameter-store-policies"></a>
+# Assigning parameter policies<a name="parameter-store-policies"></a>
 
 Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\. The policies are described in more detail in this section\.
 
 Parameter Store enforces parameter policies by using asynchronous, periodic scans\. After you create a policy, you don't need to perform additional actions to enforce the policy\. Parameter Store independently performs the action defined by the policy according to the criteria you specified\. 
 
 **Note**  
-Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [Standard and Advanced Parameter Tiers](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)\.
 
 A parameter policy is a JSON array, as shown in the following table\. You can assign a policy when you create a new advanced parameter, or you can apply a policy by updating a parameter\. Parameter Store supports the following types of parameter policies\.
 
@@ -64,16 +64,16 @@ PutParameterRequest
 }
 ```
 
-## Adding Policies to an Existing Parameter<a name="sysman-paramstore-su-policy-create"></a>
+## Adding policies to an existing parameter<a name="sysman-paramstore-su-policy-create"></a>
 
-This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS CLI, and AWS Tools for Windows PowerShell\. For information about how to create a new parameter that includes policies, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\.
+This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS CLI, and AWS Tools for Windows PowerShell\. For information about how to create a new parameter that includes policies, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 **Topics**
-+ [Add Policies to an Existing Parameter \(Console\)](#sysman-paramstore-policy-create-console)
-+ [Add Policies to an Existing Parameter \(AWS CLI\)](#sysman-paramstore-policy-create-cli)
-+ [Add Policies to an Existing Parameter by Using the Tools for Windows PowerShell](#sysman-paramstore-policy-create-ps)
++ [Add policies to an existing parameter \(console\)](#sysman-paramstore-policy-create-console)
++ [Add policies to an existing parameter \(AWS CLI\)](#sysman-paramstore-policy-create-cli)
++ [Add policies to an existing parameter by using the Tools for Windows PowerShell](#sysman-paramstore-policy-create-ps)
 
-### Add Policies to an Existing Parameter \(Console\)<a name="sysman-paramstore-policy-create-console"></a>
+### Add policies to an existing parameter \(console\)<a name="sysman-paramstore-policy-create-console"></a>
 
 Use the following procedure to add policies to an existing parameter by using the Systems Manager console\.
 
@@ -100,7 +100,7 @@ Parameter Store preserves policies on a parameter until you either overwrite the
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy by using brackets and curly braces, as follows: `[{}]`
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 
-### Add Policies to an Existing Parameter \(AWS CLI\)<a name="sysman-paramstore-policy-create-cli"></a>
+### Add policies to an existing parameter \(AWS CLI\)<a name="sysman-paramstore-policy-create-cli"></a>
 
 Use the following procedure to add policies to an existing parameter by using the AWS CLI\.
 
@@ -108,7 +108,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to add policies to an existing parameter\.
 
@@ -137,13 +137,13 @@ To remove all policies from an existing parameter, edit the parameter and apply 
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 
-### Add Policies to an Existing Parameter by Using the Tools for Windows PowerShell<a name="sysman-paramstore-policy-create-ps"></a>
+### Add policies to an existing parameter by using the Tools for Windows PowerShell<a name="sysman-paramstore-policy-create-ps"></a>
 
 Use the following procedure to add policies to an existing parameter by using Tools for Windows PowerShell\.
 
 **To add policies to an existing parameter**
 
-1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name

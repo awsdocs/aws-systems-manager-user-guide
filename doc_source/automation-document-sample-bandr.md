@@ -1,4 +1,4 @@
-# Create an AMI and Cross\-Region Copy<a name="automation-document-sample-bandr"></a>
+# Create an AMI and cross\-Region copy<a name="automation-document-sample-bandr"></a>
 
 Creating an Amazon Machine Image \(AMI\) of an instance is a common process used in backup and recovery\. You might also choose to copy an AMI to another Region as part of a disaster recovery architecture\. Automating common maintenance tasks can reduce downtime if an issue requires failover\. AWS Systems Manager Automation actions can help you accomplish this\.
 

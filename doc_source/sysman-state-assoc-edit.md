@@ -1,10 +1,10 @@
-# Edit and Create a New Version of an Association<a name="sysman-state-assoc-edit"></a>
+# Edit and create a new version of an association<a name="sysman-state-assoc-edit"></a>
 
 You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an S3 bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
 The following procedures describe how to edit and create a new version of an association using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell\. 
 
-## Edit and Create a New Version of an Association \(Console\)<a name="sysman-state-assoc-edit-console"></a>
+## Edit and create a new version of an association \(console\)<a name="sysman-state-assoc-edit-console"></a>
 
 The following procedure describes how to use the Systems Manager console to edit and create a new version of an association\.
 
@@ -44,7 +44,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. Choose **Open** or **Download** to view the host name\.
 
-## Edit and Create a New Version of an Association \(Command Line\)<a name="sysman-state-assoc-edit-commandline"></a>
+## Edit and create a new version of an association \(command line\)<a name="sysman-state-assoc-edit-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to edit and create a new version of an association\.
 
@@ -52,7 +52,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Use the following format to create a command to edit and create a new version of an existing State Manager association\.
 

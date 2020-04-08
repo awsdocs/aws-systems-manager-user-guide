@@ -9,13 +9,13 @@ You can use the AWS Systems Manager console, AWS CLI, or AWS Tools for PowerShel
 **Note**  
 You can delete or repurpose this bucket after you finish creating your package because Distributor moves the package contents to an internal Systems Manager bucket as part of the package creation process\.
 
-AWS\-published packages are already packaged and ready for deployment\. To deploy an AWS\-published package to managed instances, see [Install or Update Packages](distributor-working-with-packages-deploy.md)\.
+AWS\-published packages are already packaged and ready for deployment\. To deploy an AWS\-published package to managed instances, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
 **Topics**
-+ [Create a Package](distributor-working-with-packages-create.md)
-+ [Edit Package Permissions \(Console\)](distributor-working-with-packages-ep.md)
-+ [Edit Package Tags \(Console\)](distributor-working-with-packages-tags.md)
-+ [Add a Package Version to Distributor](distributor-working-with-packages-version.md)
-+ [Install or Update Packages](distributor-working-with-packages-deploy.md)
-+ [Uninstall a Package](distributor-working-with-packages-uninstall.md)
-+ [Delete a Package](distributor-working-with-packages-dpkg.md)
++ [Create a package](distributor-working-with-packages-create.md)
++ [Edit package permissions \(console\)](distributor-working-with-packages-ep.md)
++ [Edit package tags \(console\)](distributor-working-with-packages-tags.md)
++ [Add a package version to Distributor](distributor-working-with-packages-version.md)
++ [Install or update packages](distributor-working-with-packages-deploy.md)
++ [Uninstall a package](distributor-working-with-packages-uninstall.md)
++ [Delete a package](distributor-working-with-packages-dpkg.md)

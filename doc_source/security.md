@@ -9,12 +9,12 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Systems Manager\. The following topics show you how to configure Systems Manager to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Systems Manager resources\. 
 
 **Topics**
-+ [Data Protection in AWS Systems Manager](data-protection.md)
-+ [Identity and Access Management for AWS Systems Manager](security-iam.md)
-+ [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)
-+ [Logging and Monitoring in AWS Systems Manager](logging-and-monitoring.md)
-+ [Compliance Validation for AWS Systems Manager](security-compliance.md)
++ [Data protection in AWS Systems Manager](data-protection.md)
++ [Identity and access management for AWS Systems Manager](security-iam.md)
++ [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)
++ [Logging and monitoring in AWS Systems Manager](logging-and-monitoring.md)
++ [Compliance validation for AWS Systems Manager](security-compliance.md)
 + [Resilience in AWS Systems Manager](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS Systems Manager](infrastructure-security.md)
-+ [Configuration and Vulnerability Analysis in AWS Systems Manager](vulnerability-analysis-and-management.md)
-+ [Security Best Practices for Systems Manager](security-best-practices.md)
++ [Infrastructure security in AWS Systems Manager](infrastructure-security.md)
++ [Configuration and vulnerability analysis in AWS Systems Manager](vulnerability-analysis-and-management.md)
++ [Security best practices for Systems Manager](security-best-practices.md)

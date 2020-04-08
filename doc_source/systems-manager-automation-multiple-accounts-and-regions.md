@@ -1,4 +1,4 @@
-# Running Automation Workflows in Multiple AWS Regions and Accounts<a name="systems-manager-automation-multiple-accounts-and-regions"></a>
+# Running Automation workflows in multiple AWS Regions and accounts<a name="systems-manager-automation-multiple-accounts-and-regions"></a>
 
 You can run AWS Systems Manager Automations across multiple AWS Regions and AWS accounts or AWS Organizational Units \(OUs\) from an Automation management account\. Running Automations in multiple Regions and accounts or OUs reduces the time required to administer your AWS resources while enhancing the security of your computing environment\.
 
@@ -31,13 +31,13 @@ Automations do not execute recursively through OUs\. Be sure the target OU conta
 
 1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor workflow progress\.
 
-## Setting Up Management Account Permissions for Multi\-Region and Multi\-Account Automation Execution<a name="systems-manager-automation-multiple-accounts-and-regions-permissions"></a>
+## Setting up management account permissions for multi\-Region and multi\-account Automation execution<a name="systems-manager-automation-multiple-accounts-and-regions-permissions"></a>
 
 Use the following procedure to create the required IAM roles for Systems Manager Automation multi\-Region and multi\-account execution by using AWS CloudFormation\. This procedure describes how to create the **AWS\-SystemsManager\-AutomationExecutionRole** role\. You must create this role in *every* account that you want to target to run multi\-Region and multi\-account Automations\.
 
 This procedure also describes how to create the **AWS\-SystemsManager\-AutomationAdministrationRole** role\. You only need to create this role in the Automation management account\.
 
-**To create the required IAM roles for Multi\-Region and Multi\-Account Automation Executions by using AWS CloudFormation**
+**To create the required IAM roles for multi\-Region and multi\-account Automation executions by using AWS CloudFormation**
 
 1. Download and unzip the [AWS\-SystemsManager\-AutomationExecutionRole\.zip folder](samples/AWS-SystemsManager-AutomationExecutionRole.zip)\. This folder includes the AWS\-SystemsManager\-AutomationExecutionRole\.json AWS CloudFormation template file\.
 **Note**  
@@ -73,7 +73,7 @@ We recommend not changing the role name as specified in the template to somethin
 **Note**  
 We recommend not changing the role name as specified in the template to something besides `AWS-SystemsManager-AutomationAdministrationRole`\. Otherwise, your multi\-Region and multi\-Account Automation workflows might fail\.
 
-## Run an Automation in Multiple Regions and Accounts \(Console\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
+## Run an Automation in multiple Regions and accounts \(console\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
 
 The following procedure describes how to use the Systems Manager console to run an Automation in multiple Regions and accounts from the Automation management account\.
 
@@ -146,7 +146,7 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\.
 
-## Run an Automation in Multiple Regions and Accounts \(Command Line\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing-commandline"></a>
+## Run an Automation in multiple Regions and accounts \(command line\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation in multiple Regions and accounts from the Automation management account\.
 
@@ -160,7 +160,7 @@ Before you complete the following procedure, note the following information:
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Use the following format to create a command to run an Automation workflow in multiple Regions and accounts\.
 
@@ -443,6 +443,6 @@ Before you complete the following procedure, note the following information:
 **Note**  
 You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows he status of the workflow actions\.
 
-## Related Content<a name="systems-manager-automation-multiple-accounts-and-regions-executing-related"></a>
+## Related content<a name="systems-manager-automation-multiple-accounts-and-regions-executing-related"></a>
 
 [Centralized multi\-account and multi\-Region patching with AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/centralized-multi-account-and-multi-region-patching-with-aws-systems-manager-automation/)

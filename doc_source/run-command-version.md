@@ -1,4 +1,4 @@
-# Running Commands Using the Document Version Parameter<a name="run-command-version"></a>
+# Running commands using the document version parameter<a name="run-command-version"></a>
 
 You can use the document version parameter to specify which version of an SSM document to use when the command runs\. You can specify one of the following options for this parameter:
 + $DEFAULT
@@ -14,7 +14,7 @@ Use the following procedure to run a command using the document version paramete
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. List all available documents
 
@@ -48,7 +48,7 @@ Use the following procedure to run a command using the document version paramete
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. List all available documents
 
@@ -82,7 +82,7 @@ Use the following procedure to run a command using the document version paramete
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. List all available documents
 

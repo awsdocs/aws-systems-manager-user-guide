@@ -1,11 +1,11 @@
-# Create a Maintenance Window \(Console\)<a name="sysman-maintenance-create-mw"></a>
+# Create a maintenance window \(console\)<a name="sysman-maintenance-create-mw"></a>
 
 In this procedure, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run during the maintenance window execution\.
 
 **Note**  
-For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.
+For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
 
-**To create a Maintenance Window \(console\)**
+**To create a maintenance window \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -23,7 +23,7 @@ For an explanation of how the various schedule\-related options for maintenance 
 
 1. Specify a schedule for the maintenance window by using one of the three scheduling options\.
 
-   For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+   For information about building cron/rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
 1. For **Duration**, enter the number of hours the maintenance window will run\. The value you specify determines the specific end time for the maintenance window based on the time it begins\. No maintenance window tasks are permitted to start after the resulting endtime minus the number of hours you specify for **Stop initiating tasks** in the next step\.
 

@@ -1,4 +1,4 @@
-# Step 3: Control User Session Access to Instances<a name="session-manager-getting-started-restrict-access"></a>
+# Step 3: Control user session access to instances<a name="session-manager-getting-started-restrict-access"></a>
 
 Session Manager allows you to centrally grant and revoke user access to instances\. Using IAM policies, you control which instances specific users or groups can connect to, and you control what Session Manager API actions they can perform on the instances they are given access to\. 
 
@@ -22,6 +22,6 @@ For more information about using variables in IAM policies, see [IAM Policy Elem
 For information about how to create policies and attach them to IAM users or groups, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) and [Adding and Removing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Enforce Document Permission Check for Default CLI Scenario](getting-started-sessiondocumentaccesscheck.md)
-+ [Quickstart Default IAM Policies for Session Manager](getting-started-restrict-access-quickstart.md)
-+ [Additional Sample IAM Policies for Session Manager](getting-started-restrict-access-examples.md)
++ [Enforce document permission check for default CLI scenario](getting-started-sessiondocumentaccesscheck.md)
++ [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)
++ [Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md)

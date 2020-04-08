@@ -1,12 +1,12 @@
-# Use Run Command to Send a Command that Returns Status Notifications<a name="monitoring-sns-rc-send"></a>
+# Use Run Command to send a command that returns status notifications<a name="monitoring-sns-rc-send"></a>
 
 The following procedures show how to use the AWS Command Line Interface \(AWS CLI\) or AWS Systems Manager console to send a Run Command that is configured to return status notifications\.
 
-## Sending a Run Command that Returns Notifications \(Console\)<a name="monitoring-sns-rc-send-console"></a>
+## Sending a Run Command that returns notifications \(console\)<a name="monitoring-sns-rc-send-console"></a>
 
 Use the following procedure to send a command through Run Command that is configured to return status notifications using the Systems Manager console\.
 
-**To send a command that returns notifications \(Console\)**
+**To send a command that returns notifications \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -20,11 +20,11 @@ Use the following procedure to send a command through Run Command that is config
 
 1. In the **Command document** list, choose a Systems Manager document\.
 
+1. In the **Command parameters** section, specify values for required parameters\.
+
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
-
-1. In the **Command parameters** section, specify values for required parameters\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.
@@ -38,11 +38,11 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS Notifications** section, choose **Enable SNS notifications**\.
 
-1. In the **IAM role** field, type or paste the SNS IAM role ARN you created in Task 3 in the topic [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html)\.
+1. In the **IAM role** field, type or paste the SNS IAM role ARN you created in Task 3 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. In the **SNS topic** field, type or paste the Amazon SNS topic ARN to be used\.
 
@@ -54,7 +54,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
 
-## Sending a Run Command that Returns Notifications \(CLI\)<a name="monitoring-sns-rc-send-cli"></a>
+## Sending a Run Command that returns notifications \(CLI\)<a name="monitoring-sns-rc-send-cli"></a>
 
 Use the following procedure to send a command through Run Command that is configured to return status notifications using the AWS CLI\.
 

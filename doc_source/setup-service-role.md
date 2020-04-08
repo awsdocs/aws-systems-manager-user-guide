@@ -1,4 +1,4 @@
-# Step 7: \(Optional\) Create Systems Manager Service Roles<a name="setup-service-role"></a>
+# Step 7: \(Optional\) Create Systems Manager service roles<a name="setup-service-role"></a>
 
 This topic explains the difference between a *service role* and a *service\-linked role* for Systems Manager\. It also explains when you need to create or use either type of role\.
 
@@ -10,13 +10,13 @@ Currently, the Systems Manager service\-linked role can be used for the followin
 + The Systems Manager Inventory capability uses the service\-linked role to collect inventory metadata from tags and resource groups\.
 + The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described below\.
 
-For more information about the service\-linked role, see [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)\.
+For more information about the service\-linked role, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 
-## Create a Service Role<a name="setup-service-role-create"></a>
+## Create a service role<a name="setup-service-role-create"></a>
 
 You can create the following service roles as part of Systems Manager setup, or you can create them later\.
 
-### Service Role for Automation<a name="setup-service-role-create-automation"></a>
+### Service role for Automation<a name="setup-service-role-create-automation"></a>
 
 Automation previously required that you specify a service role so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\. 
 
@@ -25,10 +25,10 @@ However, the following situations still require that you specify a service role 
 + Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create a service role and an instance profile role for Automation, you can use one of the following methods\.
-+ [Method 1: Use AWS CloudFormation to Configure a Service Role for Automation](automation-cf.md)
-+ [Method 2: Use IAM to Configure Roles for Automation](automation-permissions.md)
++ [Method 1: Use AWS CloudFormation to configure a service role for Automation](automation-cf.md)
++ [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)
 
-### Service Role for Maintenance Windows Tasks<a name="setup-service-role-create-mw-tasks"></a>
+### Service role for maintenance window tasks<a name="setup-service-role-create-mw-tasks"></a>
 
 To run tasks on your managed instances, the Maintenance Windows service must have permission to access those resources\. This permission can be granted using either a service\-linked role for Systems Manager or a custom service role that you create\.
 
@@ -37,21 +37,21 @@ You create a custom service role in the following cases:
 + If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation documents require permissions for actions in other AWS services\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
-+  [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
-+  [\(Optional\) Create a Custom Service Role for Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
++  [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
++  [\(Optional\) Create a custom service role for Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
 
-### Service Role for Amazon Simple Notification Service Notifications<a name="setup-service-role-create-sns"></a>
+### Service role for Amazon Simple Notification Service notifications<a name="setup-service-role-create-sns"></a>
 
 Amazon Simple Notification Service \(Amazon SNS\) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients\. In Systems Manager, you can configure Amazon SNS to send notifications about the status of commands that you send using the Run Command capability, or the status of tasks run in maintenance windows\.
 
 You create a service role for Amazon SNS as part of the process of configuring the service for use with Systems Manager\. After you complete this configuration, you choose whether to receive notifications for particular Run Command commands or maintenance windows tasks at the time you create each one\. 
 
-For more information, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\. 
+For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\. 
 
-### Service Role for a Systems Manager Hybrid Environment<a name="setup-service-role-hybrid-environment"></a>
+### Service role for a Systems Manager hybrid environment<a name="setup-service-role-hybrid-environment"></a>
 
 If you plan to use Systems Manager to manage on\-premises servers and virtual machines \(VMs\) in what is called a *hybrid environment*, you must create an IAM role for those resources to communicate with the Systems Manager service\.
 
-For more information, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\. 
+For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 
-Continue to [Step 8: \(Optional\) Set Up Integrations with Other AWS Services](setup-integrations.md)\.
+Continue to [Step 8: \(Optional\) Set up integrations with other AWS services](setup-integrations.md)\.

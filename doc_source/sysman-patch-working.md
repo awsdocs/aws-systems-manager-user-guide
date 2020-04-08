@@ -1,4 +1,4 @@
-# Working with Patch Manager \(Console\)<a name="sysman-patch-working"></a>
+# Working with Patch Manager \(console\)<a name="sysman-patch-working"></a>
 
 To use Patch Manager, complete the following tasks\. These tasks are described in more detail in this section\.
 
@@ -11,15 +11,15 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 1. Monitor patching to verify compliance and investigate failures\.
 
 **Related Content**
-+ To view an example of how to create a patch baseline, patch groups, and a maintenance window using the AWS CLI, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
++ To view an example of how to create a patch baseline, patch groups, and a maintenance window using the AWS CLI, see [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
 + For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
-+ For information about monitoring patch compliance, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
++ For information about monitoring patch compliance, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 **Topics**
-+ [View AWS Predefined Patch Baselines](view-predefined-patch-baselines.md)
-+ [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)
-+ [Set an Existing Patch Baseline as the Default](set-default-patch-baseline.md)
-+ [Create a Patch Group](sysman-patch-group-tagging.md)
-+ [Create a Maintenance Window for Patching](sysman-patch-mw-console.md)
-+ [Create a Patching Configuration \(Console\)](create-patching-configuration.md)
-+ [Update or Delete a Patch Baseline \(Console\)](patch-baseline-update-or-delete.md)
++ [View AWS predefined patch baselines](view-predefined-patch-baselines.md)
++ [Create a custom patch baseline](sysman-patch-baseline-console.md)
++ [Set an existing patch baseline as the default](set-default-patch-baseline.md)
++ [Create a patch group](sysman-patch-group-tagging.md)
++ [Create a maintenance window for patching](sysman-patch-mw-console.md)
++ [Create a patching configuration \(console\)](create-patching-configuration.md)
++ [Update or delete a patch baseline \(console\)](patch-baseline-update-or-delete.md)

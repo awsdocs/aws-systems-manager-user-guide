@@ -1,11 +1,11 @@
-# Step 5: Install SSM Agent for a Hybrid Environment \(Windows\)<a name="sysman-install-managed-win"></a>
+# Step 5: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
 
-This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.
+This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 **Important**  
-This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
+This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Windows instance, see [Installing and configuring SSM Agent on Windows instances](sysman-install-ssm-win.md)\.
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a Managed\-Instance Activation for a Hybrid Environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 **To install SSM Agent on servers and VMs in your hybrid environment**
 
@@ -15,7 +15,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 1. Copy and paste the following command block into AWS Tools for Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\.
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
    ```
    $code = "activation-code"
@@ -60,4 +60,4 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 aws ssm deregister-managed-instance --instance-id "mi-1234567890"
 ```
 
-Continue to [Step 6: Install SSM Agent for a Hybrid Environment \(Linux\)](sysman-install-managed-linux.md)\.
+Continue to [Step 6: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.

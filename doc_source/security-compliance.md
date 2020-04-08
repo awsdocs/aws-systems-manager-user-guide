@@ -1,4 +1,4 @@
-# Compliance Validation for AWS Systems Manager<a name="security-compliance"></a>
+# Compliance validation for AWS Systems Manager<a name="security-compliance"></a>
 
 *This topic addresses AWS Systems Manager compliance with third\-party assurance programs\. For information about viewing compliance data for your managed instances, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.*
 

@@ -1,14 +1,14 @@
-# Method 2: Use IAM to Configure Roles for Automation<a name="automation-permissions"></a>
+# Method 2: Use IAM to configure roles for Automation<a name="automation-permissions"></a>
 
-If you need to create a service role for Systems Manager Automation, complete the following tasks\. For more information on when a service role is required for Automation, see [Getting Started with Automation](automation-setup.md)\.
+If you need to create a service role for Systems Manager Automation, complete the following tasks\. For more information on when a service role is required for Automation, see [Getting started with Automation](automation-setup.md)\.
 
 **Topics**
-+ [Task 1: Create a Service Role for Automation](#automation-role)
-+ [Task 2: Add a Trust Relationship for Automation](#automation-trust2)
-+ [Task 3: Attach the iam:PassRole Policy to Your Automation Role](#automation-passpolicy)
-+ [Task 4: Configure User Access to Automation](#automation-passrole)
++ [Task 1: Create a service role for Automation](#automation-role)
++ [Task 2: Add a trust relationship for Automation](#automation-trust2)
++ [Task 3: Attach the iam:PassRole policy to your Automation role](#automation-passpolicy)
++ [Task 4: Configure user access to Automation](#automation-passrole)
 
-## Task 1: Create a Service Role for Automation<a name="automation-role"></a>
+## Task 1: Create a service role for Automation<a name="automation-role"></a>
 
 Use the following procedure to create a service role \(or *assume role*\) for Systems Manager Automation\.
 
@@ -38,11 +38,11 @@ The AmazonSSMAutomationRole policy assigns the Automation role permission to a s
 `"arn:aws:lambda:*:*:function:Automation*"`  
 If you have existing Lambda functions whose ARNs do not use this format, then you must also attach an additional Lambda policy to your automation role, such as the **AWSLambdaRole** policy\. The additional policy or role must provide broader access to Lambda functions within the AWS account\.
 
-### \(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services<a name="automation-role-add-inline-policy"></a>
+### \(Optional\) add an Automation inline policy to invoke other AWS services<a name="automation-role-add-inline-policy"></a>
 
 If you run an automation that invokes other AWS services by using an IAM service role, the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(AWS\-\* documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. 
 
-**To embed an inline policy for a service role \(IAM Console\)**
+**To embed an inline policy for a service role \(IAM console\)**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -104,7 +104,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 1. After you create an inline policy, it is automatically embedded in your role\.
 
-## Task 2: Add a Trust Relationship for Automation<a name="automation-trust2"></a>
+## Task 2: Add a trust relationship for Automation<a name="automation-trust2"></a>
 
 Use the following procedure to configure the service role policy to trust Automation\.
 
@@ -137,7 +137,7 @@ Use the following procedure to configure the service role policy to trust Automa
 
 1. Leave the **Summary** page open\. 
 
-## Task 3: Attach the iam:PassRole Policy to Your Automation Role<a name="automation-passpolicy"></a>
+## Task 3: Attach the iam:PassRole policy to your Automation role<a name="automation-passpolicy"></a>
 
 Use the following procedure to attach the `iam:PassRole` policy to your Automation service role\. This enables the Automation service to pass the role to other services or Systems Manager capabilities when running Automation workflows\.
 
@@ -167,7 +167,7 @@ If you want the Automation service role to attach an IAM instance profile role t
 
 1. On the **Review Policy** page, type a name and then choose **Create Policy**\.
 
-## Task 4: Configure User Access to Automation<a name="automation-passrole"></a>
+## Task 4: Configure user access to Automation<a name="automation-passrole"></a>
 
 If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
 

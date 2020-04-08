@@ -1,4 +1,4 @@
-# Enforce Document Permission Check for Default CLI Scenario<a name="getting-started-sessiondocumentaccesscheck"></a>
+# Enforce document permission check for default CLI scenario<a name="getting-started-sessiondocumentaccesscheck"></a>
 
 When you configure Session Manager for your account, the system creates an SSM document named `SSM-SessionManagerRunShell`\. This SSM document stores your requirements for whether session data is saved in an Amazon S3 bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service, and whether Run As support is enabled for your sessions\. The following is an example\.
 
@@ -62,7 +62,7 @@ This condition element applies only to the default `SSM-SessionManagerRunShell` 
 aws ssm start-session --target i-02573cafcfEXAMPLE
 ```
 
-For an example of specifying a Session Manager configuration document in a user’s IAM policy, see [Quickstart End User Policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
+For an example of specifying a Session Manager configuration document in a user’s IAM policy, see [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
 
 **Other Scenarios**  
 Using the default `SSM-SessionManagerRunShell` configuration document is the only case when a document name can be omitted from the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` CLI command\. In other cases, the document name must be specified, and the system checks whether the user has been granted explicit access to the configuration document they specify\. 
@@ -72,4 +72,4 @@ For example, if a user specifies the name of a custom configuration document you
 If a user runs a command to start a session using SSH, the user’s policy must grant them access to the `AWS-StartSSHSession` configuration document\. 
 
 **Note**  
-In order to start a session using SSH, configuration steps must be completed on both the target instance and the user's local machine\. For information, see [\(Optional\) Enable SSH Connections Through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+In order to start a session using SSH, configuration steps must be completed on both the target instance and the user's local machine\. For information, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.

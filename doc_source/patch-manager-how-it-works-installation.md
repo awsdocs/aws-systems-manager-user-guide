@@ -1,4 +1,4 @@
-# How Patches Are Installed<a name="patch-manager-how-it-works-installation"></a>
+# How patches are installed<a name="patch-manager-how-it-works-installation"></a>
 
 Patch Manager uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
 

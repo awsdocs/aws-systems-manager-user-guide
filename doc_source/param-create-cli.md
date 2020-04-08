@@ -1,21 +1,21 @@
-# Create a Systems Manager Parameter \(AWS CLI\)<a name="param-create-cli"></a>
+# Create a Systems Manager parameter \(AWS CLI\)<a name="param-create-cli"></a>
 
 You can use the AWS CLI to create `String`, `StringList`, and `SecureString` parameter types\. 
 
-For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and Update a String Parameter \(AWS CLI\)](sysman-paramstore-cli.md)\.
+For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and update a String parameter \(AWS CLI\)](sysman-paramstore-cli.md)\.
 
 **Note**  
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
-+ [Create a String or StringList Parameter \(AWS CLI\)](#param-create-cli-string-stringlist)
-+ [Create a SecureString Parameter \(AWS CLI\)](#param-create-cli-securestring)
++ [Create a String or StringList parameter \(AWS CLI\)](#param-create-cli-string-stringlist)
++ [Create a SecureString parameter \(AWS CLI\)](#param-create-cli-securestring)
 
-## Create a String or StringList Parameter \(AWS CLI\)<a name="param-create-cli-string-stringlist"></a>
+## Create a String or StringList parameter \(AWS CLI\)<a name="param-create-cli-string-stringlist"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
 
@@ -64,13 +64,13 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
    aws ssm get-parameters --name "/IAD/ERP/Oracle/addUsers"
    ```
 
-## Create a SecureString Parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
+## Create a SecureString parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
 
-Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
+Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
 

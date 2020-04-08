@@ -1,4 +1,4 @@
-# Walkthrough: Using Document Builder to Create a Custom Automation Document<a name="automation-walk-document-builder"></a>
+# Walkthrough: Using Document Builder to create a custom Automation document<a name="automation-walk-document-builder"></a>
 
 The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
 
@@ -8,21 +8,21 @@ The first step of the Automation document you create runs a script to launch an 
 Before you begin this walkthrough, do the following: 
 + Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 
-  For information, see [ Verifying User Access for Automation Workflows](automation-setup.md#automation-setup-user-access)\.
+  For information, see [ Verifying user access for Automation workflows](automation-setup.md#automation-setup-user-access)\.
 + Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your AWS account\. The role is required because this walkthrough uses the **aws:executeScript** action\. 
 
-  For information about creating this role, see [Configuring a Service Role \(Assume Role\) Access for Automation Workflows](automation-setup.md#automation-setup-configure-role)\. 
+  For information about creating this role, see [Configuring a service role \(assume role\) access for Automation workflows](automation-setup.md#automation-setup-configure-role)\. 
 
-  For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for Running Automation Executions](automation-document-script.md#execution-permissions)\.
+  For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
 + Verify that you have permission to launch Amazon EC2 instances\. 
 
   For information, see [IAM and Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingIAM.html#intro-to-iam) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Topics**
-+ [Step 1: Create the Custom Automation Document](#automation-walk-document-builder-create)
-+ [Step 2: Run the Custom Automation Document](#automation-walk-document-builder-run)
++ [Step 1: Create the custom Automation document](#automation-walk-document-builder-create)
++ [Step 2: Run the custom Automation document](#automation-walk-document-builder-run)
 
-## Step 1: Create the Custom Automation Document<a name="automation-walk-document-builder-create"></a>
+## Step 1: Create the custom Automation document<a name="automation-walk-document-builder-create"></a>
 
 Use the following procedure to create a custom Automation document that launches an Amazon EC2 instance and waits for the instance status check to change to `ok`\.
 
@@ -62,7 +62,7 @@ If you copy and paste values from this walkthrough into Document Builder, such a
 
    The role you specify is used to provide the permissions needed to start the automation execution\.
 **Important**  
-For Automation documents not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for Running Automation Executions](automation-document-script.md#execution-permissions)\.
+For Automation documents not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
 
 1. Expand **Input parameters** and do the following\.
 
@@ -309,7 +309,7 @@ This is not required for PowerShell\.
 
 1. Choose **Create automation** to save the document\.
 
-## Step 2: Run the Custom Automation Document<a name="automation-walk-document-builder-run"></a>
+## Step 2: Run the custom Automation document<a name="automation-walk-document-builder-run"></a>
 
 Use the following procedure to run the custom Automation document created in Step 1\. The custom Automation document launches an Amazon EC2 instance and waits for the instance check to change to the `ok` status\.
 
@@ -335,4 +335,4 @@ It can take several minutes for the `ok` status to be returned\.
 
 1. \(Optional\) Unless you plan to use the Amazon EC2 instance created by this walkthrough for other purposes, you can terminate the instance\. For information, see [Terminate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 
-   You can identify the instance by the name **LaunchedBySsmAutomation** that you tagged it with in [Step 1: Create the Custom Automation Document](#automation-walk-document-builder-create)\.
+   You can identify the instance by the name **LaunchedBySsmAutomation** that you tagged it with in [Step 1: Create the custom Automation document](#automation-walk-document-builder-create)\.

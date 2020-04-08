@@ -1,4 +1,4 @@
-# Specifying a Default Parameter Tier<a name="ps-default-tier"></a>
+# Specifying a default parameter tier<a name="ps-default-tier"></a>
 
 In requests to create or update a parameter \(that is, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` action\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS CLI\.
 
@@ -47,7 +47,7 @@ When you choose Intelligent\-Tiering, you must explicitly authorize AWS to charg
 
 You can change the Parameter Store default tier setting at any time\.
 
-## Configuring Permissions to Specify a Parameter Store Default Tier<a name="parameter-store-throughput-permissions"></a>
+## Configuring permissions to specify a Parameter Store default tier<a name="parameter-store-throughput-permissions"></a>
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to change the default parameter tier in Parameter Store by doing one of the following:
 + Ensure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
@@ -127,7 +127,7 @@ Administrators can specify read\-only permission by assigning the following inli
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
-## Specifying or Changing the Parameter Store Default Tier \(Console\)<a name="parameter-store-throughput-increasing"></a>
+## Specifying or changing the Parameter Store default tier \(console\)<a name="parameter-store-throughput-increasing"></a>
 
 The following procedure shows how to use the Systems Manager console to specify or change the default parameter tier for the current AWS account and Region\.
 
@@ -150,13 +150,13 @@ The following procedure shows how to use the Systems Manager console to specify 
    + **Advanced**
    + **Intelligent\-Tiering**
 
-   For information about these options, see [Specifying a Default Parameter Tier](#ps-default-tier)\.
+   For information about these options, see [Specifying a default parameter tier](#ps-default-tier)\.
 
 1. Review the message, and choose **Confirm**\.
 
 If you want to change the default tier setting later, repeat this procedure and specify a different default tier option\.
 
-## Specifying or Changing the Parameter Store Default Tier \(AWS CLI\)<a name="parameter-store-throughput-increasing-cli"></a>
+## Specifying or changing the Parameter Store default tier \(AWS CLI\)<a name="parameter-store-throughput-increasing-cli"></a>
 
 The following procedure shows how to use the AWS Command Line Interface \(AWS CLI\) to change the default parameter tier setting for the current AWS account and Region\.
 
@@ -168,9 +168,9 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
    aws ssm update-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier --setting-value tier-option
    ```
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   *tier\-option* values include `Standard`, `Advanced`, and `Intelligent-Tiering`\. For information about these options, see [Specifying a Default Parameter Tier](#ps-default-tier)\.
+   *tier\-option* values include `Standard`, `Advanced`, and `Intelligent-Tiering`\. For information about these options, see [Specifying a default parameter tier](#ps-default-tier)\.
 
    There is no output if the command succeeds\.
 
@@ -197,7 +197,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 
 If you want to change the default tier setting again, repeat this procedure and specify a different `SettingValue` option\.
 
-## Specifying or Changing the Parameter Store Default Tier \(PowerShell\)<a name="parameter-store-throughput-increasing-ps"></a>
+## Specifying or changing the Parameter Store default tier \(PowerShell\)<a name="parameter-store-throughput-increasing-ps"></a>
 
 The following procedure shows how to use the AWS Tools for Windows PowerShell to change the default parameter tier setting for a specific Region in an AWS account\.
 
@@ -209,9 +209,9 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
    Update-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier" -SettingValue "tier-option" -Region region
    ```
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   *tier\-option* values include `Standard`, `Advanced`, and `Intelligent-Tiering`\. For information about these options, see [Specifying a Default Parameter Tier](#ps-default-tier)\.
+   *tier\-option* values include `Standard`, `Advanced`, and `Intelligent-Tiering`\. For information about these options, see [Specifying a default parameter tier](#ps-default-tier)\.
 
    There is no output if the command succeeds\.
 
@@ -221,7 +221,7 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
    Get-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier" -Region region
    ```
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
    The system returns information similar to the following:
 

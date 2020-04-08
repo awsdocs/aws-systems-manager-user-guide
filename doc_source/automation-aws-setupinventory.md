@@ -66,7 +66,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) Collect metadata about files on your instances\. For more information about how to collect this type of Inventory data, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\. Requires SSMAgent version 2\.2\.64\.0 or later\. Linux example: \[\{"Path":"/usr/bin", "Pattern":\["aws\*", "\*ssm\*"\],"Recursive":false\},\{"Path":"/var/log", "Pattern":\["amazon\*\.\*"\], "Recursive":true, "DirScanLimit":1000\}\] Windows example: \[\{"Path":"%PROGRAMFILES%", "Pattern":\["\*\.exe"\],"Recursive":true\}\]
+  Description: \(Optional\) Collect metadata about files on your instances\. For more information about how to collect this type of Inventory data, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\. Requires SSMAgent version 2\.2\.64\.0 or later\. Linux example: \[\{"Path":"/usr/bin", "Pattern":\["aws\*", "\*ssm\*"\],"Recursive":false\},\{"Path":"/var/log", "Pattern":\["amazon\*\.\*"\], "Recursive":true, "DirScanLimit":1000\}\] Windows example: \[\{"Path":"%PROGRAMFILES%", "Pattern":\["\*\.exe"\],"Recursive":true\}\]
 + InstanceDetailedInformation
 
   Type: String
@@ -126,7 +126,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) Collect metadata about Microsoft Windows Registry keys\. For more information about how to collect this type of Inventory data, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\. Requires SSM Agent version 2\.2\.64\.0 or later\. Example: \[ \{"Path":"HKEY\_CURRENT\_CONFIG\\System","Recursive":true\},\{"Path":"HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\MachineImage", "ValueNames":\["AMIName"\]\}\]
+  Description: \(Optional\) Collect metadata about Microsoft Windows Registry keys\. For more information about how to collect this type of Inventory data, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\. Requires SSM Agent version 2\.2\.64\.0 or later\. Example: \[ \{"Path":"HKEY\_CURRENT\_CONFIG\\System","Recursive":true\},\{"Path":"HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\MachineImage", "ValueNames":\["AMIName"\]\}\]
 + WindowsRoles
 
   Type: String

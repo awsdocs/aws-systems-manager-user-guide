@@ -12,19 +12,19 @@ The following table includes information to help you get started with Run Comman
 
 | Topic | Details | 
 | --- | --- | 
-|  [Systems Manager Prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install SSM Agent\.  | 
-|  [Setting Up AWS Systems Manager for Hybrid Environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so that you can manage them using Run Command\.  | 
-|  [Running Commands Using Systems Manager Run Command](run-command.md)  |  Learn how to run a command from the EC2 console and how to run commands to a fleet of managed instances\.  | 
-|  [Run Command Walkthroughs](run-command-walkthroughs.md)  |  Learn how to run commands using either AWS Tools for Windows PowerShell or the AWS CLI\.  | 
+|  [Systems Manager prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install SSM Agent\.  | 
+|  [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so that you can manage them using Run Command\.  | 
+|  [Running commands using Systems Manager Run Command](run-command.md)  |  Learn how to run a command from the EC2 console and how to run commands to a fleet of managed instances\.  | 
+|  [Run Command walkthroughs](run-command-walkthroughs.md)  |  Learn how to run commands using either AWS Tools for Windows PowerShell or the AWS CLI\.  | 
 
-**Related Content**
+**Related content**
 + [Remotely Run Commands on an EC2 Instance \(10 minute tutorial\)](https://aws.amazon.com/getting-started/tutorials/remotely-run-commands-ec2-instance-systems-manager/)
-+ [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*
++ [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*
 +  [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/) 
 
 **Topics**
-+ [Setting Up Run Command](sysman-rc-setting-up.md)
-+ [Running Commands Using Systems Manager Run Command](run-command.md)
-+ [Understanding Command Statuses](monitor-commands.md)
-+ [Run Command Walkthroughs](run-command-walkthroughs.md)
++ [Setting up Run Command](sysman-rc-setting-up.md)
++ [Running commands using Systems Manager Run Command](run-command.md)
++ [Understanding command statuses](monitor-commands.md)
++ [Run Command walkthroughs](run-command-walkthroughs.md)
 + [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)

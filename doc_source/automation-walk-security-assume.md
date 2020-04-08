@@ -1,11 +1,11 @@
-# Running an Automation Workflow by Using an IAM Service Role<a name="automation-walk-security-assume"></a>
+# Running an Automation workflow by using an IAM service role<a name="automation-walk-security-assume"></a>
 
 The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run an Automation workflow using an AWS Identity and Access Management \(IAM\) service role \(or *assume role*\)\. The service role gives the Automation workflow permission to perform actions on your behalf\. Configuring a service role is useful when you want to restrict permissions and run actions with least privilege\. This is useful, for example, when you want to restrict a user's privileges on a resource, such as an Amazon EC2 instance, but you want to allow the user to run an Automation workflow that performs a specific set of actions\. In this scenario, you can create a service role with elevated privileges and allow the user to run the Automation workflow\.
 
 **Before You Begin**  
-Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation\. For more information, see [Task 1: Create a Service Role for Automation](automation-permissions.md#automation-role) and [Task 2: Add a Trust Relationship for Automation](automation-permissions.md#automation-trust2)\.
+Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation\. For more information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role) and [Task 2: Add a trust relationship for Automation](automation-permissions.md#automation-trust2)\.
 
-## Running an Automation Workflow by Using an IAM Service Role \(Console\)<a name="automation-walk-security-assume-console"></a>
+## Running an Automation workflow by using an IAM service role \(console\)<a name="automation-walk-security-assume-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run an Automation workflow that uses an IAM service role \(or *assume role*\)\.
 
@@ -34,7 +34,7 @@ This procedure uses the **Simple execution** mode\. However, you can alternative
 
 1. Choose **Execute**\. The console displays the status of the Automation execution\.
 
-## Running an Automation Workflow by Using an IAM Service Role \(Command Line\)<a name="automation-walk-security-assume-commandline"></a>
+## Running an Automation workflow by using an IAM service role \(command line\)<a name="automation-walk-security-assume-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow that uses an IAM service role \(or *assume role*\)\.
 
@@ -42,7 +42,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to start an Automation workflow that uses an IAM service role\.
 
@@ -257,4 +257,4 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-For more examples of how to use Systems Manager Automation, see [Automation Walkthroughs](automation-walk.md)\. For information about how to get started with Automation, see [Getting Started with Automation](automation-setup.md)\.
+For more examples of how to use Systems Manager Automation, see [Automation walkthroughs](automation-walk.md)\. For information about how to get started with Automation, see [Getting started with Automation](automation-setup.md)\.

@@ -1,4 +1,4 @@
-# Troubleshooting Problems with Systems Manager Inventory<a name="syman-inventory-troubleshooting"></a>
+# Troubleshooting problems with Systems Manager Inventory<a name="syman-inventory-troubleshooting"></a>
 
 This topic includes information about how to troubleshoot common errors or problems with Systems Manager Inventory\.
 

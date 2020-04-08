@@ -1,11 +1,11 @@
-# Create a Maintenance Window for Patching<a name="sysman-patch-mw-console"></a>
+# Create a maintenance window for patching<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a Patching Configuration \(Console\)](create-patching-configuration.md)\.
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Create a patching configuration \(console\)](create-patching-configuration.md)\.
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\. 
+You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\. 
 
 **To create a maintenance window for patching**
 
@@ -55,15 +55,15 @@ You must configure roles and permissions for Maintenance Windows before beginnin
 If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. For **Role**, enter the ARN of an IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md)\.
+1. For **Role**, enter the ARN of an IAM role to which the **AmazonSSMMaintenanceWindowRole** is attached\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
-   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. For **Parameters**:
    + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
@@ -80,4 +80,4 @@ After the maintenance window task completes, you can view patch compliance detai
 **Note**  
 You can save your query by bookmarking the URL after you specify the filters\.
 
-You can also drill down on a specific instance by choosing the instance in the **Managed Instances** page, and then choose the **Patch** tab\. You can also use the [DescribePatchGroupState](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html) and [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html) APIs to view compliance details\. For information about patch compliance data, see [About Patch Compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
+You can also drill down on a specific instance by choosing the instance in the **Managed Instances** page, and then choose the **Patch** tab\. You can also use the [DescribePatchGroupState](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html) and [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html) APIs to view compliance details\. For information about patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.

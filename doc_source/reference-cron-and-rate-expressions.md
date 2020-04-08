@@ -1,4 +1,4 @@
-# Reference: Cron and Rate Expressions for Systems Manager<a name="reference-cron-and-rate-expressions"></a>
+# Reference: Cron and rate expressions for Systems Manager<a name="reference-cron-and-rate-expressions"></a>
 
 When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule in the form of either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. For maintenance windows, you can also specify a time stamp in Coordinated Universal Time \(UTC\) format when you create a maintenance window so that it runs once at the specified time\.
 
@@ -33,16 +33,16 @@ aws ssm create-association --association-name "My-Rate-Association" --schedule-e
 ```
 
 **Topics**
-+ [General Information About Cron and Rate Expressions](#reference-cron-and-rate-expressions-intro)
-+ [Cron and Rate Expressions for Associations](#reference-cron-and-rate-expressions-association)
-+ [Cron and Rate Expressions for Maintenance Windows](#reference-cron-and-rate-expressions-maintenance-window)
++ [General information about cron and rate expressions](#reference-cron-and-rate-expressions-intro)
++ [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association)
++ [Cron and rate expressions for maintenance windows](#reference-cron-and-rate-expressions-maintenance-window)
 
-## General Information About Cron and Rate Expressions<a name="reference-cron-and-rate-expressions-intro"></a>
+## General information about cron and rate expressions<a name="reference-cron-and-rate-expressions-intro"></a>
 
 Cron expressions for Systems Manager have six required fields\. A seventh field, the `Seconds` field \(the first in a cron expression\), is optional\. Fields are separated by a space\.
 
 
-**Cron Expression Examples**  
+**Cron expression examples**  
 
 | Minutes | Hours | Day of month | Month | Day of week | Year | Meaning | 
 | --- | --- | --- | --- | --- | --- | --- | 
@@ -58,10 +58,10 @@ Cron expressions for Systems Manager have six required fields\. A seventh field,
 The following table shows supported values for required cron entries\.
 
 **Note**  
-Cron expressions for associations do not support all these values\. For information, see [Cron and Rate Expressions for Associations](#reference-cron-and-rate-expressions-association)\.
+Cron expressions for associations do not support all these values\. For information, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association)\.
 
 
-**Supported Values for Cron Expressions**  
+**Supported values for cron expressions**  
 
 | Field | Values | Wildcards | 
 | --- | --- | --- | 
@@ -79,7 +79,7 @@ You cannot specify a value in the Day\-of\-month and in the Day\-of\-week fields
 The following table shows the wildcard values that cron expressions support\.
 
 
-**Supported Wildcards for Cron Expressions**  
+**Supported wildcards for cron expressions**  
 
 | Wildcard | Description | 
 | --- | --- | 
@@ -100,7 +100,7 @@ For more information about cron expressions, see [CRON expression](https://en.wi
 Rate expressions have the following two required fields\. Fields are separated by white space\.
 
 
-**Required Fields for Rate Expressions**  
+**Required fields for rate expressions**  
 
 | Field | Values | 
 | --- | --- | 
@@ -109,7 +109,7 @@ Rate expressions have the following two required fields\. Fields are separated b
 
 If the value is equal to `1`, then the unit must be singular\. Similarly, for values greater than `1`, the unit must be plural\. For example, `rate(1 hours)` and `rate(5 hour)` are not valid, but `rate(1 hour)` and `rate(5 hours)` are valid\.
 
-## Cron and Rate Expressions for Associations<a name="reference-cron-and-rate-expressions-association"></a>
+## Cron and rate expressions for associations<a name="reference-cron-and-rate-expressions-association"></a>
 
 This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following restrictions\.
 + Associations only support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day or every week at a specific time\.
@@ -122,7 +122,7 @@ For an association that collects metadata for Systems Manager Inventory, we reco
 The following table presents cron examples for associations using the required six fields\.
 
 
-**Cron Examples for Associations**  
+**Cron examples for associations**  
 
 | Example | Details | 
 | --- | --- | 
@@ -138,7 +138,7 @@ The following table presents cron examples for associations using the required s
 Here are some rate examples for associations\.
 
 
-**Rate Examples for Associations**  
+**Rate examples for associations**  
 
 | Example | Details | 
 | --- | --- | 
@@ -147,7 +147,7 @@ Here are some rate examples for associations\.
 |  rate\(5 hours\)  |  Every 5 hours  | 
 |  rate\(15 days\)  |  Every 15 days  | 
 
-## Cron and Rate Expressions for Maintenance Windows<a name="reference-cron-and-rate-expressions-maintenance-window"></a>
+## Cron and rate expressions for maintenance windows<a name="reference-cron-and-rate-expressions-maintenance-window"></a>
 
 This section includes examples of cron and rate expressions for maintenance windows\.
 
@@ -168,7 +168,7 @@ cron(24 30 09 ? * * *)
 The following table provides additional 6\-field cron examples for maintenance windows\.
 
 
-**Cron Examples for Maintenance Windows**  
+**Cron examples for maintenance windows**  
 
 | Example | Details | 
 | --- | --- | 
@@ -181,7 +181,7 @@ The following table provides additional 6\-field cron examples for maintenance w
 The following table provides rate examples for maintenance windows\.
 
 
-**Rate Examples for Maintenance Windows**  
+**Rate examples for maintenance windows**  
 
 | Example | Details | 
 | --- | --- | 

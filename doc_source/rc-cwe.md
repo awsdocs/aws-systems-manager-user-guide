@@ -4,7 +4,7 @@ Use Amazon CloudWatch Events to log command execution status changes\. You can c
 
 You can also specify Run Command as a target action when a CloudWatch event occurs\. For example, say a CloudWatch event is triggered that an instance in an Auto Scaling group is about to terminate\. You can configure CloudWatch so the target of that event is a Run Command script that captures the log files from the instance before it is terminated\. You can also configure a Run Command action when a new instance is created in an Auto Scaling group\. For example, when CloudWatch receives the instance\-created event, Run Command could enable the web server role or install software on the instance\.
 + [Configuring CloudWatch Events for Run Command](#rc-cwe-logging)
-+ [Configure Run Command as a CloudWatch Events Target](#rc-cwe-target)
++ [Configure Run Command as a CloudWatch Events target](#rc-cwe-target)
 
 ## Configuring CloudWatch Events for Run Command<a name="rc-cwe-logging"></a>
 
@@ -30,7 +30,7 @@ You can configure CloudWatch Events to notify you of Run Command status changes,
 
 1. Specify the rule details, and then choose **Create rule**\.
 
-## Configure Run Command as a CloudWatch Events Target<a name="rc-cwe-target"></a>
+## Configure Run Command as a CloudWatch Events target<a name="rc-cwe-target"></a>
 
 Use the following procedure to configure a Run Command action as the target of a CloudWatch event\.
 
@@ -52,8 +52,8 @@ Verify that the document you choose can run on the instance operating system\. S
 
 1. In the **Target value\(s\)** field, if you chose InstanceIds in the previous step, specify one or more instance IDs separated by commas\. If you chose tag:*EC2\_tag\_name* in the previous step, specify one or more tag values\. After you type the value, for example web\-server or database, choose **Add**\.
 
-1. In the **Configure parameter\(s\)** section, choose an option and then complete any fields populated by your choice\. Use the hover text for more information about the options\. For more information about the parameter fields for your document, see [Running Commands Using Systems Manager Run Command](run-command.md) and choose the procedure for your document\.
+1. In the **Configure parameter\(s\)** section, choose an option and then complete any fields populated by your choice\. Use the hover text for more information about the options\. For more information about the parameter fields for your document, see [Running commands using Systems Manager Run Command](run-command.md) and choose the procedure for your document\.
 
-1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required instance profile role for Run Command\. Or, choose **Use existing role**\. For more information about roles required for Run Command, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+1. In the permissions section, choose **Create a new role for this specific resource** to create a new role with the required instance profile role for Run Command\. Or, choose **Use existing role**\. For more information about roles required for Run Command, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 1. Choose **Configure details** and complete the wizard\.

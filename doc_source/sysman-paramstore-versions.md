@@ -1,4 +1,4 @@
-# Creating and Using Parameter Versions<a name="sysman-paramstore-versions"></a>
+# Creating and using parameter versions<a name="sysman-paramstore-versions"></a>
 
 When you initially create a parameter, Parameter Store assigns version `1` to that parameter\. When you edit a parameter, Parameter Store automatically iterates the version number by one\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\.
 
@@ -35,9 +35,9 @@ You can reference specific parameter versions, including older versions, in comm
 The following procedures show you how to edit a parameter and then verify that a new version was created\.
 
 **Topics**
-+ [Create a New Parameter Version \(Console\)](#sysman-paramstore-version-console)
++ [Create a new parameter version \(console\)](#sysman-paramstore-version-console)
 
-## Create a New Parameter Version \(Console\)<a name="sysman-paramstore-version-console"></a>
+## Create a new parameter version \(console\)<a name="sysman-paramstore-version-console"></a>
 
 You can use the Amazon EC2 console or AWS Systems Manager console to create a new version of a parameter\.
 
@@ -51,7 +51,7 @@ You can use the Amazon EC2 console or AWS Systems Manager console to create a ne
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
 
-1. Choose the name of a parameter that you created earlier\. For information about creating a new parameter, see [Creating Systems Manager Parameters](sysman-paramstore-su-create.md)\. 
+1. Choose the name of a parameter that you created earlier\. For information about creating a new parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\. 
 **Note**  
 Parameters are only available in the Region where they were created\. If you don't see a parameter that you want to update, then verify your Region\.
 

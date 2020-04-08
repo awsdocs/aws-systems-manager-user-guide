@@ -8,7 +8,7 @@ The following graphic shows how Resource Data Sync aggregates all data from diff
 
 Use the following procedure to create a Resource Data Sync for Configuration Compliance by using the Amazon EC2 console\.
 
-**To create and configure an Amazon S3 Bucket for Resource Data Sync \(console\)**
+**To create and configure an Amazon S3 bucket for Resource Data Sync \(console\)**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 

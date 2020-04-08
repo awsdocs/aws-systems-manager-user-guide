@@ -1,4 +1,4 @@
-# About Configurations Stored in Amazon S3<a name="appconfig-creating-configuration-and-profile-S3-source"></a>
+# About configurations stored in Amazon S3<a name="appconfig-creating-configuration-and-profile-S3-source"></a>
 
 You can store configurations in Amazon S3\. When you create the configuration profile, you specify the URI to a single Amazon S3 object\. You also specify the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that gives AppConfig permission to get the object\. Before you create a configuration profile for an Amazon S3 object, be aware of the following restrictions\.
 
@@ -12,7 +12,7 @@ You can store configurations in Amazon S3\. When you create the configuration pr
 |  Storage classes  |  AppConfig supports the following Amazon S3 storage classes: `STANDARD`, `INTELLIGENT_TIERING`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, and `ONEZONE_IA`\. The following classes are not supported: All Amazon S3 Glacier classes \(`GLACIER` and `DEEP_ARCHIVE`\)\.  | 
 |  Versioning  |  AppConfig requires that the Amazon S3 object use versioning\.  | 
 
-## Configuring Permissions for a Configuration Stored as an Amazon S3 Object<a name="appconfig-creating-configuration-and-profile-S3-source-permissions"></a>
+## Configuring permissions for a configuration stored as an Amazon S3 object<a name="appconfig-creating-configuration-and-profile-S3-source-permissions"></a>
 
 When you create a configuration profile for a configuration stored as an Amazon S3 object, you must specify an ARN for an IAM role that gives AppConfig permission to get the object\. The role must include the following permissions\.
 

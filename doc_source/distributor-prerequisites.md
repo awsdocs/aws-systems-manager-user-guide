@@ -1,9 +1,9 @@
-# Step 1: Complete Distributor Prerequisites<a name="distributor-prerequisites"></a>
+# Step 1: Complete Distributor prerequisites<a name="distributor-prerequisites"></a>
 
 Before you use Distributor, be sure your environment meets the following requirements\.
 
 
-**Distributor Prerequisites**  
+**Distributor prerequisites**  
 
 | Requirement | Description | 
 | --- | --- | 

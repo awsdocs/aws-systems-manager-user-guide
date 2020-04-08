@@ -15,15 +15,15 @@ For example, you can monitor the success or failure of operations such as Automa
 You can also monitor CPU utilization, disk I/O, and network utilization of your managed instances\. When performance falls outside your established baseline, you might need to reconfigure or optimize the instance to reduce CPU utilization, improve disk I/O, or reduce network traffic\. For more information about monitoring Amazon EC2 instances, see [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Topics**
-+ [Monitoring Tools](#monitoring-tools)
-+ [Sending Instance Logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
-+ [Sending Instance Logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
-+ [Monitoring Run Command Metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md)
-+ [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
++ [Monitoring tools](#monitoring-tools)
++ [Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
++ [Sending instance logs to CloudWatch Logs \(SSM Agent\)](monitoring-ssm-agent.md)
++ [Monitoring Run Command metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md)
++ [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
 + [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)
-+ [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)
-+ [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)
++ [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)
++ [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)
 
-## Monitoring Tools<a name="monitoring-tools"></a>
+## Monitoring tools<a name="monitoring-tools"></a>
 
-The content in this chapter provides information for using tools available for monitoring your Systems Manager and other AWS resources\. For a more complete list of tools, see [Logging and Monitoring in AWS Systems Manager](logging-and-monitoring.md)\.
+The content in this chapter provides information for using tools available for monitoring your Systems Manager and other AWS resources\. For a more complete list of tools, see [Logging and monitoring in AWS Systems Manager](logging-and-monitoring.md)\.

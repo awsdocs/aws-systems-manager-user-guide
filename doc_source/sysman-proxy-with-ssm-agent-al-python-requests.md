@@ -1,4 +1,4 @@
-# Upgrade the Python Requests Module on Amazon Linux Instances That Use a Proxy Server<a name="sysman-proxy-with-ssm-agent-al-python-requests"></a>
+# Upgrade the Python requests module on Amazon Linux instances that use a proxy server<a name="sysman-proxy-with-ssm-agent-al-python-requests"></a>
 
 To patch an instance that is using a proxy and that was created from an Amazon Linux AMI, Patch Manager requires a recent version of the Python `requests` module to be installed on the instance\. We recommend always upgrading to the most recently released version\.
 

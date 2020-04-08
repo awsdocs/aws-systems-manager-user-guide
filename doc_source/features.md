@@ -1,4 +1,4 @@
-# Systems Manager Capabilities<a name="features"></a>
+# Systems Manager capabilities<a name="features"></a>
 
 Systems Manager capabilities are grouped into the following capability types:
 

@@ -1,4 +1,4 @@
-# Tutorial: Delete a Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-delete-mw"></a>
+# Tutorial: Delete a maintenance window \(AWS CLI\)<a name="mw-cli-tutorial-delete-mw"></a>
 
 To delete a maintenance window you created in these tutorials, run the following command:
 

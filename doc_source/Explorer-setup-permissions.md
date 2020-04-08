@@ -1,20 +1,20 @@
-# Configuring Roles and Permissions for Systems Manager Explorer<a name="Explorer-setup-permissions"></a>
+# Configuring roles and permissions for Systems Manager Explorer<a name="Explorer-setup-permissions"></a>
 
 Integrated Setup automatically creates and configures IAM roles for Systems Manager Explorer and OpsCenter\. If you completed Integrated Setup, then you don't need to perform any additional tasks to configure roles and permissions for Explorer\. However, you must configure permission for OpsCenter, as described later in this topic\.
 
 **Topics**
-+ [About the Roles Created by Integrated Setup](#Explorer-setup-permissions-about)
-+ [Configuring Permissions for Systems Manager OpsCenter](#Explorer-getting-started-user-permissions)
++ [About the roles created by integrated setup](#Explorer-setup-permissions-about)
++ [Configuring permissions for Systems Manager OpsCenter](#Explorer-getting-started-user-permissions)
 
-## About the Roles Created by Integrated Setup<a name="Explorer-setup-permissions-about"></a>
+## About the roles created by integrated setup<a name="Explorer-setup-permissions-about"></a>
 
 Integrated Setup creates and configures the following roles for working with Explorer and OpsCenter\.
 + **AWSServiceRoleForAmazonSSM**: Provides access to AWS Resources managed or used by Systems Manager\.
 + **OpsItem\-CWE\-Role**: Enables CloudWatch Events to create OpsItems in response to common events\.
-+ **AWSServiceRoleForAmazonSSM\_AccountDiscovery**: Enables Systems Manager to call other AWS services to discover AWS account information when synchronizing data\. For more information about this role, see [About the AWSServiceRoleForAmazonSSM\_AccountDiscovery Role](#Explorer-service-role-details)\.
++ **AWSServiceRoleForAmazonSSM\_AccountDiscovery**: Enables Systems Manager to call other AWS services to discover AWS account information when synchronizing data\. For more information about this role, see [About the AWSServiceRoleForAmazonSSM\_AccountDiscovery role](#Explorer-service-role-details)\.
 + **AmazonSSMExplorerExport**: Enables Explorer to export OpsData to a comma\-separated value \(CSV\) file\.
 
-### About the AWSServiceRoleForAmazonSSM\_AccountDiscovery Role<a name="Explorer-service-role-details"></a>
+### About the AWSServiceRoleForAmazonSSM\_AccountDiscovery role<a name="Explorer-service-role-details"></a>
 
 If you configure Explorer to display data from multiple accounts and Regions by using AWS Organizations and a resource data sync, then Systems Manager creates a service\-linked role\. Systems Manager uses this role to get information about your AWS accounts in AWS Organizations\. The role uses the following permissions policy\.
 
@@ -40,7 +40,7 @@ If you configure Explorer to display data from multiple accounts and Regions by 
 
 For more information about the AWSServiceRoleForAmazonSSM\_AccountDiscovery role, see [Using Roles to Collect AWS Account Information for Systems Manager Explorer](using-service-linked-roles-service-action-2.md)\.
 
-## Configuring Permissions for Systems Manager OpsCenter<a name="Explorer-getting-started-user-permissions"></a>
+## Configuring permissions for Systems Manager OpsCenter<a name="Explorer-getting-started-user-permissions"></a>
 
 After you complete Integrated Setup, you must configure IAM user, group, or role permissions so that users can perform actions in OpsCenter\.
 
@@ -122,7 +122,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 
 1. Choose **Create policy**\.
 
-### Restricting Access to OpsItems by Using Tags<a name="OpsCenter-getting-started-user-permissions-tags"></a>
+### Restricting access to OpsItems by using tags<a name="OpsCenter-getting-started-user-permissions-tags"></a>
 
 You can also restrict access to OpsItems by using an inline IAM policy that specifies tags\. The policy uses the following format\. 
 
@@ -186,4 +186,4 @@ Here is an example that specifies API actions for viewing and updating OpsItems\
 }
 ```
 
-For information about adding tags to an OpsItem, see [Creating OpsItems Manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.
+For information about adding tags to an OpsItem, see [Creating OpsItems manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.

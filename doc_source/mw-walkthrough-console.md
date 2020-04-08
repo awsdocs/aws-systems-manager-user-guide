@@ -1,16 +1,16 @@
-# Walkthrough: Create a Maintenance Window to Update SSM Agent \(Console\)<a name="mw-walkthrough-console"></a>
+# Walkthrough: Create a maintenance window to update SSM Agent \(console\)<a name="mw-walkthrough-console"></a>
 
 The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
 **Before You Begin**  
-Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **Topics**
-+ [Step 1: Create the Maintenance Window \(Console\)](#mw-walkthrough-console-create)
-+ [Step 2: Register Maintenance Window Targets \(Console\)](#mw-walkthrough-console-register-target)
-+ [Step 3: Register a Run Command Task for the Maintenance Window to Update SSM Agent \(Console\)](#mw-walkthrough-console-register-task)
++ [Step 1: Create the maintenance window \(console\)](#mw-walkthrough-console-create)
++ [Step 2: Register maintenance window targets \(console\)](#mw-walkthrough-console-register-target)
++ [Step 3: Register a Run Command task for the maintenance window to update SSM Agent \(console\)](#mw-walkthrough-console-register-task)
 
-## Step 1: Create the Maintenance Window \(Console\)<a name="mw-walkthrough-console-create"></a>
+## Step 1: Create the maintenance window \(console\)<a name="mw-walkthrough-console-create"></a>
 
 **To create a maintenance window \(console\)**
 
@@ -30,7 +30,7 @@ Before you complete the following procedure, you must either have administrator 
 
 1. Specify a schedule for the maintenance window by using one of the three scheduling options\.
 
-   For information about building cron/rate expressions, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+   For information about building cron/rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
 1. For **Duration**, enter the number of hours the maintenance window should run\.
 
@@ -46,7 +46,7 @@ Before you complete the following procedure, you must either have administrator 
 
 1. Choose **Create maintenance window**\. The system returns you to the maintenance window page\. The maintenance window you just created is in the Enabled state\.
 
-## Step 2: Register Maintenance Window Targets \(Console\)<a name="mw-walkthrough-console-register-target"></a>
+## Step 2: Register maintenance window targets \(console\)<a name="mw-walkthrough-console-register-target"></a>
 
 Use the following procedure to register a target with the maintenance window you created in Step 1\. By registering a target, you specify which instances to update\.
 
@@ -62,15 +62,15 @@ Use the following procedure to register a target with the maintenance window you
 
 1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon CloudWatch Events raised while running tasks for these targets in this maintenance window\.
 
-   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
 1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance IDs\.
 **Note**  
-If you don't see the instances that you want to target, verify that those instances are configured for Systems Manager\. For more information, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+If you don't see the instances that you want to target, verify that those instances are configured for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 1. Choose **Register target**\.
 
-## Step 3: Register a Run Command Task for the Maintenance Window to Update SSM Agent \(Console\)<a name="mw-walkthrough-console-register-task"></a>
+## Step 3: Register a Run Command task for the maintenance window to update SSM Agent \(console\)<a name="mw-walkthrough-console-register-task"></a>
 
 Use the following procedure to register a Run Command task for the maintenance window you created in Step 1\. The Run Command task updates SSM Agent on the registered targets\.
 
@@ -92,7 +92,7 @@ If the targets you registered in the preceding step are Windows Server 2012 R2 o
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -111,11 +111,11 @@ If a service\-linked role has already been created for your account, choose **Us
      You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
 
      If you need to create a custom service role, see one of the following topics:
-     + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
-     + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-     + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+     + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
+     + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
+     + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. In the **Output options** section, you can optionally enable writing command output to an Amazon S3 bucket\. If you choose to enable this option, specify the Amazon S3 bucket name and optional S3 key prefix to which you want the command output written\.
 

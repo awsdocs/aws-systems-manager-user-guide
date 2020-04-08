@@ -1,6 +1,6 @@
 # Configuring Resource Data Sync for Inventory<a name="sysman-inventory-datasync"></a>
 
-This topic describes how to set up and configure resource data sync for Systems Manager Inventory\. For information about resource data sync for Systems Manager Explorer, see [Setting Up Systems Manager Explorer to Display Data from Multiple Accounts and Regions](Explorer-resource-data-sync.md)\.
+This topic describes how to set up and configure resource data sync for Systems Manager Inventory\. For information about resource data sync for Systems Manager Explorer, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)\.
 
 ## About Resource Data Sync<a name="systems-manager-inventory-datasync-about"></a>
 
@@ -23,9 +23,9 @@ Use the procedures in this section to create a resource data sync for Inventory 
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
 **Note**  
-You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the Amazon S3 bucket\. For an example of how to create an encrypted sync by using the AWS CLI and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to Aggregate Inventory Data](sysman-inventory-resource-data-sync.md)\. 
+You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the Amazon S3 bucket\. For an example of how to create an encrypted sync by using the AWS CLI and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)\. 
 
-## Before You Begin<a name="sysman-inventory-datasync-before-you-begin"></a>
+## Before you begin<a name="sysman-inventory-datasync-before-you-begin"></a>
 
 Before you create a resource data sync, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
 
@@ -101,7 +101,7 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
 
 ## Create a Resource Data Sync for Inventory<a name="sysman-inventory-datasync-create"></a>
 
-Use the following procedure to create a resource data sync for Systems Manager Inventory by using the Systems Manager console\. For information about how to create a resource data sync by using the AWS CLI, see [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)\.
+Use the following procedure to create a resource data sync for Systems Manager Inventory by using the Systems Manager console\. For information about how to create a resource data sync by using the AWS CLI, see [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
 
 **To create a Resource Data Sync**
 
@@ -133,14 +133,14 @@ To synchronize inventory data from multiple AWS Regions, you must create a resou
 
 ![\[Systems Manager resource data sync from multiple AWS Regions\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)
 
-## Creating an Inventory Resource Data Sync for Multiple Accounts Defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations"></a>
+## Creating an Inventory Resource Data Sync for multiple accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations"></a>
 
 You can synchronize inventory data from multiple AWS accounts to a central Amazon S3 bucket\. The accounts must be defined in AWS Organizations\. After you complete the following procedure, inventory data is synchronized to individual Amazon S3 key prefixes in the central bucket\. Each key prefix represents a different AWS account ID\.
 
 **Note**  
 Before you begin, verify that you set up and configured multiple AWS accounts in AWS Organizations\. For more information, see [ in the *AWS Organizations User Guide*\.](https://docs.aws.amazon.com/organizations/latest/userguide/rgs_getting-started.html)
 
-### Before You Begin<a name="sysman-inventory-datasync-before-you-begin"></a>
+### Before you begin<a name="sysman-inventory-datasync-before-you-begin"></a>
 
 Before you create a resource data sync for multiple accounts defined in AWS Organizations, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from your AWS Organizations account ID\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
 
@@ -213,7 +213,7 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
             },
    ```
 
-### Create an Inventory Resource Data Sync for Multiple Accounts Defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>
+### Create an inventory Resource Data Sync for multiple accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>
 
 The following procedure describes how to use the AWS CLI to create a resource data sync for multiple accounts that are defined in AWS Organizations\. You must use the AWS CLI to perform this task\.
 
@@ -221,7 +221,7 @@ The following procedure describes how to use the AWS CLI to create a resource da
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a resource data sync for multiple accounts defined in AWS Organizations\. For *bucket\_name*, specify the name of the Amazon S3 bucket you created earlier in this topic\. If you created a prefix \(subdirectory\) for your bucket, then specify this information for *prefix\_name*\. 
 

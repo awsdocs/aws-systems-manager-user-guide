@@ -1,8 +1,8 @@
-# AWS CLI Commands for Patch Manager<a name="patch-manager-cli-commands"></a>
+# AWS CLI commands for Patch Manager<a name="patch-manager-cli-commands"></a>
 
 The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
 
 For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
@@ -19,7 +19,7 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline)
 + [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline)
 + [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline)
-+ [Register a patch group "Web Servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
++ [Register a patch group "web servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
 + [Register a patch group "Backend" with the AWS\-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend)
 + [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
 + [Deregister a patch group from a patch baseline](#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group)
@@ -151,7 +151,7 @@ To better demonstrate this more complex command, we are using the `--cli-input-j
 The following command adds two patches as rejected and one patch as approved to an existing patch baseline\.
 
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 ------
 #### [ Linux ]
@@ -602,7 +602,7 @@ The system returns information like the following:
 }
 ```
 
-## Register a patch group "Web Servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
+## Register a patch group "web servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
 ------
 #### [ Linux ]

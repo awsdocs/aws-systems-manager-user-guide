@@ -1,6 +1,6 @@
-# Update a Change Calendar Event<a name="change-calendar-update-event"></a>
+# Update a Change Calendar event<a name="change-calendar-update-event"></a>
 
-## Update a Change Calendar Event \(Console\)<a name="change-calendar-update-event-console"></a>
+## Update a Change Calendar event \(console\)<a name="change-calendar-update-event-console"></a>
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

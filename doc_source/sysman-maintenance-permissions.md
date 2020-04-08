@@ -1,4 +1,4 @@
-# Controlling Access to Maintenance Windows<a name="sysman-maintenance-permissions"></a>
+# Controlling access to maintenance windows<a name="sysman-maintenance-permissions"></a>
 
 Before users in your account can create and schedule maintenance window tasks, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
 
@@ -12,12 +12,12 @@ You specify one of these roles as part of the configuration when you create a ma
 **Note**  
 A service\-linked role for Systems Manager might already have been created in your account\. Currently, the service\-linked role also provides permissions for the Inventory capability\.
 
-To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)\.
+To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)\.
 
 **Task 2: Configure user permissions**  
 Granting `iam:PassRole` permissions to the users in your account who assigns tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit permission, a user can't assign tasks to a maintenance window\. 
 
-## Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?<a name="maintenance-window-tasks-service-role"></a>
+## Should I use a service\-linked role or a custom service role to run maintenance window tasks?<a name="maintenance-window-tasks-service-role"></a>
 
 To run maintenance tasks on your target instances, the Maintenance Windows service must have permission to access and run tasks on your instances\. You can provide this permission by specifying either the Systems Manager service\-linked role or a custom service role as part of a task configuration\.
 
@@ -31,15 +31,15 @@ The type of role you should choose depends on the following factors:
 
   Another example: the Automation document `AWS-CopySnapshot` requires permission to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot, and so the service role needs the permission `ec2:CreateSnapshot`\. This permission isn't included in the service\-linked role for Systems Manager\. 
 
-  For information about the role permissions needed by Automation documents, see the document descriptions in [Systems Manager Automation Document Details Reference](automation-documents-reference-details.md)\.
+  For information about the role permissions needed by Automation documents, see the document descriptions in [Systems Manager Automation document details reference](automation-documents-reference-details.md)\.
 
 **Systems Manager service\-linked role**: We recommend that you use a Systems Manager service\-linked role in all other cases\.
 
-For more information about the Systems Manager service\-linked role, see [Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)\.
+For more information about the Systems Manager service\-linked role, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 
 **Topics**
-+ [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](#maintenance-window-tasks-service-role)
-+ [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
-+ [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-+ [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
-+ [Troubleshooting IAM Maintenance Window Permissions](maintenance-window-role-troubleshooting.md)
++ [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)
++ [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
++ [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
++ [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
++ [Troubleshooting IAM maintenance window permissions](maintenance-window-role-troubleshooting.md)

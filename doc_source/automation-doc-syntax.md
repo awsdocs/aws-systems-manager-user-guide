@@ -1,13 +1,13 @@
-# Automation Document Schema and Syntax<a name="automation-doc-syntax"></a>
+# Automation document schema and syntax<a name="automation-doc-syntax"></a>
 
-The syntax of your Automation document, or playbook, is defined by the schema version used to create it\.
+The syntax of your Automation document, or playbook, is defined by the schema version used to create it\. Automation documents use schema version 0\.3\. 
 
 **Note**  
-For information about the SSM Command document schema, see [SSM Document Schemas and Features](document-schemas-features.md) and [SSM Document Syntax](sysman-doc-syntax.md)\.
+For information about the document schema for other types of Systems Managerdocuments \(1\.2, 2\.0 and 2\.2\), see [SSM document schemas and features](document-schemas-features.md) and [SSM document syntax](sysman-doc-syntax.md)\.
 
-## Schema Elements<a name="automation-doc-syntax-schema"></a>
+## Schema elements<a name="automation-doc-syntax-schema"></a>
 
- Automation documents use schema version 0\.3\. Automation documents that use this schema version include the following top\-level elements\. 
+ Automation documents that use the 0\.3 schema version include the following top\-level elements\. 
 
 **description**  
 \(Optional\) Information to describe the purpose of the document\. You can use Markdown, a markup language, which allows you to add wiki\-style formatting to your document description\. For more information on using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
@@ -17,21 +17,64 @@ For information about the SSM Command document schema, see [SSM Document Schemas
 
 **assumeRole**  
 \(Optional\) The ARN of the IAM role that allows Automation to perform the actions on your behalf\.  
-In most cases, if no role is specified, AWS Systems Manager Automation can use the permissions of the user that runs an Automation document to start the automation execution\. However, in some scenarios, an IAM role *must* be specified\. For information, see [Configuring a Service Role \(Assume Role\) Access for Automation Workflows](automation-setup.md#automation-setup-configure-role)\. 
+In most cases, if no role is specified, AWS Systems Manager Automation can use the permissions of the user that runs an Automation document to start the automation execution\. However, in some scenarios, an IAM role *must* be specified\. For information, see [Configuring a service role \(assume role\) access for Automation workflows](automation-setup.md#automation-setup-configure-role)\. 
 
 **parameters**  
-\(Optional\) The parameters the document accepts\.   
+\(Optional\) The parameters the document accepts\. You can validate user input for parameters by defining `allowedValues` and `allowedPattern`\. For `allowedValues`, you define an array of values allowed for the parameter\. If a user inputs a value that is not allowed, the execution fails to start\. For `allowedPattern`, you define a regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.  
+**allowedValues**  
+
+```
+DirectoryType:
+  type: String
+  description: "(Required) The directory type to launch."
+  default: AwsMad
+  allowedValues:
+  - AdConnector
+  - AwsMad
+  - SimpleAd
+```
+
+```
+"DirectoryType": {
+    "type": "String",
+    "description": "(Required) The directory type to launch.",
+    "default": "AwsMad",
+    "allowedValues": [
+        "AdConnector",
+        "AwsMad",
+        "SimpleAd"
+    ]
+}
+```
+**allowedPattern**  
+
+```
+InstanceId:
+  type: String
+  description: "(Required) The instance ID to target."
+  allowedPattern: "^i-[a-z0-9]{8,17}$"
+  default: ''
+```
+
+```
+"InstanceId": {
+    "type": "String",
+    "description": "(Required) The instance ID to target.",
+    "allowedPattern": "^i-[a-z0-9]{8,17}$",
+    "default": ""
+}
+```
 For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Systems Manager parameters in this section of a document\. You can't reference `SecureString` Systems Manager parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.
 
 **mainSteps**  
-\(Required\) An object that can include multiple steps\. A step includes one or more actions \(or plugins\), a unique name for the action, inputs \(parameters\) for those actions, and optional outputs that can be used by other steps in the automation execution\. For a list of supported actions and their properties, see [Systems Manager Automation Actions Reference](automation-actions.md)\.
+\(Required\) An object that can include multiple steps\. A step includes one or more actions \(or plugins\), a unique name for the action, inputs \(parameters\) for those actions, and optional outputs that can be used by other steps in the automation execution\. For a list of supported actions and their properties, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 **outputs**  
-\(Optional\) Data generated by the execution of this document that can be used in other processes\. For example, if your document creates a new AMI, you might specify "CreateImage\.ImageId" as the output value, and then use this output to create new instances in a subsequent automation execution\. For more information about outputs, see [Working with Inputs and Outputs](automation-aws-apis-calling.md#automation-aws-apis-calling-input-output)\.
+\(Optional\) Data generated by the execution of this document that can be used in other processes\. For example, if your document creates a new AMI, you might specify "CreateImage\.ImageId" as the output value, and then use this output to create new instances in a subsequent automation execution\. For more information about outputs, see [Working with inputs and outputs](automation-aws-apis-calling.md#automation-aws-apis-calling-input-output)\.
 
 **files**  
 The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
-For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating Automation Documents That Run Scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to Create a Custom Automation Document](automation-walk-document-builder.md)\.  
+For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating Automation documents that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)\.  
 When you create an Automation document, or playbook, you specify attachment files using the option \-\-attachments \(AWS CLI\) or Attachments \(API and SDK\)\. You can specify the file location for both local files and files stored in Amazon S3 buckets\.  
 
 ```
@@ -68,7 +111,7 @@ files:
     }
 ```
 
-## Schema Examples<a name="automation-doc-syntax-examples"></a>
+## Schema examples<a name="automation-doc-syntax-examples"></a>
 
 **Automation Document Example \(YAML\)**  
 The following sample shows the contents of an Automation document, in YAML format\. This working example of version 0\.3 of the document schema also demonstrates the use of Markdown to format document descriptions\.

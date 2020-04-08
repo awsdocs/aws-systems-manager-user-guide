@@ -1,4 +1,4 @@
-# Referencing AWS Secrets Manager Secrets from Parameter Store Parameters<a name="integration-ps-secretsmanager"></a>
+# Referencing AWS Secrets Manager secrets from Parameter Store parameters<a name="integration-ps-secretsmanager"></a>
 
 Secrets Manager helps you organize and manage important configuration data such as credentials, passwords, and license keys\. Parameter Store is now integrated with Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. These services include Amazon EC2, Amazon Elastic Container Service, AWS Lambda, AWS CloudFormation, AWS CodeBuild, AWS CodeDeploy, and other Systems Manager capabilities\. By using Parameter Store to reference Secrets Manager secrets, you create a consistent and secure process for calling and using secrets and reference data in your code and configuration scripts\. 
 
@@ -19,7 +19,7 @@ Note the following restrictions when using Parameter Store to reference Secrets 
 + Parameters that reference Secrets Manager secrets can't use the Parameter Store versioning or history features\.
 + Parameter Store honors Secrets Manager version stages\. If you reference a version stage, it can only use letters, numbers, a period \(\.\), a hyphen \(\-\), or an underscore \(\_\)\. All other symbols specified in the version stage cause the reference to fail\.
 
-## How to Reference a Secrets Manager Secret by Using Parameter Store<a name="integration-ps-secretsmanager-create"></a>
+## How to reference a Secrets Manager secret by using Parameter Store<a name="integration-ps-secretsmanager-create"></a>
 
 The following procedure describes how to reference a Secrets Manager secret by using Parameter Store APIs\. The procedure references other procedures in the *AWS Secrets Manager User Guide*\.
 

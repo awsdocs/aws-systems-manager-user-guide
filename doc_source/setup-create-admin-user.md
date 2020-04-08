@@ -1,10 +1,10 @@
-# Step 2: Create an Admin IAM User for AWS<a name="setup-create-admin-user"></a>
+# Step 2: Create an Admin IAM user for AWS<a name="setup-create-admin-user"></a>
 
   When you first create an AWS account, you begin with a single sign\-in identity that has complete access to all AWS services and resources in the account\. This identity is called the AWS account *root user* and is accessed by signing in with the email address and password that you used to create the account\. We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, adhere to the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. 
 
 In this procedure, you use the AWS account root user to create your first user in AWS Identity and Access Management \(IAM\)\. You add this IAM user to an Administrators group, to ensure that you have access to all services and their resources in your account\. The next time that you access your AWS account, you should sign in with the credentials for this IAM user\.
 
-To create an IAM user with restricted permissions, see [Step 3: Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
+To create an IAM user with restricted permissions, see [Step 3: Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **To create an administrator user for yourself and add the user to an administrators group \(console\)**
 
@@ -44,4 +44,4 @@ You must activate IAM user and role access to Billing before you can use the `Ad
 
 You can use this same process to create more groups and users and to give your users access to your AWS account resources\. To learn about using policies that restrict user permissions to specific AWS resources, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Example Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html)\.
 
-Continue to [Step 3: Create Non\-Admin IAM Users and Groups for Systems Manager](setup-create-iam-user.md)\.
+Continue to [Step 3: Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.

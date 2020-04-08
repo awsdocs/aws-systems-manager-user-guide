@@ -1,14 +1,14 @@
-# How Patch Baseline Rules Work on Linux\-Based Systems<a name="patch-manager-how-it-works-linux-rules"></a>
+# How patch baseline rules work on Linux\-based systems<a name="patch-manager-how-it-works-linux-rules"></a>
 
 The rules in a patch baseline for Linux distributions operate differently based on the distribution type\. Unlike patch updates on Windows instances, rules are evaluated on each instance to take the configured repos on the instance into consideration\. Patch Manager uses the native package manager to drive the installation of patches approved by the patch baseline\.
 
 **Topics**
-+ [How Patch Baseline Rules Work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
-+ [How Patch Baseline Rules Work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
-+ [How Patch Baseline Rules Work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
-+ [How Patch Baseline Rules Work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
++ [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
++ [How patch baseline rules work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
++ [How patch baseline rules work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
++ [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
 
-## How Patch Baseline Rules Work on Amazon Linux and Amazon Linux 2<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
+## How patch baseline rules work on Amazon Linux and Amazon Linux 2<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
 
 On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 
@@ -17,19 +17,19 @@ On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 If no `updateinfo.xml` file is found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
-**Update Notice Attributes**    
+**Update notice attributes**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
 
-## How Patch Baseline Rules Work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
+## How patch baseline rules work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
 On Red Hat Enterprise Linux, the patch selection process is as follows:
 
@@ -38,19 +38,19 @@ On Red Hat Enterprise Linux, the patch selection process is as follows:
 The `updateinfo.xml` file might not be available if the repo is not one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
-**Update Notice Attributes**    
+**Update notice attributes**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
 1. Packages are selected for the update according to the follow guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
-For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
 
-## How Patch Baseline Rules Work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
+## How patch baseline rules work on Ubuntu Server<a name="patch-manager-how-it-works-linux-rules-ubuntu"></a>
 
 On Ubuntu Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Ubuntu Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
@@ -62,7 +62,7 @@ Because it's not possible to reliably determine the release dates of update pack
 
     Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 To view the contents of the *Priority* and *Section *fields, run the following `aptitude` command: 
 
@@ -79,9 +79,9 @@ In the response to this command, all upgradable packages are reported in this fo
 name, priority, section, archive, candidate version
 ```
 
-For information about patch compliance status values, see [About Patch Compliance Status Values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
 
-## How Patch Baseline Rules Work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
+## How patch baseline rules work on SUSE Linux Enterprise Server<a name="patch-manager-how-it-works-linux-rules-sles"></a>
 
 On SLES, each patch includes the following attributes that denote the properties of the packages in the patch:
 + **Category**: Corresponds to the value of the **Classification** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the type of patch included in the update notice\.
@@ -96,4 +96,4 @@ The product of the instance is determined by SSM Agent\. This attribute correspo
 For each patch, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update\. If multiple packages are applicable after applying the patch baseline definition, the latest version is used\. 
 
 **Note**  
-For information about accepted formats for lists of approved patches and rejected patches, see [About Package Name Formats for Approved and Rejected Patch Lists](patch-manager-approved-rejected-package-name-formats.md)\.
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.

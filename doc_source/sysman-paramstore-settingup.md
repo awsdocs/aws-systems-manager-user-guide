@@ -1,4 +1,4 @@
-# Getting Started with Parameter Store<a name="sysman-paramstore-settingup"></a>
+# Getting started with Parameter Store<a name="sysman-paramstore-settingup"></a>
 
 Before setting up parameters in Systems Manager Parameter Store, you first configure AWS Identity and Access Management \(IAM\) policies that provide users in your account with permission to perform the actions you specify\. 
 
@@ -7,5 +7,5 @@ This section includes information about how to manually configure these policies
 This section also include information about how to create Amazon CloudWatch Events rules that let you receive notifications about changes to Systems Manager parameters\. You can also use CloudWatch Events rules to trigger other actions in AWS based on changes in Parameter Store\.
 
 **Topics**
-+ [Control Access to Systems Manager Parameters](sysman-paramstore-access.md)
-+ [Set Up Notifications or Trigger Actions Based on Parameter Store Events](sysman-paramstore-cwe.md)
++ [Control access to Systems Manager parameters](sysman-paramstore-access.md)
++ [Set up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)

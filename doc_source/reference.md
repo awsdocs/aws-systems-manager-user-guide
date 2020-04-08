@@ -1,4 +1,4 @@
-# AWS Systems Manager Reference<a name="reference"></a>
+# AWS Systems Manager reference<a name="reference"></a>
 
 The following information and topics can help you better implement Systems Manager solutions\.
 
@@ -6,10 +6,10 @@ The following information and topics can help you better implement Systems Manag
 In AWS Identity and Access Management \(IAM\), you can grant or deny a service access to resources using the Principal policy element\. The Principal policy element value for Systems Manager is `ssm.amazonaws.com`\.
 
  ** Supported Regions and Endpoints **  
-See [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+See [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
  **Service Quotas**  
-See [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+See [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
  **API Reference**  
 See [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)\.
@@ -30,5 +30,5 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 [Management Tools](https://aws.amazon.com/blogs/mt/)
 
 **Topics**
-+ [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
-+ [Reference: ec2messages, ssmmessages, and Other API Calls](systems-manager-setting-up-messageAPIs.md)
++ [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
++ [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)

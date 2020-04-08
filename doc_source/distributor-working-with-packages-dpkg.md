@@ -1,6 +1,6 @@
-# Delete a Package<a name="distributor-working-with-packages-dpkg"></a>
+# Delete a package<a name="distributor-working-with-packages-dpkg"></a>
 
-## Deleting a Package \(Console\)<a name="distributor-delete-pkg-console"></a>
+## Deleting a package \(console\)<a name="distributor-delete-pkg-console"></a>
 
 You can use the AWS Systems Manager console to delete a package from Distributor\. Deleting a package deletes all versions of a package from Distributor\.
 
@@ -16,7 +16,7 @@ You can use the AWS Systems Manager console to delete a package from Distributor
 
 1. When you are prompted to confirm the deletion, choose **Delete package**\.
 
-## Deleting a Package \(AWS CLI\)<a name="distributor-delete-pkg-cli"></a>
+## Deleting a package \(AWS CLI\)<a name="distributor-delete-pkg-cli"></a>
 
 You can use the AWS CLI to delete a package from Distributor\.
 

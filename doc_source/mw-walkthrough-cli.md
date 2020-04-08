@@ -1,23 +1,23 @@
-# Walkthrough: Create a Maintenance Window to Update SSM Agent \(AWS CLI\)<a name="mw-walkthrough-cli"></a>
+# Walkthrough: Create a maintenance window to update SSM Agent \(AWS CLI\)<a name="mw-walkthrough-cli"></a>
 
 The following walkthrough shows you how to use the AWS CLI to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
 **Before You Begin**  
-Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **Topics**
-+ [Step 1: Get Started](#mw-walkthrough-cli-settings)
-+ [Step 2: Create the Maintenance Window](#mw-walkthrough-cli-create-mw)
-+ [Step 3: Register Maintenance Window Targets \(AWS CLI\)](#mw-walkthrough-cli-targets)
-+ [Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent](#mw-walkthrough-cli-tasks)
++ [Step 1: Get started](#mw-walkthrough-cli-settings)
++ [Step 2: Create the maintenance window](#mw-walkthrough-cli-create-mw)
++ [Step 3: Register maintenance window targets \(AWS CLI\)](#mw-walkthrough-cli-targets)
++ [Step 4: Register a Run Command task for the maintenance window to update SSM Agent](#mw-walkthrough-cli-tasks)
 
-## Step 1: Get Started<a name="mw-walkthrough-cli-settings"></a>
+## Step 1: Get started<a name="mw-walkthrough-cli-settings"></a>
 
 **To run commands using the AWS CLI**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Verify that an instance is ready to be registered as a target for a maintenance window\.
 
@@ -33,7 +33,7 @@ Before you complete the following procedure, you must either have administrator 
    aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance-id
    ```
 
-## Step 2: Create the Maintenance Window<a name="mw-walkthrough-cli-create-mw"></a>
+## Step 2: Create the maintenance window<a name="mw-walkthrough-cli-create-mw"></a>
 
 Use the following procedure to create a maintenance window and specify its basic options, such as schedule and duration\.
 
@@ -69,9 +69,9 @@ Use the following procedure to create a maintenance window and specify its basic
 
 ------
 
-   For information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+   For information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance Windows Scheduling and Active Period Options](maintenance-windows-schedule-options.md)\.
+   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
 
    The system returns information like the following:
 
@@ -104,7 +104,7 @@ Use the following procedure to create a maintenance window and specify its basic
    }
    ```
 
-## Step 3: Register Maintenance Window Targets \(AWS CLI\)<a name="mw-walkthrough-cli-targets"></a>
+## Step 3: Register maintenance window targets \(AWS CLI\)<a name="mw-walkthrough-cli-targets"></a>
 
 Use the following procedure to register a target with your maintenance window created in Step 2\. By registering a target, you specify which instances to update\.
 
@@ -238,7 +238,7 @@ Use the following command to register multiple managed instances:
    }
    ```
 
-## Step 4: Register a Run Command Task for the Maintenance Window to Update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
+## Step 4: Register a Run Command task for the maintenance window to update SSM Agent<a name="mw-walkthrough-cli-tasks"></a>
 
 Use the following procedure to register a Run Command task for the maintenance window you created in Step 2\. The Run Command task updates SSM Agent on the registered targets\.
 

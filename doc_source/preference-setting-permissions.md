@@ -1,4 +1,4 @@
-# Grant or Deny a User Permissions to Update Session Manager Preferences<a name="preference-setting-permissions"></a>
+# Grant or deny a user permissions to update Session Manager preferences<a name="preference-setting-permissions"></a>
 
 Account preferences are stored as SSM documents for each AWS Region\. Before a user can update account preferences for sessions in your account, they must be granted the necessary permissions to access the type of SSM document where these preferences are stored\. These permissions are granted through an IAM policy\.
 

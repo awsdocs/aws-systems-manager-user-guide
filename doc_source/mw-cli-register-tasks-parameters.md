@@ -1,14 +1,14 @@
-# About Pseudo Parameters<a name="mw-cli-register-tasks-parameters"></a>
+# About pseudo parameters<a name="mw-cli-register-tasks-parameters"></a>
 
-When you register a task, you use the `--task-invocation-parameters` option to specify the parameters that are unique to each of the four task types\. You can also reference certain values using *pseudo parameter* syntax, such as `{{RESOURCE_ID}}`, `{{TARGET_TYPE}}`, and `{{WINDOW_TARGET_ID}}`\. When the maintenance window task runs, it passes the correct values instead of the pseudo parameter placeholders\. The full list of pseudo parameters you can use is provided in [Supported Pseudo Parameters](#pseudo-parameters)\.
+When you register a task, you use the `--task-invocation-parameters` option to specify the parameters that are unique to each of the four task types\. You can also reference certain values using *pseudo parameter* syntax, such as `{{RESOURCE_ID}}`, `{{TARGET_TYPE}}`, and `{{WINDOW_TARGET_ID}}`\. When the maintenance window task runs, it passes the correct values instead of the pseudo parameter placeholders\. The full list of pseudo parameters you can use is provided in [Supported pseudo parameters](#pseudo-parameters)\.
 
 **Important**  
 For the target type `RESOURCE_GROUP`, depending on the ID format needed for the task, you can choose between using `{{TARGET_ID}}` and `{{RESOURCE_ID}}` to reference the resource when your task runs\. `{{TARGET_ID}}` returns the full ARN of the resource\. `{{RESOURCE_ID}}` returns only a shorter name or ID of the resource, as shown in these examples\.  
 `{{TARGET_ID}}` format: `arn:aws:ec2:us-east-1:123456789012:instance/i-02573cafcfEXAMPLE`
 `{{RESOURCE_ID}}` format: `i-02573cafcfEXAMPLE`
-For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` parameters yield the instance ID only\. For more information, see [Supported Pseudo Parameters](#pseudo-parameters)\.
+For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` parameters yield the instance ID only\. For more information, see [Supported pseudo parameters](#pseudo-parameters)\.
 
-## Pseudo Parameter Examples<a name="pseudo-parameter-examples"></a>
+## Pseudo parameter examples<a name="pseudo-parameter-examples"></a>
 
 Suppose that your payload for a Lambda task needs to reference an instance by its ID\.
 
@@ -43,7 +43,7 @@ If your Lambda task is intended to run against another supported target type in 
 The same syntax works for targeting instances or other resource types\. When multiple resource types have been added to a resource group, the task runs against each of the appropriate resources\. 
 
 **Important**  
-Not all resource types that might be included in a resource group yield a value for the `{{RESOURCE_ID}}` parameter\. For a list of supported resource types, see [Supported Pseudo Parameters](#pseudo-parameters)\.
+Not all resource types that might be included in a resource group yield a value for the `{{RESOURCE_ID}}` parameter\. For a list of supported resource types, see [Supported pseudo parameters](#pseudo-parameters)\.
 
 As another example, to run an Automation task that stops your Amazon EC2 instances, you specify the `AWS-StopEC2Instance` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter:
 
@@ -81,7 +81,7 @@ To run an Automation task that copies a snapshot of an Amazon Elastic Block Stor
     }
 ```
 
-## Supported Pseudo Parameters<a name="pseudo-parameters"></a>
+## Supported pseudo parameters<a name="pseudo-parameters"></a>
 
 The following list describes the pseudo parameters that you can specify using the `{{PSEUDO_PARAMETER}}` syntax in the `--task-invocation-parameters` option\.
 + **`WINDOW_ID`**: The ID of the target maintenance window\.

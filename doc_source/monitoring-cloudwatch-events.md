@@ -1,9 +1,9 @@
-# Monitoring Systems Manager Events with Amazon CloudWatch Events<a name="monitoring-cloudwatch-events"></a>
+# Monitoring Systems Manager events with Amazon CloudWatch Events<a name="monitoring-cloudwatch-events"></a>
 
 You can configure rules in Amazon CloudWatch Events to alert you to changes in Systems Manager resources, and to direct CloudWatch Events to take actions based on the content of those events\. CloudWatch Events provides support for a number of events that are emitted by various Systems Manager capabilities\.
 
 **Note**  
-For Systems Manager actions that aren't supported by CloudWatch Events, you can create an event rule that is based on an API call, which are recorded by AWS CloudTrail\. For an example, see [Monitoring Session Activity Using Amazon CloudWatch Events \(Console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-cloudwatch-events)\. 
+For Systems Manager actions that aren't supported by CloudWatch Events, you can create an event rule that is based on an API call, which are recorded by AWS CloudTrail\. For an example, see [Monitoring session activity using Amazon CloudWatch Events \(console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-cloudwatch-events)\. 
 
 For more information about how to get started with CloudWatch Events and set up rules, see [Getting Started with CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CWE_GettingStarted.html) in the *Amazon CloudWatch Events User Guide*\.
 
@@ -19,7 +19,7 @@ For more information, see [Configuring CloudWatch Events for Run Command](rc-cwe
 Supported events include the following:  
 + Status change for an automation execution\.
 + Status change for a single step in an automation execution\.
-For more information, see [Configuring CloudWatch Events for Systems Manager Automation](automation-cwe.md)\.
+For more information, see [Configuring CloudWatch Events for Systems Manager automation](automation-cwe.md)\.
 
 **State Manager**  
 Supported events include the following:  
@@ -30,7 +30,7 @@ Supported events include the following:
 Supported events include the following:  
 + State change for association compliance\.
 + State change for instance patch compliance\.
-For more information, see [Remediating Compliance Issues](sysman-compliance-fixing.md)\.
+For more information, see [Remediating compliance issues](sysman-compliance-fixing.md)\.
 
 **Maintenance Window**  
 Supported events include the following:  
@@ -45,14 +45,14 @@ Supported events include the following:
 Supported events include the following:  
 + A parameter is created, updated, or deleted, or a label is attached or moved from one version to another \(detail\-type: `"Parameter Store Change"`\)\.
 + A parameter has expired or been deleted, its expiration date is approaching, or its value hasn't been changed for a specified period of time \(detail\-type: `"Parameter Store Policy Action"`\)\.
-For more information, see [Set Up Notifications or Trigger Actions Based on Parameter Store Events](sysman-paramstore-cwe.md)\.
+For more information, see [Set up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
 
 **Inventory**  
 Supported events include the following:  
 + Deletion of custom inventory item on an instance\. 
 + Availability of a delete action summary\.
 + A disabled custom inventory type is detected\.
-For more information, see [Viewing Inventory Delete Actions in CloudWatch Events](sysman-inventory-custom.md#sysman-inventory-delete-cwe)\.
+For more information, see [Viewing inventory delete actions in CloudWatch Events](sysman-inventory-custom.md#sysman-inventory-delete-cwe)\.
 
 For more information about the Systems Manager event types that are supported by CloudWatch Events, see the following topics in the *Amazon CloudWatch Events User Guide*:
 + [AWS Systems Manager Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#ssm_event_types)

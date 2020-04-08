@@ -1,4 +1,4 @@
-# Editing Systems Manager Explorer Data Sources<a name="Explorer-using-editing-data-sources"></a>
+# Editing Systems Manager Explorer data sources<a name="Explorer-using-editing-data-sources"></a>
 
 Systems Manager Explorer displays data from the following sources\. 
 + Systems Manager Patch Compliance

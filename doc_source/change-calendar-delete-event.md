@@ -1,8 +1,8 @@
-# Delete a Change Calendar Event<a name="change-calendar-delete-event"></a>
+# Delete a Change Calendar event<a name="change-calendar-delete-event"></a>
 
 You can delete an event by using the AWS Management Console\.
 
-## Delete a Change Calendar Event \(Console\)<a name="change-calendar-delete-event-console"></a>
+## Delete a Change Calendar event \(console\)<a name="change-calendar-delete-event-console"></a>
 
 You can delete one event at a time by using the AWS Management Console\.
 

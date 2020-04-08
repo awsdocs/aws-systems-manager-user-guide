@@ -1,4 +1,4 @@
-# Step 4: Create or Choose an Amazon S3 Bucket<a name="distributor-getting-s3-bucket"></a>
+# Step 4: Create or choose an Amazon S3 bucket<a name="distributor-getting-s3-bucket"></a>
 
 When you create a package by using the **Simple** workflow in the console, you choose an existing S3 bucket to which Distributor uploads your software\. In the **Advanced** workflow, you must upload \.zip files of your software or assets to an S3 bucket before you begin\. Whether you create a package by using the **Simple** or **Advanced** workflows in the console, or by using the API, you must have an S3 bucket before you start creating your package\. As part of the package creation process, Distributor copies your installable software and assets from this bucket to an internal AWS Systems Manager store\. Because the assets are copied to an internal store, you can delete or repurpose your S3 bucket when package creation is finished\.
 

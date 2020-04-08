@@ -1,4 +1,4 @@
-# Share a Change Calendar Entry<a name="change-calendar-share"></a>
+# Share a Change Calendar entry<a name="change-calendar-share"></a>
 
 You can share a Change Calendar entry with other AWS accounts by using the AWS Management Console\. When you share a calendar, the calendar is read\-only to users in the shared account\.
 

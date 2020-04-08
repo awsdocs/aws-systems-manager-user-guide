@@ -1,9 +1,9 @@
-# Create an SSM Document \(Command Line\)<a name="create-ssm-document-cli"></a>
+# Create an SSM document \(command line\)<a name="create-ssm-document-cli"></a>
 
-After you create the content for your custom SSM document, as described in [Writing SSM Document Content](create-ssm-doc.md#writing-ssm-doc-content), you can use the AWS CLI or AWS Tools for PowerShell to create an SSM document using your content\. This is shown in the following command\.
+After you create the content for your custom SSM document, as described in [Writing SSM document content](create-ssm-doc.md#writing-ssm-doc-content), you can use the AWS CLI or AWS Tools for PowerShell to create an SSM document using your content\. This is shown in the following command\.
 
 **Before You Begin**  
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 ------
 #### [ Linux ]

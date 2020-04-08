@@ -1,4 +1,4 @@
-# Get the State of the Change Calendar<a name="change-calendar-getstate"></a>
+# Get the state of the Change Calendar<a name="change-calendar-getstate"></a>
 
 You can get the overall state of the calendar, or the state at a specific time\. You can also show the next time that the calendar state changes from `OPEN` to `CLOSED`, or vice versa\.
 

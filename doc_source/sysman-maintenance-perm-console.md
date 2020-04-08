@@ -1,20 +1,20 @@
-# Control Access to Maintenance Windows \(Console\)<a name="sysman-maintenance-perm-console"></a>
+# Control access to maintenance windows \(console\)<a name="sysman-maintenance-perm-console"></a>
 
 The following procedures describe how to use the AWS Systems Manager console to create the required roles and permissions for maintenance windows\.
 
 **Topics**
-+ [Task 1: \(Optional\) Create a Custom Service Role for Maintenance Windows \(Console\)](#sysman-maintenance-role)
-+ [Task 2: Assign the IAM PassRole Policy to an IAM User or Group \(Console\)](#sysman-maintenance-passrole)
++ [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)](#sysman-maintenance-role)
++ [Task 2: Assign the IAM PassRole policy to an IAM user or group \(console\)](#sysman-maintenance-passrole)
 
-## Task 1: \(Optional\) Create a Custom Service Role for Maintenance Windows \(Console\)<a name="sysman-maintenance-role"></a>
+## Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)<a name="sysman-maintenance-role"></a>
 
 Use the following procedure to create a custom service role for the Maintenance Windows capability so that Systems Manager can run tasks on your behalf\.
 
 **Important**  
 A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
-[Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
-[Using Service\-Linked Roles for Systems Manager](using-service-linked-roles.md)
-[Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)
+[Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
+[Using service\-linked roles for Systems Manager](using-service-linked-roles.md)
+[Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)
 
 **To create a custom service role \(console\)**
 
@@ -63,7 +63,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. \(Optional\) Modify the policy to restrict access or provide additional permissions as needed\. 
 
-   For information about the types of customizations you might choose to make, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   For information about the types of customizations you might choose to make, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. Choose **Update Trust Policy**, and then copy or make a note of the role name and the **Role ARN** value on the **Summary** page\. You specify this information when you create your maintenance window\.
 
@@ -88,9 +88,9 @@ A custom service role is not required if you choose to use a Systems Manager ser
       }
       ```
 
-      *sns\-access\-role\-arn* represents the ARN of the existing IAM role to be for sending Amazon Simple Notification Service notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::111222333444:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager Status Changes Using Amazon SNS Notifications](monitoring-sns-notifications.md)\.
+      *sns\-access\-role\-arn* represents the ARN of the existing IAM role to be for sending Amazon Simple Notification Service notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::111222333444:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 **Note**  
-In the Systems Manager console, this ARN is selected in the ** IAM Role** list on the **Register run command task** page\. For information, see [Assign Tasks to a Maintenance Window \(Console\)](sysman-maintenance-assign-tasks.md)\. In the Systems Manager API, this ARN is entered as the value of [ServiceRoleArn](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html#EC2-SendCommand-request-ServiceRoleArn) in the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) request\.
+In the Systems Manager console, this ARN is selected in the ** IAM Role** list on the **Register run command task** page\. For information, see [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)\. In the Systems Manager API, this ARN is entered as the value of [ServiceRoleArn](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html#EC2-SendCommand-request-ServiceRoleArn) in the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) request\.
 
    1. Choose **Review policy**\.
 
@@ -98,7 +98,7 @@ In the Systems Manager console, this ARN is selected in the ** IAM Role** list o
 
 1. Choose **Create policy**\.
 
-## Task 2: Assign the IAM PassRole Policy to an IAM User or Group \(Console\)<a name="sysman-maintenance-passrole"></a>
+## Task 2: Assign the IAM PassRole policy to an IAM user or group \(console\)<a name="sysman-maintenance-passrole"></a>
 
 When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
@@ -150,7 +150,7 @@ Type **passr** in the filter box to quickly locate **PassRole**\.
 
    1. **Actions**: PassRole
 
-   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the maintenance window role you created in [Task 1: \(Optional\) Create a Custom Service Role for Maintenance Windows \(Console\)](#sysman-maintenance-role)
+   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the maintenance window role you created in [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)](#sysman-maintenance-role)
 
 1. Choose **Add Statement**, and then choose **Next Step**\.
 

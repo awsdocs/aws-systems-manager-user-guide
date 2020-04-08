@@ -1,12 +1,12 @@
-# Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)<a name="sysman-paramstore-walk-hierarchies"></a>
+# Walkthrough: Manage parameters using hierarchies \(AWS CLI\)<a name="sysman-paramstore-walk-hierarchies"></a>
 
-This walkthrough shows how to work with parameters and parameter hierarchies by using the AWS CLI\. For more information about parameter hierarchies, see [Organizing Parameters into Hierarchies](sysman-paramstore-su-organize.md)\.
+This walkthrough shows how to work with parameters and parameter hierarchies by using the AWS CLI\. For more information about parameter hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
 **To manage parameters using hierarchies**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` parameter type\. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long\.
 

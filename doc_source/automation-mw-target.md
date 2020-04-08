@@ -1,21 +1,21 @@
-# Running Automation Workflows with Triggers using Maintenance Windows<a name="automation-mw-target"></a>
+# Running Automation workflows with triggers using Maintenance Windows<a name="automation-mw-target"></a>
 
 You can start an Automation workflow by configuring an Automation document as a registered task for a maintenance window\. By registering the Automation document as a registered task, the maintenance window runs the automation workflow during the scheduled maintenance period\. 
 
 For example, let's say you create an Automation document named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* document \(and corresponding workflow\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation workflow and creates an AMI of the registered targets\.
 
-For information about creating Automation documents, see [Working with Automation Documents \(Playbooks\)](automation-documents.md)\.
+For information about creating Automation documents, see [Working with Automation documents \(Playbooks\)](automation-documents.md)\.
 
 Use the following procedures to configure an Automation workflow as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
-## Registering an Automation Workflow Task to a Maintenance Window \(Console\)<a name="automation-mw-target-console"></a>
+## Registering an Automation workflow task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
 
 The following procedure describes how to use the Systems Manager console to configure an Automation workflow as a registered task for a maintenance window\.
 
 **Before You Begin**  
 Before you complete the following procedure, you must create a maintenance window and register at least one target\. For more information, see the following procedures: 
-+ [Create a Maintenance Window \(Console\)](sysman-maintenance-create-mw.md)\.
-+ [Assign Targets to a Maintenance Window \(Console\)](sysman-maintenance-assign-targets.md)
++ [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)\.
++ [Assign targets to a maintenance window \(console\)](sysman-maintenance-assign-targets.md)
 
 **To configure an Automation workflow as a registered task for a maintenance window**
 
@@ -44,7 +44,7 @@ For example, if you choose the Automation document `AWS-CopySnapshot`, then the 
    + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation workflow at the same time\.
 **Note**  
 If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automation workflows that can run at the same time by specifying a percentage\.  
-When the maintenance window runs, a new Automation execution is initiated per target\. There is a limit of 25 concurrent executions of Automation and 75 child executions of Automation per AWS account\. If you specify a concurrency rate greater than 25, concurrent executions greater than 25 are automatically added to the execution queue\. For information, see [Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
+When the maintenance window runs, a new Automation execution is initiated per target\. There is a limit of 25 concurrent executions of Automation and 75 child executions of Automation per AWS account\. If you specify a concurrency rate greater than 25, concurrent executions greater than 25 are automatically added to the execution queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation workflow on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automation workflows when the fourth error is received\. Targets still processing the workflow might also send errors\.
 
 1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the Automation workflow:
@@ -58,33 +58,33 @@ If a service\-linked role has already been created for your account, choose **Us
      If you want to use stricter permissions than those provided by the service\-linked role, you can create a custom service role for maintenance window tasks\.
 
      To create a custom service role, see one of the following topics:
-     + [Control Access to Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md)
-     + [Control Access to Maintenance Windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-     + [Control Access to Maintenance Windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+     + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
+     + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
+     + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I Use a Service\-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
 1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
 **Important**  
 For Automation documents, you can optionally specify an Automation Assume Role\. If you don't specify a role for this parameter, then the Automation workflow assumes the maintenance window service role you choose in step 11\. As such, you must ensure that the maintenance window service role you choose has the appropriate AWS Identity and Access Management \(IAM\) permissions to perform the actions defined within the Automation document\.   
-For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to run the Automation document `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Getting Started with Automation](automation-setup.md)\.
+For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to run the Automation document `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Getting started with Automation](automation-setup.md)\.
 
 1. Choose **Register Automation task**\.
 
-## Registering an Automation Workflow Task to a Maintenance Window \(Command Line\)<a name="automation-mw-target-commandline"></a>
+## Registering an Automation workflow task to a maintenance window \(command line\)<a name="automation-mw-target-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to configure an Automation workflow as a registered task for a maintenance window\.
 
 **Before You Begin**  
 Before you complete the following procedure, you must create a maintenance window and register at least one target\. For more information, see the following procedures:
-+ [Step 1: Create the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\.
-+ [Step 2: Register a Target Instance with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-targets.md)
++ [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\.
++ [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)
 
 **To configure an Automation workflow as a registered task for a maintenance window**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Create a command to configure an Automation workflow as a registered task for a maintenance window\. Here are some template commands to help\.
 

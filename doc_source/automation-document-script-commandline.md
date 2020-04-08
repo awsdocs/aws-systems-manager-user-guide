@@ -1,4 +1,4 @@
-# Creating an Automation Document that Runs Scripts \(Command Line\)<a name="automation-document-script-commandline"></a>
+# Creating an Automation document that runs scripts \(command line\)<a name="automation-document-script-commandline"></a>
 
 The following examples show how to use the AWS CLI \(on Linux or Windows Server\) or AWS Tools for PowerShell to create an Automation document that runs a script using the `Attachment` parameter\.
 
@@ -10,7 +10,7 @@ Before you begin, ensure you have the following resources prepared\.
   For scripts, Automation supports Python 3\.6 and 3\.7, PowerShell Core 6\.0\.
 + Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
-  For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+  For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 **Attach a single file from an S3 bucket**  
 Run the following command to create an Automation document using a script file stored in an Amazon S3 bucket\.

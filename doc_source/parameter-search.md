@@ -1,14 +1,14 @@
-# Searching for Systems Manager Parameters<a name="parameter-search"></a>
+# Searching for Systems Manager parameters<a name="parameter-search"></a>
 
 When you have a large number of parameters in your account, it can be difficult to find information about just one or a few parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
 
 For information about using the Systems Manager console and AWS CLI to view information about parameters in your account by using search, or filter options, see the following topics\.
 
 **Topics**
-+ [Search for a Parameter \(Console\)](#parameter-search-console)
-+ [Search for a Parameter \(AWS CLI\)](#parameter-search-cli)
++ [Search for a parameter \(console\)](#parameter-search-console)
++ [Search for a parameter \(AWS CLI\)](#parameter-search-cli)
 
-## Search for a Parameter \(Console\)<a name="parameter-search-console"></a>
+## Search for a parameter \(console\)<a name="parameter-search-console"></a>
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -24,7 +24,7 @@ In the console, the default search type for Name is contains\.
 
 The list of parameters is updated with the results of your search\.
 
-## Search for a Parameter \(AWS CLI\)<a name="parameter-search-cli"></a>
+## Search for a parameter \(AWS CLI\)<a name="parameter-search-cli"></a>
 
 Use the `describe-parameters` command to view information about one or more parameters in the AWS CLI\. 
 
@@ -32,7 +32,7 @@ The following examples demonstrate various options you can use to view informati
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account\.
 
@@ -66,7 +66,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
-In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [SecureString Parameters](sysman-paramstore-securestring.md)\.
+In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
 
    If successful, the command returns output similar to the following\.
 

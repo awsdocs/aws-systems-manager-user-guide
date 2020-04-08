@@ -1,4 +1,4 @@
-# Assign Targets to a Maintenance Window \(Console\)<a name="sysman-maintenance-assign-targets"></a>
+# Assign targets to a maintenance window \(console\)<a name="sysman-maintenance-assign-targets"></a>
 
 In this procedure, you register a target with a maintenance window\. In other words, you specify which resources the maintenance window performs actions on\.
 
@@ -14,7 +14,7 @@ In this procedure, you register a target with a maintenance window\. In other wo
 
 1. \(Optional\) For **Owner information**, specify information to include in any CloudWatch Events raised while running tasks for these targets in this maintenance window\.
 
-   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
 1. In the **Targets** area, choose one of the options described in the following table\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-assign-targets.html)

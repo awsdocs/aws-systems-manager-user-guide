@@ -1,4 +1,4 @@
-# Installing and Configuring SSM Agent on Amazon EC2 Linux Instances<a name="sysman-install-ssm-agent"></a>
+# Installing and configuring SSM Agent on Amazon EC2 Linux instances<a name="sysman-install-ssm-agent"></a>
 
 SSM Agent processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent\.
 
@@ -17,6 +17,6 @@ The source code for SSM Agent is available on [GitHub](https://github.com/aws/am
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md)\.
 
 **Topics**
-+ [Manually Install SSM Agent on Amazon EC2 Linux Instances](sysman-manual-agent-install.md)
-+ [Configure SSM Agent to Use a Proxy](sysman-proxy-with-ssm-agent.md)
-+ [Uninstall SSM Agent from Linux Instances](sysman-uninstall-agent.md)
++ [Manually install SSM Agent on Amazon EC2 Linux instances](sysman-manual-agent-install.md)
++ [Configure SSM Agent to use a proxy](sysman-proxy-with-ssm-agent.md)
++ [Uninstall SSM Agent from Linux instances](sysman-uninstall-agent.md)

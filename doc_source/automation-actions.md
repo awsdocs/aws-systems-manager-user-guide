@@ -1,16 +1,16 @@
-# Systems Manager Automation Actions Reference<a name="automation-actions"></a>
+# Systems Manager Automation actions reference<a name="automation-actions"></a>
 
-This reference describes the actions \(or plugins\) that you can specify in an AWS Systems Manager Automation document\. For information about plugins for other types of SSM documents, see [SSM Document Plugin Reference](ssm-plugins.md)\.
+This reference describes the actions \(or plugins\) that you can specify in an AWS Systems Manager Automation document\. For information about plugins for other types of SSM documents, see [SSM document plugin reference](ssm-plugins.md)\.
 
 Systems Manager Automation runs steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
 
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
 **Important**  
-If you run an automation that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation Inline Policy to Invoke Other AWS Services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(`AWS-*` documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 **Topics**
-+ [Properties Shared by All Actions](#automation-common)
++ [Properties shared by all actions](#automation-common)
 + [aws:approve – Pause an execution for manual approval](automation-action-approve.md)
 + [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
 + [aws:branch – Run conditional automation steps](automation-action-branch.md)
@@ -32,7 +32,7 @@ If you run an automation that invokes other services by using an AWS Identity an
 + [aws:sleep – Delay an automation execution](automation-action-sleep.md)
 + [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
 
-## Properties Shared by All Actions<a name="automation-common"></a>
+## Properties shared by all actions<a name="automation-common"></a>
 
 Common properties are parameters or options that are found in all actions\. Some options define execution behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 

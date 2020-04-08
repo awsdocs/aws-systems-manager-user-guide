@@ -1,8 +1,8 @@
-# Update or Delete a Patch Baseline \(Console\)<a name="patch-baseline-update-or-delete"></a>
+# Update or delete a patch baseline \(console\)<a name="patch-baseline-update-or-delete"></a>
 
 You can update or delete a custom patch baseline that you have created\. When you update a patch baseline, you can change its name or description, its approval rules, and its exceptions for approved and rejected patches\. You can also update the tags that are applied to the patch baseline\. You can't change the operating system type that a patch baseline has been created for, and you can't make changes to a predefined patch baseline provided by AWS\.
 
-## Update or Delete a Patch Baseline \(Console\)<a name="sysman-maintenance-update-mw"></a>
+## Update or delete a patch baseline \(console\)<a name="sysman-maintenance-update-mw"></a>
 
 Follow these steps to update or delete a patch baseline\.
 
@@ -21,4 +21,4 @@ Follow these steps to update or delete a patch baseline\.
    + To make changes to the patch baseline name or description, approval rules, or patch exceptions, choose **Edit**\. On the **Edit patch baseline** page, change the values and options that you want, and then choose **Save changes**\. 
    + To add, change, or delete tags applied to the patch baseline, choose the **Tags** tab, and then choose **Edit tags**\. On the **Edit patch baseline tags** page, make updates to the patch baseline tags, and then choose **Save changes**\. 
 
-   For information about the configuration choices you can make, see [Create a Custom Patch Baseline](sysman-patch-baseline-console.md)\.
+   For information about the configuration choices you can make, see [Create a custom patch baseline](sysman-patch-baseline-console.md)\.

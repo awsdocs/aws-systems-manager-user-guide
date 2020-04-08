@@ -1,4 +1,4 @@
-# Control Access to Systems Manager Parameters<a name="sysman-paramstore-access"></a>
+# Control access to Systems Manager parameters<a name="sysman-paramstore-access"></a>
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
 + [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
@@ -65,10 +65,10 @@ For trusted administrators, you can provide access to all Systems Manager parame
 ```
 
 **Topics**
-+ [Allowing Only Specific Parameters to Run on Instances](#sysman-paramstore-access-inst)
-+ [Controlling Access to Parameters Using Tags](#sysman-paramstore-access-tag)
++ [Allowing only specific parameters to run on instances](#sysman-paramstore-access-inst)
++ [Controlling access to parameters using tags](#sysman-paramstore-access-tag)
 
-## Allowing Only Specific Parameters to Run on Instances<a name="sysman-paramstore-access-inst"></a>
+## Allowing only specific parameters to run on instances<a name="sysman-paramstore-access-inst"></a>
 
 You can control access so that instances can run only parameters that you specify\. 
 
@@ -83,7 +83,7 @@ aws kms describe-key --key-id alias/aws/ssm
 The following example enables instances to get a parameter value only for parameters that begin with "prod\-" If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
-Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting Up AWS Systems Manager](systems-manager-setting-up.md)\.
+Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 ```
 {
@@ -111,7 +111,7 @@ Instance policies, like in the following example, are assigned to the instance r
 }
 ```
 
-## Controlling Access to Parameters Using Tags<a name="sysman-paramstore-access-tag"></a>
+## Controlling access to parameters using tags<a name="sysman-paramstore-access-tag"></a>
 
 After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags the user can access\. When a user attempts to use a parameter, the system checks the IAM policy and the tags specified for the parameter\. If the user does not have access to the tags assigned to the parameter, the user receives an *Access Denied* error\.
 
@@ -123,7 +123,7 @@ Currently, you can restrict access to the following `Get*` parameter\-related AP
 Use the following procedure to create an IAM policy that restricts access to parameters by using tags\.
 
 **Before You Begin**  
-Create and tag parameters\. For more information, see [Getting Started with Parameter Store](sysman-paramstore-settingup.md)\.
+Create and tag parameters\. For more information, see [Getting started with Parameter Store](sysman-paramstore-settingup.md)\.
 
 **To restrict a user's access to parameters by using tags**
 

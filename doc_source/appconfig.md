@@ -12,7 +12,7 @@ AppConfig supports multiple use cases\. Here are some examples\.
 + **User membership**: Use AppConfig to allow premium subscribers to access paid content\. 
 + **Operational issues**: Use AppConfig to reduce stress on your application when a dependency or other external factor impacts the system\.
 
-## How Can AppConfig Benefit My Organization?<a name="learn-more-appconfig-benefits"></a>
+## How can AppConfig benefit my organization?<a name="learn-more-appconfig-benefits"></a>
 
 AppConfig offers the following benefits\.
 + **Deploy changes across a set of targets quickly**
@@ -30,19 +30,19 @@ AppConfig offers the following benefits\.
 
   When deploying configuration changes to your targets, AppConfig enables you to minimize risk by using a deployment strategy\. You can use the rate controls of a deployment strategy to determine how fast you want your application targets to receive a configuration change\.
 
-## **What Types of Targets are Supported?**<a name="learn-more-appconfig-operating-systems"></a>
+## **What types of targets are supported?**<a name="learn-more-appconfig-operating-systems"></a>
 
 You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\. Targets don't need to be configured with the Systems Manager SSM Agent or the AWS Identity and Access Management \(IAM\) instance profile required by other Systems Manager capabilities\. This means that AppConfig works with unmanaged instances\. 
 
-## Is There a Charge to Use AppConfig?<a name="learn-more-appconfig-cost"></a>
+## Is there a charge to use AppConfig?<a name="learn-more-appconfig-cost"></a>
 
 Yes\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
-## Do I Have to Change My Application to Work with AppConfig?<a name="learn-more-appconfig-code-changes"></a>
+## Do I have to change my application to work with AppConfig?<a name="learn-more-appconfig-code-changes"></a>
 
 Yes\. You must configure your application to poll for new configuration updates by using the [GetConfiguration](http://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html) API action\. When a new or updated configuration is ready, AppConfig deploys the configuration file to each target in your deployment strategy\.
 
-## How Does AppConfig Work?<a name="learn-more-appconfig-how-it-works"></a>
+## How does AppConfig work?<a name="learn-more-appconfig-how-it-works"></a>
 
 At a high level, there are three processes for working with AppConfig\.
 
@@ -98,11 +98,11 @@ You can use built\-in deployment strategies that cover common scenarios or you c
 For information about getting started with and using AppConfig, see the following topics\.
 
 **Topics**
-+ [How Can AppConfig Benefit My Organization?](#learn-more-appconfig-benefits)
-+ [**What Types of Targets are Supported?**](#learn-more-appconfig-operating-systems)
-+ [Is There a Charge to Use AppConfig?](#learn-more-appconfig-cost)
-+ [Do I Have to Change My Application to Work with AppConfig?](#learn-more-appconfig-code-changes)
-+ [How Does AppConfig Work?](#learn-more-appconfig-how-it-works)
++ [How can AppConfig benefit my organization?](#learn-more-appconfig-benefits)
++ [**What types of targets are supported?**](#learn-more-appconfig-operating-systems)
++ [Is there a charge to use AppConfig?](#learn-more-appconfig-cost)
++ [Do I have to change my application to work with AppConfig?](#learn-more-appconfig-code-changes)
++ [How does AppConfig work?](#learn-more-appconfig-how-it-works)
 + [What are the Service Quotas of AppConfig?](#learn-more-service-quotas)
-+ [Getting Started with AWS AppConfig](appconfig-getting-started.md)
++ [Getting started with AWS AppConfig](appconfig-getting-started.md)
 + [Working with AWS AppConfig](appconfig-working.md)

@@ -1,4 +1,4 @@
-# About Patch Compliance Status Values<a name="about-patch-compliance-states"></a>
+# About patch compliance status values<a name="about-patch-compliance-states"></a>
 
 After you use Systems Manager Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\.
 
@@ -15,7 +15,7 @@ Using the AWS CLI, you can view summary information about patches on an instance
 + [describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)
 + [describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)
 
-## Patch Compliance Values for Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
+## Patch compliance values for Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
 
 For Ubuntu Server, the rules for package classification into the different compliance states are as follows:
 + **Installed**: Packages that are filtered through the patch baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are not upgradable\.
@@ -24,7 +24,7 @@ For Ubuntu Server, the rules for package classification into the different compl
 + **NotApplicable**: Packages that are included in [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) but are not installed on the system\.
 + **Failed**: Packages that failed to install during the patch operation\.
 
-## Patch Compliance Values for Other Operating Systems<a name="patch-compliance-values"></a>
+## Patch compliance values for other operating systems<a name="patch-compliance-values"></a>
 
 For all operating systems besides Ubuntu Server, the system reports one of the following compliance status values for each patch: 
 + **INSTALLED**: Either the patch was already installed, or Patch Manager installed it when the **AWS\-RunPatchBaseline** document was run on the instance\.

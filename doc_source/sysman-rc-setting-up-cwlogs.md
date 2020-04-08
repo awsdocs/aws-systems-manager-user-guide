@@ -4,11 +4,11 @@ When you send a command by using Run Command, you can specify where you want to 
 
 If you configured your instance or on\-premises hybrid machine to use the AWS Identity and Access Management \(IAM\) managed policies **AmazonSSMManagedInstanceCore** and **CloudWatchAgentServerPolicy**, then your instance requires no additional configuration to send output to CloudWatch Logs\. You simply need to choose this option if sending commands from the console, or add the `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter if using the AWS CLI, Tools for Windows PowerShell, or an API action\. The `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter are described in more detail later in this topic\.
 
-For information about adding policies to an instance profile for Amazon EC2 instances, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises instances and virtual machines that you plan to use as managed instances, see [Create an IAM Service Role for a Hybrid Environment](sysman-service-role.md)\.
+For information about adding policies to an instance profile for Amazon EC2 instances, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises instances and virtual machines that you plan to use as managed instances, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
-For information about updating an existing instance profile, see [Add Permissions to a Systems Manager Instance Profile \(Console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
+For information about updating an existing instance profile, see [Add permissions to a Systems Manager instance Pprofile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
 
-If you are using a custom policy on your instances, then you must update the policy on each instance to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information, about updating an IAM policy, see [Editing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.
+If you are using a custom policy on your instances, then you must update the policy on each instance to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information, about updating an IAM policy, see [Editing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.
 
 ```
 {
@@ -24,7 +24,7 @@ If you are using a custom policy on your instances, then you must update the pol
 },
 ```
 
-## Specifying CloudWatch Logs When You Send Commands<a name="sysman-rc-setting-up-cwlogs-send"></a>
+## Specifying CloudWatch Logs when you send commands<a name="sysman-rc-setting-up-cwlogs-send"></a>
 
 To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: /aws/ssm/*SystemsManagerDocumentName*\.
 
@@ -34,7 +34,7 @@ If you run commands by using the AWS CLI, then you must specify the `cloud-watch
 aws ssm send-command --document-name "AWS-RunPowerShellScript" --parameters commands=["echo helloWorld"] --targets "Key=instanceids,Values=an instance ID” --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
 ```
 
-## Viewing Command Output in CloudWatch Logs<a name="sysman-rc-setting-up-cwlogs-view"></a>
+## Viewing command output in CloudWatch Logs<a name="sysman-rc-setting-up-cwlogs-view"></a>
 
 As soon as the command starts to run, Systems Manager sends output to CloudWatch Logs in near real\-time\. The output in CloudWatch Logs uses the following format:
 

@@ -1,15 +1,15 @@
-# Using Public Parameters<a name="parameter-store-public-parameters"></a>
+# Using public parameters<a name="parameter-store-public-parameters"></a>
 
 Some AWS services publish information about common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machines Images \(AMIs\) as public parameters\. You can call this information from your scripts and code by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
 
 This topic describes how to call public parameters by using the AWS CLI\.
 
 **Topics**
-+ [Calling AMI Public Parameters](#parameter-store-public-parameters-ami)
-+ [Calling the ECS Optimized AMI Public Parameter](#parameter-store-public-parameters-ecs)
-+ [Calling AWS Service, Region, and Endpoint Public Parameters](#parameter-store-public-parameters-global-infrastructure)
++ [Calling AMI public parameters](#parameter-store-public-parameters-ami)
++ [Calling the ECS optimized AMI public parameter](#parameter-store-public-parameters-ecs)
++ [Calling AWS service, Region, and endpoint public parameters](#parameter-store-public-parameters-global-infrastructure)
 
-## Calling AMI Public Parameters<a name="parameter-store-public-parameters-ami"></a>
+## Calling AMI public parameters<a name="parameter-store-public-parameters-ami"></a>
 
 Amazon EC2 AMI public parameters are available from the following paths:
 + /aws/service/ami\-amazon\-linux\-latest
@@ -111,7 +111,7 @@ The command returns the following information\.
 }
 ```
 
-## Calling the ECS Optimized AMI Public Parameter<a name="parameter-store-public-parameters-ecs"></a>
+## Calling the ECS optimized AMI public parameter<a name="parameter-store-public-parameters-ecs"></a>
 
 The Amazon Elastic Container Service \(Amazon ECS\) service publishes the name of the latest Amazon ECS optimized AMI as a public parameter\. Users are encouraged to use this AMI when creating a new Amazon EC2 cluster for Amazon ECS because the optimized AMI includes bug fixes and feature updates\. Use the following command to view the name of the latest Amazon ECS optimized AMI\.
 
@@ -137,7 +137,7 @@ The command returns information like the following\.
 }
 ```
 
-## Calling AWS Service, Region, and Endpoint Public Parameters<a name="parameter-store-public-parameters-global-infrastructure"></a>
+## Calling AWS service, Region, and endpoint public parameters<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
 You can call AWS service, Region, and endpoint public parameters by using the following path\.
 
@@ -257,7 +257,7 @@ The command returns information like the following\.
 "ssm.us-west-1.amazonaws.com"
 ```
 
-**Related Blog Posts**
+**Related blog posts**
 + [Query for AWS Regions, Endpoints, and More Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/aws/new-query-for-aws-regions-endpoints-and-more-using-aws-systems-manager-parameter-store/)
 + [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
 + [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)

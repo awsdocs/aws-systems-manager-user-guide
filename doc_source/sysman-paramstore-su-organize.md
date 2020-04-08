@@ -1,4 +1,4 @@
-# Organizing Parameters into Hierarchies<a name="sysman-paramstore-su-organize"></a>
+# Organizing parameters into hierarchies<a name="sysman-paramstore-su-organize"></a>
 
 Managing dozens or hundreds of parameters as a flat list is time consuming and prone to errors\. It can also be difficult to identify the correct parameter for a task\. This means you might accidentally use the wrong parameter, or you might create multiple parameters that use the same configuration data\. 
 
@@ -47,7 +47,7 @@ You are not required to specify a parameter hierarchy\. You can create parameter
 
 `parameter-name`
 
-For an example of how to work with parameter hierarchies, see [Walkthrough: Manage Parameters Using Hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)\.
+For an example of how to work with parameter hierarchies, see [Walkthrough: Manage parameters using hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)\.
 
 **Querying Parameters in a Hierarchy**  
 Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you run the following command from the AWS CLI, the system returns all parameters in the IIS level\.

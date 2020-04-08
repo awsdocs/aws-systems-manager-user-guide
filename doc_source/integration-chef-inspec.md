@@ -1,6 +1,6 @@
-# Using Chef InSpec Profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
+# Using Chef InSpec profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
-Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
+Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
 + Check if specific ports are open or closed\.
 + Check if specific applications are running\.
 + Check if certain packages are installed\.
@@ -22,7 +22,7 @@ end
 
 InSpec includes a collection of resources that help you quickly write checks and auditing controls\. InSpec uses the [InSpec Domain\-specific Language \(DSL\)](https://www.inspec.io/docs/reference/dsl_inspec/) for writing these controls in Ruby\. You can also use profiles created by a large community of InSpec users\. For example, the [DevSec chef\-os\-hardening](https://github.com/dev-sec/chef-os-hardening) project on GitHub includes dozens of profiles to help you secure your instances and servers\. You can author and store profiles in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. 
 
-## How It Works<a name="integration-chef-inspec-how"></a>
+## How it works<a name="integration-chef-inspec-how"></a>
 
 Here is how the process of using InSpec profiles with Systems Manager Compliance works\.
 
@@ -37,13 +37,13 @@ Here is how the process of using InSpec profiles with Systems Manager Compliance
 **Note**  
 Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager runs the AWS\-RunInspecChecks SSM document, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
 
-## Running an InSpec Compliance Scan<a name="integration-chef-inspec-running"></a>
+## Running an InSpec compliance scan<a name="integration-chef-inspec-running"></a>
 
 This section includes information about how to run an InSpec Compliance scan by using the Systems Manager console and the AWS CLI\. The console procedure shows you how to configure State Manager to run the scan\. The AWS CLI procedure shows you how to configure Run Command to run the scan\.
 
-### Running an InSpec Compliance Scan with State Manager by Using the Console<a name="integration-chef-inspec-running-console"></a>
+### Running an InSpec compliance scan with State Manager by using the console<a name="integration-chef-inspec-running-console"></a>
 
-**To run an InSpec Compliance scan with State Manager by using the AWS Systems Manager console**
+**To run an InSpec compliance scan with State Manager by using the AWS Systems Manager console**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -53,11 +53,11 @@ This section includes information about how to run an InSpec Compliance scan by 
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
 
-1. Choose **Create Association**\.
+1. Choose **Create association**\.
 
 1. In the **Provide association details** section, enter a name\.
 
-1. In the **Command document** list, choose **AWS\-RunInspecChecks**\.
+1. In the **Document** list, choose **AWS\-RunInspecChecks**\.
 
 1. In the **Document version** list, choose **Latest at runtime**\.
 
@@ -71,17 +71,23 @@ This section includes information about how to run an InSpec Compliance scan by 
 
    If you choose **S3**, then enter a valid URL to an InSpec profile in an Amazon S3 bucket in the **Source Info** field\. 
 
-   For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running Scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
+   For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where Are My Instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. In the **Specify schedule** section, use the schedule builder options to create a schedule for when you want the Compliance scan to run\.
 
+1. \(Optional\) For **Rate control**:
+   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+**Note**  
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. Choose **Create Association**\. The system creates the association and automatically runs the Compliance scan\.
 
@@ -91,11 +97,11 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose an instance ID to view the details of noncompliant statuses\.
 
-### Running an InSpec Compliance Scan with Run Command by Using the AWS CLI<a name="integration-chef-inspec-running-cli"></a>
+### Running an InSpec compliance scan with Run Command by using the AWS CLI<a name="integration-chef-inspec-running-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run one of the following commands to run an InSpec profile from either GitHub or Amazon S3\.
 

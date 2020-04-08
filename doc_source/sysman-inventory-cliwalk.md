@@ -1,4 +1,4 @@
-# Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI<a name="sysman-inventory-cliwalk"></a>
+# Walkthrough: Configure your managed instances for Inventory by using the CLI<a name="sysman-inventory-cliwalk"></a>
 
 The following procedures walk you through the process of configuring Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
 
@@ -7,7 +7,7 @@ The following procedures walk you through the process of configuring Systems Man
 **Note**  
 An instance can have only one inventory association configured at a time\. If you configure an instance with two or more inventory associations, the association doesn't run and no inventory data is collected\.
 
-## Quickly Configure All of Your Managed Instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
+## Quickly configure all of your managed instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
 
 You can quickly configure all managed instances in your AWS account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
 
@@ -15,7 +15,7 @@ You can quickly configure all managed instances in your AWS account and in the c
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command\.
 
@@ -26,7 +26,7 @@ You can quickly configure all managed instances in your AWS account and in the c
 **Note**  
 This command does not enable inventory of file or Windows Registry metadata\. To inventory these datatypes, use the next procedure\.
 
-## Manually Configuring Inventory on Your Managed Instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
+## Manually configuring Inventory on your managed instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
 
 Use the following procedure to manually configure Systems Manager Inventory on your managed instances by using instance IDs or tags\.
 
@@ -34,7 +34,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a State Manager association that runs Systems Manager Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
 
@@ -95,7 +95,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=tag:Environment,Values=Production" --schedule-expression "rate(240 minutes)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
-   You can also inventory files and Windows Registry keys on a Windows instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with File and Windows Registry Inventory](sysman-inventory-file-and-registry.md)\.
+   You can also inventory files and Windows Registry keys on a Windows instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
 
    ```
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" --schedule-expression "rate(240 minutes)"  --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' --profile dev-pdx

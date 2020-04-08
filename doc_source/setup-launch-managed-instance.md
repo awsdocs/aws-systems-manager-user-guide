@@ -1,6 +1,6 @@
-# Step 5: Attach an IAM Instance Profile to an Amazon EC2 Instance<a name="setup-launch-managed-instance"></a>
+# Step 5: Attach an IAM instance profile to an Amazon EC2 instance<a name="setup-launch-managed-instance"></a>
 
-The procedures in this topic describe how to attach the IAM instance profile for Systems Manager that you created in the previous topic, [Step 4: Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md), to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
+The procedures in this topic describe how to attach the IAM instance profile for Systems Manager that you created in the previous topic, [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md), to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
 
 **SSM Agent requirements for instances**  
 AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an Amazon EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
@@ -16,16 +16,16 @@ SSM Agent is installed by default on the following AMIs:
 + Ubuntu Server 18\.04
 + Amazon ECS\-Optimized
 
-For information about manually installing SSM Agent on other Linux operating systems, see [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](sysman-install-ssm-agent.md)\.
+For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on Amazon EC2 Linux instances](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
-A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each Amazon EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on On\-Premises Servers and VMs](hybrid-tls-certificate.md)\.
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each Amazon EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.
 
 **Topics**
-+ [Launch an Instance that Uses the Systems Manager Instance Profile \(Console\)](#setup-launch-managed-instance-new)
-+ [Attach the Systems Manager Instance Profile to an Existing Instance \(Console\)](#setup-launch-managed-instance-existing)
++ [Launch an instance that uses the Systems Manager instance profile \(console\)](#setup-launch-managed-instance-new)
++ [Attach the Systems Manager instance profile to an existing instance \(console\)](#setup-launch-managed-instance-existing)
 
-## Launch an Instance that Uses the Systems Manager Instance Profile \(Console\)<a name="setup-launch-managed-instance-new"></a>
+## Launch an instance that uses the Systems Manager instance profile \(console\)<a name="setup-launch-managed-instance-new"></a>
 
 **To launch an instance that uses the Systems Manager instance profile \(console\)**
 
@@ -39,7 +39,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 1. Choose the type of instance to launch, such as **t2\.micro**, and then choose **Next: Configure Instance Details**\.
 
-1. On the **Configure Instance Details** page, in the **IAM role** drop\-down list, select the instance profile you created using the procedure in [Step 4: Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+1. On the **Configure Instance Details** page, in the **IAM role** drop\-down list, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. For other options on the page, make selections that meet your requirements for the instance\. For more information, choose one of the following, depending on your selected operating system type:
    + **Linux**: [Launching an Instance Using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
@@ -49,7 +49,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 If you create other instances that you want to configure using Systems Manager, you must specify the instance profile for each instance\.
 
-## Attach the Systems Manager Instance Profile to an Existing Instance \(Console\)<a name="setup-launch-managed-instance-existing"></a>
+## Attach the Systems Manager instance profile to an existing instance \(console\)<a name="setup-launch-managed-instance-existing"></a>
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -59,10 +59,10 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. In the **Actions** menu, choose **Instance Settings**, **Attach/Replace IAM Role**\.
 
-1. For **IAM role**, select the instance profile you created using the procedure in [Step 4: Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
+1. For **IAM role**, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. Choose **Apply**\.
 
 For more information about attaching IAM roles to instances, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*\.
 
-Continue to [Step 6: \(Optional\) Create a Virtual Private Cloud Endpoint](setup-create-vpc.md)\.
+Continue to [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.

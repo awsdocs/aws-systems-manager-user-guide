@@ -1,4 +1,4 @@
-# Walkthrough: Use Resource Data Sync to Aggregate Inventory Data<a name="sysman-inventory-resource-data-sync"></a>
+# Walkthrough: Use Resource Data Sync to aggregate inventory data<a name="sysman-inventory-resource-data-sync"></a>
 
 The following walkthrough describes how to create a resource data sync configuration by using the AWS CLI\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon S3 bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 
@@ -6,7 +6,7 @@ The following walkthrough describes how to create a resource data sync configura
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
-Before you start this walkthrough, you must collect inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect inventory metadata, see [Walkthrough: Configure Your Managed Instances for Inventory by Using the CLI](sysman-inventory-cliwalk.md)\.
+Before you start this walkthrough, you must collect inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect inventory metadata, see [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
 
 \(Optional\) If you want to encrypt the sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\.
 
@@ -30,7 +30,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 }
 ```
 
-**To create a resource data sync for Inventory**
+**To create a Resource Data Sync for Inventory**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -97,7 +97,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 

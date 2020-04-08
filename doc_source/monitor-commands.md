@@ -1,4 +1,4 @@
-# Understanding Command Statuses<a name="monitor-commands"></a>
+# Understanding command statuses<a name="monitor-commands"></a>
 
 Systems Manager Run Command reports detailed status information about the different states a command experiences during processing and for each instance that processed the command\. You can monitor command statuses using the following methods\.
 + Click the **Refresh** icon on the **Run Command** page in the Amazon EC2 console\.
@@ -6,19 +6,19 @@ Systems Manager Run Command reports detailed status information about the differ
 + Configure CloudWatch Events to log status changes\.
 + Configure Amazon SNS to send notifications for all status changes or specific statuses like Failed or TimedOut\.
 
-## Run Command Status<a name="monitor-about-status"></a>
+## Run Command status<a name="monitor-about-status"></a>
 
-Run Command reports status details for three areas: plugins, invocations, and an overall command status\. A *plugin* is a code\-execution block that is defined in your command's Systems Manager \(SSM\) document\. For more information about plugins, see [SSM Document Plugin Reference](ssm-plugins.md)\.
+Run Command reports status details for three areas: plugins, invocations, and an overall command status\. A *plugin* is a code\-execution block that is defined in your command's Systems Manager \(SSM\) document\. For more information about plugins, see [SSM document plugin reference](ssm-plugins.md)\.
 
 When you send a command to multiple instances at the same time, each copy of the command targeting each instance is a *command invocation*\. For example, if you use the AWS\-RunShellScript document and send an `ifconfig` command to 20 instances, that command has 20 invocations\. Each command invocation individually reports status\. The plugins for a given command invocation individually report status as well\. 
 
 Lastly, Run Command includes an aggregated command status for all plugins and invocations\. The aggregated command status can be different than the status reported by plugins or invocations, as noted in the following tables\.
 
 **Note**  
-If you run commands to large numbers of instances using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Using Targets and Rate Controls to Send Commands to a Fleet](send-commands-multiple.md)\.
+If you run commands to large numbers of instances using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Using targets and rate controls to send commands to a fleet](send-commands-multiple.md)\.
 
 
-**Detailed Status for Command Plugins and Invocations**  
+**Detailed status for command plugins and invocations**  
 
 | Status | Details | 
 | --- | --- | 
@@ -36,7 +36,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Access Denied | The IAM user or role initiating the command does not have access to the targeted managed instance\. AccessDenied does not count against the parent command’s max\-errors limit, but does contribute to whether the parent command status is Success or Failed\. \(For example, if all invocations in a command have the status AccessDenied, then the command status returned is Failed\. However, if a command has 5 invocations, 4 of which return the status AccessDenied and 1 of which returns the status Success, then the parent command's status is Success\.\) This is a terminal state\. | 
 
 
-**Detailed Status for a Command**  
+**Detailed status for a command**  
 
 | Status | Details | 
 | --- | --- | 
@@ -53,7 +53,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Access Denied | The IAM user or role initiating the command does not have access to the targeted resource group\. AccessDenied does not count against the parent command’s max\-errors limit, but does contribute to whether the parent command status is Success or Failed\. \(For example, if all invocations in a command have the status AccessDenied, then the command status returned is Failed\. However, if a command has 5 invocations, 4 of which return the status AccessDenied and 1 of which returns the status Success, then the parent command's status is Success\.\) This is a terminal state\. | 
 | No Instances In Tag | The tag key\-pair value or resource group targeted by the command does not match any managed instances\. This is a terminal state\. | 
 
-## Understanding Command Timeout Values<a name="monitor-about-status-timeouts"></a>
+## Understanding command timeout values<a name="monitor-about-status-timeouts"></a>
 
 Systems Manager enforces the following timeout values when running commands\.
 

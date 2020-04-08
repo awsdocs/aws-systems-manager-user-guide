@@ -1,4 +1,4 @@
-# Reference: Maintenance Windows Scheduling and Active Period Options<a name="maintenance-windows-schedule-options"></a>
+# Reference: Maintenance window scheduling and active period options<a name="maintenance-windows-schedule-options"></a>
 
 When you create a maintenance window, you must specify how often the maintenance window runs by using a [Cron or Rate expression](reference-cron-and-rate-expressions.md)\. Optionally, you can specify a date range during which the maintenance window can run on its regular schedule, as well as a time zone on which to base that regular schedule\. 
 
@@ -58,9 +58,9 @@ aws ssm create-maintenance-window --name "My-One-Time-Maintenance-Window" --sche
 This maintenance window runs just once, at 3:55 PM UTC time on July 7, 2020\. The maintenance window is enabled to run up to five hours, as needed, but new tasks are prevented from starting two hours before the end of the maintenance window period\.
 
 **Related Content**
-+ [Reference: Cron and Rate Expressions for Systems Manager](reference-cron-and-rate-expressions.md)
-+ [Create a Maintenance Window \(Console\)](sysman-maintenance-create-mw.md)
-+ [Tutorial: Create and Configure a Maintenance Window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
++ [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
++ [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)
++ [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
 + [CreateMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateMaintenanceWindow.html) in the *AWS Systems Manager API Reference*
 + [create\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-maintenance-window.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*
 + [Time Zone Database](https://www.iana.org/time-zones) on the IANA website

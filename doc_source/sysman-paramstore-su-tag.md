@@ -1,17 +1,17 @@
-# Tagging Systems Manager Parameters<a name="sysman-paramstore-su-tag"></a>
+# Tagging Systems Manager parameters<a name="sysman-paramstore-su-tag"></a>
 
 You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
-Tags are used to organize parameters\. For example, you can tag parameters for specific environments, departments, or users and groups\. After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags that the user can access\. For more information about restricting access to parameters by using tags, see [Controlling Access to Parameters Using Tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)\.
+Tags are used to organize parameters\. For example, you can tag parameters for specific environments, departments, or users and groups\. After you tag a parameter, you can restrict access to it by creating an IAM policy that specifies the tags that the user can access\. For more information about restricting access to parameters by using tags, see [Controlling access to parameters using tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)\.
 
-For information about the Regions where Systems Manager is available, see [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+For information about the Regions where Systems Manager is available, see [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 **Topics**
-+ [Tag a Parameter \(Console\)](#sysman-paramstore-su-tag-sys)
-+ [Tag a Parameter \(AWS CLI\)](#sysman-paramstore-su-tag-cli)
-+ [Tag a Parameter \(AWS Tools for PowerShell\)](#sysman-paramstore-su-tag-tfw)
++ [Tag a parameter \(console\)](#sysman-paramstore-su-tag-sys)
++ [Tag a parameter \(AWS CLI\)](#sysman-paramstore-su-tag-cli)
++ [Tag a parameter \(AWS Tools for PowerShell\)](#sysman-paramstore-su-tag-tfw)
 
-## Tag a Parameter \(Console\)<a name="sysman-paramstore-su-tag-sys"></a>
+## Tag a parameter \(console\)<a name="sysman-paramstore-su-tag-sys"></a>
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -25,11 +25,11 @@ For information about the Regions where Systems Manager is available, see [Syste
 
 1. Choose **Save**\.
 
-## Tag a Parameter \(AWS CLI\)<a name="sysman-paramstore-su-tag-cli"></a>
+## Tag a parameter \(AWS CLI\)<a name="sysman-paramstore-su-tag-cli"></a>
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to list parameters that you can tag\.
 
@@ -53,9 +53,9 @@ For information about the Regions where Systems Manager is available, see [Syste
    aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the_parameter_name"
    ```
 
-## Tag a Parameter \(AWS Tools for PowerShell\)<a name="sysman-paramstore-su-tag-tfw"></a>
+## Tag a parameter \(AWS Tools for PowerShell\)<a name="sysman-paramstore-su-tag-tfw"></a>
 
-1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager Prerequisites](systems-manager-prereqs.md)\.
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2 or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey key_name –SecretKey key_name
@@ -67,7 +67,7 @@ For information about the Regions where Systems Manager is available, see [Syste
    Set-DefaultAWSRegion -Region region
    ```
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Run the following command to list parameters that you can tag\.
 

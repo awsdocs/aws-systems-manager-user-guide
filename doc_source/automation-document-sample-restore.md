@@ -1,4 +1,4 @@
-# Restore a Root Volume from the Latest Snapshot<a name="automation-document-sample-restore"></a>
+# Restore a root volume from the latest snapshot<a name="automation-document-sample-restore"></a>
 
 The operating system on a root volume can become corrupted for various reasons\. For example, following a patching operation, instances may fail to boot successfully due to a corrupted kernel or registry\. Automating common troubleshooting tasks, like restoring a root volume from the latest snapshot taken before the patching operation, can reduce downtime and expedite your troubleshooting efforts\. AWS Systems Manager Automation actions can help you accomplish this\.
 

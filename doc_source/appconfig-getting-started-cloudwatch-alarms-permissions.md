@@ -1,16 +1,16 @@
-# \(Optional\) Configuring Permissions for Rollback Based on CloudWatch Alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions"></a>
+# \(Optional\) Configuring permissions for rollback based on CloudWatch alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions"></a>
 
 You can configure AWS AppConfig to roll back to a previous version of a configuration in response to one or more Amazon CloudWatch alarms\. When you configure a deployment to respond to CloudWatch alarms, you specify an AWS Identity and Access Management \(IAM\) role\. AppConfig requires this role so that it can monitor CloudWatch alarms even if those alarms weren't created in the current AWS account\.
 
 Use the following procedures to create an IAM role that enables AppConfig to rollback based on CloudWatch alarms\. This section includes the following procedures\.
 
-1. [Step 1: Create the Permission Policy for Rollback Based on CloudWatch Alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-policy)
+1. [Step 1: Create the permission policy for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-policy)
 
-1. [Step 2: Create the IAM Role for Rollback Based on CloudWatch Alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-role)
+1. [Step 2: Create the IAM role for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-role)
 
-1. [Step 3: Add a Trust Relationship](#appconfig-getting-started-cloudwatch-alarms-permissions-trust)
+1. [Step 3: Add a trust relationship](#appconfig-getting-started-cloudwatch-alarms-permissions-trust)
 
-## Step 1: Create the Permission Policy for Rollback Based on CloudWatch Alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions-policy"></a>
+## Step 1: Create the permission policy for rollback based on CloudWatch alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions-policy"></a>
 
 Use the following procedure to create an IAM policy that gives AppConfig permission to call the `DescribeAlarms` API action\. 
 
@@ -43,7 +43,7 @@ Use the following procedure to create an IAM policy that gives AppConfig permiss
 
 1. Choose **Create policy**\. The system returns you to the **Policies** page\.
 
-## Step 2: Create the IAM Role for Rollback Based on CloudWatch Alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions-role"></a>
+## Step 2: Create the IAM role for rollback based on CloudWatch alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions-role"></a>
 
 Use the following procedure to create an IAM role and assign the policy you created in the previous procedure to it\. 
 
@@ -89,7 +89,7 @@ Use the following procedure to create an IAM role and assign the policy you crea
 
 1. On the **Roles** page, choose the role you just created\. The **Summary** page opens\. 
 
-## Step 3: Add a Trust Relationship<a name="appconfig-getting-started-cloudwatch-alarms-permissions-trust"></a>
+## Step 3: Add a trust relationship<a name="appconfig-getting-started-cloudwatch-alarms-permissions-trust"></a>
 
 Use the following procedure to configure the role you just created to trust AppConfig\.
 

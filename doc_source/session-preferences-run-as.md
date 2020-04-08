@@ -1,4 +1,4 @@
-# Enable Run As Support for Linux Instances<a name="session-preferences-run-as"></a>
+# Enable run as support for Linux instances<a name="session-preferences-run-as"></a>
 
 By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system account\. Session Manager provides two methods for specifying the operating system account to use\.
 
@@ -31,7 +31,7 @@ If you enable Run As support for sessions, the system checks for access permissi
 
    At this point, Session Manager does not fall back on the default `ssm-user` account\. In other words, enabling Run As support prevents sessions from being started using an `ssm-user` account on an instance\.
 
-**To enable Run As support for Linux instances**
+**To enable run as support for Linux instances**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

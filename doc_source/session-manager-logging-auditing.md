@@ -1,4 +1,4 @@
-# Auditing and Logging Session Activity<a name="session-manager-logging-auditing"></a>
+# Auditing and logging session activity<a name="session-manager-logging-auditing"></a>
 
 In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with options for auditing and logging session activity in your AWS account\. This allows you to do the following:
 + Create and store session logs for archival purposes\.
@@ -6,24 +6,23 @@ In addition to providing information about current and completed sessions in the
 + Generate notifications of session activity in your AWS account, such as Amazon Simple Notification Service \(Amazon SNS\) notifications\.
 + Automatically initiate another action on an AWS resource as the result of session activity, such as running an AWS Lambda function, starting an AWS CodePipeline pipeline, or running an AWS Systems Manager Run Command document\.
 
-**Note**  
-If you are using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.  
+**Important**  
+Take note of the following requirements and limitations for Session Manager\.  
+If you are using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.
 If you are using Linux instances, ensure that the screen utility is installed\. If it is not, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
+Logging and auditing are not available for Session Manager sessions that connect through SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
-**Limitations**  
-Auditing and logging is not available for SSH/SCP over session manager. This may be added in a future release\.
-
-For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an Instance Profile with Permissions for Session Manager and Amazon S3 and CloudWatch Logs \(Console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
+For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
 
 Refer to the following topics for more information about auditing and logging options for Session Manager\.
 
-## Audit Session Activity Using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
+## Audit session activity using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
 
 AWS CloudTrail captures session API calls through the Systems Manager console, the AWS CLI, and the Systems Manager SDK\. The information can be viewed on the CloudTrail console or stored in a specified Amazon S3 bucket\. One bucket is used for all CloudTrail logs for your account\. 
 
-For more information, see [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
+For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
 
-## Logging Session Data Using Amazon S3 \(Console\)<a name="session-manager-logging-auditing-s3"></a>
+## Logging session data using Amazon S3 \(console\)<a name="session-manager-logging-auditing-s3"></a>
 
 You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
@@ -39,7 +38,7 @@ If you are using an AWS KMS customer master key \(CMK\) that you manage yourself
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
 
 **To log session data using Amazon S3 \(console\)**
 
@@ -65,14 +64,14 @@ We recommend that you do not use periods \("\."\) in bucket names when using vir
 
 For more information about working with Amazon S3 and S3 buckets, see the *[Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service Console User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
 
-## Logging Session Data Using Amazon CloudWatch Logs \(Console\)<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
+## Logging session data using Amazon CloudWatch Logs \(console\)<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
 
 Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can stream the data to your log group with or without encryption\. 
 
 Follow these steps to configure Session Manager to stream session log data to a CloudWatch Logs log group\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager Preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
 
 **To log session data using Amazon CloudWatch Logs \(console\)**
 
@@ -94,7 +93,7 @@ You can also use the AWS CLI to specify or change the CloudWatch Logs log group 
 
 For more information about working with CloudWatch Logs, see the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 
-## Monitoring Session Activity Using Amazon CloudWatch Events \(Console\)<a name="session-manager-logging-auditing-cloudwatch-events"></a>
+## Monitoring session activity using Amazon CloudWatch Events \(console\)<a name="session-manager-logging-auditing-cloudwatch-events"></a>
 
 CloudWatch Events lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 

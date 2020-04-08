@@ -9,26 +9,26 @@ Patch Manager uses *patch baselines*, which include rules for auto\-approving pa
 
 Patch Manager integrates with AWS Identity and Access Management \(IAM\), AWS CloudTrail, and Amazon CloudWatch Events to provide a secure patching experience that includes event notifications and the ability to audit usage\.
 
-For information about using CloudTrail to monitor Systems Manager actions, see [Logging AWS Systems Manager API Calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
+For information about using CloudTrail to monitor Systems Manager actions, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 
-For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager Events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
 **Getting Started with Patch Manager**  
 To get started with Patch Manager, complete the tasks described in the following table\.
 
 
-| Task | For More Information | 
+| Task | For more information | 
 | --- | --- | 
-|  Verify Systems Manager prerequisites  |  [Systems Manager Prerequisites](systems-manager-prereqs.md)  | 
-|  Learn how to set up and configure patching  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
-| Configure permissions for Maintenance Windows\(Required if you intend to use this feature when patching\.\) | [Controlling Access to Maintenance Windows](sysman-maintenance-permissions.md) | 
-|  Create patch baselines, patch groups, and a maintenance window to run patching in a test environment  |  [Working with Patch Manager \(Console\)](sysman-patch-working.md)  | 
+|  Verify Systems Manager prerequisites  |  [Systems Manager prerequisites](systems-manager-prereqs.md)  | 
+|  Learn how to set up and configure patching  |  [Working with Patch Manager \(console\)](sysman-patch-working.md)  | 
+| Configure permissions for Maintenance Windows\(Required if you intend to use this feature when patching\.\) | [Controlling access to maintenance windows](sysman-maintenance-permissions.md) | 
+|  Create patch baselines, patch groups, and a maintenance window to run patching in a test environment  |  [Working with Patch Manager \(console\)](sysman-patch-working.md)  | 
 
 **Topics**
-+ [Patch Manager Prerequisites](patch-manager-prerequisites.md)
-+ [How Patch Manager Operations Work](patch-manager-how-it-works.md)
-+ [About Patching Operations](about-patching-operations.md)
-+ [About Patch Baselines](about-patch-baselines.md)
-+ [Working with Patch Manager \(Console\)](sysman-patch-working.md)
-+ [Tutorial: Patch a Server Environment \(Command Line\)](sysman-patch-cliwalk.md)
-+ [AWS CLI Commands for Patch Manager](patch-manager-cli-commands.md)
++ [Patch Manager prerequisites](patch-manager-prerequisites.md)
++ [How Patch Manager operations work](patch-manager-how-it-works.md)
++ [About patching operations](about-patching-operations.md)
++ [About patch baselines](about-patch-baselines.md)
++ [Working with Patch Manager \(console\)](sysman-patch-working.md)
++ [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)
++ [AWS CLI commands for Patch Manager](patch-manager-cli-commands.md)

@@ -1,8 +1,8 @@
-# Step 2: Register a Target Instance with the Maintenance Window \(AWS CLI\)<a name="mw-cli-tutorial-targets"></a>
+# Step 2: Register a target instance with the maintenance window \(AWS CLI\)<a name="mw-cli-tutorial-targets"></a>
 
 In this step, you register a target with your new maintenance window\. In this case, you specify which instance to update when the maintenance window runs\. 
 
-For an example of registering more than one instance at a time using instance IDs, examples of using tags to identify multiple instances, and examples of specifying resource groups as targets, see [Examples: Register Targets with a Maintenance Window](mw-cli-tutorial-targets-examples.md)\.
+For an example of registering more than one instance at a time using instance IDs, examples of using tags to identify multiple instances, and examples of specifying resource groups as targets, see [Examples: Register targets with a maintenance window](mw-cli-tutorial-targets-examples.md)\.
 
 **Note**  
 You should already have created an Amazon EC2 instance to use in this step, as described in the [Maintenance Windows tutorial prerequisites](maintenance-windows-tutorials.md)\.
@@ -83,4 +83,4 @@ You should already have created an Amazon EC2 instance to use in this step, as d
    }
    ```
 
-Continue to [Step 3: Register a Task with the Maintenance Window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. 
+Continue to [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. 

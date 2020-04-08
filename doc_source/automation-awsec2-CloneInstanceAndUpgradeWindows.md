@@ -28,12 +28,12 @@ Amazon
 Windows Server 2008 R2 and 2012 R2 Standard and Datacenter editions
 
 **Prerequisites**
-+ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and Configuring SSM Agent on Windows Instances](sysman-install-ssm-win.md)\.
++ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on Windows instances](sysman-install-ssm-win.md)\.
 + You must specify a different VPC or subnet ID for the cloned instance\. If you don't, Systems Manager creates a new instance with the same name in the current VPC or subnet\. This results in a name conflict\.
 + The subnet ID specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
 + This Automation works only with Windows Server 2008 R2 and Windows Server 2012 R2 instances\.
 + This Automation works only on instances with an unencrypted EBS root volume\. If the specified instance has an encrypted root volume, the Automation workflow fails\.
-+ Configure the Windows Server instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM Instance Profile for Systems Manager](setup-instance-profile.md)\.
++ Configure the Windows Server instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the boot disk\.
 + If the instance does not use an AWS\-provided Windows license, then specify an Amazon EBS snapshot ID that includes Windows Server 2012 R2 installation media\. To do this:
   + Verify that the Amazon EC2 instance is running Windows Server 2012 or later\.

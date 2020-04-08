@@ -1,4 +1,4 @@
-# Automation System Variables<a name="automation-variables"></a>
+# Automation system variables<a name="automation-variables"></a>
 
 Systems Manager Automation documents use the following variables\. For an example of how these variables are used, view the JSON source of the `AWS-UpdateWindowsAmi` document\. 
 
@@ -37,8 +37,8 @@ Automation documents currently support the following automation variables\.
 
 **Topics**
 + [Terminology](#automation-terms)
-+ [Supported Scenarios](#automation-variables-support)
-+ [Unsupported Scenarios](#automation-variables-unsupported)
++ [Supported scenarios](#automation-variables-support)
++ [Unsupported scenarios](#automation-variables-unsupported)
 
 ## Terminology<a name="automation-terms"></a>
 
@@ -55,7 +55,7 @@ The following terms describe how variables and parameters are resolved\.
 |  Automation variable  |  A variable relating to the automation execution substituted into the document when any part of the document is evaluated\.  |  <pre>{ <br />   "name": "runFixedCmds",<br />   "action": "aws:runCommand",<br />   "maxAttempts": 1,<br />   "onFailure": "Continue",<br />   "inputs": { <br />      "DocumentName": "AWS-RunPowerShellScript",<br />      "InstanceIds": [ <br />         "{{LaunchInstance.InstanceIds}}"<br />      ],<br />      "Parameters": { <br />         "commands": [ <br />            "dir",<br />            "date",<br />            "“{{outputFormat}}” -f “left”,”right”,”{{global:DATE}}”,”{{automation:EXECUTION_ID}}”<br />         ]<br />      }<br />   }<br />}</pre>  | 
 |  SSM Parameter  |  A variable defined within Parameter Store\. It cannot be directly referenced in step input\. Permissions might be required to access the parameter\.  |  <pre><br />description: Launch new Windows test instance<br />schemaVersion: '0.3'<br />assumeRole: '{{AutomationAssumeRole}}'<br />parameters:<br />  AutomationAssumeRole:<br />    type: String<br />    default: ''<br />    description: >-<br />      (Required) The ARN of the role that allows Automation to perform the<br />      actions on your behalf. If no role is specified, Systems Manager<br />      Automation uses your IAM permissions to execute this document.<br />  LatestAmi:<br />    type: String<br />    default: >-<br />      {{ssm:/aws/service/ami-windows-latest/Windows_Server-2016-English-Full-Base}}<br />    description: The latest Windows Server 2016 AMI queried from the public parameter.<br />mainSteps:<br />  - name: launchInstance<br />    action: 'aws:runInstances'<br />    maxAttempts: 3<br />    timeoutSeconds: 1200<br />    onFailure: Abort<br />    inputs:<br />      ImageId: '{{LatestAmi}}'<br />...</pre>  | 
 
-## Supported Scenarios<a name="automation-variables-support"></a>
+## Supported scenarios<a name="automation-variables-support"></a>
 
 
 ****  
@@ -70,7 +70,7 @@ The following terms describe how variables and parameters are resolved\.
 |  Automation variable referenced within step definition\.  |  Automation variables do not need to be set in the parameter list of the document\. The only supported Automation variable is **automation:EXECUTION\_ID**\.  |  <pre>...<br />"mainSteps": [<br />    {<br />      "name": "invokeLambdaFunction",<br />      "action": "aws:invokeLambdaFunction",<br />      "maxAttempts": 1,<br />      "onFailure": "Continue",<br />      "inputs": {<br />        "FunctionName": "Hello-World-LambdaFunction",<br /><br />"Payload" : "{ "executionId" : "{{automation:EXECUTION_ID}}" }"<br />      }<br />    }<br />... </pre>  | 
 |  Refer to output from previous step within next step definition\.  |  This is parameter redirection\. The output of a previous step is referenced using the syntax `{{stepName.OutputName}}`\. This syntax cannot be used by the customer for document parameters\. This is resolved at the time of execution for the referring step\. The parameter is not listed in the parameters of the document\.  |  <pre>...<br />"mainSteps": [<br />    {<br />      "name": "LaunchInstance",<br />      "action": "aws:runInstances",<br />      "maxAttempts": 1,<br />      "onFailure": "Continue",<br />      "inputs": {<br />        "ImageId": "{{amiId}}",<br />        "MinInstanceCount": 1,<br />        "MaxInstanceCount": 2<br />      }<br />    },<br />    {<br />      "name":"changeState",<br />      "action": "aws:changeInstanceState",<br />      "maxAttempts": 1,<br />      "onFailure": "Continue",<br />      "inputs": {<br />        "InstanceIds": ["{{LaunchInstance.InstanceIds}}"],<br />        "DesiredState": "terminated"<br />      }<br />    }<br /><br />... </pre>  | 
 
-## Unsupported Scenarios<a name="automation-variables-unsupported"></a>
+## Unsupported scenarios<a name="automation-variables-unsupported"></a>
 
 
 ****  

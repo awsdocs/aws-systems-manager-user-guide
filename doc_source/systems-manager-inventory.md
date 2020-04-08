@@ -14,8 +14,8 @@ The following table lists the types of metadata that you can collect with System
 
 | Configuration | Details | 
 | --- | --- | 
-|  Metadata types  | You can configure Inventory to collect the following types of metadata: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html)  To view a list of all metadata collected by Inventory, see [Metadata Collected by Inventory](sysman-inventory-schema.md)\.   | 
-|  Instances to collect information from  |  You can choose to inventory all instances in your AWS account, individually select instances, or target groups of instances by using Amazon EC2 tags\. For more information about performing inventory collection on all of your instances, see [Inventory All Managed Instances in Your AWS Account](sysman-inventory-configuring.md#inventory-management-inventory-all)\.  | 
+|  Metadata types  | You can configure Inventory to collect the following types of metadata: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html)  To view a list of all metadata collected by Inventory, see [Metadata collected by inventory](sysman-inventory-schema.md)\.   | 
+|  Instances to collect information from  |  You can choose to inventory all instances in your AWS account, individually select instances, or target groups of instances by using Amazon EC2 tags\. For more information about performing inventory collection on all of your instances, see [Inventory all managed instances in your AWS account](sysman-inventory-configuring.md#inventory-management-inventory-all)\.  | 
 |  When to collect information  |  You can specify a collection interval in terms of minutes, hours, and days\. The shortest collection interval is every 30 minutes\.   | 
 
 **Note**  
@@ -28,14 +28,14 @@ You can view the data in the AWS Systems Manager console on the **Inventory** pa
 **Note**  
 Inventory cards automatically filter out Amazon EC2 managed instances with a state of *Terminated* and *Stopped*\. For on\-premises managed instances, Inventory cards automatically filter out instances with a state of *Terminated*\. 
 
-If you create a resource data sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying Inventory Data from Multiple Regions and Accounts](systems-manager-inventory-query.md)\.
+If you create a resource data sync to synchronize and store all of your data in a single Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md)\.
 
 **Topics**
-+ [Learn More About Systems Manager Inventory](sysman-inventory-about.md)
++ [Learn more about Systems Manager Inventory](sysman-inventory-about.md)
 + [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)
-+ [Configuring Inventory Collection](sysman-inventory-configuring.md)
-+ [Working with Systems Manager Inventory Data](systems-manager-inventory-data-working.md)
-+ [Working with Custom Inventory](sysman-inventory-custom.md)
-+ [Viewing Inventory History and Change Tracking](sysman-inventory-history.md)
-+ [Systems Manager Inventory Walkthroughs](sysman-inventory-walk.md)
-+ [Troubleshooting Problems with Systems Manager Inventory](syman-inventory-troubleshooting.md)
++ [Configuring inventory collection](sysman-inventory-configuring.md)
++ [Working with Systems Manager inventory data](systems-manager-inventory-data-working.md)
++ [Working with custom inventory](sysman-inventory-custom.md)
++ [Viewing inventory history and change tracking](sysman-inventory-history.md)
++ [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)
++ [Troubleshooting problems with Systems Manager Inventory](syman-inventory-troubleshooting.md)

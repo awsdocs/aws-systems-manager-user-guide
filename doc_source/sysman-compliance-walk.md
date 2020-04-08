@@ -1,12 +1,12 @@
-# Configuration Compliance Walkthrough \(AWS CLI\)<a name="sysman-compliance-walk"></a>
+# Configuration Compliance walkthrough \(AWS CLI\)<a name="sysman-compliance-walk"></a>
 
-The following procedure walks you through the process of using the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to assign custom compliance metadata to a resource\. You can also use this API action to manually assign patch or association compliance metadata to an instance, as shown in the following walkthrough\. For more information about custom compliance, see [About Custom Compliance](sysman-compliance-about.md#sysman-compliance-custom)\.
+The following procedure walks you through the process of using the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to assign custom compliance metadata to a resource\. You can also use this API action to manually assign patch or association compliance metadata to an instance, as shown in the following walkthrough\. For more information about custom compliance, see [About custom compliance](sysman-compliance-about.md#sysman-compliance-custom)\.
 
 **To assign custom compliance metadata to a managed instance \(AWS CLI\)**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
-   For information, see [Install or Upgrade AWS Command Line Tools](getting-started-cli.md)\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to assign custom compliance metadata to an instance\. Currently the only supported resource type is `ManagedInstance`\.
 

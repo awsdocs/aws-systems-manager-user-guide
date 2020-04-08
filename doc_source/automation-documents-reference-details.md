@@ -1,4 +1,4 @@
-# Systems Manager Automation Document Details Reference<a name="automation-documents-reference-details"></a>
+# Systems Manager Automation document details reference<a name="automation-documents-reference-details"></a>
 
 This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
 

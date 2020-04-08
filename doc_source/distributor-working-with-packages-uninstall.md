@@ -1,12 +1,12 @@
-# Uninstall a Package<a name="distributor-working-with-packages-uninstall"></a>
+# Uninstall a package<a name="distributor-working-with-packages-uninstall"></a>
 
 You can use the AWS Management Console or the AWS CLI to uninstall Distributor packages from your AWS Systems Manager managed instances by using Run Command\. In this release, you can uninstall one version of one package per command\. You can uninstall a specific version or the default version\.
 
 **Topics**
-+ [Uninstalling a Package \(Console\)](#distributor-pkg-uninstall-console)
-+ [Uninstalling a Package \(AWS CLI\)](#distributor-pkg-uninstall-cli)
++ [Uninstalling a package \(console\)](#distributor-pkg-uninstall-console)
++ [Uninstalling a package \(AWS CLI\)](#distributor-pkg-uninstall-cli)
 
-## Uninstalling a Package \(Console\)<a name="distributor-pkg-uninstall-console"></a>
+## Uninstalling a package \(console\)<a name="distributor-pkg-uninstall-console"></a>
 
 You can use Run Command in the AWS Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to uninstall packages\.
 
@@ -36,7 +36,7 @@ You can use Run Command in the AWS Systems Manager console to uninstall a packag
 
 1. Choose **View output**\. The command output page shows the results of your command execution\.
 
-## Uninstalling a Package \(AWS CLI\)<a name="distributor-pkg-uninstall-cli"></a>
+## Uninstalling a package \(AWS CLI\)<a name="distributor-pkg-uninstall-cli"></a>
 
 You can use the AWS CLI to uninstall a Distributor package from managed instances by using Run Command\.
 
