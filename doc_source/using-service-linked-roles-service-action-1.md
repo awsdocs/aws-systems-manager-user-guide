@@ -38,7 +38,7 @@ The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Sy
 
 ## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
 
-You can use the IAM console to create a service\-linked role with the **AWS Service Role for AWS Systems Manager** use cases \(Inventory and Maintenance Windows\)\. In the IAM CLI or the IAM API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
+You can use the IAM console to create a service\-linked role with the **EC2** use case\. In the IAM CLI or the IAM API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
 
 For maintenance windows only, you don't need to manually create a service\-linked role\. When you create a maintenance window task in the AWS Management Console, the AWS CLI, or the Systems Manager API, Systems Manager creates the service\-linked role for you if you choose not to provide a custom service role\.
 
