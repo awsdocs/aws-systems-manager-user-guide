@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified Amazon EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling SSM Agent\. If SSM Agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided Amazon EC2 instance be stopped and then started\.
+The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling SSM Agent\. If SSM Agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\. Note: Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided EC2 instance be stopped and then started\.
 
 **Note**  
 This document will fail on a domain controller\. To update AWS PV drivers on a domain controller, see [Upgrade a Domain Controller \(AWS PV Upgrade\)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Upgrading_PV_drivers.html#aws-pv-upgrade-dc)\.
@@ -24,7 +24,7 @@ Windows
 
   Type: String
 
-  Description: \(Required\) ID of your Amazon EC2 Windows instance\.
+  Description: \(Required\) ID of your EC2 instance for Windows Server\.
 + AllowOffline
 
   Type: String

@@ -1,6 +1,6 @@
 # Supported operating systems<a name="prereqs-operating-systems"></a>
 
-Your Amazon EC2 instances, on\-premises servers, and virtual machines \(VMs\) must be running one of the following operating systems in order to be used with AWS Systems Manager\.
+Your EC2 instances, on\-premises servers, and virtual machines \(VMs\) must be running one of the following operating systems in order to be used with AWS Systems Manager\.
 
 **Topics**
 + [Windows Server](#prereqs-os-windows-server)

@@ -1,13 +1,13 @@
 # How patches are installed<a name="patch-manager-how-it-works-installation"></a>
 
-Patch Manager uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
+Patch Manager uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows Server, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
 
 Choose from the following tabs to learn how Patch Manager installs patches on an operating system\.
 
 ------
 #### [ Windows ]
 
-When a patching operation is performed on a Windows instance, the instance requests a snapshot of the appropriate patch baseline from Systems Manager\. This snapshot contains the list of all updates available in the patch baseline that have been approved for deployment\. This list of updates is sent to the Windows Update API, which determines which of the updates are applicable to the instance and installs them as needed\. If any updates are installed, the instance is rebooted afterwards, as many times as necessary to complete all necessary patching\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\) The summary of the patching operation can be found in the output of the Run Command request\. Additional logs can be found on the instance in the `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` folder\.
+When a patching operation is performed on a Windows Server instance, the instance requests a snapshot of the appropriate patch baseline from Systems Manager\. This snapshot contains the list of all updates available in the patch baseline that have been approved for deployment\. This list of updates is sent to the Windows Update API, which determines which of the updates are applicable to the instance and installs them as needed\. If any updates are installed, the instance is rebooted afterwards, as many times as necessary to complete all necessary patching\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\) The summary of the patching operation can be found in the output of the Run Command request\. Additional logs can be found on the instance in the `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` folder\.
 
 Because the Windows Update API is used to download and install patches, all Group Policy settings for Windows Update are respected\. No Group Policy settings are required to use Patch Manager, but any settings that you have defined will be applied, such as to direct instances to a Windows Server Update Services \(WSUS\) server\.
 
@@ -85,7 +85,7 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
 
 On Ubuntu Server instances, the patch installation workflow is as follows:
 
-1.  Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
+1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\. In addition, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\.
 **Note**  

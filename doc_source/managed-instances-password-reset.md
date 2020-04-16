@@ -62,7 +62,7 @@ To use the AWS CLI to reset a password, the Session Manager plugin must be insta
 
 ## Troubleshoot password resets on managed instances<a name="password-reset-troubleshooting"></a>
 
-Many password reset issues can be resolved by ensuring that you have completed the [Password Reset Prerequisites](#pw-reset-prereqs)\. For other problems, use the following information to help you troubleshoot password reset issues\.
+Many password reset issues can be resolved by ensuring that you have completed the [password reset prerequisites](#pw-reset-prereqs)\. For other problems, use the following information to help you troubleshoot password reset issues\.
 
 **Topics**
 + [Instance not available](#password-reset-troubleshooting-instances)
@@ -73,8 +73,8 @@ Many password reset issues can be resolved by ensuring that you have completed t
 
 ### Instance not available<a name="password-reset-troubleshooting-instances"></a>
 
-**Problem**: You want to reset the password for an Amazon EC2 instance on the **Managed instances** console page, but the instance is not in the list\.
-+ **Solution**: The instance you want to connect to might not be configured to use with the AWS Systems Manager service\. To use an Amazon EC2 instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, you must create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
+**Problem**: You want to reset the password for an EC2 instance on the **Managed instances** console page, but the instance is not in the list\.
++ **Solution**: The instance you want to connect to might not be configured to use with the AWS Systems Manager service\. To use an EC2 instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, you must create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
 
 ### SSM Agent not up\-to\-date \(console\)<a name="password-reset-troubleshooting-ssmagent-console"></a>
 

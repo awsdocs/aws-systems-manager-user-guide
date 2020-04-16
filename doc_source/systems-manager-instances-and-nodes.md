@@ -1,6 +1,6 @@
 # AWS Systems Manager Instances & Nodes<a name="systems-manager-instances-and-nodes"></a>
 
-AWS Systems Manager provides the following capabilities for managing your Amazon EC2 instances, your on\-premises servers and virtual machines \(VMs\) in your hybrid environment, and other types of AWS resources \(nodes\)\. 
+AWS Systems Manager provides the following capabilities for managing your EC2 instances, your on\-premises servers and virtual machines \(VMs\) in your hybrid environment, and other types of AWS resources \(nodes\)\. 
 
 **Topics**
 + [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)

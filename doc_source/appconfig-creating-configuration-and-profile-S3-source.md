@@ -24,7 +24,7 @@ Permissions to list the Amazon S3 Buckets
 
 s3:ListAllMyBuckets
 
-Permissions to access the Amazon S3 bucket where the object is stored
+Permissions to access the S3 bucket where the object is stored
 + s3:GetBucketLocation
 + s3:GetBucketVersioning
 + s3:ListBucket
@@ -43,7 +43,7 @@ Use the following procedure to create an IAM policy that enables AppConfig to ge
 
 1. On the **Create policy** page, choose the **JSON** tab\.
 
-1. Update the following sample policy with information about your Amazon S3 bucket and configuration object\. Then paste the policy into the text field on the **JSON** tab\. 
+1. Update the following sample policy with information about your S3 bucket and configuration object\. Then paste the policy into the text field on the **JSON** tab\. 
 
    ```
    {

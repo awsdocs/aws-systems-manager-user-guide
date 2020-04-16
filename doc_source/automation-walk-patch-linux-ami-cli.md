@@ -17,7 +17,7 @@ The `AWS-UpdateLinuxAmi` document accepts the following input parameters\.
 
 | Parameter | Type | Description | 
 | --- | --- | --- | 
-|  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Amazon EC2 Linux AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)\.  | 
+|  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest ID of an EC2 AMI for Linux by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)\.  | 
 |  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The Automation document uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the Automation execution fails\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Getting started with Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in an Automation document\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
@@ -66,7 +66,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` document
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to run the `AWS-UpdateLinuxAmi` document and run the Automation workflow\. In the parameters section, specify an AMI source ID, an Amazon EC2 instance profile role, and your Automation service role\.
+1. Run the following command to run the `AWS-UpdateLinuxAmi` document and run the Automation workflow\. In the parameters section, specify an AMI source ID, an EC2 instance profile role, and your Automation service role\.
 
    ```
    aws ssm start-automation-execution \

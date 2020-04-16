@@ -44,7 +44,7 @@ Use the following procedure to run a command using the document version paramete
 ------
 #### [ Windows ]
 
-**To run commands using the AWS CLI on Windows instances**
+**To run commands using the AWS CLI on Windows Server instances**
 
 1. Install and configure the AWS CLI, if you have not already\.
 

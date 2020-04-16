@@ -2,9 +2,9 @@
 
  To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
 
-The following sample AWS Systems Manager Automation document performs these actions\. 
-+ Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using AWS Systems Manager Parameter Store\.
-+ Uses the `aws:executeAwsApi` Automation action to create the VPC architecture\.
+The following sample AWS Systems Manager Automation document performs these actions\.
++ Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers\.
++ Uses the `aws:executeAwsApi` Automation action to call several AWS API actions to create the VPC architecture\. The domain controller instances are launched in private subnets, and connect to the internet using a NAT gateway\. This enables the SSM Agent on the instances to access the requisite Systems Manager endpoints\.
 + Uses the `aws:waitForAwsResourceProperty` Automation action to confirm the instances launched by the previous action are `Online` for AWS Systems Manager\.
 + Uses the `aws:runCommand` Automation action to configure the instances launched as Microsoft Active Directory domain controllers\.
 
@@ -53,7 +53,7 @@ mainSteps:
     inputs:
       Service: iam
       Api: AttachRolePolicy
-      PolicyArn: 'arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM'
+      PolicyArn: 'arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore'
       RoleName: sampleSSMInstanceRole
     nextStep: createSSMInstanceProfile
   - name: createSSMInstanceProfile
@@ -557,7 +557,7 @@ mainSteps:
       "inputs": {
         "Service": "iam",
         "Api": "AttachRolePolicy",
-        "PolicyArn": "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+        "PolicyArn": "arn:aws:iam::aws:policy/service-role/AmazonSSMManagedInstanceCore",
         "RoleName": "sampleSSMInstanceRole"
       },
       "nextStep": "createSSMInstanceProfile"

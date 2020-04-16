@@ -1,4 +1,4 @@
-# Running documents from remote locations<a name="run-remote-documents"></a>
+# Running SSM documents from remote locations<a name="run-remote-documents"></a>
 
 You can run SSM documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports the following remote locations:
 + GitHub repositories \(public and private\)
@@ -7,7 +7,7 @@ You can run SSM documents from remote locations by using the `AWS-RunDocument` p
 
 The following procedure describes how to run remote SSM documents by using the console\. This procedure shows how to run the remote document by using Run Command, but you can also run remote documents by using State Manager or Automation\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you run a remote document, you must complete the following tasks\.
 + Create an SSM document and save it in a remote location\. For more information, see [Creating Systems Manager documents](create-ssm-doc.md)
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
@@ -111,7 +111,7 @@ If you choose to select instances manually, and an instance you expect to see is
 If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 

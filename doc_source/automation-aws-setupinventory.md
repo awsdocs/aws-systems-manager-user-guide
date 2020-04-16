@@ -80,7 +80,7 @@ Windows, Linux
 
   Default: \*
 
-  Description: \(Required\) Amazon EC2 instances that you want to inventory\.
+  Description: \(Required\) EC2 instances that you want to inventory\.
 + LambdaAssumeRole
 
   Type: String

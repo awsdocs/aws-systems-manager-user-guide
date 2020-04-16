@@ -28,7 +28,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 + [aws:invokeLambdaFunction – Invoke an AWS Lambda function](automation-action-lamb.md)
 + [aws:pause – Pause an automation execution](automation-action-pause.md)
 + [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md)
-+ [aws:runInstances – Launch an Amazon EC2 instance](automation-action-runinstance.md)
++ [aws:runInstances – Launch an EC2 instance](automation-action-runinstance.md)
 + [aws:sleep – Delay an automation execution](automation-action-sleep.md)
 + [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
 

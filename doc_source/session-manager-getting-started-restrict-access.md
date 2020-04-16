@@ -22,6 +22,6 @@ For more information about using variables in IAM policies, see [IAM Policy Elem
 For information about how to create policies and attach them to IAM users or groups, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) and [Adding and Removing IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Enforce document permission check for default CLI scenario](getting-started-sessiondocumentaccesscheck.md)
++ [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)
 + [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)
 + [Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md)

@@ -5,7 +5,7 @@ Systems Manager Explorer displays data from the following sources\.
 + Amazon EC2
 + OpsCenter OpsItems
 
-To display patch compliance data for your Amazon EC2 instances, you must configure Systems Manager Patch Manager\. To display metadata about your Amazon EC2 instances, you must configure AWS Config configuration recorder\. You can't add additional data sources, but you can configure Explorer to stop displaying either patch compliance data, Amazon EC2 instance metadata, or both\. 
+To display patch compliance data for your EC2 instances, you must configure Systems Manager Patch Manager\. To display metadata about your EC2 instances, you must configure AWS Config configuration recorder\. You can't add additional data sources, but you can configure Explorer to stop displaying either patch compliance data, EC2 instance metadata, or both\. 
 
 **Note**  
 You can't configure Explorer to stop displaying OpsCenter OpsItem data\.

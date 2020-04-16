@@ -6,7 +6,7 @@ The following list describes the types of tasks you can perform with State Manag
 + Bootstrap instances with specific software at startup\.
 + Download and update agents on a defined schedule, including SSM Agent\.
 + Configure network settings\.
-+ Join instances to a Windows domain \(Windows instances only\)\.
++ Join instances to a Windows domain \(Windows Server instances only\)\.
 + Patch instances with software updates throughout their lifecycle\.
 + Run scripts on Linux and Windows managed instances throughout their lifecycle\.
 

@@ -6,7 +6,7 @@ Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\.
 + Check if certain packages are installed\.
 + Check Windows Registry keys for specific properties\.
 
-You can create InSpec profiles for Amazon EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks to see if port 22 is open\.
+You can create InSpec profiles for EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks to see if port 22 is open\.
 
 ```
 control 'Scan Port' do
@@ -28,7 +28,7 @@ Here is how the process of using InSpec profiles with Systems Manager Compliance
 
 1. Either identify predefined InSpec profiles that you want to use, or create your own\. You can use [predefined profiles](https://github.com/search?p=1&q=topic%3Ainspec+org%3Adev-sec&type=Repositories) on GitHub to get started\. For information about how to create your own InSpec profiles, see [Compliance Automation with InSpec](https://learn.chef.io/modules/learn-the-inspec-basics#/)\.
 
-1. Store profiles in either a public or private GitHub repository, or in an Amazon S3 bucket\.
+1. Store profiles in either a public or private GitHub repository, or in an S3 bucket\.
 
 1. Run Compliance with your InSpec profiles by using the AWS\-RunInspecChecks SSM document\. You can begin a Compliance scan by using Run Command \(for on\-demand scans\), or you can schedule regular Compliance scans by using State Manager\.
 
@@ -69,7 +69,7 @@ This section includes information about how to run an InSpec Compliance scan by 
    {"owner":"awslabs","repository":"amazon-ssm","path":"Compliance/InSpec/PortCheck","getOptions":"branch:master"}
    ```
 
-   If you choose **S3**, then enter a valid URL to an InSpec profile in an Amazon S3 bucket in the **Source Info** field\. 
+   If you choose **S3**, then enter a valid URL to an InSpec profile in an S3 bucket in the **Source Info** field\. 
 
    For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
 
@@ -85,7 +85,7 @@ If you choose to select instances manually, and an instance you expect to see is
 If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
@@ -107,7 +107,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    The command takes the following parameters:
    + **sourceType**: GitHub or Amazon S3
-   + **sourceInfo**: URL to the InSpec profile folder either in GitHub or an Amazon S3 bucket\. The folder must contain the base InSpec file \(\*\.yml\) and all related controls \(\*\.rb\)\.
+   + **sourceInfo**: URL to the InSpec profile folder either in GitHub or an S3 bucket\. The folder must contain the base InSpec file \(\*\.yml\) and all related controls \(\*\.rb\)\.
 
    **GitHub**
 

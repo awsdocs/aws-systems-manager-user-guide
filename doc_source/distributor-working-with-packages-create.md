@@ -67,16 +67,16 @@ If Distributor cannot upload any of the software installable files, it displays 
 
 ## Create a package \(advanced\)<a name="distributor-working-with-packages-create-adv"></a>
 
-In this section, learn about how advanced users can create a package in Distributor after uploading installable assets zipped with installation and uninstallation scripts, and a JSON manifest file, to an Amazon S3 bucket\.
+In this section, learn about how advanced users can create a package in Distributor after uploading installable assets zipped with installation and uninstallation scripts, and a JSON manifest file, to an S3 bucket\.
 
-To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder, and the manifest is populated with correct values, upload your package to an Amazon S3 bucket\.
+To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder, and the manifest is populated with correct values, upload your package to an S3 bucket\.
 
 An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
 **Topics**
 + [Step 1: Create the ZIP files](#packages-zip)
 + [Step 2: Create the JSON package manifest](#packages-manifest)
-+ [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)
++ [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)
 + [Step 4: Add a package to Distributor](#distributor-working-with-packages-add)
 
 ### Step 1: Create the ZIP files<a name="packages-zip"></a>
@@ -85,14 +85,14 @@ The foundation of your package is at least one \.zip file of software or install
 
 **Required files**  
 The following items are required in each \.zip file:
-+ An install and an uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent runs the instructions in the install and uninstall scripts\.
++ An install and an uninstall script\. Windows Server\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent runs the instructions in the install and uninstall scripts\.
 
    For example, your installation scripts might run an installer \(such as \.rpm or \.msi\), they might copy files, or they might set configurations\.
 + An executable file, installer packages \(\.rpm, \.deb, \.msi, etc\.\), other scripts, or configuration files\.
 
 **Optional files**  
 The following item is optional in each \.zip file:
-+ An update script\. Providing an update script makes it possible for you to use the `In-place update` option to install a package\. When you want to add new or updated files to an existing package installation, the `In-place update` option does not take the package application offline while the update is performed\. Windows\-based instances require a PowerShell script \(script named `update.ps1`\)\. Linux\-based instances require a shell script \(script named `update.sh`\)\. SSM Agent runs the instructions in the update script\.
++ An update script\. Providing an update script makes it possible for you to use the `In-place update` option to install a package\. When you want to add new or updated files to an existing package installation, the `In-place update` option does not take the package application offline while the update is performed\. Windows Server\-based instances require a PowerShell script \(script named `update.ps1`\)\. Linux\-based instances require a shell script \(script named `update.sh`\)\. SSM Agent runs the instructions in the update script\.
 
 For more information about installing or updating packages, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
@@ -168,7 +168,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
 1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the \.zip files in your package\. For more information, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
    The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a \.zip file supports any release of the platform\. However, a *platform\-version* value must match the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
-   + On a Windows\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
+   + On a Windows Server\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows Server\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
 
      ```
      wmic OS get /format:list
@@ -387,7 +387,7 @@ The following is an example of a completed manifest\. In this example, you have 
 
 An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
-### Step 3: Upload the package and manifest to an Amazon S3 bucket<a name="packages-upload-s3"></a>
+### Step 3: Upload the package and manifest to an S3 bucket<a name="packages-upload-s3"></a>
 
 Prepare your package by copying or moving all \.zip files into a folder or directory\. A valid package requires the manifest that you created in [Step 2: Create the JSON package manifest](#packages-manifest) and all \.zip files identified in the manifest file list\.
 
@@ -411,7 +411,7 @@ You can use the AWS Systems Manager console or the AWS CLI to add a new package 
 
 #### Adding a package \(console\)<a name="create-pkg-console"></a>
 
-You can use the AWS Systems Manager console to create a package\. Have ready the name of the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
+You can use the AWS Systems Manager console to create a package\. Have ready the name of the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
 
 **To add a package to Distributor \(console\)**
 
@@ -425,7 +425,7 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
 1. For **Version name**, enter the exact value of the `version` entry in your manifest file\.
 
-1. For **S3 bucket name**, choose the name of the bucket to which you uploaded your \.zip files and manifest in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
+1. For **S3 bucket name**, choose the name of the bucket to which you uploaded your \.zip files and manifest in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
 
 1. For **S3 key prefix**, enter the subfolder of the bucket where your \.zip files and manifest are stored\.
 
@@ -439,11 +439,11 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
 #### Adding a package \(AWS CLI\)<a name="create-pkg-cli"></a>
 
-You can use the AWS CLI to create a package\. Have the URL ready from the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
+You can use the AWS CLI to create a package\. Have the URL ready from the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
 
 **To add a package to Amazon S3 \(AWS CLI\)**
 
-1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
+1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
    If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the entire content of the JSON manifest file, in quotations\.
 
@@ -463,4 +463,4 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
    aws ssm get-document --name "package-name"
    ```
 
-For information about other options you can use with the create\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\. For information about other options you can use with the get\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html)\.
+For information about other options you can use with the create\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\. For information about other options you can use with the get\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html)\.

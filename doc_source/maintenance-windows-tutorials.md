@@ -11,7 +11,7 @@ This section includes tutorials that help you learn how to use the AWS Command L
 Before trying these tutorials, complete the following prerequisites\.
 + **Configure the AWS CLI on your local machine**: Before you can run AWS CLI commands, you must install and configure the CLI on your local machine\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 + **Verify maintenance window roles and permissions**: An AWS administrator in your account must grant you the AWS Identity and Access Management \(IAM\) permissions you need to manage maintenance windows using the CLI\. For information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\.
-+ **Create or configure a Systems Manager\-compatible instance**: You need at least one Amazon EC2 instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
++ **Create or configure a Systems Manager\-compatible instance**: You need at least one EC2 instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
 
   We recommend launching an instance from one of the following Amazon Machine Image \(AMI\) types\. SSM Agent is preinstalled on each one:
   + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
@@ -23,13 +23,13 @@ Before trying these tutorials, complete the following prerequisites\.
   + Amazon ECS\-Optimized
 
   For information about installing SSM Agent on an instance, see the following topics:
-  + [Installing and configuring SSM Agent on Windows instances](sysman-install-ssm-win.md)
-  + [Installing and configuring SSM Agent on Amazon EC2 Linux instances](sysman-install-ssm-agent.md)
+  + [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)
+  + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 
   For information about creating and attaching an IAM instance profile for Systems Manager to your instance, see the following topics:
   + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
-  + [Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)
-+ **Create additional resources as needed**: Many Run Command tasks do not require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. You also need an Amazon EC2 instance that is configured to use with Systems Manager, as described above\. After you configure that instance, you can register a simple Run Command task\. 
+  + [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)
++ **Create additional resources as needed**: Many Run Command tasks do not require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. You also need an EC2 instance that is configured to use with Systems Manager, as described above\. After you configure that instance, you can register a simple Run Command task\. 
 
   The Systems Manager Maintenance Windows capability supports running four types of tasks: 
   + Systems Manager Run Command commands
@@ -57,7 +57,7 @@ Make a note of the following system\-generated IDs because the tutorials in this
 + `InvocationId`
 + `ExecutionId`
 
-You also need the ID of the Amazon EC2 instance you plan to use in the tutorial\. For example: `i-02573cafcfEXAMPLE`
+You also need the ID of the EC2 instance you plan to use in the tutorial\. For example: `i-02573cafcfEXAMPLE`
 
 **Topics**
 + [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)

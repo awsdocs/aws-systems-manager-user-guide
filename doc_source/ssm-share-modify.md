@@ -1,6 +1,6 @@
-# Modify permissions for a shared document<a name="ssm-share-modify"></a>
+# Modify permissions for a shared SSM document<a name="ssm-share-modify"></a>
 
-If you share a command, users can view and use that command until you either remove access to the Systems Manager document or delete the Systems Manager document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
+If you share a command, users can view and use that command until you either remove access to the SSM document or delete the SSM document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
 
 **Topics**
 + [Stop sharing a document \(console\)](#unshare-using-console)

@@ -2,7 +2,7 @@
 
 This section describes the setup tasks that account and system administrators perform for a *hybrid environment*\. A hybrid environment includes on\-premises servers and virtual machines \(VMs\) that have been configured for use with Systems Manager, including VMs in other cloud environments\. After these steps are complete, users who have been granted permissions by the AWS account administrator can use AWS Systems Manager to configure and manage their organization's on\-premises servers and virtual machines \(VMs\)\. 
 
-If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
+If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(EC2\) instances, or to use both EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
 
 Configuring your hybrid environment for Systems Manager enables you to do the following: 
 + Create a consistent and secure way to remotely manage your hybrid workloads from one location using the same tools or scripts\.
@@ -15,7 +15,7 @@ Configuring your hybrid environment for Systems Manager enables you to do the fo
   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
 **About managed instances**  
-After you finish configuring your servers and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed instances*\. Amazon EC2 instances configured for Systems Manager are also described as managed instances\. In the console, however, the IDs of your hybrid instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\. Amazon EC2 instance IDs use the prefix "i\-"\.
+After you finish configuring your servers and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed instances*\. EC2 instances configured for Systems Manager are also described as managed instances\. In the console, however, the IDs of your hybrid instances are distinguished from EC2 instances with the prefix "mi\-"\. EC2 instance IDs use the prefix "i\-"\.
 
 For more information, see [AWS Systems Manager Managed Instances](managed_instances.md)\.
 

@@ -6,7 +6,7 @@ This section describes how to change hybrid instances currently running in the a
 Review the following important details\.
 
 **Note**  
-You can't revert back to the standard\-instance tier if you are running more than 1,000 hybrid instances in the account and Region\. You must first deregister hybrid instances until you have 1,000 or fewer\. This also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\. For more information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
+You can't revert back to the standard\-instance tier if you are running more than 1,000 hybrid instances in the account and Region\. You must first deregister hybrid instances until you have 1,000 or fewer\. This also applies to EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\. For more information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
 After you revert, you won't be able to use Session Manager to interactively access your hybrid instances\.
 After you revert, you won't be able to use Patch Manager to patch Microsoft applications on hybrid servers and virtual machines \(VMs\)\.
 The process of reverting all hybrid instances back to the standard\-instance tier can take 30 minutes or more to complete\.

@@ -14,7 +14,7 @@ Also note that an instance can have only have one inventory association configur
 Before you configure inventory collection, complete the following tasks\.
 + Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
-+ \(Optional\) Create a resource data sync to centrally store inventory data in an Amazon S3 bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
++ \(Optional\) Create a resource data sync to centrally store inventory data in an S3 bucket\. Resource Data Sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with custom inventory](sysman-inventory-custom.md)\.
 
 ## Inventory all managed instances in your AWS account<a name="inventory-management-inventory-all"></a>
@@ -115,7 +115,7 @@ This section includes information about how to configure Systems Manager Invento
 
    For more information about collecting File and Windows Registry inventory, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
 
-1. In the **Advanced** section, choose **Sync inventory execution logs to an S3 bucket** if you want to store the association execution status in an Amazon S3 bucket\.
+1. In the **Advanced** section, choose **Sync inventory execution logs to an S3 bucket** if you want to store the association execution status in an S3 bucket\.
 
 1. Choose **Setup Inventory**\. Systems Manager creates a State Manager association and immediately runs Inventory on the instances\.
 

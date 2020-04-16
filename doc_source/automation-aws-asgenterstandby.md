@@ -2,7 +2,7 @@
 
 **Description**
 
-Change the standby state of an Amazon EC2 instance in an Auto Scaling group\.
+Change the standby state of an EC2 instance in an Auto Scaling group\.
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) ID of an Amazon EC2 instance for which you want to change the standby state within an Auto Scaling group\.
+  Description: \(Required\) ID of an EC2 instance for which you want to change the standby state within an Auto Scaling group\.
 + LambdaRoleArn
 
   Type: String

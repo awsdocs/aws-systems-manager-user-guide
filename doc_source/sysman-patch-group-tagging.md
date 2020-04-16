@@ -5,11 +5,11 @@ To help you organize your patching efforts, we recommend that you add instances 
 After you group your instances using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\. 
 
 **Topics**
-+ [Task 1: Add Amazon EC2 instances to a patch group using tags](#sysman-patch-group-tagging-ec2)
++ [Task 1: Add EC2 instances to a patch group using tags](#sysman-patch-group-tagging-ec2)
 + [Task 2: Add managed instances to a patch group using tags](#sysman-patch-group-tagging-managed)
 + [Task 3: Add a patch group to a patch baseline](#sysman-patch-group-patchbaseline)
 
-## Task 1: Add Amazon EC2 instances to a patch group using tags<a name="sysman-patch-group-tagging-ec2"></a>
+## Task 1: Add EC2 instances to a patch group using tags<a name="sysman-patch-group-tagging-ec2"></a>
 
 For EC2 instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS CLI command `create-tags`, or the API action `CreateTags`\.
 

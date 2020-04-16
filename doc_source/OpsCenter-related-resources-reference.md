@@ -1,6 +1,6 @@
 # Supported resources reference<a name="OpsCenter-related-resources-reference"></a>
 
-OpsCenter automatically creates a deep link to the primary resource page when you specify the Amazon Resource Name \(ARN\) for the following types of AWS resources\. For example, if you specify the ARN of an Amazon EC2 instance in the **Related Resources** field, then OpsCenter creates a deep link to the information about that instance in the Amazon EC2 console\. This enables you to view detailed information about your impacted AWS resources without having to leave OpsCenter\. For more information about adding related resources, see [Working with related resources](OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources)\.
+OpsCenter automatically creates a deep link to the primary resource page when you specify the Amazon Resource Name \(ARN\) for the following types of AWS resources\. For example, if you specify the ARN of an EC2 instance in the **Related Resources** field, then OpsCenter creates a deep link to the information about that instance in the Amazon EC2 console\. This enables you to view detailed information about your impacted AWS resources without having to leave OpsCenter\. For more information about adding related resources, see [Working with related resources](OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources)\.
 
 
 **Supported resources**  

@@ -6,7 +6,7 @@ Use the following procedure to create an AppConfig configuration and a configura
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/)\.
 
-1. On the **Applications** tab, choose the application you created in [Create an AppConfig Configuration](appconfig-creating-application.md) and then choose the **Configuration profiles** tab\.
+1. On the **Applications** tab, choose the application you created in [Create an AppConfig configuration](appconfig-creating-application.md) and then choose the **Configuration profiles** tab\.
 
 1. Choose **Create configuration profile**\.
 

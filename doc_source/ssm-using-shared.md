@@ -1,13 +1,13 @@
-# Use a shared Systems Manager document<a name="ssm-using-shared"></a>
+# Using shared SSM documents<a name="ssm-using-shared"></a>
 
-When you share a Systems Manager document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and run a shared document from the Amazon EC2 console, you do not see the ARN\. However, if you want to run a shared Systems Manager document from a command line application, you must specify a full ARN\. You are shown the full ARN for a Systems Manager document when you run the command to list documents\. 
+When you share an SSM document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and run a shared document from the Amazon EC2 console, you do not see the ARN\. However, if you want to run a shared SSM document from a command line application, you must specify a full ARN\. You are shown the full ARN for an SSM document when you run the command to list documents\. 
 
 **Note**  
 You are not required to specify ARNs for AWS public documents \(documents that begin with AWS\-\*\) or documents that you own\.
 
-## Use a shared Systems Manager document \(command line\)<a name="ssm-using-shared-cli"></a>
+## Use a shared SSM document \(command line\)<a name="ssm-using-shared-cli"></a>
 
-**To list all public Systems Manager documents**
+**To list all public SSM documents**
 
 ------
 #### [ Linux ]
@@ -39,7 +39,7 @@ Get-SSMDocumentList `
 
 ------
 
-**To list private Systems Manager documents that have been shared with you**
+**To list private SSM documents that have been shared with you**
 
 ------
 #### [ Linux ]
@@ -71,7 +71,7 @@ Get-SSMDocumentList `
 
 ------
 
-**To list all Systems Manager documents available to you**
+**To list all SSM documents available to you**
 
 ------
 #### [ Linux ]
@@ -96,7 +96,7 @@ Get-SSMDocumentList
 
 ------
 
-**To get information about a Systems Manager document that has been shared with you**
+**To get information about an SSM document that has been shared with you**
 
 ------
 #### [ Linux ]
@@ -124,7 +124,7 @@ Get-SSMDocumentDescription `
 
 ------
 
-**To run a shared Systems Manager document**
+**To run a shared SSM document**
 
 ------
 #### [ Linux ]

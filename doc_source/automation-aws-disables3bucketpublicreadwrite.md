@@ -2,7 +2,7 @@
 
 **Description**
 
-Use Amazon Simple Storage Service \(Amazon S3\) `Block Public Access` to disable read and write access for a public Amazon S3 bucket\. For more information, see [Using Amazon S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html) in the *Amazon Simple Storage Service Developer Guide*\. 
+Use Amazon Simple Storage Service \(Amazon S3\) `Block Public Access` to disable read and write access for a public S3 bucket\. For more information, see [Using Amazon S3 Block Public Access](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html) in the *Amazon Simple Storage Service Developer Guide*\. 
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) Amazon S3 bucket on which you want to restrict access\.
+  Description: \(Required\) S3 bucket on which you want to restrict access\.
 
 **Examples**
 

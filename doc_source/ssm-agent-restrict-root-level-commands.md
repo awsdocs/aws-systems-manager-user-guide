@@ -1,6 +1,6 @@
 # Restrict access to root\-level commands through SSM Agent<a name="ssm-agent-restrict-root-level-commands"></a>
 
-SSM Agent runs on Amazon EC2 instances using root permissions \(Linux\) or SYSTEM permissions \(Windows\)\. Because these are the highest level of system access privileges, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions\. \(In AWS, a trusted entity that can perform actions and access resources in AWS is called a principal\. A principal can be an AWS account root user, an IAM user, or a role\.\)
+SSM Agent runs on EC2 instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. Because these are the highest level of system access privileges, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions\. \(In AWS, a trusted entity that can perform actions and access resources in AWS is called a principal\. A principal can be an AWS account root user, an IAM user, or a role\.\)
 
 This level of access is required for a principal to send authorized Systems Manager commands to SSM Agent, but also makes it possible for a principal to run malicious code by exploiting any potential vulnerabilities in SSM Agent\. 
 
@@ -12,4 +12,4 @@ Using this approach, if junior engineers attempt to run a command on a productio
 
 For more information and examples, see the following topics:
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)
-+ [Restrict Session Access Based on Instance Tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
++ [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)

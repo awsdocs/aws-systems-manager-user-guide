@@ -2,7 +2,7 @@
 
 **Description**
 
-This document retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified Amazon S3 bucket\.
+This document retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified S3 bucket\.
 
 **Document Type**
 
@@ -46,7 +46,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) Amazon S3 bucket where you want to download the output file\.
+  Description: \(Required\) S3 bucket where you want to download the output file\.
 + snsTopicArn
 
   Type: String

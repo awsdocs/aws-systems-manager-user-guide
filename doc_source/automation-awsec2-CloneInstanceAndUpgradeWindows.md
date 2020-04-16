@@ -11,9 +11,9 @@ To upgrade your instance from Windows Server 2008 R2 to Windows Server 2019, the
 **Important**  
 This Automation document does not support Windows Server 2008 R2 or 2012 R2 Enterprise editions\. This document only supports Windows Server 2008 R2 and 2012 R2 Standard and Datacenter editions\.
 
-The upgrade operation is a multi\-step process that can take 2 hours to complete\. The Automation creates an AMI from the instance and then launches the newly created AMI in the VPC or subnet that you provide\. The Automation workflow performs an in\-place upgrade to the `TargetWindowsVersion`\. To upgrade your Windows Server 2008 R2 instance to Windows Server 2019, an in\-place upgrade is performed twice because directly upgrading Windows Server 2008 R2 to Windows Server 2019 is not supported\. The workflow also updates or installs the AWS drivers required by the upgraded instance\. After the upgrade, the workflow creates a new AMI and then terminates the upgraded instance\.
+The upgrade operation is a multi\-step process that can take 2 hours to complete\. The Automation creates an AMI from the instance and then launches a temporary instance from the newly created AMI in the `SubnetId` that you specify\. The security groups associated with your original instance are applied to the temporary instance\. The Automation workflow then performs an in\-place upgrade to the `TargetWindowsVersion` on the temporary instance\. To upgrade your Windows Server 2008 R2 instance to Windows Server 2019, an in\-place upgrade is performed twice because directly upgrading Windows Server 2008 R2 to Windows Server 2019 is not supported\. The workflow also updates or installs the AWS drivers required by the temporary instance\. After the upgrade, the workflow creates a new AMI from the temporary instance and then terminates the temporary instance\.
 
-You can test application functionality by launching the new AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded instance\.
+You can test application functionality by launching a test instance from the upgraded AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded AMI\.
 
 **Document Type**
 
@@ -28,15 +28,15 @@ Amazon
 Windows Server 2008 R2 and 2012 R2 Standard and Datacenter editions
 
 **Prerequisites**
-+ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on Windows instances](sysman-install-ssm-win.md)\.
-+ You must specify a different VPC or subnet ID for the cloned instance\. If you don't, Systems Manager creates a new instance with the same name in the current VPC or subnet\. This results in a name conflict\.
-+ The subnet ID specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
++ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
++ For instances that are joined to a Microsoft Active Directory domain, we recommend specifying a `SubnetId` that does not have connectivity to your domain controllers to help avoid hostname conflicts\.
++ The `SubnetId` specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
 + This Automation works only with Windows Server 2008 R2 and Windows Server 2012 R2 instances\.
 + This Automation works only on instances with an unencrypted EBS root volume\. If the specified instance has an encrypted root volume, the Automation workflow fails\.
-+ Configure the Windows Server instance with an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
++ Configure the Windows Server instance with an AWS Identity and Access Management \(IAM\) instance profile that provides the requisite permissions for Systems Manager\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the boot disk\.
 + If the instance does not use an AWS\-provided Windows license, then specify an Amazon EBS snapshot ID that includes Windows Server 2012 R2 installation media\. To do this:
-  + Verify that the Amazon EC2 instance is running Windows Server 2012 or later\.
+  + Verify that the EC2 instance is running Windows Server 2012 or later\.
   + Create a 6 GB EBS volume in the same Availability Zone where the instance is running\. Attach the volume to the instance\. Mount it, for example, as drive D\. 
   + Right\-click the ISO and mount it to an instance as, for example, drive E\.
   + Copy the content of the ISO from drive E:\\ to drive D:\\
@@ -44,7 +44,7 @@ Windows Server 2008 R2 and 2012 R2 Standard and Datacenter editions
 
 **Limitations**
 
-This Automation doesn't support upgrading Windows domain controllers, clusters, or Windows desktop operating systems\. This Automation also doesn't support Windows instances with the following roles installed\.
+This Automation doesn't support upgrading Windows domain controllers, clusters, or Windows desktop operating systems\. This Automation also doesn't support EC2 instances for Windows Server with the following roles installed\.
 + Remote Desktop Session Host \(RDSH\)
 + Remote Desktop Connection Broker \(RDCB\)
 + Remote Desktop Virtualization Host \(RDVH\)

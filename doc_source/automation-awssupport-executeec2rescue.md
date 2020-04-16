@@ -2,7 +2,7 @@
 
  **Description** 
 
-This document will use the EC2Rescue tool to troubleshoot and where possible repair common connectivity issues with the specified EC2 instance \(Windows or Linux\)\.
+This document will use the EC2Rescue tool to troubleshoot and where possible repair common connectivity issues with the specified EC2 instance for Linux or Windows Server\.
 
  **Document Type** 
 
@@ -83,7 +83,7 @@ You must have at least **ssm:ExecuteAutomation** and **ssm:GetAutomationExecutio
 
 1. aws:assertAwsResourceProperty \- Assert if the provided instance is Windows 
 
-   1. \(EC2Rescue for Windows\) If the provided instance is Windows: 
+   1. \(EC2Rescue for Windows\) If the provided instance is a Windows Server instance: 
 
       1. aws:executeAutomation \- Invoke AWSSupport\-StartEC2RescueWorkflow with the EC2Rescue for Windows offline script
 
@@ -91,7 +91,7 @@ You must have at least **ssm:ExecuteAutomation** and **ssm:GetAutomationExecutio
 
       1. aws:executeAwsApi \- Retrieve the EC2Rescue summary from the nested automation
 
-   1. \(EC2Rescue for Linux\) If the provided instance is Linux: 
+   1. \(EC2Rescue for Linux\) If the provided instance is a Linux instance: 
 
       1. aws:executeAutomation \- Invoke AWSSupport\-StartEC2RescueWorkflow with the EC2Rescue for Linux offline script
 

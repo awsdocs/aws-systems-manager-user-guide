@@ -3,7 +3,7 @@
 You can configure Amazon CloudWatch Events to notify you of Systems Manager Automation events\. For example, you can configure CloudWatch Events to send notifications when an Automation step succeeds or fails\. You can also configure CloudWatch Events to send notifications if the Automation workflow succeeds or fails\. 
 
 **Tip**  
-For information about using the input transformer feature of Amazon CloudWatch Events to extract the `instance-id` of an Amazon EC2 instance from an instance state change event, see [Walkthrough: Using input transformers with Automation](automation-transformers.md)\.
+For information about using the input transformer feature of Amazon CloudWatch Events to extract the `instance-id` of an EC2 instance from an instance state change event, see [Walkthrough: Using input transformers with Automation](automation-transformers.md)\.
 
 Use the following procedure to configure CloudWatch Events to send notification about Automation events\.
 

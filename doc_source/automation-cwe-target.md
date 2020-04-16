@@ -137,7 +137,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates a CloudWatch event rule that triggers when any Amazon EC2 instance in the region changes state\.
+   The following example creates a CloudWatch event rule that triggers when any EC2 instance in the Region changes state\.
 
 ------
 #### [ Linux ]

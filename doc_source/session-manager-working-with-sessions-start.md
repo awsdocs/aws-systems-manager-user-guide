@@ -79,7 +79,7 @@ For information about other options you can use with the start\-session command,
 **SSH Connection Requirements**  
 Take note of the following requirements and limitations for session connections using SSH\.
 + Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
-+ You must use the user on the instance associated with the Privacy Enhanced Mail \(PEM\) certificate, not the `ssm-user` account that is used for other types of session connections\. For example, on Amazon EC2 instances for Linux, the default user is `ec2-user`\. For information about identifying the default user for each instance type, see [Get Information About Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance) in the *Amazon EC2 User Guide for Linux Instances*\.
++ You must use the user on the instance associated with the Privacy Enhanced Mail \(PEM\) certificate, not the `ssm-user` account that is used for other types of session connections\. For example, on EC2 instances for Linux, the default user is `ec2-user`\. For information about identifying the default user for each instance type, see [Get Information About Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance) in the *Amazon EC2 User Guide for Linux Instances*\.
 + Logging and auditing are not available for Session Manager sessions that connect through SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 **Note**  
@@ -91,7 +91,7 @@ To start a session using SSH, run the following command:
 ssh -i /path/my-key-pair.pem username@instance-id
 ```
 
- */path/my\-key\-pair\.pem* represents the path to the PEM certificate that is associated with the instance\. For example, for an Amazon EC2 instance, the key\-pair file you created or selected when you created the instance\.
+ */path/my\-key\-pair\.pem* represents the path to the PEM certificate that is associated with the instance\. For example, for an EC2 instance, the key\-pair file you created or selected when you created the instance\.
 
  *username@instance\-id* represents the default user name for your instance type, and the instance ID, such as `ec2-user@i-02573cafcfEXAMPLE`\.
 

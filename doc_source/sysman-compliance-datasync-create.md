@@ -1,6 +1,6 @@
 # Creating a Resource Data Sync for Configuration Compliance<a name="sysman-compliance-datasync-create"></a>
 
-You can use Systems Manager Resource Data Sync to send compliance data from all of your managed instances to a target Amazon S3 bucket\. When you create the sync, you can specify managed instances from multiple AWS accounts, AWS Regions, and your on\-premises hybrid environment\. Resource Data Sync then automatically updates the centralized data when new compliance data is collected\. With all compliance data stored in a target Amazon S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. Configuring Resource Data Sync for configuration compliance is a one\-time operation\.
+You can use Systems Manager Resource Data Sync to send compliance data from all of your managed instances to a target S3 bucket\. When you create the sync, you can specify managed instances from multiple AWS accounts, AWS Regions, and your on\-premises hybrid environment\. Resource Data Sync then automatically updates the centralized data when new compliance data is collected\. With all compliance data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. Configuring Resource Data Sync for configuration compliance is a one\-time operation\.
 
 The following graphic shows how Resource Data Sync aggregates all data from different accounts, Regions, and your hybrid environment to a central repository\.
 
@@ -8,7 +8,7 @@ The following graphic shows how Resource Data Sync aggregates all data from diff
 
 Use the following procedure to create a Resource Data Sync for Configuration Compliance by using the Amazon EC2 console\.
 
-**To create and configure an Amazon S3 bucket for Resource Data Sync \(console\)**
+**To create and configure an S3 bucket for Resource Data Sync \(console\)**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -16,7 +16,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
 1. Open the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *Bucket\-Name* and *Account\-ID* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *Bucket\-Name* and *Account\-ID* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
 
    ```
    {
@@ -65,10 +65,10 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
 1. In the **Bucket name** field, type the name of the Amazon S3 bucket you created at the start of this procedure\.
 
-1. \(Optional\) In the **Bucket prefix** field, type the name of an Amazon S3 bucket prefix \(subdirectory\)\.
+1. \(Optional\) In the **Bucket prefix** field, type the name of an S3 bucket prefix \(subdirectory\)\.
 
-1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
+1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. Choose **Create**\.

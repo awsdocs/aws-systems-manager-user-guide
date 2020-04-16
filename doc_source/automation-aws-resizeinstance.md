@@ -2,7 +2,7 @@
 
 **Description**
 
-Change the instance type of an Amazon EC2 instance\.
+Change the instance type of an EC2 instance\.
 
 **Document Type**
 

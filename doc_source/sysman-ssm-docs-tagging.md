@@ -1,4 +1,4 @@
-# Tagging Systems Manager documents<a name="sysman-ssm-docs-tagging"></a>
+# Tagging SSM documents<a name="sysman-ssm-docs-tagging"></a>
 
 You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) API to add tags to Systems Manager resources, including documents, managed instances, maintenance windows, Parameter Store parameters, and patch baselines\. 
 
@@ -8,11 +8,11 @@ For example, you can tag documents for specific environments, departments, users
 
 For more general information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference* \.
 
-For more information about restricting access to documents by using tags, see [Controlling access to documents using tags](#sysman-ssm-docs-tagging-access)\.
+For more information about restricting access to documents by using tags, see [Restricting access to documents using tags](#sysman-ssm-docs-tagging-access)\.
 
 **Topics**
 + [Tag a document \(command line\)](#sysman-ssm-docs-tagging-cli)
-+ [Controlling access to documents using tags](#sysman-ssm-docs-tagging-access)
++ [Restricting access to documents using tags](#sysman-ssm-docs-tagging-access)
 
 ## Tag a document \(command line\)<a name="sysman-ssm-docs-tagging-cli"></a>
 
@@ -81,7 +81,7 @@ For more information about restricting access to documents by using tags, see [C
 
 ------
 
-   *document\-name* the name of the Systems Manager document you want to tag\.
+   *document\-name* the name of the SSM document you want to tag\.
 
    *key* is the name of a custom key you supply\. For example, *region* or *quarter*\.
 
@@ -120,12 +120,12 @@ For more information about restricting access to documents by using tags, see [C
 
 ------
 
-## Controlling access to documents using tags<a name="sysman-ssm-docs-tagging-access"></a>
+## Restricting access to documents using tags<a name="sysman-ssm-docs-tagging-access"></a>
 
 After you tag a document, you can restrict access to it by creating an IAM policy that specifies the tags the user can access\. When a user attempts to use a document, the system checks the IAM policy and the tags specified for the document\. If the user does not have access to the tags assigned to the document, the user receives an access denied error\. Use the following procedure to create an IAM policy that restricts access to documents by using tags\.
 
-**Before You Begin**  
-Create and tag documents\. For more information, see [Tagging Systems Manager documents](#sysman-ssm-docs-tagging)\.
+**Before you begin**  
+Create and tag documents\. For more information, see [Tagging SSM documents](#sysman-ssm-docs-tagging)\.
 
 **To restrict a user's access to documents by using tags**
 

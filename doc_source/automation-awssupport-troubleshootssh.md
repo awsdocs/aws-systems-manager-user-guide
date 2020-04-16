@@ -21,7 +21,7 @@ Linux
 
   Type: String
 
-  Description: \(Required\) ID of your EC2 Linux instance\.
+  Description: \(Required\) ID of your EC2 instance for Linux\.
 + Action
 
   Type: String

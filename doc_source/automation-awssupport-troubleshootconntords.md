@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootConnectivityToRDS Automation document diagnoses connectivity issues between an Amazon EC2 instance and an Amazon Relational Database Service instance\. The automation ensures the DB instance is available, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
+The AWSSupport\-TroubleshootConnectivityToRDS Automation document diagnoses connectivity issues between an EC2 instance and an Amazon Relational Database Service instance\. The automation ensures the DB instance is available, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
 
  **Document Type** 
 
@@ -29,7 +29,7 @@ Amazon
 
   Allowed pattern: ^i\-\[a\-z0\-9\]\{8,17\}$
 
-  Description: \(Required\) The Amazon EC2 instance ID to test connectivity from\.
+  Description: \(Required\) The ID of the EC2 instance to test connectivity from\.
 
  **Examples** 
 
@@ -54,12 +54,12 @@ The `AutomationAssumeRole` requires the following actions to successfully execut
 + aws:executeAwsApi \- Gets information about the DB instance\.
 + aws:executeAwsApi \- Gets information about the DB instance network ACLs\.
 + aws:executeAwsApi \- Gets the DB instance subnet CIDR\.
-+ aws:executeAwsApi \- Gets information about the Amazon EC2 instance\.
-+ aws:executeAwsApi \- Gets information about the Amazon EC2 instance network ACLs\.
-+ aws:executeAwsApi \- Gets information about the security groups associated with the Amazon EC2 instance\.
++ aws:executeAwsApi \- Gets information about the EC2 instance\.
++ aws:executeAwsApi \- Gets information about the EC2 instance network ACLs\.
++ aws:executeAwsApi \- Gets information about the security groups associated with the EC2 instance\.
 + aws:executeAwsApi \- Gets information about the security groups associated with the DB instance\.
-+ aws:executeAwsApi \- Gets information about the route tables associated with the Amazon EC2 instance\.
-+ aws:executeAwsApi \- Gets information about the main route table associated with the Amazon VPC for the Amazon EC2 instance\.
++ aws:executeAwsApi \- Gets information about the route tables associated with the EC2 instance\.
++ aws:executeAwsApi \- Gets information about the main route table associated with the Amazon VPC for the EC2 instance\.
 + aws:executeAwsApi \- Gets information about the route tables associated with the DB instance\.
 + aws:executeAwsApi \- Gets information about the main route table associated with the Amazon VPC for the DB instance\.
 + aws:executeScript \- Evaluates security group rules\.

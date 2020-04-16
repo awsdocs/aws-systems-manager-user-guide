@@ -14,7 +14,7 @@ Patch Manager includes a predefined patch baseline for each operating system sup
 
 1. In the patch baselines list, choose the baseline ID of one of the predefined patch baselines\.
 **Note**  
-For Windows Server, two predefined patch baselines are provided\. The patch baseline `AWS-WindowsPredefinedPatchBaseline-OS` supports only operating system updates on the Windows operating system itself\. It is used as the default patch baseline for Windows instances unless you specify a different patch baseline\. The other predefined Windows patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\.   
+For Windows Server, two predefined patch baselines are provided\. The patch baseline `AWS-WindowsPredefinedPatchBaseline-OS` supports only operating system updates on the Windows operating system itself\. It is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The other predefined Windows patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\.   
 For more information, see [ Set an existing patch baseline as the default](set-default-patch-baseline.md)\.
 
 1. Choose the **Approval rules** tab and review the patch baseline configuration\.

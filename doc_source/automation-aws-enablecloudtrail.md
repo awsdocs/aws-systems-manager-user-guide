@@ -2,7 +2,7 @@
 
 **Description**
 
-Create an AWS CloudTrail trail and configure logging to an Amazon S3 bucket\.
+Create an AWS CloudTrail trail and configure logging to an S3 bucket\.
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) Name of the Amazon S3 bucket designated for publishing log files\.
+  Description: \(Required\) Name of the S3 bucket designated for publishing log files\.
 **Note**  
 The S3 bucket must exist and the bucket policy must grant CloudTrail permission to write to it\. For information, see [Amazon S3 Bucket Policy for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html)\.
 + TrailName

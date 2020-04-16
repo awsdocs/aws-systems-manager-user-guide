@@ -3,9 +3,9 @@
 You can invoke other AWS services and other Systems Manager capabilities in your Automation workflow by using the following Automation actions in your Automation documents, or playbooks\. 
 + **aws:executeAwsApi**: This Automation action calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
 + **aws:waitForAwsResourceProperty**: This Automation action enables your workflow to wait for a specific resource state or event state before continuing the workflow\. For example, you can use this action with the Amazon Relational Database Service \(Amazon RDS\) [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API action to pause an Automation workflow so that a database instance has time to start\.
-+ **aws:assertAwsResourceProperty**: This Automation action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an Amazon EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
++ **aws:assertAwsResourceProperty**: This Automation action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
 
-Here is a sample Automation document in YAML that uses the aws:executeAwsApi action to disable read and write permissions on an Amazon S3 bucket\.
+Here is a sample Automation document in YAML that uses the aws:executeAwsApi action to disable read and write permissions on an S3 bucket\.
 
 ```
 ---
@@ -50,7 +50,7 @@ parameters:
     default: ''
   ImageName:
     type: String
-    description: "(Optional) Image Name to launch ec2 instance with."
+    description: "(Optional) Image Name to launch EC2 instance with."
     default: "Windows_Server-2016-English-Full-Base-2018.07.11"
 mainSteps:
 - name: getImageId
@@ -531,8 +531,8 @@ Systems Manager Automation includes the following predefined SSM Automation docu
 |  [AWS\-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
 |  [AWS\-DeleteSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
 |  [AWS\-ConfigureS3BucketLogging](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
-|  [AWS\-DisableS3BucketPublicReadWrite](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an Amazon S3 bucket by using a private ACL\.  | 
-|  [AWS\-ConfigureS3BucketVersioning](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an Amazon S3 bucket\.   | 
+|  [AWS\-DisableS3BucketPublicReadWrite](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an S3 bucket by using a private ACL\.  | 
+|  [AWS\-ConfigureS3BucketVersioning](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an S3 bucket\.   | 
 |  [AWS\-DeleteDynamoDbBackup](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB \(DynamoDB\) table backup\.   | 
 
 Either click the links in the table above, or use the following procedure to view more details about these Automation documents in the Systems Manager console\.

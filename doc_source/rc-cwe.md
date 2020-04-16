@@ -46,7 +46,7 @@ Use the following procedure to configure a Run Command action as the target of a
 
 1. In the **Document** list, choose an SSM document\. The document determines the type of actions Run Command can perform on your instances\.
 **Note**  
-Verify that the document you choose can run on the instance operating system\. Some documents run only on Windows or only on Linux operating systems\. For more information about SSM Documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Verify that the document you choose can run on the instance operating system\. Some documents run only on Windows or only on Linux operating systems\. For more information about SSM Documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 1. In the **Target key** field, specify either InstanceIds or tag:*EC2\_tag\_name*\. Here are some examples of a **Target key** that uses an EC2 tag: tag:production and tag:server\-role\.
 

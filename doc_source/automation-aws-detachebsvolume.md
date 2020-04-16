@@ -2,7 +2,7 @@
 
 **Description**
 
-Detach an Amazon EBS volume from an Amazon EC2 instance\.
+Detach an Amazon EBS volume from an EC2 instance\.
 
 **Document Type**
 

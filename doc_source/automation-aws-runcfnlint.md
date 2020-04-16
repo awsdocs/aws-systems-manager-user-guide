@@ -21,7 +21,7 @@ Windows, Linux
 
   Type: String
 
-  Description: The name of the Amazon S3 bucket containing the packer template\.
+  Description: The name of the S3 bucket containing the packer template\.
 + TemplateFileName
 
   Type: String

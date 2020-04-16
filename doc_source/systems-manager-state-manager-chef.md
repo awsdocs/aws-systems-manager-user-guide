@@ -35,7 +35,7 @@ Verify that you can reach the Chef\.io website, so that any cookbooks you specif
 **Important**  
 Before you create a State Manager association that runs Chef recipes, be aware that the document run installs the Chef client software on your Systems Manager managed nodes, unless you set the value of **Chef client version** to `None`\. This action uses an installation script from Chef to install Chef components on your behalf\. Before you run an `AWS-ApplyChefRecipes` document, be sure your enterprise can comply with any applicable legal requirements, including license terms applicable to the use of Chef software\. For more information, see the [Chef website](https://www.chef.io/)\.
 
-Systems Manager can deliver compliance reports to an Amazon S3 bucket, the Systems Manager console, or make compliance results available in response to Systems Manager API commands\. To run Systems Manager compliance reports, the instance profile attached to Systems Manager managed instances must have permissions to write to the S3 bucket\. The instance profile must have permissions to use the Systems Manager `PutComplianceItem` API\. For more information about Systems Manager compliance, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
+Systems Manager can deliver compliance reports to an S3 bucket, the Systems Manager console, or make compliance results available in response to Systems Manager API commands\. To run Systems Manager compliance reports, the instance profile attached to Systems Manager managed instances must have permissions to write to the S3 bucket\. The instance profile must have permissions to use the Systems Manager `PutComplianceItem` API\. For more information about Systems Manager compliance, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
 
 ### Logging the document run<a name="state-manager-chef-logging"></a>
 
@@ -275,4 +275,4 @@ For information about how to view compliance information, see [AWS Systems Manag
 
 ### Association failures affect compliance reporting<a name="state-manager-chef-compliance-reporting"></a>
 
-If the State Manager association fails, no compliance data is reported\. For example, if Systems Manager attempts to download a Chef cookbook from an Amazon S3 bucket that the instance doesn't have permission to access, the association fails, and Systems Manager reports no compliance data\.
+If the State Manager association fails, no compliance data is reported\. For example, if Systems Manager attempts to download a Chef cookbook from an S3 bucket that the instance doesn't have permission to access, the association fails, and Systems Manager reports no compliance data\.

@@ -24,7 +24,7 @@ For more information, see [Logging AWS Systems Manager API calls with AWS CloudT
 
 ## Logging session data using Amazon S3 \(console\)<a name="session-manager-logging-auditing-s3"></a>
 
-You can choose to store session log data in a specified Amazon S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
+You can choose to store session log data in a specified S3 bucket for auditing purposes\. The default option is for logs to be sent to an encrypted S3 bucket\. Encryption is performed using the key specified for the bucket, either an AWS Key Management Service \(AWS KMS\) key or an Amazon S3 Server\-Side Encryption \(SSE\) key \(AES\-256\)\. 
 
 **Important**  
 When you use virtual hosted–style buckets with Secure Sockets Layer \(SSL\), the SSL wildcard certificate only matches buckets that don't contain periods\. To work around this, use HTTP or write your own certificate verification logic\. We recommend that you do not use periods \("\."\) in bucket names when using virtual hosted–style buckets\.

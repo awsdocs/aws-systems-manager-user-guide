@@ -2,7 +2,7 @@
 
 **Description**
 
-Patch Amazon EC2 instances in an Auto Scaling group\.
+Patch EC2 instances in an Auto Scaling group\.
 
 **Document Type**
 

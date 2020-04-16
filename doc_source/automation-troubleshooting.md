@@ -68,7 +68,7 @@ The `aws:runInstances` action received input for an `ImageId` that doesn't exist
 **Assume Role Policy Doesn't Have Sufficient Permissions**  
 **Error message**: `Automation Step Execution fails when it is launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [You are not authorized to perform this operation. Encoded authorization failure message: xxxxxxx (Service: AmazonEC2; Status Code: 403; Error Code: UnauthorizedOperation; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-The assume role doesn't have sufficient permission to invoke the `RunInstances` API on Amazon EC2 instances\. To resolve this problem, attach an IAM policy to the assume role that has permission to invoke the `RunInstances` API\. For more information, see the [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
+The assume role doesn't have sufficient permission to invoke the `RunInstances` API on EC2 instances\. To resolve this problem, attach an IAM policy to the assume role that has permission to invoke the `RunInstances` API\. For more information, see the [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
 
 **Unexpected State**  
 **Error message**: `Step fails when it is verifying launched instance(s) are ready to be used. Instance i-xxxxxxxxx entered unexpected state: shutting-down. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
@@ -83,8 +83,8 @@ When a step fails, the failure message might indicate which service was being in
 
 | Action | AWS Service\(s\) invoked by this action | For information about this service | Troubleshooting content | 
 | --- | --- | --- | --- | 
-| aws:runInstances | Amazon EC2 | [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
-| aws:changeInstanceState | Amazon EC2 | [Amazon EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
+| aws:runInstances | Amazon EC2 | [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
+| aws:changeInstanceState | Amazon EC2 | [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/) | [Troubleshooting EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html) | 
 | aws:runCommand | Systems Manager |  [AWS Systems Manager Run Command](execute-remote-commands.md) |  [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md) | 
 | aws:createImage | Amazon EC2 | [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) |  | 
 | aws:createStack | AWS CloudFormation | [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) | [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html) | 

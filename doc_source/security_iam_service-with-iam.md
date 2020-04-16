@@ -138,8 +138,8 @@ To see a list of Systems Manager condition keys, see [Condition Keys for AWS Sys
 For information about using the `ssm:resourceTag/*` condition key, see the following topics:
 + [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
-+ [Restrict Session Access Based on Instance Tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
-+ [Controlling access to documents using tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
++ [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
++ [Restricting access to documents using tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
 + [Controlling access to parameters using tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
@@ -167,7 +167,7 @@ You can attach tags to Systems Manager resources or pass tags in a request to Sy
 + OpsItem
 
 For more information about tagging Systems Manager resources, see the following topics\.
-+ [Tagging Systems Manager documents](sysman-ssm-docs-tagging.md)
++ [Tagging SSM documents](sysman-ssm-docs-tagging.md)
 + [Tagging Systems Manager parameters](sysman-paramstore-su-tag.md)
 + [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) in the *AWS Systems Manager API Reference*
 
@@ -199,7 +199,7 @@ Systems Manager supports service roles\.
 
 For Systems Manager to interact with your managed instances, you must choose a role to allow Systems Manager to access instances on your behalf\. If you have previously created a service role or service\-linked role, then Systems Manager provides you with a list of roles to choose from\. It's important to choose a role that allows access to start and stop managed instances\. 
 
-To access Amazon EC2 instances, the role your AWS account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+To access EC2 instances, the role your AWS account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 To access on\-premises instances or virtual machines \(VMs\), the role your AWS account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
@@ -219,7 +219,7 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMManagedInstanceCore** – Instance trust policy that enables an instance to use AWS Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by AWS Systems Manager\.
 + **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
-+ **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to enable AWS Systems Manager service core functionality on Amazon EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to enable AWS Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  
 In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 

@@ -1,9 +1,9 @@
-# Step 5: Attach an IAM instance profile to an Amazon EC2 instance<a name="setup-launch-managed-instance"></a>
+# Step 5: Attach an IAM instance profile to an EC2 instance<a name="setup-launch-managed-instance"></a>
 
-The procedures in this topic describe how to attach the IAM instance profile for Systems Manager that you created in the previous topic, [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md), to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
+The procedures in this topic describe how to attach the IAM instance profile for Systems Manager that you created in the previous topic, [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md), to EC2 instances\. You can attach the instance profile to new EC2 instances when you launch them, or to existing EC2 instances\. 
 
 **SSM Agent requirements for instances**  
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an Amazon EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
 
 If the Amazon Machine Image \(AMI\) type you choose in the first procedure doesn't come with SSM Agent preinstalled, you must manually install the agent on the new instance before it can be used with Systems Manager\. If SSM Agent isn't installed on the existing EC2 instance you choose in the second procedure, you must manually install the agent on the instance before it can be used with Systems Manager\.
 
@@ -16,10 +16,10 @@ SSM Agent is installed by default on the following AMIs:
 + Ubuntu Server 18\.04
 + Amazon ECS\-Optimized
 
-For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on Amazon EC2 Linux instances](sysman-install-ssm-agent.md)\.
+For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
-A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each Amazon EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.
 
 **Topics**
 + [Launch an instance that uses the Systems Manager instance profile \(console\)](#setup-launch-managed-instance-new)
@@ -55,7 +55,7 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. In the navigation pane, under **Instances**, choose **Instances**\.
 
-1. Browse to and choose your Amazon EC2 instance from the list\.
+1. Browse to and choose your EC2 instance from the list\.
 
 1. In the **Actions** menu, choose **Instance Settings**, **Attach/Replace IAM Role**\.
 

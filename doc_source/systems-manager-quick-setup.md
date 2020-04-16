@@ -1,6 +1,6 @@
 # AWS Systems Manager Quick Setup<a name="systems-manager-quick-setup"></a>
 
-Use AWS Systems Manager Quick Setup to quickly configure required security roles and commonly used Systems Manager capabilities on your Amazon EC2 instances\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. Specifically, Quick Setup helps you configure the following components on the instances you choose or target by using tags:
+Use AWS Systems Manager Quick Setup to quickly configure required security roles and commonly used Systems Manager capabilities on your EC2 instances\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. Specifically, Quick Setup helps you configure the following components on the instances you choose or target by using tags:
 + AWS Identity and Access Management \(IAM\) instance profile roles for Systems Manager\.
 + A scheduled, bi\-weekly update of SSM Agent\.
 + A scheduled collection of Inventory metadata every 30 minutes\.
@@ -17,7 +17,7 @@ You can change Quick Setup configurations at any time\. Before you do, we recomm
 
 ## Permissions roles<a name="quick-setup-instance-profile"></a>
 
-By default, Systems Manager doesn't have permission to communicate with or perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile and an IAM service role \(or *assume* role\)\. An instance profile is a container that passes IAM role information to an Amazon EC2 instance at launch\. A service role enables Systems Manager to run commands on your instances\. For more information about instance profiles, see [Using Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*\. For more information about service roles, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
+By default, Systems Manager doesn't have permission to communicate with or perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile and an IAM service role \(or *assume* role\)\. An instance profile is a container that passes IAM role information to an EC2 instance at launch\. A service role enables Systems Manager to run commands on your instances\. For more information about instance profiles, see [Using Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*\. For more information about service roles, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
 
 You can choose to have Quick Setup create and configure these roles for you by choosing **Use the default role**\. If you select an existing role, then that role must include IAM policies with, at minimum, the permissions described in this topic\. If you select existing roles and they don't have these permissions, then Quick Setup may fail to configure one or more selected components, or those components may fail to run correctly\.
 
@@ -82,7 +82,7 @@ In the **Instance profile role** section, if you choose **Use the default role**
 **Note**  
 For information about the `ssmmessages*` and `ec2messages*` actions, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
-Quick Setup also adds the following policy to the instance profile\. This policy enables trusted communications between the Systems Manager service in the cloud and your Amazon EC2 instances\.
+Quick Setup also adds the following policy to the instance profile\. This policy enables trusted communications between the Systems Manager service in the cloud and your EC2 instances\.
 
 ```
 {
@@ -165,9 +165,9 @@ AWS Systems Manager Inventory provides visibility into your computing environmen
 + **Applications**: Application names, publishers, versions, and more\.
 + **Instance details**: System name, operating system \(OS\) name, OS version, last boot, DNS, domain, work group, OS architecture, and more\.
 + **Network configuration**: IP address, MAC address, DNS, gateway, subnet mask, and more\. 
-+ **Services**: Name, display name, status, dependent services, service type, start type, and more \(Windows instances only\)\.
-+ **Windows roles**: Name, display name, path, feature type, installed state, and more \(Windows instances only\)\.
-+ **Windows updates**: Hotfix ID, installed by, installed date, and more \(Windows instances only\)\.
++ **Services**: Name, display name, status, dependent services, service type, start type, and more \(Windows Server instances only\)\.
++ **Windows roles**: Name, display name, path, feature type, installed state, and more \(Windows Server instances only\)\.
++ **Windows updates**: Hotfix ID, installed by, installed date, and more \(Windows Server instances only\)\.
 
 You can configure Systems Manager Inventory to collect the following additional types of metadata from your instances\. For more information, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 + **Custom inventory**: Metadata that was assigned to a managed instance as described in [Working with custom inventory](sysman-inventory-custom.md)\.
@@ -184,7 +184,7 @@ If you enable this option in Quick Setup, then Systems Manager uses Patch Manage
 
 ## Install and configure the CloudWatch agent<a name="quick-setup-cloudwatch"></a>
 
-Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting Metrics and Logs from Amazon EC2 Instances and On\-Premises Servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premismes servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
 ## Update the CloudWatch agent once every four weeks<a name="quick-setup-cloudwatch-2"></a>
 

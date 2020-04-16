@@ -151,7 +151,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 16384\.
 Required: No
 
 StackPolicyURL  
-Location of a file containing the stack policy\. The URL must point to a policy located in an Amazon S3 bucket in the same region as the stack\. The maximum file size allowed for the stack policy is 16 KB\.  
+Location of a file containing the stack policy\. The URL must point to a policy located in an S3 bucket in the same region as the stack\. The maximum file size allowed for the stack policy is 16 KB\.  
 Conditional: You can specify either the `StackPolicyBody` parameter or the `StackPolicyURL` parameter, but not both\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1350\.  
@@ -170,7 +170,7 @@ Length Constraints: Minimum length of 1\.
 Required: No
 
 TemplateURL  
-Location of a file containing the template body\. The URL must point to a template that is located in an Amazon S3 bucket\. The maximum size allowed for the template is 460,800 bytes\. For more information, see [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
+Location of a file containing the template body\. The URL must point to a template that is located in an S3 bucket\. The maximum size allowed for the template is 460,800 bytes\. For more information, see [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)\.   
 Conditional: You can specify either the `TemplateBody` parameter or the `TemplateURL` parameter, but not both\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  

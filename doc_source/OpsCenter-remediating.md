@@ -1,7 +1,7 @@
 # Remediating OpsItem issues using Systems Manager Automation<a name="OpsCenter-remediating"></a>
 
 AWS Systems Manager Automation helps you quickly remediate issues with AWS resources identified in your OpsItems\. Automation uses predefined SSM Automation documents \(runbooks\) to remediate commons issues with AWS resources\. For example, Automation includes runbooks to perform the following actions: 
-+ Stop, start, restart, and terminate Amazon Relational Database Service \(Amazon RDS\) and Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.
++ Stop, start, restart, and terminate Amazon Relational Database Service \(Amazon RDS\) and Amazon Elastic Compute Cloud \(EC2\) instances\.
 + Create AWS resources such as Amazon Machine Images \(AMIs\), Amazon Elastic Block Store \(Amazon EBS\) snapshots, and Amazon DynamoDB backups\.
 + Configure a resource to use AWS services, including Amazon CloudWatch Events, AWS CloudTrail, and Amazon Simple Storage Service \(Amazon S3\) bucket logging and versioning\.
 + Attach an AWS Identity and Access Management \(IAM\) instance profile to an instance\.

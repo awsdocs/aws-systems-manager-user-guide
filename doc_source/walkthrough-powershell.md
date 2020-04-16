@@ -186,7 +186,7 @@ Get-SSMDocumentDescription -Name "AWS-InstallPowerShellModule" | Select -ExpandP
 
 ### Install a PowerShell module<a name="walkthrough-powershell-install-module-install"></a>
 
-The following command downloads the EZOut\.zip file, installs it, and then runs an additional command to install XPS viewer\. Lastly, the output of this command is uploaded to an Amazon S3 bucket named "demo\-ssm\-output\-bucket"\. 
+The following command downloads the EZOut\.zip file, installs it, and then runs an additional command to install XPS viewer\. Lastly, the output of this command is uploaded to an S3 bucket named "demo\-ssm\-output\-bucket"\. 
 
 ```
 $installPSCommand = Send-SSMCommand `
@@ -236,7 +236,7 @@ Get-SSMDocumentDescription -Name "AWS-JoinDirectoryServiceDomain" | Select -Expa
 
 ### Join an instance to a domain<a name="walkthrough-powershell-domain-join-instance"></a>
 
-The following command joins the instance to the given AWS Directory Service domain and uploads any generated output to the example Amazon S3 bucket\. 
+The following command joins the instance to the given AWS Directory Service domain and uploads any generated output to the example S3 bucketS3 bucket\. 
 
 ```
 $domainJoinCommand = Send-SSMCommand `
@@ -323,7 +323,7 @@ $cloudWatchMetricsCommand = Send-SSMCommand `
 
 ## Update EC2Config using the AWS\-UpdateEC2Config document<a name="walkthrough-powershell-update-ec2config"></a>
 
-Using Run Command and the `AWS-EC2ConfigUpdate` document, you can update the EC2Config service running on your Windows instances\. This command can update the EC2Config service to the latest version or a version you specify\.
+Using Run Command and the `AWS-EC2ConfigUpdate` document, you can update the EC2Config service running on your Windows Server instances\. This command can update the EC2Config service to the latest version or a version you specify\.
 
 **View the description and available parameters**
 
@@ -367,7 +367,7 @@ Send-SSMCommand `
 
 ## Enable/Disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document<a name="walkthrough-powershell-enable-windows-update"></a>
 
-Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can enable or disable automatic Windows updates on your Windows instances\. This command configures the Windows update agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
+Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can enable or disable automatic Windows updates on your Windows Server instances\. This command configures the Windows update agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
 
 **View the description and available parameters**
 
@@ -425,7 +425,7 @@ Get-SSMCommandInvocation `
 
 ## Manage Windows updates using Run Command<a name="walkthough-powershell-windows-updates"></a>
 
-Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for Amazon EC2 Windows instances\. This command scans for or installs missing updates on your EC2 Windows instances and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
+Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for EC2 instances for Windows Server\. This command scans for or installs missing updates on your EC2 instances for Windows Server and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.

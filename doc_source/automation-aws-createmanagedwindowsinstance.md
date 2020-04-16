@@ -2,7 +2,7 @@
 
 **Description**
 
-Create an Amazon EC2 Windows instance that is configured for Systems Manager\.
+Create an EC2 instance for Windows Server that is configured for Systems Manager\.
 
 **Document Type**
 

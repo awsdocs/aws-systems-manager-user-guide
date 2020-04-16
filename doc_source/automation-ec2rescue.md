@@ -1,6 +1,6 @@
 # Walkthrough: Run the EC2Rescue tool on unreachable instances<a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on Amazon EC2 Linux and Windows Server instances\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
+EC2Rescue can help you diagnose and troubleshoot problems on EC2 instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
 You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
 
@@ -192,7 +192,7 @@ The following Automation workflow stops the unreachable instance\. Stopping the 
 
    1. For **AutomationAssumeRole**, if you created roles for this Automation by using the AWS CloudFormation procedure described earlier in this topic, then choose the ARN of the AssumeRole that you created in the AWS CloudFormation console\.
 
-   1. \(Optional\) For **LogDestination**, specify an Amazon S3 bucket if you want to collect operating system\-level logs while troubleshooting your instance\. Logs are automatically uploaded to the specified bucket\.
+   1. \(Optional\) For **LogDestination**, specify an S3 bucket if you want to collect operating system\-level logs while troubleshooting your instance\. Logs are automatically uploaded to the specified bucket\.
 
    1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the unreachable instance\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
 **Note**  

@@ -61,7 +61,7 @@ TypeName is limited to 100 characters\. Also, the TypeName section must start wi
 The Content section includes attributes and *data*\. These items are not case\-sensitive\. However, if you define an attribute \(for example: "Vendor": "DELL"\), then you must consistently reference this attribute in your custom inventory files\. If you specify "Vendor": "DELL" \(using a capital “V” in vendor\) in one file, and then you specify "vendor": "DELL" \(using a lowercase “v” in vendor\) in another file, the system returns an error\.
 
 **Note**  
-You must save the file with a \.json extension\.
+You must save the file with a \.json extension and the inventory you define must consist only of string values\.
 
 After you create the file, you must save it on the instance\. The following table shows the location where custom inventory JSON files must be stored on the instance:
 

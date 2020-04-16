@@ -37,8 +37,14 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/instance-id"
-            ]
+                "arn:aws:ec2:*:*:instance/instance-id",
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                }
+            }
         },
         {
             "Effect": "Allow",
@@ -49,20 +55,6 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ec2:DescribeInstances"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:GetDocument"
-            ],
-            "Resource": [
-                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
-            ],
-            "Condition": {
-                "BoolIfExists": {
-                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
-                }
-            }
         },
         {
             "Effect": "Allow",
@@ -140,8 +132,14 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/instance-id"
-            ]
+                "arn:aws:ec2:*:*:instance/instance-id",
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                }
+            }
         },
         {
             "Effect": "Allow",
@@ -153,20 +151,6 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ec2:DescribeInstances"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:GetDocument"
-            ],
-            "Resource": [
-                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
-            ],
-            "Condition": {
-                "BoolIfExists": {
-                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
-                }
-            }
         },
         {
             "Effect": "Allow",
@@ -190,9 +174,9 @@ Use this sample policy to provider users with the ability to start sessions from
 
 ------
 
-**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom configuration document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom session document and specify it in this policy instead\. You can also specify the AWS\-provided document, `AWS-StartSSHSession`, for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
-**2** If you specify the condition element `ssm:SessionDocumentAccessCheck` as `true`, the system checks that a user was granted explicit access to the configuration document `SSM-SessionManagerRunShell` before allowing a session to start\. For more information, see [Enforce document permission check for default CLI scenario](getting-started-sessiondocumentaccesscheck.md)\.
+**2** If you specify the condition element, `ssm:SessionDocumentAccessCheck`, as `true`, the system checks that a user has explicit access to the defined session document, in this example `SSM-SessionManagerRunShell`, before a session is established\. For more information, see [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)\.
 
 **3** The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the ARN of the customer master key \(CMK\) you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. If you won't use AWS KMS key encryption for your session data, remove the following content from the policy:
 

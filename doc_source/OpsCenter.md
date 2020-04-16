@@ -7,7 +7,7 @@ OpsCenter is integrated with Amazon CloudWatch Events\. This means you can creat
 + Performance issues, such as a throttling event for Amazon DynamoDB or degraded Amazon Elastic Block Store \(EBS\) volume performance
 + Failures, such as an Amazon EC2 Auto Scaling group failure to launch an instance or a Systems Manager Automation execution failure
 + Health alerts, such as an AWS Health alert for scheduled maintenance
-+ State changes, such as an Amazon EC2 instance state change from `Running` to `Stopped`
++ State changes, such as an EC2 instance state change from `Running` to `Stopped`
 
 OpsCenter is also integrated with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\.
 

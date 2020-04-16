@@ -18,7 +18,7 @@ The [AWS Systems Manager Run Command](execute-remote-commands.md) capability pro
 + [Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command](walkthrough-powershell.md)
 
 **Session Manager**  
-The [AWS Systems Manager Session Manager](session-manager.md) capability lets you manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\.
+The [AWS Systems Manager Session Manager](session-manager.md) capability lets you manage your EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\.
 + [Working with Session Manager](session-manager-working-with.md)
 
 **Distributor**  
@@ -27,7 +27,7 @@ The [AWS Systems Manager Distributor](distributor.md) capability lets you packag
 + [Step 4: Add a package to Distributor](distributor-working-with-packages-create.md#distributor-working-with-packages-add)
 
 **Patch Manager**  
-The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of Amazon EC2 instances or on\-premises servers and VMs\.
+The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of EC2 instances or on\-premises servers and VMs\.
 + [Create a custom patch baseline](sysman-patch-baseline-console.md)
 + [Create a patch group](sysman-patch-group-tagging.md)
 + [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)
@@ -40,13 +40,13 @@ The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) ca
 + [Tutorial: View information about tasks and task executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)
 
 **State Manager**  
-The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your Amazon EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
+The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
 + [Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md)
 + [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)
-+ [Walkthrough: Automatically update PV drivers on EC2 Windows instances \(console\)](sysman-state-pvdriver.md)
++ [Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server \(console\)](sysman-state-pvdriver.md)
 
 **Documents**  
-The [AWS Systems Manager Documents](sysman-ssm-docs.md) capability lets you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
+The [AWS Systems Manager documents](sysman-ssm-docs.md) capability lets you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
 + [Create an SSM document \(console\)](create-ssm-console.md)
 + [Create an SSM document \(command line\)](create-ssm-document-cli.md)
 
@@ -71,5 +71,5 @@ The [AWS Systems Manager Automation](systems-manager-automation.md) capability a
 + Advanced: [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)
 + Advanced: [Walkthrough: Patch an AMI and update an Auto Scaling group](automation-walk-patch-windows-ami-autoscaling.md)
 + Advanced: [Walkthrough: Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)
-+ Advanced: [Walkthrough: Reset passwords and SSH keys on Amazon EC2 instances](automation-ec2reset.md)
++ Advanced: [Walkthrough: Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md)
 + Advanced: [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)

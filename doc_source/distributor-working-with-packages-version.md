@@ -104,7 +104,7 @@ You can use the AWS CLI to add a new package version to Distributor\. Before you
 
 **To add a package version \(AWS CLI\)**
 
-1. Run the following command to edit the AWS Systems Manager document with an entry for a new package version\. Replace *document\-name* with the name of your document\. Replace *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an Amazon S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. Replace *version\-name\-from\-updated\-manifest* with the value of `version` in the manifest\. Set the `--document-version` parameter to `$LATEST` to make the document associated with this package version the latest version of the document\.
+1. Run the following command to edit the AWS Systems Manager document with an entry for a new package version\. Replace *document\-name* with the name of your document\. Replace *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. Replace *version\-name\-from\-updated\-manifest* with the value of `version` in the manifest\. Set the `--document-version` parameter to `$LATEST` to make the document associated with this package version the latest version of the document\.
 
    ```
    aws ssm update-document --name "document-name" --content "S3-bucket-URL-to-manifest-file" --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" --version-name version-name-from-updated-manifest --document-version $LATEST
@@ -122,4 +122,4 @@ You can use the AWS CLI to add a new package version to Distributor\. Before you
    aws ssm get-document --name "package-name" --document-version "document-version"
    ```
 
-For information about other options you can use with the update\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the update\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.

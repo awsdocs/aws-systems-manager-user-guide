@@ -42,7 +42,7 @@ For Automation documents not owned by Amazon that use the `aws:executeScript` ac
 **Note**  
 To add more document parameters, choose **Add a parameter**\. To remove a document parameter, choose the **X** \(Remove\) button\.
 
-1. \(Optional\) Expand the **Target type** sections and choose a target type to define the kinds of resources the document can run on\. For example, to run a document on Amazon EC2 instances, choose `/AWS::EC2::Instance`\.
+1. \(Optional\) Expand the **Target type** sections and choose a target type to define the kinds of resources the document can run on\. For example, to run a document on EC2 instances, choose `/AWS::EC2::Instance`\.
 **Note**  
 If you specify a value of '`/`', the document can run on all types of resources\. For a list of valid resource types, see [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*\.
 

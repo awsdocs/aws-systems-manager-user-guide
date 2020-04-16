@@ -177,7 +177,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
  **Document Steps** 
 
-1. aws:assertAwsResourceProperty \- Check if the instance is a Windows instance
+1. aws:assertAwsResourceProperty \- Check if the instance is a Windows Server instance
 
 1. aws:assertAwsResourceProperty \- Check if the instance is a managed instance
 

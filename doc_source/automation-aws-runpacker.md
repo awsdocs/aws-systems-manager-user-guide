@@ -24,7 +24,7 @@ Windows, Linux
 
   Type: String
 
-  Description: The name of the Amazon S3 bucket containing the packer template\.
+  Description: The name of the S3 bucket containing the packer template\.
 + TemplateFileName
 
   Type: String
@@ -69,6 +69,6 @@ RunPackerProcessTemplate – Runs the selected mode against the template using t
 
 RunPackerProcessTemplate\.output – The stdout from the Packer tool\.
 
-RunPackerProcessTemplate\.fixed\_template\_key – The name of the template stored in an Amazon S3 bucket to use only when running in "Fix" mode\.
+RunPackerProcessTemplate\.fixed\_template\_key – The name of the template stored in an S3 bucket to use only when running in "Fix" mode\.
 
 RunPackerProcessTemplate\.s3\_bucket – The name of the S3 bucket that contains the fixed template to use only when running in "Fix" mode\.

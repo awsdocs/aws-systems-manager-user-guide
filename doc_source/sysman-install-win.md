@@ -1,16 +1,16 @@
-# Install and configure SSM Agent on Amazon EC2 Windows instances<a name="sysman-install-win"></a>
+# Install and configure SSM Agent on EC2 instances for Windows Server<a name="sysman-install-win"></a>
 
 SSM Agent is installed by default on instances created from Windows Server 2016 and Windows Server 2019 Amazon Machine Images \(AMIs\), and on instances created from Windows Server 2008\-2012 R2 AMIs published in November 2016 or later\.
 
-If your instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. We recommend that you upgrade your existing instances to use the latest version of EC2Config\. By using the latest EC2Config installer, you install SSM Agent side\-by\-side with EC2Config\. This side\-by\-side version of SSM Agent is compatible with your instances created from earlier Windows AMIs and enables you to use SSM features published after November 2016\. For information about how to install the latest version of the EC2Config service, see [Installing the Latest Version of EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_Install.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+If your instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. We recommend that you upgrade your existing instances to use the latest version of EC2Config\. By using the latest EC2Config installer, you install SSM Agent side\-by\-side with EC2Config\. This side\-by\-side version of SSM Agent is compatible with your instances created from earlier Windows Server AMIs and enables you to use SSM features published after November 2016\. For information about how to install the latest version of the EC2Config service, see [Installing the Latest Version of EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_Install.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 **Important**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
-If necessary, you can manually download and install the latest version of SSM Agent on your Amazon EC2 Windows instance by using the following procedure\.
+If necessary, you can manually download and install the latest version of SSM Agent on your EC2 instance for Windows Server by using the following procedure\.
 
 **Important**  
-This procedure applies to installing or reinstalling SSM Agent on an Amazon EC2 Windows instance\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+This procedure applies to installing or reinstalling SSM Agent on an EC2 instance for Windows Server\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **To manually download and install the latest version of SSM Agent**
 
@@ -51,4 +51,4 @@ Run the downloaded `AmazonSSMAgentSetup.exe` file to install SSM Agent\.
    ```
 
 **Important**  
-SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows instances \(for example, the legacy **AWS\-ApplyPatchBaseline** document\)\. Verify that your Windows instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [Windows Management Framework 3\.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
+SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows Server instances \(for example, the legacy **AWS\-ApplyPatchBaseline** document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [Windows Management Framework 3\.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.

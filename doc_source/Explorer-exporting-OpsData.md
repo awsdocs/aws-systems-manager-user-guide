@@ -101,10 +101,10 @@ The role includes the following trust entity\.
 
 1. In the **Configure data export** section, choose **Edit**\.
 
-1. To upload the data export file to an existing Amazon S3 bucket, choose **Select an existing S3 bucket** and then choose the bucket from the list\. To upload the data export file to a new Amazon S3 bucket, choose **Create a new S3 bucket**, and then enter the name you want to use for the new bucket\.
+1. To upload the data export file to an existing S3 bucket, choose **Select an existing S3 bucket** and then choose the bucket from the list\. To upload the data export file to a new S3 bucket, choose **Create a new S3 bucket**, and then enter the name you want to use for the new bucket\.
 
 1. Use the **Select an Amazon SNS topic ARN** list to choose the topic you want to notify when the export completes\.
 
 1. Choose **Create**\.
 
-You can now export OpsData from Explorer pages to the specified Amazon S3 bucket\.
+You can now export OpsData from Explorer pages to the specified S3 bucket\.

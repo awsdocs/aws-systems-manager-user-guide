@@ -2,7 +2,7 @@
 
 **Description**
 
-Terminate one or more Amazon EC2 instances\.
+Terminate one or more EC2 instances\.
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: StringList
 
-  Description: \(Required\) IDs of one or more Amazon EC2 instances to terminate\.
+  Description: \(Required\) IDs of one or more EC2 instances to terminate\.
 
 **Examples**
 

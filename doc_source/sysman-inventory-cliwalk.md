@@ -95,7 +95,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=tag:Environment,Values=Production" --schedule-expression "rate(240 minutes)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
-   You can also inventory files and Windows Registry keys on a Windows instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
+   You can also inventory files and Windows Registry keys on a Windows Server instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
 
    ```
    aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" --schedule-expression "rate(240 minutes)"  --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' --profile dev-pdx

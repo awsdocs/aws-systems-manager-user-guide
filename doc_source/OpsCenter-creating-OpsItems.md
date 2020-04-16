@@ -17,7 +17,7 @@ Use the following procedure to configure **SSM OpsItems** as the target of a Clo
 
 1. In the navigation pane, choose **Events**, and then either choose to create a new rule or edit an existing rule\.
 
-1. After specifying or verifying the details of the rule, choose **Add target**\.
+1. After verifying the details of the rule, choose **Add target**\.
 
 1. In the **Select target type** list, choose **SSM OpsItem**\. 
 
@@ -121,7 +121,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
    aws ssm create-ops-item --title "RDS instance not responding" --description "RDS instance not responding to ping" --priority 1 --source RDS --operational-data={\"RDS\":{\"Value\":\"abcd\",\"Type\":\"SearchableString\"}} --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=RDS,Value=ProductionServers"
    ```
 
-   The following command uses the `/aws/resources` key in OperationalData to create an OpsItem with an Amazon EC2 instance related resource\.
+   The following command uses the `/aws/resources` key in OperationalData to create an OpsItem with an EC2 instance related resource\.
 
    ```
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/resources\":{\"Value\":\"[{\\"""arn\\""":\\"""arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\\"""}]\",\"Type\":\"SearchableString\"}}

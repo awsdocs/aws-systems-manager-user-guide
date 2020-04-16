@@ -1,6 +1,6 @@
 # aws:createTags – Create tags for AWS resources<a name="automation-action-createtag"></a>
 
-Create new tags for Amazon EC2 instances or Systems Manager managed instances\.
+Create new tags for EC2 instances or Systems Manager managed instances\.
 
 **Input**  
 This action supports most EC2 CreateTags and SSM AddTagsToResource parameters\. For more information, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_createtags.html) and [AddTagsToResource](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_addtagstoresource.html)\.

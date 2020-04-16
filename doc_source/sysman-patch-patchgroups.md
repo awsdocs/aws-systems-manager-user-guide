@@ -22,7 +22,7 @@ When the system runs the task to apply a patch baseline to an instance, SSM Agen
 
 The following diagram shows a general example of the processes that Systems Manager performs when sending a Run Command task to your fleet of servers to patch using Patch Manager\. A similar process is used when a maintenance window is configured to send a command to patch using Patch Manager\.
 
-In this example, we have three groups of Windows EC2 instances with the following tags applied:
+In this example, we have three groups of EC2 instances for Windows Server with the following tags applied:
 
 
 ****  

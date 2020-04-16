@@ -1,6 +1,6 @@
 # Systems Manager prerequisites<a name="systems-manager-prereqs"></a>
 
-The prerequisites for using AWS Systems Manager to manage your Amazon EC2 instances, on\-premises servers, and virtual machines \(VMs\) are covered step by step in the *Setting Up* chapters of this user guide:
+The prerequisites for using AWS Systems Manager to manage your EC2 instances, on\-premises servers, and virtual machines \(VMs\) are covered step by step in the *Setting Up* chapters of this user guide:
 + [Setting up AWS Systems Manager](systems-manager-setting-up.md)
 + [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)
 

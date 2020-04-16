@@ -2,7 +2,7 @@
 
 If the AWS Systems Manager public Automation documents don't perform all the actions you want to perform on your AWS resources, you can create your own documents\. For example, you can use the editor to modify parameters, add additional steps to an existing Automation document, or combine multiple Automation documents into a single document\. If you're familiar with writing your own Automation documents in JSON or YAML, you can use the editor to enter the JSON or YAML document content\.
 
-For examples of custom Automation documents, see [Custom Automation document samples](automation-document-samples.md)\.
+For examples of custom Automation documents, see [Sample scenarios and custom Automation document solutions](automation-document-samples.md)\.
 
 **Note**  
 If your Automation document uses the `aws:executeScript` Automation action with the `Attachment` input parameter, you must use the AWS CLI or Document Builder to successfully create the document\.

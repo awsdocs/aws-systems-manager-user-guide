@@ -5,7 +5,7 @@ In this step, you register a target with your new maintenance window\. In this c
 For an example of registering more than one instance at a time using instance IDs, examples of using tags to identify multiple instances, and examples of specifying resource groups as targets, see [Examples: Register targets with a maintenance window](mw-cli-tutorial-targets-examples.md)\.
 
 **Note**  
-You should already have created an Amazon EC2 instance to use in this step, as described in the [Maintenance Windows tutorial prerequisites](maintenance-windows-tutorials.md)\.
+You should already have created an EC2 instance to use in this step, as described in the [Maintenance Windows tutorial prerequisites](maintenance-windows-tutorials.md)\.
 
 **To register a target instance with a maintenance window \(AWS CLI\)**
 

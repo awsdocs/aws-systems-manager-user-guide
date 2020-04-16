@@ -58,7 +58,7 @@ Use the following procedure to enable SSM Agent debug logging on Windows Server 
 ------
 #### [ Windows ]
 
-**To enable SSM Agent debug logging on Windows instances**
+**To enable SSM Agent debug logging on Windows Server instances**
 
 1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 

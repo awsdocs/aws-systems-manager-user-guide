@@ -24,7 +24,7 @@ parameters:
     default: ''
   InstanceId:
     type: String
-    description: "(Required) The ID of the Amazon EC2 instance."
+    description: "(Required) The ID of the EC2 instance."
     default: ''
 mainSteps:
 - name: createImage
@@ -93,7 +93,7 @@ mainSteps:
       },
       "InstanceId": {
          "type": "String",
-         "description": "(Required) The ID of the Amazon EC2 instance.",
+         "description": "(Required) The ID of the EC2 instance.",
          "default": ""
       }
    },

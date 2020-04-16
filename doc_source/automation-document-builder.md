@@ -10,7 +10,7 @@ Automation documents support the use of Markdown, a markup language, which allow
 This topic provides general information for using Document Builder with any supported action type\. For more information about creating Automation documents that run scripts, see the following topics:  
 [Creating Automation documents that run scripts](automation-document-script.md) – Provides information for using Document Builder to create an Automation document that includes the `aws:executeScript` action\.
 [Creating an Automation document that runs scripts \(command line\)](automation-document-script-commandline.md) – Provides information for using a command line tool to create an Automation document that runs a script\.
-[ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating an Automation document that runs scripts to \(1\) launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and \(2\) wait for the instance status to change to `ok`\.
+[ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating an Automation document that runs scripts to \(1\) launch an Amazon Elastic Compute Cloud \(EC2\) instance and \(2\) wait for the instance status to change to `ok`\.
 
 **Before You Begin**  
 Before you create a custom Automation document using Document Builder, we recommend that you read about the different actions that you can use within an Automation document\. For more information see, [Systems Manager Automation actions reference](automation-actions.md)\.
@@ -55,11 +55,11 @@ For Automation documents not owned by Amazon that use the `aws:executeScript` ac
 **Note**  
 To add more document parameters, choose **Add a parameter**\. To remove a document parameter, choose the **X** \(Remove\) button\.
 
-1. \(Optional\) Expand the **Target type** section and choose a target type to define the kinds of resources the document can run on\. For example, to run a document on Amazon EC2 instances, choose `/AWS::EC2::Instance`\.
+1. \(Optional\) Expand the **Target type** section and choose a target type to define the kinds of resources the document can run on\. For example, to run a document on EC2 instances, choose `/AWS::EC2::Instance`\.
 **Note**  
 If you specify a value of '`/`', the document can run on all types of resources\. For a list of valid resource types, see [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*\.
 
-1. \(Optional\) Expand the **Document tags** section and enter one or more tag key\-value pairs to apply to the document\. Tags make it easier to identify, organize, and search for resources\. For more information, see [Tagging Systems Manager documents](sysman-ssm-docs-tagging.md)\.
+1. \(Optional\) Expand the **Document tags** section and enter one or more tag key\-value pairs to apply to the document\. Tags make it easier to identify, organize, and search for resources\. For more information, see [Tagging SSM documents](sysman-ssm-docs-tagging.md)\.
 
 1. In the **Step 1** section, provide the following information\.
    + For **Step name**, enter a descriptive name for the first step of the automation workflow\.

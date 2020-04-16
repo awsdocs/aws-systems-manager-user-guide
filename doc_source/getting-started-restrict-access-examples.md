@@ -104,7 +104,7 @@ You can create IAM policies that enable a user to start sessions to instances th
 }
 ```
 
-For more information about creating IAM user policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging instances, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux instances\)\. For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For more information about creating IAM user policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging instances, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux instances\)\. For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
 ## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 
@@ -205,9 +205,9 @@ The following example demonstrates a policy for cases where the caller type is U
      ]
 }
 ```
-The following example demonstrates a policy for cases where the caller type is `AssumedRole`\. The value you supply for `aws:ssmmessages:session-id` must be in the format `role-id:caller-specified-role-name`\. In this example, `AIDIODR4TAW7CSEXAMPLE:MyRole` represents the role ID of a user in your AWS account\.   
+The following example demonstrates a policy for cases where the caller type is `AssumedRole`\. You can use the `{aws:userid}` variable for the value you supply for `aws:ssmmessages:session-id`\. Alternatively, you can hardcode a role ID for the value you supply for `aws:ssmmessages:session-id`\. If you hardcode a role ID, you must provide the value in the format `role-id:caller-specified-role-name`\. For example, `AIDIODR4TAW7CSEXAMPLE:MyRole`\.  
 In order for system tags to be applied, the role ID you supply can contain the following characters only: Unicode letters, 0\-9, space, `_`, `.`, `:`, `/`, `=`, `+`, `-`, `@`, and `\`\.
-To retrieve the role ID for a role in your AWS account, use the IAM command, `get-role`\. For information, see [get\-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/get-role.html) in the IAM section of the *IAM User Guide*   
+To retrieve the role ID for a role in your AWS account, use the `get-caller-identity` command\. For information, see [get\-caller\-identity](https://docs.aws.amazon.com/cli/latest/reference//sts/get-caller-identity.html) in the AWS CLI Command Reference\.   
 
 ```
 {
@@ -222,7 +222,7 @@ To retrieve the role ID for a role in your AWS account, use the IAM command, `ge
              "Condition": {
                  "StringLike": {
                      "ssm:resourceTag/aws:ssmmessages:session-id": [
-                        "AIDIODR4TAW7CSEXAMPLE:MyRole"
+                        "${aws:userid}"
                      ]
                  }
              }

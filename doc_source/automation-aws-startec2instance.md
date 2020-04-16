@@ -2,7 +2,7 @@
 
 **Description**
 
-Start one or more Amazon EC2 instances\.
+Start one or more EC2 instances\.
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: StringList
 
-  Description: \(Required\) Amazon EC2 instance\(s\) to start\.
+  Description: \(Required\) EC2 instances to start\.
 
 **Examples**
 

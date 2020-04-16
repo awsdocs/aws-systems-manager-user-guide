@@ -2,7 +2,7 @@
 
 **Description**
 
-Brings Amazon EC2 instance into compliance with standing baseline; rolls back root volume on failure\.
+Brings EC2 instance into compliance with standing baseline; rolls back root volume on failure\.
 
 **Document Type**
 

@@ -2,22 +2,22 @@
 
 AWS Systems Manager supports an SSM document for Patch Manager, **AWS\-RunPatchBaseline**, which performs patching operations on instances for both security related and other types of updates\. You can use the document AWS\-RunPatchBaseline to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
-This document supports both Linux and Windows instances, so it can be reliably run on either type of instance when managed by Systems Manager\. The document will perform the appropriate actions for each platform\.
+This document supports both Linux and Windows Server instances, so it can be reliably run on either type of instance when managed by Systems Manager\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
-Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
+Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows Server instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
 
 ------
 #### [ Windows ]
 
-On Windows instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\.
+On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\.
 
 ------
 #### [ Linux ]
 
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
 + Amazon Linux, Amazon Linux 2, CentOS, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-+  Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
++ Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 ------

@@ -130,7 +130,7 @@ The following examples demonstrate how to register Systems Manager Automation ta
 ------
 #### [ Linux ]
 
-The following command restarts Amazon EC2 instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
+The following command restarts EC2 instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
 
 ```
 aws ssm register-task-with-maintenance-window \
@@ -193,7 +193,7 @@ aws ssm register-task-with-maintenance-window ^
 
 ### Register an AWS Lambda task<a name="register-tasks-tutorial-lambda"></a>
 
- The following examples demonstrate how to register AWS Lambda function tasks with a maintenance window using the AWS CLI\. 
+The following examples demonstrate how to register AWS Lambda function tasks with a maintenance window using the AWS CLI\. 
 
 For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `instanceId` and `targetType`\.
 

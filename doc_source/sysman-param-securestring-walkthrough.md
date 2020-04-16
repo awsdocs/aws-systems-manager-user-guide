@@ -1,6 +1,6 @@
 # Walkthrough: Create a SecureString parameter and join an instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows how to join a Windows instance to a domain using Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as an encrypted string\. 
+This walkthrough shows how to join a Windows Server instance to a domain using Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as an encrypted string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
@@ -20,7 +20,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 1. Attach the following IAM policies to the IAM role permissions for your instance: 
    + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy enables a managed instance to use Systems Manager service core functionality\.
    + **AmazonSSMDirectoryServiceAccess** – Required\. This AWS managed policy allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\.
-   + **A custom policy for Amazon S3 bucket access** – Required\. SSM Agent, which is on your instance and performs Systems Manager tasks, requires access to specific Amazon\-owned S3 buckets\. In the custom S3 bucket policy that you create, you also provide access to S3 buckets of your own that are necessary for Systems Manager operations\. 
+   + **A custom policy for S3 bucket access** – Required\. SSM Agent, which is on your instance and performs Systems Manager tasks, requires access to specific Amazon\-owned S3 buckets\. In the custom S3 bucket policy that you create, you also provide access to S3 buckets of your own that are necessary for Systems Manager operations\. 
 
      Examples: You can write output for Run Command commands or Session Manager sessions to an S3 bucket, and then use this output later for auditing or troubleshooting\. You store access scripts or custom patch baseline lists in an S3 bucket, and then reference the script or list when you run a command, or when a patch baseline is applied\.
 
@@ -55,7 +55,7 @@ Using CloudWatch features is optional, but we recommend setting them up at the b
    ```
    {
        "schemaVersion": "2.2",
-       "description": "Run a PowerShell script to securely domain-join a Windows instance",
+       "description": "Run a PowerShell script to securely domain-join a Windows Server instance",
        "mainSteps": [
            {
                "action": "aws:runPowerShellScript",

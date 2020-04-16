@@ -2,7 +2,7 @@
 
 You can create a custom IAM instance profile that provides permissions for only Session Manager actions on your instances\. You can also create a policy to provide the permissions needed for logs of session activity to be sent to Amazon S3 and CloudWatch Logs\.
 
-After you create an instance profile, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the instance profile to an instance, For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM Roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\.
+After you create an instance profile, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the instance profile to an instance, For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\.
 
 **Topics**
 + [Creating an instance profile with minimal Session Manager permissions \(console\)](#create-iam-instance-profile-ssn-only)
@@ -102,7 +102,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 ## Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)<a name="create-iam-instance-profile-ssn-logging"></a>
 
-Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon S3 buckets and CloudWatch Logs log groups\.
+Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in S3 buckets and CloudWatch Logs log groups\.
 
 For information about specifying preferences for storing session logs, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
 
@@ -164,7 +164,7 @@ For information about specifying preferences for storing session logs, see [Audi
    }
    ```
 **Important**  
-To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
+To output session logs to an S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
 
 1. Choose **Review policy**\.
 

@@ -2,7 +2,7 @@
 
 **Description**
 
-Attach an Amazon Elastic Block Store \(Amazon EBS\) volume to an Amazon EC2 instance\.
+Attach an Amazon Elastic Block Store \(Amazon EBS\) volume to an EC2 instance\.
 
 **Document Type**
 

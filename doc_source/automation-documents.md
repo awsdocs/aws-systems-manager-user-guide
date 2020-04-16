@@ -4,11 +4,11 @@ A Systems Manager Automation document, or *operational playbook*, defines the *a
 
 The process of running these actions and their steps is called the *automation workflow*\.
 
-Action types supported for Automation documents let you automate a wide variety of operations in your AWS environment\. For example, using the `executeScript` action type, you can embed a python or PowerShell script directly in your workflow\. \(When you create a custom Automation document, you can add your script inline, or attach it from an Amazon S3 bucket or from your local machine\.\) You can automate management of your AWS CloudFormation resources by using the `createStack` and `deleteStack` action types\. In addition, using the `executeAwsApi` action type, a step can run *any *API operation in any AWS service, including creating or deleting AWS resources, starting other processes, triggering notifications, and many more\. 
+Action types supported for Automation documents let you automate a wide variety of operations in your AWS environment\. For example, using the `executeScript` action type, you can embed a python or PowerShell script directly in your workflow\. \(When you create a custom Automation document, you can add your script inline, or attach it from an S3 bucket or from your local machine\.\) You can automate management of your AWS CloudFormation resources by using the `createStack` and `deleteStack` action types\. In addition, using the `executeAwsApi` action type, a step can run *any *API operation in any AWS service, including creating or deleting AWS resources, starting other processes, triggering notifications, and many more\. 
 
 For a list of all 20 supported action types for Automation steps, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-AWS Systems Manager Automation provides several documents with pre\-defined steps that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own Automation documents and share them with other AWS accounts, or make them public for all Automation users\.
+AWS Systems Manager Automation provides several documents with pre\-defined steps that you can use to perform common tasks like restarting one or more EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own Automation documents and share them with other AWS accounts, or make them public for all Automation users\.
 
 Automation documents are written using JavaScript Object Notation \(JSON\) or YAML\. Using the **Document Builder** in the Systems Manager Automation console, however, you can create an Automation document without having to author in native JSON or YAML\.
 
@@ -24,7 +24,7 @@ For information about using Document Builder to create a custom Automation docum
 For information about creating custom Automation documents that run scripts, see the following topics:
 + [Creating Automation documents that run scripts](automation-document-script.md) – Provides information for using Document Builder to create an Automation document that includes the `aws:executeScript` action\.
 + [Creating an Automation document that runs scripts \(command line\)](automation-document-script-commandline.md) – Provides information for using a command line tool to create an Automation document that runs a script\.
-+ [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating an Automation document that runs scripts to \(1\) launch an Amazon EC2 instance and \(2\) wait for the instance status to change to `ok`\.
++ [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating an Automation document that runs scripts to \(1\) launch an EC2 instance and \(2\) wait for the instance status to change to `ok`\.
 
 **Topics**
 + [Creating Automation documents using Document Builder](automation-document-builder.md)
@@ -34,4 +34,4 @@ For information about creating custom Automation documents that run scripts, see
 + [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)
 + [Systems Manager Automation actions reference](automation-actions.md)
 + [Systems Manager Automation documents reference](automation-documents-reference.md)
-+ [Custom Automation document samples](automation-document-samples.md)
++ [Sample scenarios and custom Automation document solutions](automation-document-samples.md)

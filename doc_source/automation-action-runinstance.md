@@ -1,4 +1,4 @@
-# aws:runInstances – Launch an Amazon EC2 instance<a name="automation-action-runinstance"></a>
+# aws:runInstances – Launch an EC2 instance<a name="automation-action-runinstance"></a>
 
 Launches a new instance\.
 

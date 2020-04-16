@@ -31,9 +31,9 @@ For more information, see [Parameter types and examples](parameter-store-about-e
 **Content in Amazon S3 Buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 
 
-For information about Amazon S3 bucket encryption, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) and [Data Protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html) in the *Amazon Simple Storage Service Developer Guide*\.
+For information about S3 bucket encryption, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) and [Data Protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
-The following are types of data you can upload or have stored in Amazon S3 buckets as part of your Systems Manager activities\.
+The following are types of data you can upload or have stored in S3 buckets as part of your Systems Manager activities\.
 + The output of Run Command commands
 + Distributor packages
 + Patch Manager patching operation logs
@@ -69,10 +69,10 @@ Systems Manager provides the following support for encryption of your data in tr
 Systems Manager API endpoints only support secure connections over HTTPS\. When you manage Systems Manager resources with the AWS Management Console, AWS SDK, or the Systems Manager API, all communication is encrypted with Transport Layer Security \(TLS\)\. For a full list of API endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *Amazon Web Services General Reference*\. 
 
 **Managed instances**  
-AWS provides secure and private connectivity between Amazon EC2 instances\. In addition, we automatically encrypt in\-transit traffic between supported instances in the same VPC or in peered VPCs, using AEAD algorithms with 256\-bit encryption\. This encryption feature uses the offload capabilities of the underlying hardware, and there is no impact on network performance\. The supported instances are: C5n, G4, I3en, M5dn, M5n, P3dn, R5dn, and R5n\.
+AWS provides secure and private connectivity between EC2 instances\. In addition, we automatically encrypt in\-transit traffic between supported instances in the same VPC or in peered VPCs, using AEAD algorithms with 256\-bit encryption\. This encryption feature uses the offload capabilities of the underlying hardware, and there is no impact on network performance\. The supported instances are: C5n, G4, I3en, M5dn, M5n, P3dn, R5dn, and R5n\.
 
 **Session Manager sessions**  
-By default, Session Manager uses TLS 1\.2 to encrypt session data transmitted between the local machines of users in your account and your Amazon EC2 instances\. You can also choose to further encrypt the data in transit using a customer master key \(CMK\) that has been created in AWS Key Management Service\. 
+By default, Session Manager uses TLS 1\.2 to encrypt session data transmitted between the local machines of users in your account and your EC2 instances\. You can also choose to further encrypt the data in transit using a customer master key \(CMK\) that has been created in AWS Key Management Service\. 
 
 **Run Command access**  
 By default, remote access to your instances using Run Command is encrypted using TLS 1\.2, and requests to create a connection are signed using SigV4\.

@@ -13,7 +13,7 @@ Before you begin, ensure you have the following resources prepared\.
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 **Attach a single file from an S3 bucket**  
-Run the following command to create an Automation document using a script file stored in an Amazon S3 bucket\.
+Run the following command to create an Automation document using a script file stored in an S3 bucket\.
 
 ------
 #### [ Linux ]
@@ -62,7 +62,7 @@ New-SSMDocument `
 ------
 
 **Attach files from an S3 bucket**  
-Run the following command to create an Automation document using a script or multiple script files stored in an Amazon S3 bucket\. Note that a `Name` key for files is not specified\. The command attaches all supported files from the S3 bucket location\.
+Run the following command to create an Automation document using a script or multiple script files stored in an S3 bucket\. Note that a `Name` key for files is not specified\. The command attaches all supported files from the S3 bucket location\.
 
 ------
 #### [ Linux ]

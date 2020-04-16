@@ -2,7 +2,7 @@
 
 **Description**
 
-Stop one or more Amazon EC2 instances\.
+Stop one or more EC2 instances\.
 
 **Document Type**
 
@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: StringList
 
-  Description: \(Required\) IDs of one or more Amazon EC2 instances to stop
+  Description: \(Required\) IDs of one or more EC2 instances to stop
 
 **Examples**
 

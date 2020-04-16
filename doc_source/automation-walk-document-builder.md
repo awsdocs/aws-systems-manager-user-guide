@@ -2,7 +2,7 @@
 
 The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
 
-The first step of the Automation document you create runs a script to launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation execution\.
+The first step of the Automation document you create runs a script to launch an Amazon Elastic Compute Cloud \(EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation execution\.
 
 **Before You Begin**  
 Before you begin this walkthrough, do the following: 
@@ -14,7 +14,7 @@ Before you begin this walkthrough, do the following:
   For information about creating this role, see [Configuring a service role \(assume role\) access for Automation workflows](automation-setup.md#automation-setup-configure-role)\. 
 
   For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
-+ Verify that you have permission to launch Amazon EC2 instances\. 
++ Verify that you have permission to launch EC2 instances\. 
 
   For information, see [IAM and Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingIAM.html#intro-to-iam) in the *Amazon EC2 User Guide for Linux Instances*\.
 
@@ -24,7 +24,7 @@ Before you begin this walkthrough, do the following:
 
 ## Step 1: Create the custom Automation document<a name="automation-walk-document-builder-create"></a>
 
-Use the following procedure to create a custom Automation document that launches an Amazon EC2 instance and waits for the instance status check to change to `ok`\.
+Use the following procedure to create a custom Automation document that launches an EC2 instance and waits for the instance status check to change to `ok`\.
 
 **Tip**  
 If you copy and paste values from this walkthrough into Document Builder, such as parameter names and handler names, make sure to delete any leading or trailing spaces added to the text value you enter\.
@@ -48,7 +48,7 @@ If you copy and paste values from this walkthrough into Document Builder, such a
    ```
    ##Title: LaunchInstanceAndCheckState
    -----
-   **Purpose**: This Automation document first launches an Amazon EC2 instance using the AMI ID provided in the parameter ```imageId```. The second step of this document continuously checks the instance status check value for the launched instance until the status ```ok``` is returned.
+   **Purpose**: This Automation document first launches an EC2 instance using the AMI ID provided in the parameter ```imageId```. The second step of this document continuously checks the instance status check value for the launched instance until the status ```ok``` is returned.
    
    ##Parameters:
    -----
@@ -78,7 +78,7 @@ For Automation documents not owned by Amazon that use the `aws:executeScript` ac
       {{ ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2 }}
       ```
 **Note**  
-This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon Machine Image \(AMI\) ID\. If you want to use a different AMI, replace the value with your AMI ID\.
+This value launches an EC2 instance using the latest Amazon Linux Amazon Machine Image \(AMI\) ID\. If you want to use a different AMI, replace the value with your AMI ID\.
 
    1. For **Description**, enter the following\.
 
@@ -311,7 +311,7 @@ This is not required for PowerShell\.
 
 ## Step 2: Run the custom Automation document<a name="automation-walk-document-builder-run"></a>
 
-Use the following procedure to run the custom Automation document created in Step 1\. The custom Automation document launches an Amazon EC2 instance and waits for the instance check to change to the `ok` status\.
+Use the following procedure to run the custom Automation document created in Step 1\. The custom Automation document launches an EC2 instance and waits for the instance check to change to the `ok` status\.
 
 **To run the custom Automation document**
 
@@ -333,6 +333,6 @@ Use the following procedure to run the custom Automation document created in Ste
 **Note**  
 It can take several minutes for the `ok` status to be returned\.
 
-1. \(Optional\) Unless you plan to use the Amazon EC2 instance created by this walkthrough for other purposes, you can terminate the instance\. For information, see [Terminate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
+1. \(Optional\) Unless you plan to use the EC2 instance created by this walkthrough for other purposes, you can terminate the instance\. For information, see [Terminate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 
    You can identify the instance by the name **LaunchedBySsmAutomation** that you tagged it with in [Step 1: Create the custom Automation document](#automation-walk-document-builder-create)\.

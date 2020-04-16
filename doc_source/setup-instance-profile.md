@@ -17,7 +17,7 @@ This section describes the policies you can add to your EC2 instance profile for
 Required permissions\.  
 This AWS managed policy enables an instance to use Systems Manager service core functionality\.
 
-**Policy: A custom policy for Amazon S3 bucket access**  
+**Policy: A custom policy for S3 bucket access**  
 Required permissions in either of the following cases:  
 + **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
 
@@ -31,7 +31,7 @@ Required permissions in either of the following cases:
   ```
 
    For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
-+ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
++ **Case 2**: You plan to use an S3 bucket that you create as part of your Systems Manager operations\.
 
   Your EC2 instance profile for Systems Manager must grant access to an S3 bucket that you own for tasks like the following: 
   + To access scripts you store in the S3 bucket to use in commands you run\.
@@ -53,7 +53,7 @@ To create an instance profile with permissions for additional Systems Manager se
 + [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 + [Setting up Run Command](sysman-rc-setting-up.md)
 
-## Task 1: \(Optional\) Create a custom policy for Amazon S3 bucket access<a name="instance-profile-custom-s3-policy"></a>
+## Task 1: \(Optional\) Create a custom policy for S3 bucket access<a name="instance-profile-custom-s3-policy"></a>
 
 Creating a custom policy for Amazon S3 access is required only if you are using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
 
@@ -112,7 +112,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
 
    In the first `Statement` element, replace each *region* placeholder with the identifier of the AWS Region this policy will be used in\. For example, use `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 **Important**  
-We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to Amazon S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` element for each Region\.
+We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` element for each Region\.
 
    \-or\-
 
@@ -161,7 +161,7 @@ Depending on whether you are creating a new role for your instance profile or ad
 ![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
 
      The console retains your selection even if you search for other policies\.
-   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a custom policy for Amazon S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
+   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
    + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
 
@@ -187,7 +187,7 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 1. On the **Attach permission policies** page, do the following:
    + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
-   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a custom policy for Amazon S3 bucket access](#instance-profile-custom-s3-policy)\.
+   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy)\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
    + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
 
@@ -195,4 +195,4 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
 
-Continue to [Step 5: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.
+Continue to [Step 5: Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\.

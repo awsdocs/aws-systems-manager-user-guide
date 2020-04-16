@@ -30,7 +30,7 @@ Distributor offers these benefits:
 ## What are the features of Distributor?<a name="distributor-features"></a>
 + **Deployment of packages to both Windows and Linux instances**
 
-  Distributor lets you deploy software packages to Amazon EC2 Windows and Linux instances\. For a list of supported instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
+  Distributor lets you deploy software packages to EC2 instances for Linux and Windows Server\. For a list of supported instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
 + **Deploy packages one time, or on an automated schedule**
 
   You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\. 
@@ -51,7 +51,7 @@ Distributor offers these benefits:
 
 A *package* is a collection of installable software or assets that includes the following\.
 + A \.zip file of software per target operating system platform\. Each \.zip file must include the following\.
-  + An install and an uninstall script\. Windows\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent reads and carries out the instructions in the install and uninstall scripts\.
+  + An install and an uninstall script\. Windows Server\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. SSM Agent reads and carries out the instructions in the install and uninstall scripts\.
   + An executable file\. SSM Agent must find this executable to install the package on target instances\.
 + A JSON\-formatted manifest file that describes the package contents\. The manifest is not included in the \.zip file, but it is stored in the same Amazon S3 bucket as the \.zip files that form the package\. The manifest identifies the package version and maps the \.zip files in the package to target instance attributes, such as operating system version or architecture\. For information about how to create the manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 

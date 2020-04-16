@@ -2,7 +2,7 @@
 
 A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. AWS services use these certificates to encrypt calls to other AWS services\.
 
-A TLS certificate is already installed by default on each Amazon EC2 instance created from any Amazon Machine Image \(AMI\)\. Most modern operating systems include the required TLS certificate from Amazon Trust Services CAs in their trust store\.
+A TLS certificate is already installed by default on each EC2 instance created from any Amazon Machine Image \(AMI\)\. Most modern operating systems include the required TLS certificate from Amazon Trust Services CAs in their trust store\.
 
 If you find the required Amazon Trust Services CA certificates are not installed on your base operating systems, on instances created from AMIs that are not supplied by Amazon, or on your own on\-premises servers and VMs, you must install and enable a certificate from [Amazon Trust Services](https://www.amazontrust.com/repository/), or use AWS Certificate Manager \(ACM\) to create and manage certificates for a supported integrated service\.
 

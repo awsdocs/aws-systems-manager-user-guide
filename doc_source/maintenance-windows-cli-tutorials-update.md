@@ -134,7 +134,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 1. Run the following command to update a Run Command task\.
 **Tip**  
-If your target is an Amazon EC2 instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
+If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
 
 ------
 #### [ Linux ]

@@ -1,6 +1,6 @@
 # Step 2: Verify or create an IAM instance profile with Session Manager permissions<a name="session-manager-getting-started-instance-profile"></a>
 
-By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an IAM instance profile\. An instance profile is a container that passes IAM role information to an Amazon EC2 instance at launch\. This requirement applies to permissions for all AWS Systems Manager capabilities, not only those specific to Session Manager\.
+By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an IAM instance profile\. An instance profile is a container that passes IAM role information to an EC2 instance at launch\. This requirement applies to permissions for all AWS Systems Manager capabilities, not only those specific to Session Manager\.
 
 If you already use other Systems Manager capabilities, such as Run Command or Parameter Store, an instance profile with the required basic permissions for Session Manager might already be attached to your instances\. If an instance profile that contains the AWS managed policy **AmazonSSMManagedInstanceCore** is already attached to your instances, the required permissions for Session Manager are already provided\.
 
@@ -16,7 +16,7 @@ However, in some cases, you might need to modify the permissions attached to you
   To create an IAM instance profile for Systems Manager managed instances that uses a default policy supplied by AWS to grant all Systems Manager permissions, follow the steps in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
-You can attach an IAM instance profile to an Amazon EC2 instance as you launch it or to a previously launched instance\. For more information, see [Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-usingrole-instanceprofile.html)\.
+You can attach an IAM instance profile to an EC2 instance as you launch it or to a previously launched instance\. For more information, see [Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-usingrole-instanceprofile.html)\.
 
 **Topics**
 + [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)

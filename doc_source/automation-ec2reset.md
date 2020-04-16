@@ -1,6 +1,6 @@
-# Walkthrough: Reset passwords and SSH keys on Amazon EC2 instances<a name="automation-ec2reset"></a>
+# Walkthrough: Reset passwords and SSH keys on EC2 instances<a name="automation-ec2reset"></a>
 
-You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on Amazon EC2 Windows instances, and to generate a new SSH key on Amazon EC2 Linux instances\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administrator password\.
+You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on EC2 instances for Windows Server, and to generate a new SSH key on EC2 instances for Linux\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administrator password\.
 
 You can use Automation with the **AWSSupport\-ResetAccess** document to solve the following problems:
 
@@ -15,7 +15,7 @@ You can use Automation with the **AWSSupport\-ResetAccess** document to solve th
 *You lost your EC2 key pair, or you configured SSH access to the instance with a key you lost*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** document to create a new SSH key for your current instance, which enables you to connect to the instance again\.
 
 **Note**  
-If your Amazon EC2 instance for Windows Server is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+If your v for Windows Server is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 ## How it works<a name="automation-ec2reset-how"></a>
 

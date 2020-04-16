@@ -1,4 +1,4 @@
-# Step 5: \(Optional\) use PrivateLink to set up a VPC endpoint for Session Manager<a name="session-manager-getting-started-privatelink"></a>
+# Step 6: \(Optional\) use PrivateLink to set up a VPC endpoint for Session Manager<a name="session-manager-getting-started-privatelink"></a>
 
 You can further improve the security posture of your managed instances by configuring AWS Systems Manager to use an interface VPC endpoint\. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access Amazon EC2 and Systems Manager APIs by using private IP addresses\. 
 

@@ -2,7 +2,7 @@
 
 When you run an AWS Systems Manager Automation workflow, by default, the Automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the execution\. This means, for example, if your IAM user account has administrator permissions, then the Automation runs with administrator permissions and full access to the resources being configured by the Automation workflow\. As a security best practice, we recommend that you run Automation workflows by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run Automation is called *delegated administration*\.
 
-When you use a service role, the Automation workflow is allowed to run against the AWS resources, but the user who ran the Automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon EC2 instances\. The Automation workflow restarts the instances, but the service role does not give the user permission to access those instances\.
+When you use a service role, the Automation workflow is allowed to run against the AWS resources, but the user who ran the Automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more EC2 instances\. The Automation workflow restarts the instances, but the service role does not give the user permission to access those instances\.
 
 You can specify a service role at runtime when you run an Automation workflow, or you can create custom Automation documents and specify the service role directly in the document\. If you specify a service role, either at runtime or in an Automation document, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the Automation\.
 
@@ -78,7 +78,7 @@ The following procedure links to other topics to help you create the service rol
 
 ## Create a custom Automation document<a name="automation-walk-security-document"></a>
 
-This section describes how to create a custom Automation document that restarts Amazon EC2 instances\. AWS provides a default SSM document for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that document to show you how to enter the service role in a document when you create your own\. By specifying the service role directly in the document, the user running the document does not require iam:PassRole permissions\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
+This section describes how to create a custom Automation document that restarts EC2 instances\. AWS provides a default SSM document for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that document to show you how to enter the service role in a document when you create your own\. By specifying the service role directly in the document, the user running the document does not require iam:PassRole permissions\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
 
 **To create a custom Automation document**
 

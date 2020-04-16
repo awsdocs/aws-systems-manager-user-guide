@@ -1,8 +1,8 @@
 # Working with SSM Agent<a name="ssm-agent"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an Amazon EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\. The agent processes requests from the Systems Manager service in the AWS Cloud, and then runs them as specified in the request\. SSM Agent then sends status and execution information back to the Systems Manager service by using the Amazon Message Delivery Service \(service prefix: `ec2messages`\)\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\. The agent processes requests from the Systems Manager service in the AWS Cloud, and then runs them as specified in the request\. SSM Agent then sends status and execution information back to the Systems Manager service by using the Amazon Message Delivery Service \(service prefix: `ec2messages`\)\.
 
-If you monitor traffic, you will see your Amazon EC2 instances, and any on\-premises servers or VMs in your hybrid environment, communicating with `ec2messages.*` endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\. For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
+If you monitor traffic, you will see your EC2 instances, and any on\-premises servers or VMs in your hybrid environment, communicating with `ec2messages.*` endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\. For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
 
 **Keeping SSM Agent up\-to\-date**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
@@ -12,7 +12,7 @@ AMIs that include SSM Agent by default can take up to two weeks to be updated wi
 Updated versions of SSM Agent are rolled out to new AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" or "updating amazon\-ssm\-agent to an older version, please enable allow downgrade to proceed" error when trying to deploy a new version of SSM Agent in a Region\.
 
 **SSM Agent and the Instance Metadata Service \(IMDS\)**  
-Systems Manager relies on Amazon EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+Systems Manager relies on EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **SSM Agent credentials precedence**  
 The SSM Agent requires permissions provided by an IAM role to communicate with Systems Manager\. It's important to understand how these credentials are sourced and evaluated by the SSM Agent\. Otherwise, previously configured credentials on your managed instances might supersede your desired credential provider\. SSM Agent credentials are evaluated in the following order\.
@@ -43,14 +43,14 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 + Ubuntu Server 18\.04
 + Amazon ECS\-Optimized
 
-You must manually install SSM Agent on Amazon EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **SSM Agent on GitHub**  
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
 
 **Topics**
-+ [Installing and configuring SSM Agent on Windows instances](sysman-install-ssm-win.md)
-+ [Installing and configuring SSM Agent on Amazon EC2 Linux instances](sysman-install-ssm-agent.md)
++ [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)
++ [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 + [Getting the currently installed SSM Agent version](ssm-agent-get-version.md)
 + [View SSM Agent logs](sysman-agent-logs.md)
 + [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)

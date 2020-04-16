@@ -2,7 +2,7 @@
 
 **Description**
 
-Create a new Amazon Machine Image \(AMI\) from an Amazon EC2 instance\.
+Create a new Amazon Machine Image \(AMI\) from an EC2 instance\.
 
 **Document Type**
 
@@ -24,7 +24,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) The ID of the Amazon EC2 instance\.
+  Description: \(Required\) The ID of the EC2 instance\.
 + NoReboot
 
   Type: Boolean

@@ -7,4 +7,4 @@ The following walkthroughs demonstrate how to use the Systems Manager console or
 + [Creating associations that run Ansible playbooks](systems-manager-state-manager-ansible.md)
 + [Creating associations that run Chef recipes](systems-manager-state-manager-chef.md)
 + [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)
-+ [Walkthrough: Automatically update PV drivers on EC2 Windows instances \(console\)](sysman-state-pvdriver.md)
++ [Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server \(console\)](sysman-state-pvdriver.md)

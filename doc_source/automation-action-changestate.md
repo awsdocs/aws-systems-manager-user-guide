@@ -63,7 +63,7 @@ Valid values: `running` \| `stopped` \| `terminated`
 Required: Yes
 
 Force  
-If set, forces the instances to stop\. The instances do not have an opportunity to flush file system caches or file system metadata\. If you use this option, you must perform file system check and repair procedures\. This option is not recommended for Windows instances\.  
+If set, forces the instances to stop\. The instances do not have an opportunity to flush file system caches or file system metadata\. If you use this option, you must perform file system check and repair procedures\. This option is not recommended for EC2 instances for Windows Server\.  
 Type: Boolean  
 Required: No
 

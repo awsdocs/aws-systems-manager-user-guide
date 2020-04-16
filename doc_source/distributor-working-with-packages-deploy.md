@@ -59,7 +59,7 @@ If you choose to select instances manually, and an instance you expect to see is
 If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an Amazon S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Type the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
@@ -75,7 +75,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    The command output page shows the results of your command execution\. 
 
-1. \(Optional\) If you chose to write command output to an Amazon S3 bucket, choose **Amazon S3** to view the output log data\.
+1. \(Optional\) If you chose to write command output to an S3 bucket, choose **Amazon S3** to view the output log data\.
 
 ## Scheduling a package installation or update \(console\)<a name="distributor-deploy-sm-pkg-console"></a>
 
@@ -109,7 +109,7 @@ You can use the AWS Systems Manager console to schedule the installation or upda
 
 1. For **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
-1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an association](sysman-state-assoc.md) in this guide\. Use the controls to create a `cron` or rate schedule for the association\.
+1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an association](sysman-state-assoc.md)\. Use the controls to create a `cron` or rate schedule for the association\.
 
 1. Choose **Create Association**\.
 
@@ -138,7 +138,7 @@ The default behavior for `installationType` is `Uninstall and reinstall`\. You c
   aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-00000000000000" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["ExamplePackage"]}'
   ```
 
-For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
+For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
 
 ## Updating a package one time \(AWS CLI\)<a name="distributor-update-pkg-cli"></a>
 
@@ -159,7 +159,7 @@ When you add new or changed files, you must include `"installationType":["In-pla
   aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-02573cafcfEXAMPLE" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["ExamplePackage"]}'
   ```
 
-For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
+For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.\.
 
 ## Scheduling a package installation \(AWS CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
 
@@ -178,7 +178,7 @@ The following is an example\.
 aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["Test-ConfigureAWSPackage"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
 ```
 
-For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
 
 ## Scheduling a package update \(AWS CLI\)<a name="distributor-smupdate-pkg-cli"></a>
 
@@ -197,4 +197,4 @@ The following is an example\.
 aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["Test-ConfigureAWSPackage"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
 ```
 
-For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.

@@ -10,9 +10,8 @@ To create your own SSM document content, it's important to understand the differ
 + [SSM document schemas and features](document-schemas-features.md)
 + [SSM document plugin reference](ssm-plugins.md)
 + [Systems Manager Automation actions reference](automation-actions.md)
-+ [Automation document schema and syntax](automation-doc-syntax.md)
 + [Automation system variables](automation-variables.md)
-+ [Custom Automation document samples](automation-document-samples.md)
++ [Sample scenarios and custom Automation document solutions](automation-document-samples.md)
 + [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)
 + [Creating Automation documents that run scripts](automation-document-script.md)
 
@@ -62,7 +61,7 @@ Update-SSMDocumentDefaultVersion `
     -DocumentVersion $latestDocVersion
 ```
 
-## Using SSM documents in State Manager associations<a name="ssm-docs-assoc"></a>
+## Using SSM documents in State Manager Associations<a name="ssm-docs-assoc"></a>
 
 If you create an SSM document for State Manager, you must associate the document with your managed instances after you add the document to the system\. For more information, see [Create an association](sysman-state-assoc.md)\.
 
@@ -77,7 +76,8 @@ After writing your SSM document content, you can use your content to create an S
 
 **Topics**
 + [Writing SSM document content](#writing-ssm-doc-content)
-+ [Using SSM documents in State Manager associations](#ssm-docs-assoc)
++ [Using SSM documents in State Manager Associations](#ssm-docs-assoc)
 + [Create an SSM document \(console\)](create-ssm-console.md)
 + [Create an SSM document \(command line\)](create-ssm-document-cli.md)
 + [Create an SSM document \(API\)](create-ssm-document-api.md)
++ [Creating composite documents](composite-docs.md)

@@ -56,13 +56,13 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
 **Document Steps**
 
-1. aws:executeAwsApi \- DescribeInstanceProfile \- Find the IAM instance profile attached to the Amazon EC2 instance\.
+1. aws:executeAwsApi \- DescribeInstanceProfile \- Find the IAM instance profile attached to the EC2 instance\.
 
-1. aws:branch \- CheckInstanceProfileAssociations \- Check the IAM instance profile attached to the Amazon EC2 instance\.
+1. aws:branch \- CheckInstanceProfileAssociations \- Check the IAM instance profile attached to the EC2 instance\.
 
    1. If an IAM instance profile is attached and `ForceReplace` is set to `true`:
 
-      1. aws:executeAwsApi \- DisassociateIamInstanceProfile \- Disassociate the IAM instance profile from the Amazon EC2 instance\.
+      1. aws:executeAwsApi \- DisassociateIamInstanceProfile \- Disassociate the IAM instance profile from the EC2 instance\.
 
    1. aws:executeAwsApi \- ListInstanceProfilesForRole \- List instance profiles for the IAM role provided\.
 
@@ -70,7 +70,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
       1. If the IAM role has an associated instance profile:
 
-         1. aws:executeAwsApi \- AttachIAMProfileToInstance \- Attach the IAM instance profile role to the Amazon EC2 instance\.
+         1. aws:executeAwsApi \- AttachIAMProfileToInstance \- Attach the IAM instance profile role to the EC2 instance\.
 
       1. If the IAM role does not have an associated instance profile:
 
@@ -80,7 +80,7 @@ aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output 
 
          1. aws:executeAwsApi \- GetInstanceProfile \- Get the instance profile data for the specified IAM role\.
 
-         1. aws:executeAwsApi \- AttachIAMProfileToInstanceWithRetry \- Attach the IAM instance profile role to the Amazon EC2 instance\.
+         1. aws:executeAwsApi \- AttachIAMProfileToInstanceWithRetry \- Attach the IAM instance profile role to the EC2 instance\.
 
 **Outputs**
 

@@ -13,13 +13,13 @@ This action supports most send command parameters\. For more information, see [S
 
 ```
 - name: checkMembership
-action: 'aws:runCommand'
-inputs:
+  action: 'aws:runCommand'
+  inputs:
     DocumentName: AWS-RunPowerShellScript
     InstanceIds:
-    - '{{InstanceIds}}'
+      - '{{InstanceIds}}'
     Parameters:
-        commands:
+      commands:
         - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
 ```
 
@@ -66,19 +66,19 @@ Here is an example:
 
 ```
 - name: checkMembership
-action: aws:runCommand
-inputs:
+  action: aws:runCommand
+  inputs:
     DocumentName: AWS-RunPowerShellScript
     Targets:
-    - Key: tag:Stage
-      Values:
-      - Gamma
-      - Beta
-    - Key: tag-key
-      Values:
-      - Suite
+      - Key: tag:Stage
+        Values:
+          - Gamma
+          - Beta
+      - Key: tag-key
+        Values:
+          - Suite
     Parameters:
-        commands:
+      commands:
         - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
 ```
 
@@ -124,17 +124,17 @@ Here is an example:
 
 ```
 - name: checkMembership
-action: aws:runCommand
-inputs:
+  action: aws:runCommand
+  inputs:
     DocumentName: AWS-RunPowerShellScript
     InstanceIds:
-    - "{{InstanceIds}}"
+      - "{{InstanceIds}}"
     Parameters:
-        commands:
+      commands:
         - "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"
     CloudWatchOutputConfig:
-        CloudWatchLogGroupName: CloudWatchGroupForSSMAutomationService
-        CloudWatchOutputEnabled: true
+      CloudWatchLogGroupName: CloudWatchGroupForSSMAutomationService
+      CloudWatchOutputEnabled: true
 ```
 
 ```

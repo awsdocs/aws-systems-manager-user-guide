@@ -328,7 +328,7 @@ The command response shows that only one managed instance is configured to colle
 ```
 
 **Note**  
-Groups don't return data type counts\. Also, you can't drill\-down into the results to see the instances IDs that are or aren't configured to collect the inventory type\.
+Groups don't return data type counts\. Also, you can't drill\-down into the results to see the IDs of instances that are or aren't configured to collect the inventory type\.
 
 If you prefer, you can create an aggregation expression with one or more inventory types in a JSON file and call the file from the AWS CLI\. The JSON in the file must use the following syntax:
 

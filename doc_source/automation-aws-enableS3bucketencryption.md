@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) The name of the Amazon S3 bucket where you want to encrypt the contents\.
+  Description: \(Required\) The name of the S3 bucket where you want to encrypt the contents\.
 + SSEAlgorithm
 
   Type: String

@@ -2,7 +2,7 @@
 
 **Description**
 
-Restart one or more Amazon EC2 instances\.
+Restart one or more EC2 instances\.
 
 **Document Type**
 

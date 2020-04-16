@@ -1,8 +1,8 @@
-# Step 6: \(Optional\) disable or enable ssm\-user account administrative permissions<a name="session-manager-getting-started-ssm-user-permissions"></a>
+# Step 7: \(Optional\) disable or enable ssm\-user account administrative permissions<a name="session-manager-getting-started-ssm-user-permissions"></a>
 
-When a version of SSM Agent that supports Session Manager starts on an instance, it creates a user account with root or administrator privileges called *ssm\-user*\. On Linux machines, the account is added to `/etc/sudoers`\. On Windows machines, it is added to the Administrators group\. Sessions are launched using the credentials of this user account\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\.
 
-If you want to prevent Session Manager users from running administrative commands on an instance, you can update its *ssm\-user* permissions\. You can also restore these permissions after they have been removed\.
+If you want to prevent Session Manager users from running administrative commands on an instance, you can update the `ssm-user` account permissions\. You can also restore these permissions after they have been removed\.
 
 **Topics**
 + [Managing ssm\-user sudo account permissions on Linux](#ssm-user-permissions-linux)

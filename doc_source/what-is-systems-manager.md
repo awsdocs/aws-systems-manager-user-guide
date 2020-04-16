@@ -2,15 +2,15 @@
 
 AWS Systems Manager is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed instances* and reporting on \(or taking corrective action on\) any policy violations it detects\.
 
-A managed instance is a machine that has been configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon EC2 instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, multiple distributions of Linux, and Raspbian\.
+A managed instance is a machine that has been configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include EC2 instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, multiple distributions of Linux, and Raspbian\.
 
 Using Systems Manager, you can associate AWS resources together by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
 
 For example, you can assign a resource tag of "`Operation=North Region OS Patching`" to all of the following resources:
-+ A group of Amazon EC2 instances
++ A group of EC2 instances
 + A group of on\-premises servers in your own facility
 + A Systems Manager patch baseline that specifies which patches to apply to your managed instances
-+ An Amazon S3 bucket to store patching operation log output
++ An S3 bucket to store patching operation log output
 + A Systems Manager *maintenance window* that specifies the schedule for the patching operation
 
 After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in your North region\. If a problem arises with any of these resources, you can take corrective action immediately\. 

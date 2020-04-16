@@ -2,14 +2,12 @@
 
 This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-Systems Manager determines the actions to perform on a managed instance by reading the contents of a Systems Manager document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Note**  
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.
 
 **Topics**
-+ [Top\-level elements](#top-level)
-+ [`type` Examples](#top-level-properties-type)
 + [aws:applications](#aws-applications)
 + [aws:cloudWatch](#aws-cloudWatch)
 + [aws:configureDocker](#aws-configuredocker)
@@ -26,123 +24,9 @@ Some of the plugins described here run only on either Windows Server instances o
 + [aws:updateAgent](#aws-updateagent)
 + [aws:updateSsmAgent](#aws-updatessmagent)
 
-## Top\-level elements<a name="top-level"></a>
-
-The top\-level elements are common for all Systems Manager documents\. Top\-level elements provide the structure of the Systems Manager document\.
-
-### Properties<a name="top-level-properties"></a>
-
-**schemaVersion**  
-The version of the schema\.  
-Type: Version  
-Required: Yes
-
-**description**  
-A description of the configuration\.  
-Type: String  
-Required: No
-
-**parameters**  
-`parameters` is a structure that contains one or more parameters to run when processing the document\. You can specify parameters at runtime, in a document, or by using Systems Manager Parameter Store\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
-Type: Structure  
-The `parameters` structure accepts the following fields and values:  
-+ `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` Examples](#top-level-properties-type) in the next section\.
-+ `description`: \(Optional\) A description of the parameter\.
-+ `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
-+ `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that is not allowed, the execution fails to start\.
-
-------
-#### [ YAML ]
-
-  ```
-  DirectoryType:
-    type: String
-    description: "(Required) The directory type to launch."
-    default: AwsMad
-    allowedValues:
-    - AdConnector
-    - AwsMad
-    - SimpleAd
-  ```
-
-------
-#### [ JSON ]
-
-  ```
-  "DirectoryType": {
-      "type": "String",
-      "description": "(Required) The directory type to launch.",
-      "default": "AwsMad",
-      "allowedValues": [
-          "AdConnector",
-          "AwsMad",
-          "SimpleAd"
-      ]
-  }
-  ```
-
-------
-+ `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.
-
-------
-#### [ YAML ]
-
-  ```
-  InstanceId:
-    type: String
-    description: "(Required) The instance ID to target."
-    allowedPattern: "^i-[a-z0-9]{8,17}$"
-    default: ''
-  ```
-
-------
-#### [ JSON ]
-
-  ```
-  "InstanceId": {
-      "type": "String",
-      "description": "(Required) The instance ID to target.",
-      "allowedPattern": "^i-[a-z0-9]{8,17}$",
-      "default": ""
-  }
-  ```
-
-------
-+ `displayType`: \(Optional\) Used to display either a `textfield` or a `textarea` in the AWS console\. `textfield` is a single\-line text box\. `textarea` is a multi\-line text area\.
-+ `minItems`: \(Optional\) The minimum number of items allowed\.
-+ `maxItems`: \(Optional\) The maximum number of items allowed\.
-+ `minChars`: \(Optional\) The minimum number of parameter characters allowed\.
-+ `maxChars`: \(Optional\) The maximum number of parameter characters allowed\.
-
-**runtimeConfig**  
-\(Schema version 1\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins are not guaranteed to run in sequence\.   
-Type: Dictionary<string,PluginConfiguration>  
-Required: No
-
-**mainSteps**  
-\(Schema version 0\.3, 2\.0, and 2\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins are organized as *actions* within steps\. Steps run in sequential order as listed in the document\.   
-Type: Dictionary<string,PluginConfiguration>  
-Required: No
-
-## `type` Examples<a name="top-level-properties-type"></a>
-
-This section includes examples of each parameter `type`\.
-
-
-****  
-
-| `type` | Description | Example | Example use case | 
-| --- | --- | --- | --- | 
-|  String  |  A sequence of zero or more Unicode characters wrapped in double quotes\. Use backslashes to escape\.   |  "i\-1234567890abcdef0"  |  <pre>"InstanceId":{<br />"type":"String",<br />"description":"(Required) The target EC2 instance ID."<br />}</pre>  | 
-|  StringList  |  A list of `String` items separated by commas  |  \["cd \~", "pwd"\]  |  <pre>"commands":{<br />"type":"StringList",<br />"description":"(Required) Specify a shell script or a command to run.",<br />"minItems":1,<br />"displayType":"textarea"<br />},<br /></pre>  | 
-|  Boolean  |  Accepts only `true` or `false`\. Does not accept "true" or 0\.  |  true  |  <pre>"canRun": {<br />"type": "Boolean",<br />"description": "",<br />"default": true,<br />}<br /></pre>  | 
-|  Integer  |  Integral numbers\. Doesn't accept decimal numbers, for example 3\.14159, or numbers wrapped in double quotes, for example "3"\.  |  39 or \-5  |  <pre>"timeout": {<br />"type": "Integer",<br />"description": "The type of action to perform.",<br />"default": 100    <br />}<br /></pre>  | 
-|  StringMap  |  A mapping of keys to values\. A key can only be a string\. For example: \{ "type": "object" \}  |  <pre>{<br />"NotificationType":"Command",<br />"NotificationEvents":[ "Failed" ],<br />"NotificationArn":"$dependency.topicArn"<br />}<br /></pre>  |  <pre>"notificationConfig" : {<br />      "type" : "StringMap",<br />      "description" : "The configuration for events to be notified about",<br />      "default" : {<br />        "NotificationType" : "Command",<br />        "NotificationEvents" : ["Failed"],<br />        "NotificationArn" : "$dependency.topicArn"<br />      },<br />      "maxChars" : 150<br />    }<br /></pre>  | 
-|  MapList  |  A list of StringMap items\.  |  <pre>[<br />   {<br />      "DeviceName" : "/dev/sda1",<br />      "Ebs" : { "VolumeSize" : "50" }<br />   },<br />   {<br />      "DeviceName" : "/dev/sdm",<br />      "Ebs" : { "VolumeSize" : "100" }<br />   }<br />]<br /></pre>  |  <pre>"blockDeviceMappings" : {<br />"type" : "MapList",<br />"description" : "The mappings for the create image inputs",<br />"default" : [{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":"50"}},{"DeviceName":"/dev/sdm","Ebs":{ "VolumeSize":"100"}}],<br />"maxItems": 2<br />}<br /></pre>  | 
-
 ## aws:applications<a name="aws-applications"></a>
 
-Install, repair, or uninstall applications on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Install, repair, or uninstall applications on an EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="applications-syntax"></a>
 
@@ -260,7 +144,7 @@ Required: No
 
 ## aws:cloudWatch<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon EC2, see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Important**  
 This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
@@ -398,7 +282,7 @@ Type: Integer
 Required: No
 
 **LogDirectoryPath**  
-For CustomLogs, the path where logs are stored on your Amazon EC2 instance\. For IIS logs, the folder where IIS logs are stored for an individual site \(for example, **C:\\\\inetpub\\\\logs\\\\LogFiles\\\\W3SVC*n***\)\. For IIS logs, only W3C log format is supported\. IIS, NCSA, and Custom formats are not supported\.   
+For CustomLogs, the path where logs are stored on your EC2 instance\. For IIS logs, the folder where IIS logs are stored for an individual site \(for example, **C:\\\\inetpub\\\\logs\\\\LogFiles\\\\W3SVC*n***\)\. For IIS logs, only W3C log format is supported\. IIS, NCSA, and Custom formats are not supported\.   
 Type: String  
 Required: Yes
 
@@ -480,7 +364,7 @@ Required: Yes
 
 ## aws:configureDocker<a name="aws-configuredocker"></a>
 
-\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin is supported on Linux and Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\. 
+\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin is supported on Linux and Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\. 
 
 ### Syntax<a name="configuredocker-syntax"></a>
 
@@ -550,13 +434,13 @@ Required: Yes
 
 ## aws:configurePackage<a name="aws-configurepackage"></a>
 
-\(Schema version 2\.0 or later\) Install or uninstall an AWS package\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
+\(Schema version 2\.0 or later\) Install or uninstall a Distributor package\. You can install the latest version, default version, or a version of the package you specify\. Packages provided by AWS are also supported\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
 
-Available packages for Windows Server include the following: AWSPVDriver, AWSNVMe, AwsEnaNetworkDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
+Available AWS packages for Windows Server include the following: AWSPVDriver, AWSNVMe, AwsEnaNetworkDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
 
-Available packages for Linux operating systems include the following: AmazonCloudWatchAgent and AWSSupport\-EC2Rescue\.
+Available AWS packages for Linux operating systems include the following: AmazonCloudWatchAgent and AWSSupport\-EC2Rescue\.
 
-For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="configurepackage-syntax"></a>
 
@@ -645,7 +529,7 @@ Required: No
 
 ## aws:domainJoin<a name="aws-domainJoin"></a>
 
-Join an Amazon EC2 instance to a domain\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Join an EC2 instance to a domain\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 
@@ -913,7 +797,7 @@ Required: No
 
 ## aws:psModule<a name="aws-psModule"></a>
 
-Install PowerShell modules on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Install PowerShell modules on an EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="psModule-syntax"></a>
 
@@ -1034,7 +918,7 @@ Required: No
 
 ## aws:refreshAssociation<a name="aws-refreshassociation"></a>
 
-\(Schema version 2\.0 or later\) Refresh \(force apply\) an association on demand\. This action will change the system state based on what is defined in the selected association or all associations bound to the targets\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Refresh \(force apply\) an association on demand\. This action will change the system state based on what is defined in the selected association or all associations bound to the targets\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="refreshassociation-syntax"></a>
 
@@ -1098,7 +982,7 @@ Required: No
 
 ## aws:runDockerAction<a name="aws-rundockeraction"></a>
 
-\(Schema version 2\.0 or later\) Run Docker actions on containers\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Run Docker actions on containers\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="rundockeraction-syntax"></a>
 
@@ -1284,7 +1168,7 @@ Required: No
 
 ## aws:runPowerShellScript<a name="aws-runPowerShellScript"></a>
 
-Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows Server and Linux operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows Server and Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="runPowerShellScript-syntax"></a>
 
@@ -1400,7 +1284,7 @@ Required: No
 
 ## aws:runShellScript<a name="aws-runShellScript"></a>
 
-Run Linux shell scripts or specify the path to a script to run\. This plugin only runs on Linux operating systems\. For more information, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Run Linux shell scripts or specify the path to a script to run\. This plugin only runs on Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="runShellScript-syntax"></a>
 
@@ -1623,7 +1507,7 @@ Required: No
 
 ## aws:updateAgent<a name="aws-updateagent"></a>
 
-Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateagent-syntax"></a>
 
@@ -1726,7 +1610,7 @@ Required: No
 
 ## aws:updateSsmAgent<a name="aws-updatessmagent"></a>
 
-Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateSSMagent-syntax"></a>
 

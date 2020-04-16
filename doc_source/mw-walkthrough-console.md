@@ -3,7 +3,7 @@
 The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
 **Before You Begin**  
-Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon EC2 instance \(Linux or Windows\) that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running EC2 instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **Topics**
 + [Step 1: Create the maintenance window \(console\)](#mw-walkthrough-console-create)
@@ -117,7 +117,7 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. In the **Output options** section, you can optionally enable writing command output to an Amazon S3 bucket\. If you choose to enable this option, specify the Amazon S3 bucket name and optional S3 key prefix to which you want the command output written\.
+1. In the **Output options** section, you can optionally enable writing command output to an S3 bucket\. If you choose to enable this option, specify the S3 bucket name and optional S3 key prefix to which you want the command output written\.
 
 1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon SNS\. If you choose to enable this option, you need to specify the following:
 

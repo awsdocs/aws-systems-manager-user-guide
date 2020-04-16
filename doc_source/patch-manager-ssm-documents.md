@@ -44,7 +44,7 @@ The available parameters in this document support specifying a category of updat
 
 ### AWS\-InstallWindowsUpdates<a name="patch-manager-ssm-documents-recommended-AWS-InstallWindowsUpdates"></a>
 
-Installs updates on a Windows instance\. Available in all AWS Regions\.
+Installs updates on a Windows Server instance\. Available in all AWS Regions\.
 
 This SSM document provides basic patching functionality in cases where you either want to install a specific update \(using the `Include Kbs` parameter\), or want to install patches with specific classifications or categories but don't need patch compliance information\. 
 
@@ -64,7 +64,7 @@ Installs patches on your instances or scans instances to determine whether any q
  **Replaces legacy documents:**
 + **AWS\-ApplyPatchBaseline**
 
-The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows instances, and does not provide support for application patching\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
+The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows Server instances, and does not provide support for application patching\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
 
 For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
@@ -80,7 +80,7 @@ The following four SSM documents are still available for use in your patching op
 
 ### AWS\-ApplyPatchBaseline<a name="patch-manager-ssm-documents-legacy-AWS-ApplyPatchBaseline"></a>
 
-Supports only Windows instances, but does not include support for patching applications that is found in its replacement, **AWS\-RunPatchBaseline**\. Not available in AWS Regions launched after August 2017\.
+Supports only Windows Server instances, but does not include support for patching applications that is found in its replacement, **AWS\-RunPatchBaseline**\. Not available in AWS Regions launched after August 2017\.
 
 **Note**  
 The replacement for this SSM document, **AWS\-RunPatchBaseline**, requires version 2\.0\.834\.0 or a later version of SSM Agent\. You can use the **AWS\-UpdateSSMAgent** document to update your instances to the latest version of the agent\. 

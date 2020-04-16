@@ -6,9 +6,9 @@ Servers and virtual machines \(VMs\) in a hybrid environment require an IAM role
 Users in your company or organization who will use Systems Manager on your hybrid machines must be granted permission in IAM to call the SSM API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **S3 bucket policy requirement**  
-If either of the following cases are true, you must create a custom IAM permission policy for Amazon S3 buckets before completing this procedure:
+If either of the following cases are true, you must create a custom IAM permission policy for S3 buckets before completing this procedure:
 + **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
-+ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
++ **Case 2**: You plan to use an S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 
 ------
 #### [ AWS CLI ]

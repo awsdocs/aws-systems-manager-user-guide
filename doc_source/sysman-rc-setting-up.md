@@ -2,7 +2,7 @@
 
 Before you can manage instances by using Run Command, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
 
-You must also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\. 
+You must also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
 
 We also strongly recommend completing the following optional setup tasks to help minimize the security posture and day\-to\-day management of your instances\.
 

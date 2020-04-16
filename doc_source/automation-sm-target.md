@@ -1,7 +1,7 @@
 # Running Automation workflows with triggers using State Manager<a name="automation-sm-target"></a>
 
 You can start an Automation workflow by creating a State Manager association with an Automation document\. By creating a State Manager association with an Automation document, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
-+ Attach a Systems Manager role to Amazon EC2 instances to make them *managed instances*\.
++ Attach a Systems Manager role to EC2 instances to make them *managed instances*\.
 + Enforce desired ingress and egress rules for a security group\.
 + Create or delete Amazon DynamoDB \(DynamoDB\) backups\.
 + Create or delete Amazon Elastic Block Store \(Amazon EBS\) snapshots\.

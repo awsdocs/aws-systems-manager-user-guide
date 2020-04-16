@@ -2,7 +2,7 @@
 
 You can run AWS Systems Manager Automations across multiple AWS Regions and AWS accounts or AWS Organizational Units \(OUs\) from an Automation management account\. Running Automations in multiple Regions and accounts or OUs reduces the time required to administer your AWS resources while enhancing the security of your computing environment\.
 
-For example, you can centrally implement patching and security updates, remediate compliance drift on VPC configurations or Amazon S3 bucket policies, and manage resources, such as Amazon EC2 instances, at scale\. The following graphic shows an example of a user who is running the AWS\-RestartEC2Instances document in multiple Regions and accounts from an Automation management account\. The Automation locates the instances by using the specified tags in the specified Regions and accounts\.
+For example, you can centrally implement patching and security updates, remediate compliance drift on VPC configurations or S3 bucket policies, and manage resources, such as EC2 instances, at scale\. The following graphic shows an example of a user who is running the AWS\-RestartEC2Instances document in multiple Regions and accounts from an Automation management account\. The Automation locates the instances by using the specified tags in the specified Regions and accounts\.
 
 **Note**  
 When you run an Automation across multiple Regions and accounts, you target resources by using tags or the name of an AWS resource group\. The resource group must exist in each target account and Region, and the resource group name must be the same in each target account and Region\. The Automation fails to run on those resources that don't have the specified tag or that aren't included in the specified resource group\.
@@ -212,7 +212,7 @@ Before you complete the following procedure, note the following information:
 
    Here are a few examples\.
 
-   **Example 1**: This example restarts Amazon EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `us-east-2` and `us-west-1` Regions\. The instances must be tagged with the tag key\-pair value `Env-PROD`\.
+   **Example 1**: This example restarts EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `us-east-2` and `us-west-1` Regions\. The instances must be tagged with the tag key\-pair value `Env-PROD`\.
 
 ------
 #### [ Linux ]
@@ -260,7 +260,7 @@ Before you complete the following procedure, note the following information:
 
 ------
 
-   **Example 2**: This example restarts Amazon EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `eu-central-1` Region\. The instances must be members of the `prod-instances` AWS resource group\.
+   **Example 2**: This example restarts EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `eu-central-1` Region\. The instances must be members of the `prod-instances` AWS resource group\.
 
 ------
 #### [ Linux ]
@@ -308,7 +308,7 @@ Before you complete the following procedure, note the following information:
 
 ------
 
-   **Example 3**: This example restarts Amazon EC2 instances in the `ou-1a2b3c-4d5e6c` AWS organizational unit \(OU\)\. The instances are located in the `us-west-1` and `us-west-2` Regions\. The instances must be members of the `WebServices` AWS resource group\.
+   **Example 3**: This example restarts EC2 instances in the `ou-1a2b3c-4d5e6c` AWS organizational unit \(OU\)\. The instances are located in the `us-west-1` and `us-west-2` Regions\. The instances must be members of the `WebServices` AWS resource group\.
 
 ------
 #### [ Linux ]

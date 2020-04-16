@@ -2,7 +2,7 @@
 
 **Description**
 
-Create an Amazon EC2 Linux instance that is configured for Systems Manager\.
+Create an EC2 instance for Linux that is configured for Systems Manager\.
 
 **Document Type**
 

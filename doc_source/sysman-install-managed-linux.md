@@ -3,7 +3,7 @@
 This topic describes how to install SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the previous step, [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
-This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an Amazon EC2 Linux instance, see [Installing and configuring SSM Agent on Amazon EC2 Linux instances](sysman-install-ssm-agent.md)\.
+This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
@@ -154,7 +154,7 @@ Run the following command to make the machine ID persist after a reboot\.
 
 1. Press Enter\.
 
-The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Amazon EC2 console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
+The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from EC2 instances with the prefix "mi\-"\.
 
 **Note**  
 You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:  

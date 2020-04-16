@@ -1,4 +1,4 @@
-# Manually install SSM Agent on Amazon EC2 Linux instances<a name="sysman-manual-agent-install"></a>
+# Manually install SSM Agent on EC2 instances for Linux<a name="sysman-manual-agent-install"></a>
 
 Use one of the following scripts to install SSM Agent on one of the following Linux instances\.
 + [Amazon Linux and Amazon Linux 2](#agent-install-al)
@@ -15,7 +15,7 @@ The URLs in the following scripts let you download SSM Agent from *any* AWS regi
 After you manually install SSM Agent, you can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 **Important**  
-These procedures apply to installing or reinstalling SSM Agent on Amazon EC2 Linux instances\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
+These procedures apply to installing or reinstalling SSM Agent on EC2 instances for Linux\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 ## Amazon Linux and Amazon Linux 2<a name="agent-install-al"></a>
 

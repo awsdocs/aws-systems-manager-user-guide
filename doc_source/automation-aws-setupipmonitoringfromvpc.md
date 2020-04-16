@@ -2,7 +2,7 @@
 
 **Description**
 
-AWSSupport\-SetupIPMonitoringFromVPC creates an Amazon EC2 instance in the specified subnet and monitors selected target IPs \(IPv4 or IPv6\) by continuously running ping, MTR, traceroute and tracetcp tests\. The results are stored in Amazon CloudWatch Logs logs, and metric filters are applied to quickly visualize latency and packet loss statistics in a CloudWatch dashboard\.
+AWSSupport\-SetupIPMonitoringFromVPC creates an EC2 instance in the specified subnet and monitors selected target IPs \(IPv4 or IPv6\) by continuously running ping, MTR, traceroute and tracetcp tests\. The results are stored in Amazon CloudWatch Logs logs, and metric filters are applied to quickly visualize latency and packet loss statistics in a CloudWatch dashboard\.
 
 **Additional Information**
 
@@ -54,7 +54,7 @@ Amazon
 
   Default: t2\.micro
 
-  Description: \(Optional\) The Amazon EC2 instance type for the EC2Rescue instance\. Recommended size: t2\.micro\.
+  Description: \(Optional\) The EC2 instance type for the EC2Rescue instance\. Recommended size: t2\.micro\.
 + AutomationAssumeRole
 
   Type: String
@@ -164,7 +164,7 @@ It is recommended that the user who runs the automation have the **AmazonSSMAuto
 
    **aws:executeAwsApi** \- delete the security group created by the automation, if it exists\.
 
-1. **aws:executeAwsApi** \- create an IAM role for the test Amazon EC2 instance 
+1. **aws:executeAwsApi** \- create an IAM role for the test EC2 instance 
 
    \(Cleanup\) If the role creation fails: 
 

@@ -26,7 +26,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) ID of the Amazon EC2 instance to configure
+  Description: \(Required\) ID of the EC2 instance to configure
 + LambdaAssumeRole
 
   Type: String
@@ -38,7 +38,7 @@ Windows, Linux
 
   Default: SSMRoleForManagedInstance
 
-  Description: \(Optional\) The name of the IAM role for the Amazon EC2 instance\. If this role does not exist, it will be created\. When specifying this value, verify that the role contains the **AmazonSSMManagedInstanceCore** Managed Policy\.
+  Description: \(Optional\) The name of the IAM role for the EC2 instance\. If this role does not exist, it will be created\. When specifying this value, verify that the role contains the **AmazonSSMManagedInstanceCore** Managed Policy\.
 
 **Examples**
 
