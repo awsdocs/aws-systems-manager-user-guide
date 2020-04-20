@@ -101,6 +101,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Step 2: Create an environment](appconfig-creating-environment.md)
          + [Step 3: Create a configuration and a configuration profile](appconfig-creating-configuration-and-profile.md)
             + [About configurations stored in Amazon S3](appconfig-creating-configuration-and-profile-S3-source.md)
+            + [About configuration store quotas and limitations](appconfig-creating-configuration-and-profile-quotas.md)
             + [About validators](appconfig-creating-configuration-and-profile-validators.md)
             + [About the configuration profile IAM role](appconfig-creating-configuration-and-profile-iam-role.md)
             + [Creating a configuration and a configuration profile](appconfig-creating-configuration-and-profile-console.md)

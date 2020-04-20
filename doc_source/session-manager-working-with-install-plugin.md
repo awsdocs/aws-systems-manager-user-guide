@@ -110,6 +110,11 @@ sudo rm /usr/local/bin/session-manager-plugin
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
+   + ARM 64\-bit:
+
+     ```
+     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
+     ```
 
 1. Run the install command:
 
@@ -134,6 +139,11 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+     ```
+   + ARM 64\-bit:
+
+     ```
+     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
 
 1. Run the install command:
@@ -240,8 +250,6 @@ Your local machine must be running a supported version of the Session Manager pl
 
 The current minimum supported version is 1\.1\.17\.0\. 
 
-The latest release is version 1\.1\.54\.0\.
-
 To see if you have the latest version, run the following command in the AWS CLI:
 
 **Note**  
@@ -256,6 +264,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.  | 
 | 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.  | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
 |  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 

@@ -1,26 +1,26 @@
 # About configurations stored in Amazon S3<a name="appconfig-creating-configuration-and-profile-S3-source"></a>
 
-You can store configurations in Amazon S3\. When you create the configuration profile, you specify the URI to a single Amazon S3 object\. You also specify the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that gives AppConfig permission to get the object\. Before you create a configuration profile for an Amazon S3 object, be aware of the following restrictions\.
+You can store configurations in an Amazon Simple Storage Service \(Amazon S3\) bucket\. When you create the configuration profile, you specify the URI to a single S3 object in a bucket\. You also specify the Amazon Resource Name \(ARN\) of an AWS Identity and Access Management \(IAM\) role that gives AppConfig permission to get the object\. Before you create a configuration profile for an Amazon S3 object, be aware of the following restrictions\.
 
 
 ****  
 
 | Restriction | Details | 
 | --- | --- | 
-|  Size  |  Configurations stored as Amazon S3 objects can be a maximum of 1 MB in size\.  | 
-|  Object encryption  |  A configuration profile can't target an encrypted Amazon S3 object\.  | 
-|  Storage classes  |  AppConfig supports the following Amazon S3 storage classes: `STANDARD`, `INTELLIGENT_TIERING`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, and `ONEZONE_IA`\. The following classes are not supported: All Amazon S3 Glacier classes \(`GLACIER` and `DEEP_ARCHIVE`\)\.  | 
-|  Versioning  |  AppConfig requires that the Amazon S3 object use versioning\.  | 
+|  Size  |  Configurations stored as S3 objects can be a maximum of 1 MB in size\.  | 
+|  Object encryption  |  A configuration profile can't target an encrypted S3 object\.  | 
+|  Storage classes  |  AppConfig supports the following S3 storage classes: `STANDARD`, `INTELLIGENT_TIERING`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, and `ONEZONE_IA`\. The following classes are not supported: All S3 Glacier classes \(`GLACIER` and `DEEP_ARCHIVE`\)\.  | 
+|  Versioning  |  AppConfig requires that the S3 object use versioning\.  | 
 
 ## Configuring permissions for a configuration stored as an Amazon S3 object<a name="appconfig-creating-configuration-and-profile-S3-source-permissions"></a>
 
-When you create a configuration profile for a configuration stored as an Amazon S3 object, you must specify an ARN for an IAM role that gives AppConfig permission to get the object\. The role must include the following permissions\.
+When you create a configuration profile for a configuration stored as an S3 object, you must specify an ARN for an IAM role that gives AppConfig permission to get the object\. The role must include the following permissions\.
 
-Permissions to access the Amazon S3 object
+Permissions to access the S3 object
 + s3:GetObject
 + s3:GetObjectVersion
 
-Permissions to list the Amazon S3 Buckets
+Permissions to list S3 buckets
 
 s3:ListAllMyBuckets
 
@@ -30,12 +30,12 @@ Permissions to access the S3 bucket where the object is stored
 + s3:ListBucket
 + s3:ListBucketVersions
 
-Complete the following procedure to create a role that enables AppConfig to get a configuration stored in an Amazon S3 object\.
+Complete the following procedure to create a role that enables AppConfig to get a configuration stored in an S3 object\.
 
-**Creating the IAM Policy for Accessing an Amazon S3 Object**  
-Use the following procedure to create an IAM policy that enables AppConfig to get a configuration stored in an Amazon S3 object\.
+**Creating the IAM Policy for Accessing an S3 Object**  
+Use the following procedure to create an IAM policy that enables AppConfig to get a configuration stored in an S3 object\.
 
-**To create an IAM policy for accessing an Amazon S3 object**
+**To create an IAM policy for accessing an S3 object**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -84,8 +84,8 @@ Use the following procedure to create an IAM policy that enables AppConfig to ge
 
 1. Choose **Create policy**\. The system returns you to the **Roles** page\.
 
-**Creating the IAM Role for Accessing an Amazon S3 Object**  
-Use the following procedure to create an IAM role that enables AppConfig to get a configuration stored in an Amazon S3 object\.
+**Creating the IAM Role for Accessing an S3 Object**  
+Use the following procedure to create an IAM role that enables AppConfig to get a configuration stored in an S3 object\.
 
 **To create an IAM role for accessing an Amazon S3 object**
 

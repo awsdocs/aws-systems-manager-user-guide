@@ -28,13 +28,13 @@ The `parameters` structure accepts the following fields and values:
 
   ```
   DirectoryType:
-  type: String
-  description: "(Required) The directory type to launch."
-  default: AwsMad
-  allowedValues:
-  - AdConnector
-  - AwsMad
-  - SimpleAd
+    type: String
+    description: "(Required) The directory type to launch."
+    default: AwsMad
+    allowedValues:
+    - AdConnector
+    - AwsMad
+    - SimpleAd
   ```
 
 ------
@@ -42,14 +42,14 @@ The `parameters` structure accepts the following fields and values:
 
   ```
   "DirectoryType": {
-  "type": "String",
-  "description": "(Required) The directory type to launch.",
-  "default": "AwsMad",
-  "allowedValues": [
+    "type": "String",
+    "description": "(Required) The directory type to launch.",
+    "default": "AwsMad",
+    "allowedValues": [
       "AdConnector",
       "AwsMad",
       "SimpleAd"
-  ]
+    ]
   }
   ```
 
@@ -61,10 +61,10 @@ The `parameters` structure accepts the following fields and values:
 
   ```
   InstanceId:
-  type: String
-  description: "(Required) The instance ID to target."
-  allowedPattern: "^i-[a-z0-9]{8,17}$"
-  default: ''
+    type: String
+    description: "(Required) The instance ID to target."
+    allowedPattern: "^i-[a-z0-9]{8,17}$"
+    default: ''
   ```
 
 ------
@@ -72,10 +72,10 @@ The `parameters` structure accepts the following fields and values:
 
   ```
   "InstanceId": {
-  "type": "String",
-  "description": "(Required) The instance ID to target.",
-  "allowedPattern": "^i-[a-z0-9]{8,17}$",
-  "default": ""
+    "type": "String",
+    "description": "(Required) The instance ID to target.",
+    "allowedPattern": "^i-[a-z0-9]{8,17}$",
+    "default": ""
   }
   ```
 

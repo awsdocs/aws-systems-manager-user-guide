@@ -80,7 +80,7 @@ For information about other options you can use with the start\-session command,
 Take note of the following requirements and limitations for session connections using SSH\.
 + Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 + You must use the user on the instance associated with the Privacy Enhanced Mail \(PEM\) certificate, not the `ssm-user` account that is used for other types of session connections\. For example, on EC2 instances for Linux, the default user is `ec2-user`\. For information about identifying the default user for each instance type, see [Get Information About Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance) in the *Amazon EC2 User Guide for Linux Instances*\.
-+ Logging and auditing are not available for Session Manager sessions that connect through SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
++ Logging and auditing are not available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 **Note**  
 Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.
