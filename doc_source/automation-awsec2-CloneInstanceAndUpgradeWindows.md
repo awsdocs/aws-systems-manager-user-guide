@@ -5,6 +5,7 @@
 Create an Amazon Machine Image \(AMI\) from a Windows Server 2008 R2, 2012 R2 or 2016 instance, and then upgrade the AMI to Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019\. The supported upgrade paths are as follows\.
 + Windows Server 2008 R2 to Windows Server 2012 R2\.
 + Windows Server 2012 R2 to Windows Server 2016 or Windows Server 2019\.
++ Windows Server 2016 to Windows Server 2019\.
 
 To upgrade your instance from Windows Server 2008 R2 to Windows Server 2016 or Windows Server 2019, the Automation document performs two steps\. The Windows Server 2008 R2 instance is upgraded to Windows Server 2012 R2\. Then the Windows Server 2012 R2 instance is upgraded to the target version (Windows Server 2016 or Windows Server 2019)\.
 
