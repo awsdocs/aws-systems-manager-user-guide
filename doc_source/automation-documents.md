@@ -31,6 +31,7 @@ For information about creating custom Automation documents that run scripts, see
 + [Creating an Automation document using the Editor](automation-document-editor.md)
 + [Creating Automation documents that run scripts](automation-document-script.md)
 + [Creating dynamic Automation workflows with conditional branching](automation-branchdocs.md)
++ [Handling timeouts in Automation documents](automation-handling-timeouts.md)
 + [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)
 + [Systems Manager Automation actions reference](automation-actions.md)
 + [Systems Manager Automation documents reference](automation-documents-reference.md)

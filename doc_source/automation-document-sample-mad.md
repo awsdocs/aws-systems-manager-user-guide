@@ -607,7 +607,7 @@ mainSteps:
           "Selector": "$.Vpc.VpcId",
           "Type": "String"
         }
-      ],
+      
       "nextStep": "getMainRtb"
     },
     {

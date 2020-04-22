@@ -165,6 +165,7 @@ Amazon's trademarks and trade dress may not be used in
             + [Creating an Automation document that runs scripts (command line)](automation-document-script-commandline.md)
             + [Amazon managed Automation documents that run scripts](runbook-scripts.md)
          + [Creating dynamic Automation workflows with conditional branching](automation-branchdocs.md)
+         + [Handling timeouts in Automation documents](automation-handling-timeouts.md)
          + [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)
          + [Systems Manager Automation actions reference](automation-actions.md)
             + [aws:approve – Pause an execution for manual approval](automation-action-approve.md)

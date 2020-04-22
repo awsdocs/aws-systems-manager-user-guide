@@ -45,7 +45,6 @@ Before you can query and view data from multiple accounts and Regions on the **I
        "Version": "2012-10-17",
        "Statement": [
            {
-               "Sid": "VisualEditor0",
                "Effect": "Allow",
                "Action": [
                    "glue:GetCrawlers",
@@ -57,7 +56,6 @@ Before you can query and view data from multiple accounts and Regions on the **I
                "Resource": "*"
            },
            {
-               "Sid": "VisualEditor1",
                "Effect": "Allow",
                "Action": [
                    "iam:PassRole",
@@ -69,7 +67,6 @@ Before you can query and view data from multiple accounts and Regions on the **I
                ]
            },
            {
-               "Sid": "VisualEditor2",
                "Effect": "Allow",
                "Action": [
                    "iam:CreatePolicy"
@@ -81,6 +78,21 @@ Before you can query and view data from multiple accounts and Regions on the **I
        ]
    }
    ```
+**Note**  
+\(Optional\) If the Amazon Simple Storage Service \(Amazon S3\) bucket used to store inventory data is encrypted by using the AWS Key Management Service, then you must also add the following block to the policy\.  
+
+   ```
+   {
+       "Effect": "Allow",
+       "Action": [
+           "kms:Decrypt"
+       ],
+       "Resource": [
+           "arn:aws:kms:AWS_Region:account_ID:key/key_ARN"
+       ]
+   }
+   ```
+If you paste this block after the last block in the policy, be sure to separate the blocks with a comma \(,\)\.
 
 1. On the **Review Policy** page, enter a name in the **Name** field\.
 
