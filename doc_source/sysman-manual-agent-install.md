@@ -1,7 +1,8 @@
 # Manually install SSM Agent on EC2 instances for Linux<a name="sysman-manual-agent-install"></a>
 
 Use one of the following scripts to install SSM Agent on one of the following Linux instances\.
-+ [Amazon Linux and Amazon Linux 2](#agent-install-al)
++ [Amazon Linux](#agent-install-al)
++ [Amazon Linux 2](#agent-install-al2)
 + [Ubuntu Server](#agent-install-ubuntu)
 + [Debian Server](#agent-install-deb)
 + [Red Hat Enterprise Linux \(RHEL\)](#agent-install-rhel)
@@ -10,35 +11,31 @@ Use one of the following scripts to install SSM Agent on one of the following Li
 + [SUSE Linux Enterprise Server \(SLES\) 12](#agent-install-sles)
 + [Raspbian](#agent-install-raspbianjessie)
 
-The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a specific region, see [Download SSM Agent from a specific Region](#sysman-install-ssm-agent-specific)\.
+The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a specific Region, see [Download SSM Agent from a specific Region](#sysman-install-ssm-agent-specific)\.
 
 After you manually install SSM Agent, you can automatically update SSM Agent on your instances when new versions become available by using Systems Manager State Manager\. For more information, see [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 **Important**  
 These procedures apply to installing or reinstalling SSM Agent on EC2 instances for Linux\. If you need to install the agent on an on\-premises server or a virtual machine \(VM\) so it can be used with Systems Manager, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
-## Amazon Linux and Amazon Linux 2<a name="agent-install-al"></a>
+## Amazon Linux<a name="agent-install-al"></a>
 
-Connect to your Amazon Linux or Amazon Linux 2 instance and perform the following steps to install SSM Agent\. 
+Connect to your Amazon Linux instance and perform the following steps to install SSM Agent\. 
 
 **Note**  
 If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 Perform these steps on each instance that will run commands using Systems Manager\.
 
-**Important**  
-SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\.
-You must manually install SSM Agent on other versions of Linux\.
+**Note**  
+SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.  
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
-
-------
-#### [ Amazon Linux ]
 
 **To install SSM Agent on Amazon Linux**
 
 1. Use one of the following commands to download and run the SSM Agent installer\. 
 **Note**  
-Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs for downloading Amazon Linux and Amazon Linux 2\.
+Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs for downloading Amazon Linux\.
 
    Intel \(x86\_64\) 64\-bit instances:
 
@@ -80,8 +77,20 @@ Even though the following download URLs show 'ec2\-downloads\-windows', these ar
       sudo status amazon-ssm-agent
       ```
 
-------
-#### [ Amazon Linux 2 ]
+**Important**  
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
+
+## Amazon Linux 2<a name="agent-install-al2"></a>
+
+Connect to your Amazon Linux 2 instance and perform the following steps to install SSM Agent\. 
+
+**Note**  
+If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
+
+Perform these steps on each instance that will run commands using Systems Manager\.
+
+**Important**  
+SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
 
 **To install SSM Agent on Amazon Linux 2**
 
@@ -132,8 +141,6 @@ Even though the following download URLs show 'ec2\-downloads\-windows', these ar
       ```
       sudo systemctl status amazon-ssm-agent
       ```
-
-------
 
 **Important**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
@@ -833,7 +840,7 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## Download SSM Agent from a specific Region<a name="sysman-install-ssm-agent-specific"></a>
 
-If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
+If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 

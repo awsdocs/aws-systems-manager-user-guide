@@ -1,6 +1,6 @@
 # Working with Distributor<a name="distributor-working-with"></a>
 
-You can use the AWS Systems Manager console, AWS CLI, or AWS Tools for PowerShell to add, manage, or deploy packages in Distributor\. Before you add a package to Distributor:
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), and AWS SDKs to add, manage, or deploy packages in Distributor\. Before you add a package to Distributor:
 + Create and zip installable assets\.
 + \(Optional\) Create a JSON manifest file for the package\. This is not required to use the **Simple** package creation process in the Distributor console\. Simple package creation generates a JSON manifest file for you\.
 

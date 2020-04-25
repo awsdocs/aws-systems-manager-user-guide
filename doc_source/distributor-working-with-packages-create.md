@@ -403,7 +403,7 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 ### Step 4: Add a package to Distributor<a name="distributor-working-with-packages-add"></a>
 
-You can use the AWS Systems Manager console or the AWS CLI to add a new package to AWS Systems Manager Distributor\. When you add a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to AWS Systems Manager Distributor\. When you add a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
 **Topics**
 + [Adding a package \(console\)](#create-pkg-console)

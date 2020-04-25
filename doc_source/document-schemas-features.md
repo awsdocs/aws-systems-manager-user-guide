@@ -45,87 +45,182 @@ For example, in a schema version 2\.2 document, if `precondition` is not specifi
 ## Schema version 2\.2<a name="documents-schema-twox"></a>
 
 **Top\-level elements**  
-The following example shows the top\-level elements of a schema version 2\.2 document in JSON\.
+The following example shows the top\-level elements of an SSM document using schema version 2\.2\.
+
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: "2.2"
+description: A description of the document.
+parameters:
+  parameter 1:
+    property 1: "value"
+    property 2: "value"
+  parameter 2:
+    property 1: "value"
+    property 2: "value"
+mainSteps:
+  - action: Plugin name
+    name: A name for the step.
+    inputs:
+      input 1: "value"
+      input 2: "value"
+      input 3: "{{ parameter 1 }}"
+```
+
+------
+#### [ JSON ]
 
 ```
 {
-   "schemaVersion":"2.2",
-   "description":"A description of the document.",
-   "parameters":{
-       "parameter 1":{
-           "one or more parameter properties"
+   "schemaVersion": "2.2",
+   "description": "A description of the document.",
+   "parameters": {
+       "parameter 1": {
+           "property 1": "value",
+           "property 2": "value"
         },
         "parameter 2":{
-            "one or more parameter properties"
-        },
-        "parameter 3":{
-           "one or more parameter properties"
+           "property 1": "value",
+           "property 2": "value"
         }
     },
-   "mainSteps":[
+   "mainSteps": [
       {
-         "action":"plugin 1",
-         "name":"A name for this action.",
-         "inputs":{
-            "name":"{{ input 1 }}",
-            "name":"{{ input 2 }}",
-            "name":"{{ input 3 }}",
-            
+         "action": "Plugin name",
+         "name": "A name for the step.",
+         "inputs": {
+            "input 1": "value",
+            "input 2": "value",
+            "input 3": "{{ parameter 1 }}"
          }
       }
    ]
 }
 ```
 
-**Schema version 2\.2 YAML example**  
-You can use the following YAML document with Run Command to return the hostname of one or more instances\.
+------
+
+**Schema version 2\.2 example**  
+The following example uses the `aws:runPowerShellScript` plugin to run a PowerShell command on the target instances\.
+
+------
+#### [ YAML ]
 
 ```
 ---
-schemaVersion: '2.2'
-description: Sample document
+schemaVersion: "2.2"
+description: "Example document"
+parameters:
+  Message:
+    type: "String"
+    description: "Example parameter"
+    default: "Hello World"
 mainSteps:
-- action: aws:runPowerShellScript
-  name: runPowerShellScript
-  inputs:
-    runCommand:
-    - hostname
+  - action: "aws:runPowerShellScript"
+    name: "example"
+    inputs:
+      runCommand:
+      - "Write-Output {{Message}}"
 ```
+
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion": "2.2",
+   "description": "Example document",
+   "parameters": {
+      "Message": {
+         "type": "String",
+         "description": "Example parameter",
+         "default": "Hello World"
+      }
+   },
+   "mainSteps": [
+      {
+         "action": "aws:runPowerShellScript",
+         "name": "example",
+         "inputs": {
+            "runCommand": [
+               "Write-Output {{Message}}"
+            ]
+         }
+      }
+   ]
+}
+```
+
+------
 
 **Schema version 2\.2 precondition parameter example**  
 Schema version 2\.2 provides cross\-platform support\. This means that within a single SSM document you can specify different operating systems for different plugins\. Cross\-platform support uses the `precondition` parameter within a step, as shown in the following example\. 
 
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '2.2'
+description: cross-platform sample
+mainSteps:
+- action: aws:runPowerShellScript
+  name: PatchWindows
+  precondition:
+    StringEquals:
+    - platformType
+    - Windows
+  inputs:
+    runCommand:
+    - cmds
+- action: aws:runShellScript
+  name: PatchLinux
+  precondition:
+    StringEquals:
+    - platformType
+    - Linux
+  inputs:
+    runCommand:
+    - cmds
+```
+
+------
+#### [ JSON ]
+
 ```
 {
-   "schemaVersion":"2.2",
-   "description":"cross-platform sample",
-   "mainSteps":[
+   "schemaVersion": "2.2",
+   "description": "cross-platform sample",
+   "mainSteps": [
       {
-         "action":"aws:runPowerShellScript",
-         "name":"PatchWindows",
-         "precondition":{
-            "StringEquals":[
+         "action": "aws:runPowerShellScript",
+         "name": "PatchWindows",
+         "precondition": {
+            "StringEquals": [
                "platformType",
                "Windows"
             ]
          },
-         "inputs":{
-            "runCommand":[
+         "inputs": {
+            "runCommand": [
                "cmds"
             ]
          }
       },
       {
-         "action":"aws:runShellScript",
-         "name":"PatchLinux",
-         "precondition":{
-            "StringEquals":[
+         "action": "aws:runShellScript",
+         "name": "PatchLinux",
+         "precondition": {
+            "StringEquals": [
                "platformType",
                "Linux"
             ]
          },
-         "inputs":{
-            "runCommand":[
+         "inputs": {
+            "runCommand": [
                "cmds"
             ]
          }
@@ -134,8 +229,13 @@ Schema version 2\.2 provides cross\-platform support\. This means that within a 
 }
 ```
 
+------
+
 **Schema version 2\.2 State Manager example**  
-You can use the following YAML document with State Manager to download and install the ClamAV antivirus software\. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed\. If not, State Manager reruns this document\.
+You can use the following SSM document with State Manager to download and install the ClamAV antivirus software\. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed\. If not, State Manager reruns this document\.
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -151,8 +251,36 @@ mainSteps:
     - sudo yum --enablerepo=epel install -y clamav
 ```
 
-**Schema version 2\.2 YAML Inventory example**  
-You can use the following YAML document with State Manager to collect inventory metadata about your instances\.
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion": "2.2",
+   "description": "State Manager Bootstrap Example",
+   "parameters": {},
+   "mainSteps": [
+      {
+         "action": "aws:runShellScript",
+         "name": "configureServer",
+         "inputs": {
+            "runCommand": [
+               "sudo yum install -y httpd24",
+               "sudo yum --enablerepo=epel install -y clamav"
+            ]
+         }
+      }
+   ]
+}
+```
+
+------
+
+**Schema version 2\.2 Inventory example**  
+You can use the following SSM document with State Manager to collect inventory metadata about your instances\.
+
+------
+#### [ YAML ]
 
 ```
 ---
@@ -214,53 +342,173 @@ mainSteps:
     customInventory: "{{ customInventory }}"
 ```
 
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion": "2.2",
+   "description": "Software Inventory Policy Document.",
+   "parameters": {
+      "applications": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect data for installed applications.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      },
+      "awsComponents": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect data for AWS Components like amazon-ssm-agent.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      },
+      "networkConfig": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect data for Network configurations.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      },
+      "windowsUpdates": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect data for all Windows Updates.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      },
+      "instanceDetailedInformation": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect additional information about the instance, including\nthe CPU model, speed, and the number of cores, to name a few.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      },
+      "customInventory": {
+         "type": "String",
+         "default": "Enabled",
+         "description": "(Optional) Collect data for custom inventory.",
+         "allowedValues": [
+            "Enabled",
+            "Disabled"
+         ]
+      }
+   },
+   "mainSteps": [
+      {
+         "action": "aws:softwareInventory",
+         "name": "collectSoftwareInventoryItems",
+         "inputs": {
+            "applications": "{{ applications }}",
+            "awsComponents": "{{ awsComponents }}",
+            "networkConfig": "{{ networkConfig }}",
+            "windowsUpdates": "{{ windowsUpdates }}",
+            "instanceDetailedInformation": "{{ instanceDetailedInformation }}",
+            "customInventory": "{{ customInventory }}"
+         }
+      }
+   ]
+}
+```
+
+------
+
 **Schema version 2\.2 AWS\-ConfigureAWSPackage example**  
 The following example shows the AWS\-ConfigureAWSPackage document\. The **mainSteps** section includes the **aws:configurePackage** plugin in the **action** step\.
 
 **Note**  
 On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2Rescue` packages are supported\.
 
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '2.2'
+description: 'Install or uninstall the latest version or specified version of an AWS
+  package. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver,
+  AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.'
+parameters:
+  action:
+    description: "(Required) Specify whether or not to install or uninstall the package."
+    type: String
+    allowedValues:
+    - Install
+    - Uninstall
+  name:
+    description: "(Required) The package to install/uninstall."
+    type: String
+    allowedPattern: "^arn:[a-z0-9][-.a-z0-9]{0,62}:[a-z0-9][-.a-z0-9]{0,62}:([a-z0-9][-.a-z0-9]{0,62})?:([a-z0-9][-.a-z0-9]{0,62})?:package\\/[a-zA-Z][a-zA-Z0-9\\-_]{0,39}$|^[a-zA-Z][a-zA-Z0-9\\-_]{0,39}$"
+  version:
+    type: String
+    description: "(Optional) A specific version of the package to install or uninstall.
+      If installing, the system installs the latest published version, by default.
+      If uninstalling, the system uninstalls the currently installed version, by default.
+      If no installed version is found, the latest published version is downloaded,
+      and the uninstall action is run."
+    default: latest
+mainSteps:
+- action: aws:configurePackage
+  name: configurePackage
+  inputs:
+    name: "{{ name }}"
+    action: "{{ action }}"
+    version: "{{ version }}"
+```
+
+------
+#### [ JSON ]
+
 ```
 {
-	"schemaVersion": "2.2",
-	"description": "Install or uninstall the latest version or specified version of an AWS package. 
-	                Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.",
-	"parameters": {
-		"action": {
-			"description": "(Required) Specify whether or not to install or uninstall the package.",
-			"type": "String",
-			"allowedValues": [
-				"Install",
-				"Uninstall"
-			]
-		},
-		"name": {
-			"description": "(Required) The package to install/uninstall.",
-			"type": "String",
-			"allowedPattern": "^arn:[a-z0-9][-.a-z0-9]{0,62}:[a-z0-9][-.a-z0-9]{0,62}:([a-z0-9]
-			                   [-.a-z0-9]{0,62})?:([a-z0-9][-.a-z0-9]{0,62})?:package\\/[a-zA-Z][a-zA-Z0-9\\-_]{0,39}$|^
-			                   [a-zA-Z][a-zA-Z0-9\\-_]{0,39}$"
-		},
-		"version": {
-			"description": "(Optional) A specific version of the package to install or uninstall. If installing, 
-			the system installs the latest published version, by default. If uninstalling, the system uninstalls 
-			the currently installed version, by default. If no installed version is found, the latest published 
-			version is downloaded, and the uninstall action is run.",
-			     "type": "String",
-			     "default": "latest"
-		}
-	},
-	"mainSteps": [{
-		"action": "aws:configurePackage",
-		"name": "configurePackage",
-		"inputs": {
-			"name": "{{ name }}",
-			"action": "{{ action }}",
-			"version": "{{ version }}"
-		}
-	}]
+   "schemaVersion": "2.2",
+   "description": "Install or uninstall the latest version or specified version of an AWS package. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.",
+   "parameters": {
+      "action": {
+         "description":"(Required) Specify whether or not to install or uninstall the package.",
+         "type":"String",
+         "allowedValues":[
+            "Install",
+            "Uninstall"
+         ]
+      },
+      "name": {
+         "description": "(Required) The package to install/uninstall.",
+         "type": "String",
+         "allowedPattern": "^arn:[a-z0-9][-.a-z0-9]{0,62}:[a-z0-9][-.a-z0-9]{0,62}:([a-z0-9][-.a-z0-9]{0,62})?:([a-z0-9][-.a-z0-9]{0,62})?:package\\/[a-zA-Z][a-zA-Z0-9\\-_]{0,39}$|^[a-zA-Z][a-zA-Z0-9\\-_]{0,39}$"
+      },
+      "version": {
+         "type": "String",
+         "description": "(Optional) A specific version of the package to install or uninstall. If installing, the system installs the latest published version, by default. If uninstalling, the system uninstalls the currently installed version, by default. If no installed version is found, the latest published version is downloaded, and the uninstall action is run.",
+         "default": "latest"
+      }
+   },
+   "mainSteps":[
+      {
+         "action": "aws:configurePackage",
+         "name": "configurePackage",
+         "inputs": {
+            "name": "{{ name }}",
+            "action": "{{ action }}",
+            "version": "{{ version }}"
+         }
+      }
+   ]
 }
 ```
+
+------
 
 ## Schema version 1\.2<a name="documents-schema-onex"></a>
 

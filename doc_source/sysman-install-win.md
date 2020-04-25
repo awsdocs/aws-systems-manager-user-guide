@@ -18,7 +18,7 @@ This procedure applies to installing or reinstalling SSM Agent on an EC2 instanc
 
 1. Download the latest version of SSM Agent to your instance\. You can download using either PowerShell commands or a direct download link\. 
 **Note**  
-The URLs in this step let you download SSM Agent from *any* AWS region\. If you want to download the agent from a specific region, use a region\-specific URL instead:  
+The URLs in this step let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a specific Region, use a Region\-specific URL instead:  
 `https://amazon-ssm-region.s3.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe`  
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.  
 **PowerShell**  

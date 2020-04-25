@@ -16,7 +16,7 @@ Currently, only two Systems Manager capabilities use the service\-linked role:
 + Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and Resource Groups\.
 + The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 
-The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources:
+The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources \(`"Resource": "*"`\), except where indicated:
 + `ssm:CancelCommand`
 + `ssm:GetCommandInvocation`
 + `ssm:ListCommandInvocations`
@@ -24,17 +24,50 @@ The AWSServiceRoleForAmazonSSM service\-linked role permissions policy allows Sy
 + `ssm:SendCommand`
 + `ssm:GetAutomationExecution`
 + `ssm:GetParameters`
-+ `ssm:StartAutomationExecution` 
-+ `iam:PassRole`
++ `ssm:StartAutomationExecution`
++ `ssm:ListTagsForResource`
 + `ec2:DescribeInstanceAttribute`
 + `ec2:DescribeInstanceStatus`
 + `ec2:DescribeInstances`
-+ `lambda:InvokeFunction`
++ `lambda:InvokeFunction`**¹**
++ `states:DescribeExecution`**²**
++ `states:StartExecution`**²**
 + `resource-groups:ListGroups`
 + `resource-groups:ListGroupResources`
-+ `states:DescribeExecution`
-+ `states:StartExecution` 
-+ `tag:GetResources`
++ `resource-groups:GetGroupQuery`
++ `cloudformation:DescribeStacks`
++ `config:SelectResourceConfig`
++ `compute-optimizer:GetEC2InstanceRecommendations`
++ `support:DescribeTrustedAdvisorChecks`
++ `support:DescribeTrustedAdvisorCheckSummaries`
++ `support:DescribeTrustedAdvisorCheckResult`
++ `iam:PassRole`**³**
+
+**¹** The `lambda:InvokeFunction` action is allowed permissions for the following resources only:
+
+```
+arn:aws:lambda:*:*:function:SSM*
+arn:aws:lambda:*:*:function:*:SSM*
+```
+
+**²** The `states:` actions are allowed permssions on the following resources only:
+
+```
+arn:aws:states:*:*:stateMachine:SSM*
+arn:aws:states:*:*:execution:SSM*
+```
+
+**³** The `iam:PassRole` action is allowed permissions by the following condition for the Systems Manager service only:
+
+```
+"Condition": {
+   "StringEquals": {
+      "iam:PassedToService": [
+         "ssm.amazonaws.com"
+      ]
+   }
+}
+```
 
 ## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
 
