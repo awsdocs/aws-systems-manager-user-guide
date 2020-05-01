@@ -4,6 +4,8 @@
 
 The AWSSupport\-TroubleshootDirectoryTrust Automation document diagnoses trust creation issues between an AWS Managed Microsoft AD and a Microsoft Active Directory\. The automation ensures the directory type supports trusts, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootDirectoryTrust)
+
  **Document Type** 
 
 Automation
@@ -56,14 +58,6 @@ Amazon
   Type: String
 
   Description: \(Optional\) The ID of the trust relationship to troubleshoot\.
-
- **Examples** 
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootDirectoryTrust" --parameters "DirectoryId=DirectoryId,RemoteDomainCidrs=[192.168.1.10/24],RemoteDomainName=example.com"
-```
 
 **Required IAM Permissions**
 

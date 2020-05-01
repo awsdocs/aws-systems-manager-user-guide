@@ -27,28 +27,53 @@ If successful, the command returns the version number of the parameter\.
 
    This example adds two key\-value pair tags to a parameter\. \(Depending on the operating system type on your local machine, run one of the following commands\. The version to run from a local Windows machine includes the escape characters \("\\"\) that you need to run the command from your command line tool\.\)
 
-   **Windows** local machine:
+------
+#### [ Linux ]
 
    ```
-   aws ssm put-parameter --name parameter-name ^
-   --value "parameter-value, or a comma-separated-list-of-values" ^
-   --type "String" ^
-   --tags [{\"Key\":\"Region1\",\"Value\":\"East1\"},{\"Key\":\"Environment1\",\"Value\":\"Production1\"}]
+   aws ssm put-parameter \
+       --name parameter-name \
+       --value "parameter-value, or a comma-separated-list-of-values" \
+       --type "String" \
+       --tags '[{"Key":"Region","Value":"East"},{"Key":"Environment", "Value":"Production"}]'
    ```
 
-   **Linux** local machine:
+------
+#### [ Windows ]
 
    ```
-   aws ssm put-parameter --name parameter-name \
-   --value "parameter-value, or a comma-separated-list-of-values" \
-   --type "String" --tags '[{"Key":"Region","Value":"East"},{"Key":"Environment", "Value":"Production"}]'
+   aws ssm put-parameter ^
+       --name parameter-name ^
+       --value "parameter-value, or a comma-separated-list-of-values" ^
+       --type "String" ^
+       --tags [{\"Key\":\"Region1\",\"Value\":\"East1\"},{\"Key\":\"Environment1\",\"Value\":\"Production1\"}]
    ```
+
+------
 
    Here is an example that uses the `StringList` data type\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm put-parameter --name /IAD/ERP/Oracle/addUsers --value "Milana,Mariana,Mark,Miguel" --type StringList --tier Standard
+   aws ssm put-parameter \
+       --name /IAD/ERP/Oracle/addUsers \
+       --value "Milana,Mariana,Mark,Miguel" \
+       --type StringList --tier Standard
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm put-parameter ^
+       --name /IAD/ERP/Oracle/addUsers ^
+       --value "Milana,Mariana,Mark,Miguel" ^
+       --type StringList --tier Standard
+   ```
+
+------
 **Note**  
 Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` data type\.
 

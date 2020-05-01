@@ -7,6 +7,8 @@ This document grants the specified permissions to an IAM group \(new or existing
 **Important**  
 If you provide an existing IAM group, all current IAM users in the group receive the new permissions\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser)
+
  **Document Type** 
 
 Automation
@@ -49,32 +51,6 @@ Amazon
   Type: String
 
   Description: \(Optional\) The ARN of the role assumed by lambda\.
-
- **Examples** 
-
-Add IAM user BillingUser to IAM group BillingGroup and grant full access to the AWS Billing and Cost Management console
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=BillingGroup, IAMUserName=BillingUser, Permissions=BillingFullAccess"
-```
-
-Add IAM user SupportUser to IAM group SupportGroup and grant full access to Support Center
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportGroup, IAMUserName=SupportUser, Permissions=SupportFullAccess"
-```
-
-Add IAM user SupportAndBillingUser to IAM group SupportAndBillingGroup and grant full access both Support Center and the AWS Billing and Cost Management console
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-GrantPermissionsToIAMUser" --parameters "IAMGroupName=SupportAndBillingGroup, IAMUserName=SupportAndBillingUser"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

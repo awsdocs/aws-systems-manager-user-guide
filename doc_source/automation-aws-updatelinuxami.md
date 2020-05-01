@@ -4,6 +4,8 @@
 
 Update an Amazon Machine Image \(AMI\) with Linux distribution packages and Amazon software\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateLinuxAmi)
+
 **Document Type**
 
 Automation
@@ -78,17 +80,3 @@ Windows, Linux
   Default: UpdateLinuxAmi\_from\_\{\{SourceAmiId\}\}\_on\_\{\{global:DATE\_TIME\}\}
 
   Description: \(Optional\) The name of the new AMI that will be created\. Default is a system\-generated string including the source AMI id, and the creation time and date\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-UpdateLinuxAmi --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

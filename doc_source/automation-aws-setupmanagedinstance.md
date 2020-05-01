@@ -4,6 +4,8 @@
 
 Configure an instance with an AWS Identity and Access Management \(IAM\) role for Systems Manager access\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupManagedInstance)
+
 **Document Type**
 
 Automation
@@ -39,17 +41,3 @@ Windows, Linux
   Default: SSMRoleForManagedInstance
 
   Description: \(Optional\) The name of the IAM role for the EC2 instance\. If this role does not exist, it will be created\. When specifying this value, verify that the role contains the **AmazonSSMManagedInstanceCore** Managed Policy\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-SetupManagedInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

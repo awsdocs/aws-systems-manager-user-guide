@@ -6,7 +6,7 @@ Different platforms might sometimes use the same file, but all files that you at
 
 When you create a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
-An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you do not zip installable assets in the **Simple** workflow\.
+For demonstration purposes only, an example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts do not contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you do not zip installable assets in the **Simple** workflow\.
 
 **Topics**
 + [Create a package \(simple\)](#distributor-working-with-packages-create-simple)
@@ -393,7 +393,7 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 **To upload the package and manifest to Amazon S3**
 
-1. Copy or move all \.zip archive files that you specified in the manifest to a folder or directory\.
+1. Copy or move all \.zip archive files that you specified in the manifest to a folder or directory\. Do not zip the folder or directory you move your \.zip archive files and manifest file to\.
 
 1. Create a bucket or choose an existing bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. For more information about how to run an AWS CLI command to create a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) in the *AWS CLI Command Reference*\.
 
@@ -443,24 +443,35 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
 
 **To add a package to Amazon S3 \(AWS CLI\)**
 
-1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
+1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
-   If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the entire content of the JSON manifest file, in quotations\.
+   If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
 
    ```
-   aws ssm create-document --name "package-name" --content "S3-bucket-URL-to-manifest-file" --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" --version-name version-value-from-manifest --document-type Package
+   aws ssm create-document \
+       --name "package-name" \
+       --content file://path-to-manifest-file \
+       --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" \ 
+       --version-name version-value-from-manifest \ 
+       --document-type Package
    ```
 
    The following is an example\.
 
    ```
-   aws ssm create-document --name ExamplePackage --content "https://s3.amazonaws.com/mybucket/ExamplePackage/manifest.json" --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/mybucket/ExamplePackage" --version-name 1.0.1 --document-type Package
+   aws ssm create-document \
+       --name "ExamplePackage" \
+       --content file://path-to-manifest-file \
+       --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/mybucket/ExamplePackage" \
+       --version-name 1.0.1 \
+       --document-type Package
    ```
 
 1. Verify that your package was added and show the package manifest by running the following command, replacing *package\-name* with the name of your package\. To get a specific version of the document \(not the same as the version of a package\), you can add the `--document-version` parameter\.
 
    ```
-   aws ssm get-document --name "package-name"
+   aws ssm get-document \
+       --name "package-name"
    ```
 
 For information about other options you can use with the create\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\. For information about other options you can use with the get\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-document.html)\.

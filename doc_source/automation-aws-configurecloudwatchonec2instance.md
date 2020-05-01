@@ -4,6 +4,8 @@
 
 Enable or disable Amazon CloudWatch monitoring on managed instances\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureCloudWatchOnEC2Instance)
+
 **Document Type**
 
 Automation
@@ -44,17 +46,3 @@ Windows, Linux
   Default: Enabled
 
   Description: \(Optional\) Specifies whether to enable or disable CloudWatch\. Valid values: "Enabled" \| "Disabled"\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-ConfigureCloudWatchOnEC2Instance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

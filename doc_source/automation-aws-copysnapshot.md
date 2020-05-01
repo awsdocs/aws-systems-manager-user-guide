@@ -4,6 +4,8 @@
 
 Copy a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot)
+
 **Document Type**
 
 Automation
@@ -42,17 +44,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The region where the source snapshot currently exists\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CopySnapshot --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

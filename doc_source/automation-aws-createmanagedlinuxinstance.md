@@ -4,6 +4,8 @@
 
 Create an EC2 instance for Linux that is configured for Systems Manager\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedLinuxInstance)
+
 **Document Type**
 
 Automation
@@ -81,17 +83,3 @@ Windows, Linux
   Default: Default
 
   Description: \(Required\) New instance will be deployed into this Amazon Virtual Private Cloud \(Amazon VPC\) or in the default Amazon VPC if not specified\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CreateManagedLinuxInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

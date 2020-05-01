@@ -4,6 +4,8 @@
 
 Release the specified Elastic IP address using the allocation ID\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ReleaseElasticIP)
+
 **Document Type**
 
 Automation
@@ -27,17 +29,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The Allocation ID of the Elastic IP address\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-ReleaseElasticIP --parameters AllocationId=eipalloc-0123456789abcdefg
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

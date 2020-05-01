@@ -4,6 +4,8 @@
 
 Start one or more EC2 instances\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartEC2Instance)
+
 **Document Type**
 
 Automation
@@ -27,14 +29,6 @@ Windows, Linux
   Type: StringList
 
   Description: \(Required\) EC2 instances to start\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-StartEC2Instance --parameters "InstanceId=INSTANCEID"
-```
 
 **Outputs**
 

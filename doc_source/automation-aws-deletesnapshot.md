@@ -4,6 +4,8 @@
 
 Delete a snapshot of an Amazon EBS volume\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteSnapshot)
+
 **Document Type**
 
 Automation
@@ -27,17 +29,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The ID of the EBS snapshot\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-DeleteSnapshot --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

@@ -4,6 +4,8 @@
 
 Publish a notification to Amazon SNS\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PublishSNSNotification)
+
 **Document Type**
 
 Automation
@@ -32,17 +34,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The ARN of the SNS topic to publish the notification to\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-PublishSNSNotification --parameters Message=message,TopicArn=arn:aws:sns:us-east-1:123456789012:SNSTopicARN
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

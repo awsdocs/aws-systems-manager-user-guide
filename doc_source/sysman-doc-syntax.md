@@ -1,6 +1,8 @@
 # SSM document syntax<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for command documents\. Automation documents use schema version 0\.3\. The top\-level elements are common for all SSM documents and provide the structure of the SSM document\.
+The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for command documents\. Automation documents use schema version 0\.3\. Additionally, Automation documents support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information on using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
+
+The top\-level elements provide the structure of the SSM document\. The information in this topic pertains to `Command` and `Automation` SSM documents\.
 
 ## Top\-level elements<a name="top-level"></a>
 
@@ -18,7 +20,7 @@ Required: No
 A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
-+ `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [`type` examples](#top-level-properties-type) in the next section\.
++ `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.
 + `description`: \(Optional\) A description of the parameter\.
 + `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
 + `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that is not allowed, the execution fails to start\.
@@ -106,15 +108,37 @@ Required: No
 \(Schema version 0\.3 only\) The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
 For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating Automation documents that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)\.  
 When you create an Automation document, or playbook, you specify attachment files using the `--attachments` option \(for AWS CLI\) or `Attachments` \(for API and SDK\)\. You can specify the file location for both local files and files stored in Amazon S3 buckets\.  
+
+```
+---
+files:
+  launch.py:
+    checksums:
+      sha256: 18871b1311b295c43d0f...[truncated]...772da97b67e99d84d342ef4aEXAMPLE
+```
+
+```
+"files": {
+    "launch.py": {
+        "checksums": {
+            "sha256": "18871b1311b295c43d0f...[truncated]...772da97b67e99d84d342ef4aEXAMPLE"
+        }
+    }
+}
+```
 Type: Dictionary<string,FilesConfiguration>  
 Required: No
 
-## `type` examples<a name="top-level-properties-type"></a>
+## SSM document parameter `type` examples<a name="top-level-properties-type"></a>
 
-This section includes examples of each parameter `type`\.
+Parameter types in SSM documents are static\. This means the parameter type can't be changed after it is defined\. When using parameters with SSM document plugins, the type of a parameter can't be dynamically changed within a plugin's input\. For example, you can't reference an `Integer` parameter within the `runCommand` input of the `aws:runShellScript` plugin because this input accepts a string or list of strings\. To use a parameter for a plugin input, the parameter type must match the accepted type\. For example, you must specify a `Boolean` type parameter for the `allowDowngrade` input of the `aws:updateSsmAgent` plugin\. If your parameter type doesn't match the input type for a plugin, the SSM document fails to validate and the system doesn't create the document\.
+
+When using parameters with SSM Automation actions, parameter types aren't validated when you create the SSM document in most cases\. Only when you use the `aws:runCommand` action are parameter types validated when you create the SSM document\. In all other cases, the parameter validation occurs during the automation execution when an action's input is verified before running the action\. For example, if your input parameter is a `String` and you reference it as the value for the `MaxInstanceCount` input of the `aws:runInstances` action, the SSM document is created\. However, when running the document, the automation fails while validating the `aws:runInstances` action because the `MaxInstanceCount` input requires an `Integer`\.
+
+The following are examples of each parameter `type`\.
 
 String  
-A sequence of zero or more Unicode characters wrapped in double quotes\. For example, "i\-1234567890abcdef0"\. Use backslashes to escape\.  
+A sequence of zero or more Unicode characters wrapped in quotation marks\. For example, "i\-1234567890abcdef0"\. Use backslashes to escape\.  
 
 ```
 ---
@@ -171,7 +195,7 @@ canRun:
 ```
 
 Integer  
-Integral numbers\. Doesn't accept decimal numbers, for example 3\.14159, or numbers wrapped in double quotes, for example "3"\.  
+Integral numbers\. Doesn't accept decimal numbers, for example 3\.14159, or numbers wrapped in quotation marks, for example "3"\.  
 
 ```
 ---

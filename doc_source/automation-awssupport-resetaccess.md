@@ -4,6 +4,8 @@
 
 This document will use the EC2Rescue tool on the specified EC2 instance to re\-enable password decryption via the EC2 Console \(Windows\), or to generate and add a new SSH key pair \(Linux\)\. If you lost your key pair, this automation will create a password\-enabled AMI that you can use to launch a new EC2 instance with a key pair you own \(Windows\)\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ResetAccess)
+
  **Document Type** 
 
 Automation
@@ -47,38 +49,6 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Enable EC2 password generation for Windows
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID'
-```
-
-Enable EC2 password generation for Windows and use the provided instance's subnet for the EC2Rescue instance
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=WINDOWSINSTANCEID,SubnetId=SelectedInstanceSubnet'
-```
-
-Generate a new SSH key for Linux
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID'
-```
-
-Generate a new SSH key for Linux and use the provided instance's subnet for the EC2Rescue instance
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ResetAccess --parameters 'InstanceId=LINUXINSTANCEID,SubnetId=SelectedInstanceSubnet'
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

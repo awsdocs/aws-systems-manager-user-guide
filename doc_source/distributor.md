@@ -9,16 +9,16 @@ After you create a package in Distributor, which creates an AWS Systems Manager 
 ## How can Distributor benefit my organization?<a name="distributor-benefits"></a>
 
 Distributor offers these benefits:
-+ **One package, many platforms**
++  **One package, many platforms** 
 
   One document can have attached \.zip files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
-+ **Control package access across groups of managed instances**
++  **Control package access across groups of managed instances** 
 
   You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
-+ **Many AWS agent packages included and ready to use**
++  **Many AWS agent packages included and ready to use** 
 
   Distributor includes many AWS agent packages that are ready for you to deploy to managed instances\. Look for packages in the Distributor **Packages** list page that are published by **Amazon**\. Examples include **AmazonCloudWatchAgent** and **AmazonEC2HibernateAgent**\.
-+ **Automate deployment **
++  **Automate deployment ** 
 
   To keep your environment current, use State Manager to schedule packages for automatic deployment on target instances when those instances are first launched\.
 
@@ -28,22 +28,22 @@ Distributor offers these benefits:
 + Administrators who are responsible for keeping AWS Systems Manager managed instances current with the most up\-to\-date software packages\.
 
 ## What are the features of Distributor?<a name="distributor-features"></a>
-+ **Deployment of packages to both Windows and Linux instances**
++  **Deployment of packages to both Windows and Linux instances** 
 
   Distributor lets you deploy software packages to EC2 instances for Linux and Windows Server\. For a list of supported instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
-+ **Deploy packages one time, or on an automated schedule**
++  **Deploy packages one time, or on an automated schedule** 
 
   You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\. 
-+ **Completely reinstall packages, or perform in\-place updates**
++  **Completely reinstall packages, or perform in\-place updates** 
 
   To install a new package version, you can completely uninstall the current version and install a new one in its place, or only update the current version with new and updated components, according to an *update script* that you provide\. Your package application is unavailable during a reinstallation, but can remain available during an in\-place update\. In\-place updates are especially useful for security monitoring applications or other scenarios where you need to avoid application downtime\.
-+ **Console, CLI, PowerShell, and SDK access to Distributor capabilities**
++  **Console, CLI, PowerShell, and SDK access to Distributor capabilities** 
 
   You can work with Distributor by using the AWS Systems Manager console, AWS CLI, AWS Tools for PowerShell, or the AWS SDK of your choice\.
-+ **IAM access control**
++  **IAM access control** 
 
   By using IAM policies, you can control which members of your organization can create, update, deploy, or delete packages or package versions\. For example, you might want to give an administrator permissions to deploy packages, but not to change packages or create new package versions\.
-+ **Logging and auditing capability support**
++  **Logging and auditing capability support** 
 
   You can audit and log Distributor user actions in your AWS account through integration with other AWS services\. For more information, see [Auditing and logging Distributor activity](distributor-logging-auditing.md)\.
 
@@ -64,15 +64,15 @@ Distributor supports package distribution to any release version of the followin
 
 | Platform | Code value in manifest file | Architecture | 
 | --- | --- | --- | 
-|  Windows Server  |  `windows`  |  `x86_64` or `386`  | 
-|  Debian  |  `debian`  |  `x86_64` or `386`  | 
-|  Ubuntu Server  |  `ubuntu`  |  `x86_64` or `386` `arm64` \(Ubuntu Server 16 and later, A1 instance types\)  | 
-|  Red Hat Enterprise Linux \(RHEL\)  |  `redhat`  |  `x86_64` or `386` `arm64` \(RHEL 7\.6 and later, A1 instance types\)  | 
-|  CentOS  |  `centos`  |  `x86_64` or `386`  | 
-|  Amazon Linux and Amazon Linux 2  |  `amazon`  |  `x86_64` or `386` `arm64` \(Amazon Linux 2, A1 instance types\)  | 
-|  SUSE Linux Enterprise Server \(SLES\)  |  `suse`  |  `x86_64` or `386`  | 
-|  openSUSE  |  `opensuse`  |  `x86_64` or `386`  | 
-|  openSUSE Leap  |  `opensuseleap`  |  `x86_64` or `386`  | 
+|  Windows Server  |   `windows`   |  `x86_64` or `386`  | 
+|  Debian  |   `debian`   |  `x86_64` or `386`  | 
+|  Ubuntu Server  |   `ubuntu`   |  `x86_64` or `386` `arm64` \(Ubuntu Server 16 and later, A1 instance types\)  | 
+|  Red Hat Enterprise Linux \(RHEL\)  |   `redhat`   |  `x86_64` or `386` `arm64` \(RHEL 7\.6 and later, A1 instance types\)  | 
+|  CentOS  |   `centos`   |  `x86_64` or `386`  | 
+|  Amazon Linux and Amazon Linux 2  |   `amazon`   |  `x86_64` or `386` `arm64` \(Amazon Linux 2, A1 instance types\)  | 
+|  SUSE Linux Enterprise Server \(SLES\)  |   `suse`   |  `x86_64` or `386`  | 
+|  openSUSE  |   `opensuse`   |  `x86_64` or `386`  | 
+|  openSUSE Leap  |   `opensuseleap`   |  `x86_64` or `386`  | 
 
 **Topics**
 + [How can Distributor benefit my organization?](#distributor-benefits)

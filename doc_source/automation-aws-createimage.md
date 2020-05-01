@@ -4,6 +4,8 @@
 
 Create a new Amazon Machine Image \(AMI\) from an EC2 instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateImage)
+
 **Document Type**
 
 Automation
@@ -30,17 +32,3 @@ Windows, Linux
   Type: Boolean
 
   Description: \(Optional\) Do not reboot the instance before creating the image\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CreateImage --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

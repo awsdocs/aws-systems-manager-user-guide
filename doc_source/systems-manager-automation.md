@@ -1,6 +1,6 @@
 # AWS Systems Manager Automation<a name="systems-manager-automation"></a>
 
-Systems Manager Automation simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources\. Automation enables you to do the following\.
+Systems Manager Automation simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources\. Automation enables you to do the following:
 + Build Automation workflows to configure and manage instances and AWS resources\.
 + Create custom workflows or use pre\-defined workflows maintained by AWS\.
 + Receive notifications about Automation tasks and workflows by using Amazon CloudWatch Events\.

@@ -11,6 +11,8 @@ The CloudWatch Logs data can be used for network troubleshooting and analysis of
 **Note**  
 To clean up resources created by AWSSupport\-SetupIPMonitoringFromVPC, you can run the Automation document `AWSSupport-TerminateIPMonitoringFromVPC`\. For more information, see [AWSSupport\-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md)\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC)
+
 **Document Type**
 
 Automation
@@ -60,20 +62,6 @@ Amazon
   Type: String
 
   Description: \(Optional\) The AWS Identity and Access Management \(IAM\) role for this execution\. If no role is specified, then Systems Manager Automation uses the permissions of the user that runs this document\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-SetupIPMonitoringFromVPC --parameters 'SubnetId=SUBNETID,TargetIPs="IPV41,IPV42,IPV61"'
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
 **Required IAM Permissions**
 

@@ -4,6 +4,8 @@
 
 Delete DynamoDB table backups based on retention days or count\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDBTableBackups)
+
 **Document Type**
 
 Automation
@@ -44,17 +46,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) Name of the DynamoDB table\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-DeleteDynamoDbTableBackups --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

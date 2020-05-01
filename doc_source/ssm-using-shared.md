@@ -7,7 +7,7 @@ You are not required to specify ARNs for AWS public documents \(documents that b
 
 ## Use a shared SSM document \(command line\)<a name="ssm-using-shared-cli"></a>
 
-**To list all public SSM documents**
+ **To list all public SSM documents** 
 
 ------
 #### [ Linux ]
@@ -39,7 +39,7 @@ Get-SSMDocumentList `
 
 ------
 
-**To list private SSM documents that have been shared with you**
+ **To list private SSM documents that have been shared with you** 
 
 ------
 #### [ Linux ]
@@ -71,7 +71,7 @@ Get-SSMDocumentList `
 
 ------
 
-**To list all SSM documents available to you**
+ **To list all SSM documents available to you** 
 
 ------
 #### [ Linux ]
@@ -96,7 +96,7 @@ Get-SSMDocumentList
 
 ------
 
-**To get information about an SSM document that has been shared with you**
+ **To get information about an SSM document that has been shared with you** 
 
 ------
 #### [ Linux ]
@@ -124,7 +124,7 @@ Get-SSMDocumentDescription `
 
 ------
 
-**To run a shared SSM document**
+ **To run a shared SSM document** 
 
 ------
 #### [ Linux ]

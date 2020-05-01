@@ -4,6 +4,8 @@
 
 Patch EC2 instances in an Auto Scaling group\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchASGInstance)
+
 **Document Type**
 
 Automation
@@ -46,17 +48,3 @@ Windows, Linux
   Default: PT5M
 
   Description: \(Optional\) Duration the Automation should sleep to allow a patched instance to reboot\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-PatchAsgInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

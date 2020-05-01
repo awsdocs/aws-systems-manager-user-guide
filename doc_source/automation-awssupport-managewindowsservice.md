@@ -4,6 +4,8 @@
 
 The AWSSupport\-ManageWindowsService automation document enables a user to stop, start, restart, pause, or disable any Windows service on the target instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageWindowsService)
+
  **Document Type** 
 
 Automation
@@ -50,26 +52,6 @@ Windows
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Check RDP Settings
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-ManageWindowsService" --parameters "InstanceId=i-1234567890abcdef0, WindowsServiceName=TermService"
-```
-
-Change the Startup Type of the TermService to Auto and change Service Action to Start
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-ManageWindowsService" --parameters "InstanceId=i-1234567890abcdef0, WindowsServiceName=TermService, StartupType=Auto, ServiceAction=Start"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

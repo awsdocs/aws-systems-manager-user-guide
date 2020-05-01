@@ -17,9 +17,25 @@ Amazon EC2 AMI public parameters are available from the following paths:
 
 You can view a list of all Linux AMIs in the current AWS Region by using the following command in the AWS CLI\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters-by-path --path /aws/service/ami-amazon-linux-latest --query Parameters[].Name
+aws ssm get-parameters-by-path \
+    --path /aws/service/ami-amazon-linux-latest \
+    --query 'Parameters[].Name'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/ami-amazon-linux-latest ^
+    --query Parameters[].Name
+```
+
+------
 
 The command returns information like the following\.
 
@@ -44,9 +60,25 @@ The command returns information like the following\.
 
 You can view details about these AMIs, including the AMI IDs and Amazon Resource Names \(ARNs\), by using the following command\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters-by-path --path "/aws/service/ami-amazon-linux-latest" --region Region
+aws ssm get-parameters-by-path \
+    --path "/aws/service/ami-amazon-linux-latest" \
+    --region region
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path "/aws/service/ami-amazon-linux-latest" ^
+    --region region
+```
+
+------
 
 The command returns information like the following\. This example output has been truncated for space\.
 
@@ -89,9 +121,25 @@ The command returns information like the following\. This example output has bee
 
 You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API action with the full AMI name, including the path\. Here is an example command\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 --region us-west-2
+aws ssm get-parameters \
+    --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 \
+    --region us-west-2
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters ^
+    --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 ^
+    --region us-west-2
+```
+
+------
 
 The command returns the following information\.
 
@@ -115,9 +163,23 @@ The command returns the following information\.
 
 The Amazon Elastic Container Service \(Amazon ECS\) service publishes the name of the latest Amazon ECS optimized AMI as a public parameter\. Users are encouraged to use this AMI when creating a new Amazon EC2 cluster for Amazon ECS because the optimized AMI includes bug fixes and feature updates\. Use the following command to view the name of the latest Amazon ECS optimized AMI\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters --names /aws/service/ecs/optimized-ami/amazon-linux/recommended
+aws ssm get-parameters \
+    --names /aws/service/ecs/optimized-ami/amazon-linux/recommended
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters ^
+    --names /aws/service/ecs/optimized-ami/amazon-linux/recommended
+```
+
+------
 
 The command returns information like the following\.
 
@@ -143,11 +205,28 @@ You can call AWS service, Region, and endpoint public parameters by using the fo
 
 /aws/service/global\-infrastructure
 
+**View active AWS Regions**  
 You can view a list of all active AWS Regions by using the following command in the AWS CLI\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters-by-path --path /aws/service/global-infrastructure/regions --query Parameters[].Name
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/regions \
+    --query 'Parameters[].Name'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/regions ^
+    --query Parameters[].Name
+```
+
+------
 
 The command returns information like the following\.
 
@@ -175,11 +254,28 @@ The command returns information like the following\.
 "/aws/service/global-infrastructure/regions/us-east-1"
 ```
 
+**View available AWS services**  
 You can view a complete list of all available AWS services and sort them into alphabetical order by using the following command\. This example output has been truncated for space\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters-by-path --path /aws/service/global-infrastructure/services --query Parameters[].Name | sort
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/services \
+    --query 'Parameters[].Name' | sort
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/services ^
+    --query Parameters[].Name | sort
+```
+
+------
 
 The command returns information like the following\.
 
@@ -211,45 +307,82 @@ The command returns information like the following\.
     "/aws/service/global-infrastructure/services/codebuild",
 ```
 
+**View supported Regions for an AWS service**  
 You can view a list of Regions where a service is available\. This example uses Systems Manager \(ssm\)\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameters-by-path --path /aws/service/global-infrastructure/services/ssm/regions --query Parameters[].Value
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/services/ssm/regions \
+    --query 'Parameters[].Value'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/services/ssm/regions ^
+    --query Parameters[].Value
+```
+
+------
 
 The command returns information like the following\.
 
 ```
 [
-    "ap-east-1",
-    "ap-northeast-2",
     "ap-south-1",
     "ca-central-1",
-    "cn-northwest-1",
-    "eu-west-2",
-    "sa-east-1",
-    "us-east-2",
-    "us-gov-east-1",
-    "us-west-2",
-    "ap-northeast-1",
-    "ap-southeast-1",
-    "ap-southeast-2",
     "cn-north-1",
     "eu-central-1",
-    "eu-north-1",
     "eu-west-1",
-    "us-east-1",
+    "eu-west-2",
+    "eu-west-3",
+    "me-south-1",
+    "us-east-2",
     "us-gov-west-1",
+    "af-south-1",
+    "ap-east-1",
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "eu-north-1",
+    "eu-south-1",
+    "us-gov-east-1",
     "us-west-1",
-    "eu-west-3"
+    "cn-northwest-1",
+    "sa-east-1",
+    "us-east-1",
+    "us-west-2"
 ]
 ```
 
+**View the regional endpoint for a service**  
 You can view a regional endpoint for a service by using the following command\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm get-parameter --name /aws/service/global-infrastructure/regions/us-west-1/services/ssm/endpoint --query Parameter.Value
+aws ssm get-parameter \
+    --name /aws/service/global-infrastructure/regions/us-west-1/services/ssm/endpoint \
+    --query 'Parameter.Value'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameter ^
+    --name /aws/service/global-infrastructure/regions/us-west-1/services/ssm/endpoint ^
+    --query Parameter.Value
+```
+
+------
 
 The command returns information like the following\.
 

@@ -7,6 +7,8 @@ The AWSSupport\-ManageRDPSettings automation document allows the user to manage 
 **Important**  
 Changes to the RDP settings should be carefully reviewed before running this document\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageRDPSettings)
+
  **Document Type** 
 
 Automation
@@ -64,26 +66,6 @@ Windows
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Check RDP Settings
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID"
-```
-
-Restore the default RDP port \(3389\), disable NLA, enable remote connections
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-ManageRDPSettings" --parameters "InstanceId=INSTANCEID,RDPPortAction=Modify, RDPPort=3389, NLASettingAction=Disable,RemoteConnections=Enable"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

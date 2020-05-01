@@ -1,6 +1,6 @@
 # Systems Manager Automation actions reference<a name="automation-actions"></a>
 
-This reference describes the actions \(or plugins\) that you can specify in an AWS Systems Manager Automation document\. For information about plugins for other types of SSM documents, see [SSM document plugin reference](ssm-plugins.md)\.
+This reference describes the Automation actions that you can specify in an AWS Systems Manager Automation document\. These actions cannot be used in other types of SSM documents\. For information about plugins for other types of SSM documents, see [SSM document plugin reference](ssm-plugins.md)\.
 
 Systems Manager Automation runs steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
 

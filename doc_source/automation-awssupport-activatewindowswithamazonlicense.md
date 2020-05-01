@@ -7,6 +7,8 @@ The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates a
 **Note**  
 This document cannot be used on Bring Your Own License \(BYOL\) Windows Server instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense)
+
  **Document Type** 
 
 Automation
@@ -57,32 +59,6 @@ The offline method requires that the provided EC2 instance be stopped and then s
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ActivateWindowsWithAmazonLicense --parameters "InstanceId=INSTANCEID"
-```
-
-Send the command with ForceActivation = True
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ActivateWindowsWithAmazonLicense --parameters "InstanceId=INSTANCEID,ForceActivation=True"
-```
-
-Send the command with AllowOffline = True
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ActivateWindowsWithAmazonLicense --parameters "InstanceId=INSTANCEID,AllowOffline=True"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

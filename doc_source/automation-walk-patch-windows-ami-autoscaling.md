@@ -141,13 +141,15 @@ Use the following procedure to create and run an Automation document that patche
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. Choose **Create document**\.
+1. Choose **Create automation**\.
 
 1. In the **Name** field, type PatchAmiandUpdateAsg\.
 
-1. In the **Document type** list, choose **Automation document**\.
+1. Choose the **Editor** tab, and choose the **Edit** button\.
 
-1. Delete the brackets in the **Content** field, and then paste the following JSON sample document\.
+1. Choose **OK** when prompted, and delete the placeholder content in the **Document editor** field\.
+
+1. In the **Document editor** field, paste the following JSON sample document content\.
 **Note**  
 You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting started with Automation](automation-setup.md)\.
 

@@ -4,6 +4,8 @@
 
 Delete the backup of an Amazon DynamoDB table\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDBBackup)
+
 **Document Type**
 
 Automation
@@ -27,17 +29,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) ARN of the DynamoDB table backup to delete\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-DeleteDynamoDbBackup --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

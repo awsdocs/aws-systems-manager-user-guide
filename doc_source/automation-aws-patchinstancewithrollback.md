@@ -4,6 +4,8 @@
 
 Brings EC2 instance into compliance with standing baseline; rolls back root volume on failure\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchInstanceWithRollback)
+
 **Document Type**
 
 Automation
@@ -37,26 +39,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) Amazon S3 Bucket destination for the Compliance Report generated during process\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-PatchInstanceWithRollback --parameters InstanceId=i-1234567890abcdef0
-```
-
-```
-{
-    "AutomationExecutionId": "ab08779f-002d-42dd-9222-0123456789ab"
-}
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --query 'AutomationExecution.Output'
-```
 
 **Document Steps**
 

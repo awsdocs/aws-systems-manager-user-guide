@@ -9,6 +9,8 @@ To automate both backup and restore of an on\-premises SQL Server database to an
 **Important**  
 This automation workflow resets the SQL Server server administrator \(SA\) user password every time the workflow runs\. After the automation workflow is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-SQLServerDBRestore)
+
 **Document Type**
 
 Automation
@@ -137,32 +139,6 @@ The user who runs the Automation workflow must have the following permissions:
   Type: String
 
   Description: \(Optional\) Key pair to use when creating the new EC2 instance\.
-
-**Examples**
-
-Start the automation using an existing EC2 instance with two databases\.
-
-```
-aws ssm start-automation-execution --document-name AWSEC2-RestoreSQLServer --parameters "InstanceId='i-1234567890abcdef0',S3Input='sample-bucket/sample-prefix',DatabaseNames='sample-database1, sample-database2'"
-```
-
-Start the automation and launch a new EC2 instance with the specified SQL Server edition\.
-
-```
-aws ssm start-automation-execution --document-name AWSEC2-RestoreSQLServer --parameters "InstanceType='m4.large',SQLServerEdition='Standard',S3Input='sample-bucket/sample-backup-1.bak, sample-bucket/sample-backup-2.bak',IamInstanceProfileName='sample-profile-name',KeyPair='sample-keypair-name'"
-```
-
-Start the automation and launch a new EC2 instance with the specified SQL Server edition using a presigned S3 URL\.
-
-```
-aws ssm start-automation-execution --document-name AWSEC2-RestoreSQLServer --parameters "InstanceType='m4.large',SQLServerEdition='Standard',S3Input='https://sample-bucket.s3.amazonaws.com/sample-backup.bak?abcdefg',IsS3PresignedUrl='yes',IamInstanceProfileName='sample-profile-name',DataDirectorySize=200,LogDirectorySize=100,TempDbDirectorySize=200"
-```
-
-Retrieve the execution output\.
-
-```
-aws ssm get-automation-execution --automation-execution-id ExecutionID --output text --query 'AutomationExecution.Output'
-```
 
 **Document Steps**
 

@@ -9,6 +9,8 @@ You can test application functionality by launching the new AMI in your VPC\. Af
 **Note**  
 If you want to modify the computer name of the EC2 instance launched from the new AMI, see [Rename a Computer that Hosts a Stand\-Alone Instance of SQL Server](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/rename-a-computer-that-hosts-a-stand-alone-instance-of-sql-server?view=sql-server-2017)\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-CloneInstanceAndUpgradeSQLServer)
+
 **Document Type**
 
 Automation

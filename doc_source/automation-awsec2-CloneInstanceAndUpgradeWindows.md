@@ -17,6 +17,8 @@ The upgrade operation is a multi\-step process that can take 2 hours to complete
 
 You can test application functionality by launching a test instance from the upgraded AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded AMI\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-CloneInstanceAndUpgradeWindows)
+
 **Document Type**
 
 Automation

@@ -4,6 +4,8 @@
 
 Start an Amazon Relational Database Service \(Amazon RDS\) instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartRDSInstance)
+
 **Document Type**
 
 Automation
@@ -27,17 +29,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) ID of the Amazon RDS instance to start\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-StartRdsInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

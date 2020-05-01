@@ -4,6 +4,8 @@
 
 Enable encryption for an Amazon Simple Storage Service \(Amazon S3\) bucket \(encrypt the contents of the bucket\)\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableS3BucketEncryption)
+
 **Document Type**
 
 Automation
@@ -34,17 +36,3 @@ Windows, Linux
   Default: AES256
 
   Description: \(Optional\) Server\-side encryption algorithm to use for the default encryption\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-EnableS3BucketEncryption --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

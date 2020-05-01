@@ -4,6 +4,8 @@
 
 This document will use the EC2Rescue tool to troubleshoot and where possible repair common connectivity issues with the specified EC2 instance for Linux or Windows Server\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ExecuteEC2Rescue)
+
  **Document Type** 
 
 Automation
@@ -48,32 +50,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use your IAM permissions to run this document\.
-
- **Examples** 
-
-EC2Rescue an instance
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ExecuteEC2Rescue --parameters 'UnreachableInstanceId=INSTANCEID'
-```
-
-EC2Rescue an instance and use the current instance subnet for the EC2Rescue instance
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ExecuteEC2Rescue --parameters 'UnreachableInstanceId=INSTANCEID,SubnetId=SelectedInstanceSubnet'
-```
-
-EC2Rescue an instance and use a custom subnet for the EC2Rescue instance
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-ExecuteEC2Rescue --parameters 'UnreachableInstanceId=INSTANCEID,SubnetId=SUBNETID'
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

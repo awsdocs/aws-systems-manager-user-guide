@@ -4,6 +4,8 @@
 
 The AWSSupport\-TroubleshootSSH automation document installs the Amazon EC2Rescue tool for Linux, and then uses the EC2Rescue tool to check or attempt to fix common issues that prevent a remote connection to the Linux machine via SSH\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the document operates in read\-only mode\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootSSH)
+
  **Document Type** 
 
 Automation
@@ -59,32 +61,6 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Check the current SSH status
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID"
-```
-
-Perform an online fix of all detected SSH issues
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll"
-```
-
-Perform an offline fix of all detected SSH issues
-
-```
-aws ssm start-automation-execution --document-name AWSSupport-TroubleshootSSH --parameters "InstanceId=INSTANCEID,Action=FixAll,AllowOffline=True"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

@@ -7,6 +7,8 @@ This document uses the HashiCorp [Packer](https://www.packer.io/) tool to valida
 **Note**  
 If you specify a `vpc_id` value, you must also specify the `subnet_id` value of a public subnet\. Unless you modify your subnet's IPv4 public addressing attribute, you must also set `associate_public_ip_address` to true\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker)
+
 **Document Type**
 
 Automation
@@ -45,21 +47,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-RunPacker \
---parameters "TemplateS3BucketName=MyBucket,TemplateFileName=MyTemplate,Mode=Fix,Force=False,AutomationAssumeRole=arn:aws:iam::111122223333:role/AutomationServiceRole"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'RunPackerProcessTemplate.output'
-```
 
 **Document Steps**
 

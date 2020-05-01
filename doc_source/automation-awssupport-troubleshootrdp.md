@@ -7,6 +7,8 @@ The AWSSupport\-TroubleshootRDP automation document allows the user to check or 
 **Important**  
 Changes to the RDP settings, RDP service and Windows Firewall profiles should be carefully reviewed before running this document\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP)
+
  **Document Type** 
 
 Automation
@@ -114,62 +116,6 @@ Windows
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Check the current RDP status
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
-```
-
-Check the current RDP status
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID"
-```
-
-Disable the Windows firewall
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID,Action=Custom,Firewall=Disable"
-```
-
-Restore the default RDP port
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RDPPortAction=Modify"
-```
-
-Disable NLA
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, NLASettingAction=Disable"
-```
-
-Allow remote connections
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, RemoteConnections=Allow"
-```
-
-Restore RDP default settings and disable all Windows Firewall profiles
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll"
-```
-
-Restore RDP default settings and disable all Windows Firewall profiles, with offline remediation if needed
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId=INSTANCEID, Action=FixAll, AllowOffline=True"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Required IAM Permissions** 
 

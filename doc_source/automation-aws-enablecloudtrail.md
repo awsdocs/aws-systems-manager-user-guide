@@ -4,6 +4,8 @@
 
 Create an AWS CloudTrail trail and configure logging to an S3 bucket\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCloudTrail)
+
 **Document Type**
 
 Automation
@@ -34,17 +36,3 @@ The S3 bucket must exist and the bucket policy must grant CloudTrail permission 
   Type: String
 
   Description: \(Required\) The name of the new trail\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-EnableCloudTrail --parameters TrailName=TrailName,S3BucketName=s3bucketname,AutomationAssumeRole=arn:aws:iam::123456789012:role/AutomationRole
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

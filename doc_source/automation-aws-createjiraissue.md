@@ -4,6 +4,8 @@
 
 Create an issue in Jira\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-CloneInstanceAndUpgradeWindows)
+
 **Document Type**
 
 Automation
@@ -67,20 +69,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The name of the priority of the issue\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CreateJiraIssue --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
 **Document Steps**
 

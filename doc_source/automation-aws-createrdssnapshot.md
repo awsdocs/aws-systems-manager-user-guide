@@ -4,6 +4,8 @@
 
 Create an Amazon Relational Database Service \(Amazon RDS\) snapshot for an Amazon RDS instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateRdsSnapshot)
+
 **Document Type**
 
 Automation
@@ -42,20 +44,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CreateRdsSnapshot --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
 **Document Steps**
 

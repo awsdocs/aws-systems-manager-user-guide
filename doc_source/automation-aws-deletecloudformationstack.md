@@ -4,6 +4,8 @@
 
 Delete an AWS CloudFormation stack\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteCloudFormationStack)
+
 **Document Type**
 
 Automation
@@ -27,17 +29,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) Name or Unique ID of the CloudFormation stack to be deleted
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-DeleteCloudFormationStack --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

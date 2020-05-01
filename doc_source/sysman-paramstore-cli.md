@@ -11,13 +11,13 @@ The following procedure walks you through the process of creating and storing a 
 1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --value "a parameter value" --type String
+   aws ssm put-parameter --name "parameter-name" --value "parameter-value" --type String
    ```
 
    Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My1stParameter" --type String
+   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My 1st parameter" --type String
    ```
 
    The command returns the version number of the parameter\.
@@ -51,7 +51,7 @@ The following procedure walks you through the process of creating and storing a 
 1. Run the following command to change the parameter value\.
 
    ```
-   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "good day sunshine" --type String --overwrite
+   aws ssm put-parameter --name "/Test/IAD/helloWorld" --value "My updated 1st parameter" --type String --overwrite
    ```
 
    The command returns the version number of the parameter\.
@@ -71,7 +71,7 @@ The following procedure walks you through the process of creating and storing a 
            {            
                "Name": "/Test/IAD/helloWorld",
                "Type": "String",
-               "Value": "good day sunshine",
+               "Value": "My updated 1st parameter",
                "Version": 2,
                "LastModifiedDate": "2020-02-25T15:55:33.677000-08:00",
                "ARN": "arn:aws:ssm:us-east-2:123456789012:parameter/Test/IAD/helloWorld"

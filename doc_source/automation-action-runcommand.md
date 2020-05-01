@@ -3,7 +3,7 @@
 Runs the specified commands\.
 
 **Note**  
-Automation only supports *output* of one Run Command action\. A document can include multiple Run Command actions and plugins, but output is supported for only one action and plugin at a time\.
+Automation only supports *output* of one Run Command action\. A document can include multiple Run Command actions, but output is supported for only one action at a time\.
 
 **Input**  
 This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.

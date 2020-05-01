@@ -12,6 +12,8 @@ This document fails with an "InvalidPermission\.NotFound" error for security gro
 `SSH or RDP port + ::/0`
 If the security group is located in a non\-default VPC and, for example, specifies open ports using only the `SSH or RDP port + 0.0.0.0/0` format, then the document fails to run\. 
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisablePublicAccessForSecurityGroup)
+
  **Document Type** 
 
 Automation
@@ -40,20 +42,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-
- **Examples** 
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-DisablePublicAccessForSecurityGroup --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
  **Outputs** 
 

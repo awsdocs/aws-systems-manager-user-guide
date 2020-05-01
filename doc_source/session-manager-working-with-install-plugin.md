@@ -261,11 +261,14 @@ session-manager-plugin --version
 
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
+**Note**  
+The latest version for Windows is 1\.1\.54\.0\. The latest version for Linux is 1\.1\.61\.0\.
+
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
-| 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.  | 
-| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.  | 
+| 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 
+| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.   | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
 |  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 
 | 1\.1\.33\.0 | September 26, 2019 | Enhancement: \(Port forwarding sessions only\) Send a disconnect signal to the server when the client drops the TCP connection\.  | 

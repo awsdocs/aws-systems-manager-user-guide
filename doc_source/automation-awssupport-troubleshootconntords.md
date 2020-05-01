@@ -4,6 +4,8 @@
 
 The AWSSupport\-TroubleshootConnectivityToRDS Automation document diagnoses connectivity issues between an EC2 instance and an Amazon Relational Database Service instance\. The automation ensures the DB instance is available, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootConnectivityToRDS)
+
  **Document Type** 
 
 Automation
@@ -30,14 +32,6 @@ Amazon
   Allowed pattern: ^i\-\[a\-z0\-9\]\{8,17\}$
 
   Description: \(Required\) The ID of the EC2 instance to test connectivity from\.
-
- **Examples** 
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootConnectivityToRDS" --parameters "DBInstanceIdentifier=DBINSTANCEIDENTIFIER,SourceInstance=INSTANCEID"
-```
 
 **Required IAM Permissions**
 

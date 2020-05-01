@@ -4,6 +4,8 @@
 
 Change the instance type of an EC2 instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ResizeInstance)
+
 **Document Type**
 
 Automation
@@ -37,17 +39,3 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role assumed by Lambda\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-ResizeInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

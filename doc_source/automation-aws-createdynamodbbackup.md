@@ -4,6 +4,8 @@
 
 Create a backup of an Amazon DynamoDB table\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateDynamoDBBackup)
+
 **Document Type**
 
 Automation
@@ -37,17 +39,3 @@ This document is *not* restricted to specific operating system\.
   Type: String
 
   Description: \(Required\) Name of the DynamoDB table\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-CreateDynamoDbBackup --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

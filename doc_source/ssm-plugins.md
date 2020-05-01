@@ -1,6 +1,6 @@
 # SSM document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the actions, or plugins, that you can specify in an AWS Systems Manager \(SSM\) document\. This reference does not include information about AWS Systems Manager Automation document plugins\. For information about Automation document plugins, see [Systems Manager Automation actions reference](automation-actions.md)\.
+This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) document\. These plugins cannot be used in SSM Automation documents which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
@@ -729,7 +729,7 @@ Required: Yes
 The information required to retrieve the content from the required source\.  
 Type: StringMap  
 Required: Yes  
-**For sourceType GitHub, specify the following:**  
+ **For sourceType GitHub, specify the following:**   
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
@@ -764,7 +764,7 @@ Example syntax:
 "tokenInfo":"{{ssm-secure:secure-string-token}}" 
 }
 ```
-**For sourceType S3, specify the following:**  
+ **For sourceType S3, specify the following:**   
 + path: The URL to the file or directory you want to download from Amazon S3\.
 
 ```
@@ -773,7 +773,7 @@ Example syntax:
 "path": "https://s3.amazonaws.com/aws-executecommand-test/powershell/helloPowershell.ps1" 
 }
 ```
-**For sourceType SSMDocument, specify *one* of the following:**  
+ **For sourceType SSMDocument, specify *one* of the following:**   
 + name: The name and version of the document in the following format: `name:version`\. Version is optional\. 
 
   ```

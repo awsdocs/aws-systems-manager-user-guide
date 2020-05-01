@@ -4,6 +4,8 @@
 
 Update an AWS CloudFormation stack by using an AWS CloudFormation template stored in an Amazon S3 bucket\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateCloudFormationStack)
+
 **Document Type**
 
 Automation
@@ -37,17 +39,3 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) S3 bucket location that contains the updated CloudFormation template \(e\.g\. https://s3\.amazonaws\.com/example/updated\.template\)
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-UpdateCloudFormationStack --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```

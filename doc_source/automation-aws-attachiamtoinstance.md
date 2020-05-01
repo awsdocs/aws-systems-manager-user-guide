@@ -4,6 +4,8 @@
 
 Attach an AWS Identity and Access Management \(IAM\) role to a managed instance\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachIAMToInstance)
+
 **Document Type**
 
 Automation
@@ -39,20 +41,6 @@ Windows, Linux
   Description: \(Optional\) Flag to specify whether to replace the existing IAM profile or not\.
 
   Default: true
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-AttachIAMToInstance --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
 **Document Steps**
 

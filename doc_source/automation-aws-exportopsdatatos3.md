@@ -4,6 +4,8 @@
 
 This document retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified S3 bucket\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3)
+
 **Document Type**
 
 Automation
@@ -57,14 +59,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) Message to send when document finishes\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-ExportOpsDataToS3 --parameters parameters
-```
 
 **Document Steps**
 

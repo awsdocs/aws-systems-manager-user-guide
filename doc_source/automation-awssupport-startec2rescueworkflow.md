@@ -4,6 +4,8 @@
 
 The AWSSupport\-StartEC2RescueWorkflow automation document runs the provided base64 encoded script \(Bash or Powershell\) on a helper instance created to rescue your instance\. The root volume of your instance is attached and mounted to the helper instance, also known as the EC2Rescue instance\. If your instance is Windows, provide a Powershell script\. Otherwise, use Bash\. The workflow sets some environment variables which you can use in your script\. The environment variables contain information about the input you provided, as well as information about the offline root volume\. The offline volume is already mounted and ready to use\. For example, you can save a Desired State Configuration file to an offline Windows root volume, or chroot to an offline Linux root volume and perform an offline remediation\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-StartEC2RescueWorkflow)
+
  **Additional Information** 
 
  To base64 encode a script, you can use either Powershell or Bash\. Powershell:
@@ -159,26 +161,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document\.
-
- **Examples** 
-
-Print environment variables on a Windows helper instance
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-StartEC2RescueWorkflow" --parameters "InstanceId=WINDOWSINSTANCEID,OfflineScript=R2V0LUNoaWxkSXRlbSBlbnY6KiB8IFNvcnQtT2JqZWN0IE5hbWU="
-```
-
-Print environment variables on a Linux helper instance
-
-```
-aws ssm start-automation-execution --document-name "AWSSupport-StartEC2RescueWorkflow" --parameters "InstanceId=LINUXINSTANCEID,OfflineScript=IyEvYmluL2Jhc2gKcHJpbnRlbnYgfCBzb3J0"
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
 
 **Required IAM Permissions**
 

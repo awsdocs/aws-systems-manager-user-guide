@@ -4,11 +4,13 @@ This section includes topics that describe each of the Systems Manager Automatio
 
 This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve – Pause an execution for manual approval](automation-action-approve.md) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
 
-## View Automation document JSON content<a name="view-automation-json"></a>
+For information about running Automation documents, see [Running a simple Automation workflow](automation-working-executing.md)\. For information about running Automation documents on multiple targets, see [Running Automation workflows that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
 
-You can view the JSON content for Automation documents in the Systems Manager console\.
+## View Automation document content<a name="view-automation-json"></a>
 
-**To view Automation document JSON content**
+You can view the content for Automation documents in the Systems Manager console\.
+
+**To view Automation document content**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -23,7 +25,7 @@ You can view the JSON content for Automation documents in the Systems Manager co
 1. Choose the **Content** tab\.
 
 **Topics**
-+ [View Automation document JSON content](#view-automation-json)
++ [View Automation document content](#view-automation-json)
 + [AWSSupport\-ActivateWindowsWithAmazonLicense](automation-awssupport-activatewindowswithamazonlicense.md)
 + [AWS\-ASGEnterStandby](automation-aws-asgenterstandby.md)
 + [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)

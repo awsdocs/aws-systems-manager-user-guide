@@ -4,6 +4,8 @@
 
 This document uses an [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-python-lint) \(`cfn-python-lint`\) to validate YAML and JSON templates against the AWS CloudFormation resource specification\. The `AWS-RunCfnLint` document performs additional checks, such as ensuring that valid values have been entered for resource properties\. If validation is not successful, the `RunCfnLintAgainstTemplate` step fails and the linter tool's output is provided in an error message\. This Automation document is using cfn\-lint v0\.24\.4\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunCfnLint)
+
 **Document Type**
 
 Automation
@@ -76,20 +78,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-RunCfnLint --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'RunCfnLintAgainstTemplate.output’
-```
 
 **Document Steps**
 

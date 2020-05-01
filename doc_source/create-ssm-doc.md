@@ -5,15 +5,15 @@ If the Systems Manager public documents don't perform all the actions you want t
 ## Writing SSM document content<a name="writing-ssm-doc-content"></a>
 
 To create your own SSM document content, it's important to understand the different schemas, features, plugins, and syntax available for SSM documents\. We recommend becoming familiar with the following resources\.
-+ [Writing your own AWS Systems Manager documents](http://aws.amazon.com/blogs/mt/writing-your-own-aws-systems-manager-documents/)
-+ [SSM document syntax](sysman-doc-syntax.md)
-+ [SSM document schemas and features](document-schemas-features.md)
-+ [SSM document plugin reference](ssm-plugins.md)
-+ [Systems Manager Automation actions reference](automation-actions.md)
-+ [Automation system variables](automation-variables.md)
-+ [Sample scenarios and custom Automation document solutions](automation-document-samples.md)
-+ [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)
-+ [Creating Automation documents that run scripts](automation-document-script.md)
++  [Writing your own AWS Systems Manager documents](http://aws.amazon.com/blogs/mt/writing-your-own-aws-systems-manager-documents/) 
++  [SSM document syntax](sysman-doc-syntax.md) 
++  [SSM document schemas and features](document-schemas-features.md) 
++  [SSM document plugin reference](ssm-plugins.md) 
++  [Systems Manager Automation actions reference](automation-actions.md) 
++  [Automation system variables](automation-variables.md) 
++  [Sample scenarios and custom Automation document solutions](automation-document-samples.md) 
++  [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md) 
++  [Creating Automation documents that run scripts](automation-document-script.md) 
 
 AWS pre\-defined SSM documents might perform some of the actions you require\. You can call these documents by using the `aws:runDocument`, `aws:runCommand`, or `aws:executeAutomation` plugins within your custom SSM document, depending on the document type\. You can also copy portions of those documents into a custom SSM document, and edit the content to meet your requirements\.
 

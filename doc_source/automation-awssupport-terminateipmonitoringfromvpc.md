@@ -4,6 +4,8 @@
 
 AWSSupport\-TerminateIPMonitoringFromVPC terminates an IP monitoring test previously started by AWSSupport\-SetupIPMonitoringFromVPC\. Data related to the specified test ID will be deleted\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TerminateIPMonitoringFromVPC)
+
  **Document Type** 
 
 Automation
@@ -33,20 +35,6 @@ Amazon
   Type: String
 
   Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Examples** 
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWSSupportTest-TerminateIPMonitoringFromVPC --parameters 'AutomationExecutionId=ID,SubnetId=ID,InstanceId=ID,'
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id ID --output text --query 'AutomationExecution.Output'
-```
 
 **Required IAM Permissions**
 

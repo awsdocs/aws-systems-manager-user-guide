@@ -4,6 +4,8 @@
 
 Create a Systems Manager Inventory association for one or more managed instances\. The system collects metadata from your instances according to the schedule in the association\. For more information, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupInventory)
+
 **Document Type**
 
 Automation
@@ -141,17 +143,3 @@ Windows, Linux
   Default: Enabled
 
   Description: \(Optional\) Collect data about all Windows Updates on the instance\.
-
-**Examples**
-
-Start the automation
-
-```
-aws ssm start-automation-execution --document-name AWS-SetupInventory --parameters parameters
-```
-
-Retrieve the execution output
-
-```
-aws ssm get-automation-execution --automation-execution-id EXECUTIONID --output text --query 'AutomationExecution.Output'
-```
