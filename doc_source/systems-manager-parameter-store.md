@@ -1,6 +1,6 @@
 # AWS Systems Manager Parameter Store<a name="systems-manager-parameter-store"></a>
 
-AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, EC2 instance IDs, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
+AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
@@ -13,6 +13,7 @@ Parameter Store offers the following benefits and features\.
 + Control and audit access at granular levels\.
 + Configure change notifications and trigger automated actions for both parameters and parameter policies\.
 + Tag parameters individually, and then secure access from different levels, including operational, parameter, Amazon EC2 tag, and path levels\. 
++ Validation of ID format when you specify an Amazon Machine Image \(AMI\) ID as a parameter value\.
 + Reference AWS Secrets Manager secrets by using Parameter Store parameters\.
 + Use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. 
 
@@ -33,6 +34,7 @@ Parameter Store offers the following benefits and features\.
 
 **Topics**
 + [Parameter types and examples](parameter-store-about-examples.md)
++ [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)
 + [SecureString parameters](sysman-paramstore-securestring.md)
 + [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)
 + [Getting started with Parameter Store](sysman-paramstore-settingup.md)

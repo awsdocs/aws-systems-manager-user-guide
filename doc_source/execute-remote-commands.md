@@ -25,6 +25,7 @@ The following table includes information to help you get started with Run Comman
 **Topics**
 + [Setting up Run Command](sysman-rc-setting-up.md)
 + [Running commands using Systems Manager Run Command](run-command.md)
++ [Handling exit codes with scripts](command-workflow-scripts.md)
 + [Understanding command statuses](monitor-commands.md)
 + [Run Command walkthroughs](run-command-walkthroughs.md)
 + [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)

@@ -112,28 +112,98 @@ Use the following procedure to add policies to an existing parameter by using th
 
 1. Run the following command to add policies to an existing parameter\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm put-parameter --name "parameter_name" --value 'a value' --type parameter_type --policies "[{policies enclosed in brackets and curly braces}]" --overwrite
+   aws ssm put-parameter   
+       --name "parameter-name" \
+       --value 'parameter-value' \
+       --type parameter-type \
+       --overwrite \    
+       --policies "[{policies-enclosed-in-brackets-and-curly-braces}]"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm put-parameter   
+       --name "parameter-name" ^
+       --value 'parameter-value' ^
+       --type parameter-type ^
+       --overwrite ^
+       --policies "[{policies-enclosed-in-brackets-and-curly-braces}]"
+   ```
+
+------
 
    Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and a AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm put-parameter --name "/Finance/Payroll/3l3vat3131" --value "P@sSwW)rd" --type "SecureString" --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" --overwrite
+   aws ssm put-parameter \
+       --name "/Finance/Payroll/3l3vat3131" \
+       --value "P@sSwW)rd" \
+       --type "SecureString" \
+       --overwrite \
+       --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm put-parameter ^
+       --name "/Finance/Payroll/3l3vat3131" ^
+       --value "P@sSwW)rd" ^
+       --type "SecureString" ^
+       --overwrite ^
+       --policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2020-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]"
+   ```
+
+------
 
 1. Run the following command to verify the details of the parameter\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm describe-parameters  --parameter-filters "Key=Name,Values=Name of the parameter"
+   aws ssm describe-parameters  \
+       --parameter-filters "Key=Name,Values=parameter-name"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-parameters  ^
+       --parameter-filters "Key=Name,Values=parameter-name"
+   ```
+
+------
 
 **Important**  
 Parameter Store retains policies for a parameter until you either overwrite the policies with new policies or remove the policies\. 
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. For example:  
 
   ```
-  aws ssm put-parameter --name parameter_name --type type  --value 'value' --policies "[{}]"
+  aws ssm put-parameter \
+      --name parameter_name \
+      --type parameter-type  \
+      --value 'parameter-value' \
+      --policies "[{}]"
+  ```
+
+  ```
+  aws ssm put-parameter ^
+      --name parameter_name ^
+      --type parameter-type  ^
+      --value 'parameter-value' ^
+      --policies "[{}]"
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 

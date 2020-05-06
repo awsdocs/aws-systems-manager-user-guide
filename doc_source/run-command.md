@@ -12,5 +12,4 @@ If this is your first time using Run Command, we recommend executing commands ag
 + [Running PowerShell scripts on Linux instances](powershell-run-command-linux.md)
 + [Running commands using the document version parameter](run-command-version.md)
 + [Using targets and rate controls](send-commands-multiple.md)
-+ [Rebooting managed instance from scripts](send-commands-reboot.md)
 + [Canceling a command](rc-cancel.md)

@@ -66,27 +66,6 @@ Use the following procedure to create an IAM role and assign the policy you crea
 
 1. On the **Create role** page, enter a name in the **Role name** field, and then choose **Create role**\.
 
-1. Replace the default content on the JSON tab with the following permission policy, and then choose **Review**\.
-
-   ```
-   {
-           "Version": "2012-10-17",
-           "Statement": [
-               {
-                   "Effect": "Allow",
-                   "Action": [
-                       "cloudwatch:DescribeAlarms"
-                   ],
-                   "Resource": "*"
-               }
-           ]
-       }
-   ```
-
-1. On the **Review** page, enter a name in the **Role name** field\. 
-
-1. Choose **Create policy**\. The system returns you to the **Roles** page\.
-
 1. On the **Roles** page, choose the role you just created\. The **Summary** page opens\. 
 
 ## Step 3: Add a trust relationship<a name="appconfig-getting-started-cloudwatch-alarms-permissions-trust"></a>

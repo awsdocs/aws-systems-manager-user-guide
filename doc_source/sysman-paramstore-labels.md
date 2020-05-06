@@ -140,7 +140,7 @@ Parameters are only available in the Region where they were created\. If you don
 1. Run the following command to view all versions of the parameter\.
 
    ```
-   aws ssm get-parameter-history --name "the_parameter_name"
+   aws ssm get-parameter-history --name "parameter-name"
    ```
 
    Note the parameter version for which you want to attach a label\.
@@ -148,13 +148,13 @@ Parameters are only available in the Region where they were created\. If you don
 1. Run the following command to retrieve information about a parameter by version number\.
 
    ```
-   aws ssm get-parameters --names “the_parameter_name:the_version_number" 
+   aws ssm get-parameters --names "parameter-name:version-number" 
    ```
 
    Here is an example\.
 
    ```
-   aws ssm get-parameters --names “/Production/SQLConnectionString:3" 
+   aws ssm get-parameters --names "/Production/SQLConnectionString:3" 
    ```
 
 1. Run one of the following commands to attach a label to a version of a parameter\. If you attach multiple labels, then you must separate label names with a space\.
@@ -162,13 +162,13 @@ Parameters are only available in the Region where they were created\. If you don
    **Attach a label to the latest version of a parameter**
 
    ```
-   aws ssm label-parameter-version --name parameter_name  --labels label_name
+   aws ssm label-parameter-version --name parameter-name  --labels label-name
    ```
 
    **Attach a label to a specific version of a parameter**
 
    ```
-   aws ssm label-parameter-version --name parameter_name --parameter-version version_number --labels label_name
+   aws ssm label-parameter-version --name parameter-name --parameter-version version-number --labels label-name
    ```
 
    Here are some examples:
@@ -186,7 +186,7 @@ If the output shows the label you created in the `InvalidLabels` list, then the 
 1. You can view the details of the parameter by using either a version number or a label name\. Run the following command and specify the label you created in the previous step\.
 
    ```
-   aws ssm get-parameter --name parameter_name:label_name --with-decryption
+   aws ssm get-parameter --name parameter-name:label-name --with-decryption
    ```
 
    The command returns information like the following:
@@ -194,11 +194,11 @@ If the output shows the label you created in the `InvalidLabels` list, then the 
    ```
    {
        "Parameter": {
-           "Version": version_number, 
-           "Type": "parameter_type", 
-           "Name": "parameter_name", 
-           "Value": "parameter_value", 
-           "Selector": ":label_name"
+           "Version": version-number, 
+           "Type": "parameter-type", 
+           "Name": "parameter-name", 
+           "Value": "parameter-value", 
+           "Selector": ":label-name"
        }
    }
    ```
@@ -224,7 +224,7 @@ Parameters are only available in the Region where they were created\. If you don
 1. Run the following command to view all versions of the parameter\.
 
    ```
-   aws ssm get-parameter-history --name parameter_name --with-decryption
+   aws ssm get-parameter-history --name parameter-name --with-decryption
    ```
 
    The system returns information like the following:
@@ -265,7 +265,7 @@ You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manage
 Run the following command to view a list of parameters in a path that are assigned a specific label\.
 
 ```
-aws ssm get-parameters-by-path --path parameter_path --parameter-filters Key=Label,Values=label_name,Option=Equals --max-results a_number --with-decryption --recursive
+aws ssm get-parameters-by-path --path parameter-path --parameter-filters Key=Label,Values=label-name,Option=Equals --max-results a-number --with-decryption --recursive
 ```
 
 The system returns information like the following\. For this example, the user searched under the /Config path:
@@ -304,7 +304,7 @@ You can't delete a parameter label after you create it\. You can, however, move 
 1. Run the following command to view all versions of the parameter\.
 
    ```
-   aws ssm get-parameter-history --name "the_parameter_name"
+   aws ssm get-parameter-history --name "parameter-name"
    ```
 
    Note the parameter version for which you want to attach a label\.
@@ -312,7 +312,7 @@ You can't delete a parameter label after you create it\. You can, however, move 
 1. Run the following command to assign an existing label to a different version of a parameter\.
 
    ```
-   aws ssm label-parameter-version --name parameter_name --parameter-version version_number --labels name_of_existing_label
+   aws ssm label-parameter-version --name parameter-name --parameter-version version-number --labels name-of-existing-label
    ```
 **Note**  
 If you want to move an existing label to the latest version of a parameter, then remove `--parameter-version` from the command\.

@@ -36,9 +36,23 @@ The following examples demonstrate various options you can use to view informati
 
 1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm describe-parameters --parameter-filters "Key=Name,Values=MyParameterName"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Name,Values=MyParameterName"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Name,Values=MyParameterName"
+   ```
+
+------
 **Note**  
 For `describe-parameters`, the default search type for Name is `Equals`\. In your parameter filters, specifying `"Key=Name,Values=MyParameterName"` is the same as specifying `"Key=Name,Option=Equals,Values=MyParameterName"`\.
 

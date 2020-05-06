@@ -137,7 +137,7 @@ The following example grants permissions to perform AWS Systems Manager operatio
         "ssm:*"
       ],
       "Resource" : [
-        "arn:aws::aws:ssm:us-west-2:111222333444:*"
+        "arn:aws:ssm:us-west-2:111222333444:*"
       ]
     }
   ]
@@ -199,7 +199,7 @@ If you want to give a user permission to use this document to send commands on a
         {
             "Action": [
                 "ssm:ListDocuments",
-                "ssm:ListDocumentsVersions",
+                "ssm:ListDocumentVersions",
                 "ssm:DescribeDocument",
                 "ssm:GetDocument",
                 "ssm:DescribeInstanceInformation",

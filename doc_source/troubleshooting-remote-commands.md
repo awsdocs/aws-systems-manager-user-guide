@@ -4,8 +4,9 @@ Run Command provides status details with each command execution\. For more infor
 
 **Topics**
 + [Where are my instances?](#where-are-instances)
-+ [Getting status information on Windows instances](#rc-healthapi-win)
-+ [Getting status information on Linux instances](#rc-healthapi-linux)
++ [A step in my script failed, but the overall status is 'succeeded'](#ts-exit-codes)
++ [What's the status of my Windows instances?](#rc-healthapi-win)
++ [What's the status of my Linux instances?](#rc-healthapi-linux)
 + [Troubleshooting SSM Agent](#ts-ssmagent-linux)
 
 ## Where are my instances?<a name="where-are-instances"></a>
@@ -16,47 +17,51 @@ In the **Run a command** page, after you choose an SSM document to run and selec
 + **Service Endpoint connectivity**: Verify that the instance has connectivity to the Systems Manager service endpoints\. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS \(port 443\) outbound traffic to the service endpoints\. For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
 + **Target operating system type**: Double\-check that you have selected an SSM document that supports the type of instance you want to update\. Most SSM documents support both Windows and Linux instances, but some do not\. For example, if you select the SSM document `AWS-InstallPowerShellModule`, which applies only to Windows Server instances, you will not see Linux instances in the target instances list\.
 
-## Getting status information on Windows instances<a name="rc-healthapi-win"></a>
+## A step in my script failed, but the overall status is 'succeeded'<a name="ts-exit-codes"></a>
 
-Use the following command to get status details about one or more instances:
+Run Command lets you define how exit codes are handled in your scripts\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. You can, however, include a conditional statement to exit the script if any command before the final one fails\. For information and examples, see [Managing exit codes in Run Command commands](command-exit-codes.md)\. 
+
+## What's the status of my Windows instances?<a name="rc-healthapi-win"></a>
+
+Use the following PowerShell command to get status details about one or more instances:
 
 ```
 Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="InstanceIds";ValueSet="instance-ID","instance-ID"}
 ```
 
-Use the following command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the ValueSet="Online" with "ConnectionLost" or "Inactive" to view those statuses:
+Use the following PowerShell command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the ValueSet="Online" with "ConnectionLost" or "Inactive" to view those statuses:
 
 ```
 Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="PingStatus";ValueSet="Online"}
 ```
 
-Use the following command to see which instances are running the latest version of the EC2Config service\. Substitute ValueSet="LATEST" with a specific version \(for example, 3\.0\.54 or 3\.10\) to view those details:
+Use the following PowerShell command to see which instances are running the latest version of the EC2Config service\. Substitute `ValueSet="LATEST"` with a specific version \(for example, `3.0.54` or `3.10`\) to view those details:
 
 ```
 Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="AgentVersion";ValueSet="LATEST"}
 ```
 
-## Getting status information on Linux instances<a name="rc-healthapi-linux"></a>
+## What's the status of my Linux instances?<a name="rc-healthapi-linux"></a>
 
-Use the following command to get status details about one or more instances:
+Use the following AWS CLI command to get status details about one or more instances:
 
 ```
 aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance-ID
 ```
 
-Use the following command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the ValueSet="Online" with "ConnectionLost" or "Inactive" to view those statuses:
+Use the following command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the `ValueSet="Online"` with `"ConnectionLost"` or `"Inactive"` to view those statuses:
 
 ```
 aws ssm describe-instance-information --instance-information-filter-list key=PingStatus,valueSet=Online
 ```
 
-Use the following command to see which instances are running the latest version of SSM Agent\. Substitute ValueSet="LATEST" with a specific version \(for example, 1\.0\.145 or 1\.0\) to view those details:
+Use the following command to see which instances are running the latest version of SSM Agent\. Substitute `ValueSet="LATEST"` with a specific version \(for example, `1.0.145` or `1.0`\) to view those details:
 
 ```
 aws ssm describe-instance-information --instance-information-filter-list key=AgentVersion,valueSet=LATEST
 ```
 
-If the describe\-instance\-information API operation returns an AgentStatus of Online, then your instance is ready to be managed using Run Command\. If the status is Inactive, the instance has one or more of the following problems\. 
+If the describe\-instance\-information API operation returns an AgentStatus of `Online`, then your instance is ready to be managed using Run Command\. If the status is `Inactive`, the instance has one or more of the following problems\. 
 + SSM Agent is not installed\.
 + The instance does not have outbound internet connectivity\.
 + The instance was not launched with an IAM role that enables it to communicate with the SSM API, or the permissions for the IAM role are not correct for Run Command\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.

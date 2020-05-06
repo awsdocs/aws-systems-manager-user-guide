@@ -8,4 +8,4 @@ This section includes topics that describe how to use AWS AppConfig features to 
 + [Step 3: Create a configuration and a configuration profile](appconfig-creating-configuration-and-profile.md)
 + [Step 4: Create a deployment strategy](appconfig-creating-deployment-strategy.md)
 + [Step 5: Deploy a configuration](appconfig-deploying.md)
-+ [Step 6: Retrieving the configuration](appconfig-retrieving-the-configuration.md)
++ [Step 6: Receiving the configuration](appconfig-retrieving-the-configuration.md)

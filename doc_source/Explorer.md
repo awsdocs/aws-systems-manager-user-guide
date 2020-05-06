@@ -33,7 +33,21 @@ OpsCenter setup is now integrated with Explorer Setup\. If you already set up Op
 
 ## What is OpsData?<a name="Explorer-learn-more-OpsData"></a>
 
-OpsData is any operations data displayed in the Systems Manager Explorer dashboard\. Explorer retrieves OpsData from Amazon EC2, Systems Manager OpsCenter, and Systems Manager Patch Manager\. You can view and manage OpsData sources from the Explorer **Settings** page\.
+OpsData is any operations data that is displayed in the Systems Manager Explorer dashboard\. Explorer retrieves OpsData from the following sources:
++ **Amazon Elastic Compute Cloud \(Amazon EC2\)**
+
+  Data displayed in Explorer includes: total number of instances, total number of managed and unmanaged instances, and a count of instances using a specific Amazon Machine Image \(AMI\)\. 
++ **Systems Manager OpsCenter**
+
+  Data displayed in Explorer includes: a count of OpsItems by status, a count of OpsItems by severity, a count of open OpsItems across groups and across 30\-day time periods, and historical data of OpsItems over time\.
++ **Systems Manager Patch Manager**
+
+  Data displayed in Explorer includes a count of instances that aren't patch compliant\.
++ **AWS Trusted Advisor**
+
+  Data displayed in Explorer includes: status of best practice checks and recommendations for cost optimization, security, fault tolerance, performance, and service limits\. 
+
+You can view and manage OpsData sources from the Explorer **Settings** page\. For information about setting up and configuring services that populate Explorer widgets with OpsData, see [Setting up related services](Explorer-setup-related-services.md)\.
 
 ## Is there a charge to use Explorer?<a name="Explorer-learn-more-cost"></a>
 
@@ -41,7 +55,7 @@ Yes\. When you enable the default rules for creating OpsItems during Integrated 
 
 ## Is Explorer available in all AWS regions?<a name="Explorer-learn-more-regions"></a>
 
-No\. Explorer is not available in the BAH \(me\-south\-1\) and HKG \(ap\-east\-1\) Regions\. 
+No\. Explorer is not available in the BAH \(me\-south\-1\), HKG \(ap\-east\-1\), and CPT \(af\-south\-1\) Regions\. 
 
 **Topics**
 + [What are the features of Explorer?](#Explorer-learn-more-features)

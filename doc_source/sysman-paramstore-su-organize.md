@@ -74,7 +74,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
             "Action": [
                 "ssm:*"
             ],
-            "Resource": "arn:aws:ssm:us-east-2::parameter/*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/*"
         },
         {
             "Effect": "Deny",

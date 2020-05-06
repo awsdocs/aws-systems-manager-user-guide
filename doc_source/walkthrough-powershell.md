@@ -66,7 +66,7 @@ The following command shows the contents of the `"C:\Users"` directory and the c
 
 ```
 $runPSCommand = Send-SSMCommand `
--InstanceIds @("InstanceId", "InstanceId"") `
+-InstanceIds @("InstanceId", "InstanceId") `
 -DocumentName "AWS-RunPowerShellScript" `
 -Comment "Demo AWS-RunPowerShellScript with two instances" `
 -Parameter @{'commands'=@('dir C:\Users', 'dir C:\')}

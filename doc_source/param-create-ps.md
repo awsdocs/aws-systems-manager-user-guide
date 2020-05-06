@@ -6,40 +6,72 @@ You can use Tools for Windows PowerShell to create `String`, `StringList`, and `
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
-+ [Create a String or StringList parameter \(Tools for Windows PowerShell\)](#param-create-ps-string-stringlist)
++ [Create a `String` parameter \(Tools for Windows PowerShell\)](#param-create-ps-string)
++ [Create a `StringList` parameter \(Tools for Windows PowerShell\)](#param-create-ps-stringlist)
 + [Create a SecureString parameter \(Tools for Windows PowerShell\)](#param-create-ps-securestring)
 
-## Create a String or StringList parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string-stringlist"></a>
+## Create a `String` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string"></a>
 
-1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+1. Install and configure the AWS Tools for PowerShell, if you have not already\.
 
-   ```
-   Set-AWSCredentials –AccessKey key_name –SecretKey key_name
-   ```
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to set the Region for your PowerShell session\. 
+1. Run the following command to create a parameter that contains a plain text value\.
 
    ```
-   Set-DefaultAWSRegion -Region region
+   Write-SSMParameter `
+       -Name "parameter-name" `
+       -Value "parameter-value" `
+       -Type "String"
    ```
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   \-or\-
 
-1. Run the following command to create a parameter\.
+   Run the following command to create a parameter that contains an Amazon Machine Image \(AMI\) ID as the parameter value\. 
 
    ```
-   Write-SSMParameter -Name "parameter_name" -Value "a parameter value, or a comma-separated list of values" -Type "String or StringList"
+   Write-SSMParameter `
+       -Name "parameter-name" `
+       -Value "an-AMI-id" `
+       -Type "String" `
+       -DataType "aws:ec2:image"
+   ```
+
+   The `-DataType` option must be specified only if you are creating a parameter that contains an AMI ID\. For all other parameters, the default data type is `text`\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
+
+   Here is a String example that uses a parameter hierarchy\.
+
+   ```
+   Write-SSMParameter `
+       -Name "/IAD/Web/SQL/IPaddress" `
+       -Value "99.99.99.999" `
+       -Type "String"
+   ```
+
+1. Run the following command to verify the details of the parameter\.
+
+   ```
+   (Get-SSMParameterValue -Name "the_parameter_name_you_specified").Parameters
+   ```
+
+## Create a `StringList` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-stringlist"></a>
+
+1. Install and configure the AWS Tools for PowerShell, if you have not already\.
+
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+
+1. Run the following command to create a StringList parameter\.
+
+   ```
+   Write-SSMParameter `
+       -Name "parameter_name" `
+       -Value "a comma-separated list of values" `
+       -Type "StringList"
    ```
 
    If successful, the command returns the version number of the parameter\.
 **Note**  
-Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` data type\.
-
-   Here is an example that uses a String data type\.
-
-   ```
-   Write-SSMParameter -Name "/IAD/Web/SQL/IPaddress" -Value "99.99.99.999" -Type "String"
-   ```
+Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
 
 1. Run the following command to verify the details of the parameter\.
 
@@ -51,24 +83,18 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
 
-1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+1. Install and configure the AWS Tools for PowerShell, if you have not already\.
 
-   ```
-   Set-AWSCredentials –AccessKey key_name –SecretKey key_name
-   ```
-
-1. Run the following command to set the Region for your PowerShell session\.
-
-   ```
-   Set-DefaultAWSRegion -Region region
-   ```
-
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
 
    ```
-   Write-SSMParameter -Name "parameter_name" -Value "a parameter value" -Type "SecureString"  -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+   Write-SSMParameter `
+       -Name "parameter-name" `
+       -Value "parameter-value" `
+       -Type "SecureString"  `
+       -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
    ```
 
    If successful, the command returns the version number of the parameter\.

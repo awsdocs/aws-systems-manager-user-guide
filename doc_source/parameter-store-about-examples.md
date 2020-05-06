@@ -6,7 +6,7 @@ A Parameter Store parameter is any piece of data that is saved in Parameter Stor
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
 For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
 
-When you reference a parameter, you specify the parameter name by using the following convention:
+When you reference a parameter, you specify the parameter name by using the following convention\.
 
 \{\{`ssm:parameter-name`\}\}
 
@@ -17,16 +17,36 @@ When you reference a parameter, you specify the parameter name by using the foll
 
 ## Parameter types<a name="parameter-types"></a>
 
-Parameter Store provides support for three types of parameters\. `String`, `StringList`, and `SecureString`\. 
+Parameter Store provides support for three types of parameters: `String`, `StringList`, and `SecureString`\. 
+
+With one exception, when you create or update a parameter, you enter the parameter value as plain text, and Parameter Store performs no validation on the text you enter\. For `String` parameters, however, you can specify the data type as `aws:ec2:image`, and Parameter Store validates that the value you enter is the proper format for an Amazon EC2 AMI; for example: `ami-12345abcdeEXAMPLE`\.
 
 String  
-The content of a `String` parameter is an unvalidated plain text string\. For example:  
+By default, `String` parameters consist of any block of text you enter\. For example:  
 + `abc123`
-+ `Confidential. Do Not Distribute.`
-+ `Example Corp.`
++ `Example Corp`
++ `<img src="images/bannerImage1.png"/>`
+You can also use the `DataType` option to validate that the parameter value you enter is a properly formatted Amazon EC2 AMI ID, as shown in the following example AWS CLI command\.  
+
+```
+aws ssm put-parameter \
+    --name "MyGoldenAmi" \
+    --type "String" \
+    --data-type "aws:ec2:image" \
+    --value "ami-12345abcdeEXAMPLE"
+```
+
+```
+aws ssm put-parameter ^
+    --name "MyGoldenAmi" ^
+    --type "String" ^
+    --data-type "aws:ec2:image" ^
+    --value "ami-12345abcdeEXAMPLE"
+```
+You do not need to specify a data type in any other cases\.
 
 StringList  
-`StringList` parameters contain a comma\-separated list of values\. For example:  
+`StringList` parameters contain a comma\-separated list of values, as shown in the following example\.  
 `Monday,Wednesday,Friday`  
 `CSV,TSV,CLF,ELF,JSON`
 
@@ -38,17 +58,153 @@ For more information about `SecureString` parameters, see [SecureString paramete
 
 ## Parameter examples \(AWS CLI\)<a name="parameter-examples"></a>
 
-The following is an example of a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
+**Creating parameters**  
+The following example creates a plain\-text `String` parameter\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands='echo {{ssm:DNS-IP}}'" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-2
+aws ssm put-parameter \
+    --name "MyStringTextParameter" \
+    --type "String" \
+    --value "Text parameter test"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name "MyStringTextParameter" ^
+    --type "String" ^
+    --value "Text parameter test"
+```
+
+------
+
+The following example creates a String parameter that specifies the data type as `aws:ec2:image`\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm put-parameter \
+    --name "MyStringAMIParameter" \
+    --type "String" \
+    --data-type "aws:ec2:image" \
+    --value "ami-12345abcdeEXAMPLE"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name "MyStringAMIParameter" ^
+    --type "String" ^
+    --data-type "aws:ec2:image" ^
+    --value "ami-12345abcdeEXAMPLE"
+```
+
+------
+
+For information about using the data type `aws:ec2:image`, see [Parameter types](#parameter-types) and [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
+
+The following example creates a StringList parameter:
+
+------
+#### [ Linux ]
+
+```
+aws ssm put-parameter \
+    --name "MyStringListParameter" \
+    --type "StringList" \
+    --value "North,South,East,West"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name "MyStringListParameter" ^
+    --type "StringList" ^
+    --value "North,South,East,West"
+```
+
+------
+
+For more examples of creating and updating parameters using the AWS CLI, see [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md) and [put\-parameter](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html) in the *AWS Systems Manager section of the AWS CLI Command Reference*\.
+
+**Parameters in Run Command commands**  
+The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm send-command \
+    --document-name "AWS-RunPowerShellScript" \
+    --document-version "1" \
+    --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
+    --parameters "commands='echo {{ssm:DNS-IP}}'" \
+    --timeout-seconds 600 \
+    --max-concurrency "50" \
+    --max-errors "0" \
+    --region us-east-2
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm send-command ^
+    --document-name "AWS-RunPowerShellScript" ^
+    --document-version "1" ^
+    --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" ^
+    --parameters "commands='echo {{ssm:DNS-IP}}'" ^
+    --timeout-seconds 600 ^
+    --max-concurrency "50" ^
+    --max-errors "0" ^
+    --region us-east-2
+```
+
+------
 
 The next example command uses a `SecureString` parameter named **SecurePassword**\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm send-command --document-name "AWS-RunPowerShellScript" --document-version "1" --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --region us-east-2
+aws ssm send-command \
+        --document-name "AWS-RunPowerShellScript" \
+        --document-version "1" \
+        --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
+        --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" \
+        --timeout-seconds 600 \
+        --max-concurrency "50" \
+        --max-errors "0" \
+        --region us-east-2
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm send-command ^
+        --document-name "AWS-RunPowerShellScript" ^
+        --document-version "1" ^
+        --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" ^
+        --parameters "commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']" ^
+        --timeout-seconds 600 ^
+        --max-concurrency "50" ^
+        --max-errors "0" ^
+        --region us-east-2
+```
+
+------
 
 You can also reference Systems Manager parameters in the *Parameters* section of an SSM document, as shown in the following example\.
 
@@ -89,16 +245,24 @@ Don't confuse the similar syntax for *local parameters* used in the `runtimeConf
 
 **Note**  
 SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples:  
-**AWS CLI**  
 
 ```
 value=$(aws ssm get-parameters --names parameter_name --with-decryption)
 ```
 
 ```
-aws ssm send-command –name AWS-JoinDomain –parameters password=$value –instance-id instance-id
+aws ssm send-command \
+    --name AWS-JoinDomain \
+    --parameters password=$value \
+    --instance-id instance-id
 ```
-**Tools for Windows PowerShell**  
+
+```
+aws ssm send-command ^
+    --name AWS-JoinDomain ^
+    --parameters password=$value ^
+    --instance-id instance-id
+```
 
 ```
 $secure = (Get-SSMParameterValue -Names parameter_name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force

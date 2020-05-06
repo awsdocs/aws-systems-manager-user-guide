@@ -8,11 +8,19 @@ The following procedure walks you through the process of creating and storing a 
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter that uses the String data type\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
+1. Run the following command to create a String\-type parameter\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "parameter-name" --value "parameter-value" --type String
+   aws ssm put-parameter --name "parameter_name" --type String --value "a parameter value"
    ```
+
+   Here is an example that specifies an Amazon Machine Image \(AMI\) as the data type:
+
+   ```
+   aws ssm put-parameter --name "MyGoldenAMI" --type String --data-type "aws:ec2:image" --value ami-0dbf5ea29aEXAMPLE
+   ```
+
+   The option `--data-type` applies to String\-type parameters only and is required only if you are specifying `aws:ec2:image` as the data type\. You do not need to explicitly specify a data type if the String data type is `text`\.
 
    Here is an example that uses a parameter hierarchy in the name\. For more information about parameter hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
@@ -71,7 +79,7 @@ The following procedure walks you through the process of creating and storing a 
            {            
                "Name": "/Test/IAD/helloWorld",
                "Type": "String",
-               "Value": "My updated 1st parameter",
+               "Value": "My updated parameter value",
                "Version": 2,
                "LastModifiedDate": "2020-02-25T15:55:33.677000-08:00",
                "ARN": "arn:aws:ssm:us-east-2:123456789012:parameter/Test/IAD/helloWorld"

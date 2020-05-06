@@ -35,9 +35,27 @@ If you create a `SecureString` parameter by using the AWS\-managed CMK in your a
 
 The following AWS CLI example shows the command to create a new `SecureString` parameter in Parameter Store without the `--key-id` parameter: 
 
+------
+#### [ Linux ]
+
 ```
-aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString
+aws ssm put-parameter \
+    --name parameter-name \
+    --value "parameter-value" \
+    --type SecureString
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name parameter-name ^
+    --value "parameter-value" ^
+    --type SecureString
+```
+
+------
 
 ## Create a SecureString parameter using a customer managed CMK<a name="sysman-param-customkms"></a>
 
@@ -63,9 +81,29 @@ aws kms [create\-key](https://docs.aws.amazon.com/kms/latest/APIReference/API_Cr
 
 Use a command in the following format to create a `SecureString` parameter using the key you just created\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm put-parameter --name parameter_name --value "parameter value" --type SecureString --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+aws ssm put-parameter \
+    --name parameter-name \
+    --value "parameter-value" \
+    --type SecureString \
+    --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name parameter-name ^
+    --value "parameter-value" ^
+    --type SecureString ^
+    --key-id arn:aws:kms:us-east-2:123456789012:key/1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d5e
+```
+
+------
 
 **Note**  
 You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the `SecureString` parameter type\. If you do choose `SecureString`, your parameter will be doubly encrypted\.

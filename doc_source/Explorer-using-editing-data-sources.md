@@ -1,16 +1,18 @@
 # Editing Systems Manager Explorer data sources<a name="Explorer-using-editing-data-sources"></a>
 
 Systems Manager Explorer displays data from the following sources\. 
-+ Systems Manager Patch Compliance
-+ Amazon EC2
-+ OpsCenter OpsItems
-
-To display patch compliance data for your EC2 instances, you must configure Systems Manager Patch Manager\. To display metadata about your EC2 instances, you must configure AWS Config configuration recorder\. You can't add additional data sources, but you can configure Explorer to stop displaying either patch compliance data, EC2 instance metadata, or both\. 
++ Amazon Elastic Compute Cloud \(Amazon EC2\)
++ Systems Manager OpsCenter
++ Systems Manager Patch Manager
++ AWS Trusted Advisor
 
 **Note**  
 You can't configure Explorer to stop displaying OpsCenter OpsItem data\.
 
-**To stop displaying data from a source**
+**Before you begin**  
+Verify that you setup and configured services that populate Explorer widgets with data\. For more information, see [Setting up related services](Explorer-setup-related-services.md)\.
+
+**To edit data sources**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -22,6 +24,6 @@ You can't configure Explorer to stop displaying OpsCenter OpsItem data\.
 
 1. Expand **OpsData sources**\.
 
-1. Clear the check box beside **Systems Manager Patch Compliance** or **Amazon EC2**, or both\.
+1. Add or remove one or more sources\.
 
 1. Choose **Save**\.

@@ -18,7 +18,9 @@ The following procedure walks you through the process of creating a String param
 
 1. For **Type**, choose **String**\.
 
-1. In the **Value** field, enter a string\. For example, enter **My1stParameter**\.
+1. For **Data type**, leave the default selection `text`\.
+
+1. In the **Value** field, enter a string\. For example, enter **This is my first parameter**\.
 
 1. Choose **Create parameter**\.
 
@@ -36,4 +38,4 @@ If you choose to select instances manually, and an instance you expect to see is
 
 1. Choose **Run**\.
 
-1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of an instance where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as `My1stParameter`\.
+1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of an instance where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as **This is my first parameter**\.

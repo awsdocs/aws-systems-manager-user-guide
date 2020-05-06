@@ -40,7 +40,21 @@ You can use the AWS Systems Manager console to create a new version of a paramet
 
 ## Reference a parameter version<a name="reference-parameter-version"></a>
 
-You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: `ssm:parameter-name:version-number`\. 
+You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: ssm: `parameter-name:version-number`\. 
+
+ In the following example, version 3 of the parameter `default-instance-type` is used in the EC2 `run-instances command`\. 
+
+```
+aws ec2 run-instances \
+    --image-id resolve:ssm:ps-resolve-test:3 \
+    --count 1 \
+    --instance-type c3.large \
+    --key-name marbak-us-east-2 \
+    --security-groups default
+```
+
+**Note**  
+Currently, using `resolve` and a parameter value works only with the `--instance-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 
 Here is an example for specifying version 2 of a parameter named `MyRunCommandParameter` in an SSM document\.
 

@@ -30,19 +30,7 @@ If (desired package not installed)
 	}
 ```
 
-The following script samples use exit codes to restart instances\. The Windows example installs the Hyper\-V application on the instance, and then restarts the instance\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. 
-
-**Windows example**
-
-```
-$telnet = Get-WindowsFeature -Name Telnet-Client
-if (-not $telnet.Installed)
-	{ 
-		# Install Telnet and then send a reboot request to SSM Agent.
-		Install-WindowsFeature -Name "Telnet-Client"
-		exit 3010 
-	}
-```
+The following script samples use exit codes to restart instances\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. The Windows example installs the Hyper\-V application on the instance, and then restarts the instance\. 
 
 **Amazon Linux example**
 
@@ -56,4 +44,16 @@ then
 else
         exit 0
 fi
+```
+
+**Windows example**
+
+```
+$telnet = Get-WindowsFeature -Name Telnet-Client
+if (-not $telnet.Installed)
+	{ 
+		# Install Telnet and then send a reboot request to SSM Agent.
+		Install-WindowsFeature -Name "Telnet-Client"
+		exit 3010 
+	}
 ```

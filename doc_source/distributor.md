@@ -17,7 +17,7 @@ Distributor offers these benefits:
   You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
 +  **Many AWS agent packages included and ready to use** 
 
-  Distributor includes many AWS agent packages that are ready for you to deploy to managed instances\. Look for packages in the Distributor **Packages** list page that are published by **Amazon**\. Examples include **AmazonCloudWatchAgent** and **AmazonEC2HibernateAgent**\.
+  Distributor includes many AWS agent packages that are ready for you to deploy to managed instances\. Look for packages in the Distributor **Packages** list page that are published by **Amazon**\. Examples include **AmazonCloudWatchAgent** and **AWSPVDriver**\.
 +  **Automate deployment ** 
 
   To keep your environment current, use State Manager to schedule packages for automatic deployment on target instances when those instances are first launched\.

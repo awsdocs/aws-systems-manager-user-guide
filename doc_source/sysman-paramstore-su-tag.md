@@ -41,17 +41,51 @@ For information about the Regions where Systems Manager is available, see [Syste
 
 1. Run the following command to tag a parameter\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm add-tags-to-resource --resource-type "Parameter" --resource-id "the_parameter_name" --tags "Key=a key, for example Environment,Value=a value, for example TEST"
+   aws ssm add-tags-to-resource \
+       --resource-type "Parameter" \
+       --resource-id "parameter-name" \
+       --tags "Key=a key, for example Environment,Value=a value, for example TEST"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm add-tags-to-resource ^
+       --resource-type "Parameter" ^
+       --resource-id "parameter-name" ^
+       --tags "Key=a key, for example Environment,Value=a value, for example TEST"
+   ```
+
+------
 
    If successful, the command has no output\.
 
 1. Run the following command to verify the parameter tags\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm list-tags-for-resource --resource-type "Parameter" --resource-id "the_parameter_name"
+   aws ssm list-tags-for-resource \
+       --resource-type "Parameter" \
+       --resource-id "parameter-name"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm list-tags-for-resource ^
+       --resource-type "Parameter" ^
+       --resource-id "parameter-name"
+   ```
+
+------
 
 ## Tag a parameter \(AWS Tools for PowerShell\)<a name="sysman-paramstore-su-tag-tfw"></a>
 

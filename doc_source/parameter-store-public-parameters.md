@@ -1,13 +1,20 @@
 # Using public parameters<a name="parameter-store-public-parameters"></a>
 
-Some AWS services publish information about common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machines Images \(AMIs\) as public parameters\. You can call this information from your scripts and code by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
+Some AWS services publish information about common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machines Images \(AMIs\) as public parameters\.
 
-This topic describes how to call public parameters by using the AWS CLI\.
+You can call this information from your scripts and code by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
+
+**Related blog posts**
++ [Query for AWS Regions, Endpoints, and More Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/aws/new-query-for-aws-regions-endpoints-and-more-using-aws-systems-manager-parameter-store/)
++ [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
++ [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)
+
+The remainder of this topic describes how to call public parameters by using the AWS CLI\.
 
 **Topics**
 + [Calling AMI public parameters](#parameter-store-public-parameters-ami)
 + [Calling the ECS optimized AMI public parameter](#parameter-store-public-parameters-ecs)
-+ [Calling AWS service, Region, and endpoint public parameters](#parameter-store-public-parameters-global-infrastructure)
++ [Calling AWS service, Region, endpoint, availability zone, and local zone public parameters](#parameter-store-public-parameters-global-infrastructure)
 
 ## Calling AMI public parameters<a name="parameter-store-public-parameters-ami"></a>
 
@@ -199,9 +206,9 @@ The command returns information like the following\.
 }
 ```
 
-## Calling AWS service, Region, and endpoint public parameters<a name="parameter-store-public-parameters-global-infrastructure"></a>
+## Calling AWS service, Region, endpoint, availability zone, and local zone public parameters<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
-You can call AWS service, Region, and endpoint public parameters by using the following path\.
+You can call AWS service, Region, endpoint, and availability zone public parameters by using the following path\.
 
 /aws/service/global\-infrastructure
 
@@ -390,7 +397,311 @@ The command returns information like the following\.
 "ssm.us-west-1.amazonaws.com"
 ```
 
-**Related blog posts**
-+ [Query for AWS Regions, Endpoints, and More Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/aws/new-query-for-aws-regions-endpoints-and-more-using-aws-systems-manager-parameter-store/)
-+ [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
-+ [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)
+**View complete availability zone details**  
+You can view availability zones by using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/availability-zones/
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/availability-zones/
+```
+
+------
+
+The command returns information like the following\. This example has been truncated for space\.
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/global-infrastructure/availability-zones/apne3-az3",
+            "Type": "String",
+            "Value": "apne3-az3",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-03T14:29:28.995000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/apne3-az3"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/availability-zones/aps1-az2",
+            "Type": "String",
+            "Value": "aps1-az2",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-03T14:21:02.690000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/aps1-az2"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/availability-zones/cnn1-az2",
+            "Type": "String",
+            "Value": "cnn1-az2",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-03T14:19:57.254000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/cnn1-az2"
+        },
+```
+
+**View availability zone names only**  
+You can view the names of availability zones only by using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/availability-zones \
+    --query 'Parameters[].Name' | sort
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/availability-zones ^
+    --query Parameters[].Name | sort
+```
+
+------
+
+The command returns information like the following\. This example has been truncated for space\.
+
+```
+"/aws/service/global-infrastructure/availability-zones/afs1-az1",
+"/aws/service/global-infrastructure/availability-zones/afs1-az2",
+"/aws/service/global-infrastructure/availability-zones/afs1-az3",
+"/aws/service/global-infrastructure/availability-zones/ape1-az1",
+"/aws/service/global-infrastructure/availability-zones/ape1-az2",
+"/aws/service/global-infrastructure/availability-zones/ape1-az3",
+"/aws/service/global-infrastructure/availability-zones/apne1-az1",
+```
+
+**View names of availability zones in a single Region**  
+You can view the names of the availability zones in one Region \(`us-east-1`, in this example\) using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/regions/us-east-1/availability-zones \
+    --query 'Parameters[].Name' | sort
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/regions/us-east-1/availability-zones ^
+    --query Parameters[].Name | sort
+```
+
+------
+
+The command returns information like the following\. This example has been truncated for space\.
+
+```
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az1",
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az2",
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az3",
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az4",
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az5",
+"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az6"
+```
+
+**View availability zone ARNs only**  
+You can view the ARNs of availability zones only by using the following command\. 
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/availability-zones \
+    --query 'Parameters[].ARN' | sort
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/availability-zones ^
+    --query Parameters[].ARN | sort
+```
+
+------
+
+The command returns information like the following\.
+
+```
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az1",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az2",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az3",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az1",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az2",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az3",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/apne1-az1",
+```
+
+**View local zone details**  
+You can view local zones by using the following command\.
+
+**Note**  
+Only one local zone is currently available\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/local-zones/
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/local-zones/
+```
+
+------
+
+The command returns information like the following\.
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1",
+            "Type": "String",
+            "Value": "usw2-lax1-az1",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.291000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1"
+        }
+    ]
+}
+```
+
+**View all parameters and values under a local zone**  
+You can view all parameter data for a local zone by using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/"
+```
+
+------
+
+The command returns information like the following\.
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+            "Type": "String",
+            "Value": "US",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.430000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+            "Type": "String",
+            "Value": "US-CA",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.489000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+            "Type": "String",
+            "Value": "us-west-2-lax-1",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.611000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+            "Type": "String",
+            "Value": "usw2-az2",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.736000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+            "Type": "String",
+            "Value": "us-west-2",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.670000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group",
+            "Type": "String",
+            "Value": "us-west-2-lax-1",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-29T20:27:03.552000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+        }
+    ]
+}
+```
+
+**View local zone parameter names only**  
+You can view just the names of local zone parameters by using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/local-zones/usw2-lax1-az1 \
+    --query 'Parameters[].Name' | sort
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/local-zones/usw2-lax1-az1 ^
+    --query Parameters[].Name | sort
+```
+
+------
+
+The command returns information like the following\. 
+
+```
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+```
