@@ -2,24 +2,16 @@
 
 The formats of package names you can add to lists of approved patches and rejected patches depend on the type of operating system you are patching\.
 
-## Package name formats for Windows operating systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
-
-For Windows operating systems, specify patches using Microsoft Knowledge Base IDs and Microsoft Security Bulletin IDs; for example:
-
-```
-KB2032276,KB2124261,MS10-048
-```
-
 ## Package name formats for Linux operating systems<a name="patch-manager-approved-rejected-package-name-formats-linux"></a>
 
 The formats you can specify for approved and rejected patches in your patch baseline vary by Linux type\. More specifically, the formats that are supported depend on the package manager used by the type of Linux operating system\.
 
 **Topics**
-+ [Amazon Linux, Amazon Linux 2, Red Hat Enterprise Linux \(RHEL\), and CentOS](#patch-manager-approved-rejected-package-name-formats-standard)
-+ [Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
++ [Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)](#patch-manager-approved-rejected-package-name-formats-standard)
++ [Debian and Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
 + [SUSE Linux Enterprise Server \(SLES\)](#patch-manager-approved-rejected-package-name-formats-sles)
 
-### Amazon Linux, Amazon Linux 2, Red Hat Enterprise Linux \(RHEL\), and CentOS<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
+### Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
 
 **Package manager**: YUM
 
@@ -44,7 +36,7 @@ The formats you can specify for approved and rejected patches in your patch base
   + `example-pkg-*-20180914-2.2.amzn1.noarch`
   + `example-pkg-EE-2018*.amzn1.noarch`
 
-### Ubuntu Server<a name="patch-manager-approved-rejected-package-name-formats-ubuntu"></a>
+### Debian and Ubuntu Server<a name="patch-manager-approved-rejected-package-name-formats-ubuntu"></a>
 
 **Package manager**: APT
 
@@ -68,3 +60,11 @@ For Ubuntu Server lists, do not include elements such as architecture or version
 + Package names with a single wildcard, such as:
   + `SUSE-SLE-Example-Package-12-2018-*`
   + `example-pkg-2018.11.4-46.17.1.*.rpm`
+
+## Package name formats for Windows operating systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
+
+For Windows operating systems, specify patches using Microsoft Knowledge Base IDs and Microsoft Security Bulletin IDs; for example:
+
+```
+KB2032276,KB2124261,MS10-048
+```

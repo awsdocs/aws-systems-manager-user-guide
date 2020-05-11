@@ -152,7 +152,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. For **Compliance report bucket**, enter the name of an S3 bucket in which to store information about every Chef run performed by this document, including resource configuration and Configuration Compliance results\.
 
-1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [Using targets and rate controls with State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In **Concurrency**, choose an option:
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.

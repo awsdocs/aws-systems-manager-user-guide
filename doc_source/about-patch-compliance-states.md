@@ -15,9 +15,9 @@ Using the AWS CLI, you can view summary information about patches on an instance
 + [describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)
 + [describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)
 
-## Patch compliance values for Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
+## Patch compliance values for Debian and Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
 
-For Ubuntu Server, the rules for package classification into the different compliance states are as follows:
+For Debian and Ubuntu Server, the rules for package classification into the different compliance states are as follows:
 + **Installed**: Packages that are filtered through the patch baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are not upgradable\.
 + **Missing**: Packages that are filtered through the baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are upgradable\.
 + **Installed Other**: Packages that are not filtered through the baseline, with the candidate version appearing in `trusty-security` \(Ubuntu Server 14\) or `xenial-security` \(Ubuntu Server 16\), and are not upgradable\. The compliance level for these packages is set to `UNSPECIFIED`\.
@@ -26,7 +26,7 @@ For Ubuntu Server, the rules for package classification into the different compl
 
 ## Patch compliance values for other operating systems<a name="patch-compliance-values"></a>
 
-For all operating systems besides Ubuntu Server, the system reports one of the following compliance status values for each patch: 
+For all operating systems besides Debian and Ubuntu Server, the system reports one of the following compliance status values for each patch: 
 + **INSTALLED**: The patch is listed in the patch baseline and is installed on the instance\. It could have been installed either manually by an individual or automatically by Patch Manager when the **AWS\-RunPatchBaseline** document was run on the instance\.
 + **INSTALLED\_OTHER**: The patch is not in the baseline, but it is installed on the instance\. An individual might have installed it manually\.
 + **INSTALLED\_REJECTED**: The patch is installed on the instance but is specified in a rejected patches list\. This typically means the patch was installed before it was added to a list of rejected patches\.

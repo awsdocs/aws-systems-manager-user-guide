@@ -63,7 +63,7 @@ The general process to scan or install patches using Run Command and Patch Manag
 
      1. SSM Agent, which is installed on EC2 instances in group two, receives the command issued in Step 1 to begin a patching operation\. SSM Agent validates that the EC2 instances don't have a `Patch Group` tag applied and as a result, SSM Agent queries Patch Manager for the default Windows patch baseline\.
 
-     1. Patch Manager verifies that the default Windows patch baseline is `pb-0123456789abcdef0` and notifies SSM Agent\.
+     1. Patch Manager verifies that the default Windows Server patch baseline is `pb-0123456789abcdef0` and notifies SSM Agent\.
 
      1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in the default patch baseline `pb-0123456789abcdef0` and proceeds to the next step\.
    + **No matching patch group value associated with a patch baseline:**

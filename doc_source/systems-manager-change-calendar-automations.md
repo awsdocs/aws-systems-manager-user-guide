@@ -4,21 +4,20 @@ To make Automation actions adhere to Systems Manager Change Calendar, add a step
 
 ```
 mainSteps:
-...
-    name: MyCheckCalendarStateStep
+  - name: MyCheckCalendarStateStep
     action: 'aws:assertAwsResourceProperty'
     inputs:
-    Service: ssm
-    Api: GetCalendarState
-    PropertySelector: CalendarState
-    DesiredValues:
-    - OPEN
-    CalendarNameOrARN: 'arn:aws:ssm:us-east-1:123456789012:document/SaleDays'
-    description: Use GetCalendarState to determine whether a calendar is open or closed.
+      Service: ssm
+      Api: GetCalendarState
+      CalendarNames: 'arn:aws:ssm:us-east-1:123456789012:document/SaleDays'
+      PropertySelector: '$.State'
+      DesiredValues:
+      - OPEN
+    description: "Use GetCalendarState to determine whether a calendar is open or closed."
     nextStep: LaunchInstance
-    name: LaunchInstance
+  - name: LaunchInstance
     action: 'aws:executeScript'
     inputs:
-    Runtime: python3.6 
+      Runtime: python3.6 
 ...
 ```

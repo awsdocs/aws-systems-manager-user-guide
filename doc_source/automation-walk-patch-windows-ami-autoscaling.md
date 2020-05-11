@@ -199,7 +199,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
             "maxAttempts":1,
             "onFailure":"Continue",
             "inputs":{
-               "DocumentName":"AWS-InstallWindowsUpdates",
+               "DocumentName":"AWS-InstallMissingWindowsUpdates",
                "InstanceIds":[
                   "{{ startInstances.InstanceIds }}"
                ],

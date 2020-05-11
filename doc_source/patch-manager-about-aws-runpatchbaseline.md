@@ -16,8 +16,8 @@ On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads an
 #### [ Linux ]
 
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
-+ Amazon Linux, Amazon Linux 2, CentOS, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-+ Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
++ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
++ Debian and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 ------
@@ -156,7 +156,7 @@ Any other fields you want to provide in a patch list for Linux are optional and 
       -
           id: 'KB4338814'
   ```
-+ **APT**
++ **APT \(Debian and Ubuntu Server\) **
 
   ```
   patches:
@@ -193,6 +193,23 @@ Any other fields you want to provide in a patch list for Linux are optional and 
       -
           id: 'dhcp*'
           title: '*10:3.1.1-50.P1.26.amzn1'
+  ```
++ **Oracle Linux**
+
+  ```
+  patches:
+      -
+          id: 'audit-libs.x86_64'
+          title: '*2.8.5-4.el7'
+      -
+          id: 'curl.x86_64'
+          title: '*.el7'
+      -
+          id: 'grub2.x86_64'
+          title: 'grub2.x86_64:1:2.02-0.81.0.1.el7'
+      -
+          id: 'grub2.x86_64'
+          title: 'grub2.x86_64:1:*-0.81.0.1.el7'
   ```
 + **Red Hat Enterprise Linux \(RHEL\)**
 

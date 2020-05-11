@@ -71,7 +71,7 @@ We recommend not changing the role name as specified in the template to somethin
 
 1. Download the [AWS\-SystemManager\-AutomationAdministrationRole\.zip folder](samples/AWS-SystemManager-AutomationAdministrationRole.zip) and repeat this procedure for the **AWS\-SystemManager\-AutomationAdministrationRole** role\. You only need to create the **AWS\-SystemManager\-AutomationAdministrationRole** role in the Automation management account\.
 **Note**  
-We recommend not changing the role name as specified in the template to something besides `AWS-SystemsManager-AutomationAdministrationRole`\. Otherwise, your multi\-Region and multi\-Account Automation workflows might fail\.
+The IAM user or role you use to run a multi\-Region or multi\-account Automation must have the `iam:PassRole` permission for the `AWS-SystemManager-AutomationAdministrationRole` role\. We recommend not changing the role name as specified in the template to something besides `AWS-SystemsManager-AutomationAdministrationRole`\. Otherwise, your multi\-Region and multi\-account Automation workflows might fail\.
 
 ## Run an Automation in multiple Regions and accounts \(console\)<a name="systems-manager-automation-multiple-accounts-and-regions-executing"></a>
 

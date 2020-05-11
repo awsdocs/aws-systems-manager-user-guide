@@ -5,11 +5,16 @@ The following procedures describe how to create a State Manager association by u
 **Important**  
 The following procedures are intended for creating an association with a `Command` or `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
 
-When a State Manager association is created, the association immediately runs on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations are run only on instances that are online when the interval starts\. Offline instances are skipped\.
-+ State Manager attempts to run the association on all configured instances during an interval\.
+When you create a State Manager association, Systems Manager immediately runs the association on the specified instances or targets\. After the association is initially executed on the instances or targets, it runs in intervals according to the schedule that you defined and according to the following rules:
++ Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
++ State Manager attempts to run the association on all specified or targeted instances during an interval\.
 + If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
+
+The following procedure describes how to use targets and rate controls when creating an association\. For more information about these features, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+
+**Warning**  
+An AWS Identity and Access Management \(IAM\) user, group, or role with permission to create an association that targets a resource group of Amazon EC2 instances automatically has root\-level control of all instances in the group\. Only trusted administrators should be permitted to create associations\. 
 
 ## Create an association \(console\)<a name="sysman-state-assoc-console"></a>
 
@@ -21,40 +26,82 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. In the navigation pane, choose **State Manager**, and then choose **Create association**\.
 
-1. \(Optional\) In **Name**, enter a name\. Although this is optional, a name helps you remember the purpose of the association\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
+1. In the **Name** field, specify a name\. This is optional, but recommended\. A name helps you remember the purpose of the association\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
 
-1. In the **Document** list, choose the option next to a document name\. You can use the numbers to the right of the Search bar to view more documents\.
+1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies only to `Command` and `Policy` documents\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
 
 1. For **Parameters**, specify the required input parameters\.
 
-1. For **Targets**, choose an option\. For information about using targets, see [Using targets and rate controls with State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
-**Note**  
-If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
+1. For **Targets**, choose an option\. For information about using targets, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
-1. In **Specify schedule**, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, then use the buttons provided to create a cron or rate schedule for the association\. 
+1. In the **Specify schedule** section, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, use the buttons provided to create a cron or rate schedule for the association\. 
 
-1. In **Advanced options**:
-   + In **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
+1. In the **Advanced options** section us the **Compliance severity** to choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [Using targets and rate controls with State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In the **Rate control** section, choose options to control how the assocation runs on multiple instances\. For more information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
-   In **Concurrency**, choose an option: 
+   In the **Concurrency** section, choose an option: 
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
    + Choose **percentage** to enter a percentage of the target set that can run the association simultaneously\.
 
-   In **Error threshold**, choose an option:
+   In the **Error threshold** section, choose an option:
    + Choose **errors** to enter an absolute number of errors that are allowed before State Manager stops running associations on additional targets\.
    + Choose **percentage** to enter a percentage of errors that are allowed before State Manager stops running associations on additional targets\.
 
-1. In **Output options**, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an S3 bucket\.
+1. In the **Output options** section, choose **Enable writing output to S3** if you want to write the output of the command to create the associations to an Amazon S3 bucket\.
 
 1. Choose **Create Association**\.
 
-## Create an association \(command line\)<a name="sysman-state-assoc-commandline"></a>
+**Note**  
+If you delete the association you created, the association no longer runs on any targets of that association\.
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create an association\.
+## Create an association \(command line\)<a name="create-state-manager-association-commandline"></a>
 
-**To create a State Manager association**
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a State Manager association\. This section includes several examples that show how to use targets and rate controls\. Targets and rate controls enable you to assign an association to dozens or hundreds of instances while controlling the execution of those associations\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+
+**Before you begin**  
+The `targets` parameter is an array of search criteria that targets instances using a `Key`,`Value` combination that you specify\. If you plan to create an association on dozens or hundreds of instance by using the `targets` parameter, review the following targeting options before you begin the procedure\.
+
+Target a few instances by specifying IDs
+
+```
+--targets Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3
+```
+
+```
+--targets Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE
+```
+
+Target instances by using Amazon EC2 tags
+
+```
+--targets Key=tag:tag-key,Values=tag-value-1,tag-value-2,tag-value-3
+```
+
+```
+--targets Key=tag:Environment,Values=Development,Test,Pre-production
+```
+
+Target instances by using AWS Resource Groups
+
+```
+--targets Key=resource-groups:Name,Values=resource-group-name
+```
+
+```
+--targets Key=resource-groups:Name,Values=WindowsInstancesGroup
+```
+
+Target all instances in the current AWS account and Region
+
+```
+--targets Key=InstanceIds,Values=*
+```
+
+**Note**  
+When you create an association, you specify when the schedule runs\. You must specify the schedule by using a cron or rate expression\. For more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
+
+**To create an association**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
@@ -67,28 +114,26 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm create-association \
-     --targets Key=tag:TagKey,Values=TagValue \
+     --targets target_options \
      --name document_name \
      --schedule "cron_or_rate_expression" \
-     --parameters (if any)
+     --parameters (if any) \
+     --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
+     --max-errors a_number_of_errors_or_a_percentage_of_target_set
    ```
-
-**Note**  
-If you use the AWS CLI, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 
 
 ------
 #### [ Windows ]
 
    ```
    aws ssm create-association ^
-     --targets Key=tag:TagKey,Values=TagValue ^
+     --targets target_options ^
      --name document_name ^
      --schedule "cron_or_rate_expression" ^
-     --parameters (if any)
+     --parameters (if any) ^
+     --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
+     --max-errors a_number_of_errors_or_a_percentage_of_target_set
    ```
-
-**Note**  
-If you use the AWS CLI, use the `--Targets` parameter to target instances for the association\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\. 
 
 ------
 #### [ PowerShell ]
@@ -96,17 +141,16 @@ If you use the AWS CLI, use the `--Targets` parameter to target instances for th
    ```
    New-SSMAssociation `
      -AssociationName document_name `
-     -Target Targets `
+     -Target target_options `
      -ScheduleExpression "cron_or_rate_expression" `
-     -Parameters (if any)
+     -Parameters (if any) `
+     -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
+     -MaxError  a_number_of_errors_or_a_percentage_of_target_set
    ```
-
-**Note**  
-If you use AWS Tools for Windows PowerShell, use the `-Target` parameter to target instances for the association\. Don't use the `-InstanceID` parameter\. The `-InstanceID` parameter is a legacy parameter\. 
 
 ------
 
-   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update the SSM Agent on the targeted instances at 2:00 every Sunday morning\. For compliance reporting, this association is assigned a severity level of `MEDIUM`\.
+   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ------
 #### [ Linux ]
@@ -117,7 +161,9 @@ If you use AWS Tools for Windows PowerShell, use the `-Target` parameter to targ
      --targets Key=tag:Environment,Values=Linux \
      --name AWS-UpdateSSMAgent  \
      --compliance-severity "MEDIUM" \
-     --schedule "cron(0 2 ? * SUN *)"
+     --schedule "cron(0 2 ? * SUN *)" \
+     --max-errors "5" \
+     --max-concurrency "10"
    ```
 
 ------
@@ -129,7 +175,9 @@ If you use AWS Tools for Windows PowerShell, use the `-Target` parameter to targ
      --targets Key=tag:Environment,Values=Linux ^
      --name AWS-UpdateSSMAgent  ^
      --compliance-severity "MEDIUM" ^
-     --schedule "cron(0 2 ? * SUN *)"
+     --schedule "cron(0 2 ? * SUN *)" ^
+     --max-errors "5" ^
+     --max-concurrency "10"
    ```
 
 ------
@@ -144,35 +192,41 @@ If you use AWS Tools for Windows PowerShell, use the `-Target` parameter to targ
          "Values"="Linux"
        } `
      -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -MaxConcurrency 10 `
+     -MaxError 5 `
      -ComplianceSeverity MEDIUM
    ```
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on all instances in the current account and AWS Region\.
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ------
 #### [ Linux ]
 
    ```
-   aws ssm create-association \
+   aws ssm create-association \ 
      --association-name Update_SSM_Agent_Linux \
      --name "AWS-UpdateSSMAgent" \
      --targets "Key=instanceids,Values=*" \
      --compliance-severity "MEDIUM" \
-     --schedule "cron(0 2 ? * SUN *)"
+     --schedule "cron(0 2 ? * SUN *)" \
+     --max-errors "5" \
+     --max-concurrency "10"
    ```
 
 ------
 #### [ Windows ]
 
    ```
-   aws ssm create-association ^
+   aws ssm create-association ^ 
      --association-name Update_SSM_Agent_Linux ^
      --name "AWS-UpdateSSMAgent" ^
      --targets "Key=instanceids,Values=*" ^
      --compliance-severity "MEDIUM" ^
-     --schedule "cron(0 2 ? * SUN *)"
+     --schedule "cron(0 2 ? * SUN *)" ^
+     --max-errors "5" ^
+     --max-concurrency "10"
    ```
 
 ------
@@ -187,9 +241,61 @@ If you use AWS Tools for Windows PowerShell, use the `-Target` parameter to targ
          "Values"="*"
        } `
      -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -MaxConcurrency 10 `
+     -MaxError 5 `
      -ComplianceSeverity MEDIUM
    ```
 
 ------
+
+   The following example creates an association on instances in AWS Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+     --association-name Update_SSM_Agent_Linux \
+     --targets Key=resource-groups:Name,Values=HR-Department \
+     --name AWS-UpdateSSMAgent  \
+     --compliance-severity "MEDIUM" \
+     --schedule "cron(0 2 ? * SUN *)" \
+     --max-errors "5" \
+     --max-concurrency "10"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name Update_SSM_Agent_Linux ^
+     --targets Key=resource-groups:Name,Values=HR-Department ^
+     --name AWS-UpdateSSMAgent  ^
+     --compliance-severity "MEDIUM" ^
+     --schedule "cron(0 2 ? * SUN *)" ^
+     --max-errors "5" ^
+     --max-concurrency "10"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMAssociation `
+     -AssociationName Update_SSM_Agent_Linux `
+     -Name AWS-UpdateSSMAgent `
+     -Target @{
+         "Key"="resource-groups:Name"
+         "Values"="HR-Department"
+       } `
+     -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -MaxConcurrency 10 `
+     -MaxError 5 `
+     -ComplianceSeverity MEDIUM
+   ```
+
+------
+
 **Note**  
-If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
+If you delete the association you created, the association no longer runs on any targets of that association\.
