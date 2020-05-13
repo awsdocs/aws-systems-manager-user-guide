@@ -29,9 +29,75 @@ To view a CMK, use the AWS KMS DescribeKey operation\. This AWS CLI example uses
 aws kms describe-key --key-id alias/aws/ssm
 ```
 
-## Create a SecureString parameter using a KMS customer master key<a name="sysman-param-defaultkms"></a>
+## IAM permissions for using AWS default keys and customer managed keys<a name="ps-kms-key-permissions"></a>
 
-If you create a `SecureString` parameter by using the AWS\-managed CMK in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
+Parameter Store `SecureString` parameters are encrypted and decrypted using AWS Key Management Service \(AWS KMS\) keys\. You can choose to encrypt your `SecureString` parameters using either a customer master key \(CMK\) or the default KMS key provided by AWS\.
+
+When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with "prod\-" in the specified Region and account\.
+
+**Note**  
+For advanced parameters, permissions must be granted for both `kms:GenerateDataKey` and `kms:Encrypt`\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:PutParameter",
+                "ssm:GetParameters"
+            ],
+            "Resource": [
+                "arn:aws:ssm:us-east-2:111122223333:parameter/prod-*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Encrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE"
+            ]
+        }
+    ]
+}
+```
+
+By contrast, all users within the customer account have access to the default AWS managed key\. If you use this default key to encrypt `SecureString` parameters and do not want users to work with `SecureString` parameters, their IAM policies must explicitly deny access to the default key, as demonstrated in the following policy example\.
+
+**Note**  
+You can locate the ARN of the default key in the AWS KMS console on the [AWS managed keys](https://console.aws.amazon.com/kms/home#/kms/defaultKeys) page\. The default key is the one identified with `aws/ssm` in the **Alias** column\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey "
+            ],
+            "Resource": [
+                "default-key-ARN"
+            ]
+        }
+    ]
+}
+```
+
+If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed CMK to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail to monitor `SecureString` parameter activities\.
+
+For more information, see the following topics\.
++ [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*
++ [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*
++ [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*
+
+## Create a SecureString parameter using the default AWS managed key<a name="sysman-param-defaultkms"></a>
+
+If you create a `SecureString` parameter by using the AWS\-managed AWS KMS key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 
 The following AWS CLI example shows the command to create a new `SecureString` parameter in Parameter Store without the `--key-id` parameter: 
 

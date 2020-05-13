@@ -11,7 +11,11 @@ Run Command provides status details with each command execution\. For more infor
 
 ## Where are my instances?<a name="where-are-instances"></a>
 
-In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\. If an instance you expect to see is not listed, check the following requirements:
+In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\.
+
+After you create, activate, reboot, or restart a managed instance, install SSM Agent on an instance, or attach an IAM instance profile to an instance, it can take a few minutes for the instance to appear in the list\.
+
+If an instance you expect to see is still not listed, check the following requirements\.
 + **SSM Agent**: Make sure the latest version of SSM Agent is installed on the instance\. Only Amazon Machine Images \(AMIs\) for Windows Server and some Linux AMIs are pre\-configured with SSM Agent\. For information about installing or reinstalling SSM Agent on an instance, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) or [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
 + ** IAM instance role**: Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 + **Service Endpoint connectivity**: Verify that the instance has connectivity to the Systems Manager service endpoints\. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS \(port 443\) outbound traffic to the service endpoints\. For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.

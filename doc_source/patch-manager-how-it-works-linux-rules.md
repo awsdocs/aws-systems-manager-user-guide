@@ -4,6 +4,7 @@ The rules in a patch baseline for Linux distributions operate differently based 
 
 **Topics**
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
++ [How patch baseline rules work on CentOS](#patch-manager-how-it-works-linux-rules-centos)
 + [How patch baseline rules work on Debian](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
 + [How patch baseline rules work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
@@ -17,6 +18,27 @@ On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\. 
 **Note**  
 If no `updateinfo.xml` file is found, no patch will be applied\.
+
+1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
+**Update notice attributes**    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
+**Note**  
+For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
+
+1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
+
+1. Packages are selected for the update according to the follow guidelines:    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
+
+For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
+
+## How patch baseline rules work on CentOS<a name="patch-manager-how-it-works-linux-rules-centos"></a>
+
+On CentOS, the patch selection process is as follows:
+
+1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\.
+**Note**  
+The `updateinfo.xml` file might not be available if the repo is not one managed by Oracle\. If there is no `updateinfo.xml` found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    

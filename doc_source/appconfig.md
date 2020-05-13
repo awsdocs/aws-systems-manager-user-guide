@@ -9,7 +9,7 @@ During a configuration deployment, AppConfig monitors the application to ensure 
 AppConfig supports multiple use cases\. Here are some examples\.
 + **Application tuning**: Use AppConfig to carefully introduce changes to your application that can only be tested with production traffic\.
 + **Feature toggle**: Use AppConfig to turn on new features that require a timely deployment, such as a product launch or announcement\. 
-+ **User membership**: Use AppConfig to allow premium subscribers to access paid content\. 
++ **Allow list**: Use AppConfig to allow premium subscribers to access paid content\. 
 + **Operational issues**: Use AppConfig to reduce stress on your application when a dependency or other external factor impacts the system\.
 
 ## How can AppConfig benefit my organization?<a name="learn-more-appconfig-benefits"></a>

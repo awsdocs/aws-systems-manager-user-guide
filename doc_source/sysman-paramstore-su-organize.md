@@ -4,6 +4,13 @@ Managing dozens or hundreds of parameters as a flat list is time consuming and p
 
 You can use parameter hierarchies to help you organize and manage parameters\. A hierarchy is a parameter name that includes a path that you define by using forward slashes \(/\)\. 
 
+**Topics**
++ [Parameter hierarchy examples](#ps-hierarchy-examples)
++ [Querying parameters in a hierarchy](#ps-hierarchy-queries)
++ [Restricting access to Parameter Store API actions](#ps-hierarchy-restrictions)
+
+## Parameter hierarchy examples<a name="ps-hierarchy-examples"></a>
+
 The following example uses three hierarchy levels in the name to identify the following:
 
 /Environment/Type of computer/Application/Data
@@ -49,7 +56,8 @@ You are not required to specify a parameter hierarchy\. You can create parameter
 
 For an example of how to work with parameter hierarchies, see [Walkthrough: Manage parameters using hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)\.
 
-**Querying Parameters in a Hierarchy**  
+## Querying parameters in a hierarchy<a name="ps-hierarchy-queries"></a>
+
 Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you run the following command from the AWS CLI, the system returns all parameters in the IIS level\.
 
 ```
@@ -62,8 +70,11 @@ To view decrypted `SecureString` parameters in a hierarchy, you specify the path
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
-**Restricting IAM Permissions Using Hierarchies**  
-Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Parameter Store API actions, you can provide or restrict access to all parameters in one level of a hierarchy\. The following example policy allows all Parameter Store operations on all parameters for the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. The user can't create parameters because the `PutParameter` action is explicitly denied\. This policy also forbids the user from calling the `GetParametersByPath` action for parameters within the /Dev/ERP/Oracle/\* hierarchy\. 
+## Restricting access to Parameter Store API actions<a name="ps-hierarchy-restrictions"></a>
+
+Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API actions and content\.
+
+In the following sample policy, users are first granted access to run the `PutParameter` API action on all parameters in the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. But then users are restricted from changing values of *existing* parameters because the `Overwrite` option is explicitly denied for the `PutParameter` action\. In other words, users who are assigned this policy can create parameters, but not make changes to existing parameters\.
 
 ```
 {
@@ -72,23 +83,9 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
         {
             "Effect": "Allow",
             "Action": [
-                "ssm:*"
+                "ssm:PutParameter"
             ],
             "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/*"
-        },
-        {
-            "Effect": "Deny",
-            "Action": [
-                "ssm:GetParametersByPath"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "ssm:Recursive": [
-                        "true"
-                    ]
-                }
-            },
-            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/Dev/ERP/Oracle/*"
         },
         {
             "Effect": "Deny",
@@ -98,7 +95,7 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
             "Condition": {
                 "StringEquals": {
                     "ssm:Overwrite": [
-                        "false"
+                        "true"
                     ]
                 }
             },
@@ -107,6 +104,3 @@ Using hierarchies and AWS Identity and Access Management \(IAM\) policies for Pa
     ]
 }
 ```
-
-**Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively and view `/a/b`\.

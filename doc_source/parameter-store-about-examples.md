@@ -27,18 +27,38 @@ By default, `String` parameters consist of any block of text you enter\. For exa
 + `Example Corp`
 + `<img src="images/bannerImage1.png"/>`
 You can also use the `DataType` option to validate that the parameter value you enter is a properly formatted Amazon EC2 AMI ID, as shown in the following example AWS CLI command\.  
+Parameter not in a hierarchy:  
 
 ```
 aws ssm put-parameter \
-    --name "MyGoldenAmi" \
+    --name "golden-ami" \
     --type "String" \
     --data-type "aws:ec2:image" \
     --value "ami-12345abcdeEXAMPLE"
 ```
+Parameter in a hierarchy:  
+
+```
+aws ssm put-parameter \
+    --name "\amis\linux\golden-ami" \
+    --type "String" \
+    --data-type "aws:ec2:image" \
+    --value "ami-12345abcdeEXAMPLE"
+```
+Parameter not in a hierarchy:  
 
 ```
 aws ssm put-parameter ^
-    --name "MyGoldenAmi" ^
+    --name "golden-ami" ^
+    --type "String" ^
+    --data-type "aws:ec2:image" ^
+    --value "ami-12345abcdeEXAMPLE"
+```
+Parameter in a hierarchy:  
+
+```
+aws ssm put-parameter ^
+    --name "\amis\windows\golden-ami" ^
     --type "String" ^
     --data-type "aws:ec2:image" ^
     --value "ami-12345abcdeEXAMPLE"

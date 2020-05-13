@@ -101,12 +101,6 @@ patches:
 Although you can provide additional fields in your YAML file, they are ignored during patch operations\.
 
 In addition, we recommend verifying that the format of your YAML file is valid before adding or updating the list in your S3 bucket\. For more information about the YAML format, see [yaml\.org](http://www.yaml.org)\. For validation tool options, perform a web search for "yaml format validators"\.
-+ Microsoft Windows
-
-**id**  
-The **id** field is required\. Use it to specify patches using Microsoft Knowledge Base IDs \(for example, KB2736693\) and Microsoft Security Bulletin IDs \(for example, MS17\-023\)\. 
-
-  Any other fields you want to provide in a patch list for Windows are optional and are for your own informational use only\. You can use additional fields such as **title**, **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
 + Linux
 
 **id**  
@@ -134,29 +128,54 @@ The **title** field is optional, but on Linux systems it does provide additional
   + You add apt\.amd64 version 1\.2\.27 to the patch list\. It depends on apt utils\.amd64 version 1\.2\.27, but apt\-utils\.amd64 version 1\.2\.25 is specified in the list\. 
 
   In this case, apt version 1\.2\.27 will be blocked from installation and reported as “Failed\-NonCompliant\.”
++ Microsoft Windows
+
+**id**  
+The **id** field is required\. Use it to specify patches using Microsoft Knowledge Base IDs \(for example, KB2736693\) and Microsoft Security Bulletin IDs \(for example, MS17\-023\)\. 
+
+  Any other fields you want to provide in a patch list for Windows are optional and are for your own informational use only\. You can use additional fields such as **title**, **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
 
 **Other fields**  
 Any other fields you want to provide in a patch list for Linux are optional and are for your own informational use only\. You can use additional fields such as **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
 
 **Sample patch lists**
-+ **Windows**
++ **Amazon Linux**
 
   ```
   patches:
       -
-          id: 'KB4284819'
-          title: '2018-06 Cumulative Update for Windows Server 2016 (1709) for x64-based Systems (KB4284819)'
+          id: 'kernel.x86_64'
       -
-          id: 'KB4284833'
+          id: 'bind*.x86_64'
+          title: '32:9.8.2-0.62.rc1.57.amzn1'
       -
-          id: 'KB4284835'
-          title: '2018-06 Cumulative Update for Windows Server 2016 (1803) for x64-based Systems (KB4284835)'
+          id: 'glibc*'
       -
-          id: 'KB4284880'
+          id: 'dhclient*'
+          title: '*12:4.1.1-53.P1.28.amzn1'
       -
-          id: 'KB4338814'
+          id: 'dhcp*'
+          title: '*10:3.1.1-50.P1.26.amzn1'
   ```
-+ **APT \(Debian and Ubuntu Server\) **
++ **CentOS**
+
+  ```
+  patches:
+      -
+          id: 'kernel.x86_64'
+      -
+          id: 'bind*.x86_64'
+          title: '32:9.8.2-0.62.rc1.57.amzn1'
+      -
+          id: 'glibc*'
+      -
+          id: 'dhclient*'
+          title: '*12:4.1.1-53.P1.28.amzn1'
+      -
+          id: 'dhcp*'
+          title: '*10:3.1.1-50.P1.26.amzn1'
+  ```
++ **Debian **
 
   ```
   patches:
@@ -175,24 +194,6 @@ Any other fields you want to provide in a patch list for Linux are optional and 
       -
           id: 'apt-utils.amd64'
           title: '*1.2.25'
-  ```
-+ **Amazon Linux**
-
-  ```
-  patches:
-      -
-          id: 'kernel.x86_64'
-      -
-          id: 'bind*.x86_64'
-          title: '32:9.8.2-0.62.rc1.57.amzn1'
-      -
-          id: 'glibc*'
-      -
-          id: 'dhclient*'
-          title: '*12:4.1.1-53.P1.28.amzn1'
-      -
-          id: 'dhcp*'
-          title: '*10:3.1.1-50.P1.26.amzn1'
   ```
 + **Oracle Linux**
 
@@ -248,6 +249,43 @@ Any other fields you want to provide in a patch list for Linux are optional and 
           title: '0:4.3.3-9.1'
       -
           id: 'lib*'
+  ```
++ **Ubuntu Server **
+
+  ```
+  patches:
+      -
+          id: 'apparmor.amd64'
+          title: '2.10.95-0ubuntu2.9'
+      -
+          id: 'cryptsetup.amd64'
+          title: '*2:1.6.6-5ubuntu2.1'
+      -
+          id: 'cryptsetup-bin.*'
+          title: '*2:1.6.6-5ubuntu2.1'
+      -
+          id: 'apt.amd64'
+          title: '*1.2.27'
+      -
+          id: 'apt-utils.amd64'
+          title: '*1.2.25'
+  ```
++ **Windows**
+
+  ```
+  patches:
+      -
+          id: 'KB4284819'
+          title: '2018-06 Cumulative Update for Windows Server 2016 (1709) for x64-based Systems (KB4284819)'
+      -
+          id: 'KB4284833'
+      -
+          id: 'KB4284835'
+          title: '2018-06 Cumulative Update for Windows Server 2016 (1803) for x64-based Systems (KB4284835)'
+      -
+          id: 'KB4284880'
+      -
+          id: 'KB4338814'
   ```
 
 ### Parameter name: `RebootOption`<a name="patch-manager-about-aws-runpatchbaseline-parameters-norebootoption"></a>

@@ -266,6 +266,6 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 1. In the **Status** list, choose Enabled\.
 
-1. In the **Properties** box \(AWS Systems Manager console\) or **Parameters** box \(Amazon EC2 console\), paste the contents of the old config data you saved to the text file\.
+1. In the **Properties** box, paste the contents of the old config data you saved to the text file\.
 
 1. Choose **Run**\.

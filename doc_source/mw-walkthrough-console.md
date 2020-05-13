@@ -117,7 +117,11 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. In the **Output options** section, you can optionally enable writing command output to an S3 bucket\. If you choose to enable this option, specify the S3 bucket name and optional S3 key prefix to which you want the command output written\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Type the bucket and prefix \(folder\) names in the boxes\.
+**Note**  
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+
+   To stream the output to a CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
 
 1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon SNS\. If you choose to enable this option, you need to specify the following:
 

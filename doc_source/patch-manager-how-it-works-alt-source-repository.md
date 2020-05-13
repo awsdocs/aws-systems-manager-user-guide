@@ -6,22 +6,17 @@ On Linux systems, however, you can also use Patch Manager to install patches tha
 
 For example, suppose that your Ubuntu Server fleet includes both Ubuntu Server 14\.04 and Ubuntu Server 16\.04 instances\. In this case, you can specify alternate repositories for each version in the same custom patch baseline\. For each version, you provide a name, specify the operating system version type \(product\), and provide a repository configuration\. You can also specify a single alternative source repository that applies to all versions of a supported operating system\.
 
+**Note**  
+Running a custom patch baseline that specifies alternative patch repositories on an instance doesn't change the default repository configured for the instance\.
+
 For a list of example scenarios for using this option, see [Sample uses for alternative patch source repositories](#patch-manager-how-it-works-alt-source-repository-examples) later in this topic\.
 
 For information about default and custom patch baselines, see [About predefined and custom patch baselines](sysman-patch-baselines.md)\.
 
-**Note**  
-Running a custom patch baseline that specifies alternative patch repositories on an instance doesn't change the default repository configured for the instance\.
-
 **Using the Console**  
-To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a custom patch baseline](sysman-patch-baseline-console.md)\.
+To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Create a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
 
-**Using Other Tools to Create Patch Baselines**  
-Use the `sources` option with other tools when you create a patch baseline\. 
-+ AWS CLI: [create\-patch\-baseline](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-patch-baseline.html)
-+ Systems Manager API: [API\_CreatePatchBaseline](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html)
-+ Systems Manager AWS Tools for Windows PowerShell: [New\-SSMPatchBaseline](https://docs.aws.amazon.com/powershell/latest/reference/items/New-SSMPatchBaseline.html)
-
+**Using the AWS CLI**  
 For an example of using the `--sources` option with the CLI, see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)\.
 
 **Topics**

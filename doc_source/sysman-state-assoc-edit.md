@@ -27,10 +27,9 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
 
-1. \(Optional\) To write the command output to an Amazon S3 bucket, do the following in the **Output options** section: 
-   + Choose **Enable writing output to S3**\.
-   + In the **S3 bucket name** field, type the name of an S3 bucket you have write access to\.
-   + \(Optional\) To write output to a folder in the bucket, type its name in the **S3 key prefix** field\. If no folder exists with the name you specify, State Manager creates it for you\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Type the bucket and prefix \(folder\) names in the boxes\.
+**Note**  
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Edit association**\.
 

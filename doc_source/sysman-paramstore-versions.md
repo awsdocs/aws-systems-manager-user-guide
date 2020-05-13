@@ -42,15 +42,15 @@ You can use the AWS Systems Manager console to create a new version of a paramet
 
 You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: ssm: `parameter-name:version-number`\. 
 
- In the following example, version 3 of the parameter `default-instance-type` is used in the EC2 `run-instances command`\. 
+In the following example, version 3 of the parameter `golden-ami` is used in the EC2 `run-instances command`\. 
 
 ```
 aws ec2 run-instances \
-    --image-id resolve:ssm:ps-resolve-test:3 \
+    --image-id resolve:ssm:/golden-ami:3 \
     --count 1 \
-    --instance-type c3.large \
-    --key-name marbak-us-east-2 \
-    --security-groups default
+    --instance-type t2.micro \
+    --key-name my-key-pair \
+    --security-groups my-security-group
 ```
 
 **Note**  

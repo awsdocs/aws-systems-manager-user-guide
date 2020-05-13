@@ -47,7 +47,7 @@ When you choose Intelligent\-Tiering, you must explicitly authorize AWS to charg
 
 You can change the Parameter Store default tier setting at any time\.
 
-## Configuring permissions to specify a Parameter Store default tier<a name="parameter-store-throughput-permissions"></a>
+## Configuring permissions to specify a Parameter Store default tier<a name="parameter-store-tier-permissions"></a>
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to change the default parameter tier in Parameter Store by doing one of the following:
 + Ensure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
@@ -127,9 +127,12 @@ Administrators can specify read\-only permission by assigning the following inli
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
-## Specifying or changing the Parameter Store default tier \(console\)<a name="parameter-store-throughput-increasing"></a>
+## Specifying or changing the Parameter Store default tier \(console\)<a name="parameter-store-tier-changing"></a>
 
-The following procedure shows how to use the Systems Manager console to specify or change the default parameter tier for the current AWS account and Region\.
+The following procedure shows how to use the Systems Manager console to specify or change the default parameter tier for the current AWS account and Region\. 
+
+**Tip**  
+If you haven't created a parameter yet, you can use the AWS CLI or Tools for Windows PowerShell to change the default parameter tier\. For information, see [Specifying or changing the Parameter Store default tier \(AWS CLI\)](#parameter-store-tier-changing-cli) and [Specifying or changing the Parameter Store default tier \(PowerShell\)](#parameter-store-tier-changing-ps)\.
 
 **To specify or change the Parameter Store default tier**
 
@@ -156,7 +159,7 @@ The following procedure shows how to use the Systems Manager console to specify 
 
 If you want to change the default tier setting later, repeat this procedure and specify a different default tier option\.
 
-## Specifying or changing the Parameter Store default tier \(AWS CLI\)<a name="parameter-store-throughput-increasing-cli"></a>
+## Specifying or changing the Parameter Store default tier \(AWS CLI\)<a name="parameter-store-tier-changing-cli"></a>
 
 The following procedure shows how to use the AWS Command Line Interface \(AWS CLI\) to change the default parameter tier setting for the current AWS account and Region\.
 
@@ -197,7 +200,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 
 If you want to change the default tier setting again, repeat this procedure and specify a different `SettingValue` option\.
 
-## Specifying or changing the Parameter Store default tier \(PowerShell\)<a name="parameter-store-throughput-increasing-ps"></a>
+## Specifying or changing the Parameter Store default tier \(PowerShell\)<a name="parameter-store-tier-changing-ps"></a>
 
 The following procedure shows how to use the AWS Tools for Windows PowerShell to change the default parameter tier setting for a specific Region in an AWS account\.
 

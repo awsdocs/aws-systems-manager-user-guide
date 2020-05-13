@@ -17,7 +17,7 @@ The following procedure walks you through the process of creating and storing a 
    Here is an example that specifies an Amazon Machine Image \(AMI\) as the data type:
 
    ```
-   aws ssm put-parameter --name "MyGoldenAMI" --type String --data-type "aws:ec2:image" --value ami-0dbf5ea29aEXAMPLE
+   aws ssm put-parameter --name "golden-ami" --type String --data-type "aws:ec2:image" --value ami-0dbf5ea29aEXAMPLE
    ```
 
    The option `--data-type` applies to String\-type parameters only and is required only if you are specifying `aws:ec2:image` as the data type\. You do not need to explicitly specify a data type if the String data type is `text`\.

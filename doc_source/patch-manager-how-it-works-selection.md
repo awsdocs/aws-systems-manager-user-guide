@@ -88,7 +88,10 @@ If you select the **Approved patches include non\-security updates** check box i
 ------
 #### [ RHEL ]
 
-On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually three preconfigured repos on an instance:
+On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually three preconfigured repos on an instance\.
+
+**Note**  
+The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 2019 and introduced a different naming scheme for Yum repository IDs\. Depending on the RHEL\-7 AMI you create your instances from, you might need to update your commands\. For more information, see [Repository IDs for RHEL 7 in AWS Have Changed](https://access.redhat.com/articles/4599971) on the *Red Hat Customer Portal*\.
 + **Repo ID**: rhui\-REGION\-client\-config\-server\-7/x86\_64
 
   **Repo name**: Red Hat Update Infrastructure 2\.0 Client Configuration Server 7

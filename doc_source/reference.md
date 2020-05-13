@@ -32,3 +32,4 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 **Topics**
 + [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
 + [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)
++ [Reference: Creating formatted date and time strings for Systems Manager](sytems-manager-datetime-strings.md)

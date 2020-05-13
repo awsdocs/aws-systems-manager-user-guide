@@ -11,11 +11,11 @@ The user who runs this command must have IAM permissions that include the `ssm:G
 
 ```
 aws ec2 run-instances \
-    --image-id resolve:ssm:MyGoldenAMI \
+    --image-id resolve:ssm:/golden-ami \
     --count 1 \
-    --instance-type c3.large \
-    --key-name MyKeyPair \
-    --security-groups MySecurityGroup
+    --instance-type t2.micro \
+    --key-name my-key-pair \
+    --security-groups my-security-group
 ```
 
 You can also choose the Systems Manager containing your preferred AMI when you create an instance using the Amazon EC2 console\. For more information, see [Using an SSM parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-SSM-parameter-to-find-AMI) in the *Amazon EC2 User Guide for Linux Instances*\.
@@ -24,7 +24,7 @@ When it's time to use a different AMI in your instance creation workflow, you ne
 
 ## How AMI format validation works<a name="parameter-ami-validation"></a>
 
-When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager does not create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID\.
+When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager does not create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
 
 It is important to note that a parameter version number may be generated before the validation operation is complete\. That is, a parameter version number being generated alone isn't an indication that the operation has completed successfully\.
 
@@ -40,12 +40,12 @@ To monitor whether your parameters are created successfully, we recommend using 
     "time": "2020-05-26T22:04:42Z",
     "region": "us-east-2",
     "resources": [
-        "arn:aws:ssm:us-east-2:111122223333:parameter/MyGoldenAMI"
+        "arn:aws:ssm:us-east-2:111122223333:parameter/golden-ami"
     ],
     "detail": {
         "exception": "Unable to Describe Resource",
         "dataType": "aws:ec2:image",
-        "name": "MyGoldenAMI",
+        "name": "golden-ami",
         "type": "String",
         "operation": "Create"
     }
@@ -68,7 +68,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
 **Solution**: This message can indicate the following: 
 + You haven't been granted the IAM permission for the `ec2:DescribeImages` API action, or you lack permission to access the specific image referenced in the parameter\. Contact an IAM user with administrator permissions in your organization to request the necessary permissions\.
-+ The AMI ID you entered as a parameter value is not valid\. Make sure you are entering the ID of an AMI that is available in the current AWS Region you are working in\.
++ The AMI ID you entered as a parameter value is not valid\. Make sure you are entering the ID of an AMI that is available in the current AWS Region and account you are working in\.
 
 ### New `aws:ec2:image` parameter isn't available<a name="ps-ec2-aliases-2"></a>
 
