@@ -15,7 +15,39 @@ Complete the following tasks before you configure Automation with Jenkins\.
 
 **To create a user account for the Jenkins server**
 
-1. From the **Users** page on the [IAM console](https://console.aws.amazon.com/iam/home#users), choose **Add User**\.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\.
+
+1. Choose the **JSON** tab\.
+
+1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "ssm:StartAutomationExecution",
+               "Resource": [
+                   "arn:aws:ssm:us-west-2:123456789012:document/UpdateMyLatestWindowsAmi",
+                   "arn:aws:ssm:us-west-2:123456789012:automation-definition/UpdateMyLatestWindowsAmi:$DEFAULT"
+               ]
+           }
+       ]
+   }
+   ```
+
+1. Choose **Review policy**\.
+
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **JenkinsPolicy**\.
+
+1. Choose **Create policy**\.
+
+1. In the navigation pane, choose **Users**\.
+
+1. Choose **Add user**\.
 
 1. In the **Set user details** section, specify a user name \(for example, *Jenkins*\)\.
 
@@ -25,13 +57,15 @@ Complete the following tasks before you configure Automation with Jenkins\.
 
 1. In the **Set permissions for** section, choose **Attach existing policies directly**\.
 
-1. In the filter field, type **AmazonSSMFullAccess**\.
+1. In the filter field, type the name of the policy you created earlier\.
 
-1. Choose the check box next to the policy, and then choose **Next:Review**\.
+1. Select the check box next to the policy, and then choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this user, and then choose **Next: Review**\.
 
 1. Verify the details, and then choose **Create**\.
 
-1. Copy the Access and Secret keys to a text file\. You will specify these credentials in the next procedure\.
+1. Copy the access and secret keys to a text file\. You will specify these credentials in the next procedure\.
 
 Use the following procedure to configure the AWS CLI on your Jenkins server\.
 

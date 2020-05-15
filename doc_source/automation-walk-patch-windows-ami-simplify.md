@@ -27,19 +27,80 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 **To create an IAM service role for Lambda**
 
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\.
+
+1. Choose the **JSON** tab\.
+
+1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\. Replace *updateAmiFunction* with the name of your Lambda function\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "logs:CreateLogGroup",
+               "Resource": "arn:aws:logs:us-west-2:123456789012:*"
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "logs:CreateLogStream",
+                   "logs:PutLogEvents"
+               ],
+               "Resource": [
+                   "arn:aws:logs:us-west-2:123456789012:log-group:/aws/lambda/updateAmiFunction:*"
+               ]
+           }
+       ]
+   }
+   ```
+
+1. Choose **Review policy**\.
+
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **amiLambda**\.
+
+1. Choose **Create policy**\.
+
+1. Repeat steps 2 and 3\.
+
+1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "ssm:PutParameter",
+               "Resource": "arn:aws:ssm:us-west-2:123456789012:parameter/latestAmi"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "ssm:DescribeParameters",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Choose **Review policy**\.
+
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **amiParameter**\.
+
+1. Choose **Create policy**\.
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
 1. Immediately under **Choose the service that will use this role**, choose **Lambda**, and then choose **Next: Permissions**\.
 
-1. On the **Attach permissions policies** page, do the following: 
-   + Use the **Search** field to locate the **AWSLambdaExecute**\. Select the box next to its name\. 
-   + Use the **Search** field to locate the **AmazonSSMFullAccess**\. Select the box next to its name\. 
+1. On the **Attach permissions policies** page, use the **Search** field to locate the two policies you created earlier\.
 
-1. Choose **Next: Tags**\.
+1. Select the check box next to the policies, and then choose **Next: Tags**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
 1. For **Role name**, enter a name for your new role, such as **lambda\-ssm\-role** or another name that you prefer\. 
 **Note**  

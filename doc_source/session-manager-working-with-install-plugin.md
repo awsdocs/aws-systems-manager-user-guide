@@ -261,9 +261,6 @@ session-manager-plugin --version
 
 The following table lists all releases of the Session Manager plugin and the features and enhancements included with each version\.
 
-**Note**  
-The latest version for Windows is 1\.1\.54\.0\. The latest version for Linux is 1\.1\.61\.0\.
-
 
 | Version | Release date | Details | 
 | --- | --- | --- | 

@@ -30,7 +30,7 @@ Run Command lets you define how exit codes are handled in your scripts\. By defa
 Use the following PowerShell command to get status details about one or more instances:
 
 ```
-Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="InstanceIds";ValueSet="instance-ID","instance-ID"}
+Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="InstanceIds";ValueSet="instance-ID-1","instance-ID-2"}
 ```
 
 Use the following PowerShell command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the ValueSet="Online" with "ConnectionLost" or "Inactive" to view those statuses:

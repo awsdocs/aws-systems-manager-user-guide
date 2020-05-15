@@ -138,9 +138,9 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 1. Download [samples/AWSSupport-EC2RescueRole.zip](samples/AWSSupport-EC2RescueRole.zip) and extract the `AWSSupport-EC2RescueRole.json` file to a directory on your local machine\.
 
-1. If your AWS account is an a special partition, edit the template to change the service endpoint and ARN values to those for your partition\.
+1. If your AWS account is in a special partition, edit the template to change the ARN values to those for your partition\.
 
-   For example, for the China Regions, change `ssm.amazonaws.com` to `ssm.amazonaws.com.cn`, and change all cases of `arn:aws` to `arn:aws-cn`\.
+   For example, for the China Regions, change all cases of `arn:aws` to `arn:aws-cn`\.
 
 1. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 

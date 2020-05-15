@@ -23,7 +23,7 @@ For use with the AWS CLI `[send\-command](https://docs.aws.amazon.com/cli/latest
 **Example 1: Targeting Tags**
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:tag_name,Values=tag_value [...]
+aws ssm send-command --document-name document-name --targets Key=tag:tag-name,Values=tag-value [...]
 ```
 
 **Example 2: Targeting an AWS Resource Group**
@@ -40,19 +40,19 @@ aws ssm send-command --document-name --targets Key=resource-groups:name,Values=r
 **Example 3: Targeting Instance IDs**
 
 ```
-aws ssm send-command --document-name name --targets Key=instanceids,Values=ID1,ID2,ID3 [...]
+aws ssm send-command --document-name document-name --targets Key=instanceids,Values=instance-ID-1,instance-ID-2,instance-ID-3 [...]
 ```
 
 If you tagged instances for different environments using a `Key` named `Environment` and `Values` of `Development`, `Test`, `Pre-production` and `Production`, then you could send a command to all of the instances in *one* of these environments by using the `targets` parameter with the following syntax:
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Environment,Values=Development [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Environment,Values=Development [...]
 ```
 
 You could target additional instances in other environments by adding to the `Values` list\. Separate items using commas\.
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Environment,Values=Development,Test,Pre-production [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Environment,Values=Development,Test,Pre-production [...]
 ```
 
 Example: Refining your targets using multiple `Key` criteria
@@ -60,7 +60,7 @@ Example: Refining your targets using multiple `Key` criteria
 You can refine the number of targets for your command by including multiple `Key` criteria\. If you include more than one `Key` criteria, the system targets instances that meet *all* of the criteria\. The following command targets all instances tagged for the Finance Department *and* tagged for the database server role\.
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database [...]
 ```
 
 Example: Using multiple `Key` and `Value` criteria
@@ -68,7 +68,7 @@ Example: Using multiple `Key` and `Value` criteria
 Expanding on the previous example, you can target multiple departments and multiple server roles by including additional items in the `Values` criteria\.
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database [...]
 ```
 
 Example: Targeting tagged instances using multiple`Values` criteria
@@ -76,7 +76,7 @@ Example: Targeting tagged instances using multiple`Values` criteria
 If you tagged instances for different environments using a `Key` named `Department` and `Values` of `Sales` and `Finance`, then you could send a command to all of the instances in these environments by using the `targets` parameter with the following syntax:
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Department,Values=Sales,Finance [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Department,Values=Sales,Finance [...]
 ```
 
 **Note**  
@@ -87,19 +87,19 @@ If either a tag key \(the tag name\) or a tag value includes spaces, then you mu
 **Example 1: Spaces in `Value` tag\.**
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:OS,Values="Windows Server 2016 Nano" [...]
+aws ssm send-command --document-name document-name --targets Key=tag:OS,Values="Windows Server 2016 Nano" [...]
 ```
 
 **Example 2: Spaces in `tag` key and `Value`\.**
 
 ```
-aws ssm send-command --document-name name --targets Key="tag:Operating System",Values="Windows Server 2016 Nano" [...]
+aws ssm send-command --document-name document-name --targets Key="tag:Operating System",Values="Windows Server 2016 Nano" [...]
 ```
 
 **Example 3: Spaces in one item in a list of `Values`\.**
 
 ```
-aws ssm send-command --document-name name --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" [...]
+aws ssm send-command --document-name document-name --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" [...]
 ```
 
 ## Using rate controls<a name="send-commands-rate"></a>
@@ -115,11 +115,11 @@ You can control the rate at which commands are sent to instances in a group by u
 You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation completes before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter:
 
 ```
-aws ssm send-command --document-name name --max-concurrency 10 --targets Key=tag:Environment,Values=Development [...]
+aws ssm send-command --document-name document-name --max-concurrency 10 --targets Key=tag:Environment,Values=Development [...]
 ```
 
 ```
-aws ssm send-command --document-name name --max-concurrency 10% --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database [...]
+aws ssm send-command --document-name document-name --max-concurrency 10% --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database [...]
 ```
 
 ### Using error controls<a name="send-commands-maxerrors"></a>
@@ -129,13 +129,13 @@ You can also control the execution of a command to hundreds or thousands of inst
 Invocations that are already running a command when `max-errors` is reached are allowed to complete, but some of these invocations may fail as well\. If you need to ensure that there won’t be more than `max-errors` failed invocations, set `max-concurrency` to **1** so the invocations proceed one at a time\. The default for max\-errors is 0\. The following examples show you how to specify values for the `max-errors` parameter:
 
 ```
-aws ssm send-command --document-name name --max-errors 10 --targets Key=tag:Database,Values=Development [...]
+aws ssm send-command --document-name document-name --max-errors 10 --targets Key=tag:Database,Values=Development [...]
 ```
 
 ```
-aws ssm send-command --document-name name --max-errors 10% --targets Key=tag:Environment,Values=Development [...]
+aws ssm send-command --document-name document-name --max-errors 10% --targets Key=tag:Environment,Values=Development [...]
 ```
 
 ```
-aws ssm send-command --document-name name --max-concurrency 1 --max-errors 1 --targets Key=tag:Environment,Values=Production [...]
+aws ssm send-command --document-name document-name --max-concurrency 1 --max-errors 1 --targets Key=tag:Environment,Values=Production [...]
 ```

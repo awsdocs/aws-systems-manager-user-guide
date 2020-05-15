@@ -43,7 +43,7 @@ You must either have administrator privileges on the instances you want to confi
 To run the commands in this walkthrough, you must replace the instance and command IDs\. The command ID is returned as a response of the send\-command\. The instance ID is available from the Amazon EC2 console\.
 
    ```
-   aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance ID
+   aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance-ID
    ```
 
 ## Step 2: Run shell scripts<a name="walkthrough-cli-run-scripts"></a>
@@ -67,14 +67,14 @@ Using Run Command and the AWS\-RunShellScript document, you can run any command 
 Use the following command to get IP information for an instance\.
 
 ```
-aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "IP config" --parameters commands=ifconfig --output text
+aws ssm send-command --instance-ids "instance-ID" --document-name "AWS-RunShellScript" --comment "IP config" --parameters commands=ifconfig --output text
 ```
 
 **Get command information with response data**  
 The following command uses the Command ID that was returned from the previous command to get the details and response data of the command execution\. The system returns the response data if the command completed\. If the command execution shows `"Pending"` or `"InProgress"` you will need to run this command again to see the response data\.
 
 ```
-aws ssm list-command-invocations --command-id $sh_command_id --details
+aws ssm list-command-invocations --command-id $sh-command-id --details
 ```
 
 ## Step 4: Send a command using the AWS\-RunShellScript document \- Example 2<a name="walkthrough-cli-example-2"></a>
@@ -82,28 +82,28 @@ aws ssm list-command-invocations --command-id $sh_command_id --details
 The following command displays the default user account running the commands\. 
 
 ```
-sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instance" --parameters commands=whoami --output text --query "Command.CommandId")
+sh_command_id=$(aws ssm send-command --instance-ids "instance-ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instance" --parameters commands=whoami --output text --query "Command.CommandId")
 ```
 
 **Get command status**  
 The following command uses the Command ID to get the status of the command execution on the instance\. This example uses the Command ID that was returned in the previous command\. 
 
 ```
-aws ssm list-commands  --command-id "command_ID"
+aws ssm list-commands  --command-id "command-ID"
 ```
 
 **Get command details**  
 The following command uses the Command ID from the previous command to get the status of the command execution on a per instance basis\.
 
 ```
-aws ssm list-command-invocations --command-id "command_ID" --details
+aws ssm list-command-invocations --command-id "command-ID" --details
 ```
 
 **Get command information with response data for a specific instance**  
 The following command returns the output of the original aws ssm send\-command for a specific instance\. 
 
 ```
-aws ssm list-command-invocations --instance-id instance ID --command-id "command_ID" --details
+aws ssm list-command-invocations --instance-id instance-ID --command-id "command-ID" --details
 ```
 
 ## Additional examples<a name="walkthrough-cli-examples"></a>
@@ -111,11 +111,11 @@ aws ssm list-command-invocations --instance-id instance ID --command-id "command
 The following command returns the version of Python running on an instance\.
 
 ```
-sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters commands='python -V' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"' 
+sh_command_id=$(aws ssm send-command --instance-ids "instance-ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters commands='python -V' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"' 
 ```
 
 The following command runs a Python script using Run Command\.
 
 ```
-sh_command_id=$(aws ssm send-command --instance-ids "instance ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters '{"commands":["#!/usr/bin/python","print \"Hello world from python\""]}' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"'
+sh_command_id=$(aws ssm send-command --instance-ids "instance-ID" --document-name "AWS-RunShellScript" --comment "Demo run shell script on Linux Instances" --parameters '{"commands":["#!/usr/bin/python","print \"Hello world from python\""]}' --output text --query "Command.CommandId") sh -c 'aws ssm list-command-invocations --command-id "$sh_command_id" --details --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"'
 ```

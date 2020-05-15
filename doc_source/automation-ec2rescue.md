@@ -125,9 +125,9 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 1. Download [samples/AWSSupport-EC2RescueRole.zip](samples/AWSSupport-EC2RescueRole.zip) and extract the `AWSSupport-EC2RescueRole.json` file to a directory on your local machine\.
 
-1. If your AWS account is an a special partition, edit the template to change the service endpoint and ARN values to those for your partition\.
+1. If your AWS account is in a special partition, edit the template to change the ARN values to those for your partition\.
 
-   For example, for the China Regions, change `ssm.amazonaws.com` to `ssm.amazonaws.com.cn`, and change all cases of `arn:aws` to `arn:aws-cn`\.
+   For example, for the China Regions, change all cases of `arn:aws` to `arn:aws-cn`\.
 
 1. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
@@ -157,7 +157,7 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 1. In the **Stacks** list, choose the option button the stack you just created, and then choose the **Outputs** tab\.
 
-1. Note the **Value**\. The is the ARN of the AssumeRole\. You specify this ARN when you run the Automation in the next procedure, [Running the Automation](#automation-ec2rescue-executing)\.\. 
+1. Note the **Value**\. The is the ARN of the AssumeRole\. You specify this ARN when you run the Automation in the next procedure, [Running the Automation](#automation-ec2rescue-executing)\. 
 
 ## Running the Automation<a name="automation-ec2rescue-executing"></a>
 
