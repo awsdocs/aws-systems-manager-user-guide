@@ -35,8 +35,6 @@ Parameter Store `SecureString` parameters are encrypted and decrypted using AWS 
 
 When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with "prod\-" in the specified Region and account\.
 
-**Note**  
-For advanced parameters, permissions must be granted for both `kms:GenerateDataKey` and `kms:Encrypt`\.
 
 ```
 {
@@ -46,6 +44,7 @@ For advanced parameters, permissions must be granted for both `kms:GenerateDataK
             "Effect": "Allow",
             "Action": [
                 "ssm:PutParameter",
+                "ssm:GetParameter",
                 "ssm:GetParameters"
             ],
             "Resource": [
@@ -55,7 +54,9 @@ For advanced parameters, permissions must be granted for both `kms:GenerateDataK
         {
             "Effect": "Allow",
             "Action": [
-                "kms:Encrypt"
+                "kms:Decrypt",
+                "kms:Encrypt",
+                ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)"kms:GenerateDataKey"
             ],
             "Resource": [
                 "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE"
@@ -64,6 +65,8 @@ For advanced parameters, permissions must be granted for both `kms:GenerateDataK
     ]
 }
 ```
+
+**1** The `kms:GenerateDataKey` API action must be granted to write an encrypted advanced parameter using the specified customer managed CMK\.
 
 By contrast, all users within the customer account have access to the default AWS managed key\. If you use this default key to encrypt `SecureString` parameters and do not want users to work with `SecureString` parameters, their IAM policies must explicitly deny access to the default key, as demonstrated in the following policy example\.
 
