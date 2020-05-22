@@ -1,6 +1,6 @@
 # Create a custom patch baseline \(Linux\)<a name="create-baseline-console-linux"></a>
 
-Use the following procedure to create a custom patch baseline for Linux instances\. For information about creating a patch baseline for Windows Server instances, see [Create a custom patch baseline \(Windows Server\)](create-baseline-console-windows.md)\.
+Use the following procedure to create a custom patch baseline for Linux instances\. For information about creating a patch baseline for Windows Server instances, see [Create a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
 
 **To create a custom patch baseline for Linux instances**
 
@@ -26,7 +26,14 @@ Use the following procedure to create a custom patch baseline for Linux instance
 
 1. In the **Approval rules for operating\-systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `RedhatEnterpriseLinux7.4`\. The default selection is `All`\.
-   + **Classification**: The type of patches the approval rule applies to, such as `Security`\. The default selection is `All`\. 
+   + **Classification**: The type of patches the approval rule applies to, such as `Security` or `Enhancement`\. The default selection is `All`\. 
+**Tip**  
+You can configure a patch baseline to control whether minor version upgrades for Linux are installed, such as RHEL 7\.8\. Minor version upgrades can be installed automatically by Patch Manager provided that the update is available in the appropriate repository\.  
+For Linux operating systems, minor version upgrades are not classified consistently\. They can be classified as bug fixes or security updates, or not classified, even within the same kernel version\. Here are a few options for controlling whether a patch baseline installs them\.   
+**Option 1**: The broadest approval rule to ensure minor version upgrades are installed when available is to specify **Classification** as **All** \(\*\) and choose the **Include nonsecurity updates** option\.
+**Option 2**: To ensure patches for an operating system version are installed, you can use a wildcard \(\*\) to specify its kernel format in the **Patch exceptions** section of the baseline\. For example, the kernel format for RHEL 7\.\* is `kernel-3.10.0-*.el7.x86_64`\.  
+Enter `kernel-3.10.0-*.el7.x86_64` in the **Approved patches** list in your patch baseline to ensure all patches, including minor version upgrades, are applied to your RHEL 7\.\* instances\. \(If you know the exact package name of a minor version patch, you can enter that instead\.\)
+**Option 3**: You can have the most control over which patches are applied to your managed instances, including minor version upgrades, by using the [InstallOverrideList](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist) parameter in the `AWS-RunPatchBaseline` document\. For more information, see [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
 **Note**  

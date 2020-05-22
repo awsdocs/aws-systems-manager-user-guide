@@ -1,8 +1,8 @@
-# AWS CLI commands for Patch Manager<a name="patch-manager-cli-commands"></a>
+# Working with Patch Manager \(AWS CLI\)<a name="patch-manager-cli-commands"></a>
 
 The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Walkthrough: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
 
 For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 

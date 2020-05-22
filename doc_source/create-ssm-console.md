@@ -12,12 +12,21 @@ After you create the content for your custom SSM document, as described in [Writ
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. Choose **Create document**\.
+1. Choose **Create command or session**\.
 
 1. Type a descriptive name for the document 
+
+1. \(Optional\) For **Target type**, specify the type of resources the document can run on\.
 
 1. In the **Document type** list, choose the type of document you want to create\.
 
 1. Delete the brackets in the **Content** field, and then paste the document content you created earlier\.
+
+1. \(Optional\) In the **Document tags** area, apply one or more tag key name/value pairs to the document\.
+
+   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a document to identify the type of tasks it runs, the type of operating systems it targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
+   + `Key=TaskType,Value=MyConfigurationUpdate`
+   + `Key=OS,Value=Ubuntu`
+   + `Key=Environment,Value=Production`
 
 1. Choose **Create document** to save the document\.

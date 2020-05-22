@@ -1,4 +1,4 @@
-# Using public parameters<a name="parameter-store-public-parameters"></a>
+# Public parameters<a name="parameter-store-public-parameters"></a>
 
 Some AWS services publish information about common artifacts as Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machines Images \(AMIs\) as public parameters\.
 
@@ -14,7 +14,8 @@ The remainder of this topic describes how to call public parameters by using the
 **Topics**
 + [Calling AMI public parameters](#parameter-store-public-parameters-ami)
 + [Calling the ECS optimized AMI public parameter](#parameter-store-public-parameters-ecs)
-+ [Calling AWS service, Region, endpoint, availability zone, and local zone public parameters](#parameter-store-public-parameters-global-infrastructure)
++ [Calling the EKS optimized AMI public parameter](#parameter-store-public-parameters-eks)
++ [Calling public parameters for AWS services, Regions, endpoints, availability zones, and local zones](#parameter-store-public-parameters-global-infrastructure)
 
 ## Calling AMI public parameters<a name="parameter-store-public-parameters-ami"></a>
 
@@ -208,7 +209,49 @@ The command returns information like the following\.
 }
 ```
 
-## Calling AWS service, Region, endpoint, availability zone, and local zone public parameters<a name="parameter-store-public-parameters-global-infrastructure"></a>
+## Calling the EKS optimized AMI public parameter<a name="parameter-store-public-parameters-eks"></a>
+
+The Amazon Elastic Kubernetes Service \(Amazon EKS\) service publishes the name of the latest Amazon EKS optimized AMI as a public parameter\. Users are encouraged to use this AMI when adding nodes to an Amazon EKS cluster, as new releases include Kubernetes patches and security updates\. Previously, to ensure you were using the latest AMI meant checking the Amazon EKS documentation and manually updating any deployment templates or resources with the new AMI ID\.
+
+Use the following command to view the name of the latest Amazon EKS optimized AMI\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters \
+    --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters ^
+    --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
+```
+
+------
+
+The command returns information like the following\.
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended",
+            "Type": "String",
+            "Value": "{\"schema_version\":\"2\",\"image_id\":\"ami-0b89776dcfa5f2dee\",\"image_name\":\"amazon-eks-node-1.14-v20200507\",\"release_version\":\"1.14.9-20200507\"}",
+            "Version": 11,
+            "LastModifiedDate": "2020-05-11T17:34:51.990000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended"
+        }
+    ],
+    "InvalidParameters": []
+}
+```
+
+## Calling public parameters for AWS services, Regions, endpoints, availability zones, and local zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
 You can call AWS service, Region, endpoint, and availability zone public parameters by using the following path\.
 

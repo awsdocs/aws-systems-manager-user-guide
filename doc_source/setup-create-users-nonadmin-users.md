@@ -1,4 +1,4 @@
-# Task 3: Create users and assign permissions<a name="setup-create-users-nonadmin-users"></a>
+# Task 2: Create users and assign permissions<a name="setup-create-users-nonadmin-users"></a>
 
 Create IAM users for the individuals who require access to AWS Systems Manager, and add each user to the appropriate user group to ensure that they have the right level of permissions\. 
 

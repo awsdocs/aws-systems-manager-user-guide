@@ -12,7 +12,8 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
 aws ssm create-document \
     --content file://path/to/file/documentContent.json \  
     --name "ExampleDocument" \
-    --document-type "Command"
+    --document-type "Command" \
+    --tags "Key=TaskType,Value=MyConfigurationUpdate"
 ```
 
 ------
@@ -22,7 +23,8 @@ aws ssm create-document \
 aws ssm create-document ^
     --content file://C:\path\to\file\documentContent.json ^
     --name "ExampleDocument" ^
-    --document-type "Command"
+    --document-type "Command" ^
+    --tags "Key=TaskType,Value=MyConfigurationUpdate"
 ```
 
 ------
@@ -33,7 +35,8 @@ $json = Get-Content -Path "C:\path\to\file\documentContent.json" | Out-String
 New-SSMDocument `
     -Content $json `
     -Name "ExampleDocument" `
-    -DocumentType "Command"
+    -DocumentType "Command" `
+    -Tags "Key=TaskType,Value=MyConfigurationUpdate"
 ```
 
 ------

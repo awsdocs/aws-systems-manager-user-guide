@@ -66,9 +66,9 @@ For more information about working with Amazon S3 and S3 buckets, see the *[Amaz
 
 ## Logging session data using Amazon CloudWatch Logs \(console\)<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
 
-Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can stream session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can stream the data to your log group with or without encryption\. 
+Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can send the data to your log group with or without encryption\. 
 
-Follow these steps to configure Session Manager to stream session log data to a CloudWatch Logs log group\.
+Follow these steps to configure Session Manager to send session log data to a CloudWatch Logs log group\.
 
 **Note**  
 You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.

@@ -69,4 +69,4 @@ For Windows Server, two predefined patch baselines are provided\. The patch base
 
   For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
-For information about creating a patch baseline, see [Create a custom patch baseline](sysman-patch-baseline-console.md) and [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
+For information about creating a patch baseline, see [Create a custom patch baseline](sysman-patch-baseline-console.md) and [Walkthrough: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.

@@ -8,6 +8,7 @@ Use the following information to help you troubleshoot problems with Session Man
 + [Instance not available or not configured for Session Manager](#session-manager-troubleshooting-instances)
 + [Session Manager Plugin not found](#plugin-not-found)
 + [Session Manager Plugin not automatically added to command line path \(Windows\)](#windows-plugin-env-var-not-set)
++ [TargetNotConnected](#ssh-target-not-connected)
 + [Blank screen displays after starting a session](#session-manager-troubleshooting-start-blank-screen)
 
 ## No permission to start a session<a name="session-manager-troubleshooting-start-permissions"></a>
@@ -66,6 +67,11 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 1. Choose **OK** twice to apply the new settings\.
 
 1. Close any running command prompts and re\-open\.
+
+## TargetNotConnected<a name="ssh-target-not-connected"></a>
+
+**Problem**: You try to start a session, but the system returns the error message, "An error occurred \(TargetNotConnected\) when calling the StartSession operation: *InstanceID* is not connected\."
++ **Solution**: This error is returned when the specified target instance for the session is not fully configured for use with Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.
 
 ## Blank screen displays after starting a session<a name="session-manager-troubleshooting-start-blank-screen"></a>
 

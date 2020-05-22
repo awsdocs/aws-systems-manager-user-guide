@@ -1,4 +1,4 @@
-# Task 2: Create user groups<a name="setup-create-users-nonadmin-groups"></a>
+# Task 1: Create user groups<a name="setup-create-users-nonadmin-groups"></a>
 
 You can create a user group for each policy and assign users to a group rather than attaching individual policies to each user\.
 
@@ -21,7 +21,11 @@ Use the following procedure to create a user group for your Systems Manager user
 1. On the **Attach Policy** page, for **Filter**, enter **SSM**\.
 
 1. In the policy list, do the following: 
-   + If you want to provide users with permission to use Resource Groups and the Tag Editor, choose the **SSMTagEditorAndResourceGroupAccess** policy that you created in the procedure [Task 1: Create policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)\. If you gave the policy a different name, choose that name instead\.
+   + If you want to provide users with permission to use Resource Groups and the Tag Editor, choose the **ResourceGroupsandTagEditorFullAccess** policy \.
+
+     AWS resource groups can be managed in the AWS Resource Groups service and in the Resource Groups cabability in Systems Manager\. It is optional to provide the users and user groups in your account access to this service and its Tag Editor, but we recommend it for more effective management operations\.
+
+     For more information, see the [Resource Groups in AWS Systems Manager](systems-manager-resource-groups.md)\.
    + To provide users in this group with full access to the Systems Manager console, select the box next to `AmazonSSMFullAccess`\.
 
      \-or\-
@@ -43,4 +47,4 @@ Use the following procedure to create a user group for your Systems Manager user
 
 1. On the **Review** page, verify that the correct policies are added to this group, and then choose **Create Group**\.
 
-Continue to [Task 3: Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
+Continue to [Task 2: Create users and assign permissions](setup-create-users-nonadmin-users.md)\.

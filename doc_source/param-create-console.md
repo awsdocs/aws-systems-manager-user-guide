@@ -21,7 +21,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 1. In the **Description** box, type a description that identifies this parameter as a test parameter\.
 
-1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)\.
+1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
    + If you choose **String**, the **Data type** field appears\. If you are creating a parameter to hold the resource ID for an Amazon Machine Image \(AMI\), select `aws:ec2:image`\. Otherwise, leave the default `text` selected\.

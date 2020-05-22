@@ -12,6 +12,5 @@ For more information about using IAM policies to control user access to Systems 
 For information about how to change permissions for an IAM user account, group, or role, see [Changing Permissions for an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Task 1: Create policies for Tag Editor and Resource Groups](setup-create-users-nonadmin-policies.md)
-+ [Task 2: Create user groups](setup-create-users-nonadmin-groups.md)
-+ [Task 3: Create users and assign permissions](setup-create-users-nonadmin-users.md)
++ [Task 1: Create user groups](setup-create-users-nonadmin-groups.md)
++ [Task 2: Create users and assign permissions](setup-create-users-nonadmin-users.md)

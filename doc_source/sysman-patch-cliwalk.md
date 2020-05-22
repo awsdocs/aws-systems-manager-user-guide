@@ -1,4 +1,4 @@
-# Tutorial: Patch a server environment \(command line\)<a name="sysman-patch-cliwalk"></a>
+# Walkthrough: Patch a server environment \(command line\)<a name="sysman-patch-cliwalk"></a>
 
 The following procedure describes how to patch a server environment by using a custom patch baseline, patch groups, and a maintenance window\.
 
@@ -11,7 +11,7 @@ The following procedure describes how to patch a server environment by using a c
 
 **To configure Patch Manager and patch instances \(command line\)**
 
-1. Run the following command to create a patch baseline named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they are released\. In addition, the patch baseline is tagged to indicate that it is for a production environment\.
+1. Run the following command to create a patch baseline for Windows named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they are released\. That is, we have tagged the patch baseline is tagged to indicate that it is for a production environment\.
 **Note**  
 The `OperatingSystem` parameter and `PatchFilters` vary depending on the operating system of the instances the patch baseline applies to\. For more information, see [OperatingSystem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-OperatingSystem) and [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html)\.
 
@@ -23,7 +23,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --name "Production-Baseline" \
        --operating-system "WINDOWS" \
        --tags "Key=Environment,Value=Production" \
-       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" \
+       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,ServicePacks,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" \
        --description "Baseline containing all updates approved for production systems"
    ```
 
@@ -35,7 +35,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --name "Production-Baseline" ^
        --operating-system "WINDOWS" ^
        --tags "Key=Environment,Value=Production" ^
-       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" ^
+       --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,ServicePacks,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" ^
        --description "Baseline containing all updates approved for production systems"
    ```
 
@@ -54,7 +54,10 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    
    $classificationFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
    $classificationFilter.Key = "CLASSIFICATION"
+   $classificationFilter.Values.Add("SecurityUpdates")
    $classificationFilter.Values.Add("Updates")
+   $classificationFilter.Values.Add("ServicePacks")
+   $classificationFilter.Values.Add("UpdateRollups")
    $classificationFilter.Values.Add("CriticalUpdates")
    
    $patchApprovalRulesFilterGroup.PatchFilters.Add($severityFilter)
@@ -571,4 +574,4 @@ It is expected to see zeroes for the number of instances in the summary until th
    }
    ```
 
-For examples of other AWS CLI commands you can use for your Patch Manager configuration tasks, see [AWS CLI commands for Patch Manager](patch-manager-cli-commands.md)\.
+For examples of other AWS CLI commands you can use for your Patch Manager configuration tasks, see [Working with Patch Manager \(AWS CLI\)](patch-manager-cli-commands.md)\.

@@ -52,7 +52,7 @@ To monitor whether your parameters are created successfully, we recommend using 
 }
 ```
 
-For information about subscribing to Parameter Store events in CloudWatch Events, see [Set up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
+For information about subscribing to Parameter Store events in CloudWatch Events, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
 
 ## Troubleshooting `aws:ec2:image` parameter creation<a name="ps-ec2-aliases-troubleshooting"></a>
 
@@ -74,7 +74,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
 **Problem**: You just ran a command to create an `aws:ec2:image` parameter and a version number was reported, but the parameter isn't available\.
 + **Solution**: When you run the command to create a parameter that uses the `aws:ec2:image` data type, a version number is generated for the parameter right away, but the parameter format must be validated before the parameter is available\. This process can take up to a few minutes\. To monitor the parameter creation and validation process, you can do the following:
-  + Use Amazon CloudWatch Events to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. For information about subscribing to Parameter Store events in CloudWatch Events, see [Set up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
+  + Use Amazon CloudWatch Events to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. For information about subscribing to Parameter Store events in CloudWatch Events, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
   + In the Parameter Store section of the Systems Manager console, refresh the list of parameters periodically to check for the new or updated parameter details\.
   + Use the GetParameter command to check for the new or updated parameter\. For example, using the AWS CLI:
 

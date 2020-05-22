@@ -34,12 +34,9 @@ Parameter Store offers the following benefits and features\.
 
 **Topics**
 + [Parameter types and examples](parameter-store-about-examples.md)
-+ [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)
 + [SecureString parameters](sysman-paramstore-securestring.md)
-+ [Standard and advanced parameter tiers](parameter-store-advanced-parameters.md)
++ [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)
++ [Public parameters](parameter-store-public-parameters.md)
 + [Getting started with Parameter Store](sysman-paramstore-settingup.md)
 + [Working with parameters](sysman-paramstore-working.md)
-+ [Using public parameters](parameter-store-public-parameters.md)
-+ [Increasing Parameter Store throughput](parameter-store-throughput.md)
-+ [Specifying a default parameter tier](ps-default-tier.md)
 + [Parameter Store walkthroughs](sysman-paramstore-walk.md)

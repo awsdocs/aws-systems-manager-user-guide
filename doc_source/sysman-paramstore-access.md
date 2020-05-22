@@ -1,4 +1,4 @@
-# Control access to Systems Manager parameters<a name="sysman-paramstore-access"></a>
+# Controlling access to Systems Manager parameters<a name="sysman-paramstore-access"></a>
 
 You control access to Systems Manager Parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
 + [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)

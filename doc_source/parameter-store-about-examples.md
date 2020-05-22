@@ -66,12 +66,12 @@ aws ssm put-parameter ^
 You do not need to specify a data type in any other cases\.
 
 StringList  
-`StringList` parameters contain a comma\-separated list of values, as shown in the following example\.  
+`StringList` parameters contain a comma\-separated list of values, as shown in the following examples\.  
 `Monday,Wednesday,Friday`  
 `CSV,TSV,CLF,ELF,JSON`
 
 SecureString  
-The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using a AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\.  
+The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using a AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\. \(Use your own CMK if you need to restrict user access to `SecureString` parameters\. For information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-securestring.md#ps-kms-key-permissions)\.\)  
 There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS Key Management Service encryption do apply\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing)\.  
 Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md) in this guide\.
 For more information about `SecureString` parameters, see [SecureString parameters](sysman-paramstore-securestring.md)\.

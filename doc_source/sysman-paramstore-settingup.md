@@ -7,5 +7,7 @@ This section includes information about how to manually configure these policies
 This section also include information about how to create Amazon CloudWatch Events rules that let you receive notifications about changes to Systems Manager parameters\. You can also use CloudWatch Events rules to trigger other actions in AWS based on changes in Parameter Store\.
 
 **Topics**
-+ [Control access to Systems Manager parameters](sysman-paramstore-access.md)
-+ [Set up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)
++ [Controlling access to Systems Manager parameters](sysman-paramstore-access.md)
++ [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)
++ [Managing parameter tiers](parameter-store-advanced-parameters.md)
++ [Increasing Parameter Store throughput](parameter-store-throughput.md)

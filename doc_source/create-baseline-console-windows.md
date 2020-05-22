@@ -1,8 +1,10 @@
-# Create a custom patch baseline \(Windows Server\)<a name="create-baseline-console-windows"></a>
+# Create a custom patch baseline \(Windows\)<a name="create-baseline-console-windows"></a>
 
-Use the following procedure to create a custom patch baseline Windows Server instances\. For information about creating a patch baseline for Linux instances, see [Create a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
+Use the following procedure to create a custom patch baseline for Windows instances\. For information about creating a patch baseline for Linux instances, see [Create a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
 
-**To create a custom patch baseline \(Windows Server\)**
+For an example of creating a patch baseline that is limited to installing Windows Service Packs only, see [Walkthrough: Create a patch baseline for installing Windows Service Packs \(console\)](service-pack-patch-walkthrough.md)\.
+
+**To create a custom patch baseline \(Windows\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -26,7 +28,9 @@ Use the following procedure to create a custom patch baseline Windows Server ins
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `WindowsServer2008`\. The default selection is `All`\.
-   + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
+   + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`, `Drivers`, and `Tools`\. The default selection is `All`\. 
+**Tip**  
+You can include Windows Service Pack installations in your approval rules by including `ServicePacks` or by choosing `All` in your **Classification** list\. For an example, see [Walkthrough: Create a patch baseline for installing Windows Service Packs \(console\)](service-pack-patch-walkthrough.md)\.
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
      + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.

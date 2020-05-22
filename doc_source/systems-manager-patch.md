@@ -1,6 +1,6 @@
 # AWS Systems Manager Patch Manager<a name="systems-manager-patch"></a>
 
-AWS Systems Manager Patch Manager automates the process of patching managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) You can patch fleets of EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Amazon Linux, Amazon Linux 2, CentOS, Debian, Oracle Linux, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), and Ubuntu Server\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
+AWS Systems Manager Patch Manager automates the process of patching managed instances with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\) You can use Patch Manager to install Service Packs on Windows instances and perform minor version upgrades on Linux instances\. You can patch fleets of EC2 instances or your on\-premises servers and virtual machines \(VMs\) by operating system type\. This includes supported versions of Windows Server, Amazon Linux, Amazon Linux 2, CentOS, Debian, Oracle Linux, Red Hat Enterprise Linux \(RHEL\), SUSE Linux Enterprise Server \(SLES\), and Ubuntu Server\. You can scan instances to see only a report of missing patches, or you can scan and automatically install all missing patches\. 
 
 **Important**  
 AWS does not test patches for Windows Server or Linux before making them available in Patch Manager\.
@@ -30,5 +30,5 @@ To get started with Patch Manager, complete the tasks described in the following
 + [About patching operations](about-patching-operations.md)
 + [About patch baselines](about-patch-baselines.md)
 + [Working with Patch Manager \(console\)](sysman-patch-working.md)
-+ [Tutorial: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)
-+ [AWS CLI commands for Patch Manager](patch-manager-cli-commands.md)
++ [Working with Patch Manager \(AWS CLI\)](patch-manager-cli-commands.md)
++ [AWS Systems Manager Patch Manager walkthroughs](patch-walkthroughs.md)

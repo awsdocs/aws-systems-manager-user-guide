@@ -14,7 +14,7 @@ The following is an example of a permissions policy that allows a user to delete
         "ssm:DeleteDocument"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:123456789012:document/MyDocument-*"
+        "arn:aws:ssm:us-west-2:aws-account-ID:document/MyDocument-*"
       ]
     }
   ]
@@ -137,7 +137,7 @@ The following example grants permissions to perform AWS Systems Manager operatio
         "ssm:*"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:111222333444:*"
+        "arn:aws:ssm:us-west-2:aws-account-ID:*"
       ]
     }
   ]
@@ -158,7 +158,7 @@ The following example grants permissions to list all document names that begin w
         "ssm:ListDocuments"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:111222333444:document/Update*"
+        "arn:aws:ssm:us-west-2:aws-account-ID:document/Update*"
       ]
     }
   ]
@@ -173,14 +173,14 @@ The following example grants permissions to list all document names that begin w
 + Send a command using the document specified in the policy\. The name of the document is determined by this entry:
 
   ```
-  arn:aws:ssm:us-east-2:*:document/SSM-document-name
+  arn:aws:ssm:us-east-2:aws-account-ID:document/Systems-Manager-document-name
   ```
 + Send a command to three instances\. The instances are determined by the following entries in the second `Resource` section:
 
   ```
-  "arn:aws:ec2:us-east-2:*:instance/i-02573cafcfEXAMPLE",
-  "arn:aws:ec2:us-east-2:*:instance/i-0471e04240EXAMPLE",
-  "arn:aws:ec2:us-east-2:*:instance/i-07782c72faEXAMPLE"
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
   ```
 + View details about a command after it has been sent\.
 + Start and stop Automation executions\.
@@ -213,11 +213,11 @@ If you want to give a user permission to use this document to send commands on a
             "Action": "ssm:SendCommand",
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:us-east-2:*:instance/i-02573cafcfEXAMPLE",
-                "arn:aws:ec2:us-east-2:*:instance/i-0471e04240EXAMPLE",
-                "arn:aws:ec2:us-east-2:*:instance/i-07782c72faEXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE",
                 
-                "arn:aws:ssm:us-east-2:*:document/SSM-document-name"
+                "arn:aws:ssm:us-east-2:aws-account-ID:document/Systems-Manager-document-name"
             ]
         },
         {
