@@ -11,9 +11,9 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
 ```
 aws ssm create-document \
     --content file://path/to/file/documentContent.json \  
-    --name "ExampleDocument" \
+    --name "document-name" \
     --document-type "Command" \
-    --tags "Key=TaskType,Value=MyConfigurationUpdate"
+    --tags "Key=tag-key,Value=tag-value"
 ```
 
 ------
@@ -22,9 +22,9 @@ aws ssm create-document \
 ```
 aws ssm create-document ^
     --content file://C:\path\to\file\documentContent.json ^
-    --name "ExampleDocument" ^
+    --name "document-name" ^
     --document-type "Command" ^
-    --tags "Key=TaskType,Value=MyConfigurationUpdate"
+    --tags "Key=tag-key,Value=tag-value"
 ```
 
 ------
@@ -34,9 +34,17 @@ aws ssm create-document ^
 $json = Get-Content -Path "C:\path\to\file\documentContent.json" | Out-String
 New-SSMDocument `
     -Content $json `
-    -Name "ExampleDocument" `
+    -Name "document-name" `
     -DocumentType "Command" `
-    -Tags "Key=TaskType,Value=MyConfigurationUpdate"
+    -Tags "Key=tag-key,Value=tag-value"
 ```
 
 ------
+
+*document\-name* is the name of the SSM document you want to tag\.
+
+*tag\-key* is the name of a custom key you supply\. For example, *Region* or *Quarter*\.
+
+*tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
+
+If successful, the command has no output\.

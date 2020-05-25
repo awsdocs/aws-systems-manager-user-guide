@@ -34,7 +34,8 @@ Parameters are only available in the AWS Region where they were created\.
        -Name "parameter-name" `
        -Value "an-AMI-id" `
        -Type "String" `
-       -DataType "aws:ec2:image"
+       -DataType "aws:ec2:image" `
+       -Tags "Key=tag-key,Value=tag-value"
    ```
 
    The `-DataType` option must be specified only if you are creating a parameter that contains an AMI ID\. For all other parameters, the default data type is `text`\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
@@ -45,13 +46,14 @@ Parameters are only available in the AWS Region where they were created\.
    Write-SSMParameter `
        -Name "/IAD/Web/SQL/IPaddress" `
        -Value "99.99.99.999" `
-       -Type "String"
+       -Type "String" `
+       Tags "Key=Region,Value=IAD"
    ```
 
 1. Run the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the_parameter_name_you_specified").Parameters
+   (Get-SSMParameterValue -Name "the-parameter-name-you-specified").Parameters
    ```
 
 ## Create a `StringList` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-stringlist"></a>
@@ -64,9 +66,10 @@ Parameters are only available in the AWS Region where they were created\.
 
    ```
    Write-SSMParameter `
-       -Name "parameter_name" `
-       -Value "a comma-separated list of values" `
-       -Type "StringList"
+       -Name "parameter-name" `
+       -Value "a-comma-separated-list-of-values" `
+       -Type "StringList" `
+       -Tags "Key=tag-key,Value=tag-value"
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -76,7 +79,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 1. Run the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the_parameter_name_you_specified").Parameters
+   (Get-SSMParameterValue -Name "the-parameter-name-you-specified").Parameters
    ```
 
 ## Create a SecureString parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
@@ -94,7 +97,8 @@ Before you create a `SecureString` parameter, read about the requirements for th
        -Name "parameter-name" `
        -Value "parameter-value" `
        -Type "SecureString"  `
-       -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+       -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" `
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -113,5 +117,5 @@ To use the AWS\-managed customer master key \(CMK\) assigned to your account, re
 1. Run the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the_parameter_name_you_specified" –WithDecryption $true).Parameters
+   (Get-SSMParameterValue -Name "the-parameter-name-you-specified" –WithDecryption $true).Parameters
    ```

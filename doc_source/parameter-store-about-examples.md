@@ -235,7 +235,7 @@ You can also reference Systems Manager parameters in the *Parameters* section of
    "parameters":{
       "commands" : {
         "type": "StringList",
-        "default": ["{{ssm:parameter_name}}"]
+        "default": ["{{ssm:parameter-name}}"]
       }
     },
     "mainSteps":[
@@ -267,7 +267,7 @@ Don't confuse the similar syntax for *local parameters* used in the `runtimeConf
 SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples:  
 
 ```
-value=$(aws ssm get-parameters --names parameter_name --with-decryption)
+value=$(aws ssm get-parameters --names parameter-name --with-decryption)
 ```
 
 ```
@@ -285,11 +285,11 @@ aws ssm send-command ^
 ```
 
 ```
-$secure = (Get-SSMParameterValue -Names parameter_name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
+$secure = (Get-SSMParameterValue -Names parameter-name -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
 ```
 
 ```
-$cred = New-Object System.Management.Automation.PSCredential -argumentlist user_name,$secure
+$cred = New-Object System.Management.Automation.PSCredential -argumentlist user-name,$secure
 ```
 
 ## Integration examples from the community<a name="community-samples"></a>

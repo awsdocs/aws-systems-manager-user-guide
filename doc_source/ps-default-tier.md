@@ -88,7 +88,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
                "Action": [
                    "ssm:UpdateServiceSetting"
                ],
-               "Resource": "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/parameter-store/default-parameter-tier"
+               "Resource": "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier"
            }
        ]
    }
@@ -180,7 +180,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
 
    ```
-   aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-ID:servicesetting/ssm/parameter-store/default-parameter-tier
+   aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier
    ```
 
    The system returns information similar to the following:

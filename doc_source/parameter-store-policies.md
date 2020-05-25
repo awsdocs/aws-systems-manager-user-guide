@@ -192,7 +192,7 @@ To remove all policies from an existing parameter, edit the parameter and apply 
 
   ```
   aws ssm put-parameter \
-      --name parameter_name \
+      --name parameter-name \
       --type parameter-type  \
       --value 'parameter-value' \
       --policies "[{}]"
@@ -200,7 +200,7 @@ To remove all policies from an existing parameter, edit the parameter and apply 
 
   ```
   aws ssm put-parameter ^
-      --name parameter_name ^
+      --name parameter-name ^
       --type parameter-type  ^
       --value 'parameter-value' ^
       --policies "[{}]"
@@ -216,7 +216,7 @@ Use the following procedure to add policies to an existing parameter by using To
 1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
    ```
-   Set-AWSCredentials –AccessKey key_name –SecretKey key_name
+   Set-AWSCredentials –AccessKey access-key-name –SecretKey secret-key-name
    ```
 
 1. Run the following command to set the Region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
@@ -228,7 +228,7 @@ Use the following procedure to add policies to an existing parameter by using To
 1. Run the following command to add policies to an existing parameter\.
 
    ```
-   Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Policies "[{policies enclosed in brackets and curly braces}]" -Overwrite
+   Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{policies-enclosed-in-brackets-and-curly-braces}]" -Overwrite
    ```
 
    Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates a CloudWatch Events event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
@@ -240,7 +240,7 @@ Use the following procedure to add policies to an existing parameter by using To
 1. Run the following command to verify the details of the parameter\.
 
    ```
-   (Get-SSMParameterValue -Name "the name you specified").Parameters
+   (Get-SSMParameterValue -Name "parameter-name-you-specified").Parameters
    ```
 
 **Important**  
@@ -248,6 +248,6 @@ Parameter Store preserves policies on a parameter until you either overwrite the
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. For example:  
 
   ```
-  Write-SSMParameter -Name "a name" -Value "a value" -Type "parameter type" -Policies "[{}]"
+  Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{}]"
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.

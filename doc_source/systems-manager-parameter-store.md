@@ -32,6 +32,9 @@ Parameter Store offers the following benefits and features\.
   + Amazon CloudWatch
   + AWS CloudTrail
 
+**Tagging a parameter**  
+You can tag your parameters to help you quickly identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments, departments, users, groups, or periods\. You can also restrict access to parameters by creating an IAM policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
+
 **Topics**
 + [Parameter types and examples](parameter-store-about-examples.md)
 + [SecureString parameters](sysman-paramstore-securestring.md)

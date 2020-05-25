@@ -5,7 +5,7 @@ This walkthrough shows how to join a Windows Server instance to a domain using S
 **Prerequisites**  
 This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
-**To create a SecureString parameter and join an instance to a domain**
+**To create a `SecureString` parameter and join an instance to a domain**
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
@@ -43,7 +43,7 @@ Using CloudWatch features is optional, but we recommend setting them up at the b
                "kms:Decrypt"
             ],
             "Resource":[
-               "arn:aws:kms:region:account-id:key/key-id"
+               "arn:aws:kms:region:account-id:key/kms-key-id"
             ]
          }
       ]

@@ -22,7 +22,7 @@ After you create the content for your custom SSM document, as described in [Writ
 
 1. Delete the brackets in the **Content** field, and then paste the document content you created earlier\.
 
-1. \(Optional\) In the **Document tags** area, apply one or more tag key name/value pairs to the document\.
+1. \(Optional\) In the **Document tags** section, apply one or more tag key name/value pairs to the document\.
 
    Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a document to identify the type of tasks it runs, the type of operating systems it targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
    + `Key=TaskType,Value=MyConfigurationUpdate`

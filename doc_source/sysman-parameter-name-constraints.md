@@ -23,7 +23,7 @@ The requirements and constraints for parameter names include the following:
   + `/aws/testparam1`
 **Note**  
 When you specify a parameter in an SSM document, command, or script, you do include `ssm` as part of the syntax, as shown in the following examples\.   
-Valid: \{\{ssm:*parameter\_name*\}\} and \{\{ ssm:*parameter\_name* \}\}, such as `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter }}`
+Valid: \{\{ssm:*parameter\-name*\}\} and \{\{ ssm:*parameter\-name* \}\}, such as `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter }}`
 + **Uniqueness**: A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
   + `/Test/TestParam1`
   + `/TestParam1`

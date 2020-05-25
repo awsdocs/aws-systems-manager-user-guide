@@ -59,7 +59,7 @@ To add more document parameters, choose **Add a parameter**\. To remove a docume
 **Note**  
 If you specify a value of '`/`', the document can run on all types of resources\. For a list of valid resource types, see [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*\.
 
-1. \(Optional\) Expand the **Document tags** section and enter one or more tag key\-value pairs to apply to the document\. Tags make it easier to identify, organize, and search for resources\. For more information, see [Tagging SSM documents](sysman-ssm-docs-tagging.md)\.
+1. \(Optional\) Expand the **Document tags** section and enter one or more tag key\-value pairs to apply to the document\. Tags make it easier to identify, organize, and search for resources\. For more information, see [Tagging Systems Manager documents](tagging-documents.md)\.
 
 1. In the **Step 1** section, provide the following information\.
    + For **Step name**, enter a descriptive name for the first step of the automation workflow\.

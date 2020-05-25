@@ -73,7 +73,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=tag:MyTag,Values=MyTagValue"
+   aws ssm describe-parameters --parameter-filters "Key=tag:tag-key,Values=tag-value"
    ```
 
    ```

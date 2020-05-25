@@ -27,7 +27,8 @@ Parameters are only available in the AWS Region where they were created\.
    aws ssm put-parameter \
        --name "parameter-name" \    
        --value "parameter-value" \
-       --type String
+       --type String \
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -37,7 +38,8 @@ Parameters are only available in the AWS Region where they were created\.
    aws ssm put-parameter ^
        --name "parameter-name" ^    
        --value "parameter-value" ^
-       --type String
+       --type String ^
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -54,7 +56,8 @@ Parameters are only available in the AWS Region where they were created\.
        --name "parameter-name" \
        --value "an-AMI-id" \
        --type String \
-       --data-type "aws:ec2:image"
+       --data-type "aws:ec2:image" \
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -65,7 +68,8 @@ Parameters are only available in the AWS Region where they were created\.
        --name "parameter-name" ^
        --value "an-AMI-id" ^
        --type String ^
-       --data-type "aws:ec2:image"
+       --data-type "aws:ec2:image" ^
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -121,7 +125,8 @@ If successful, the command returns the version number of the parameter\. **Excep
    aws ssm put-parameter \
        --name "parameter-name" \
        --value "a-comma-separated-list-of-values" \
-       --type StringList
+       --type StringList \
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -131,7 +136,8 @@ If successful, the command returns the version number of the parameter\. **Excep
    aws ssm put-parameter ^
        --name "parameter-name" ^
        --value "a-comma-separated-list-of-values" ^
-       --type StringList
+       --type StringList ^
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -190,7 +196,8 @@ Before you create a `SecureString` parameter, read about the requirements for th
        --name "parameter-name" \
        --value "parameter-value" \
        --type SecureString \
-       --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+       --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" \
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------
@@ -201,7 +208,8 @@ Before you create a `SecureString` parameter, read about the requirements for th
        --name "parameter-name" ^
        --value "parameter-value" ^
        --type SecureString ^
-       --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN"
+       --key-id "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" ^
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
 ------

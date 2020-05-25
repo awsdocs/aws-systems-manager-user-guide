@@ -11,7 +11,7 @@ The following procedure walks you through the process of creating and storing a 
 1. Run the following command to create a String\-type parameter\. The `--name` option supports hierarchies\. For information about hierarchies, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
    ```
-   aws ssm put-parameter --name "parameter_name" --type String --value "a parameter value"
+   aws ssm put-parameter --name "parameter-name" --type String --value "parameter-value"
    ```
 
    Here is an example that specifies an Amazon Machine Image \(AMI\) as the data type:
@@ -46,7 +46,7 @@ The following procedure walks you through the process of creating and storing a 
            {
                "Name": "helloworld",
                "Type": "String",
-               "LastModifiedUser": "arn:aws:iam::123456789012:user/User's name",
+               "LastModifiedUser": "arn:aws:iam::123456789012:user/user-name",
                "LastModifiedDate": 1494529763.156,
                "Version": 1,
                "Tier": "Standard",

@@ -46,7 +46,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
                "Action": [
                    "ssm:UpdateServiceSetting"
                ],
-               "Resource": "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/parameter-store/high-throughput-enabled"
+               "Resource": "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled"
            }
        ]
    }
@@ -119,7 +119,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 1. Open the AWS CLI and run the following command to increase the transactions per second that Parameter Store can process in the current AWS account and Region\.
 
    ```
-   aws ssm update-service-setting --setting-id arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled --setting-value true
+   aws ssm update-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled --setting-value true
    ```
 
    There is no output if the command succeeds\.
@@ -127,7 +127,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
 
    ```
-   aws ssm get-service-setting --setting-id arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+   aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled
    ```
 
    ```
@@ -146,7 +146,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
 If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, run the following command\.
 
 ```
-aws ssm reset-service-setting --setting-id arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
+aws ssm reset-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled
 ```
 
 ```
@@ -171,7 +171,7 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
 1. Increase Parameter Store throughput in the current AWS account and Region using the AWS Tools for PowerShell\.
 
    ```
-   Update-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region us-east-2
+   Update-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region us-east-2
    ```
 
    There is no output if the command succeeds\.
@@ -179,7 +179,7 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and Region\.
 
    ```
-   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
+   Get-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
    ```
 
    ```
@@ -194,7 +194,7 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
 If you no longer need increased throughput, or if you no longer want to incur charges, you can revert to the standard settings\. To revert your settings, run the following command\.
 
 ```
-Reset-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
+Reset-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region region
 ```
 
 ```

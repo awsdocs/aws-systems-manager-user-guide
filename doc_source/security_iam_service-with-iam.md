@@ -139,8 +139,6 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 + [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
-+ [Restricting access to documents using tags](sysman-ssm-docs-tagging.md#sysman-ssm-docs-tagging-access)
-+ [Controlling access to parameters using tags](sysman-paramstore-access.md#sysman-paramstore-access-tag)
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
 
@@ -166,10 +164,7 @@ You can attach tags to Systems Manager resources or pass tags in a request to Sy
 + Patch baseline
 + OpsItem
 
-For more information about tagging Systems Manager resources, see the following topics\.
-+ [Tagging SSM documents](sysman-ssm-docs-tagging.md)
-+ [Tagging Systems Manager parameters](sysman-paramstore-su-tag.md)
-+ [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html) in the *AWS Systems Manager API Reference*
+For information about tagging Systems Manager resources, see [Tagging Systems Manager resources](tagging-resources.md)\.
 
 To view an example identity\-based policy for limiting access to a resource based on the tags on that resource, see [Viewing Systems Manager documents based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-documents-tags)\.
 
