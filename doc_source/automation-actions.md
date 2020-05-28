@@ -104,7 +104,6 @@ Required: No
 
 timeoutSeconds  
 The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.   
-The `aws:changeInstanceState` action has a default `timeoutSeconds` value of 3600\. For all other actions, there is no default value\.  
 Type: Integer  
 Required: No
 
