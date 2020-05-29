@@ -101,7 +101,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
                "Action": [
                    "sns:Publish"
                ],
-               "Resource": "*"
+               "Resource": "arn:aws:sns:us-east-2:123456789012:MyTopic"
            }
        ]
    }
@@ -127,8 +127,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. Under **Select type of trusted entity**, choose **AWS service**\.
 
-1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
-![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
+1. In the **Choose a use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
 
 1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **`SNSPublishPermissions`**\.
 
@@ -139,33 +138,6 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 1. On the **Review** page, type a name in the **Role name** box, and then type a description\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
-
-1. On the **Roles** page, choose the role you just created to open the **Summary** page\.
-
-1. Choose the **Trust relationships** tab, and then choose **Edit trust relationship**\.
-
-1. Replace the contents of the box with the following to add `ssm.amazonaws.com` to the policy:
-
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": [
-                       "ec2.amazonaws.com",
-                       "ssm.amazonaws.com"
-                   ]
-               },
-               "Action": "sts:AssumeRole"
-           }
-       ]
-   }
-   ```
-
-1. Choose **Update Trust Policy**\.
 
 1. Copy or make a note of the **Role ARN**\. This Role ARN is used when you send a command that is configured to return Amazon SNS notifications\.
 

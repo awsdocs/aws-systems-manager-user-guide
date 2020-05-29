@@ -44,7 +44,7 @@ outputs: # These are user-specified outputs
 ------
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
+The AWS service namespace that contains the API action that you want to run\. You can view a list of supported AWS service namespaces in the [Available services](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) of the AWS SDK for Python \(Boto 3\)\. The namespace can be found in the **Client** section\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\.  
 Type: String  
 Required: Yes
 

@@ -30,13 +30,13 @@ The following examples describe situations when an Automation execution failed t
 
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn is not authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The IAM user attempting to start the Automation execution does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure user access to Automation](automation-permissions.md#automation-passrole)\. 
-+ Possible cause 2: The IAM user attempting to start the Automation execution has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific Automation document\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 4: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
++ Possible cause 1: The IAM user attempting to start the Automation execution does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\. 
++ Possible cause 2: The IAM user attempting to start the Automation execution has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific Automation document\. To resolve this issue, attach the required IAM policy to the user account that was used to start the execution\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
 **Error message**: `User: user arn is not authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-The IAM user attempting to start the Automation execution does not have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the Automation execution\. For more information, see [Task 3: Attach the iam:PassRole policy to your Automation role](automation-permissions.md#automation-passpolicy)\.
+The IAM user attempting to start the Automation execution does not have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the Automation execution\. For more information, see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-permissions.md#automation-passpolicy)\.
 
 ### Invalid assume role<a name="automation-trbl-ar"></a>
 
@@ -48,7 +48,7 @@ When you run an Automation, an assume role is either provided in the document or
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 + Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Getting started with Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
-+ Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [Task 2: Add a trust relationship for Automation](automation-permissions.md#automation-trust2)\. 
++ Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [I Can't Assume A Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role) in the *IAM User Guide*\. 
 
 ## Execution started, but status is failed<a name="automation-trbl-exstrt"></a>
 

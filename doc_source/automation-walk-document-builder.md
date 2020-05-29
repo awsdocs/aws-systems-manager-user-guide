@@ -198,7 +198,7 @@ This is not required for PowerShell\.
       
       $res = New-EC2Instance -ImageId $imageId -MinCount 1 -MaxCount 1 -InstanceType $type -TagSpecification $tagSpecs
       
-      return $res.Instances.InstanceId
+      return @{'InstanceId'=$res.Instances.InstanceId}
       ```
 
 ------

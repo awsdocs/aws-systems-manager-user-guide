@@ -22,3 +22,4 @@ Integrated Setup enables the following data sources that populate Systems Manage
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager
 + AWS Trusted Advisor
++ AWS Compute Optimizer

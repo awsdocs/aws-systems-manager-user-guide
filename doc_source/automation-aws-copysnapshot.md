@@ -2,7 +2,7 @@
 
 **Description**
 
-Copy a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\.
+Copies a point\-in\-time snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\. You can copy the snapshot within the same AWS Region or from one Region to another\. Copies of encrypted Amazon EBS snapshots remain encrypted\. Copies of unencrypted snapshots remain unencrypted\. To copy an encrypted snapshot that was shared from another account, you must have permissions for the AWS KMS customer master key \(CMK\) used to encrypt the snapshot\. Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot)
 
@@ -23,17 +23,12 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the role that allows Systems Manager Automation to perform the actions on your behalf\.
 + Description
 
   Type: String
 
   Description: \(Optional\) A description for the Amazon EBS snapshot\.
-+ LambdaAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role assumed by Lambda\.
 + SnapshotId
 
   Type: String
@@ -43,4 +38,12 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) The region where the source snapshot currently exists\.
+  Description: \(Required\) The Region where the source snapshot currently exists\.
+
+**Document Steps**
+
+copySnapshot \- Copies a snapshot of an Amazon EBS volume\.
+
+**Outputs**
+
+copySnapshot\.SnapshotId \- The ID of the new snapshot\.

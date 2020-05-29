@@ -5,6 +5,7 @@ Systems Manager Explorer displays data from the following sources\.
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager
 + AWS Trusted Advisor
++ AWS Compute Optimizer
 
 **Note**  
 You can't configure Explorer to stop displaying OpsCenter OpsItem data\.

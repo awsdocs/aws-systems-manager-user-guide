@@ -298,9 +298,9 @@ The following section provide links to blog posts, articles, and community\-prov
 
 **Note**  
 These links are provided for informational purposes only, and should not be considered either a comprehensive list or an endorsement of the content of the examples\. AWS is not responsible for the content or accuracy of external content\. 
-+ [A complete guide to the AWS Systems Manager Parameter Store](https://seanjziegler.com/a-complete-guide-to-using-the-aws-systems-manager-parameter-store/)
++ [A complete guide to using the AWS Systems Manager Parameter Store](https://seanjziegler.com/a-complete-guide-to-using-the-aws-systems-manager-parameter-store/)
 
-  Learn the AWS Systems Manager parameter store from the ground up. Includes a real world example of using the Parameter store with AWS's Boto3 Python SDK as well as configuring the required roles and permissions\.
+  Sean Ziegler offers a concise overview of Parameter Store functionality and provides a Boto3 example for interacting with Parameter Store\.
 
   *May 23, 2020*
 + [Keep Your Secrets Safe with AWS Systems Manager Parameter Store and Node](https://www.codebyamir.com/blog/keep-your-secrets-safe-with-aws-systems-manager-parameter-store-and-nodejs)

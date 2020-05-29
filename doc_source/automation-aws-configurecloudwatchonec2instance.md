@@ -23,26 +23,29 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the role that allows Systems Manager Automation to perform the actions on your behalf\.
 + InstanceId
 
   Type: String
 
-  Description: \(Required\) The ID of the managed that you want to configure to use CloudWatch\.
-+ LambdaAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role assumed by Lambda\.
+  Description: \(Required\) The ID of the Amazon EC2 instance on which you want to enable CloudWatch monitoring\.
 + properties
 
   Type: String
 
-  Description: \(Optional\) The configuration for CloudWatch in JSON format\.
+  Description: \(Optional\) This parameter is not supported\. It is listed here for backwards compatibility\.
 + status
 
-  Allowed values: Enabled,Disabled
+  Allowed values: Enabled \| Disabled
+
+  Description: \(Optional\) Specifies whether to enable or disable CloudWatch\.
 
   Default: Enabled
 
-  Description: \(Optional\) Specifies whether to enable or disable CloudWatch\. Valid values: "Enabled" \| "Disabled"\.
+**Document Steps**
+
+configureCloudWatch \- Configures CloudWatch on the Amazon EC2 instance with the given status\.
+
+**Outputs**
+
+The automation execution has no output\.

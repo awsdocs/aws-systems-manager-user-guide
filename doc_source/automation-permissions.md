@@ -4,9 +4,8 @@ If you need to create a service role for Systems Manager Automation, complete th
 
 **Topics**
 + [Task 1: Create a service role for Automation](#automation-role)
-+ [Task 2: Add a trust relationship for Automation](#automation-trust2)
-+ [Task 3: Attach the iam:PassRole policy to your Automation role](#automation-passpolicy)
-+ [Task 4: Configure user access to Automation](#automation-passrole)
++ [Task 2: Attach the iam:PassRole policy to your Automation role](#automation-passpolicy)
++ [Task 3: Configure user access to Automation](#automation-passrole)
 
 ## Task 1: Create a service role for Automation<a name="automation-role"></a>
 
@@ -21,9 +20,9 @@ You can also use this role in Automation documents, such as the `AWS-CreateManag
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **EC2**\.
+1. Under **Select type of trusted entity**, choose **AWS service**\.
 
-1. In the **Select your use case** section, choose **EC2**, and then choose **Next: Permissions**\.
+1. In the **Choose a use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
 
 1. On the **Attached permissions policy** page, search for the **AmazonSSMAutomationRole** policy, choose it, and then choose **Next: Review**\. 
 
@@ -104,40 +103,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 1. After you create an inline policy, it is automatically embedded in your role\.
 
-## Task 2: Add a trust relationship for Automation<a name="automation-trust2"></a>
-
-Use the following procedure to configure the service role policy to trust Automation\.
-
-**To add a trust relationship for Automation**
-
-1. In the **Summary** page for the role you just created, choose the **Trust Relationships** tab, and then choose **Edit Trust Relationship**\.
-
-1. Add **"ssm\.amazonaws\.com"**, as shown in the following example\.
-
-   ```
-   {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Sid":"",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":[
-                  "ec2.amazonaws.com",
-                  "ssm.amazonaws.com"
-               ]
-            },
-            "Action":"sts:AssumeRole"
-         }
-      ]
-   }
-   ```
-
-1. Choose **Update Trust Policy**\.
-
-1. Leave the **Summary** page open\. 
-
-## Task 3: Attach the iam:PassRole policy to your Automation role<a name="automation-passpolicy"></a>
+## Task 2: Attach the iam:PassRole policy to your Automation role<a name="automation-passpolicy"></a>
 
 Use the following procedure to attach the `iam:PassRole` policy to your Automation service role\. This enables the Automation service to pass the role to other services or Systems Manager capabilities when running Automation workflows\.
 
@@ -167,7 +133,7 @@ If you want the Automation service role to attach an IAM instance profile role t
 
 1. On the **Review Policy** page, type a name and then choose **Create Policy**\.
 
-## Task 4: Configure user access to Automation<a name="automation-passrole"></a>
+## Task 3: Configure user access to Automation<a name="automation-passrole"></a>
 
 If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
 

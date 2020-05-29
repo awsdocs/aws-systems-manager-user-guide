@@ -45,7 +45,10 @@ OpsData is any operations data that is displayed in the Systems Manager Explorer
   Data displayed in Explorer includes a count of instances that aren't patch compliant\.
 + **AWS Trusted Advisor**
 
-  Data displayed in Explorer includes: status of best practice checks and recommendations for cost optimization, security, fault tolerance, performance, and service limits\. 
+  Data displayed in Explorer includes: status of best practice checks for EC2 reserved instances in the areas of cost optimization, security, fault tolerance, performance, and service limits\. 
++ **AWS Compute Optimizer**
+
+  Data displayed in Explorer includes: a count of **Under provisioned** and **Over provisioned** EC2 instances, optimization findings, on\-demand pricing details, and recommendations for instance type and price\.
 
 You can view and manage OpsData sources from the Explorer **Settings** page\. For information about setting up and configuring services that populate Explorer widgets with OpsData, see [Setting up related services](Explorer-setup-related-services.md)\.
 

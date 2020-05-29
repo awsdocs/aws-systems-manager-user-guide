@@ -74,8 +74,6 @@ The following procedure links to other topics to help you create the service rol
 
 1. Note the service role Amazon Resource Name \(ARN\)\. You will specify this ARN in the next procedure\.
 
-1. Configure a trust policy so that Automation trusts the service role\. For more information, see [Task 2: Add a trust relationship for Automation](automation-permissions.md#automation-trust2)\.
-
 ## Create a custom Automation document<a name="automation-walk-security-document"></a>
 
 This section describes how to create a custom Automation document that restarts EC2 instances\. AWS provides a default SSM document for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that document to show you how to enter the service role in a document when you create your own\. By specifying the service role directly in the document, the user running the document does not require iam:PassRole permissions\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
