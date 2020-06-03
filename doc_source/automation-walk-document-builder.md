@@ -284,17 +284,21 @@ This is not required for PowerShell\.
       ```
       Install-Module AWS.Tools.EC2 -Force
       
-      $payload = $env:InputPayload | ConvertFrom-Json
+      $inputPayload = $env:InputPayload | ConvertFrom-Json
       
-      $status = Get-EC2InstanceStatus -InstanceId $payload.InstanceId
+      $instanceId = $inputPayload.payload.InstanceId
+      
+      $status = Get-EC2InstanceStatus -InstanceId $instanceId
       
       while ($status.Status.Status -ne 'ok'){
-          Write-Host 'Polling get status of the instance', $payload.InstanceId
-          Start-Sleep -Seconds 5
-          $status = Get-EC2InstanceStatus -InstanceId $payload.InstanceId
+         Write-Host 'Polling get status of the instance', $instanceId
+      
+         Start-Sleep -Seconds 5
+      
+         $status = Get-EC2InstanceStatus -InstanceId $instanceId
       }
       
-      return @{Status = $status.Status.Status; InstanceId = $payload.InstanceId}
+      return @{Status = $status.Status.Status; InstanceId = $instanceId}
       ```
 
 ------

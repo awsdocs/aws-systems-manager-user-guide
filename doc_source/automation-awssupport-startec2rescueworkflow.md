@@ -6,6 +6,9 @@ The AWSSupport\-StartEC2RescueWorkflow automation document runs the provided bas
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-StartEC2RescueWorkflow)
 
+**Important**  
+Amazon EC2 instances created from Marketplace Amazon Machine Images \(AMIs\) are not supported by this automation\.
+
  **Additional Information** 
 
  To base64 encode a script, you can use either Powershell or Bash\. Powershell:

@@ -80,6 +80,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Enabling default rules](Explorer-setup-default-rules.md)
          + [Specifying tag keys](Explorer-setup-tag-keys.md)
          + [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)
+         + [Configuring a Delegated Administrator](Explorer-setup-delegated-administrator.md)
       + [Using Systems Manager Explorer](Explorer-using.md)
          + [Editing default rules for OpsItems](Explorer-using-editing-default-rules.md)
          + [Editing Systems Manager Explorer data sources](Explorer-using-editing-data-sources.md)

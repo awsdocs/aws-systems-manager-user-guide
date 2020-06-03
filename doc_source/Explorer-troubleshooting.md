@@ -2,6 +2,14 @@
 
 This topic includes information about how to troubleshoot common problems with Systems Manager Explorer\.
 
+ **The AWS Organizations options on the *Create resource data sync* page are greyed out** 
+
+The following options on the **Create resource data sync** page are only available if you set up and configured AWS Organizations\. If you set up and configured AWS Organizations, then either the AWS Organizations master account or an Explorer delegated administrator can create resource data syncs that use these options\. 
+
+![\[AWS Organizations options for Explorer resource data sync.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-delegated-administration-2.png)
+
+For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md) and [Configuring a Delegated Administrator](Explorer-setup-delegated-administrator.md)\.
+
  **Explorer doesn't display any data at all** 
 + Verify that you completed Integrated Setup in each account and Region where you want Explorer to access and display data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 + When using Explorer to view data from multiple accounts and Regions, verify that you are logged into the AWS Organizations Master Account\. To view OpsData and OpsItems from multiple accounts and Regions, you must be signed in to this account\.

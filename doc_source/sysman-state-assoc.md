@@ -3,13 +3,16 @@
 The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
 **Important**  
-The following procedures are intended for creating an association with a `Command` or `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
+The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
 
-When you create a State Manager association, Systems Manager immediately runs the association on the specified instances or targets\. After the association is initially executed on the instances or targets, it runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
+When you create a State Manager association, by default, the system immediately runs it on the specified instances or targets\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
++ Associations only run on instances that are online when the interval starts\. Offline instances are skipped\.
 + State Manager attempts to run the association on all specified or targeted instances during an interval\.
-+ If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
++ If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
+
+**Note**  
+If you don't want an association to run immediately after you create it, you can choose the **Apply association only at the next specified Cron interval** option in the Systems Manager console\. 
 
 The following procedure describes how to use targets and rate controls when creating an association\. For more information about these features, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
@@ -35,6 +38,8 @@ The following procedure describes how to use the Systems Manager console to crea
 1. For **Targets**, choose an option\. For information about using targets, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
 1. In the **Specify schedule** section, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, use the buttons provided to create a cron or rate schedule for the association\. 
+
+   If you don't want the association to run immediately after you create it, choose **Apply association only at the next specified Cron interval**\. 
 
 1. In the **Advanced options** section us the **Compliance severity** to choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
@@ -201,7 +206,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux ]
@@ -214,7 +219,8 @@ When you create an association, you specify when the schedule runs\. You must sp
      --compliance-severity "MEDIUM" \
      --schedule "cron(0 2 ? * SUN *)" \
      --max-errors "5" \
-     --max-concurrency "10"
+     --max-concurrency "10" \
+     --apply-only-at-cron-interval
    ```
 
 ------
@@ -228,7 +234,8 @@ When you create an association, you specify when the schedule runs\. You must sp
      --compliance-severity "MEDIUM" ^
      --schedule "cron(0 2 ? * SUN *)" ^
      --max-errors "5" ^
-     --max-concurrency "10"
+     --max-concurrency "10" ^
+     --apply-only-at-cron-interval
    ```
 
 ------
@@ -245,12 +252,13 @@ When you create an association, you specify when the schedule runs\. You must sp
      -ScheduleExpression "cron(0 2 ? * SUN *)" `
      -MaxConcurrency 10 `
      -MaxError 5 `
-     -ComplianceSeverity MEDIUM
+     -ComplianceSeverity MEDIUM `
+     -ApplyOnlyAtCronInterval
    ```
 
 ------
 
-   The following example creates an association on instances in AWS Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example creates an association on instances in AWS Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux ]
@@ -263,7 +271,8 @@ When you create an association, you specify when the schedule runs\. You must sp
      --compliance-severity "MEDIUM" \
      --schedule "cron(0 2 ? * SUN *)" \
      --max-errors "5" \
-     --max-concurrency "10"
+     --max-concurrency "10" \
+     --apply-only-at-cron-interval
    ```
 
 ------
@@ -277,7 +286,8 @@ When you create an association, you specify when the schedule runs\. You must sp
      --compliance-severity "MEDIUM" ^
      --schedule "cron(0 2 ? * SUN *)" ^
      --max-errors "5" ^
-     --max-concurrency "10"
+     --max-concurrency "10" ^
+     --apply-only-at-cron-interval
    ```
 
 ------
@@ -294,10 +304,11 @@ When you create an association, you specify when the schedule runs\. You must sp
      -ScheduleExpression "cron(0 2 ? * SUN *)" `
      -MaxConcurrency 10 `
      -MaxError 5 `
-     -ComplianceSeverity MEDIUM
+     -ComplianceSeverity MEDIUM `
+     -ApplyOnlyAtCronInterval
    ```
 
 ------
 
 **Note**  
-If you delete the association you created, the association no longer runs on any targets of that association\.
+If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the assocation and according to the interval specified\.
