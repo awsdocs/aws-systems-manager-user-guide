@@ -26,7 +26,7 @@ InSpec includes a collection of resources that help you quickly write checks and
 
 Here is how the process of using InSpec profiles with Systems Manager Compliance works\.
 
-1. Either identify predefined InSpec profiles that you want to use, or create your own\. You can use [predefined profiles](https://github.com/search?p=1&q=topic%3Ainspec+org%3Adev-sec&type=Repositories) on GitHub to get started\. For information about how to create your own InSpec profiles, see [Compliance Automation with InSpec](https://learn.chef.io/modules/learn-the-inspec-basics#/)\.
+1. Either identify predefined InSpec profiles that you want to use, or create your own\. You can use [predefined profiles](https://github.com/search?p=1&q=topic%3Ainspec+org%3Adev-sec&type=Repositories) on GitHub to get started\. For information about how to create your own InSpec profiles, see [Chef InSpec Profiles](https://www.inspec.io/docs/reference/profiles/)\.
 
 1. Store profiles in either a public or private GitHub repository, or in an S3 bucket\.
 

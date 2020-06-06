@@ -1,6 +1,6 @@
-# Step 5: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
+# Step 6: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
 
-This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
+This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 5: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Windows Server, see [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
@@ -59,5 +59,3 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 ```
 aws ssm deregister-managed-instance --instance-id "mi-1234567890"
 ```
-
-Continue to [Step 6: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.

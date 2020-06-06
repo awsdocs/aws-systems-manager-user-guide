@@ -3,10 +3,10 @@
 The following procedures describe how to use the AWS CLI to create the required roles and permissions for Maintenance Windows\.
 
 **Topics**
-+ [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(AWS CLI\)](#sysman-maintenance-role-cli)
++ [Task 1: \(Optional\) Create a custom service role for maintenance windows \(AWS CLI\)](#sysman-maintenance-role-cli)
 + [Task 2: Assign the IAM PassRole policy to an IAM user or group](#sysman-mw-passrole-cli)
 
-## Task 1: \(Optional\) create a custom service role for Maintenance Windows \(AWS CLI\)<a name="sysman-maintenance-role-cli"></a>
+## Task 1: \(Optional\) Create a custom service role for maintenance windows \(AWS CLI\)<a name="sysman-maintenance-role-cli"></a>
 
 **Important**  
 A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  

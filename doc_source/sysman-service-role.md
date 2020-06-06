@@ -30,11 +30,25 @@ If either of the following cases are true, you must create a custom IAM permissi
 
 1. Use the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
 
+------
+#### [ Linux ]
+
    ```
    aws iam create-role \ 
        --role-name SSMServiceRole \
        --assume-role-policy-document file://SSMService-Trust.json
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam create-role ^ 
+       --role-name SSMServiceRole ^
+       --assume-role-policy-document file://SSMService-Trust.json
+   ```
+
+------
 
 1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to enable the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 **Note**  
@@ -42,13 +56,30 @@ The policies you add for a service profile for managed instances in a hybrid env
 
    \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
 
+------
+#### [ Linux ]
+
    ```
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws iam attach-role-policy ^
+       --role-name SSMServiceRole ^
+       --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+   ```
+
+------
+
    If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
+
+------
+#### [ Linux ]
 
    ```
    aws iam attach-role-policy \
@@ -56,13 +87,38 @@ The policies you add for a service profile for managed instances in a hybrid env
        --policy-arn arn:aws:iam::account-id:policy/my-bucket-policy-name
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws iam attach-role-policy ^
+       --role-name SSMServiceRole ^
+       --policy-arn arn:aws:iam::account-id:policy/my-bucket-policy-name
+   ```
+
+------
+
    \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\. Your instance profile needs this policy only if you join your instances to a Microsoft AD directory\.
+
+------
+#### [ Linux ]
 
    ```
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam attach-role-policy ^
+       --role-name SSMServiceRole ^
+       --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
+   ```
+
+------
 
    \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use CloudWatch features, such as Amazon CloudWatch Events or Amazon CloudWatch Logs\.
 

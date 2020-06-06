@@ -283,27 +283,33 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\.
 
 ```
-"/aws/service/global-infrastructure/regions/ap-northeast-1"
-"/aws/service/global-infrastructure/regions/eu-central-1"
-"/aws/service/global-infrastructure/regions/eu-north-1"
-"/aws/service/global-infrastructure/regions/eu-west-1"
-"/aws/service/global-infrastructure/regions/eu-west-3"
-"/aws/service/global-infrastructure/regions/sa-east-1"
-"/aws/service/global-infrastructure/regions/us-east-2"
-"/aws/service/global-infrastructure/regions/us-gov-east-1"
-"/aws/service/global-infrastructure/regions/us-gov-west-1"
-"/aws/service/global-infrastructure/regions/us-west-1"
-"/aws/service/global-infrastructure/regions/ap-northeast-2"
-"/aws/service/global-infrastructure/regions/ap-northeast-3"
-"/aws/service/global-infrastructure/regions/ap-south-1"
-"/aws/service/global-infrastructure/regions/ap-southeast-1"
-"/aws/service/global-infrastructure/regions/ap-southeast-2"
-"/aws/service/global-infrastructure/regions/ca-central-1"
-"/aws/service/global-infrastructure/regions/cn-north-1"
-"/aws/service/global-infrastructure/regions/cn-northwest-1"
-"/aws/service/global-infrastructure/regions/eu-west-2"
-"/aws/service/global-infrastructure/regions/us-west-2"
-"/aws/service/global-infrastructure/regions/us-east-1"
+[
+    "/aws/service/global-infrastructure/regions/af-south-1",
+    "/aws/service/global-infrastructure/regions/ap-east-1",
+    "/aws/service/global-infrastructure/regions/ap-northeast-3",
+    "/aws/service/global-infrastructure/regions/ap-southeast-1",
+    "/aws/service/global-infrastructure/regions/ca-central-1",
+    "/aws/service/global-infrastructure/regions/cn-north-1",
+    "/aws/service/global-infrastructure/regions/eu-west-2",
+    "/aws/service/global-infrastructure/regions/eu-west-3",
+    "/aws/service/global-infrastructure/regions/us-east-1",
+    "/aws/service/global-infrastructure/regions/us-gov-west-1",
+    "/aws/service/global-infrastructure/regions/ap-northeast-2",
+    "/aws/service/global-infrastructure/regions/ap-south-1",
+    "/aws/service/global-infrastructure/regions/ap-southeast-2",
+    "/aws/service/global-infrastructure/regions/cn-northwest-1",
+    "/aws/service/global-infrastructure/regions/eu-south-1",
+    "/aws/service/global-infrastructure/regions/me-south-1",
+    "/aws/service/global-infrastructure/regions/sa-east-1",
+    "/aws/service/global-infrastructure/regions/us-east-2",
+    "/aws/service/global-infrastructure/regions/us-gov-east-1",
+    "/aws/service/global-infrastructure/regions/us-west-1",
+    "/aws/service/global-infrastructure/regions/ap-northeast-1",
+    "/aws/service/global-infrastructure/regions/eu-central-1",
+    "/aws/service/global-infrastructure/regions/eu-north-1",
+    "/aws/service/global-infrastructure/regions/eu-west-1",
+    "/aws/service/global-infrastructure/regions/us-west-2"
+]
 ```
 
 **View available AWS services**  
@@ -315,7 +321,7 @@ You can view a complete list of all available AWS services and sort them into al
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/services \
-    --query 'Parameters[].Name' | sort
+    --query 'Parameters[].Name | sort(@)'
 ```
 
 ------
@@ -324,7 +330,7 @@ aws ssm get-parameters-by-path \
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/services ^
-    --query Parameters[].Name | sort
+    --query "Parameters[].Name | sort(@)"
 ```
 
 ------
@@ -332,7 +338,8 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\.
 
 ```
-"/aws/service/global-infrastructure/services/acm-pca",
+[
+    "/aws/service/global-infrastructure/services/acm-pca",
     "/aws/service/global-infrastructure/services/acm",
     "/aws/service/global-infrastructure/services/alexaforbusiness",
     "/aws/service/global-infrastructure/services/apigateway",
@@ -360,7 +367,7 @@ The command returns information like the following\.
 ```
 
 **View supported Regions for an AWS service**  
-You can view a list of Regions where a service is available\. This example uses Systems Manager \(ssm\)\.
+You can view a list of AWS Regions where a service is available\. This example uses Systems Manager \(ssm\)\.
 
 ------
 #### [ Linux ]
@@ -503,7 +510,7 @@ You can view the names of availability zones only by using the following command
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/availability-zones \
-    --query 'Parameters[].Name' | sort
+    --query 'Parameters[].Name | sort(@)'
 ```
 
 ------
@@ -512,7 +519,7 @@ aws ssm get-parameters-by-path \
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/availability-zones ^
-    --query Parameters[].Name | sort
+    --query "Parameters[].Name | sort(@)"
 ```
 
 ------
@@ -520,13 +527,17 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\. This example has been truncated for space\.
 
 ```
-"/aws/service/global-infrastructure/availability-zones/afs1-az1",
-"/aws/service/global-infrastructure/availability-zones/afs1-az2",
-"/aws/service/global-infrastructure/availability-zones/afs1-az3",
-"/aws/service/global-infrastructure/availability-zones/ape1-az1",
-"/aws/service/global-infrastructure/availability-zones/ape1-az2",
-"/aws/service/global-infrastructure/availability-zones/ape1-az3",
-"/aws/service/global-infrastructure/availability-zones/apne1-az1",
+[
+    "/aws/service/global-infrastructure/availability-zones/afs1-az1",
+    "/aws/service/global-infrastructure/availability-zones/afs1-az2",
+    "/aws/service/global-infrastructure/availability-zones/afs1-az3",
+    "/aws/service/global-infrastructure/availability-zones/ape1-az1",
+    "/aws/service/global-infrastructure/availability-zones/ape1-az2",
+    "/aws/service/global-infrastructure/availability-zones/ape1-az3",
+    "/aws/service/global-infrastructure/availability-zones/apne1-az1",
+    "/aws/service/global-infrastructure/availability-zones/apne1-az2",
+    "/aws/service/global-infrastructure/availability-zones/apne1-az3",
+    "/aws/service/global-infrastructure/availability-zones/apne1-az4",
 ```
 
 **View names of availability zones in a single Region**  
@@ -538,7 +549,7 @@ You can view the names of the availability zones in one Region \(`us-east-1`, in
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/regions/us-east-1/availability-zones \
-    --query 'Parameters[].Name' | sort
+    --query 'Parameters[].Name | sort(@)'
 ```
 
 ------
@@ -547,7 +558,7 @@ aws ssm get-parameters-by-path \
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/regions/us-east-1/availability-zones ^
-    --query Parameters[].Name | sort
+    --query "Parameters[].Name | sort(@)"
 ```
 
 ------
@@ -555,12 +566,13 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\. This example has been truncated for space\.
 
 ```
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az1",
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az2",
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az3",
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az4",
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az5",
-"/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az6"
+[
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az1",
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az2",
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az3",
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az4",
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az5",
+    "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az6"
 ```
 
 **View availability zone ARNs only**  
@@ -572,7 +584,7 @@ You can view the ARNs of availability zones only by using the following command\
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/availability-zones \
-    --query 'Parameters[].ARN' | sort
+    --query 'Parameters[].ARN | sort(@)'
 ```
 
 ------
@@ -581,7 +593,7 @@ aws ssm get-parameters-by-path \
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/availability-zones ^
-    --query Parameters[].ARN | sort
+    --query "Parameters[].ARN | sort(@)"
 ```
 
 ------
@@ -589,13 +601,14 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\.
 
 ```
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az1",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az2",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az3",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az1",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az2",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az3",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/apne1-az1",
+[
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az1",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az2",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az3",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az1",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az2",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/ape1-az3",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/apne1-az1",
 ```
 
 **View local zone details**  
@@ -726,7 +739,7 @@ You can view just the names of local zone parameters by using the following comm
 ```
 aws ssm get-parameters-by-path \
     --path /aws/service/global-infrastructure/local-zones/usw2-lax1-az1 \
-    --query 'Parameters[].Name' | sort
+    --query 'Parameters[].Name | sort(@)'
 ```
 
 ------
@@ -735,7 +748,7 @@ aws ssm get-parameters-by-path \
 ```
 aws ssm get-parameters-by-path ^
     --path /aws/service/global-infrastructure/local-zones/usw2-lax1-az1 ^
-    --query Parameters[].Name | sort
+    --query "Parameters[].Name | sort(@)"
 ```
 
 ------
@@ -743,10 +756,12 @@ aws ssm get-parameters-by-path ^
 The command returns information like the following\. 
 
 ```
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
-"arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+[
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+]
 ```

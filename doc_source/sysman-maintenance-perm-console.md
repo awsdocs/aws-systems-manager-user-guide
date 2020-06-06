@@ -3,10 +3,10 @@
 The following procedures describe how to use the AWS Systems Manager console to create the required roles and permissions for maintenance windows\.
 
 **Topics**
-+ [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)](#sysman-maintenance-role)
++ [Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)](#sysman-maintenance-role)
 + [Task 2: Assign the IAM PassRole policy to an IAM user or group \(console\)](#sysman-maintenance-passrole)
 
-## Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)<a name="sysman-maintenance-role"></a>
+## Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)<a name="sysman-maintenance-role"></a>
 
 Use the following procedure to create a custom service role for the Maintenance Windows capability so that Systems Manager can run tasks on your behalf\.
 
@@ -26,17 +26,17 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
    1. ** Select type of trusted entity** area: **AWS service**
 
-   1. **Choose the service that will use this role** area: **EC2**
-
-   1. **Select your use case** area: **EC2**
+   1. **Choose the service that will use this role** area: **Systems Manager**
 
 1. Choose **Next: Permissions**\.
 
-1. In the list of policies, select the box next to **AmazonSSMMaintenanceWindowRole**, and then choose **Next: Review**\.
+1. In the list of policies, select the box next to **AmazonSSMMaintenanceWindowRole**, and then choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
 1. In **Role name**, enter a name that identifies this role as a Maintenance Windows role; for example **my\-maintenance\-window\-role\.**
 
-1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: "Performs Maintenance Window tasks on your behalf\." 
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: `Performs maintenance window tasks on your behalf`\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
@@ -44,13 +44,14 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Choose the **Trust relationships** tab, and then choose **Edit trust relationship**\.
 
-1. Delete the current policy, and then copy and paste the following policy into the **Policy Document** field:
+1. Verify that the following policy appears in the **Policy Document** field:
 
    ```
    {
      "Version": "2012-10-17",
      "Statement": [
        {
+         "Sid": "",
          "Effect": "Allow",
          "Principal": {
            "Service": "ssm.amazonaws.com"
@@ -67,7 +68,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Choose **Update Trust Policy**, and then copy or make a note of the role name and the **Role ARN** value on the **Summary** page\. You specify this information when you create your maintenance window\.
 
-1. If you plan to configure a maintenance window to send notifications about command statuses using Amazon SNS, when run through a Run Command command task, do the following:
+1. \(Optional\) If you plan to configure a maintenance window to send notifications about command statuses using Amazon SNS, when run through a Run Command command task, do the following:
 
    1. Choose the **Permissions** tab\.
 
@@ -150,7 +151,7 @@ Type **passr** in the filter box to quickly locate **PassRole**\.
 
    1. **Actions**: PassRole
 
-   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the maintenance window role you created in [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(console\)](#sysman-maintenance-role)
+   1. **Amazon Resource Name \(ARN\)**: Enter the ARN of the maintenance window role you created in [Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)](#sysman-maintenance-role)
 
 1. Choose **Add Statement**, and then choose **Next Step**\.
 

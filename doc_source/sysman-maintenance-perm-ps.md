@@ -3,10 +3,10 @@
 The following procedures describe how to use the Tools for Windows PowerShell to create the required roles and permissions for the Maintenance Windows capability\.
 
 **Topics**
-+ [Task 1: \(Optional\) create a custom service role for Maintenance Windows \(AWS CLI\)](#sysman-maintenance-role-ps)
-+ [Task 2: Assign the IAM PassRole policy to an IAM user or group \(AWS CLI\)](#sysman-mw-passrole-ps)
++ [Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)](#sysman-maintenance-role-ps)
++ [Task 2: Assign the IAM PassRole policy to an IAM user or group \(PowerShell\)](#sysman-mw-passrole-ps)
 
-## Task 1: \(Optional\) create a custom service role for Maintenance Windows \(AWS CLI\)<a name="sysman-maintenance-role-ps"></a>
+## Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)<a name="sysman-maintenance-role-ps"></a>
 
 ****
 **Important**  
@@ -60,7 +60,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
                    arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole
    ```
 
-## Task 2: Assign the IAM PassRole policy to an IAM user or group \(AWS CLI\)<a name="sysman-mw-passrole-ps"></a>
+## Task 2: Assign the IAM PassRole policy to an IAM user or group \(PowerShell\)<a name="sysman-mw-passrole-ps"></a>
 
 When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 

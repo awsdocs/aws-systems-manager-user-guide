@@ -1,6 +1,6 @@
-# Step 6: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
+# Step 5: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
-This topic describes how to install SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the previous step, [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+This topic describes how to install SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the previous step, [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
@@ -70,7 +70,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    ```
 
 ------
-#### [ Amazon Linux 2, RHEL 7\.x, oracle Linux, and CentOS 7\.x ]
+#### [ Amazon Linux 2, RHEL 7\.x, Oracle Linux, and CentOS 7\.x ]
 
    ```
    mkdir /tmp/ssm
@@ -79,6 +79,30 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    sudo systemctl stop amazon-ssm-agent
    sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
    sudo systemctl start amazon-ssm-agent
+   ```
+
+------
+#### [ Debian ]
+
+   ```
+   mkdir /tmp/ssm
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
+   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+   sudo service amazon-ssm-agent stop
+   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+   sudo service amazon-ssm-agent start
+   ```
+
+------
+#### [ Raspbian ]
+
+   ```
+   mkdir /tmp/ssm
+   sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+   sudo service amazon-ssm-agent stop
+   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+   sudo service amazon-ssm-agent start
    ```
 
 ------
@@ -118,30 +142,6 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
      ```
 
 ------
-#### [ Debian ]
-
-   ```
-   mkdir /tmp/ssm
-   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
-   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-   sudo service amazon-ssm-agent stop
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-   sudo service amazon-ssm-agent start
-   ```
-
-------
-#### [ Raspbian ]
-
-   ```
-   mkdir /tmp/ssm
-   sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
-   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-   sudo service amazon-ssm-agent stop
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-   sudo service amazon-ssm-agent start
-   ```
-
-------
 **Note**  
 If you see the following error in the SSM Agent error logs, then the machine ID did not persist after a reboot:  
 `Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint does not match`  
@@ -162,3 +162,5 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 ```
 aws ssm deregister-managed-instance --instance-id "mi-1234567890"
 ```
+
+Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.

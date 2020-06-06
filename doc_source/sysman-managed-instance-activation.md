@@ -11,7 +11,7 @@ An *activation expiration* is a window of time when you can register on\-premise
 Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
 **About activation tags**  
-If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is a Linux CLI example that includes tags\.
+If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes tags\.
 
 ```
 aws ssm create-activation \ 
@@ -25,7 +25,7 @@ aws ssm create-activation \
 
 If you specify tags when you create an activation, then those tags are automatically assigned to your on\-premises servers and VMs when you activate them\.
 
-You can't add tags to or delete tags from an existing activation\. If you don't want to automatically assign tags to your on\-premises servers and VMs using an activation, then you can add tags to them later\. More specifically, you can tag your on\-premises servers and VMs after they connect to Systems Manager for the first time\. After they connect, they are assigned a managed instance ID and listed in the Systems Manager console with an ID that is prefixed with "mi\-"\. For information about how to add tags to your managed instances without using the activation process, see [AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html)\.
+You can't add tags to or delete tags from an existing activation\. If you don't want to automatically assign tags to your on\-premises servers and VMs using an activation, then you can add tags to them later\. More specifically, you can tag your on\-premises servers and VMs after they connect to Systems Manager for the first time\. After they connect, they are assigned a managed instance ID and listed in the Systems Manager console with an ID that is prefixed with "mi\-"\. For information about how to add tags to your managed instances without using the activation process, see [ Tagging managed instances](tagging-managed-instances.md)\.
 
 **Note**  
 You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
@@ -83,7 +83,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ------
-#### [ Linux CLI ]
+#### [ Linux ]
 
    ```
    aws ssm create-activation \ 
@@ -91,11 +91,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --iam-role iam-service-role-name \
      --registration-limit number-of-managed-instances \
      --region region \ 
-     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
+     --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
 ------
-#### [ Windows CLI ]
+#### [ Windows ]
 
    ```
    aws ssm create-activation ^ 
@@ -103,7 +103,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --iam-role iam-service-role-name ^
      --registration-limit number-of-managed-instances ^
      --region region ^ 
-     --tags "Key=key-name-1,Value=key-value-1","Key=key-name-2,Value=key-value-2"
+     --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -122,7 +122,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    Here is an example\.
 
 ------
-#### [ Linux CLI ]
+#### [ Linux ]
 
    ```
    aws ssm create-activation \
@@ -130,11 +130,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
      --registration-limit 10 \ 
      --region us-east-2 \
-     --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
+     --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
 ------
-#### [ Windows CLI ]
+#### [ Windows ]
 
    ```
    aws ssm create-activation ^
@@ -142,7 +142,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
      --registration-limit 10 ^ 
      --region us-east-2 ^
-     --tags "Key=Environment,Value=Production","Key=Department,Value=Finance"
+     --tags "Key=Environment,Value=Production "Key=Department,Value=Finance"
    ```
 
 ------
@@ -160,4 +160,4 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    If the activation is created successfully, the system immediately returns an Activation Code and ID\.
 
-Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
