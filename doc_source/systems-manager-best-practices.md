@@ -28,6 +28,12 @@ The title of each section here is an active link to the corresponding section in
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by on or on behalf of Run Command using AWS CloudTrail\.
++ When you run a command in Run Command, do not include any sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket, in AWS CloudTrail logs\. This means that any user with access to that S3 bucket can view the plaintext values of those secrets\. For this reason, we strongly recommend creating and using `SecureString` parameters to encrypt the sensitive data you use in your Systems Manager operations\.
+
+  For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
+**Note**  
+By default, the log files delivered by CloudTrail to your bucket are encrypted by Amazon [server\-side encryption with Amazon S3\-managed encryption keys \(SSE\-S3\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)\. To provide a security layer that is directly manageable, you can instead use [server\-side encryption with AWS KMS–managed keys \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) for your CloudTrail log files\.  
+For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Managed Keys \(SSE\-KMS\)](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html) in the *AWS CloudTrail User Guide*\.
 + [Use the targets and rate control features in Run Command to perform a staged command execution](send-commands-multiple.md)\.
 + [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 

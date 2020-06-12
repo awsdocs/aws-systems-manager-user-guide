@@ -17,6 +17,11 @@ To help you decide whether to use a custom service role or the Systems Manager s
 **Task 2: Configure user permissions**  
 Granting `iam:PassRole` permissions to the users in your account who assigns tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit permission, a user can't assign tasks to a maintenance window\. 
 
+**Before you begin**  
+In order to complete the tasks in the section, you need one or both of the following resources\.
++ You are assigning permissions to IAM users or groups\. These users or groups should already have been granted general permissions for working with maintenance windows\. This can be done by assigning the IAM policy `AmazonSSMFullAccess` to the users or groups, or by creating and assigning an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
++ \(Optional\) For maintenance windows that run Run Command tasks, you can choose for Amazon Simple Notification Service \(Amazon SNS\) status notifications to be sent\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+
 ## Should I use a service\-linked role or a custom service role to run maintenance window tasks?<a name="maintenance-window-tasks-service-role"></a>
 
 To run maintenance tasks on your target instances, the Maintenance Windows service must have permission to access and run tasks on your instances\. You can provide this permission by specifying either the Systems Manager service\-linked role or a custom service role as part of a task configuration\.

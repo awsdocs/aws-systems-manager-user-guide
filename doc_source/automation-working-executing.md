@@ -51,8 +51,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name DocumentName \
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName \
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -60,8 +60,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name DocumentName ^
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName ^
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -82,8 +82,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name "AWS-RestartEC2Instance" \
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" \
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -91,8 +91,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name "AWS-RestartEC2Instance" ^
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" ^
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -142,7 +142,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions \
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------
@@ -150,7 +150,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions ^
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------

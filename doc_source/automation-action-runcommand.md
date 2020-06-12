@@ -89,19 +89,19 @@ Here is an example:
     "inputs": {
         "DocumentName": "AWS-RunPowerShellScript",
         "Targets": [                   
-        {
-            "Key": "tag:Stage",
-            "Values": [
-                "Gamma", "Beta"
-            ]
-        },
-        {
-            "Key": "tag-key",
-            "Values": [
-                "Suite"
-            ]
-        }
-    ],
+            {
+                "Key": "tag:Stage",
+                "Values": [
+                    "Gamma", "Beta"
+                ]
+            },
+            {
+                "Key": "tag:Application",
+                "Values": [
+                    "Suite"
+                ]
+            }
+        ],
         "Parameters": {
             "commands": [
                 "(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"

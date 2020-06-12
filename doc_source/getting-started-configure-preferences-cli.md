@@ -1,8 +1,8 @@
-# Update Session Manager preferences \(AWS CLI\)<a name="getting-started-configure-preferences-cli"></a>
+# Update Session Manager preferences \(command line\)<a name="getting-started-configure-preferences-cli"></a>
 
-The following procedure describes how to use the AWS CLI and the [update\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) command to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
-**To update Session Manager preferences \(AWS CLI\)**
+**To update Session Manager preferences \(command line\)**
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 
@@ -54,11 +54,37 @@ Add CMK permissions for instances in your account: [Step 2: Verify or create an 
 
 1. In the directory where you created the JSON file, run the following command:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-document --name "SSM-SessionManagerRunShell" --content "file://SessionManagerRunShell.json" --document-version "\$LATEST"
+   aws ssm update-document \
+       --name "SSM-SessionManagerRunShell" \
+       --content "file://SessionManagerRunShell.json" \
+       --document-version "\$LATEST"
    ```
-**Important**  
-Be sure to include `file://` before the file name\. It is required in this command\.
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-document ^
+       --name "SSM-SessionManagerRunShell" ^
+       --content "file://SessionManagerRunShell.json" ^
+       --document-version "$LATEST"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Update-SSMDocument `
+       -Name "SSM-SessionManagerRunShell" `
+       -Content (Get-Content -Raw SessionManagerRunShell.json) `
+       -DocumentVersion '$LATEST'
+   ```
+
+------
 
    If successful, the command returns output similar to the following:
 

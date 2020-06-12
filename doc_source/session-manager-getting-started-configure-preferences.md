@@ -12,8 +12,8 @@ Before a user can update Session Manager preferences, they must have been grante
 + [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)
 + [Enable run as support for Linux instances](session-preferences-run-as.md)
 + [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)
-+ [Create Session Manager preferences \(AWS CLI\)](getting-started-create-preferences-cli.md)
-+ [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)
++ [Create Session Manager preferences \(command line\)](getting-started-create-preferences-cli.md)
++ [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)
 
 For information about using the Systems Manager console to configure options for logging session data, see the following topics\.
 + [Logging session data using Amazon S3 \(console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-s3)

@@ -31,15 +31,27 @@ A custom service role is not required if you choose to use a Systems Manager ser
    }
    ```
 
-1. \(Optional\) Modify the policy to restrict access or provide additional permissions as needed\. 
+1. Open the AWS CLI and run the following command in the directory where you placed `mw-role-trust-policy.json` in order to create a maintenance window role called `my-maintenance-window-role`\. The command assigns the policy you created in the previous step to this role\.
 
-   For information about the types of customizations you might choose to make, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
-
-1. Open the AWS CLI and run the following command in the directory where you placed `mw-role-trust-policy.json` in order to create a maintenance window role called `mw-task-role`\. The command assigns the policy you created in the previous step to this role:
+------
+#### [ Linux ]
 
    ```
-   aws iam create-role --role-name mw-task-role --assume-role-policy-document file://mw-role-trust-policy.json
+   aws iam create-role \
+       --role-name "my-maintenance-window-role" \
+       --assume-role-policy-document file://mw-role-trust-policy.json
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam create-role ^
+       --role-name "my-maintenance-window-role" ^
+       --assume-role-policy-document file://mw-role-trust-policy.json
+   ```
+
+------
 
    The system returns information like the following:
 
@@ -60,20 +72,36 @@ A custom service role is not required if you choose to use a Systems Manager ser
            },
            "RoleId": "AROAIIZKPBKS2LEXAMPLE",
            "CreateDate": "2017-04-04T03:40:17.373Z",
-           "RoleName": "mw-task-role",
+           "RoleName": "my-maintenance-window-role",
            "Path": "/",
-           "Arn": "arn:aws:iam::123456789012:role/mw-task-role"
+           "Arn": "arn:aws:iam::123456789012:role/my-maintenance-window-role"
        }
    }
    ```
 **Note**  
-Make a note of the `RoleName` and the `Arn`\. You specify these when you create a maintenance window\.
+Make a note of the `RoleName` and the `Arn` values\. You specify these when you create a maintenance window that uses this custom role\.
 
-1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in step 2:
+1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in step 2\.
+
+------
+#### [ Linux ]
 
    ```
-   aws iam attach-role-policy --role-name mw-task-role --policy-arn arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole
+   aws iam attach-role-policy \
+       --role-name "my-maintenance-window-role" \
+       --policy-arn "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam attach-role-policy ^
+       --role-name "my-maintenance-window-role" ^
+       --policy-arn "arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole"
+   ```
+
+------
 
 ## Task 2: Assign the IAM PassRole policy to an IAM user or group<a name="sysman-mw-passrole-cli"></a>
 
@@ -85,56 +113,129 @@ When you register a task with a maintenance window, you specify either a custom 
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Sid":"Stmt1491345526000",
-            "Effect":"Allow",
-            "Action":[
-               "iam:GetRole",
-               "iam:PassRole",
-               "ssm:RegisterTaskWithMaintenanceWindow"
-            ],
-            "Resource":[
-               "*"
-            ]
-         }
-      ]
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "iam:PassRole",
+               "Resource": "custom-role-arn
+           },
+           {
+               "Effect": "Allow",
+               "Action": "iam:ListRoles",
+               "Resource": "arn:aws:iam::account-id:role/"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "iam:ListRoles",
+               "Resource": "arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/"
+           }
+       ]
    }
    ```
+
+   Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+
+   Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 
 1. Open the AWS CLI\.
 
 1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
    + **For an IAM user:**
 
+------
+#### [ Linux ]
+
      ```
-     aws iam put-user-policy --user-name user-name --policy-name "policy-name" --policy-document path-to-document
+     aws iam put-user-policy \
+         --user-name "user-name" \
+         --policy-name "policy-name" \
+         --policy-document file://path-to-document
      ```
 
-     For *user\-name*, specify the IAM user who assigns tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
+------
+#### [ Windows ]
+
+     ```
+     aws iam put-user-policy ^
+         --user-name "user-name" ^
+         --policy-name "policy-name" ^
+         --policy-document file://path-to-document
+     ```
+
+------
+
+     For *user\-name*, specify the IAM user who assigns tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-If you plan to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account\. Run the following command to assign this policy to your account:  
+To grant access for a user to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account \(or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\. Run the following command to assign the `AmazonSSMFullAccess` policy to your account:  
 
      ```
-     aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMFullAccess --user-name user-name
+     aws iam attach-user-policy \
+         --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" \
+         --user-name "user-name"
+     ```
+
+     ```
+     aws iam attach-user-policy ^
+         --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" ^
+         --user-name "user-name"
      ```
    + **For an IAM group:**
 
+------
+#### [ Linux ]
+
      ```
-     aws iam put-group-policy --group-name group-name --policy-name "policy-name" --policy-document path-to-document
+     aws iam put-group-policy \
+         --group-name "group-name" \
+         --policy-name "policy-name" \
+         --policy-document file://path-to-document
      ```
 
-     For *group\-name*, specify the IAM group whose members assign tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
+------
+#### [ Windows ]
+
+     ```
+     aws iam put-group-policy ^
+         --group-name "group-name" ^
+         --policy-name "policy-name" ^
+         --policy-document file://path-to-document
+     ```
+
+------
+
+     For *group\-name*, specify the IAM group whose members assign tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-If you plan to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group:  
+To grant access for members of a group to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group:  
 
      ```
-     aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMFullAccess --group-name group-name
+     aws iam attach-group-policy \
+         --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" \
+         --group-name "group-name"
+     ```
+
+     ```
+     aws iam attach-group-policy ^
+         --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" ^
+         --group-name "group-name"
      ```
 
 1. Run the following command to verify that the policy has been assigned to the group:
 
+------
+#### [ Linux ]
+
    ```
-   aws iam list-group-policies --group-name group-name
+   aws iam list-group-policies \    
+       --group-name "group-name"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam list-group-policies ^    
+       --group-name "group-name"
+   ```
+
+------

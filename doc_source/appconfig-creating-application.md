@@ -1,4 +1,4 @@
-# Step 1: Create an AppConfig application<a name="appconfig-creating-application"></a>
+# Step 1: Creating an AppConfig application<a name="appconfig-creating-application"></a>
 
 An application in AWS AppConfig is a logical unit of code that provides capabilities for your customers\. For example, an application can be a microservice that runs on EC2 instances, a mobile application installed by your users, a serverless application using Amazon API Gateway and AWS Lambda, or any system you run on behalf of others\. 
 
@@ -20,4 +20,4 @@ Use the following procedure to create an AppConfig application by using the AWS 
 
 1. Choose **Create application**\.
 
-AppConfig creates the application and then displays the **Environments** tab\. Proceed to [Step 2: Create an environment](appconfig-creating-environment.md)\. You can begin the procedure where it states, "On the **Environments** tab\.\.\."
+AppConfig creates the application and then displays the **Environments** tab\. Proceed to [Step 2: Creating an environment](appconfig-creating-environment.md)\. You can begin the procedure where it states, "On the **Environments** tab\.\.\."

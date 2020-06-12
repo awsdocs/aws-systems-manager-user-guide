@@ -46,4 +46,4 @@ Configuration data stored in SSM documents must validate against an associated J
 
 1. Choose **Create configuration profile**\.
 
-AppConfig creates the configuration profile\. Proceed to [Step 4: Create a deployment strategy](appconfig-creating-deployment-strategy.md)\.
+AppConfig creates the configuration profile\. Proceed to [Step 4: Creating a deployment strategy](appconfig-creating-deployment-strategy.md)\.

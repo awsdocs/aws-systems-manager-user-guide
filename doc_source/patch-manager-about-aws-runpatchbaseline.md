@@ -16,7 +16,8 @@ On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads an
 #### [ Linux ]
 
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
-+ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
++ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
++ RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires Python 2 or Python 3\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
 + Debian and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
@@ -74,6 +75,8 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 `InstallOverrideList` lets you specify an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
+
+For a description of how you might use the `InstallOverrideList` parameter to apply different types of patches to a target group, on different maintenance window schedules, while still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)\.
 
 **Valid URL formats**
 + **https URL format**:

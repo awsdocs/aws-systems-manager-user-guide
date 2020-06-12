@@ -82,6 +82,18 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    ```
 
 ------
+#### [ RHEL 8\.x ]
+
+   ```
+   mkdir /tmp/ssm
+   curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
+   sudo dnf install -y /tmp/ssm/amazon-ssm-agent.rpm
+   sudo systemctl stop amazon-ssm-agent
+   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+   sudo systemctl start amazon-ssm-agent
+   ```
+
+------
 #### [ Debian ]
 
    ```

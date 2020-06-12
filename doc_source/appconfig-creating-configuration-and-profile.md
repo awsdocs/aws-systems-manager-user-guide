@@ -1,4 +1,4 @@
-# Step 3: Create a configuration and a configuration profile<a name="appconfig-creating-configuration-and-profile"></a>
+# Step 3: Creating a configuration and a configuration profile<a name="appconfig-creating-configuration-and-profile"></a>
 
 A *configuration* is a collection of settings that influence the behavior of your application\. For example, you can create and deploy configurations that carefully introduce changes to your application or turn on new features that require a timely deployment, such as a product launch or announcement\. Here's a very simple example of an access list configuration\. 
 

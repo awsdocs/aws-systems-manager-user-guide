@@ -177,6 +177,9 @@ mainSteps:
   inputs:
     Service: ssm
     Api: DescribeInstanceInformation
+    Filters:
+    - Key: InstanceIds
+      Values: ["{{ InstanceId }}"]
   outputs:
   - Name: myInstance
     Selector: "$.InstanceInformationList[0].InstanceId"

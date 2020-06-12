@@ -27,7 +27,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the follow guidelines:    
+1. Packages are selected for the update according to the following guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
@@ -48,7 +48,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the follow guidelines:    
+1. Packages are selected for the update according to the following guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
@@ -106,7 +106,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the follow guidelines:    
+1. Packages are selected for the update according to the following guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
@@ -115,7 +115,7 @@ For information about patch compliance status values, see [About patch complianc
 
 On Red Hat Enterprise Linux, the patch selection process is as follows:
 
-1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\.
+1. On the instance, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
 The `updateinfo.xml` file might not be available if the repo is not one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
 
@@ -127,7 +127,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the follow guidelines:    
+1. Packages are selected for the update according to the following guidelines:    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.

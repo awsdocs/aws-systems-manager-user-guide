@@ -25,7 +25,7 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
      The equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=critical,important --bugfix 
+     sudo yum update-minimal --sec-severity=critical,important --bugfix -y
      ```
    + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
@@ -110,14 +110,14 @@ On Oracle Linux instances, the patch installation workflow is as follows:
      The equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=important,moderate --bugfix 
+     sudo yum update-minimal --sec-severity=important,moderate --bugfix -y
      ```
    + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
      The equivalent yum command for this workflow is:
 
      ```
-     sudo yum update --security --bugfix
+     sudo yum update --security --bugfix -y
      ```
 
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
@@ -137,20 +137,33 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches as follows:
+1. The YUM update API \(on RHEL 7\) or the DNF update API \(on RHEL 8\) is applied to approved patches as follows:
    + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
 
-     The equivalent yum command for this workflow is:
+     For RHEL 7, the equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=critical,important --bugfix 
+     sudo yum update-minimal --sec-severity=critical,important --bugfix -y
+     ```
+
+     For RHEL 8, the equivalent dnf commands for this workflow is:
+
+     ```
+     sudo dnf update-minimal --sec-severity=Critical --bugfix -y ; \
+     sudo dnf update-minimal --sec-severity=Important --bugfix -y
      ```
    + For custom patch baselines where the **Approved patches include non\-security updates** *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
-     The equivalent yum command for this workflow is:
+     For RHEL 7, the equivalent yum command for this workflow is:
 
      ```
-     sudo yum update --security --bugfix
+     sudo yum update --security --bugfix -y
+     ```
+
+     For RHEL 8, the equivalent yum command for this workflow is:
+
+     ```
+     sudo dnf update --security --bugfix -y
      ```
 
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)

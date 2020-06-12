@@ -1,10 +1,10 @@
-# Create Session Manager preferences \(AWS CLI\)<a name="getting-started-create-preferences-cli"></a>
+# Create Session Manager preferences \(command line\)<a name="getting-started-create-preferences-cli"></a>
 
-The following procedure describes how to use the AWS CLI and the [create\-document](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-document.html) command to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
-For information about using the CLI to update existing Session Manager preferences, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+For information about using command line tools to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
-**To create Session Manager preferences \(AWS CLI\)**
+**To create Session Manager preferences \(command line\)**
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
 
@@ -56,11 +56,40 @@ Add CMK permissions for instances in your account: [Step 2: Verify or create an 
 
 1. In the directory where you created the JSON file, run the following command:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-document --name SSM-SessionManagerRunShell --content "file://SessionManagerRunShell.json" --document-type "Session" --document-format JSON
+   aws ssm create-document \
+       --name SSM-SessionManagerRunShell \
+       --content "file://SessionManagerRunShell.json" \
+       --document-type "Session" \
+       --document-format JSON
    ```
-**Important**  
-Be sure to include `file://` before the file name\. It is required in this command\.
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-document ^
+       --name SSM-SessionManagerRunShell ^
+       --content "file://SessionManagerRunShell.json" ^
+       --document-type "Session" ^
+       --document-format JSON
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMDocument `
+       -Name "SSM-SessionManagerRunShell" `
+       -Content (Get-Content -Raw SessionManagerRunShell.json) `
+       -DocumentType "Session" `
+       -DocumentFormat JSON
+   ```
+
+------
 
    If successful, the command returns output similar to the following:
 

@@ -10,9 +10,6 @@ Create an Amazon Machine Image \(AMI\) from a Windows Server 2008 R2, 2012 R2, o
 
 To upgrade your instance from Windows Server 2008 R2 to Windows Server 2016 or 2019, the Automation document performs two steps\. The Windows Server 2008 R2 instance is upgraded to Windows Server 2012 R2\. Then the Windows Server 2012 R2 instance is upgraded to the target version \(Windows Server 2016 or 2019\)\.
 
-**Important**  
-This Automation document does not support the Enterprise Editions of Windows Server 2008 R2, 2012, and 2016\. This document supports the Standard and Datacenter Editions of Windows Server 2008 R2, 2012 R2, and 2016\.
-
 The upgrade operation is a multi\-step process that can take 2 hours to complete\. The Automation creates an AMI from the instance and then launches a temporary instance from the newly created AMI in the `SubnetId` that you specify\. The security groups associated with your original instance are applied to the temporary instance\. The Automation workflow then performs an in\-place upgrade to the `TargetWindowsVersion` on the temporary instance\. To upgrade your Windows Server 2008 R2 instance to Windows Server 2016 or 2019, an in\-place upgrade is performed twice because directly upgrading Windows Server 2008 R2 to Windows Server 2016 or 2019 is not supported\. The workflow also updates or installs the AWS drivers required by the temporary instance\. After the upgrade, the workflow creates a new AMI from the temporary instance and then terminates the temporary instance\.
 
 You can test application functionality by launching a test instance from the upgraded AMI in your VPC\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded AMI\.

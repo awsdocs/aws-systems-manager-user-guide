@@ -36,239 +36,255 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 Common properties are parameters or options that are found in all actions\. Some options define execution behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 
-------
-#### [ YAML ]
-
-```
-mainSteps:
-- name: name
-  action: action
-  maxAttempts: value
-  timeoutSeconds: value
-  onFailure: value
-  inputs:
-    ...
-- name: name
-  action: action
-  maxAttempts: value
-  timeoutSeconds: value
-  onFailure: value
-  inputs:
-      ...
-```
-
-------
-#### [ JSON ]
-
-```
-"mainSteps": [
-    {
-        "name": "name",
-        "action": "action",
-        "maxAttempts": value,
-        "timeoutSeconds": value,
-        "onFailure": "value",
-        "inputs": {
-            ...
-        }      
-    },
-    {
-        "name": "name",
-        "action": "action",
-        "maxAttempts": value,
-        "timeoutSeconds": value,
-        "onFailure": "value",
-        "inputs": {
-            ...
-        }        
-    }
-]
-```
-
-------
-
-name  
+[name](#nameProp)  
 An identifier that must be unique across all step names in the document\.  
 Type: String  
 Required: Yes
 
-action  
+[action](#actProp)  
 The name of the action the step is to run\. [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
 Type: String  
 Required: Yes
 
-maxAttempts  
+[maxAttempts](#maxProp)  
 The number of times the step should be retried in case of failure\. If the value is greater than 1, the step is not considered to have failed until all retry attempts have failed\. The default value is 1\.  
 Type: Integer  
 Required: No
 
-timeoutSeconds  
+[timeoutSeconds](#timeProp)  
 The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.   
 The `aws:changeInstanceState` action has a default `timeoutSeconds` value of 3600\. For all other actions, there is no default value\.  
 Type: Integer  
 Required: No
 
-onFailure  
+[onFailure](#failProp)  
 Indicates whether the workflow should abort, continue, or go to a different step on failure\. The default value for this option is abort\.  
 Type: String  
 Valid values: Abort \| Continue \| step:*step\_name*  
 Required: No
 
-isEnd  
+[isEnd](#endProp)  
 This option stops an Automation execution at the end of a specific step\. The Automation execution stops if the step execution failed or succeeded\. The default value is false\.  
 Type: Boolean  
 Valid values: true \| false  
-Required: No  
-Here is an example of how to enter this option in the mainSteps section of your document:  
+Required: No
 
-```
-mainSteps:
-- name: InstallMsiPackage
-  action: aws:runCommand
-  onFailure: step:PostFailure
-  maxAttempts: 2
-  inputs:
-    InstanceIds:
-    - i-1234567890EXAMPLE
-    - i-abcdefghiEXAMPLE
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - msiexec /i {{packageName}}
-  nextStep: TestPackage
-- name: TestPackage
-  action: aws:invokeLambdaFunction
-  maxAttempts: 1
-  timeoutSeconds: 500
-  inputs:
-    FunctionName: TestLambdaFunction
-  isEnd: true
-```
-
-```
-"mainSteps":[
-   {
-      "name":"InstallMsiPackage",
-      "action":"aws:runCommand",
-      "onFailure":"step:PostFailure",
-      "maxAttempts":2,
-      "inputs":{
-         "InstanceIds":[
-            "i-1234567890EXAMPLE","i-abcdefghiEXAMPLE"
-        ],
-         "DocumentName":"AWS-RunPowerShellScript",
-         "Parameters":{
-            "commands":[
-               "msiexec /i {{packageName}}"
-            ]
-         }
-      },
-      "nextStep":"TestPackage"
-   },
-   {
-      "name":"TestPackage",
-      "action":"aws:invokeLambdaFunction",
-      "maxAttempts":1,
-      "timeoutSeconds":500,
-      "inputs":{
-         "FunctionName":"TestLambdaFunction"
-      },
-      "isEnd":true
-   }
-]
-```
-
-nextStep  
+[nextStep](#nextProp)  
 Specifies which step in an Automation workflow to process next after successfully completing a step\.  
-Here is an example of how to enter this option in the mainSteps section of your document:  
+Type: String  
+Required: No
 
-```
-mainSteps:
-- name: InstallMsiPackage
-  action: aws:runCommand
-  onFailure: step:PostFailure
-  maxAttempts: 2
-  inputs:
-    InstanceIds:
-    - i-1234567890EXAMPLE
-    - i-abcdefghiEXAMPLE
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - msiexec /i {{packageName}}
-  nextStep: TestPackage
-```
-
-```
-"mainSteps":[
-    {
-        "name":"InstallMsiPackage",
-        "action":"aws:runCommand",
-        "onFailure":"step:PostFailure",
-        "maxAttempts":2,
-        "inputs":{
-            "InstanceIds":[
-                "i-1234567890EXAMPLE","i-abcdefghiEXAMPLE"
-            ],
-            "DocumentName":"AWS-RunPowerShellScript",
-            "Parameters":{
-                "commands":[
-                    "msiexec /i {{packageName}}"
-                ]
-            }
-        },
-        "nextStep":"TestPackage"
-    }
-]
-```
-
-isCritical  
+[isCritical](#critProp)  
 Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.  
 Type: Boolean  
 Valid values: true \| false  
-Required: No  
-Here is an example of how to enter this option in the mainSteps section of your document:  
+Required: No
 
-```
-mainSteps:
-- name: InstallMsiPackage
-  action: aws:runCommand
-  onFailure: step:SomeOtherStep
-  isCritical: false
-  maxAttempts: 2
-  inputs:
-    InstanceIds:
-    - i-1234567890EXAMPLE,i-abcdefghiEXAMPLE
-    DocumentName: AWS-RunPowerShellScript
-    Parameters:
-      commands:
-      - msiexec /i {{packageName}}
-  nextStep: TestPackage
-```
-
-```
-"mainSteps":[
-    {
-       "name":"InstallMsiPackage",
-       "action":"aws:runCommand",
-       "onFailure":"step:SomeOtherStep",
-       "isCritical":false,
-       "maxAttempts":2,
-       "inputs":{
-          "InstanceIds":["i-1234567890EXAMPLE","i-abcdefghiEXAMPLE"],
-          "DocumentName":"AWS-RunPowerShellScript",
-          "Parameters":{
-             "commands":[
-                "msiexec /i {{packageName}}"
-             ]
-          }
-       },
-       "nextStep":"TestPackage"
-    }
-]
-```
-
-inputs  
+[inputs](#inProp)  
 The properties specific to the action\.  
 Type: Map  
 Required: Yes
+
+### Example<a name="automation-demo"></a>
+
+```
+---
+description: "Custom Automation Example"
+schemaVersion: '0.3'
+assumeRole: "{{ AutomationAssumeRole }}"
+parameters:
+  AutomationAssumeRole:
+    type: String
+    description: "(Required) The ARN of the role that allows Automation to perform
+      the actions on your behalf. If no role is specified, Systems Manager Automation
+      uses your IAM permissions to execute this document."
+    default: ''
+  InstanceId:
+      type: String
+      description: "(Required) The Instance Id whose root EBS volume you want to restore the latest Snapshot."
+      default: ''
+mainSteps:
+- name: getInstanceDetails
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: DescribeInstances
+    InstanceIds:
+    - "{{ InstanceId }}"
+  outputs:
+    - Name: availabilityZone
+      Selector: "$.Reservations[0].Instances[0].Placement.AvailabilityZone"
+      Type: String
+    - Name: rootDeviceName
+      Selector: "$.Reservations[0].Instances[0].RootDeviceName"
+      Type: String
+  nextStep: getRootVolumeId
+- name: getRootVolumeId
+  action: aws:executeAwsApi
+  maxAttempts: 3
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: DescribeVolumes
+    Filters:
+    -  Name: attachment.device
+       Values: ["{{ getInstanceDetails.rootDeviceName }}"]
+    -  Name: attachment.instance-id
+       Values: ["{{ InstanceId }}"]
+  outputs:
+    - Name: rootVolumeId
+      Selector: "$.Volumes[0].VolumeId"
+      Type: String
+  nextStep: getSnapshotsByStartTime
+- name: getSnapshotsByStartTime
+  action: aws:executeScript
+  timeoutSeconds: 45
+  onFailure: Abort
+  inputs:
+    Runtime: python3.6
+    Handler: getSnapshotsByStartTime
+    InputPayload:
+      rootVolumeId : "{{ getRootVolumeId.rootVolumeId }}"
+    Script: |-
+      def getSnapshotsByStartTime(events,context):
+        import boto3
+
+        #Initialize client
+        ec2 = boto3.client('ec2')
+        rootVolumeId = events['rootVolumeId']
+        snapshotsQuery = ec2.describe_snapshots(
+          Filters=[
+            {
+              "Name": "volume-id",
+              "Values": [rootVolumeId]
+            }
+          ]
+        )
+        if not snapshotsQuery['Snapshots']:
+          noSnapshotFoundString = "NoSnapshotFound"
+          return { 'noSnapshotFound' : noSnapshotFoundString }
+        else:
+          jsonSnapshots = snapshotsQuery['Snapshots']
+          sortedSnapshots = sorted(jsonSnapshots, key=lambda k: k['StartTime'], reverse=True)
+          latestSortedSnapshotId = sortedSnapshots[0]['SnapshotId']
+          return { 'latestSnapshotId' : latestSortedSnapshotId }
+  outputs:
+  - Name: Payload
+    Selector: $.Payload
+    Type: StringMap
+  - Name: latestSnapshotId
+    Selector: $.Payload.latestSnapshotId
+    Type: String
+  - Name: noSnapshotFound
+    Selector: $.Payload.noSnapshotFound
+    Type: String 
+  nextStep: branchFromResults
+- name: branchFromResults
+  action: aws:branch
+  onFailure: Abort
+  inputs:
+    Choices:
+    - NextStep: createNewRootVolumeFromSnapshot
+      Not:
+        Variable: "{{ getSnapshotsByStartTime.noSnapshotFound }}"
+        StringEquals: "NoSnapshotFound"
+  isEnd: true
+- name: createNewRootVolumeFromSnapshot
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: CreateVolume
+    AvailabilityZone: "{{ getInstanceDetails.availabilityZone }}"
+    SnapshotId: "{{ getSnapshotsByStartTime.latestSnapshotId }}"
+  outputs:
+    - Name: newRootVolumeId
+      Selector: "$.VolumeId"
+      Type: String
+  nextStep: stopInstance
+- name: stopInstance
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: StopInstances
+    InstanceIds:
+    - "{{ InstanceId }}"
+  nextStep: verifyVolumeAvailability
+- name: verifyVolumeAvailability
+  action: aws:waitForAwsResourceProperty
+  timeoutSeconds: 120
+  inputs:
+    Service: ec2
+    Api: DescribeVolumes
+    VolumeIds:
+    - "{{ createNewRootVolumeFromSnapshot.newRootVolumeId }}"
+    PropertySelector: "$.Volumes[0].State"
+    DesiredValues:
+    - "available"
+  nextStep: verifyInstanceStopped
+- name: verifyInstanceStopped
+  action: aws:waitForAwsResourceProperty
+  timeoutSeconds: 120
+  inputs:
+    Service: ec2
+    Api: DescribeInstances
+    InstanceIds:
+    - "{{ InstanceId }}"
+    PropertySelector: "$.Reservations[0].Instances[0].State.Name"
+    DesiredValues:
+    - "stopped"
+  nextStep: detachRootVolume
+- name: detachRootVolume
+  action: aws:executeAwsApi
+  onFailure: Abort
+  isCritical: true
+  inputs:
+    Service: ec2
+    Api: DetachVolume
+    VolumeId: "{{ getRootVolumeId.rootVolumeId }}"
+  nextStep: verifyRootVolumeDetached
+- name: verifyRootVolumeDetached
+  action: aws:waitForAwsResourceProperty
+  timeoutSeconds: 30
+  inputs:
+    Service: ec2
+    Api: DescribeVolumes
+    VolumeIds:
+    - "{{ getRootVolumeId.rootVolumeId }}"
+    PropertySelector: "$.Volumes[0].State"
+    DesiredValues:
+    - "available"
+  nextStep: attachNewRootVolume
+- name: attachNewRootVolume
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: AttachVolume
+    Device: "{{ getInstanceDetails.rootDeviceName }}"
+    InstanceId: "{{ InstanceId }}"
+    VolumeId: "{{ createNewRootVolumeFromSnapshot.newRootVolumeId }}"
+  nextStep: verifyNewRootVolumeAttached
+- name: verifyNewRootVolumeAttached
+  action: aws:waitForAwsResourceProperty
+  timeoutSeconds: 30
+  inputs:
+    Service: ec2
+    Api: DescribeVolumes
+    VolumeIds:
+    - "{{ createNewRootVolumeFromSnapshot.newRootVolumeId }}"
+    PropertySelector: "$.Volumes[0].Attachments[0].State"
+    DesiredValues:
+    - "attached"
+  nextStep: startInstance
+- name: startInstance
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: StartInstances
+    InstanceIds:
+    - "{{ InstanceId }}"
+```

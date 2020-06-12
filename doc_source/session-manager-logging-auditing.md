@@ -38,7 +38,7 @@ If you are using an AWS KMS customer master key \(CMK\) that you manage yourself
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the S3 bucket that session data is sent to\. For information, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 **To log session data using Amazon S3 \(console\)**
 
@@ -71,7 +71,7 @@ Amazon CloudWatch Logs lets you monitor, store, and access log files from variou
 Follow these steps to configure Session Manager to send session log data to a CloudWatch Logs log group\.
 
 **Note**  
-You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager preferences \(AWS CLI\)](getting-started-configure-preferences-cli.md)\.
+You can also use the AWS CLI to specify or change the CloudWatch Logs log group that session data is sent to\. For information, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 **To log session data using Amazon CloudWatch Logs \(console\)**
 

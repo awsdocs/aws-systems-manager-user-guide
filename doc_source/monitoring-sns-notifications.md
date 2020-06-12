@@ -101,15 +101,17 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
                "Action": [
                    "sns:Publish"
                ],
-               "Resource": "arn:aws:sns:us-east-2:123456789012:MyTopic"
+               "Resource": "sns-topic-arn"
            }
        ]
    }
    ```
 
+   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon Simple Notification Service notifications, in the format of `arn:aws:iam::account-id:sns-topic-name.` For example: `arn:aws:iam::123456789012:my-sns-topic`\.
+
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **`SNSPublishPermissions`**\.
+1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **my\-sns\-publish\-permissions**\.
 
 1. \(Optional\) For **Description**, enter a description for the policy\.
 
@@ -129,13 +131,15 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. In the **Choose a use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
 
-1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **`SNSPublishPermissions`**\.
+1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **my\-sns\-publish\-permissions**\.
 
 1. Choose **Next: Tags**\.
 
 1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
-1. On the **Review** page, type a name in the **Role name** box, and then type a description\.
+1. On the **Review** page, type a name in the **Role name** box, such as **my\-sns\-role**\. 
+
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Triggers SNS topics on your behalf\.**
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 

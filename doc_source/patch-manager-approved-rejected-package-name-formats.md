@@ -13,7 +13,7 @@ The formats you can specify for approved and rejected patches in your patch base
 
 ### Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
 
-**Package manager**: YUM
+**Package manager**: YUM, except for RHEL 8, which uses DNF as the package manager
 
 **Approved patches**: For approved patches, you can specify any of the following:
 + Bugzilla IDs, in the format `1234567` \(The system processes numbers\-only strings as Bugzilla IDs\.\)

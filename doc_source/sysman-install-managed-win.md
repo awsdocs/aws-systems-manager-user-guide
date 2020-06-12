@@ -51,7 +51,7 @@ The command does the following:
   DisplayName : Amazon SSM Agent
   ```
 
-The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstanceInformation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceInformation.html)\.
+The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstancePatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatches.html)\.
 
 **Note**  
 You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:  

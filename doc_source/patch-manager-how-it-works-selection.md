@@ -90,7 +90,16 @@ If you select the **Approved patches include non\-security updates** check box i
 
 On Red Hat Enterprise Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually three preconfigured repos on an instance\.
 
+All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
+
 **Note**  
+If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that are not classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
+
+Red Hat Enterprise Linux 7 instances use Yum as the package manager\. Red Hat Enterprise Linux 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
+
+Note that repo locations differ between RHEL 7 and RHEL 8:
+
+RHEL 7  
 The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 2019 and introduced a different naming scheme for Yum repository IDs\. Depending on the RHEL\-7 AMI you create your instances from, you might need to update your commands\. For more information, see [Repository IDs for RHEL 7 in AWS Have Changed](https://access.redhat.com/articles/4599971) on the *Red Hat Customer Portal*\.
 + **Repo ID**: rhui\-REGION\-client\-config\-server\-7/x86\_64
 
@@ -102,13 +111,16 @@ The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 
 
   **Repo name**: Red Hat Enterprise Linux Server 7 RH Common \(RPMs\)
 
-**Note**  
-All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
+RHEL 8  
++ **Repo ID**: rhel\-8\-appstream\-rhui\-rpms
 
-Red Hat Enterprise Linux instances use Yum as the package manager, and Yum uses the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
+  **Repo name**: Red Hat Enterprise Linux 8 for x86\_64 \- AppStream from RHUI \(RPMs\)
++ **Repo ID**: rhel\-8\-baseos\-rhui\-rpms
 
-**Note**  
-If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that are not classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
+  **Repo name**: Red Hat Enterprise Linux 8 for x86\_64 \- BaseOS from RHUI \(RPMs\)
++ **Repo ID**: rhui\-client\-config\-server\-8
+
+  **Repo name**: Red Hat Update Infrastructure 3 Client Configuration Server 8
 
 ------
 #### [ SLES ]

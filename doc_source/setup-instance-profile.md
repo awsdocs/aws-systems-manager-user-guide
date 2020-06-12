@@ -78,6 +78,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
                    "arn:aws:s3:::amazon-ssm-region/*",
                    "arn:aws:s3:::amazon-ssm-packages-region/*",
                    "arn:aws:s3:::region-birdwatcher-prod/*",
+                   "arn:aws:s3:::aws-ssm-distributor-file-region/*",
                    "arn:aws:s3:::patch-baseline-snapshot-region/*"
                ]
            },

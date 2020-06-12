@@ -21,6 +21,7 @@ Refer to the following sections for more information about using these SSM docum
 + [SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)
 + [Legacy SSM documents for patching instances](#patch-manager-ssm-documents-legacy)
 + [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)
++ [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)
 
 ## SSM documents recommended for patching instances<a name="patch-manager-ssm-documents-recommended"></a>
 
