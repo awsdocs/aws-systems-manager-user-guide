@@ -30,40 +30,85 @@ Run Command lets you define how exit codes are handled in your scripts\. By defa
 Use the following PowerShell command to get status details about one or more instances:
 
 ```
-Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="InstanceIds";ValueSet="instance-ID-1","instance-ID-2"}
+Get-SSMInstanceInformation `
+	-InstanceInformationFilterList @{Key="InstanceIds";ValueSet="instance-ID-1","instance-ID-2"}
 ```
 
 Use the following PowerShell command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the ValueSet="Online" with "ConnectionLost" or "Inactive" to view those statuses:
 
 ```
-Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="PingStatus";ValueSet="Online"}
+Get-SSMInstanceInformation `
+	-InstanceInformationFilterList @{Key="PingStatus";ValueSet="Online"}
 ```
 
 Use the following PowerShell command to see which instances are running the latest version of the EC2Config service\. Substitute `ValueSet="LATEST"` with a specific version \(for example, `3.0.54` or `3.10`\) to view those details:
 
 ```
-Get-SSMInstanceInformation -InstanceInformationFilterList @{Key="AgentVersion";ValueSet="LATEST"}
+Get-SSMInstanceInformation `
+	-InstanceInformationFilterList @{Key="AgentVersion";ValueSet="LATEST"}
 ```
 
 ## What's the status of my Linux instances?<a name="rc-healthapi-linux"></a>
 
-Use the following AWS CLI command to get status details about one or more instances:
+Use the following AWS CLI command to get status details about one or more instances\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance-ID
+aws ssm describe-instance-information \
+	--instance-information-filter-list key=InstanceIds,valueSet=instance-ID
 ```
 
-Use the following command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the `ValueSet="Online"` with `"ConnectionLost"` or `"Inactive"` to view those statuses:
+------
+#### [ Windows ]
 
 ```
-aws ssm describe-instance-information --instance-information-filter-list key=PingStatus,valueSet=Online
+aws ssm describe-instance-information ^
+	--instance-information-filter-list key=InstanceIds,valueSet=instance-ID
 ```
 
-Use the following command to see which instances are running the latest version of SSM Agent\. Substitute `ValueSet="LATEST"` with a specific version \(for example, `1.0.145` or `1.0`\) to view those details:
+------
+
+Use the following command with no filters to see all instances registered to your account that are currently reporting an online status\. Substitute the `ValueSet="Online"` with `"ConnectionLost"` or `"Inactive"` to view those statuses\.
+
+------
+#### [ Linux ]
 
 ```
-aws ssm describe-instance-information --instance-information-filter-list key=AgentVersion,valueSet=LATEST
+aws ssm describe-instance-information \
+	--instance-information-filter-list key=PingStatus,valueSet=Online
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-instance-information ^
+	--instance-information-filter-list key=PingStatus,valueSet=Online
+```
+
+------
+
+Use the following command to see which instances are running the latest version of SSM Agent\. Substitute `ValueSet="LATEST"` with a specific version \(for example, `1.0.145` or `1.0`\) to view those details\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm describe-instance-information \
+	--instance-information-filter-list key=AgentVersion,valueSet=LATEST
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-instance-information ^
+	--instance-information-filter-list key=AgentVersion,valueSet=LATEST
+```
+
+------
 
 If the describe\-instance\-information API operation returns an AgentStatus of `Online`, then your instance is ready to be managed using Run Command\. If the status is `Inactive`, the instance has one or more of the following problems\. 
 + SSM Agent is not installed\.
@@ -85,9 +130,9 @@ SSM Agent logs information in the following files\. The information in these fil
 If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
 
 **On Windows**
-+ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\amazon\-ssm\-agent\.log
-+ %PROGRAMDATA%\\Amazon\\SSM\\Logs\\errors\.log
++ `%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
++ `%PROGRAMDATA%\Amazon\SSM\Logs\errors.log`
 
 **On Linux**
-+ /var/log/amazon/ssm/amazon\-ssm\-agent\.log
-+ /var/log/amazon/ssm/errors\.log
++ `/var/log/amazon/ssm/amazon-ssm-agent.log`
++ `/var/log/amazon/ssm/errors.log`

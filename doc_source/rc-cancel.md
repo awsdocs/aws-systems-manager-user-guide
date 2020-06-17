@@ -19,8 +19,24 @@ You can attempt to cancel a command as long as the service shows that it is in e
 **To cancel a command using the AWS CLI**  
 Use the following command\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm cancel-command --command-id "command -ID" --instance-ids "instance-ID"
+aws ssm cancel-command \
+	--command-id "command-ID" \
+	--instance-ids "instance-ID"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm cancel-command ^
+	--command-id "command-ID" ^
+	--instance-ids "instance-ID"
+```
+
+------
 
 For information about the status of a cancelled command, see [Understanding command statuses](monitor-commands.md)\.

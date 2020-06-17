@@ -53,7 +53,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
                    "ssm:ResetServiceSetting",
                    "ssm:UpdateServiceSetting"
                ],
-               "Resource": "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier"
+               "Resource": "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier"
            }
        ]
    }
@@ -135,17 +135,49 @@ The following procedure describes how to change an account\-level setting\. This
 
 1. Open the AWS CLI and run the following command\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-service-setting --setting-id arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier --setting-value advanced
+   aws ssm update-service-setting \
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier \
+       --setting-value advanced
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-service-setting ^
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier ^
+       --setting-value advanced
+   ```
+
+------
 
    There is no output if the command succeeds\.
 
 1. Run the following command to view the current service settings for managed instances in the current AWS account and Region\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-service-setting --setting-id arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier
+   aws ssm get-service-setting \
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-service-setting ^
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier
+   ```
+
+------
+
+   The command returns information like the following\.
 
    ```
    {
@@ -154,7 +186,7 @@ The following procedure describes how to change an account\-level setting\. This
            "SettingValue": "advanced",
            "LastModifiedDate": 1555603376.138,
            "LastModifiedUser": "arn:aws:sts::123456789012:assumed-role/Administrator/User_1",
-           "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier",
+           "ARN": "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/managed-instance/activation-tier",
            "Status": "PendingUpdate"
        }
    }
@@ -172,7 +204,9 @@ The following procedure describes how to change an account\-level setting\. This
 1. Open AWS Tools for Windows PowerShell and run the following command\.
 
    ```
-   Update-SSMServiceSetting -SettingId "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier" -SettingValue "advanced"
+   Update-SSMServiceSetting `
+       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier" `
+       -SettingValue "advanced"
    ```
 
    There is no output if the command succeeds\.
@@ -180,11 +214,14 @@ The following procedure describes how to change an account\-level setting\. This
 1. Run the following command to view the current service settings for managed instances in the current AWS account and Region\.
 
    ```
-   Get-SSMServiceSetting -SettingId "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier"
+   Get-SSMServiceSetting `
+       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier"
    ```
 
+   The command returns information like the following\.
+
    ```
-   ARN:arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier
+   ARN:arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/managed-instance/activation-tier
    LastModifiedDate : 4/18/2019 4:02:56 PM
    LastModifiedUser : arn:aws:sts::123456789012:assumed-role/Administrator/User_1
    SettingId        : /ssm/managed-instance/activation-tier

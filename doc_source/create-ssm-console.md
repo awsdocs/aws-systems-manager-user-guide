@@ -26,7 +26,9 @@ After you create the content for your custom SSM document, as described in [Writ
 
    Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a document to identify the type of tasks it runs, the type of operating systems it targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
    + `Key=TaskType,Value=MyConfigurationUpdate`
-   + `Key=OS,Value=Ubuntu`
+   + `Key=OS,Value=AMAZON_LINUX_2`
    + `Key=Environment,Value=Production`
+
+   For more information about tagging Systems Manager resources, see [Tagging Systems Manager resources](tagging-resources.md)\.
 
 1. Choose **Create document** to save the document\.

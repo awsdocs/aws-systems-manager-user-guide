@@ -47,4 +47,37 @@ New-SSMDocument `
 
 *tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
 
-If successful, the command has no output\.
+If successful, the command returns a response similar to the following\.
+
+```
+{
+   "DocumentDescription":{
+      "CreatedDate":1.585061751738E9,
+      "DefaultVersion":"1",
+      "Description":"MyCustomDocument",
+      "DocumentFormat":"JSON",
+      "DocumentType":"Command",
+      "DocumentVersion":"1",
+      "Hash":"0d3d879b3ca072e03c12638d0255ebd004d2c65bd318f8354fcde820dEXAMPLE",
+      "HashType":"Sha256",
+      "LatestVersion":"1",
+      "Name":"Example",
+      "Owner":"111122223333",
+      "Parameters":[
+         --truncated--
+      ],
+      "PlatformTypes":[
+         "Windows",
+         "Linux"
+      ],
+      "SchemaVersion":"0.3",
+      "Status":"Creating",
+      "Tags": [
+            {
+                "Key": "Purpose",
+                "Value": "Test"
+            }
+        ]
+   }
+}
+```

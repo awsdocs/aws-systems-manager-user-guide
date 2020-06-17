@@ -56,16 +56,11 @@ You can view and manage OpsData sources from the Explorer **Settings** page\. Fo
 
 Yes\. When you enable the default rules for creating OpsItems during Integrated Setup, you initiate a process that automatically creates OpsItems\. Your account is charged based on the number of OpsItems created per month\. Your account is also charged based on the number of `GetOpsItem`, `DescribeOpsItem`, `UpdateOpsItem`, and `GetOpsSummary` API calls made per month\. Additionally, you can be charged for public API calls to other services that expose relevant diagnostic information\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
-## Is Explorer available in all AWS regions?<a name="Explorer-learn-more-regions"></a>
-
-No\. Explorer is not available in the BAH \(me\-south\-1\), HKG \(ap\-east\-1\), and CPT \(af\-south\-1\) Regions\. 
-
 **Topics**
 + [What are the features of Explorer?](#Explorer-learn-more-features)
 + [How does Explorer relate to OpsCenter?](#Explorer-learn-more-OpsCenter)
 + [What is OpsData?](#Explorer-learn-more-OpsData)
 + [Is there a charge to use Explorer?](#Explorer-learn-more-cost)
-+ [Is Explorer available in all AWS regions?](#Explorer-learn-more-regions)
 + [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)
 + [Using Systems Manager Explorer](Explorer-using.md)
 + [Exporting OpsData from Systems Manager Explorer](Explorer-exporting-OpsData.md)

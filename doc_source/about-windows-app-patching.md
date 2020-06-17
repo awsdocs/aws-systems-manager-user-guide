@@ -2,6 +2,9 @@
 
 For Windows Server, two predefined patch baselines are provided\. The patch baseline `AWS-WindowsPredefinedPatchBaseline-OS` supports only operating system updates on the Windows operating system itself\. It is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The other predefined Windows patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\. 
 
+**Note**  
+Microsoft application patching is only available on EC2 instances and in the advanced\-instances tier\. To patch Microsoft applications on on\-premises servers and VMs, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+
 You can also create a custom patch baseline to update Microsoft applications on Windows Server machines\. 
 
 To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS CLI command demonstrates the minimal requirements to patch a product, such as Office 2016:

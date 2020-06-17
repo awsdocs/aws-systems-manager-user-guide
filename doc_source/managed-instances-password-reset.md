@@ -50,9 +50,27 @@ If the version of SSM Agent on the instance doesn't support password resets, you
 **Note**  
 To use the AWS CLI to reset a password, the Session Manager plugin must be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm start-session --target instance-id --document-name "AWS-PasswordReset" --parameters "{"username": "user-name"}"
+   aws ssm start-session \
+       --target instance-id \
+       --document-name "AWS-PasswordReset" \
+       --parameters "{"username": "user-name"}"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm start-session ^
+       --target instance-id ^
+       --document-name "AWS-PasswordReset" ^
+       --parameters "{"username": "user-name"}"
+   ```
+
+------
 
    *instance\-id* represents the ID of an instance configured for use with Systems Manager and its Session Manager capability\. 
 

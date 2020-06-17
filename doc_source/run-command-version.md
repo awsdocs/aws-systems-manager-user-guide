@@ -10,7 +10,7 @@ Use the following procedure to run a command using the document version paramete
 ------
 #### [ Linux ]
 
-**To run commands using the AWS CLI on Linux instances**
+**To run commands using the AWS CLI on local Linux machines**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
@@ -44,7 +44,7 @@ Use the following procedure to run a command using the document version paramete
 ------
 #### [ Windows ]
 
-**To run commands using the AWS CLI on Windows Server instances**
+**To run commands using the AWS CLI on local Windows machines**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
@@ -80,7 +80,7 @@ Use the following procedure to run a command using the document version paramete
 
 **To run commands using the Tools for PowerShell**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -63,7 +63,7 @@ To configure AppConfig to work with your application, you set up three types of 
 | --- | --- | 
 |  Application  |  An application in AppConfig is a logical unit of code that provides capabilities for your customers\. For example, an application can be a microservice that runs on EC2 instances, a mobile application installed by your users, a serverless application using Amazon API Gateway and AWS Lambda, or any system you run on behalf of others\.  | 
 |  Environment  |  For each application, you define one or more environments\. An environment is a logical deployment group of AppConfig applications, such as applications in a `Beta` or `Production` environment\. You can also define environments for application subcomponents such as the `Web`, `Mobile`, and `Back-end` components for your application\. You can configure Amazon CloudWatch alarms for each environment\. The system monitors alarms during a configuration deployment\. If an alarm is triggered, the system rolls back the configuration\.  | 
-|  Configuration profile  |  A configuration profile includes source information for accessing your configuration data in a Systems Manager \(SSM\) document, a Parameter Store parameter, or in Amazon S3\. A configuration profile can also include optional validators to ensure your configuration data is syntactically and semantically correct\. AppConfig performs a check using the validators when you start a deployment\. If any errors are detected, the deployment stops before making any changes to the targets of the configuration\.  | 
+|  Configuration profile  |  A *configuration profile* enables AWS AppConfig to access your configuration in its stored location\. You can store configurations in the following formats and locations: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html) A configuration profile can also include optional validators to ensure your configuration data is syntactically and semantically correct\. AppConfig performs a check using the validators when you start a deployment\. If any errors are detected, the deployment stops before making any changes to the targets of the configuration\.  | 
 
 ### Enable your application code to periodically check for and receive configuration data from AppConfig<a name="learn-more-appconfig-how-it-works-details-2"></a>
 
@@ -94,6 +94,9 @@ You can use built\-in deployment strategies that cover common scenarios or you c
 |  Deployment strategies  |  20  | 
 |  Environments per AppConfig application  |  20  | 
 |  Configuration profiles per AppConfig application  |  100  | 
+
+**Note**  
+For information about quotas for services that store AppConfig configurations, see [About configuration store quotas and limitations](appconfig-creating-configuration-and-profile.md#appconfig-creating-configuration-and-profile-quotas)\.
 
 For information about getting started with and using AppConfig, see the following topics\.
 

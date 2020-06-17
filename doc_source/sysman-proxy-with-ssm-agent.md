@@ -102,4 +102,4 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
    ```
 
 **Note**  
-For more information about working with \.override files in systemd environments, see [Modifying Existing Unit Files](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-managing_services_with_systemd-unit_files#sect-Managing_Services_with_systemd-Unit_File_Modify)\.
+For more information about working with \.override files in systemd environments, see [Modifying Existing Unit Files](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd#sect-Managing_Services_with_systemd-Unit_File_Modify) in the *Red Hat Enterprise Linux 7 System Administrator's Guide*\.

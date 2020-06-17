@@ -37,17 +37,47 @@ The following procedure shows you how to use the AWS CLI to change all on\-premi
 
 1. Open the AWS CLI and run the following command\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm update-service-setting --setting-id arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier --setting-value standard
+   aws ssm update-service-setting \
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier \
+       --setting-value standard
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-service-setting ^
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier ^
+       --setting-value standard
+   ```
+
+------
 
    There is no output if the command succeeds\.
 
 1. Run the following command 30 minutes later to view the settings for managed instances in the current AWS account and Region\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-service-setting --setting-id arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier
+   aws ssm get-service-setting \
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier
    ```
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm get-service-setting ^
+       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier
+   ```
+
+------
 
    The command returns information like the following\.
 
@@ -58,7 +88,7 @@ The following procedure shows you how to use the AWS CLI to change all on\-premi
            "SettingValue": "standard",
            "LastModifiedDate": 1555603376.138,
            "LastModifiedUser": "System",
-           "ARN": "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier",
+           "ARN": "arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/managed-instance/activation-tier",
            "Status": "Default"
        }
    }
@@ -75,7 +105,9 @@ The following procedure shows you how to use AWS Tools for Windows PowerShell to
 1. Open AWS Tools for Windows PowerShell and run the following command\.
 
    ```
-   Update-SSMServiceSetting -SettingId "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier" -SettingValue "standard"
+   Update-SSMServiceSetting `
+       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier" `
+       -SettingValue "standard"
    ```
 
    There is no output if the command succeeds\.
@@ -83,13 +115,14 @@ The following procedure shows you how to use AWS Tools for Windows PowerShell to
 1. Run the following command 30 minutes later to view the settings for managed instances in the current AWS account and Region\.
 
    ```
-   Get-SSMServiceSetting -SettingId "arn:aws:ssm:AWS_Region:AWS_account_ID:servicesetting/ssm/managed-instance/activation-tier"
+   Get-SSMServiceSetting `
+       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/managed-instance/activation-tier"
    ```
 
    The command returns information like the following\.
 
    ```
-   ARN: arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/managed-instance/activation-tier
+   ARN: arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/managed-instance/activation-tier
    LastModifiedDate : 4/18/2019 4:02:56 PM
    LastModifiedUser : System
    SettingId        : /ssm/managed-instance/activation-tier
