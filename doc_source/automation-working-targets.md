@@ -191,8 +191,8 @@ aws ssm start-automation-execution --document-name AMI_Testing --target-paramete
 
 ## Targeting all instances<a name="automation-working-targets-all-instances"></a>
 
-You can run an Automation on all managed instances in the current AWS account and Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your AWS account and the current Region, you can choose the **AWS\-RestartEC2Instance** playbook and then choose **All instances** from the **Targets** list\.
+You can run an Automation on all managed instances in the current AWS account and Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your AWS account and the current Region, you can choose the **AWS\-RestartEC2Instance** document and then choose **All instances** from the **Targets** list\.
 
-![\[Targeting all instances for an automation playbook\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-target-all-instances.png)
+![\[Targeting all instances for an automation document\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-target-all-instances.png)
 
 After you choose **All instances**, Systems Manager populates the **Instance** field with an asterisk \(\*\) and makes the field unavailable for changes \(the field is grayed out\)\. Systems Manager also makes the **InstanceId** field in the **Input parameters** field unavailable for changes\. Making these fields unavailable for changes is expected behavior if you choose to target all instances\.

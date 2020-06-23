@@ -12,6 +12,7 @@ You specify time zones in Internet Assigned Numbers Authority \(IANA\) format\. 
 + [Example 1: Specify a maintenance window start date](#schedule-example-start-date)
 + [Example 2: Specify a maintenance window start date and end date](#schedule-example-start-end-date)
 + [Example 3: Create a maintenance window that runs only once](#schedule-example-one-time)
++ [Example 4: Specify the number of schedule offset days for a maintenance window](#schedule-example-schedule-offset)
 
 ## Example 1: Specify a maintenance window start date<a name="schedule-example-start-date"></a>
 
@@ -23,7 +24,12 @@ Say that you use the AWS CLI to create a maintenance window with the following o
 For example:
 
 ```
-aws ssm create-maintenance-window --name "My-LAX-Maintenance-Window" --start-date 2019-01-01T00:00:00-08:00 --schedule-timezone "America/Los_Angeles" --schedule "cron(0 09 ? * FRI *)"
+aws ssm create-maintenance-window \    
+    --name "My-LAX-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --start-date 2019-01-01T00:00:00-08:00 \
+    --schedule-timezone "America/Los_Angeles" \
+    --schedule "cron(0 09 ? * FRI *)"
 ```
 
 This means that the maintenance window won't run until after its specified start date and time, which is at Midnight US Eastern Time on Tuesday, January 1, 2019\. \(This time zone is five hours behind UTC time\.\) Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Friday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Friday, January 4th, 2019, at 9 AM US Pacific Time\.
@@ -39,7 +45,13 @@ Suppose that next you create a maintenance window with these options:
 For example:
 
 ```
-aws ssm create-maintenance-window --name "My-NRT-Maintenance-Window" --start-date 2019-01-01T00:03:15+09:00 --end-date 2019-06-30T00:06:15+09:00 --schedule-timezone "Asia/Tokyo" --schedule "rate(7 days)""
+aws ssm create-maintenance-window \
+    --name "My-NRT-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --start-date 2019-01-01T00:03:15+09:00 \
+    --end-date 2019-06-30T00:06:15+09:00 \
+    --schedule-timezone "Asia/Tokyo" \
+    --schedule "rate(7 days)"
 ```
 
 The enabled period for this maintenance window begins at 3:15 AM Japan Standard Time on January 1, 2019\. The valid period for this maintenance window ends at 6:15 AM Japan Standard Time on Sunday, June 30, 2019\. \(This time zone is nine hours ahead of UTC time\.\) Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 3:15 AM every Tuesday in the Japan Standard Time Zone \(represented by "Asia/Tokyo" in IANA format\)\. This is because the maintenance window runs every seven days, and it becomes active at 3:15 AM on Tuesday, January 1st\. The last execution is at 3:15 AM Japan Standard Time on Tuesday, June 25, 2019\. This is the last Tuesday before the enabled maintenance window period ends five days later\.
@@ -52,10 +64,50 @@ Now you create a maintenance window with this option:
 For example:
 
 ```
-aws ssm create-maintenance-window --name "My-One-Time-Maintenance-Window" --schedule "at(2020-07-07T15:55:00)" --duration 5 --cutoff 2 --allow-unassociated-targets
+aws ssm create-maintenance-window \
+    --name "My-One-Time-Maintenance-Window" \
+    --schedule "at(2020-07-07T15:55:00)" \
+    --duration 5 \
+    --cutoff 2 \
+    --allow-unassociated-targets
 ```
 
 This maintenance window runs just once, at 3:55 PM UTC time on July 7, 2020\. The maintenance window is enabled to run up to five hours, as needed, but new tasks are prevented from starting two hours before the end of the maintenance window period\.
+
+## Example 4: Specify the number of schedule offset days for a maintenance window<a name="schedule-example-schedule-offset"></a>
+
+Now you create a maintenance window with this option:
+
+**Note**  
+Schedule offsets are not currently supported by the Maintenance Windows console\. To specify a schedule offset, use a supported command line tool or AWS SDK\.
+
+```
+--schedule-offset 2
+```
+
+For example:
+
+```
+aws ssm create-maintenance-window \
+    --name "My-Cron-Offset-Maintenance-Window" \
+    --schedule "cron(0 30 23 ? * TUE#3 *)" \
+    --duration 4 \
+    --cutoff 1 \
+    --schedule-offset 2 \
+    --allow-unassociated-targets
+```
+
+A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\.
+
+In the example above, the CRON expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM: 
+
+```
+--schedule "cron(0 30 23 ? * TUE#3 *)
+```
+
+However, including `--schedule-offset 2` means that the maintenance window won't run until 11:30 PM two days *after* the third Tuesday of each month\. 
+
+Schedule offsets are supported for CRON expressions only\. 
 
 **Related Content**
 + [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)

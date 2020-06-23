@@ -4,7 +4,7 @@ You can start an Automation workflow by configuring an Automation document as a 
 
 For example, let's say you create an Automation document named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* document \(and corresponding workflow\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation workflow and creates an AMI of the registered targets\.
 
-For information about creating Automation documents, see [Working with Automation documents \(Playbooks\)](automation-documents.md)\.
+For information about creating Automation documents, see [Working with Automation documents ](automation-documents.md)\.
 
 Use the following procedures to configure an Automation workflow as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 

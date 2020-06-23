@@ -1,6 +1,6 @@
 # Edit package permissions \(console\)<a name="distributor-working-with-packages-ep"></a>
 
-After you have added a package to AWS Systems Manager Distributor, you can edit the package's permissions in the AWS Systems Manager console\. You can add other AWS accounts to a package's permissions\. By default, packages are set to **Private**, meaning only those with access to the package creator's AWS account can view package information and update or delete the package\. If **Private** permissions are acceptable, you can skip this procedure\.
+After you have added a package to AWS Systems Manager Distributor, you can edit the package's permissions in the AWS Systems Manager console\. You can add other AWS accounts to a package's permissions\. Packages can be shared with other accounts in the same AWS Region only\. Cross\-Region sharing is not supported\. By default, packages are set to **Private**, meaning only those with access to the package creator's AWS account can view package information and update or delete the package\. If **Private** permissions are acceptable, you can skip this procedure\.
 
 **To edit package permissions \(console\)**
 

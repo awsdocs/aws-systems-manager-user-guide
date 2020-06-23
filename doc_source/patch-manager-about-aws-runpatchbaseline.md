@@ -1,11 +1,11 @@
 # About the SSM document AWS\-RunPatchBaseline<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
-AWS Systems Manager supports an SSM document for Patch Manager, **AWS\-RunPatchBaseline**, which performs patching operations on instances for both security related and other types of updates\. You can use the document AWS\-RunPatchBaseline to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
+AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
 
-This document supports both Linux and Windows Server instances, so it can be reliably run on either type of instance when managed by Systems Manager\. The document will perform the appropriate actions for each platform\.
+This document supports both Linux and Windows instances\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
-Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows Server instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
+Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
 
 ------
 #### [ Windows ]
@@ -303,7 +303,8 @@ When you choose the `RebootIfNeeded` option, the instance is rebooted if Patch M
 When you choose the `RebootIfNeeded` option, Patch Manager does not evaluate whether a reboot is *required* by the patch\. A reboot occurs whenever there are missing packages or packages with a status of `INSTALLED_PENDING_REBOOT`\.
 
 NoReboot  
-When you choose the `NoReboot` option, Patch Manager does not reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied, or you have applications or processes running on an instance that should not be disrupted by a patching operation reboot\. It is also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\.
+When you choose the `NoReboot` option, Patch Manager does not reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied, or you have applications or processes running on an instance that should not be disrupted by a patching operation reboot\. It is also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\.  
+If you choose the `NoReboot` option and a patch is installed, the patch is assigned a status of `InstalledPendingReboot`\. The instance itself, however, is marked as `Non-Compliant`\. After a reboot occurs and a `Scan` operation is run, the instance status is updated to `Compliant`\.
 
 **Patch installation tracking file**: To track patch installation, especially patches that have been installed since the last system reboot, Systems Manager maintains a file on the managed instance\.
 

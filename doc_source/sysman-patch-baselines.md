@@ -4,7 +4,7 @@ A patch baseline defines which patches are approved for installation on your ins
 
 To use a list of approved patches to install specific packages, you first remove all auto\-approval rules\. If you explicitly identify a patch as rejected, it will not be approved or installed, even if it matches all of the criteria in an auto\-approval rule\. Also, a patch is installed on an instance only if it applies to the software on the instance, even if the patch has otherwise been approved for the instance\.
 
-Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own patch baselines if you want greater control over which patches are approved or rejected for your environment\. 
+Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own custom patch baselines\. Custom patch baselines allows you want greater control over which patches are approved or rejected for your environment\. Also, the predefined baselines assign a compliance level of `Unspecified` to all patches installed using those baselines\. For compliance values to be assigned, you can create a copy of a predefined baseline and specify the compliance values you want to assign to patches\. For more information, see [About custom baselines](#patch-manager-baselines-custom) and [Create a custom patch baseline](sysman-patch-baseline-console.md)\.
 
 **Topics**
 + [About predefined baselines](#patch-manager-baselines-pre-defined)

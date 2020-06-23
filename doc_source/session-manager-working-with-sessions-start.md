@@ -60,6 +60,10 @@ After the connection is made, you can run bash commands \(Linux\) or PowerShell 
 
 ## Starting a session \(AWS CLI\)<a name="sessions-start-cli"></a>
 
+Install and configure the AWS CLI, if you have not already\.
+
+For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+
 To start a session using the AWS CLI, run the following command:
 
 **Note**  

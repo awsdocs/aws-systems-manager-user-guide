@@ -35,6 +35,7 @@ The following procedure describes how to create a custom `Session` type SSM docu
        type: String
        description: The log file path to read.
        default: "/var/log/amazon/ssm/amazon-ssm-agent.log"
+       allowedPattern: "^[a-zA-Z0-9-_/]+(.log)$"
    properties:
      linux:
        commands: "tail -f {{ logpath }}"
@@ -53,7 +54,8 @@ The following procedure describes how to create a custom `Session` type SSM docu
            "logpath": {
                "type": "String",
                "description": "The log file path to read.",
-               "default": "/var/log/amazon/ssm/amazon-ssm-agent.log"
+               "default": "/var/log/amazon/ssm/amazon-ssm-agent.log",
+               "allowedPattern": "^[a-zA-Z0-9-_/]+(.log)$"
            }
        },
        "properties": {
@@ -91,6 +93,7 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
        type: String
        description: The log file path to read.
        default: "/var/log/amazon/ssm/amazon-ssm-agent.log"
+       allowedPattern: "^[a-zA-Z0-9-_/]+(.log)$"
    properties:
      linux:
        commands: "tail -f {{ logpath }}"
@@ -109,7 +112,8 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
            "logpath": {
                "type": "String",
                "description": "The log file path to read.",
-               "default": "/var/log/amazon/ssm/amazon-ssm-agent.log"
+               "default": "/var/log/amazon/ssm/amazon-ssm-agent.log",
+               "allowedPattern": "^[a-zA-Z0-9-_/]+(.log)$"
            }
        },
        "properties": {

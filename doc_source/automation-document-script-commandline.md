@@ -106,7 +106,7 @@ New-SSMDocument `
 ------
 
 **Attach files from another Automation document in your AWS account**  
-Run the following command to create an Automation document using a script that is already attached to another Automation playbook in your account\.
+Run the following command to create an Automation document using a script that is already attached to another Automation document in your account\.
 
 The format of the key value in this command is *document\-name/document\-version\-number/file\-name*\. For example:
 
@@ -156,7 +156,7 @@ New-SSMDocument `
 ------
 
 **Attach files from an Automation document in another AWS account**  
-Run the following command to create an Automation document using a script that is already attached to an Automation playbook that has been shared with you from another AWS account\.
+Run the following command to create an Automation document using a script that is already attached to an Automation document that has been shared with you from another AWS account\.
 
 The format of the key value in this command is *document\-arn/document\-version\-number/file\-name*\. For example:
 

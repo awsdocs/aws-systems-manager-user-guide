@@ -8,7 +8,7 @@ To create your own SSM document content, it's important to understand the differ
 +  [Writing your own AWS Systems Manager documents](http://aws.amazon.com/blogs/mt/writing-your-own-aws-systems-manager-documents/) 
 +  [SSM document syntax](sysman-doc-syntax.md) 
 +  [SSM document schemas and features](document-schemas-features.md) 
-+  [SSM document plugin reference](ssm-plugins.md) 
++  [Systems Manager Command document plugin reference](ssm-plugins.md) 
 +  [Systems Manager Automation actions reference](automation-actions.md) 
 +  [Automation system variables](automation-variables.md) 
 +  [Sample scenarios and custom Automation document solutions](automation-document-samples.md) 

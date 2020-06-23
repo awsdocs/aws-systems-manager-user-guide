@@ -1,6 +1,6 @@
 # Systems Manager Automation actions reference<a name="automation-actions"></a>
 
-This reference describes the Automation actions that you can specify in an AWS Systems Manager Automation document\. These actions cannot be used in other types of SSM documents\. For information about plugins for other types of SSM documents, see [SSM document plugin reference](ssm-plugins.md)\.
+This reference describes the Automation actions that you can specify in an AWS Systems Manager Automation document\. These actions cannot be used in other types of SSM documents\. For information about plugins for other types of SSM documents, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
 
 Systems Manager Automation runs steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
 
@@ -31,6 +31,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 + [aws:runInstances – Launch an EC2 instance](automation-action-runinstance.md)
 + [aws:sleep – Delay an automation execution](automation-action-sleep.md)
 + [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
++ [Automation system variables](automation-variables.md)
 
 ## Properties shared by all actions<a name="automation-common"></a>
 

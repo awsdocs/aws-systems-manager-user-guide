@@ -60,4 +60,32 @@ def handler(event, context):
      raise Exception("Failure!")
 ```
 
+Here is another example that validates only if the configuration parameter is a prime number\.
+
+```
+function isPrime(value) {
+    if (value < 2) {
+        return false;
+    }
+
+    for (i = 2; i < value; i++) {
+        if (value % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+exports.handler = async function(event, context) {
+    console.log('EVENT: ' + JSON.stringify(event, null, 2));
+    const input = parseInt(Buffer.from(event.content, 'base64').toString('ascii'));
+    const prime = isPrime(input);
+    console.log('RESULT: ' + input + (prime ? ' is' : ' is not') + ' prime');
+    if (!prime) {
+        throw input + "is not prime";
+    }
+}
+```
+
 AppConfig calls your validation Lambda when calling the `StartDeployment` and `ValidateConfigurationActivity` API actions\. You must provide appconfig\.amazonaws\.com permissions to invoke your Lambda\. For more information, see [Granting Function Access to AWS Services](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-serviceinvoke)\.

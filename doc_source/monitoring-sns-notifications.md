@@ -107,7 +107,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
    }
    ```
 
-   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon Simple Notification Service notifications, in the format of `arn:aws:iam::account-id:sns-topic-name.` For example: `arn:aws:iam::123456789012:my-sns-topic`\.
+   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon Simple Notification Service notifications, in the format of `arn:aws:sns::account-id:sns-topic-name.` For example: `arn:aws:sns::123456789012:my-sns-topic`\.
 
 1. Choose **Review policy**\.
 

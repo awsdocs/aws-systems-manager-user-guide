@@ -1,6 +1,6 @@
 # Automation walkthroughs<a name="automation-walk"></a>
 
-The following walkthroughs help you get started with Systems Manager Automation using predefined Automation documents, or playbooks\.
+The following walkthroughs help you get started with Systems Manager Automation using predefined Automation documents\.
 
 Before you begin, you must configure Automation roles and permissions\. For more information, see [Getting started with Automation](automation-setup.md)\. For information about creating a custom Automation document, see [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)\.
 

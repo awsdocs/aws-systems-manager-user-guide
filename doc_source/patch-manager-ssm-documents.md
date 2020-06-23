@@ -1,13 +1,14 @@
 # About SSM documents for patching instances<a name="patch-manager-ssm-documents"></a>
 
-This topic describes the seven SSM documents currently available to help you keep your managed instances patched with the latest security\-related updates\. 
+This topic describes the eight SSM documents currently available to help you keep your managed instances patched with the latest security\-related updates\. 
 
-We currently recommend using just three of these documents in your patching operations\. Together, these three SSM documents provide you with a full range of patching options using AWS Systems Manager\. Two of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
+We currently recommend using just four of these documents in your patching operations\. Together, these four SSM documents provide you with a full range of patching options using AWS Systems Manager\. Three of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
 
-The three recommended SSM documents include:
+The four recommended SSM documents include:
 + **AWS\-ConfigureWindowsUpdate**
 + **AWS\-InstallWindowsUpdates**
 + **AWS\-RunPatchBaseline**
++ **AWS\-RunPatchBaselineAssociation**
 
 The four legacy SSM documents that are still available for use in some AWS Regions, but might be deprecated in the future, include:
 + **AWS\-ApplyPatchBaseline**
@@ -21,16 +22,18 @@ Refer to the following sections for more information about using these SSM docum
 + [SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)
 + [Legacy SSM documents for patching instances](#patch-manager-ssm-documents-legacy)
 + [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)
++ [About the SSM Document AWS\-RunPatchBaselineAssociation](patch-manager-about-aws-runpatchbaselineassociation.md)
 + [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)
 
 ## SSM documents recommended for patching instances<a name="patch-manager-ssm-documents-recommended"></a>
 
-The following three SSM documents are recommended for use in your managed instance patching operations\.
+The following four SSM documents are recommended for use in your managed instance patching operations\.
 
 **Topics**
 + [AWS\-ConfigureWindowsUpdate](#patch-manager-ssm-documents-recommended-AWS-ConfigureWindowsUpdate)
 + [AWS\-InstallWindowsUpdates](#patch-manager-ssm-documents-recommended-AWS-InstallWindowsUpdates)
 + [AWS\-RunPatchBaseline](#patch-manager-ssm-documents-recommended-AWS-RunPatchBaseline)
++ [AWS\-RunPatchBaselineAssociation](#patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation)
 
 ### AWS\-ConfigureWindowsUpdate<a name="patch-manager-ssm-documents-recommended-AWS-ConfigureWindowsUpdate"></a>
 
@@ -60,7 +63,7 @@ The three legacy documents perform different functions, but you can achieve the 
 
 Installs patches on your instances or scans instances to determine whether any qualified patches are missing\. Available in all AWS Regions\.
 
-**AWS\-RunPatchBaseline** enables you to control patch approvals using patch baselines\. Reports patch compliance information that you can view using the Systems Manager Compliance tools\. These tools provide you with insights on the patch compliance state of your instances, such as which instances are missing patches and what those patches are\. For Linux operating systems, compliance information is provided for patches from both the default source repository configured on an instance and from any alternative source repositories you specify in a custom patch baseline\. For more information about alternative source repositories, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\. For more information about the Systems Manager Compliance tools, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
+**AWS\-RunPatchBaseline** enables you to control patch approvals using the patch baseline currently specified as the "default" for an operating system type\. Reports patch compliance information that you can view using the Systems Manager Compliance tools\. These tools provide you with insights on the patch compliance state of your instances, such as which instances are missing patches and what those patches are\. When you use `AWS-RunPatchBaseline`, patch compliance information is recorded using the `PutInventory` API command\. For Linux operating systems, compliance information is provided for patches from both the default source repository configured on an instance and from any alternative source repositories you specify in a custom patch baseline\. For more information about alternative source repositories, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\. For more information about the Systems Manager Compliance tools, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
 
  **Replaces legacy documents:**
 + **AWS\-ApplyPatchBaseline**
@@ -68,6 +71,19 @@ Installs patches on your instances or scans instances to determine whether any q
 The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows Server instances, and does not provide support for application patching\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
 
 For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
+
+### AWS\-RunPatchBaselineAssociation<a name="patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation"></a>
+
+Installs patches on your instances or scans instances to determine whether any qualified patches are missing\. Available in all commercial AWS Regions\. 
+
+**AWS\-RunPatchBaselineAssociation** differs from **AWS\-RunPatchBaseline** in that it supports the use of tags to identify which patch baseline to use with a set of targets when it runs\. In addition, patch compliance data is compiled in terms of a specific State Manager association\. The patch compliance data collected when **AWS\-RunPatchBaselineAssociation** runs is recorded using the `PutComplianceItems` API command instead of the `PutInventory` command\. This prevents compliance data that isn't associated with this particular association from being overwritten\.
+
+ For Linux operating systems, compliance information is provided for patches from both the default source repository configured on an instance and from any alternative source repositories you specify in a custom patch baseline\. For more information about alternative source repositories, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\. For more information about the Systems Manager Compliance tools, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
+
+ **Replaces legacy documents:**
++ **None**
+
+For more information about the **AWS\-RunPatchBaselineAssociation** SSM document, see [About the SSM Document AWS\-RunPatchBaselineAssociation](patch-manager-about-aws-runpatchbaselineassociation.md)\.
 
 ## Legacy SSM documents for patching instances<a name="patch-manager-ssm-documents-legacy"></a>
 

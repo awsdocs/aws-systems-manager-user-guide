@@ -14,7 +14,7 @@ Each OpsItem in the AWS Management Console includes a **Runbooks** section, as s
 
 If the OpsItem was automatically created by CloudWatch, then the list of runbooks is automatically filtered to reflect the *recommended* runbooks for the specific issue\. If the OpsItem was created manually or by specifying OpsItem as a target of a CloudWatch event, then the **Runbooks** section lists all SSM Automation runbooks\.
 
-You can view information about a runbook by either choosing the runbook name in the console or by using the [Systems Manager Automation document details reference](automation-documents-reference-details.md)\.
+You can view information about a runbook by either choosing the runbook name in the console or by using the [ Automation document details reference](automation-documents-reference-details.md)\.
 
 ## Using a runbook to remediate an OpsItem issue<a name="OpsCenter-remediating-how-to"></a>
 

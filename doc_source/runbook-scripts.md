@@ -1,6 +1,6 @@
 # Amazon managed Automation documents that run scripts<a name="runbook-scripts"></a>
 
-AWS Systems Manager Automation documents, or playbooks, support running scripts as part of the automation execution\. 
+AWS Systems Manager Automation documents support running scripts as part of the automation execution\. 
 
 The following are AWS managed Automation documents that include support for running scripts\.
 

@@ -1,6 +1,6 @@
 # Creating Automation documents using Document Builder<a name="automation-document-builder"></a>
 
-If the AWS Systems Manager public Automation documents, or playbooks, don't support all the actions you want to perform on your AWS resources, you can create your own documents\. To create a custom Automation document, you can manually create a local JavaScript Object Notation \(JSON\) or YAML format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to more easily build a custom playbook\-style document\.
+If the AWS Systems Manager public Automation documents don't support all the actions you want to perform on your AWS resources, you can create your own documents\. To create a custom Automation document, you can manually create a local JavaScript Object Notation \(JSON\) or YAML format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to more easily build a custom document\.
 
 Using the Document Builder, you can add Automation action steps to your custom document and provide the required parameters without having to use JSON or YAML syntax\. After you add steps and create the document, the system converts the actions you've added into the YAML format that Systems Manager can use to run automation workflows\.
 

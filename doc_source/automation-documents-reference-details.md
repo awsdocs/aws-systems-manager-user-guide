@@ -1,4 +1,4 @@
-# Systems Manager Automation document details reference<a name="automation-documents-reference-details"></a>
+# Automation document details reference<a name="automation-documents-reference-details"></a>
 
 This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
 
@@ -76,6 +76,7 @@ You can view the content for Automation documents in the Systems Manager console
 + [AWSSupport\-SetupIPMonitoringFromVPC](automation-aws-setupipmonitoringfromvpc.md)
 + [AWS\-SetupManagedInstance](automation-aws-setupmanagedinstance.md)
 + [AWS\-SetupManagedRoleOnEC2Instance](automation-aws-setupmanagedroleonec2instance.md)
++ [AWSEC2\-ConfigureSTIG](awsec2-configurestig.md)
 + [AWSEC2\-SQLServerDBRestore](automation-awsec2-sqlserverdbrestore.md)
 + [AWS\-StartEC2Instance](automation-aws-startec2instance.md)
 + [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)

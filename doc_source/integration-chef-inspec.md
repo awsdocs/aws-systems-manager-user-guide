@@ -1,22 +1,22 @@
 # Using Chef InSpec profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
-Systems Manager now integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
+Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
 + Check if specific ports are open or closed\.
 + Check if specific applications are running\.
 + Check if certain packages are installed\.
 + Check Windows Registry keys for specific properties\.
 
-You can create InSpec profiles for EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks to see if port 22 is open\.
+You can create InSpec profiles for EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks if port 22 is open\.
 
 ```
 control 'Scan Port' do
-  impact 10.0
-  title 'Server: Configure the service port'
-  desc 'Always specify which port the SSH server should listen to.
-   Prevent unexpected settings.'
-  describe sshd_config do
-   its('Port') { should eq('22') }
-  end
+impact 10.0
+title 'Server: Configure the service port'
+desc 'Always specify which port the SSH server should listen to.
+Prevent unexpected settings.'
+describe sshd_config do
+its('Port') { should eq('22') }
+end
 end
 ```
 
@@ -39,7 +39,7 @@ Chef uses a client on your instances to process the profile\. You don't need to 
 
 ## Running an InSpec compliance scan<a name="integration-chef-inspec-running"></a>
 
-This section includes information about how to run an InSpec Compliance scan by using the Systems Manager console and the AWS CLI\. The console procedure shows you how to configure State Manager to run the scan\. The AWS CLI procedure shows you how to configure Run Command to run the scan\.
+This section includes information about how to run an InSpec compliance scan by using the Systems Manager console and the AWS CLI\. The console procedure shows how to configure State Manager to run the scan\. The AWS CLI procedure shows how to configure Run Command to run the scan\.
 
 ### Running an InSpec compliance scan with State Manager by using the console<a name="integration-chef-inspec-running-console"></a>
 
@@ -71,13 +71,13 @@ This section includes information about how to run an InSpec Compliance scan by 
 
    If you choose **S3**, then enter a valid URL to an InSpec profile in an S3 bucket in the **Source Info** field\. 
 
-   For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running scripts from GitHub and Amazon S3](integration-remote-scripts.md)\. 
+   For more information about how Systems Manager integrates with GitHub and Amazon S3, see [Running scripts from GitHub](integration-remote-scripts.md)\. 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
 If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
-1. In the **Specify schedule** section, use the schedule builder options to create a schedule for when you want the Compliance scan to run\.
+1. In the **Specify schedule** section, use the schedule builder options to create a schedule that specifies when you want the Compliance scan to run\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -139,13 +139,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm list-resource-compliance-summaries --filters Key=ComplianceType,Values=Custom:Inspec
    ```
 
-1. Run the following command to drill down into an instance that is not compliant\.
+1. Run the following command to see details of an instance that is not compliant\.
 
    ```
    aws ssm list-compliance-items --resource-ids instance_ID --resource-type ManagedInstance --filters Key=DocumentName,Values=AWS-RunInspecChecks
    ```
-
-**Related AWS Services**  
-The following related services can help you assess Compliance and work with Chef\.
-+ [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/APIReference/) lets you perform security assessments on your instances based on and common vulnerabilities described in Central Internet Security \(CIS\) standards\.
-+ [AWS OpsWorks for Chef Automate](https://docs.aws.amazon.com/opsworks-cm/latest/APIReference/) lets you run a Chef Automate server in AWS\. 

@@ -1,35 +1,89 @@
 # Reference: Cron and rate expressions for Systems Manager<a name="reference-cron-and-rate-expressions"></a>
 
-When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule in the form of either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. For maintenance windows, you can also specify a time stamp in Coordinated Universal Time \(UTC\) format when you create a maintenance window so that it runs once at the specified time\.
+When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
 
-When you create either type of resource programmatically or by using a command line tool such as the AWS CLI, you must specify a schedule parameter with a valid cron or rate expression \(or time stamp for maintenance windows\) in the correct format\.
+When you create a maintenance window, you can specify a time stamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. 
+
+**Note**  
+Schedule offsets are not currently supported by the Maintenance Windows console\. To specify a schedule offset, use a supported command line tool or AWS SDK\.
+
+For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
+
+```
+cron(0 30 23 ? * TUE#3 *)
+```
+
+If the schedule offset is `2`, the maintenance window won't run until 11:30 PM two days later\.
+
+**Note**  
+If you create a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the maintenance window will not run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window will not run tomorrow\. 
+
+When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS CLI, you must specify a schedule parameter with a valid cron or rate expression \(or time stamp for maintenance windows\) in the correct format\.
 
 When you use the AWS Systems Manager console to create a maintenance window or association, you can specify a schedule using a valid cron or rate expression\. You can also use tools in the user interface that simplify the process of creating your schedule\. 
 
-**Maintenance Window Examples**  
-To create maintenance windows using the AWS CLI, you include the \-\-schedule parameter with a cron or rate expression or a time stamp\. For example: 
+**Maintenance window examples**  
+To create maintenance windows using the AWS CLI, you include the \-\-schedule parameter with a cron or rate expression or a time stamp\. For example, using the AWS CLI on a local Linux machine: 
 
 ```
-aws ssm create-maintenance-window --name "My-Cron-Maintenance-Window" --schedule "cron(0 16 ? * TUE *)" --schedule-timezone "America/Los_Angeles" --start-date 2019-01-01T00:00:00-08:00 --end-date 2019-06-30T00:00:00-08:00 --duration 4 --cutoff 1
+aws ssm create-maintenance-window \
+    --name "My-Cron-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --schedule "cron(0 16 ? * TUE *)" \
+    --schedule-timezone "America/Los_Angeles" \
+    --start-date 2021-01-01T00:00:00-08:00 \
+    --end-date 2021-06-30T00:00:00-08:00 \
+    --duration 4 \
+    --cutoff 1
 ```
 
 ```
-aws ssm create-maintenance-window --name "My-Rate-Maintenance-Window" --schedule "rate(7 days)" --duration 4 --schedule-timezone "America/Los_Angeles" --cutoff 1
+aws ssm create-maintenance-window \
+    --name "My-Cron-Offset-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --schedule "cron(0 30 23 ? * TUE#3 *)" \
+    --duration 4 \
+    --cutoff 1 \
+    --schedule-offset 2
 ```
 
 ```
-aws ssm create-maintenance-window --name "My-TimeStamp-Maintenance-Window" --schedule "at(2019-07-07T13:15:30)" --duration 4 --schedule-timezone "America/Los_Angeles" --cutoff 1
+aws ssm create-maintenance-window \
+    --name "My-Rate-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --schedule "rate(7 days)" \
+    --duration 4 \
+    --schedule-timezone "America/Los_Angeles" \
+    --cutoff 1
+```
+
+```
+aws ssm create-maintenance-window \
+    --name "My-TimeStamp-Maintenance-Window" \
+    --allow-unassociated-targets \
+    --schedule "at(2021-07-07T13:15:30)" \
+    --duration 4 \
+    --schedule-timezone "America/Los_Angeles" \
+    --cutoff 1
 ```
 
 **Association Examples**  
-To create State Manager associations using the AWS CLI, you include the \-\-schedule\-expression parameter with a cron or rate expression\. For example:
+To create State Manager associations using the AWS CLI, you include the \-\-schedule\-expression parameter with a cron or rate expression\. For example, using the AWS CLI on a local Linux machine:
 
 ```
-aws ssm create-association --association-name "My-Cron-Association" --schedule-expression "cron(0 0 2 ? * SUN *)" --targets Key=tag:ServerRole,Values=WebServer --name AWS-UpdateSSMAgent
+aws ssm create-association \
+    --association-name "My-Cron-Association" \
+    --schedule-expression "cron(0 0 2 ? * SUN *)" \
+    --targets Key=tag:ServerRole,Values=WebServer \
+    --name AWS-UpdateSSMAgent
 ```
 
 ```
-aws ssm create-association --association-name "My-Rate-Association" --schedule-expression "rate(7 days)" --targets Key=tag:ServerRole,Values=WebServer --name AWS-UpdateSSMAgent
+aws ssm create-association \
+    --association-name "My-Rate-Association" \
+    --schedule-expression "rate(7 days)" \
+    --targets Key=tag:ServerRole,Values=WebServer \
+    --name AWS-UpdateSSMAgent
 ```
 
 **Topics**

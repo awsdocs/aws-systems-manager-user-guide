@@ -1,6 +1,6 @@
-# Working with Automation documents \(Playbooks\)<a name="automation-documents"></a>
+# Working with Automation documents<a name="automation-documents"></a>
 
-A Systems Manager Automation document, or *operational playbook*, defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation execution runs\. A document contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
+A Systems Manager Automation document defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation execution runs\. A document contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
 
 The process of running these actions and their steps is called the *automation workflow*\.
 
@@ -33,6 +33,4 @@ For information about creating custom Automation documents that run scripts, see
 + [Creating dynamic Automation workflows with conditional branching](automation-branchdocs.md)
 + [Handling timeouts in Automation documents](automation-handling-timeouts.md)
 + [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)
-+ [Systems Manager Automation actions reference](automation-actions.md)
-+ [Systems Manager Automation documents reference](automation-documents-reference.md)
 + [Sample scenarios and custom Automation document solutions](automation-document-samples.md)

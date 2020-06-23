@@ -7,7 +7,7 @@ To set up Automation, you must verify user access to the Automation service and 
 Verify that you have permission to run Automation workflows\. If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
 
 **Important**  
-The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager actions\. However, some Automation documents, or playbooks, require permissions to other services, such as the document `AWS-ReleaseElasticIP`, which requires IAM permissions for `ec2:ReleaseAddress`\. Therefore, you must review the actions taken in an Automation document to ensure your IAM user account, group, or role is assigned the necessary permissions to perform the actions included in the document\.
+The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager actions\. However, some Automation documents require permissions to other services, such as the document `AWS-ReleaseElasticIP`, which requires IAM permissions for `ec2:ReleaseAddress`\. Therefore, you must review the actions taken in an Automation document to ensure your IAM user account, group, or role is assigned the necessary permissions to perform the actions included in the document\.
 
 ## Configuring a service role \(assume role\) access for Automation workflows<a name="automation-setup-configure-role"></a>
 
