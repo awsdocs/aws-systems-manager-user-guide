@@ -15,11 +15,12 @@ A *configuration* is a collection of settings that influence the behavior of you
 }
 ```
 
-A *configuration profile* enables AWS AppConfig to access your configuration in its stored location\. You can store configurations in the following formats and locations:
+A *configuration profile* enables AWS AppConfig to access your configuration from a source location\. You can store configurations in the following formats and locations:
 + YAML, JSON, or text documents in the AppConfig hosted configuration store
 + Objects in an Amazon Simple Storage Service \(Amazon S3\) bucket
 + Documents in the Systems Manager document store
 + Parameters in Parameter Store
++ Any [integration source action](https://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source) supported by AWS CodePipeline
 
 A configuration profile includes the following information\.
 + The URI location where the configuration is stored\. 
@@ -37,14 +38,14 @@ AppConfig\-supported configuration store have the following quotas and limitatio
 
 ****  
 
-|  | AppConfig hosted configuration store | S3 | Parameter Store | Document store | 
-| --- | --- | --- | --- | --- | 
-|  **Configuration size limit**  | 64 KB |  1 MB Enforced by AppConfig, not S3  |  4 KB \(free tier\) / 8 KB \(advanced parameters\)  |  64 KB  | 
-|  **Resource storage limit**  | 1 GB |  Unlimited  |  10,000 parameters \(free tier\) / 100,000 parameters \(advanced parameters\)  |  500 documents  | 
-|  **Server\-side encryption**  | Yes |  No  |  No  |  No  | 
-|  **AWS CloudFormation support**  | Yes |  Not for creating or updating data  |  Yes  |  No  | 
-|  **Validate create or update API actions**  | Not supported |  Not supported  |  Regex supported  |  JSON Schema required for all put and update API actions  | 
-|  **Pricing**  | Free |  See [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)  |  See [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)  |  Free  | 
+|  | AppConfig hosted configuration store | S3 | Parameter Store | Document store | AWS CodePipeline | 
+| --- | --- | --- | --- | --- | --- | 
+|  **Configuration size limit**  | 64 KB |  1 MB Enforced by AppConfig, not S3  |  4 KB \(free tier\) / 8 KB \(advanced parameters\)  |  64 KB  | 1 MBEnforced by AppConfig, not CodePipeline | 
+|  **Resource storage limit**  | 1 GB |  Unlimited  |  10,000 parameters \(free tier\) / 100,000 parameters \(advanced parameters\)  |  500 documents  | Limited by the number of configuration profiles per application \(100 profiles per application\) | 
+|  **Server\-side encryption**  | Yes |  No  |  No  |  No  | Yes | 
+|  **AWS CloudFormation support**  | Yes |  Not for creating or updating data  |  Yes  |  No  | Yes | 
+|  **Validate create or update API actions**  | Not supported |  Not supported  |  Regex supported  |  JSON Schema required for all put and update API actions  | Not supported | 
+|  **Pricing**  | Free |  See [Amazon S3 pricing](https://aws.amazon.com//s3/pricing/)  |  See [AWS Systems Manager pricing](https://aws.amazon.com//systems-manager/pricing/)  |  Free  |  See [AWS CodePipeline pricing](https://aws.amazon.com//codepipeline/pricing/)  | 
 
 ## About the AppConfig hosted configuration store<a name="appconfig-creating-configuration-and-profile-about-hosted-store"></a>
 
@@ -79,15 +80,15 @@ Read the following related content before you complete the procedure in this sec
 
 1. In the **Tags** section, enter a key and an optional value\. You can specify a maximum of 50 tags for a resource\. 
 
-1. On the **Select configuration source** page, choose an option\.
+1. On the **Select configuration source** page, choose an option\.  
+![\[Choose an AWS AppConfig configuration source\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/appconfig-profile-1.png)
 
-1. If you selected **AWS AppConfig hosted configuration**, then choose either **YAML**, **JSON**, or **Text**, and enter your configuration in the field\. Choose **Next** and go to Step 10 in this procedure\.
-
-   If you selected **Amazon S3 object**, then enter the object URI\. Choose **Next**\.
-
-   If you selected **AWS Systems Manager parameter**, then choose the name of the parameter from the list\. Choose **Next**\.
-
-   If you selected **AWS Systems Manager document**, then complete the following steps\. 
+1. 
+   + If you selected **AWS AppConfig hosted configuration**, then choose either **YAML**, **JSON**, or **Text**, and enter your configuration in the field\. Choose **Next** and go to Step 10 in this procedure\.
+   + If you selected **Amazon S3 object**, then enter the object URI\. Choose **Next**\.
+   + If you selected **AWS Systems Manager parameter**, then choose the name of the parameter from the list\. Choose **Next**\.
+   + If you selected **AWS CodePipeline**, then choose **Next** and go to Step 10 in this procedure\. 
+   + If you selected **AWS Systems Manager document**, then complete the following steps\. 
 
    1. In the **Document source** section, choose either **Saved document** or **New document**\. 
 
@@ -114,4 +115,7 @@ Configuration data stored in SSM documents must validate against an associated J
 
 1. Choose **Create configuration profile**\.
 
-AppConfig creates the configuration profile\. Proceed to [Step 4: Creating a deployment strategy](appconfig-creating-deployment-strategy.md)\.
+**Important**  
+If you created a configuration profile for AWS CodePipeline, then after you create a deployment strategy, as described in the next section, you must create a pipeline in CodePipeline that specifies AWS AppConfig as the *deploy provider*\. For information about creating a pipeline that specifies AppConfig as the deploy provider, see [Tutorial: Create a Pipeline That Uses AppConfig as a Deployment Provider](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-AppConfig.html) in the *AWS CodePipeline User Guide*\. 
+
+Proceed to [Step 4: Creating a deployment strategy](appconfig-creating-deployment-strategy.md)\.

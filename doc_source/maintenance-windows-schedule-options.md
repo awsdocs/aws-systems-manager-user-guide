@@ -5,7 +5,7 @@ When you create a maintenance window, you must specify how often the maintenance
 Be aware, however, that the time zone option and the start date/end date options do not influence each other\. Any start date and end date times that you specify \(with or without an offset for your time zone\) determine only the *valid period* during which the maintenance window can run on its schedule\. A time zone option determines the international time zone that the maintenance window schedule is based on *during* its valid period\.
 
 **Note**  
-You specify start and end dates in ISO\-8601 timestamp format\. For example: `2019-04-07T14:29:00-08:00`  
+You specify start and end dates in ISO\-8601 timestamp format\. For example: `2021-04-07T14:29:00-08:00`  
 You specify time zones in Internet Assigned Numbers Authority \(IANA\) format\. For example: `America/Chicago`, `Europe/Berlin` or `Asia/Tokyo`
 
 **Topics**
@@ -17,9 +17,9 @@ You specify time zones in Internet Assigned Numbers Authority \(IANA\) format\. 
 ## Example 1: Specify a maintenance window start date<a name="schedule-example-start-date"></a>
 
 Say that you use the AWS CLI to create a maintenance window with the following options:
-+ `--start-date 2019-01-01T00:00:00-05:00`
++ `--start-date 2021-01-01T00:00:00-08:00`
 + `--schedule-timezone "America/Los_Angeles"`
-+ `--schedule "cron(0 09 ? * FRI *)"`
++ `--schedule "cron(0 09 ? * WED *)"`
 
 For example:
 
@@ -27,12 +27,14 @@ For example:
 aws ssm create-maintenance-window \    
     --name "My-LAX-Maintenance-Window" \
     --allow-unassociated-targets \
-    --start-date 2019-01-01T00:00:00-08:00 \
+    --duration 3 \
+    --cutoff 1 \
+    --start-date 2021-01-01T00:00:00-08:00 \
     --schedule-timezone "America/Los_Angeles" \
-    --schedule "cron(0 09 ? * FRI *)"
+    --schedule "cron(0 09 ? * WED *)"
 ```
 
-This means that the maintenance window won't run until after its specified start date and time, which is at Midnight US Eastern Time on Tuesday, January 1, 2019\. \(This time zone is five hours behind UTC time\.\) Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Friday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Friday, January 4th, 2019, at 9 AM US Pacific Time\.
+This means that the first run of the maintenance window won't occur until *after* its specified start date and time, which is at 12:00 AM US Pacific Time on Friday, January 1, 2021\. \(This time zone is eight hours behind UTC time\.\) Note that in this case, the start date and time of the window period don't represent when the maintenance windows first runs\. Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Wednesday, January 4th, 2021, at 9 AM US Pacific Time\.
 
 ## Example 2: Specify a maintenance window start date and end date<a name="schedule-example-start-end-date"></a>
 
@@ -48,6 +50,8 @@ For example:
 aws ssm create-maintenance-window \
     --name "My-NRT-Maintenance-Window" \
     --allow-unassociated-targets \
+    --duration 3 \
+    --cutoff 1 \
     --start-date 2019-01-01T00:03:15+09:00 \
     --end-date 2019-06-30T00:06:15+09:00 \
     --schedule-timezone "Asia/Tokyo" \

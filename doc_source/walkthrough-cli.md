@@ -10,6 +10,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 + [Step 2: Run shell scripts to view resource details](#walkthrough-cli-run-scripts)
 + [Step 3: Send simple commands using the AWS\-RunShellScript document](#walkthrough-cli-example-1)
 + [Step 4: Run a simple Python script using Run Command](#walkthrough-cli-example-2)
++ [Step 5: Run a Bash script using Run Command](#walkthrough-cli-example-3)
 
 ## Step 1: Getting started<a name="walkthrough-cli-settings"></a>
 
@@ -306,3 +307,85 @@ sh_command_id=$(aws ssm send-command \
 ```
 
 ------
+
+## Step 5: Run a Bash script using Run Command<a name="walkthrough-cli-example-3"></a>
+
+The examples in this section demonstrate how to run the following bash script using Run Command\.
+
+For examples of using Run Command to run scripts stored in remote locations, see [Running scripts from Amazon S3](integration-s3.md) and [Running scripts from GitHub](integration-remote-scripts.md)\.
+
+```
+#!/bin/bash
+yum -y update
+yum install -y ruby
+cd /home/ec2-user
+curl -O https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install
+chmod +x ./install
+./install auto
+```
+
+This script installs the AWS CodeDeploy agent on Amazon Linux and Red Hat Enterprise Linux \(RHEL\) instances, as described in [Create an Amazon EC2 instance for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create.html) in the *AWS CodeDeploy User Guide*\.
+
+The script installs the CodeDeploy agent from an AWS managed Amazon S3 bucket in the US East \(Ohio\) Region \(us\-east\-2\), `aws-codedeploy-us-east-2`\.
+
+**Run a bash script in an AWS CLI command**
+
+The following sample demonstrates how to include the bash script in a CLI command using the `--parameters` option\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm send-command \
+	--document-name "AWS-RunShellScript" \
+	--targets '[{"Key":"InstanceIds","Values":["instance-id"]}]' \
+	--parameters '{"commands":["#!/bin/bash","yum -y update","yum install -y ruby","cd /home/ec2-user","curl -O https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install","chmod +x ./install","./install auto"]}'
+```
+
+------
+
+**Run a bash script in a JSON file**
+
+In the following example, the content of the bash script is stored in a JSON file, and the file is included in the command using the `--cli-input-json` option\.
+
+The command:
+
+------
+#### [ Linux ]
+
+```
+aws ssm send-command \
+	--document-name "AWS-RunShellScript" \
+	--targets "Key=InstanceIds,Values=instance-id" \
+	--cli-input-json file://installCodeDeployAgent.json
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm send-command ^
+	--document-name "AWS-RunShellScript" ^
+	--targets "Key=InstanceIds,Values=instance-id" ^
+	--cli-input-json file://installCodeDeployAgent.json
+```
+
+------
+
+The contents of the referenced `installCodeDeployAgent.json` file:
+
+```
+{
+    "Parameters": {
+        "commands": [
+            "#!/bin/bash",
+            "yum -y update",
+            "yum install -y ruby",
+            "cd /home/ec2-user",
+            "curl -O https://aws-codedeploy-us-east-2.s3.amazonaws.com/latest/install",
+            "chmod +x ./install",
+            "./install auto"
+        ]
+    }
+}
+```
