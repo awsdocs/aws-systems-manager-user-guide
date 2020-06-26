@@ -523,7 +523,7 @@ Valid values: `Install` \| `Uninstall`
 Required: Yes
 
 **installationType**  
-The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. `Uninstall and reinstall` is the default value\.  
+The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option is not supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
 Type: Enum  
 Valid values: `Uninstall and reinstall` \| `In-place update`  
 Required: No

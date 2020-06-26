@@ -20,8 +20,3 @@ The following strategy lets you use the `InstallOverrideList` parameter to apply
 1. Create a second maintenance window that runs once a month\. But for the Run Command task you register for this maintenance window, specify the location of your override list\.
 
 The result: Only `Security` patches, as defined in your default patch baseline, are installed each week\. All available patches, or whatever subset of patches you define, are installed each month\.
-
-**Sample script for generating an override list**  
-Download the following InstallOverrideList script and use it to generate an override list composed of all `Missing` patches reported from the most recent Scan operation\. You can let the script generate a list of all patches, or you can use its filter fields to create a subset list\. For example, you could specify that only patches of a certain classification or severity be added to the list\. Note that the script uses the `[DescribeInstanceInformation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstanceInformation.html)` command to create the list\.
-
-[Download InstallOverrideList sample script](samples/InstallOverrideList-Script.zip)

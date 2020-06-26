@@ -35,9 +35,18 @@ The remainder of this section describes how to use Patch Manager to apply kernel
 
 ## How it works<a name="how-klp-works"></a>
 
-AWS releases two types of kernel live patches for Amazon Linux 2: security updates and bug fixes\. To apply those types of patches, you use a patch baseline document that targets only `Security` updates that are classified as `Critical` and `Important`, and `Critical` bug fixes\. You can create a custom patch baseline that targets only these patches, or use the predefined `AWS-AmazonLinux2DefaultPatchBaseline` patch baseline\.
+AWS releases two types of kernel live patches for Amazon Linux 2: security updates and bug fixes\. To apply those types of patches, you use a patch baseline document that targets only the classifications and severities listed in the following table\.
 
-In other words, you can use `AWS-AmazonLinux2DefaultPatchBaseline` with Amazon Linux 2 instances on which Kernel Live Patching is enabled, and kernel live updates will be applied\.
+
+| Classification | Severity | 
+| --- | --- | 
+| Security | Critical, Important | 
+| Bugfix | All | 
+
+You can create a custom patch baseline that targets only these patches, or use the predefined `AWS-AmazonLinux2DefaultPatchBaseline` patch baseline\. In other words, you can use `AWS-AmazonLinux2DefaultPatchBaseline` with Amazon Linux 2 instances on which Kernel Live Patching is enabled, and kernel live updates will be applied\.
+
+**Note**  
+The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it is installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Create a custom patch baseline](sysman-patch-baseline-console.md)\.
 
 We recommend the following strategy to patch your instances with kernel live updates:
 
@@ -45,7 +54,7 @@ We recommend the following strategy to patch your instances with kernel live upd
 
 1. Enable Kernel Live Patching on your Amazon Linux 2 instances\.
 
-1. Use Run Command to run a `Scan` operation on your instances using the predefined `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch baseline that also targets only `Security` updates classified as `Critical` or `Important`, and `Critical` bug fixes\. 
+1. Use Run Command to run a `Scan` operation on your instances using the predefined `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch baseline that also targets only `Security` updates with severity classified as `Critical` and `Important`, and the `Bugfix` severity of `All`\. 
 
 1. Open Systems Manager Compliance at [https://console\.aws\.amazon\.com/systems\-manager/compliance](https://console.aws.amazon.com/systems-manager/compliance) and review whether non\-compliance for patching is reported for any of the instances that were scanned\. If so, view the instance compliance details to determine whether any kernel live patches are missing from the instance\.
 

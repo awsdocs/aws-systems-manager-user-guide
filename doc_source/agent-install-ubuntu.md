@@ -37,6 +37,12 @@ For instances created from a 64\-bit Ubuntu Server 16\.04 AMI, be sure to follow
    ```
    sudo snap install amazon-ssm-agent --classic
    ```
+**Important**  
+The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit instances\.  
+
+   ```
+   sudo snap switch --channel=candidate amazon-ssm-agent
+   ```
 **Note**  
 Note the following details about SSM Agent on Ubuntu Server 18\.04 and 16\.04:  
 Because of a known issue with Snap, you might see a `Maximum timeout exceeded` error with `snap` commands\. If you get this error, run the following commands one at a time to start the agent, stop it, and check its status:   

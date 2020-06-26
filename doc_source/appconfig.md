@@ -108,4 +108,5 @@ For information about getting started with and using AppConfig, see the followin
 + [How does AppConfig work?](#learn-more-appconfig-how-it-works)
 + [What are the Service Quotas of AppConfig?](#learn-more-service-quotas)
 + [Getting started with AWS AppConfig](appconfig-getting-started.md)
++ [AppConfig integration with CodePipeline](appconfig-integration-codepipeline.md)
 + [Working with AWS AppConfig](appconfig-working.md)

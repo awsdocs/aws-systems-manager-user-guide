@@ -109,6 +109,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Getting started with AWS AppConfig](appconfig-getting-started.md)
          + [Configuring permissions for AWS AppConfig](appconfig-getting-started-permissions.md)
          + [(Optional) Configuring permissions for rollback based on CloudWatch alarms](appconfig-getting-started-cloudwatch-alarms-permissions.md)
+      + [AppConfig integration with CodePipeline](appconfig-integration-codepipeline.md)
       + [Working with AWS AppConfig](appconfig-working.md)
          + [Step 1: Creating an AppConfig application](appconfig-creating-application.md)
          + [Step 2: Creating an environment](appconfig-creating-environment.md)

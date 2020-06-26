@@ -43,7 +43,7 @@ The `In-place` update option lets you add new or updated files to an existing pa
    + Use the **Advanced** workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Create a package \(advanced\)](#distributor-working-with-packages-create-adv)\.
    + Manually edit the manifest file in the **Simple** workflow so that your \.zip file is targeted at multiple operating system platforms or versions\. For more information about how to do this, see the end of step 4 in [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
-1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, or the exact, specific operating system release version to which you want your software to apply\. For more information about specifying an operating system platform version, see step 4 in [Step 2: Create the JSON package manifest](#packages-manifest)\.
+1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, a major release version followed by a wildcard \(7\.\*\), or the exact operating system release version to which you want your software to apply\. For more information about specifying an operating system platform version, see step 4 in [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
 1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported processor architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
@@ -167,7 +167,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
 
 1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the \.zip files in your package\. For more information, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
-   The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a \.zip file supports any release of the platform\. However, a *platform\-version* value must match the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
+   The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a \.zip file supports any release of the platform\. You can also specify a major release version followed by a wildcard so all minor versions are supported, for example 7\.\*\. If you choose to specify a *platform\-version* value for a specific operating system version, be sure that it matches the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
    + On a Windows Server\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows Server\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
 
      ```
@@ -264,7 +264,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
    }
    ```
 
-   You can refer to a \.zip file more than once in the `"packages"` section of the manifest, if the \.zip file supports more than one platform\. For example, if you have a \.zip file that supports both Red Hat Enterprise Linux and Amazon Linux, you have two entries in the `"packages"` section that point to the same \.zip file, as shown in the following example\.
+   You can refer to a \.zip file more than once in the `"packages"` section of the manifest, if the \.zip file supports more than one platform\. For example, if you have a \.zip file that supports both Red Hat Enterprise Linux 7\.x versions and Amazon Linux, you have two entries in the `"packages"` section that point to the same \.zip file, as shown in the following example\.
 
    ```
    {
@@ -276,7 +276,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
            }
        },
        "redhat": {
-           "_any": {
+           "7.*": {
                "x86_64": {
                    "file": "test.zip"
                }

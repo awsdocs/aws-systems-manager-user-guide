@@ -152,6 +152,12 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
      sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
      sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
      ```
+**Important**  
+The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit instances\.  
+
+     ```
+     sudo snap switch --channel=candidate amazon-ssm-agent
+     ```
 
 ------
 **Note**  
