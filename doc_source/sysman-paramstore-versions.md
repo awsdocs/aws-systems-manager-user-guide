@@ -54,7 +54,7 @@ aws ec2 run-instances \
 ```
 
 **Note**  
-Currently, using `resolve` and a parameter value works only with the `--instance-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
+Currently, using `resolve` and a parameter value works only with the `--image-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 
 Here is an example for specifying version 2 of a parameter named `MyRunCommandParameter` in an SSM document\.
 
