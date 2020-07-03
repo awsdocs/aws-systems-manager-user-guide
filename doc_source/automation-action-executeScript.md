@@ -2,6 +2,9 @@
 
 Runs the Python or PowerShell script provided, using the specified runtime and handler\. \(For PowerShell, the handler is not required\.\)
 
+**Note**  
+Each `executeScript` action can run up to a maximum duration of 10 minutes\. The step will timeout after this period\.
+
 Currently, the `aws:executeScript` action contains the following preinstalled PowerShell Core modules\. 
 + Microsoft\.PowerShell\.Host
 + Microsoft\.PowerShell\.Management
