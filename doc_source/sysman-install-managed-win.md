@@ -17,6 +17,9 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
+------
+#### [ 64\-bit ]
+
    ```
    $code = "activation-code"
    $id = "activation-id"
@@ -29,6 +32,24 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
    Get-Content ($env:ProgramData + "\Amazon\SSM\InstanceData\registration")
    Get-Service -Name "AmazonSSMAgent"
    ```
+
+------
+#### [ 32\-bit ]
+
+   ```
+   $code = "activation-code"
+   $id = "activation-id"
+   $region = "region"
+   $dir = $env:TEMP + "\ssm"
+   New-Item -ItemType directory -Path $dir -Force
+   cd $dir
+   (New-Object System.Net.WebClient).DownloadFile("https://amazon-ssm-$region.s3.amazonaws.com/latest/windows_386/AmazonSSMAgentSetup.exe", $dir + "\AmazonSSMAgentSetup.exe")
+   Start-Process .\AmazonSSMAgentSetup.exe -ArgumentList @("/q", "/log", "install.log", "CODE=$code", "ID=$id", "REGION=$region") -Wait
+   Get-Content ($env:ProgramData + "\Amazon\SSM\InstanceData\registration")
+   Get-Service -Name "AmazonSSMAgent"
+   ```
+
+------
 
 1. Press Enter\.
 

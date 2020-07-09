@@ -5,7 +5,7 @@ Connect to your Debian Server instance and perform the steps in one of following
 ## Install SSM Agent on Debian Server instances<a name="agent-install-debian"></a>
 
 ------
-#### [ Debian Server 9 64\-bit \(deb\) ]
+#### [ Debian Server 9 and 10 64\-bit \(deb\) ]
 
 **To install SSM Agent on Debian Server 9 64\-bit instances \(with deb installer package\)**
 

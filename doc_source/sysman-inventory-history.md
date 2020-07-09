@@ -4,6 +4,7 @@ You can view Systems Manager Inventory history and change tracking for all of yo
 + SSM:ManagedInstanceInventory
 + SSM:PatchCompliance
 + SSM:AssociationCompliance
++ SSM:FileData
 
 **Note**  
 By enabling SSM:PatchCompliance and SSM:AssociationCompliance, you can view Patch Manager patching and State Manager association compliance history and change tracking\. For more information about compliance management for these resources, see [Working with Configuration Compliance](sysman-compliance-about.md)\. 
@@ -29,7 +30,8 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
       "resourceTypes":[
          "AWS::SSM::AssociationCompliance",
          "AWS::SSM::PatchCompliance",
-         "AWS::SSM::ManagedInstanceInventory"
+         "AWS::SSM::ManagedInstanceInventory",
+         "AWS::SSM::FileData"
       ]
    }
    ```

@@ -683,7 +683,7 @@ parameters:
   sourceInfo:
     description: "(Required) The information required to retrieve the content from
       the required source."
-    type: String
+    type: StringMap
 mainSteps:
 - action: aws:downloadContent
   name: downloadContent
@@ -706,7 +706,7 @@ mainSteps:
   },
   "sourceInfo": {
     "description": "(Required) The information required to retrieve the content from the required source.",
-    "type": "String"
+    "type": "StringMap"
     }
   },
   "mainSteps": [

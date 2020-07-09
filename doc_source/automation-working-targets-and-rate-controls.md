@@ -59,6 +59,8 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 1. Choose **Execute**\. 
 
+To view automations started by your rate control automation, in the navigation pane, choose Automation, and then select **Show child automations**\.
+
 ## Running an Automation workflow with targets and rate controls \(command line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow with targets and rate controls\.

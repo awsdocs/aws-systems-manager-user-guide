@@ -1,11 +1,11 @@
-# Walkthrough: Patch a server environment \(command line\)<a name="sysman-patch-cliwalk"></a>
+# Walkthrough: Patch a server environment \(AWS CLI\)<a name="sysman-patch-cliwalk"></a>
 
 The following procedure describes how to patch a server environment by using a custom patch baseline, patch groups, and a maintenance window\.
 
 **Before you begin**
 + Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 + Configure roles and permissions for the Maintenance Windows capability\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\.
-+ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
++ Install and configure the AWS CLI, if you have not already\.
 
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -40,42 +40,6 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ PowerShell ]
-
-   ```
-   $patchApprovalRules = New-Object Amazon.SimpleSystemsManagement.Model.PatchRule
-   
-   $patchApprovalRulesFilterGroup = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilterGroup
-   
-   $severityFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
-   $severityFilter.Key= "MSRC_SEVERITY"
-   $severityFilter.Values.Add("Critical")
-   $severityFilter.Values.Add("Important")
-   
-   $classificationFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
-   $classificationFilter.Key = "CLASSIFICATION"
-   $classificationFilter.Values.Add("SecurityUpdates")
-   $classificationFilter.Values.Add("Updates")
-   $classificationFilter.Values.Add("ServicePacks")
-   $classificationFilter.Values.Add("UpdateRollups")
-   $classificationFilter.Values.Add("CriticalUpdates")
-   
-   $patchApprovalRulesFilterGroup.PatchFilters.Add($severityFilter)
-   $patchApprovalRulesFilterGroup.PatchFilters.Add($classificationFilter)
-   
-   $patchApprovalRules.PatchFilterGroup = $patchApprovalRulesFilterGroup
-   
-   $patchApprovalRules.ApproveAfterDays = 7
-   
-   New-SSMPatchBaseline `
-       -Name "Production-Baseline" `
-       -OperatingSystem "WINDOWS" `
-       -Tags @{Key="Environment";Value="Production"}`
-       -ApprovalRules_PatchRule $patchApprovalRules `
-       -Description "Baseline containing all updates approved for production systems"
-   ```
-
-------
 
    The system returns information like the following\.
 
@@ -91,8 +55,8 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 #### [ Linux ]
 
    ```
-   aws ssm register-patch-baseline-for-patch-group `
-       --baseline-id pb-0c10e65780EXAMPLE `
+   aws ssm register-patch-baseline-for-patch-group \
+       --baseline-id pb-0c10e65780EXAMPLE \
        --patch-group "Database Servers"
    ```
 
@@ -103,15 +67,6 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    aws ssm register-patch-baseline-for-patch-group ^
        --baseline-id pb-0c10e65780EXAMPLE ^
        --patch-group "Database Servers"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Register-SSMPatchBaselineForPatchGroup `
-       -BaselineId pb-0c10e65780EXAMPLE `
-       -PatchGroup "Database Servers"
    ```
 
 ------
@@ -141,15 +96,6 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    aws ssm register-patch-baseline-for-patch-group ^
        --baseline-id pb-0c10e65780EXAMPLE ^
        --patch-group "Front-End Servers"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Register-SSMPatchBaselineForPatchGroup `
-       -BaselineId pb-0c10e65780EXAMPLE `
-       -PatchGroup "Front-End Servers"
    ```
 
 ------
@@ -192,25 +138,12 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ PowerShell ]
-
-   ```
-   New-SSMMaintenanceWindow `
-       -Name "Production-Tuesdays" `
-       -Tags @{Key="Environment";Value="Production"} `
-       -Schedule "cron(0 0 22 ? * TUE *)" `
-       -Duration 1 `
-       -Cutoff 0 `
-       -AllowUnassociatedTarget $false
-   ```
-
-------
 
    The system returns information like the following\.
 
    ```
    {
-      "WindowId":"mw-0c66948c711a3b5bd"
+      "WindowId":"mw-0c50858d01EXAMPLE"
    }
    ```
 
@@ -241,24 +174,12 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ PowerShell ]
-
-   ```
-   New-SSMMaintenanceWindow `
-       -Name "Production-Saturdays" `
-       -Tags @{Key="Environment";Value="Production"} `
-       -Schedule "cron(0 0 22 ? * SAT *)" `
-       -Duration 2 `    -Cutoff 0 `
-       -AllowUnassociatedTarget $false
-   ```
-
-------
 
    The system returns information like the following\.
 
    ```
    {
-      "WindowId":"mw-09e2a75baadd84e85"
+      "WindowId":"mw-9a8b7c6d5eEXAMPLE"
    }
    ```
 
@@ -269,7 +190,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-target-with-maintenance-window \
-       --window-id mw-09e2a75baadd84e85 \
+       --window-id mw-0c50858d01EXAMPLE \
        --targets "Key=tag:Patch Group,Values=Database Servers" \
        --owner-information "Database Servers" \    
        --resource-type "INSTANCE"
@@ -280,21 +201,10 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-target-with-maintenance-window ^
-       --window-id mw-09e2a75baadd84e85 ^
+       --window-id mw-0c50858d01EXAMPLE ^
        --targets "Key=tag:Patch Group,Values=Database Servers" ^
        --owner-information "Database Servers" ^
        --resource-type "INSTANCE"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Register-SSMTargetWithMaintenanceWindow `
-       -WindowId "mw-09e2a75baadd84e85" `
-       -Targets @{Key="tag:Patch Group";Values="Database Servers"} `
-       -OwnerInformation "Database Servers" `
-       -ResourceType "INSTANCE"
    ```
 
 ------
@@ -303,7 +213,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    {
-      "WindowTargetId":"557e7b3a-bc2f-48dd-ae05-e282b5b20760"
+      "WindowTargetId":"e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
    }
    ```
 
@@ -312,7 +222,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-target-with-maintenance-window \
-   --window-id mw-0c66948c711a3b5bd \
+   --window-id mw-9a8b7c6d5eEXAMPLE \
    --targets "Key=tag:Patch Group,Values=Front-End Servers" \
    --owner-information "Front-End Servers" \
    --resource-type "INSTANCE"
@@ -323,21 +233,10 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-target-with-maintenance-window ^
-       --window-id mw-0c66948c711a3b5bd ^
+       --window-id mw-9a8b7c6d5eEXAMPLE ^
        --targets "Key=tag:Patch Group,Values=Front-End Servers" ^
        --owner-information "Front-End Servers" ^
        --resource-type "INSTANCE"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Register-SSMTargetWithMaintenanceWindow `
-       -WindowId "mw-0c66948c711a3b5bd" `
-       -Targets @{Key="tag:Patch Group";Values="Front-End Servers"} `
-       -OwnerInformation "Front-End Servers" `
-       -ResourceType "INSTANCE"
    ```
 
 ------
@@ -346,7 +245,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    {
-      "WindowTargetId":"faa01c41-1d57-496c-ba77-ff9cadba4b7d"
+      "WindowTargetId":"faa01c41-1d57-496c-ba77-ff9caEXAMPLE"
    }
    ```
 
@@ -357,15 +256,15 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-task-with-maintenance-window \
-       --window-id mw-09e2a75baadd84e85 \
-       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" \
+       --window-id mw-0c50858d01EXAMPLE \
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
        --task-arn "AWS-RunPatchBaseline" \
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
        --task-type "RUN_COMMAND" \
        --max-concurrency 2 \
        --max-errors 1 \
        --priority 1 \
-       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+       --task-invocation-parameters "RunCommand={Parameters={Operation=Install}}"
    ```
 
 ------
@@ -373,35 +272,15 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-task-with-maintenance-window ^
-       --window-id mw-09e2a75baadd84e85 ^
-       --targets "Key=WindowTargetIds,Values=557e7b3a-bc2f-48dd-ae05-e282b5b20760" ^
+       --window-id mw-0c50858d01EXAMPLE ^
+       --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
        --task-arn "AWS-RunPatchBaseline" ^
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
        --max-concurrency 2 ^
        --max-errors 1 ^
        --priority 1 ^
-       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   $taskParameters = @{}
-   $taskParameterValues = New-Object Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression
-   $taskParameterValues.Values = @("Install")
-   $taskParameters.Add("Operation", $taskParameterValues)
-   
-   Register-SSMTaskWithMaintenanceWindow `
-       -WindowId "mw-09e2a75baadd84e85" `
-       -Targets @{Key="WindowTargetIds";Values="557e7b3a-bc2f-48dd-ae05-e282b5b20760"} `
-       -TaskArn "AWS-RunPatchBaseline" `
-       -TaskType "RUN_COMMAND" `
-       -MaxConcurrency 2 `
-       -MaxErrors 1 `
-       -Priority 1 `    
-       -TaskParameters $taskParameters
+       --task-invocation-parameters "RunCommand={Parameters={Operation=Install}}"
    ```
 
 ------
@@ -410,7 +289,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    {
-      "WindowTaskId":"968e3b17-8591-4fb2-932a-b62389d6f635"
+      "WindowTaskId":"4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
    }
    ```
 
@@ -419,15 +298,15 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-task-with-maintenance-window \
-       --window-id mw-09e2a75baadd84e85 \
-       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" \    
+       --window-id mw-9a8b7c6d5eEXAMPLE \
+       --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" \    
        --task-arn "AWS-RunPatchBaseline" \
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
        --task-type "RUN_COMMAND" \
        --max-concurrency 2 \
        --max-errors 1 \
        --priority 1 \
-       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
+       --task-invocation-parameters "RunCommand={Parameters={Operation=Install}}"
    ```
 
 ------
@@ -435,35 +314,15 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    aws ssm register-task-with-maintenance-window ^
-       --window-id mw-09e2a75baadd84e85 ^
-       --targets "Key=WindowTargetIds,Values=767b6508-f4ac-445e-b6fe-758cc912e55c" ^
+       --window-id mw-9a8b7c6d5eEXAMPLE ^
+       --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" ^
        --task-arn "AWS-RunPatchBaseline" ^
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
        --max-concurrency 2 ^    
        --max-errors 1 ^
        --priority 1 ^
-       --task-parameters '{\"Operation\":{\"Values\":[\"Install\"]}}'
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   $taskParameters = @{}
-   $taskParameterValues = New-Object Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression
-   $taskParameterValues.Values = @("Install")
-   $taskParameters.Add("Operation", $taskParameterValues)
-   
-   Register-SSMTaskWithMaintenanceWindow `
-       -WindowId "mw-0c66948c711a3b5bd" `
-       -Targets @{Key="WindowTargetIds";Values="faa01c41-1d57-496c-ba77-ff9cadba4b7d"} `
-       -TaskArn "AWS-RunPatchBaseline" `
-       -TaskType "RUN_COMMAND" `
-       -MaxConcurrency 2 `
-       -MaxErrors 1 `
-       -Priority 1 `    
-       -TaskParameters $taskParameters
+       --task-invocation-parameters "RunCommand={Parameters={Operation=Install}}"
    ```
 
 ------
@@ -472,7 +331,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
    ```
    {
-      "WindowTaskId":"09f2e873-a3a7-443f-ba0a-05cf4de5a1c7"
+      "WindowTaskId":"8a5c4629-31b0-4edd-8aea-33698EXAMPLE"
    }
    ```
 
@@ -484,21 +343,16 @@ It is expected to see zeroes for the number of instances in the summary until th
 #### [ Linux ]
 
    ```
-   aws ssm describe-patch-group-state --patch-group "Database Servers"
+   aws ssm describe-patch-group-state \
+       --patch-group "Database Servers"
    ```
 
 ------
 #### [ Windows ]
 
    ```
-   aws ssm describe-patch-group-state --patch-group "Database Servers"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Get-SSMPatchGroupState -PatchGroup "Database Servers"
+   aws ssm describe-patch-group-state ^
+       --patch-group "Database Servers"
    ```
 
 ------
@@ -525,21 +379,16 @@ It is expected to see zeroes for the number of instances in the summary until th
 #### [ Linux ]
 
    ```
-   aws ssm describe-instance-patch-states-for-patch-group --patch-group "Database Servers"
+   aws ssm describe-instance-patch-states-for-patch-group \
+       --patch-group "Database Servers"
    ```
 
 ------
 #### [ Windows ]
 
    ```
-   aws ssm describe-instance-patch-states-for-patch-group --patch-group "Database Servers"
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Get-SSMInstancePatchStatesForPatchGroup -PatchGroup "Database Servers"
+   aws ssm describe-instance-patch-states-for-patch-group ^
+       --patch-group "Database Servers"
    ```
 
 ------

@@ -10,7 +10,7 @@ You restrict access to Systems Manager parameters by using AWS Identity and Acce
 + [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)
 + [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)
 
-When using IAM policies to restrict access to Systems Manager parameters, we recommend that create and use *restrictive* IAM policies\. For example, the following policy allows a user to call the `DescribeParameters` and `GetParameters` API operations for a limited set of resources\. This means that the user can get information about and use all parameters that begin with `prod-*`\.
+When using IAM policies to restrict access to Systems Manager parameters, we recommend that you create and use *restrictive* IAM policies\. For example, the following policy allows a user to call the `DescribeParameters` and `GetParameters` API operations for a limited set of resources\. This means that the user can get information about and use all parameters that begin with `prod-*`\.
 
 ```
 {

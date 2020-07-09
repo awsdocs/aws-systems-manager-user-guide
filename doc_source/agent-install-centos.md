@@ -8,6 +8,59 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
 Perform these steps on each instance that will run commands using Systems Manager\.
 
 ------
+#### [ CentOS 8\.x ]
+
+**To install SSM Agent on CentOS 8\.x**
+
+1. Ensure that either Python 2 or Python 3 is installed on your CentOS 8 instance\. This is required in order for SSM Agent to work properly\.
+
+1. Use one of the following commands to download and run the SSM Agent installer\.
+**Note**  
+Even though the following download URLs show 'ec2\-downloads\-windows', these are the correct URLs\.
+
+   Intel \(x86\_64\) 64\-bit instances:
+
+   ```
+   sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+   ```
+
+   ARM \(arm64\) 64\-bit instances::
+
+   ```
+   sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
+
+   Intel \(x86\) 32\-bit instances:
+
+   ```
+   sudo dnf install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
+   ```
+
+1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
+
+   ```
+   sudo systemctl status amazon-ssm-agent
+   ```
+
+1. Run the following commands if the previous command returned amazon\-ssm\-agent is stopped\.
+
+   1. Start the service\.
+
+      ```
+      sudo systemctl enable amazon-ssm-agent
+      ```
+
+      ```
+      sudo systemctl start amazon-ssm-agent
+      ```
+
+   1. Check the status of the agent\.
+
+      ```
+      sudo systemctl status amazon-ssm-agent
+      ```
+
+------
 #### [ CentOS 7\.x ]
 
 **To install SSM Agent on CentOS 7\.x**

@@ -54,6 +54,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | --- | --- | --- | --- | 
 | Jessie \(8\) |  | ✓ |  | 
 | Stretch \(9\) |  | ✓ |  | 
+| Buster \(10\) |  | ✓ |  | 
 
 
 **Red Hat Enterprise Linux \(RHEL\)**  
@@ -84,6 +85,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 7\.5 |  | ✓ |  | 
 | 7\.6 |  | ✓ |  | 
 | 7\.7 |  | ✓ |  | 
+| 7\.8 |  | ✓ |  | 
 
 
 **CentOS**  
@@ -93,6 +95,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 6\.0 | ✓ |  |  | 
 | 6\.3 and later 6\.x versions | ✓ | ✓ |  | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
+| 8\.0 and 8\.1 versions |  | ✓ |  | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  

@@ -82,7 +82,7 @@ Returns high\-level aggregated patch compliance state for a patch group\. \(API:
 Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
-For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Walkthrough: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)\.
+For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 
 ## Viewing compliance configuration history and change tracking<a name="sysman-compliance-history"></a>
 

@@ -270,7 +270,7 @@ For information about creating a custom Systems Manager document to disable Kern
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose the Systems Manager document `AWS-tbdDisableDocumentName`\.
+1. In the **Command document** list, choose the Systems Manager document for disabling the feature that you created earlier, such as `MyDisableKernelLivePatching`\.\.
 
 1. In the **Command parameters** section, specify values for required parameters\.
 
@@ -281,12 +281,27 @@ For information about creating a custom Systems Manager document to disable Kern
 **To disable kernel live patching \(AWS CLI\)**
 + Run a command similar to the following\.
 
+------
+#### [ Linux ]
+
   ```
   aws ssm send-command \
       --document-name "custom-document-name" \
-      --targets "Key=instanceIds,Values="instance-id" \
+      --targets "Key=instanceIds,Values=instance-id" \
       --parameters "RebootOption=NoReboot"
   ```
+
+------
+#### [ Windows ]
+
+  ```
+  aws ssm send-command ^
+      --document-name "custom-document-name" ^
+      --targets "Key=instanceIds,Values=instance-id" ^
+      --parameters "RebootOption=NoReboot"
+  ```
+
+------
 
   Replace *custom\-document\-name* with the name of the custom SSM document for disabling the feature that you created in [Creating custom Systems Manager documents to enable and disable Kernel Live Patching](#create-klp-documents), such as `MyDisableKernelLivePatching`\.
 

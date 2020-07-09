@@ -49,7 +49,7 @@ On CentOS, the Systems Manager patch baseline service uses preconfigured reposit
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-CentOS instances use Yum as the package manager, and Yum uses the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security packages by Patch Manager\.
+CentOS 6 and 7 instances use Yum as the package manager\. CentOS 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security packages by Patch Manager\.
 
 However, CentOS default repos aren't configured with an update notice\. This means that Patch Manager does not detect packages on a default CentOS repo\. To enable Patch Manager to process packages that aren't contained in an update notice, you must enable the `EnableNonSecurity` flag in the patch baseline rules\.
 

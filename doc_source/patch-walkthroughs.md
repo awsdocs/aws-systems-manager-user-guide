@@ -4,4 +4,4 @@ The walkthroughs in this section demonstrate how to use Patch Manager for a sele
 
 **Topics**
 + [Walkthrough: Create a patch baseline for installing Windows Service Packs \(console\)](service-pack-patch-walkthrough.md)
-+ [Walkthrough: Patch a server environment \(command line\)](sysman-patch-cliwalk.md)
++ [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)

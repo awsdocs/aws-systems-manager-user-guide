@@ -51,126 +51,116 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 
 1. Log on to a server or VM in your hybrid environment\.
 
-1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\. 
+1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from, then press Enter\.
 
     Note that `sudo` is not necessary if you are a root user\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-------
-#### [ Amazon Linux, RHEL 6\.x, and CentOS 6\.x ]
+## Amazon Linux, RHEL 6\.x, and CentOS 6\.x<a name="cent-6"></a>
 
-   ```
-   mkdir /tmp/ssm
-   curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
-   sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm
-   sudo stop amazon-ssm-agent
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
-   sudo start amazon-ssm-agent
-   ```
+```
+mkdir /tmp/ssm
+curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
+sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm
+sudo stop amazon-ssm-agent
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+sudo start amazon-ssm-agent
+```
 
-------
-#### [ Amazon Linux 2, RHEL 7\.x, Oracle Linux, and CentOS 7\.x ]
+## Amazon Linux 2, RHEL 7\.x, Oracle Linux, and CentOS 7\.x<a name="cent-7"></a>
 
-   ```
-   mkdir /tmp/ssm
-   curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
-   sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm
-   sudo systemctl stop amazon-ssm-agent
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
-   sudo systemctl start amazon-ssm-agent
-   ```
+```
+mkdir /tmp/ssm
+curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
+sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm
+sudo systemctl stop amazon-ssm-agent
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+sudo systemctl start amazon-ssm-agent
+```
 
-------
-#### [ RHEL 8\.x ]
+## RHEL 8\.x and CentOS 8\.x<a name="cent-8"></a>
 
-   ```
-   mkdir /tmp/ssm
-   curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
-   sudo dnf install -y /tmp/ssm/amazon-ssm-agent.rpm
-   sudo systemctl stop amazon-ssm-agent
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
-   sudo systemctl start amazon-ssm-agent
-   ```
+```
+mkdir /tmp/ssm
+curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
+sudo dnf install -y /tmp/ssm/amazon-ssm-agent.rpm
+sudo systemctl stop amazon-ssm-agent
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+sudo systemctl start amazon-ssm-agent
+```
 
-------
-#### [ Debian ]
+## Debian<a name="deb"></a>
 
-   ```
-   mkdir /tmp/ssm
-   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
-   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-   sudo service amazon-ssm-agent stop
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-   sudo service amazon-ssm-agent start
-   ```
+```
+mkdir /tmp/ssm
+wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -O /tmp/ssm/amazon-ssm-agent.deb
+sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+sudo service amazon-ssm-agent stop
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+sudo service amazon-ssm-agent start
+```
 
-------
-#### [ Raspbian ]
+## Raspbian<a name="rasp"></a>
 
-   ```
-   mkdir /tmp/ssm
-   sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
-   sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-   sudo service amazon-ssm-agent stop
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-   sudo service amazon-ssm-agent start
-   ```
+```
+mkdir /tmp/ssm
+sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+sudo service amazon-ssm-agent stop
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+sudo service amazon-ssm-agent start
+```
 
-------
-#### [ SLES ]
+## SLES<a name="suse"></a>
 
-   ```
-   mkdir /tmp/ssm
-   sudo wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-   sudo rpm --install amazon-ssm-agent.rpm
-   sudo systemctl stop amazon-ssm-agent
-   sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
-   sudo systemctl enable amazon-ssm-agent
-   sudo systemctl start amazon-ssm-agent
-   ```
+```
+mkdir /tmp/ssm
+sudo wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+sudo rpm --install amazon-ssm-agent.rpm
+sudo systemctl stop amazon-ssm-agent
+sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl start amazon-ssm-agent
+```
 
-------
-#### [ Ubuntu ]
-   + **Using \.deb packages**
+## Ubuntu<a name="ubu"></a>
++ **Using \.deb packages**
 
-     ```
-     mkdir /tmp/ssm
-     curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
-     sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-     sudo service amazon-ssm-agent stop
-     sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-     sudo service amazon-ssm-agent start
-     ```
-   + **Using Snap packages**
+  ```
+  mkdir /tmp/ssm
+  curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+  sudo dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+  sudo service amazon-ssm-agent stop
+  sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+  sudo service amazon-ssm-agent start
+  ```
++ **Using Snap packages**
 
-     You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
+  You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
 
-     ```
-     sudo snap install amazon-ssm-agent --classic
-     sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
-     sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
-     sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
-     ```
+  ```
+  sudo snap install amazon-ssm-agent --classic
+  sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
+  sudo /snap/amazon-ssm-agent/current/amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" 
+  sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
+  ```
 **Important**  
 The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit instances\.  
 
-     ```
-     sudo snap switch --channel=candidate amazon-ssm-agent
-     ```
+  ```
+  sudo snap switch --channel=candidate amazon-ssm-agent
+  ```
 
-------
 **Note**  
 If you see the following error in the SSM Agent error logs, then the machine ID did not persist after a reboot:  
 `Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint does not match`  
 Run the following command to make the machine ID persist after a reboot\.  
 
-   ```
-   umount /etc/machine-id
-   systemd-machine-id-setup
-   ```
-
-1. Press Enter\.
+```
+umount /etc/machine-id
+systemd-machine-id-setup
+```
 
 The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from EC2 instances with the prefix "mi\-"\.
 

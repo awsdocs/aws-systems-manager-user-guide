@@ -52,7 +52,7 @@ On CentOS instances, the patch installation workflow is as follows:
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches\.
+1. The YUM update API \(on CentOS 6\.x and 7\.x versions\) or the DNF update \(on CentOS 8\) is applied to approved patches\.
 
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
@@ -146,7 +146,7 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
      sudo yum update-minimal --sec-severity=critical,important --bugfix -y
      ```
 
-     For RHEL 8, the equivalent dnf commands for this workflow is:
+     For RHEL 8, the equivalent dnf commands for this workflow are:
 
      ```
      sudo dnf update-minimal --sec-severity=Critical --bugfix -y ; \
