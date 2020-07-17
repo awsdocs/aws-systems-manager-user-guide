@@ -44,7 +44,7 @@ aws ssm send-command ^
 
 ------
 
-**Example 2: Targeting an AWS resource group**
+**Example 2: Targeting an AWS resource group by name**
 
 You can specify a maximum of one resource group name per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\. 
 
@@ -57,7 +57,7 @@ In order to send commands that target a resource group, you must have been grant
 ```
 aws ssm send-command \	
 	--document-name document-name \
-	--targets Key=resource-groups:name,Values=resource-group-name \
+	--targets Key=resource-groups:Name,Values=resource-group-name \
 	[...]
 ```
 
@@ -67,13 +67,42 @@ aws ssm send-command \
 ```
 aws ssm send-command ^	
 	--document-name document-name ^
-	--targets Key=resource-groups:name,Values=resource-group-name ^
+	--targets Key=resource-groups:Name,Values=resource-group-name ^
 	[...]
 ```
 
 ------
 
-**Example 3: Targeting instance IDs**
+**Example 3: Targeting an AWS resource group by resource type**
+
+You can specify a maximum of five resource group types per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\.
+
+**Note**  
+In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
+
+------
+#### [ Linux ]
+
+```
+aws ssm send-command \	
+	--document-name document-name \
+	--targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 \
+	[...]
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm send-command ^	
+	--document-name document-name ^
+	--targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 ^
+	[...]
+```
+
+------
+
+**Example 4: Targeting instance IDs**
 
 ------
 #### [ Linux ]

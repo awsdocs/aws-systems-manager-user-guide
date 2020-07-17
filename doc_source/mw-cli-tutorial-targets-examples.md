@@ -15,6 +15,7 @@ For information about limits for the Maintenance Windows capability, in addition
 + [Example 2: Register targets using resource tags applied to instances](#mw-target-example-2)
 + [Example 3: Register targets using a group of tag keys \(without tag values\)](#mw-target-example-3)
 + [Example 4: Register targets using a resource group name](#mw-target-example-4)
++ [Example 5: Register targets by filtering resource types in a resource group](#mw-target-example-5)
 
 ## Example 1: Register multiple targets using instance IDs<a name="mw-target-example-1"></a>
 
@@ -139,7 +140,7 @@ aws ssm register-target-with-maintenance-window ^
 
 **Quotas:** You can specify only one resource group as a target\.
 
-### Example 5: Register targets by filtering resource types in a resource group<a name="mw-target-example-5"></a>
+## Example 5: Register targets by filtering resource types in a resource group<a name="mw-target-example-5"></a>
 
 Run the following command on your local machine to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
 

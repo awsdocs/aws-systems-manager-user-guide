@@ -8,7 +8,12 @@ When you configure inventory collection, you start by creating a Systems Manager
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
 ```
 
-Also note that an instance can have only have one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\.
+**Note**  
+Be aware of the following behavior if you create multiple inventory associations for an instance\.  
+Each instance can be assigned an inventory association that targets *all* instances \(\-\-targets "Key=InstanceIds,Values=\*"\)\.
+Each instance can also be assigned a specific association that uses either tag key/value pairs or an AWS Resource Group\.
+If an instance is assigned multiple inventory associations, the status shows *Skipped* for the association that hasn't run\. The association that ran most recently displays the actual status of the inventory association\.
+If an instance is assigned multiple inventory associations and each uses a tag key/value pair, then those inventory associations fail to run on the instance because of the tag conflict\. The association still runs on instances that don't have the tag key/value conflict\. 
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.

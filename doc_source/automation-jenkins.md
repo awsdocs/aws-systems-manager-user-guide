@@ -71,18 +71,31 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 **To configure the Jenkins server for Automation**
 
-1. If it's not already installed, download the AWS CLI to your Jenkins server\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html)\.
+1. Connect to your Jenkins server on port 8080 using your preferred browser to access the management interface\.
 
-1. In a terminal window on your Jenkins server, run the following commands to configure the AWS CLI\.
+1. Enter the password found in `/var/lib/jenkins/secrets/initialAdminPassword`\. To display your password, run the following command:
 
    ```
-   sudo su – jenkins
-   aws configure
+   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+1. The Jenkins installation script directs you to the **Customize Jenkins** page\. Select **Install suggested plugins**\.
 
-1. When prompted, enter the AWS Access key and Secret key you received when you created the Jenkins user in IAM\. Specify a default region\. For more information about configuring the AWS CLI see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
+1. Once the installation is complete, choose **Administrator Credentials**, select **Save Credentials**, and then select **Start Using Jenkins**\.
+
+1. In the left navigation pane, choose **Manage Jenkins**, and then choose **Manage Plugins**\.
+
+1. Choose the **Available** tab, and then enter **Amazon EC2 plugin**\.
+
+1. Select the check box for **Amazon EC2 plugin**, and then select **Install without restart**\.
+
+1. When the installation completes, select **Go back to the top page**\.
+
+1. Choose **Manage Jenkins**, and then choose **Configure System**\.
+
+1. In the **Cloud** section, select **Add a new cloud**, and then choose **Amazon EC2**\.
+
+1. Enter your information in the remaining fields\. Note that you must enter your AWS credentials in the **Add Credentials** field\.
 
 Use the following procedure to configure your Jenkins project to invoke Automation\.
 

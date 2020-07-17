@@ -2,6 +2,9 @@
 
 Invokes the specified Lambda function\.
 
+**Note**  
+Each `aws:invokeLambdaFunction` action can run up to a maximum duration of 300 seconds \(five minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:invokeLambdaFunction` step\.
+
 **Input**  
 This action supports most invoked parameters for the Lambda service\. For more information, see [Invoke](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html)\.
 

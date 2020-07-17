@@ -19,17 +19,53 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
 1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --targets Key=tag:TagKey,Values=TagValue --name AWS-UpdateSSMAgent --schedule-expression "cron(0 2 ? * SUN *)"
+   aws ssm create-association \
+   --targets Key=tag:tag_key,Values=tag_value \
+   --name AWS-UpdateSSMAgent \
+   --schedule-expression "cron(0 2 ? * SUN *)"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --targets Key=tag:tag_key,Values=tag_value ^
+   --name AWS-UpdateSSMAgent ^
+   --schedule-expression "cron(0 2 ? * SUN *)"
+   ```
+
+------
 **Note**  
 State Manager associations do not support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
    If you want, you can also target multiple instances by specifying instances IDs in a comma\-separated list\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --targets Key=instanceids,Values=InstanceID,InstanceID,InstanceID --name your document name --schedule-expression "cron(0 2 ? * SUN *)"
+   aws ssm create-association \
+   --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID \
+   --name document_name \
+   --schedule-expression "cron(0 2 ? * SUN *)"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID ^
+   --name document_name ^
+   --schedule-expression "cron(0 2 ? * SUN *)"
+   ```
+
+------
 
    The system returns information like the following\.
 

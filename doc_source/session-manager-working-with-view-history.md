@@ -35,7 +35,8 @@ You can use the AWS Systems Manager console to view details about the sessions i
 To view a list of sessions in your account using the AWS CLI, run the following command:
 
 ```
-aws ssm describe-sessions --state History
+aws ssm describe-sessions \
+    --state History
 ```
 
 **Note**  

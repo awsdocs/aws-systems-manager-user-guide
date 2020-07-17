@@ -6,7 +6,7 @@ If you configured your instance or on\-premises hybrid machine to use the AWS Id
 
 For information about adding policies to an instance profile for EC2 instances, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises instances and virtual machines that you plan to use as managed instances, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
-For information about updating an existing instance profile, see [Add permissions to a Systems Manager instance Pprofile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
+For information about updating an existing instance profile, see [Add permissions to a Systems Manager instance profile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
 
 If you are using a custom policy on your instances, then you must update the policy on each instance to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information, about updating an IAM policy, see [Editing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.
 

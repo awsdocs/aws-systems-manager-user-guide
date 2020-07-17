@@ -54,6 +54,9 @@ New-EC2Tag -Resource i-12345678 -Tag $tag
 
 For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in Automation document content, see [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)\.
 
+**Note**  
+Each `aws:executeScript` action can run up to a maximum duration of 600 seconds \(ten minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:executeScript` step\.
+
 **Input**  
 Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
 

@@ -83,11 +83,11 @@ Before you start this walkthrough, you must collect inventory metadata from your
                "Service":"ssm.amazonaws.com"
             },
             "Action":"s3:PutObject",
-            "Resource":"arn:aws:s3:::bucket-name/prefix/*",
+            "Resource":"arn:aws:s3:::bucket_name/prefix/*",
             "Condition":{
                "StringEquals":{
                   "s3:x-amz-server-side-encryption":"aws:kms",
-                  "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:region:AWS-account-ID:key/KMS-key-ID"
+                  "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:region:account_ID:key/KMS_key_ID"
                }
             }
          }
@@ -101,29 +101,97 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 
+------
+#### [ Linux ]
+
    ```
-   aws s3 cp ./A file in the bucket s3://bucket-name/prefix/ --sse aws:kms --sse-kms-key-id "arn:aws:kms:region:AWS-account-ID:key/KMS-key-id" --region region
+   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ \ 
+   --sse aws:kms \ 
+   --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" \
+   --region region, for example, us-east-2
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ ^ 
+   --sse aws:kms ^ 
+   --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" ^
+   --region region, for example, us-east-2
+   ```
+
+------
 
 1. Run the following command to create a resource data sync configuration with the S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
 **Note**  
 If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-resource-data-sync --sync-name a name --s3-destination "BucketName=the name of the S3 bucket,Prefix=the name of the prefix, if specified,SyncFormat=JsonSerDe,Region=the region where the S3 bucket was created" 
+   aws ssm create-resource-data-sync \ 
+   --sync-name a_name \
+   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-resource-data-sync ^ 
+   --sync-name a_name ^
+   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
+   ```
+
+------
 
    You can use the `region` parameter to specify where the sync configuration should be created\. In the following example, inventory data from the us\-west\-1 Region, will be synchronized in the S3 bucket in the us\-west\-2 Region\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-resource-data-sync --sync-name InventoryDataWest --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" --region us-west-1
+   aws ssm create-resource-data-sync \ 
+   --sync-name InventoryDataWest \
+   --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" \ --region us-west-1
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-resource-data-sync ^ 
+   --sync-name InventoryDataWest ^
+   --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" ^ --region us-west-1
+   ```
+
+------
 
    \(Optional\) If you want to encrypt the sync by using AWS KMS, run the following command to create the sync\. If you encrypt the sync, then the AWS KMS key and the S3 bucket must be in the same Region\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-resource-data-sync --sync-name sync-name --s3-destination "BucketName=bucket-name,Prefix=prefix,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:AWS-account-ID:key/KMS-key-id,Region=bucket-region" --region region
+   aws ssm create-resource-data-sync \
+   --sync-name sync_name \
+   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" \
+   --region region
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-resource-data-sync ^
+   --sync-name sync_name ^
+   --s3-destination "BucketName=bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" ^
+   --region region
+   ```
+
+------
 
 1. Run the following command to view the status of sync configuration\. 
 
@@ -155,7 +223,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system creates a database called ssminventory\.
 
-1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *bucket\-name* and *bucket\-prefix* with the name and prefix of the Amazon S3 target\.
+1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *bucket\_name* and *bucket\_prefix* with the name and prefix of the Amazon S3 target\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
@@ -173,7 +241,7 @@ The following section describes how to view and query the data in Amazon Athena\
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:Application/'
+   ) LOCATION 's3://bucket_name/bucket_prefix/AWS:Application/'
    ```
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**\.

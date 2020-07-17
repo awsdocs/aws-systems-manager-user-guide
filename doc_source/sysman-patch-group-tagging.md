@@ -52,18 +52,6 @@ When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Pat
 
 1. Repeat this procedure to add other instances to the same patch group\.
 
-**To add EC2 instances to a patch group \(AWS CLI\)**
-
-1. Install and configure the AWS CLI, if you have not already\.
-
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
-
-1. Run the following command to add the `Patch Group` tag to an EC2 instance\.
-
-   ```
-   aws ec2 create-tags --resources "i-1234567890abcdef0" --tags "Key=Patch Group,Value=GroupValue"
-   ```
-
 ## Task 2: Add managed instances to a patch group using tags<a name="sysman-patch-group-tagging-managed"></a>
 
 For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Systems Manager console, the AWS CLI command `add-tags-to-resource`, or the API action `AddTagsToResource`\. You cannot add tags for hybrid managed instances using the Amazon EC2 console\.
@@ -88,36 +76,6 @@ For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Syste
 
 1. Repeat this procedure to add other managed instances to the same patch group\.
 
-**To add managed instances to a patch group \(AWS CLI\)**
-
-1. Install and configure the AWS CLI, if you have not already\.
-
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
-
-1. Run the following command to add the `Patch Group` tag to a managed instance\.
-
-------
-#### [ Linux ]
-
-   ```
-   aws ssm add-tags-to-resource \
-       --resource-type "ManagedInstance" \
-       --resource-id "mi-0123456789abcdefg" \
-       --tags "Key=Patch Group,Value=GroupValue"
-   ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm add-tags-to-resource ^
-       --resource-type "ManagedInstance" ^
-       --resource-id "mi-0123456789abcdefg" ^
-       --tags "Key=Patch Group,Value=GroupValue"
-   ```
-
-------
-
 ## Task 3: Add a patch group to a patch baseline<a name="sysman-patch-group-patchbaseline"></a>
 
 To associate a specific patch baseline with your instances, you must add the patch group value to the patch baseline\. By registering the patch group with a patch baseline, you can ensure that the correct patches are installed during a patching operation\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
@@ -133,40 +91,3 @@ To associate a specific patch baseline with your instances, you must add the pat
 1. Choose **Actions**, then **Modify patch groups**\.
 
 1. Enter the tag value you added to your managed instances in the previous section, then choose **Add**\.
-
-**To add a patch group to a patch baseline \(AWS CLI\)**
-
-1. Install and configure the AWS CLI, if you have not already\.
-
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
-
-1. Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
-
-------
-#### [ Linux ]
-
-   ```
-   aws ssm register-patch-baseline-for-patch-group \
-       --baseline-id "pb-0123456789abcdef0" \
-       --patch-group "Development"
-   ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm register-patch-baseline-for-patch-group ^
-       --baseline-id "pb-0123456789abcdef0" ^
-       --patch-group "Development"
-   ```
-
-------
-
-   The system returns information like the following:
-
-   ```
-   {
-     "PatchGroup": "Development",
-     "BaselineId": "pb-0123456789abcdef0"
-   }
-   ```

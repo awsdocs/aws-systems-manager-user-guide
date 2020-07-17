@@ -19,6 +19,8 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline)
 + [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline)
 + [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline)
++ [Create a patch group](#patch-manager-cli-commands-create-patch-group)
++ [Tag a patch baseline](#patch-manager-cli-commands-add-tags-to-resource)
 + [Register a patch group "web servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers)
 + [Register a patch group "Backend" with the AWS\-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend)
 + [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
@@ -26,7 +28,6 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline)
 + [Get all patches for Windows Server 2012 that have a MSRC severity of Critical](#patch-manager-cli-commands-describe-available-patches)
 + [Get all available patches](#patch-manager-cli-commands-describe-available-patches)
-+ [Tag a patch baseline](#patch-manager-cli-commands-add-tags-to-resource)
 + [List the tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource)
 + [Remove a tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource)
 + [Get patch summary states per\-instance](#patch-manager-cli-commands-describe-instance-patch-states)
@@ -602,6 +603,106 @@ The system returns information like the following:
 }
 ```
 
+## Create a patch group<a name="patch-manager-cli-commands-create-patch-group"></a>
+
+To help you organize your patching efforts, we recommend that you add instances to patch groups by using tags\. Patch groups require use of the tag key **Patch Group**\. You can specify any tag value, but the tag key must be **Patch Group**\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
+
+After you group your instances using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\.
+
+### Task 1:Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
+
+**Note**  
+When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. Ensure that SSM Agent is installed and running on instances that you want to manage using Systems Manager\. For more information, see [Working with SSM Agent](ssm-agent.md)\.
+
+Run the following command to add the `Patch Group` tag to an EC2 instance\.
+
+```
+aws ec2 create-tags --resources "i-1234567890abcdef0" --tags "Key=Patch Group,Value=GroupValue"
+```
+
+### Task 2: Add managed instances to a patch group using tags<a name="create-patch-group-cli-2"></a>
+
+Run the following command to add the `Patch Group` tag to a managed instance\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm add-tags-to-resource \
+    --resource-type "ManagedInstance" \
+    --resource-id "mi-0123456789abcdefg" \
+    --tags "Key=Patch Group,Value=GroupValue"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm add-tags-to-resource ^
+    --resource-type "ManagedInstance" ^
+    --resource-id "mi-0123456789abcdefg" ^
+    --tags "Key=Patch Group,Value=GroupValue"
+```
+
+------
+
+### Task 3: Add a patch group to a patch baseline<a name="create-patch-group-cli-3"></a>
+
+Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm register-patch-baseline-for-patch-group \
+    --baseline-id "pb-0123456789abcdef0" \
+    --patch-group "Development"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm register-patch-baseline-for-patch-group ^
+    --baseline-id "pb-0123456789abcdef0" ^
+    --patch-group "Development"
+```
+
+------
+
+The system returns information like the following:
+
+```
+{
+  "PatchGroup": "Development",
+  "BaselineId": "pb-0123456789abcdef0"
+}
+```
+
+## Tag a patch baseline<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
+
+------
+#### [ Linux ]
+
+```
+aws ssm add-tags-to-resource \
+    --resource-type "PatchBaseline" \
+    --resource-id "pb-0c10e65780EXAMPLE" \
+    --tags "Key=Project,Value=Testing"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm add-tags-to-resource ^
+    --resource-type "PatchBaseline" ^
+    --resource-id "pb-0c10e65780EXAMPLE" ^
+    --tags "Key=Project,Value=Testing"
+```
+
+------
+
 ## Register a patch group "web servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
 ------
@@ -935,30 +1036,6 @@ The system returns information like the following\.
       }
       ---output truncated---
 ```
-
-## Tag a patch baseline<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
-
-------
-#### [ Linux ]
-
-```
-aws ssm add-tags-to-resource \
-    --resource-type "PatchBaseline" \
-    --resource-id "pb-0c10e65780EXAMPLE" \
-    --tags "Key=Project,Value=Testing"
-```
-
-------
-#### [ Windows ]
-
-```
-aws ssm add-tags-to-resource ^
-    --resource-type "PatchBaseline" ^
-    --resource-id "pb-0c10e65780EXAMPLE" ^
-    --tags "Key=Project,Value=Testing"
-```
-
-------
 
 ## List the tags for a patch baseline<a name="patch-manager-cli-commands-list-tags-for-resource"></a>
 

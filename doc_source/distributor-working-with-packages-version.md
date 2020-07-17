@@ -107,19 +107,31 @@ You can use the AWS CLI to add a new package version to Distributor\. Before you
 1. Run the following command to edit the AWS Systems Manager document with an entry for a new package version\. Replace *document\-name* with the name of your document\. Replace *S3\-bucket\-URL\-to\-manifest\-file* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. Replace *version\-name\-from\-updated\-manifest* with the value of `version` in the manifest\. Set the `--document-version` parameter to `$LATEST` to make the document associated with this package version the latest version of the document\.
 
    ```
-   aws ssm update-document --name "document-name" --content "S3-bucket-URL-to-manifest-file" --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" --version-name version-name-from-updated-manifest --document-version $LATEST
+   aws ssm update-document \
+       --name "document-name" \
+       --content "S3-bucket-URL-to-manifest-file" \
+       --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" \
+       --version-name version-name-from-updated-manifest \
+       --document-version $LATEST
    ```
 
    The following is an example\.
 
    ```
-   aws ssm update-document --name ExamplePackage --content "https://s3.amazonaws.com/mybucket/ExamplePackage/manifest.json" --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/mybucket/ExamplePackage" --version-name 1.1.1 --document-version $LATEST
+   aws ssm update-document \
+       --name ExamplePackage \
+       --content "https://s3.amazonaws.com/mybucket/ExamplePackage/manifest.json" \
+       --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/mybucket/ExamplePackage" \
+       --version-name 1.1.1 \
+       --document-version $LATEST
    ```
 
 1. Run the following command to verify that your package was updated and show the package manifest\. Replace *package\-name* with the name of your package, and optionally, *document\-version* with the version number of the document \(not the same as the package version\) that you updated\. If this package version is associated with the latest version of the document, you can specify `$LATEST` for the value of the optional `--document-version` parameter\.
 
    ```
-   aws ssm get-document --name "package-name" --document-version "document-version"
+   aws ssm get-document \
+       --name "package-name" \
+       --document-version "document-version"
    ```
 
 For information about other options you can use with the update\-document command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-document.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.

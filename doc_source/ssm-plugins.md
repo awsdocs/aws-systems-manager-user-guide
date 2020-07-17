@@ -1404,7 +1404,13 @@ Required: No
 
 ## aws:softwareInventory<a name="aws-softwareinventory"></a>
 
-\(Schema version 2\.0 or later\) Gather metadata about applications, files, and configurations on your managed instances\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
+\(Schema version 2\.0 or later\) Gather metadata about applications, files, and configurations on your managed instances\. This plugin runs on Linux and Microsoft Windows Server operating systems\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin the system returns the following error:
+
+```
+The aws:softwareInventory plugin can only be invoked via ssm-associate.
+```
+
+Also note that an instance can have only have one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 

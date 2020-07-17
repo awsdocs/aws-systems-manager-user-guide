@@ -3,11 +3,43 @@
 This topic includes information about how to troubleshoot common errors or problems with Systems Manager Inventory\.
 
 **Topics**
++ [Inventory execution status never exits pending](#sysman-inventory-troubleshooting-pending)
 + [The AWS\-ListWindowsInventory document fails to run](#sysman-inventory-troubleshooting-ListWindowsInventory)
 + [Console doesn't display Inventory Dashboard \| Detailed View \| Settings tabs](#sysman-inventory-troubleshooting-tabs)
 + [UnsupportedAgent](#sysman-inventory-troubleshooting-unsupported-agent)
 + [Skipped](#sysman-inventory-troubleshooting-skipped)
 + [Failed](#sysman-inventory-troubleshooting-failed)
+
+## Inventory execution status never exits pending<a name="sysman-inventory-troubleshooting-pending"></a>
+
+If an inventory execution never exits the `Pending` status, it means the instance does not have enough permission to run Systems Manager Inventory\. Verify that the AWS Identity and Access Management \(IAM\) instance profile includes the **AmazonSSMManagedInstanceCore** managed policy\. For information about how to add this policy to an instance profile, see [Task 2: Add permissions to a Systems Manager instance profile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
+
+**Note**  
+At a minimum, the instance profile must have the following IAM permissions\.  
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeAssociation",
+                "ssm:ListAssociations",
+                "ssm:ListInstanceAssociations",
+                "ssm:PutInventory",
+                "ssm:PutComplianceItems",
+                "ssm:UpdateAssociationStatus",
+                "ssm:UpdateInstanceAssociationStatus",
+                "ssm:UpdateInstanceInformation",
+                "ssm:GetDocument",
+                "ssm:DescribeDocument"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## The AWS\-ListWindowsInventory document fails to run<a name="sysman-inventory-troubleshooting-ListWindowsInventory"></a>
 

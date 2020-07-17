@@ -44,13 +44,19 @@ You can use the AWS CLI to uninstall a Distributor package from managed instance
 + Run the following command in the AWS CLI\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance-IDs" --parameters '{"action":["Uninstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "instance-IDs" \
+      --parameters '{"action":["Uninstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 
   The following is an example\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-02573cafcfEXAMPLE" --parameters '{"action":["Uninstall"],"name":["Test-ConfigureAWSPackage"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "i-02573cafcfEXAMPLE" \
+      --parameters '{"action":["Uninstall"],"name":["Test-ConfigureAWSPackage"]}'
   ```
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.

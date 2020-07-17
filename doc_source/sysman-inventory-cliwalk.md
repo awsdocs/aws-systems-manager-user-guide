@@ -19,12 +19,32 @@ You can quickly configure all managed instances in your AWS account and in the c
 
 1. Run the following command\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --name AWS-GatherSoftwareInventory --targets Key=InstanceIds,Values=* --schedule-expression "rate(1 day)" --parameters applications=Enabled,awsComponents=Enabled,customInventory=Enabled,instanceDetailedInformation=Enabled,networkConfig=Enabled,services=Enabled,windowsRoles=Enabled,windowsUpdates=Enabled
+   aws ssm create-association \
+   --name AWS-GatherSoftwareInventory \
+   --targets Key=InstanceIds,Values=* \
+   --schedule-expression "rate(1 day)" \
+   --parameters applications=Enabled,awsComponents=Enabled,customInventory=Enabled,instanceDetailedInformation=Enabled,networkConfig=Enabled,services=Enabled,windowsRoles=Enabled,windowsUpdates=Enabled
    ```
 
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --name AWS-GatherSoftwareInventory ^
+   --targets Key=InstanceIds,Values=* ^
+   --schedule-expression "rate(1 day)" ^
+   --parameters applications=Enabled,awsComponents=Enabled,customInventory=Enabled,instanceDetailedInformation=Enabled,networkConfig=Enabled,services=Enabled,windowsRoles=Enabled,windowsUpdates=Enabled
+   ```
+
+------
+
 **Note**  
-This command does not enable inventory of file or Windows Registry metadata\. To inventory these datatypes, use the next procedure\.
+This command doesn't enable Inventory to collect metadata for the Windows Registry or files\. To inventory these datatypes, use the next procedure\.
 
 ## Manually configuring Inventory on your managed instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
 
@@ -38,11 +58,31 @@ Use the following procedure to manually configure Systems Manager Inventory on y
 
 1. Run the following command to create a State Manager association that runs Systems Manager Inventory on the instance\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from an instance\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=an instance ID" --schedule-expression "rate(240 minutes)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region-id\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   aws ssm create-association \
+   --name "AWS-GatherSoftwareInventory" \
+   --targets "Key=instanceids,Values=an_instance_ID" \
+   --schedule-expression "rate(240 minutes)" \
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" \
+   --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
-   *region\-id* represents the AWS Region where the instance is located, such as us\-east\-2 for the US East \(Ohio\) Region\.
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --name "AWS-GatherSoftwareInventory" ^
+   --targets "Key=instanceids,Values=an_instance_ID" ^
+   --schedule-expression "rate(240 minutes)" ^
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
+   --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   ```
+
+------
 
    The system responds with information like the following\.
 
@@ -91,20 +131,64 @@ Use the following procedure to manually configure Systems Manager Inventory on y
 
    You can target large groups of instances by using the `Targets` parameter with EC2 tags\. For example:
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=tag:Environment,Values=Production" --schedule-expression "rate(240 minutes)" --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   aws ssm create-association \
+   --name "AWS-GatherSoftwareInventory" \
+   --targets "Key=tag:Environment,Values=Production" \
+   --schedule-expression "rate(240 minutes)" \
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" \
+   --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --name "AWS-GatherSoftwareInventory" ^
+   --targets "Key=tag:Environment,Values=Production" ^
+   --schedule-expression "rate(240 minutes)" ^
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
+   --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
+   ```
+
+------
 
    You can also inventory files and Windows Registry keys on a Windows Server instance by using the `files` and `windowsRegistry` inventory types with expressions\. For more information about these inventory types, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm create-association --name "AWS-GatherSoftwareInventory" --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" --schedule-expression "rate(240 minutes)"  --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' --profile dev-pdx
+   aws ssm create-association \
+   --name "AWS-GatherSoftwareInventory" \
+   --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" \
+   --schedule-expression "rate(240 minutes)" \
+   --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' \
+   --profile dev-pdx
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --name "AWS-GatherSoftwareInventory" ^
+   --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" ^
+   --schedule-expression "rate(240 minutes)" ^
+   --parameters '{"files":["[{\"Path\": \"C:\\Program Files\", \"Pattern\": [\"*.exe\"], \"Recursive\": true}]"], "windowsRegistry": ["[{\"Path\":\"HKEY_LOCAL_MACHINE\\Software\\Amazon\", \"Recursive\":true}]"]}' ^
+   --profile dev-pdx
+   ```
+
+------
 
 1. Run the following command to view the association status\.
 
    ```
-   aws ssm describe-instance-associations-status --instance-id an instance ID
+   aws ssm describe-instance-associations-status --instance-id an_instance_ID
    ```
 
    The system responds with information like the following\.

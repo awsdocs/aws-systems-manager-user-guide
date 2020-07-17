@@ -17,7 +17,12 @@ Type: String
 Required: No
 
 **parameters**  
-A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. For more information, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
+A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format:  
+
+```
+{{ssm:parameter-name}}
+```
+For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.

@@ -53,8 +53,7 @@ Type: Integer
 Required: No
 
 [timeoutSeconds](#timeProp)  
-The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.   
-The `aws:changeInstanceState` action has a default `timeoutSeconds` value of 3600\. For all other actions, there is no default value\.  
+The execution timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.  
 Type: Integer  
 Required: No
 
@@ -76,7 +75,7 @@ Type: String
 Required: No
 
 [isCritical](#critProp)  
-Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.  
+Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. This property is only evaluated if you explicitly define it in your step\. The default value for this option is true\.  
 Type: Boolean  
 Valid values: true \| false  
 Required: No

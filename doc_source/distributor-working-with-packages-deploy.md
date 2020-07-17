@@ -127,7 +127,10 @@ You can run send\-command in the AWS CLI to install a Distributor package one ti
 + Run the following command in the AWS CLI\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance-IDs" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "instance-IDs" \
+      --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 **Note**  
 The default behavior for `installationType` is `Uninstall and reinstall`\. You can omit `"installationType":["Uninstall and reinstall"]` from this command when you are installing a complete package\.
@@ -135,7 +138,10 @@ The default behavior for `installationType` is `Uninstall and reinstall`\. You c
   The following is an example\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-00000000000000" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["ExamplePackage"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "i-00000000000000" \
+      --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["ExamplePackage"]}'
   ```
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
@@ -148,7 +154,10 @@ You can run send\-command in the AWS CLI to update a Distributor package without
 + Run the following command in the AWS CLI\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "instance-IDs" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "instance-IDs" \
+      --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 **Note**  
 When you add new or changed files, you must include `"installationType":["In-place update"]` in the command\.
@@ -156,7 +165,10 @@ When you add new or changed files, you must include `"installationType":["In-pla
   The following is an example\.
 
   ```
-  aws ssm send-command --document-name "AWS-ConfigureAWSPackage" --instance-ids "i-02573cafcfEXAMPLE" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["ExamplePackage"]}'
+  aws ssm send-command \
+      --document-name "AWS-ConfigureAWSPackage" \
+      --instance-ids "i-02573cafcfEXAMPLE" \
+      --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["ExamplePackage"]}'
   ```
 
 For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.\.
@@ -166,7 +178,10 @@ For information about other options you can use with the send\-command command, 
 You can run create\-association in the AWS CLI to install a Distributor package on a schedule\. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`\. The following command uses the key `InstanceIds` to specify target instances\. If the package is already installed, the application will be taken offline while the package is uninstalled and the new version installed in its place\.
 
 ```
-aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance-ID1\",\"instance-ID2\"]}]
+aws ssm create-association \
+    --name "AWS-ConfigureAWSPackage" \
+    --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}' \
+    --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance-ID1\",\"instance-ID2\"]}]
 ```
 
 **Note**  
@@ -175,7 +190,10 @@ The default behavior for `installationType` is `Uninstall and reinstall`\. You c
 The following is an example\.
 
 ```
-aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["Test-ConfigureAWSPackage"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
+aws ssm create-association \
+    --name "AWS-ConfigureAWSPackage" \
+    --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["Test-ConfigureAWSPackage"]}' \
+    --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
 ```
 
 For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
@@ -185,7 +203,10 @@ For information about other options you can use with the create\-association com
 You can run create\-association in the AWS CLI to update a Distributor package on a schedule without taking the associated application offline\. Only new or updated files in the package are replaced\. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`\. The following command uses the key `InstanceIds` to specify target instances\.
 
 ```
-aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance-ID1\",\"instance-ID2\"]}]
+aws ssm create-association \
+    --name "AWS-ConfigureAWSPackage" \
+    --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}' \
+    --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"instance-ID1\",\"instance-ID2\"]}]
 ```
 
 **Note**  
@@ -194,7 +215,10 @@ When you add new or changed files, you must include `"installationType":["In-pla
 The following is an example\.
 
 ```
-aws ssm create-association --name "AWS-ConfigureAWSPackage" --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["Test-ConfigureAWSPackage"]}' --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
+aws ssm create-association \
+    --name "AWS-ConfigureAWSPackage" \
+    --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["Test-ConfigureAWSPackage"]}' \
+    --targets [{\"Key\":\"InstanceIds\",\"Values\":[\"i-02573cafcfEXAMPLE\",\"i-0471e04240EXAMPLE\"]}]
 ```
 
 For information about other options you can use with the create\-association command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
