@@ -30,7 +30,7 @@ If (desired package not installed)
 	}
 ```
 
-The following script samples use exit codes to restart instances\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. The Windows example installs the Hyper\-V application on the instance, and then restarts the instance\. 
+The following script samples use exit codes to restart instances\. The Linux example installs package updates on Amazon Linux, and then restarts the instance\. The Windows example installs the Telnet\-Client application on the instance, and then restarts the instance\. 
 
 **Amazon Linux example**
 
