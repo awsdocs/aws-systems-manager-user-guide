@@ -8,14 +8,27 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 **To view information about tasks and task executions \(AWS CLI\)**
 
-1. Run the following command to view a list of task executions for a specific maintenance window:
+1. Run the following command to view a list of task executions for a specific maintenance window\.
+
+------
+#### [ Linux ]
 
    ```
    aws ssm describe-maintenance-window-executions \
        --window-id "mw-0c50858d01EXAMPLE"
    ```
 
-   The system returns information like the following:
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-window-executions ^
+       --window-id "mw-0c50858d01EXAMPLE"
+   ```
+
+------
+
+   The system returns information like the following\.
 
    ```
    {
@@ -43,17 +56,30 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
                "EndTime": 1557593193.334
            }
        ]
-   }}
+   }
    ```
 
-1. Run the following command to get information about a maintenance window task execution:
+1. Run the following command to get information about a maintenance window task execution\.
+
+------
+#### [ Linux ]
 
    ```
    aws ssm get-maintenance-window-execution \
        --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
    ```
 
-   The system returns information like the following:
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-maintenance-window-execution ^
+       --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
+   ```
+
+------
+
+   The system returns information like the following\.
 
    ```
    {
@@ -67,14 +93,27 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    }
    ```
 
-1. Run the following command to list the tasks run as part of a maintenance window execution:
+1. Run the following command to list the tasks run as part of a maintenance window execution\.
+
+------
+#### [ Linux ]
 
    ```
-   aws ssm describe-maintenance-window-execution-tasks 
+   aws ssm describe-maintenance-window-execution-tasks \
        --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
    ```
 
-   The system returns information like the following:
+------
+#### [ Windows ]
+
+   ```
+   aws ssm describe-maintenance-window-execution-tasks ^
+       --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE"
+   ```
+
+------
+
+   The system returns information like the following\.
 
    ```
    {
@@ -92,7 +131,10 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    }
    ```
 
-1. Run the following command to get the details of a task execution:
+1. Run the following command to get the details of a task execution\.
+
+------
+#### [ Linux ]
 
    ```
    aws ssm get-maintenance-window-execution-task \
@@ -100,7 +142,18 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
        --task-id "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE"
    ```
 
-   The system returns information like the following:
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-maintenance-window-execution-task ^
+       --window-execution-id "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE" ^
+       --task-id "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE"
+   ```
+
+------
+
+   The system returns information like the following\.
 
    ```
    {

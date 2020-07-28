@@ -21,8 +21,6 @@ Use the following procedure to create an AppConfig environment by using the AWS 
 
 1. For **Description**, enter information about the environment\.
 
-1. In the **Monitors** section, choose **Enable rollback on CloudWatch Alarms** if you want AppConfig to roll back a configuration when an alarm is triggered\.
-
 1. In the **IAM role** list, choose the IAM role with permission to roll back a configuration when an alarm is triggered\.
 
 1. In the **CloudWatch alarms** list, choose one or more alarms to monitor\.

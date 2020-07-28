@@ -2,7 +2,7 @@
 
 You can create the IAM role that provides access to the configuration data by using AppConfig, as described in the following procedure\. Or you can create the IAM role yourself and choose it from a list\. If you create the role by using AppConfig, the system creates the role and specifies one of the following permissions policies, depending on which type of configuration source you choose\.
 
-**Configuration source is an SSM document**
+ **Configuration source is an SSM document** 
 
 ```
 {
@@ -21,7 +21,7 @@ You can create the IAM role that provides access to the configuration data by us
 }
 ```
 
-**Configuration source is a Parameter Store parameter**
+ **Configuration source is a Parameter Store parameter** 
 
 ```
 {

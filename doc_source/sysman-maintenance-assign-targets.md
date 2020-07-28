@@ -4,6 +4,10 @@ In this procedure, you register a target with a maintenance window\. In other wo
 
 **To assign targets to a maintenance window \(console\)**
 
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Maintenance Windows**\. 
+
 1. In the list of maintenance windows, choose the maintenance window to add targets to\.
 
 1. Choose **Actions**, and then choose **Register targets**\.

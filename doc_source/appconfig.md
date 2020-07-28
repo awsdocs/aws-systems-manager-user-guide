@@ -15,18 +15,18 @@ AppConfig supports multiple use cases\. Here are some examples\.
 ## How can AppConfig benefit my organization?<a name="learn-more-appconfig-benefits"></a>
 
 AppConfig offers the following benefits\.
-+ **Deploy changes across a set of targets quickly**
++  **Deploy changes across a set of targets quickly** 
 
   AppConfig simplifies the administration of applications at scale by deploying configuration changes from a central location\. AppConfig supports configurations stored in Systems Manager Parameter Store, Systems Manager \(SSM\) documents, and Amazon S3\. You can use AppConfig with applications hosted on EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\.
-+ **Reduce errors in configuration changes**
++  **Reduce errors in configuration changes** 
 
   AppConfig reduces application downtime by enabling you to create rules to validate your configuration\. Configurations that aren't valid can't be deployed\. AppConfig provides two options for validating configurations\.
   + For syntactic validation, you can use a JSON schema\. AppConfig validates your configuration by using the JSON schema to ensure that configuration changes adhere to the application requirements\. 
   + For semantic validation, you can call an AWS Lambda function that runs your configuration before you deploy it\.
-+ **Update applications without interruptions**
++  **Update applications without interruptions** 
 
   AppConfig deploys configuration changes to your targets at runtime without a heavy\-weight build process or taking your targets out of service\. 
-+ **Control deployment of changes across your application**
++  **Control deployment of changes across your application** 
 
   When deploying configuration changes to your targets, AppConfig enables you to minimize risk by using a deployment strategy\. You can use the rate controls of a deployment strategy to determine how fast you want your application targets to receive a configuration change\.
 

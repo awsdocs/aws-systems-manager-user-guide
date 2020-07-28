@@ -2,7 +2,7 @@
 
 The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running EC2 instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **Topics**
@@ -133,6 +133,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    1. The notification type that you want to receive when the status of a command changes\. For commands sent to multiple instances, choose **Invocation** to receive notification on an invocation \(per\-instance\) basis when the status of each invocation changes\.
 
-1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we don't provide a version\. Therefore, SSM Agent is be updated to the latest version\.
+1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we don't provide a version\. Therefore, SSM Agent is updated to the latest version\.
 
 1. Choose **Register Run Command task**\.

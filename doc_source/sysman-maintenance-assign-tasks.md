@@ -3,14 +3,18 @@
 In this procedure, you add a task to a maintenance window\. Tasks are the actions performed on a resource during a maintenance window execution\. 
 
 The following four types of tasks can be added to a maintenance window:
-+ Systems Manager Run Command commands
++ AWS Systems Manager Run Command commands
 + Systems Manager Automation workflows
 + AWS Lambda functions
 + AWS Step Functions tasks
 
 **To assign tasks to a maintenance window**
 
-1. In the list of maintenance windows, choose a maintenance window \.
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Maintenance Windows**\. 
+
+1. In the list of maintenance windows, choose a maintenance window\.
 
 1. Choose **Actions**, and then choose the option for the type of task you want to register with the maintenance window:
    + **Register Run command task**

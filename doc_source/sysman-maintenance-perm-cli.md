@@ -4,7 +4,8 @@ The following procedures describe how to use the AWS CLI to create the required 
 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(AWS CLI\)](#sysman-maintenance-role-cli)
-+ [Task 2: Assign the IAM PassRole policy to an IAM user or group](#sysman-mw-passrole-cli)
++ [Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)](#sysman-mw-passrole-cli)
++ [Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(AWS CLI\)](#mw-deny-task-registrations-cli)
 
 ## Task 1: \(Optional\) Create a custom service role for maintenance windows \(AWS CLI\)<a name="sysman-maintenance-role-cli"></a>
 
@@ -53,7 +54,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -103,11 +104,11 @@ Make a note of the `RoleName` and the `Arn` values\. You specify these when you 
 
 ------
 
-## Task 2: Assign the IAM PassRole policy to an IAM user or group<a name="sysman-mw-passrole-cli"></a>
+## Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)<a name="sysman-mw-passrole-cli"></a>
 
 When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
-**To assign the IAM PassRole policy to an IAM user account or group \(AWS CLI\)**
+**To configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)**
 
 1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
 
@@ -118,7 +119,7 @@ When you register a task with a maintenance window, you specify either a custom 
            {
                "Effect": "Allow",
                "Action": "iam:PassRole",
-               "Resource": "custom-role-arn
+               "Resource": "custom-role-arn"
            },
            {
                "Effect": "Allow",
@@ -167,7 +168,7 @@ When you register a task with a maintenance window, you specify either a custom 
 
      For *user\-name*, specify the IAM user who assigns tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-To grant access for a user to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account \(or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\. Run the following command to assign the `AmazonSSMFullAccess` policy to your account:  
+To grant access for a user to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account \(or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\. Run the following command to assign the `AmazonSSMFullAccess` policy to your account\.  
 
      ```
      aws iam attach-user-policy \
@@ -206,7 +207,7 @@ To grant access for a user to register tasks for maintenance windows using the A
 
      For *group\-name*, specify the IAM group whose members assign tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-To grant access for members of a group to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group:  
+To grant access for members of a group to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group\.  
 
      ```
      aws iam attach-group-policy \
@@ -220,7 +221,98 @@ To grant access for members of a group to register tasks for maintenance windows
          --group-name "group-name"
      ```
 
-1. Run the following command to verify that the policy has been assigned to the group:
+1. Run the following command to verify that the policy has been assigned to the group\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws iam list-group-policies \    
+       --group-name "group-name"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws iam list-group-policies ^    
+       --group-name "group-name"
+   ```
+
+------
+
+## Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(AWS CLI\)<a name="mw-deny-task-registrations-cli"></a>
+
+1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `deny-mw-tasks-policy.json`\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Deny",
+               "Action": "ssm:RegisterTaskWithMaintenanceWindow",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Open the AWS CLI\.
+
+1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
+   + **For an IAM user:**
+
+------
+#### [ Linux ]
+
+     ```
+     aws iam put-user-policy \
+         --user-name "user-name" \
+         --policy-name "policy-name" \
+         --policy-document file://path-to-document
+     ```
+
+------
+#### [ Windows ]
+
+     ```
+     aws iam put-user-policy ^
+         --user-name "user-name" ^
+         --policy-name "policy-name" ^
+         --policy-document file://path-to-document
+     ```
+
+------
+
+     For *user\-name*, specify the IAM user to prevent from assigning tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-deny\-mw\-tasks\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\deny-mw-tasks-policy.json`
+   + **For an IAM group:**
+
+------
+#### [ Linux ]
+
+     ```
+     aws iam put-group-policy \
+         --group-name "group-name" \
+         --policy-name "policy-name" \
+         --policy-document file://path-to-document
+     ```
+
+------
+#### [ Windows ]
+
+     ```
+     aws iam put-group-policy ^
+         --group-name "group-name" ^
+         --policy-name "policy-name" ^
+         --policy-document file://path-to-document
+     ```
+
+------
+
+     For *group\-name*, specify the IAM group whose to prevent from assigning tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-deny\-mw\-tasks\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\deny-mw-tasks-policy.json`
+
+1. Run the following command to verify that the policy has been assigned to the group\.
 
 ------
 #### [ Linux ]

@@ -20,7 +20,7 @@ For information about using command line tools to update existing Session Manage
            "cloudWatchLogGroupName": "",
            "cloudWatchEncryptionEnabled": true,
            "kmsKeyId": "",
-           "runAsEnabled": false,
+           "runAsEnabled": "false",
            "runAsDefaultUser": ""
        }
    }

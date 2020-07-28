@@ -20,6 +20,7 @@ You can change setup configurations at any time on the **Settings** page\.
 Integrated Setup enables the following data sources that populate Systems Manager Explorer widgets\.
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
 + Systems Manager OpsCenter
-+ Systems Manager Patch Manager
++ Systems Manager Patch Manager patch compliance
++ Systems Manager State Manager association compliance
 + AWS Trusted Advisor
 + AWS Compute Optimizer

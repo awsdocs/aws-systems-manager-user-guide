@@ -292,7 +292,7 @@ aws ssm register-task-with-maintenance-window \
 aws ssm register-task-with-maintenance-window ^
     --window-id "mw-0c50858d01EXAMPLE" ^
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
-    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \^
+    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE ^
     --task-type STEP_FUNCTIONS ^
     --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' ^
     --priority 0 --max-concurrency 10 --max-errors 5 ^

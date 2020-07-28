@@ -3,7 +3,8 @@
 Systems Manager Explorer displays data from the following sources\. 
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
 + Systems Manager OpsCenter
-+ Systems Manager Patch Manager
++ Systems Manager Patch Manager patch compliance
++ Systems Manager State Manager association compliance
 + AWS Trusted Advisor
 + AWS Compute Optimizer
 

@@ -9,7 +9,7 @@ You should already have created an EC2 instance to use in this step, as describe
 
 **To register a target instance with a maintenance window \(AWS CLI\)**
 
-1. Run the following command on your local machine :
+1. Run the following command on your local machine:
 
 ------
 #### [ Linux ]
@@ -33,7 +33,7 @@ You should already have created an EC2 instance to use in this step, as describe
 
 ------
 
-   The system returns information like the following
+   The system returns information like the following:
 
    ```
    {

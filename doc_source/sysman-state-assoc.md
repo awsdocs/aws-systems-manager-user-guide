@@ -206,6 +206,49 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
+   The following commands creates an association that scans instances for missing patch updates by using the AWS\-RunPatchBaseline document\. This association targets all managed instances in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+   --name "AWS-RunPatchBaseline" \
+   --association-name "ScanningInstancesForMissingUpdate" \
+   --targets "Key=instanceids,Values=*" \
+   --parameters "Operation=Scan,RebootOption=NoReboot" \
+   --region us-east-2
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --name "AWS-RunPatchBaseline" ^
+   --association-name "ScanningInstancesForMissingUpdate" ^
+   --targets "Key=instanceids,Values=*" ^
+   --parameters "Operation=Scan,RebootOption=NoReboot" ^
+   --region us-east-2
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMAssociation `
+   -AssociationName ScanningInstancesForMissingUpdate `
+   -Name AWS-RunPatchBaseline `
+   -Target @{
+         "Key"="instanceids"
+         "Values"="*"
+       } `
+   -Parameters "Operation=Scan,RebootOption=NoReboot" `
+   -Region us-east-2
+   ```
+
+------
+
    The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------

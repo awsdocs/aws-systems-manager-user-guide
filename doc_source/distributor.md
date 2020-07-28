@@ -73,6 +73,7 @@ Distributor supports package distribution to any release version of the followin
 |  SUSE Linux Enterprise Server \(SLES\)  |   `suse`   |  `x86_64` or `386`  | 
 |  openSUSE  |   `opensuse`   |  `x86_64` or `386`  | 
 |  openSUSE Leap  |   `opensuseleap`   |  `x86_64` or `386`  | 
+|  Oracle Linux  |   `oracle`   |  `x86_64`  | 
 
 **Topics**
 + [How can Distributor benefit my organization?](#distributor-benefits)

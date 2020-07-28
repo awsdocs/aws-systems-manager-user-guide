@@ -18,7 +18,6 @@ Choose a link to view the procedure for manually installing SSM Agent on the spe
 + [CentOS](agent-install-centos.md)
 + [Debian Server](agent-install-deb.md)
 + [Oracle Linux](agent-install-oracle.md)
-+ [Raspbian](agent-install-raspbianjessie.md)
 + [Red Hat Enterprise Linux](agent-install-rhel.md)
 + [SUSE Linux Enterprise Server](agent-install-sles.md)
 + [Ubuntu Server](agent-install-ubuntu.md)
@@ -46,6 +45,3 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 + Ubuntu Server 32\-bit:
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
-+ Raspbian:
-
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb

@@ -5,7 +5,7 @@ Before users in your account can create and schedule maintenance window tasks, t
 **Task 1: Configure instance permissions**  
 Provide the Maintenance Windows service with the AWS Identity and Access Management \(IAM\) permissions needed to run maintenance window tasks on your instances by doing one of the following: 
 + Create a custom service role for maintenance window tasks
-+ Create a service\-linked role for Systems Manager
++ Create a service\-linked role for AWS Systems Manager
 
 You specify one of these roles as part of the configuration when you create a maintenance window task\. This allows Systems Manager to run tasks in maintenance windows on your behalf\.
 
@@ -14,8 +14,11 @@ A service\-linked role for Systems Manager might already have been created in yo
 
 To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)\.
 
-**Task 2: Configure user permissions**  
-Granting `iam:PassRole` permissions to the users in your account who assigns tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit permission, a user can't assign tasks to a maintenance window\. 
+**Task 2: Configure permissions for users who are allowed to register maintenance window tasks**  
+Allow `iam:PassRole` permissions for the users in your account who assign tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit permission, a user can't assign tasks to a maintenance window when using a custom service role to run maintenance window tasks\. 
+
+**Task 3: Configure permissions for users who are not allowed to register maintenance window tasks**  
+Deny `ssm:RegisterTaskWithMaintenanceWindow` permissions for the users in your account who you don't want to register tasks with maintenance windows\. This prevents users from registering a maintenance window task by using the service\-linked role in a maintenance window task registration request\.
 
 **Before you begin**  
 In order to complete the tasks in the section, you need one or both of the following resources\.

@@ -55,7 +55,6 @@ Amazon's trademarks and trade dress may not be used in
          + [Manually install SSM Agent on CentOS instances](agent-install-centos.md)
          + [Manually install SSM Agent on Debian Server instances](agent-install-deb.md)
          + [Manually install SSM Agent on Oracle Linux instances](agent-install-oracle.md)
-         + [Manually install SSM Agent on Raspbian instances](agent-install-raspbianjessie.md)
          + [Manually install SSM Agent on Red Hat Enterprise Linux instances](agent-install-rhel.md)
          + [Manually install SSM Agent on SUSE Linux Enterprise Server 12 instances](agent-install-sles.md)
          + [Manually install SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md)

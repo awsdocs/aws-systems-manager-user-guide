@@ -5,7 +5,7 @@ When you create a configuration and configuration profile, you can specify up to
 **Important**  
 Configuration data stored in SSM documents must validate against an associated JSON Schema before you can add the configuration to the system\. SSM parameters do not require a validation method, but we recommend that you create a validation check for new or updated SSM parameter configurations by using AWS Lambda\.
 
-**JSON Schema Validators**
+ **JSON Schema Validators** 
 
 If you create a configuration in an SSM document, then you must specify or create a JSON Schema for that configuration\. A JSON Schema defines the allowable properties for each application configuration setting\. The JSON Schema functions like a set of rules to ensure that new or updated configuration settings conform to the best practices required by your application\. Here is an example\. 
 
@@ -30,7 +30,7 @@ When you create the configuration by using the procedure in this topic, AppConfi
 **Note**  
 AppConfig supports JSON Schema version 4\.X for inline schema\. If your application configuration requires a different version of JSON Schema, then you must create a Lambda validator\.
 
-**AWS Lambda Validators**
+ **AWS Lambda Validators** 
 
 Lambda function validators must be configured with the following event schema\. AppConfig uses this schema to invoke the Lambda function\. The content is a base64\-encoded string, and the URI is a string\. 
 

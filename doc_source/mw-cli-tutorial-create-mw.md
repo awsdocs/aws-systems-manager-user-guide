@@ -36,8 +36,8 @@ For more information about working with the `--schedule` option, see [Reference:
    aws ssm create-maintenance-window ^
        --name "My-First-Maintenance-Window" ^
        --schedule "rate(5 minutes)" ^
-       --duration 2 \
-       --cutoff 1 \
+       --duration 2 ^
+       --cutoff 1 ^
        --allow-unassociated-targets ^
        --tags "Key"="Purpose","Value"="Tutorial"
    ```

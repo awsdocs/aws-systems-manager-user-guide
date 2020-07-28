@@ -4,7 +4,8 @@ The following procedures describe how to use the AWS Systems Manager console to 
 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)](#sysman-maintenance-role)
-+ [Task 2: Assign the IAM PassRole policy to an IAM user or group \(console\)](#sysman-maintenance-passrole)
++ [Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(console\)](#sysman-maintenance-passrole)
++ [Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(console\)](#mw-deny-task-registrations)
 
 ## Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)<a name="sysman-maintenance-role"></a>
 
@@ -44,7 +45,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Choose the **Trust relationships** tab, and then choose **Edit trust relationship**\.
 
-1. Verify that the following policy appears in the **Policy Document** field:
+1. Verify that the following policy appears in the **Policy Document** field\.
 
    ```
    {
@@ -64,13 +65,13 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Choose **Update Trust Policy**, and then copy or make a note of the role name and the **Role ARN** value on the **Summary** page\. You specify this information when you create your maintenance window\.
 
-1. \(Optional\) If you plan to configure a maintenance window to send notifications about command statuses using Amazon SNS, when run through a Run Command command task, do the following:
+1. \(Optional\) If you plan to configure a maintenance window to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\), when run through a Run Command command task, do the following:
 
    1. Choose the **Permissions** tab\.
 
    1. Choose **Add inline policy**, and then choose the **JSON** tab\.
 
-   1. In **Policy Document**, paste the following:
+   1. In **Policy Document**, paste the following\.
 
       ```
       {
@@ -95,13 +96,13 @@ In the Systems Manager console, this ARN is selected in the ** IAM Role** list o
 
 1. Choose **Create policy**\.
 
-## Task 2: Assign the IAM PassRole policy to an IAM user or group \(console\)<a name="sysman-maintenance-passrole"></a>
+## Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(console\)<a name="sysman-maintenance-passrole"></a>
 
 When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 Depending on whether you are assigning the `iam:Passrole` permission to an individual user or a group, use one of the following procedures to provide the minimum permissions required to register tasks with a maintenance window\.
 
-**To assign the IAM PassRole policy to an IAM user account \(console\)**
+**To configure permissions for users who are allowed to register maintenance window tasks \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -111,7 +112,7 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. Choose **Add inline policy**, and then choose the **JSON** tab\.
 
-1. In **Policy Document**, paste the following:
+1. In **Policy Document**, paste the following\.
 
    ```
    {
@@ -144,7 +145,7 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. On the **Review policy** page, enter a name in the **Name** box to identify this PassRole policy, such as **my\-iam\-passrole\-policy**, and then choose **Create policy**\.
 
-**To assign the IAM PassRole policy to an IAM group \(console\)**
+**To configure permissions for groups that are allowed to register maintenance window tasks \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -160,7 +161,7 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. For **Policy Name**, enter a name to identify this as a maintenance windows PassRole policy for your group, such as **my\-group\-iam\-passrole\-policy**\.
 
-1. In **Policy Document**, paste the following:
+1. In **Policy Document**, paste the following\.
 
    ```
    {
@@ -188,5 +189,69 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
    Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
 
    Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
+
+1. Choose **Apply Policy**\.
+
+## Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(console\)<a name="mw-deny-task-registrations"></a>
+
+Depending on whether you are denying the `ssm:RegisterTaskWithMaintenanceWindow` permission for an individual user or a group, use one of the following procedures to prevent users from registering tasks with a maintenance window\.
+
+**To configure permissions for users who are not allowed to register maintenance window tasks \(console\)**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. Choose **Users**, and then choose the name of the user account you want to update\.
+
+1. Choose **Add inline policy**, and then choose the **JSON** tab\.
+
+1. In **Policy Document**, paste the following\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Deny",
+               "Action": "ssm:RegisterTaskWithMaintenanceWindow",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Choose **Review policy**\.
+
+1. On the **Review policy** page, enter a name in the **Name** box to identify this policy, such as **my\-deny\-mw\-tasks\-policy**, and then choose **Create policy**\.
+
+**To configure permissions for groups that are not allowed to register maintenance window tasks \(console\)**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Groups**\.
+
+1. In the list of groups, select the name of the group you want to deny the `ssm:RegisterTaskWithMaintenanceWindow` permission from\. 
+
+1. On the **Permissions** tab, in the **Inline Policies** section, do one of the following:
+   + If no inline policies have been added yet, choose **click here**\.
+   + If one or more inline policies have been added, choose **Create Group Policy**\.
+
+1. Select **Custom Policy**, and then choose **Select**\.
+
+1. For **Policy Name**, enter a name to identify this as a maintenance windows PassRole policy for your group, such as **my\-group\-deny\-mw\-tasks\-policy**\.
+
+1. In **Policy Document**, paste the following\.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Deny",
+               "Action": "ssm:RegisterTaskWithMaintenanceWindow",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
 
 1. Choose **Apply Policy**\.

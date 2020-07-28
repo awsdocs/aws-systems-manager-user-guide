@@ -40,12 +40,12 @@ AppConfig\-supported configuration store have the following quotas and limitatio
 
 |  | AppConfig hosted configuration store | S3 | Parameter Store | Document store | AWS CodePipeline | 
 | --- | --- | --- | --- | --- | --- | 
-|  **Configuration size limit**  | 64 KB |  1 MB Enforced by AppConfig, not S3  |  4 KB \(free tier\) / 8 KB \(advanced parameters\)  |  64 KB  | 1 MBEnforced by AppConfig, not CodePipeline | 
-|  **Resource storage limit**  | 1 GB |  Unlimited  |  10,000 parameters \(free tier\) / 100,000 parameters \(advanced parameters\)  |  500 documents  | Limited by the number of configuration profiles per application \(100 profiles per application\) | 
-|  **Server\-side encryption**  | Yes |  No  |  No  |  No  | Yes | 
-|  **AWS CloudFormation support**  | Yes |  Not for creating or updating data  |  Yes  |  No  | Yes | 
-|  **Validate create or update API actions**  | Not supported |  Not supported  |  Regex supported  |  JSON Schema required for all put and update API actions  | Not supported | 
-|  **Pricing**  | Free |  See [Amazon S3 pricing](https://aws.amazon.com//s3/pricing/)  |  See [AWS Systems Manager pricing](https://aws.amazon.com//systems-manager/pricing/)  |  Free  |  See [AWS CodePipeline pricing](https://aws.amazon.com//codepipeline/pricing/)  | 
+|   **Configuration size limit**   |  64 KB  |  1 MB Enforced by AppConfig, not S3  |  4 KB \(free tier\) / 8 KB \(advanced parameters\)  |  64 KB  |  1 MB Enforced by AppConfig, not CodePipeline  | 
+|   **Resource storage limit**   |  1 GB  |  Unlimited  |  10,000 parameters \(free tier\) / 100,000 parameters \(advanced parameters\)  |  500 documents  |  Limited by the number of configuration profiles per application \(100 profiles per application\)  | 
+|   **Server\-side encryption**   |  Yes  |  No  |  No  |  No  |  Yes  | 
+|   **AWS CloudFormation support**   |  Yes  |  Not for creating or updating data  |  Yes  |  No  |  Yes  | 
+|   **Validate create or update API actions**   |  Not supported  |  Not supported  |  Regex supported  |  JSON Schema required for all put and update API actions  |  Not supported  | 
+|   **Pricing**   |  Free  |  See [Amazon S3 pricing](https://aws.amazon.com//s3/pricing/)  |  See [AWS Systems Manager pricing](https://aws.amazon.com//systems-manager/pricing/)  |  Free  |  See [AWS CodePipeline pricing](https://aws.amazon.com//codepipeline/pricing/)  | 
 
 ## About the AppConfig hosted configuration store<a name="appconfig-creating-configuration-and-profile-about-hosted-store"></a>
 

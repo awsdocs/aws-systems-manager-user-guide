@@ -4,11 +4,11 @@ You can configure AWS AppConfig to roll back to a previous version of a configur
 
 Use the following procedures to create an IAM role that enables AppConfig to rollback based on CloudWatch alarms\. This section includes the following procedures\.
 
-1. [Step 1: Create the permission policy for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-policy)
+1.  [Step 1: Create the permission policy for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-policy) 
 
-1. [Step 2: Create the IAM role for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-role)
+1.  [Step 2: Create the IAM role for rollback based on CloudWatch alarms](#appconfig-getting-started-cloudwatch-alarms-permissions-role) 
 
-1. [Step 3: Add a trust relationship](#appconfig-getting-started-cloudwatch-alarms-permissions-trust)
+1.  [Step 3: Add a trust relationship](#appconfig-getting-started-cloudwatch-alarms-permissions-trust) 
 
 ## Step 1: Create the permission policy for rollback based on CloudWatch alarms<a name="appconfig-getting-started-cloudwatch-alarms-permissions-policy"></a>
 
