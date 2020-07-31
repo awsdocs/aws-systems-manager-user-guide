@@ -4,7 +4,7 @@ This section includes topics that describe each of the Systems Manager Automatio
 
 This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve – Pause an execution for manual approval](automation-action-approve.md) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
 
-For information about running Automation documents, see [Running a simple Automation workflow](automation-working-executing.md)\. For information about running Automation documents on multiple targets, see [Running Automation workflows that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
+For information about running Automation documents, see [Running a simple automation](automation-working-executing.md)\. For information about running Automation documents on multiple targets, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
 
 ## View Automation document content<a name="view-automation-json"></a>
 

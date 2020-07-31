@@ -3,7 +3,7 @@
 The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
 **Important**  
-The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
+The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 
 When you create a State Manager association, by default, the system immediately runs it on the specified instances or targets\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
 + Associations only run on instances that are online when the interval starts\. Offline instances are skipped\.
@@ -31,7 +31,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. In the **Name** field, specify a name\. This is optional, but recommended\. A name helps you remember the purpose of the association\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
 
-1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies only to `Command` and `Policy` documents\. For information about creating an association that uses an `Automation` document, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
+1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies only to `Command` and `Policy` documents\. For information about creating an association that uses an `Automation` document, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 
 1. For **Parameters**, specify the required input parameters\.
 

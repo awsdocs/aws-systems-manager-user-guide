@@ -40,6 +40,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 1. In the **Value** box, type a value\. For example, type **This is my first parameter** or **ami\-0dbf5ea29aEXAMPLE**\.
 **Note**  
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.  
 If you chose **SecureString**, the value of the parameter is masked by default \("\*\*\*\*\*\*"\) when you view it later on the parameter **Overview** tab\. Choose **Show** to display the parameter value\.  
 
 ![\[A SecureString parameter's value is masked on the Overview tab\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ps-overview-show-secstring.png)

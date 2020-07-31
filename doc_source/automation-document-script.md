@@ -16,7 +16,7 @@ When a step in an Automation document includes the `aws:executeScript` action, h
 
   If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
 
-For more information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an Automation workflow by using an IAM service role](automation-walk-security-assume.md)\.
+For more information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
 ## Adding scripts to Automation documents<a name="adding-scripts"></a>
 

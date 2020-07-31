@@ -3,6 +3,7 @@
 You can use Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. 
 
 **Note**  
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.  
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**

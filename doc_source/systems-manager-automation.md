@@ -16,9 +16,9 @@ AWS Systems Manager Automation uses the following components to run *automation 
 | --- | --- | 
 |  Automation document  |  A Systems Manager Automation document defines the Automation workflow \(the actions that Systems Manager performs on your managed instances and AWS resources\)\. Automation includes several pre\-defined Automation documents that you can use to perform common tasks like restarting one or more EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can create your own Automation documents as well\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with Automation documents](automation-documents.md)\. Automation documents are Systems Manager documents of type `Automation`, as opposed to `Command`, `Policy`, `Session` documents\. Automation documents currently support schema version 0\.3\. Command documents use schema version 1\.2, 2\.0, or 2\.2\. Policy documents use schema version 2\.0 or later\.  | 
 |  Automation action  |  The Automation workflow defined in an Automation document includes one or more steps\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\. Automation supports 20 distinct action types\. For more information, see the [Systems Manager Automation actions reference](automation-actions.md)\.  | 
-|  Automation quota  |  Each AWS account can run 100 automations simultaneously\. This includes child automations \(automations that are started by another automation\), and rate control automations\. If you attempt to run more automations than this, Systems Manager adds the additional automations to a queue and displays a status of Pending\. For more information on running automations, see [Running a simple Automation workflow](automation-working-executing.md)\.  | 
+|  Automation quota  |  Each AWS account can run 100 automations simultaneously\. This includes child automations \(automations that are started by another automation\), and rate control automations\. If you attempt to run more automations than this, Systems Manager adds the additional automations to a queue and displays a status of Pending\. For more information on running automations, see [Running a simple automation](automation-working-executing.md)\.  | 
 |  Automation queue quota  |  If you attempt to run more automations than the concurrent automation limit, subsequent automations are added to a queue\. Each AWS account can queue 1,000 automations\. When an automation completes \(or reaches a terminal state\), the first automation in the queue is started\.  | 
-|  Rate control automation quota  |  Each AWS account can run 25 rate control automations simultaneously\. If you attempt to run more rate control automations than the concurrent rate control automation limit, Systems Manager adds the subsequent rate control automations to a queue and displays a status of Pending\. For more information on running rate control automations, see [Running Automation workflows that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.  | 
+|  Rate control automation quota  |  Each AWS account can run 25 rate control automations simultaneously\. If you attempt to run more rate control automations than the concurrent rate control automation limit, Systems Manager adds the subsequent rate control automations to a queue and displays a status of Pending\. For more information on running rate control automations, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.  | 
 |  Rate control automation queue quota  |  If you attempt to run more automations than the concurrent rate control automation limit, subsequent automations are added to a queue\. Each AWS account can queue 1,000 rate control automations\. When an automation completes \(or reaches a terminal state\), the first automation in the queue is started\.  | 
 
 ## Automation use cases<a name="automation-use-cases"></a>
@@ -31,7 +31,7 @@ Automation can simplify common IT tasks such as changing the state of one or mor
 + Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
-For information about how to run an Automation workflow by using State Manager, see [Running Automation workflows with triggers using State Manager](automation-sm-target.md)\.
+For information about how to run an Automation workflow by using State Manager, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 
 **Safely perform disruptive tasks in bulk**  
 Systems Manager includes features that help you target large groups of instances by using Amazon EC2 tags, and velocity controls that help you roll out changes according to the limits you define\.
@@ -51,7 +51,7 @@ Delegated administration enables you to provide permissions for certain tasks on
 + Create an Automation document and embed the role in the document\. \(The easiest way to do this is to customize the AWS\-RestartEC2Instance document and embed the role in the document instead of assigning an Automation service role \[or *assume role*\]\)\.
 + Modify IAM permissions for User1 and allow the user permission to run the document\. 
 
-For an example of how to delegate access to an Automation workflow, see [Running an Automation workflow by using delegated administration](automation-walk-security-delegated.md)\. 
+For an example of how to delegate access to an Automation workflow, see [Running an automation by using delegated administration](automation-walk-security-delegated.md)\. 
 
 **Share best practices**  
 Automation lets you share best practices with rest of your organization\.
@@ -61,7 +61,7 @@ You can create best practices for resource management in Automation documents an
 **Topics**
 + [Automation use cases](#automation-use-cases)
 + [Getting started with Automation](automation-setup.md)
-+ [Working with Automation executions](automation-working.md)
++ [Working with automations](automation-working.md)
 + [Systems Manager Automation actions reference](automation-actions.md)
 + [Working with Automation documents](automation-documents.md)
 + [Systems Manager Automation documents reference](automation-documents-reference.md)

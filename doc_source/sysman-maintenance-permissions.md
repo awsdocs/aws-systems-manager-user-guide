@@ -50,4 +50,3 @@ For more information about the Systems Manager service\-linked role, see [Using 
 + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
 + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
 + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
-+ [Troubleshooting IAM maintenance window permissions](maintenance-window-role-troubleshooting.md)

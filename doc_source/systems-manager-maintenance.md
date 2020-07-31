@@ -38,3 +38,4 @@ This means you can use maintenance windows to perform tasks like the following o
 + [Systems Manager Maintenance Windows tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
 + [Maintenance window walkthroughs](maintenance-window-walkthroughs.md)
 + [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)
++ [Troubleshooting maintenance windows](troubleshooting-maintenance-windows.md)

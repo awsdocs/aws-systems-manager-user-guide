@@ -22,7 +22,7 @@ When you execute a runbook from an OpsItem, you can run a simple version or you 
 
 ![\[An OpsCenter runbook that uses the Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
 
-The following procedure describes how to run a simple version of a runbook\. For information about executing an **Advanced configuration** runbook, see [Working with Automation executions](automation-working.md)\.
+The following procedure describes how to run a simple version of a runbook\. For information about executing an **Advanced configuration** runbook, see [Working with automations](automation-working.md)\.
 
 **Before You Begin**  
 Before you execute a runbook to remediate an OpsItem issue, do the following:

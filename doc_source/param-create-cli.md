@@ -5,7 +5,8 @@ You can use the AWS CLI to create `String`, `StringList`, and `SecureString` par
 For more information about using the AWS CLI to create parameters, see [Walkthrough: Create and update a String parameter \(AWS CLI\)](sysman-paramstore-cli.md)\.
 
 **Note**  
-Parameters are only available in the AWS Region where they were created\.
+Parameters are only available in the AWS Region where they were created\.  
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
 
 **Topics**
 + [Create a `String` Parameter \(AWS CLI\)](#param-create-cli-string)

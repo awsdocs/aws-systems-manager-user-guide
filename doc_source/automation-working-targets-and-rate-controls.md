@@ -1,16 +1,16 @@
-# Running Automation workflows that use targets and rate controls<a name="automation-working-targets-and-rate-controls"></a>
+# Running automations that use targets and rate controls<a name="automation-working-targets-and-rate-controls"></a>
 
-AWS Systems Manager enables you to run Automation workflows on a fleet of AWS resources by using targets\. Additionally, you can control the execution of the Automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the Automation simultaneously\. An error threshold determines how many Automation executions are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
+AWS Systems Manager enables you to run automations on a fleet of AWS resources by using targets\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
 For more information about concurrency and error thresholds, see [About concurrency and error thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About targets](automation-working-targets.md)\.
 
-The following procedures describe how to run an Automation workflow with targets and rate controls by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
+The following procedures describe how to run an automation with targets and rate controls by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
-## Running an Automation workflow with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
+## Running an automation with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 
-The following procedure describes how to use the Systems Manager console to run an Automation workflow with targets and rate controls\.
+The following procedure describes how to use the Systems Manager console to run an automation with targets and rate controls\.
 
-**To run an Automation workflow with targets and rate controls**
+**To run an automation with targets and rate controls**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -61,11 +61,11 @@ You may not need to choose some of the options in the **Input parameters** secti
 
 To view automations started by your rate control automation, in the navigation pane, choose Automation, and then select **Show child automations**\.
 
-## Running an Automation workflow with targets and rate controls \(command line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
+## Running an automation with targets and rate controls \(command line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow with targets and rate controls\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation with targets and rate controls\.
 
-**To run an Automation workflow with targets and rate controls**
+**To run an automation with targets and rate controls**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
@@ -98,14 +98,14 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    Note the name of the Automation document that you want to run\.
 
-1. Run the following command to view details about the Automation document\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the Automation runs\.
+1. Run the following command to view details about the Automation document\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm describe-document \
-     --name document_name
+       --name document_name
    ```
 
 ------
@@ -113,7 +113,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-document ^
-     --name document_name
+       --name document_name
    ```
 
 ------
@@ -121,7 +121,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMDocumentDescription `
-     -Name document_name
+       -Name document_name
    ```
 
 ------
@@ -135,12 +135,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name document_name \
-     --targets Key=tag:key_name,Values=value \
-     --target-parameter-name parameter_name \
-     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
-     --max-concurrency 10 \
-     --max-errors 25%
+       --document-name document_name \
+       --targets Key=tag:key_name,Values=value \
+       --target-parameter-name parameter_name \
+       --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
+       --max-concurrency 10 \
+       --max-errors 25%
    ```
 
 ------
@@ -148,12 +148,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name document_name ^
-     --targets Key=tag:key_name,Values=value ^
-     --target-parameter-name parameter_name ^
-     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
-     --max-concurrency 10 ^
-     --max-errors 25%
+       --document-name document_name ^
+       --targets Key=tag:key_name,Values=value ^
+       --target-parameter-name parameter_name ^
+       --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
+       --max-concurrency 10 ^
+       --max-errors 25%
    ```
 
 ------
@@ -165,12 +165,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "value"
    
    Start-SSMAutomationExecution `
-     -DocumentName "DocumentName" `
-     -Targets $Targets `
-     -TargetParameterName "Parameter_Name" `
-     -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
-     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
-     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+       DocumentName "DocumentName" `
+       -Targets $Targets `
+       -TargetParameterName "Parameter_Name" `
+       -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
+       -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+       -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
    ```
 
 ------
@@ -182,12 +182,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name document_name \
-     --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
-     --target-parameter-name parameter_name \
-     --parameters "input_parameter_name1=input_parameter_value1" \
-     --max-concurrency 10 \
-     --max-errors 25%
+       --document-name document_name \
+       --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
+       --target-parameter-name parameter_name \
+       --parameters "input_parameter_name1=input_parameter_value1" \
+       --max-concurrency 10 \
+       --max-errors 25%
    ```
 
 ------
@@ -195,12 +195,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name document_name ^
-     --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
-     --target-parameter-name parameter_name ^
-     --parameters "input_parameter_name1=input_parameter_value1" ^
-     --max-concurrency 10 ^
-     --max-errors 25%
+       --document-name document_name ^
+       --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
+       --target-parameter-name parameter_name ^
+       --parameters "input_parameter_name1=input_parameter_value1" ^
+       --max-concurrency 10 ^
+       --max-errors 25%
    ```
 
 ------
@@ -212,12 +212,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "value_1","value_2","value_3"
    
    Start-SSMAutomationExecution `
-     -DocumentName "DocumentName" `
-     -Targets $Targets `
-     -TargetParameterName "Parameter_Name" `
-     -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
-     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
-     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+       -DocumentName "DocumentName" `
+       -Targets $Targets `
+       -TargetParameterName "Parameter_Name" `
+       -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
+       -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+       -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
    ```
 
 ------
@@ -229,12 +229,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name document_name \
-     --targets Key=ResourceGroup,Values=Resource_Group_name \
-     --target-parameter-name parameter_name \
-     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
-     --max-concurrency 10 \
-     --max-errors 25%
+       --document-name document_name \
+       --targets Key=ResourceGroup,Values=Resource_Group_name \
+       --target-parameter-name parameter_name \
+       --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
+       --max-concurrency 10 \
+       --max-errors 25%
    ```
 
 ------
@@ -242,12 +242,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name document_name ^
-     --targets Key=ResourceGroup,Values=Resource_Group_name ^
-     --target-parameter-name parameter_name ^
-     --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
-     --max-concurrency 10 ^
-     --max-errors 25%
+       --document-name document_name ^
+       --targets Key=ResourceGroup,Values=Resource_Group_name ^
+       --target-parameter-name parameter_name ^
+       --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
+       --max-concurrency 10 ^
+       --max-errors 25%
    ```
 
 ------
@@ -259,12 +259,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "Resource_Group_Name"
    
    Start-SSMAutomationExecution `
-     -DocumentName "DocumentName" `
-     -Targets $Targets `
-     -TargetParameterName "Parameter_Name" `
-     -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
-     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
-     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+       -DocumentName "DocumentName" `
+       -Targets $Targets `
+       -TargetParameterName "Parameter_Name" `
+       -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
+       -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+       -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
    ```
 
 ------
@@ -276,12 +276,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name document_name \
-     --targets "Key=AWS::EC2::Instance,Values=*"  \
-     --target-parameter-name instanceId \
-     --parameters "input_parameter_name1=input_parameter_value1" \
-     --max-concurrency 10 \
-     --max-errors 25%
+       --document-name document_name \
+       --targets "Key=AWS::EC2::Instance,Values=*"  \
+       --target-parameter-name instanceId \
+       --parameters "input_parameter_name1=input_parameter_value1" \
+       --max-concurrency 10 \
+       --max-errors 25%
    ```
 
 ------
@@ -289,12 +289,12 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name document_name ^
-     --targets Key=AWS::EC2::Instance,Values=* ^
-     --target-parameter-name instanceId ^
-     --parameters "input_parameter_name1=input_parameter_value1" ^
-     --max-concurrency 10 ^
-     --max-errors 25%
+       --document-name document_name ^
+       --targets Key=AWS::EC2::Instance,Values=* ^
+       --target-parameter-name instanceId ^
+       --parameters "input_parameter_name1=input_parameter_value1" ^
+       --max-concurrency 10 ^
+       --max-errors 25%
    ```
 
 ------
@@ -306,17 +306,17 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "*"
    
    Start-SSMAutomationExecution `
-     -DocumentName "DocumentName" `
-     -Targets $Targets `
-     -TargetParameterName "instanceId" `
-     -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
-     -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
-     -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
+       -DocumentName "DocumentName" `
+       -Targets $Targets `
+       -TargetParameterName "instanceId" `
+       -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
+       -MaxConcurrency "a_number_of_instances_or_a_percentage_of_target_set" `
+       -MaxError "a_number_of_errors_or_a_percentage_of_target_set"
    ```
 
 ------
 
-   The command returns an execution ID\. Copy this ID to the clipboard\. You can use this ID to view the status of the workflow\.
+   The command returns an execution ID\. Copy this ID to the clipboard\. You can use this ID to view the status of the automation\.
 
 ------
 #### [ Linux ]
@@ -345,14 +345,14 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to view the workflow execution\.
+1. Run the following command to view the automation execution\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm describe-automation-executions \
-     --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+       --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------
@@ -360,7 +360,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions ^
-     --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+       --filter Key=ExecutionId,Values=a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------
@@ -368,19 +368,19 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationExecutionList | `
-     Where {$_.AutomationExecutionId -eq "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"}
+       Where {$_.AutomationExecutionId -eq "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"}
    ```
 
 ------
 
-1. To view details about the execution progress, run the following command\.
+1. To view details about the automation progress, run the following command\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm get-automation-execution \
-     --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+       --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------
@@ -388,7 +388,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm get-automation-execution ^
-     --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+       --automation-execution-id a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------
@@ -396,7 +396,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationExecution `
-     -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+       -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------
@@ -540,4 +540,4 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 **Note**  
-You can also monitor the status of the workflow in the console\. In the execution list, choose the execution you just ran and then choose the **Steps** tab\. This tab shows the status of the workflow actions\.
+You can also monitor the status of the automation in the console\. In the **Automation executions** list, choose the automation you just ran and then choose the **Execution steps** tab\. This tab shows the status of the automation actions\.

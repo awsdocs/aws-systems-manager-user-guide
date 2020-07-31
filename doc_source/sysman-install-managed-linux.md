@@ -25,6 +25,9 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 + **32\-bit**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
++ **ARM 64\-bit**
+
+  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_arm64/amazon\-ssm\-agent\.rpm
 
 ------
 #### [ Ubuntu Server ]

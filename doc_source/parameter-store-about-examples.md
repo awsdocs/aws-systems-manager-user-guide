@@ -10,6 +10,9 @@ When you reference a parameter, you specify the parameter name by using the foll
 
 \{\{`ssm:parameter-name`\}\}
 
+**Note**  
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
+
 **Topics**
 + [Parameter types](#parameter-types)
 + [Parameter examples \(AWS CLI\)](#parameter-examples)

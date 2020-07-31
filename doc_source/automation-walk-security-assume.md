@@ -1,15 +1,15 @@
-# Running an Automation workflow by using an IAM service role<a name="automation-walk-security-assume"></a>
+# Running an automation by using an IAM service role<a name="automation-walk-security-assume"></a>
 
-The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run an Automation workflow using an AWS Identity and Access Management \(IAM\) service role \(or *assume role*\)\. The service role gives the Automation workflow permission to perform actions on your behalf\. Configuring a service role is useful when you want to restrict permissions and run actions with least privilege\. This is useful, for example, when you want to restrict a user's privileges on a resource, such as an EC2 instance, but you want to allow the user to run an Automation workflow that performs a specific set of actions\. In this scenario, you can create a service role with elevated privileges and allow the user to run the Automation workflow\.
+The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run an automation using an AWS Identity and Access Management \(IAM\) service role \(or *assume role*\)\. The service role gives the automation permission to perform actions on your behalf\. Configuring a service role is useful when you want to restrict permissions and run actions with least privilege\. This is useful, for example, when you want to restrict a user's privileges on a resource, such as an EC2 instance, but you want to allow the user to run an automation that performs a specific set of actions\. In this scenario, you can create a service role with elevated privileges and allow the user to run the automation\.
 
 **Before You Begin**  
 Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation\. For more information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
 
-## Running an Automation workflow by using an IAM service role \(console\)<a name="automation-walk-security-assume-console"></a>
+## Running an automation by using an IAM service role \(console\)<a name="automation-walk-security-assume-console"></a>
 
-The following procedure describes how to use the Systems Manager console to run an Automation workflow that uses an IAM service role \(or *assume role*\)\.
+The following procedure describes how to use the Systems Manager console to run an automation that uses an IAM service role \(or *assume role*\)\.
 
-**To run an Automation workflow using a service role**
+**To run an automation using a service role**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -28,31 +28,31 @@ You can view information about a document by choosing the document name\.
 
 1. In the **Execution Mode** section, choose **Simple execution**\.
 **Note**  
-This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control**, **Multi\-account and Region**, or **Manual execution** and run the Automation workflow using a service role\.
+This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control**, **Multi\-account and Region**, or **Manual execution** and run the automation using a service role\.
 
 1. In the **Input parameters** section, specify the required inputs\. In the **Automation Assume Role** box, paste the ARN of the IAM service role\.
 
-1. Choose **Execute**\. The console displays the status of the Automation execution\.
+1. Choose **Execute**\. The console displays the status of the automation\.
 
-## Running an Automation workflow by using an IAM service role \(command line\)<a name="automation-walk-security-assume-commandline"></a>
+## Running an automation by using an IAM service role \(command line\)<a name="automation-walk-security-assume-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow that uses an IAM service role \(or *assume role*\)\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation that uses an IAM service role \(or *assume role*\)\.
 
-**To run an Automation workflow using a service role**
+**To run an automation using a service role**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start an Automation workflow that uses an IAM service role\.
+1. Run the following command to start an automation that uses an IAM service role\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm start-automation-execution \
-     --document-name DocumentName \
-     --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name DocumentName \
+       --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -60,8 +60,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name DocumentName ^
-     --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name DocumentName ^
+       --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -69,8 +69,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName DocumentName `
-     -Parameter @{
+       -DocumentName DocumentName `
+       -Parameter @{
        "ParametersRequiredByDocument"="ParameterValues";
        "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"}
    ```
@@ -84,8 +84,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name "AWS-RestartEC2Instance" \
-     --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name "AWS-RestartEC2Instance" \
+       --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -93,8 +93,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name "AWS-RestartEC2Instance" ^
-     --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name "AWS-RestartEC2Instance" ^
+       --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -102,8 +102,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName "AWS-RestartEC2Instance" `
-     -Parameter @{
+       -DocumentName "AWS-RestartEC2Instance" `
+       -Parameter @{
        "InstanceId"="i-1234567890abcdef0";
        "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole"}
    ```
@@ -139,14 +139,14 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to retrieve the status of the Automation workflow\.
+1. Run the following command to retrieve the status of the automation\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm describe-automation-executions \
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------
@@ -154,7 +154,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions ^
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------
@@ -162,7 +162,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationExecutionList | `
-     Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
+       Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
    ```
 
 ------

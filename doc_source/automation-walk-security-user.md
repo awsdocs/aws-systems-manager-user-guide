@@ -1,10 +1,10 @@
-# Running an Automation workflow as the current authenticated user<a name="automation-walk-security-user"></a>
+# Running an automation as the current authenticated user<a name="automation-walk-security-user"></a>
 
-The following procedures describe how to run an Automation workflow that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. Running the Automation workflow in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this Automation\.
+The following procedures describe how to run an automation that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. Running the automation in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this automation\.
 
-## Running an Automation workflow as the current authenticated user \(console\)<a name="automation-walk-security-user-console"></a>
+## Running an automation as the current authenticated user \(console\)<a name="automation-walk-security-user-console"></a>
 
-The following procedure describes how to use the Systems Manager console to run an Automation workflow as the current authenticated user\.
+The following procedure describes how to use the Systems Manager console to run an automation as the current authenticated user\.
 
 **To run the Automation document as the current authenticated user**
 
@@ -27,29 +27,29 @@ You can view information about a document by choosing the document name\.
 **Note**  
 This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control** or **Manual execution** and run the Automation workflow as the current authenticated user\.
 
-1. In the **Input parameters** section, specify the required inputs\. To run the Automation workflow as the current authenticated user, do not specify an IAM service role for the value AutomationAssumeRole\.
+1. In the **Input parameters** section, specify the required inputs\. To run the automation as the current authenticated user, do not specify an IAM service role for the value AutomationAssumeRole\.
 
-1. Choose **Execute**\. The console displays the status of the Automation execution\.
+1. Choose **Execute**\. The console displays the status of the automation\.
 
-## Running an Automation workflow as the current authenticated user \(command line\)<a name="automation-walk-security-user-commandline"></a>
+## Running an automation as the current authenticated user \(command line\)<a name="automation-walk-security-user-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an Automation workflow as the current authenticated user\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation as the current authenticated user\.
 
-**To run the Automation document as the current authenticated user**
+**To run the automation as the current authenticated user**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start an Automation workflow as the current authenticated user\.
+1. Run the following command to start an automation as the current authenticated user\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm start-automation-execution \
-     --document-name DocumentName \
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName \
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -57,8 +57,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name DocumentName ^
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName ^
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -66,8 +66,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName DocumentName `
-     -Parameter ParametersRequiredByDocument
+       -DocumentName DocumentName `
+       -Parameter ParametersRequiredByDocument
    ```
 
 ------
@@ -79,8 +79,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name "AWS-RestartEC2Instance" \
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" \
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -88,8 +88,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name "AWS-RestartEC2Instance" ^
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" ^
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -97,8 +97,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName AWS-RestartEC2Instance `
-     -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+       -DocumentName AWS-RestartEC2Instance `
+       -Parameter @{"InstanceId"="i-1234567890abcdef0"}
    ```
 
 ------
@@ -139,7 +139,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions \
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------
@@ -147,7 +147,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions ^
-     --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
    ```
 
 ------
@@ -155,7 +155,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationExecutionList | `
-     Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
+       Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
    ```
 
 ------

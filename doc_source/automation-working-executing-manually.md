@@ -1,17 +1,17 @@
-# Running an Automation workflow manually<a name="automation-working-executing-manually"></a>
+# Running an automation manually<a name="automation-working-executing-manually"></a>
 
-The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run a Systems Manager Automation workflow using the manual execution mode\. By using the manual execution mode, the Automation workflow starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the workflow proceeds, which is useful if you need to review the result of a step before continuing\.
+The following procedures describe how to use the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell to run a Systems Manager Automation workflow using the manual execution mode\. By using the manual execution mode, the automation starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the workflow proceeds, which is useful if you need to review the result of a step before continuing\.
 
-The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
+The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation workflows by using different security models](automation-walk-security.md)\. 
+For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
-## Running an Automation workflow step by step \(console\)<a name="automation-working-executing-manually-console"></a>
+## Running an automation step by step \(console\)<a name="automation-working-executing-manually-console"></a>
 
-The following procedure shows how to use the Systems Manager console to manually run an Automation workflow step by step\.
+The following procedure shows how to use the Systems Manager console to manually run an automation step by step\.
 
-**To run an Automation workflow step by step**
+**To run an automation step by step**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -34,32 +34,32 @@ You can view information about a document by choosing the document name\.
 
 1. Choose **Execute**\. 
 
-1. Choose **Execute this step** when you are ready to start the first step of the Automation workflow\. The Automation workflow proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 3 of this procedure\. If the document has multiple steps, you must select **Execute this step** for each step for the workflow to proceed\.
+1. Choose **Execute this step** when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 3 of this procedure\. If the document has multiple steps, you must select **Execute this step** for each step for the workflow to proceed\.
 **Note**  
-The console displays the status of the Automation execution\. If the Automation fails to run a step, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
+The console displays the status of the automation\. If the automation fails to run a step, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
-1. After you complete all steps specified in the Automation document, choose **Complete and view results** to finish the Automation workflow and view the results\.
+1. After you complete all steps specified in the Automation document, choose **Complete and view results** to finish the automation and view the results\.
 
-## Running an Automation workflow step by step \(command line\)<a name="automation-working-executing-manually-commandline"></a>
+## Running an automation step by step \(command line\)<a name="automation-working-executing-manually-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to manually run an Automation workflow step by step\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to manually run an automation step by step\.
 
-**To run an Automation workflow step by step**
+**To run an automation step by step**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start a manual Automation workflow\.
+1. Run the following command to start a manual automation\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm start-automation-execution \
-     --document-name DocumentName \
-     --mode Interactive \
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName \
+       --mode Interactive \
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -67,9 +67,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name DocumentName ^
-     --mode Interactive ^
-     --parameters ParametersRequiredByDocument
+       --document-name DocumentName ^
+       --mode Interactive ^
+       --parameters ParametersRequiredByDocument
    ```
 
 ------
@@ -77,9 +77,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName DocumentName `
-     -Mode Interactive `
-     -Parameter ParametersRequiredByDocument
+       -DocumentName DocumentName `
+       -Mode Interactive `
+       -Parameter ParametersRequiredByDocument
    ```
 
 ------
@@ -91,9 +91,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-     --document-name "AWS-RestartEC2Instance" \
-     --mode Interactive \
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" \
+       --mode Interactive \
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -101,9 +101,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-     --document-name "AWS-RestartEC2Instance" ^
-     --mode Interactive ^
-     --parameters "InstanceId=i-1234567890abcdef0"
+       --document-name "AWS-RestartEC2Instance" ^
+       --mode Interactive ^
+       --parameters "InstanceId=i-1234567890abcdef0"
    ```
 
 ------
@@ -111,9 +111,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName AWS-RestartEC2Instance `
-     -Mode Interactive 
-     -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+       -DocumentName AWS-RestartEC2Instance `
+       -Mode Interactive 
+       -Parameter @{"InstanceId"="i-1234567890abcdef0"}
    ```
 
 ------
@@ -147,16 +147,16 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command when you are ready to start the first step of the Automation workflow\. The Automation workflow proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 1 of this procedure\. If the document has multiple steps, you must run the following command for each step for the workflow to proceed\.
+1. Run the following command when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 1 of this procedure\. If the document has multiple steps, you must run the following command for each step for the workflow to proceed\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm send-automation-signal \
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab \
-     --signal-type StartStep \
-     --payload StepName="stopInstances"
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab \
+       --signal-type StartStep \
+       --payload StepName="stopInstances"
    ```
 
 ------
@@ -164,9 +164,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm send-automation-signal ^
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab ^
-     --signal-type StartStep ^
-     --payload StepName="stopInstances"
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab ^
+       --signal-type StartStep ^
+       --payload StepName="stopInstances"
    ```
 
 ------
@@ -174,23 +174,23 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Send-SSMAutomationSignal `
-     -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
-     -SignalType StartStep 
-     -Payload @{"StepName"="stopInstances"}
+       -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
+       -SignalType StartStep 
+       -Payload @{"StepName"="stopInstances"}
    ```
 
 ------
 
    There is no output if the command succeeds\.
 
-1. Run the following command to retrieve the status of each step execution in the Automation workflow\.
+1. Run the following command to retrieve the status of each step execution in the automation\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm describe-automation-step-executions \
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab
    ```
 
 ------
@@ -198,7 +198,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-step-executions ^
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab
    ```
 
 ------
@@ -206,7 +206,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationStepExecution `
-     -AutomationExecutionId 27ba8174-59ae-4e13-8626-e177cdc11686
+       -AutomationExecutionId 27ba8174-59ae-4e13-8626-e177cdc11686
    ```
 
 ------
@@ -339,15 +339,15 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to complete the Automation workflow after all steps specified within the chosen Automation document have finished\.
+1. Run the following command to complete the automation after all steps specified within the chosen Automation document have finished\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm stop-automation-execution \
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab \
-     --type Complete
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab \
+       --type Complete
    ```
 
 ------
@@ -355,8 +355,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm stop-automation-execution ^
-     --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab ^
-     --type Complete
+       --automation-execution-id ba9cd881-1b36-4d31-a698-0123456789ab ^
+       --type Complete
    ```
 
 ------
@@ -364,8 +364,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Stop-SSMAutomationExecution `
-     -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
-     -Type Complete
+       -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
+       -Type Complete
    ```
 
 ------

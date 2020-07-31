@@ -1,15 +1,15 @@
-# Running a simple Automation workflow<a name="automation-working-executing"></a>
+# Running a simple automation<a name="automation-working-executing"></a>
 
-The following procedures describe how to run a simple Systems Manager Automation workflow using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this Automation workflow\.
+The following procedures describe how to run a simple Systems Manager automation using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
 
 **Note**  
-For information about how to run an Automation workflow that uses an IAM service role or more advanced forms of delegated administration, see [Running Automation workflows by using different security models](automation-walk-security.md)\. 
+For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
-## Running a simple Automation workflow \(console\)<a name="automation-working-executing-console"></a>
+## Running a simple automation \(console\)<a name="automation-working-executing-console"></a>
 
-The following procedure describes how to use the Systems Manager console to run a simple Automation workflow\.
+The following procedure describes how to use the Systems Manager console to run a simple automation\.
 
-**To run a simple Automation workflow**
+**To run a simple automation**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -32,19 +32,19 @@ You can view information about a document by choosing the document name\.
 
 1. Choose **Execute**\. 
 
-The console displays the status of the Automation execution\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
+The console displays the status of the automation\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
-## Running a simple Automation workflow \(command line\)<a name="automation-working-executing-commandline"></a>
+## Running a simple automation \(command line\)<a name="automation-working-executing-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run a simple Automation workflow\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run a simple automation\.
 
-**To run a simple Automation workflow**
+**To run a simple automation**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start a simple Automation workflow\.
+1. Run the following command to start a simple automation\.
 
 ------
 #### [ Linux ]
@@ -135,7 +135,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to retrieve the status of the Automation workflow\.
+1. Run the following command to retrieve the status of the automation\.
 
 ------
 #### [ Linux ]
