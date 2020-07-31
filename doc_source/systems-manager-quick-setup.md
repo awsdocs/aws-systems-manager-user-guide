@@ -206,7 +206,7 @@ If you enable this option in Quick Setup, then Systems Manager uses Patch Manage
 
 ## Install and configure the CloudWatch agent<a name="quick-setup-cloudwatch"></a>
 
-Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premismes servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
 ## Update the CloudWatch agent once every four weeks<a name="quick-setup-cloudwatch-2"></a>
 
