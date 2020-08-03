@@ -30,7 +30,7 @@ For instances created from a 64\-bit Ubuntu Server 16\.04 AMI, be sure to follow
 
 **To install SSM Agent on Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit instances \(with Snap package\)**
 
-1. SSM Agent is installed, by default, on Ubuntu Server 18\.04 and on 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\. For more information about version 16\.04 AMIs, see [Manually install SSM Agent on Ubuntu Server instances](#agent-install-ubuntu)\.
+1. SSM Agent is installed, by default, on Ubuntu Server 18\.04 and on 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\.
 
    You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\. You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
 
@@ -61,7 +61,7 @@ Because of a known issue with Snap, you might see a `Maximum timeout exceeded` e
 On Ubuntu Server 18\.04 and 16\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to  any configuration files in this directory, then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files have not changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
 On Ubuntu Server 18\.04, use Snaps only\. Don't install deb packages\. Also verify that only one instance of the agent is installed and running on your instances\.
 On Ubuntu Server 18\.04 and 16\.04, SSM Agent provides support for the arm64 processor architecture\.
-On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\. For more information, see [Manually install SSM Agent on Ubuntu Server instances](#agent-install-ubuntu)\.
+On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\.
 
 1. Run the following command to determine if SSM Agent is running\. 
 
@@ -89,7 +89,7 @@ On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb instal
 1. You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\.
 **Important**  
 SSM Agent is installed by default on instances created from Ubuntu Server 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\. Instances created from AMIs with earlier identifiers, for example `20171121.1` and `20180522`, should continue to use deb installers\.   
-If SSM Agent is installed on your instance in conjunction with a Snap and you install or update SSM Agent using a deb installer package, the installation or SSM Agent operations may fail\. For more information, see [Manually install SSM Agent on Ubuntu Server instances](#agent-install-ubuntu)\.
+If SSM Agent is installed on your instance in conjunction with a Snap and you install or update SSM Agent using a deb installer package, the installation or SSM Agent operations may fail\.
 
    Create a temporary directory on the instance\.
 
