@@ -5,7 +5,7 @@ By default, the steps that you define in the `mainSteps` section of an Automatio
 + **nextStep**: This option specifies which step in an Automation workflow to process next after successfully completing a step\. 
 + **isEnd**: This option stops an Automation execution at the end of a specific step\. The default value for this option is false\.
 + **isCritical**: This option designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. The default value for this option is true\.
-+ **onFailure**: This option indicates whether the workflow should abort, continue, or go to a different step on failure\. The default value for this option is abort\.
++ **onFailure**: This option indicates whether the workflow should abort, continue, or go to a different step on failure\. The default value for this option is Abort\.
 
 The following section describes the `aws:branch` Automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` workflow options, see [Examples of how to use dynamic workflow options](#automation-branchdocs-examples)\.
 

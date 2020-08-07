@@ -27,7 +27,7 @@ For example:
 #### [ Linux ]
 
 ```
-aws ssm create-maintenance-window \    
+aws ssm create-maintenance-window \
     --name "My-LAX-Maintenance-Window" \
     --allow-unassociated-targets \
     --duration 3 \
@@ -41,7 +41,7 @@ aws ssm create-maintenance-window \
 #### [ Windows ]
 
 ```
-aws ssm create-maintenance-window ^    
+aws ssm create-maintenance-window ^
     --name "My-LAX-Maintenance-Window" ^
     --allow-unassociated-targets ^
     --duration 3 ^

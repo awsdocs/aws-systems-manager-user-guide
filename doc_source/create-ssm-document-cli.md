@@ -10,7 +10,7 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
 
 ```
 aws ssm create-document \
-    --content file://path/to/file/documentContent.json \  
+    --content file://path/to/file/documentContent.json \
     --name "document-name" \
     --document-type "Command" \
     --tags "Key=tag-key,Value=tag-value"

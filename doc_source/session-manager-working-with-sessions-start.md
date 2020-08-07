@@ -81,6 +81,8 @@ For information about other options you can use with the start\-session command,
 
 ## Starting a session \(SSH\)<a name="sessions-start-ssh"></a>
 
+To start a Session Manager SSH session, version 2\.3\.672\.0 or later of SSM Agent must be installed on the managed instance\.
+
 **SSH Connection Requirements**  
 Take note of the following requirements and limitations for session connections using SSH\.
 + Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
@@ -111,11 +113,13 @@ For information about other options you can use with the start\-session command,
 
 ## Starting a session \(port forwarding\)<a name="sessions-start-port-forwarding"></a>
 
-To start a port forwarding session, run the following command from the CLI:
+To start a Session Manager port forwarding session, version 2\.3\.672\.0 or later of SSM Agent must be installed on the managed instance\.
 
 **Note**  
 Before attempting to start a session, ensure that the necessary setup steps for Session Manager have been completed\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+
+To start a port forwarding session, run the following command from the CLI:
 
 ------
 #### [ Linux ]
@@ -123,7 +127,7 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 ```
 aws ssm start-session \
     --target instance-id \
-    --document-name AWS-StartPortForwardingSession \ 
+    --document-name AWS-StartPortForwardingSession \
     --parameters '{"portNumber":["80"], "localPortNumber":["56789"]}'
 ```
 
@@ -146,6 +150,8 @@ aws ssm start-session ^
 *localPortNumber* represents the local port on the client where traffic should be redirected to, such as `56789`\. 
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
+
+For more information about port forwarding sessions, see [Port Forwarding Using AWS Systems Manager Session Manager](http://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/) in the *AWS News Blog*\.
 
 ## Starting a session \(interactive commands\)<a name="sessions-start-interactive-commands"></a>
 

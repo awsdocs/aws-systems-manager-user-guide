@@ -153,7 +153,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm create-maintenance-window \
        --name "Production-Saturdays" \
-       --tags "Key=Environment,Value=Production" \    
+       --tags "Key=Environment,Value=Production" \
        --schedule "cron(0 0 22 ? * SAT *)" \
        --duration 2 \
        --cutoff 0 \
@@ -166,10 +166,10 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm create-maintenance-window ^
        --name "Production-Saturdays" ^
-       --tags "Key=Environment,Value=Production" ^    
+       --tags "Key=Environment,Value=Production" ^
        --schedule "cron(0 0 22 ? * SAT *)" ^
        --duration 2 ^
-       --cutoff 0 ^    
+       --cutoff 0 ^
        --no-allow-unassociated-targets
    ```
 
@@ -192,7 +192,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    aws ssm register-target-with-maintenance-window \
        --window-id mw-0c50858d01EXAMPLE \
        --targets "Key=tag:Patch Group,Values=Database Servers" \
-       --owner-information "Database Servers" \    
+       --owner-information "Database Servers" \
        --resource-type "INSTANCE"
    ```
 
@@ -299,7 +299,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm register-task-with-maintenance-window \
        --window-id mw-9a8b7c6d5eEXAMPLE \
-       --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" \    
+       --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" \
        --task-arn "AWS-RunPatchBaseline" \
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
        --task-type "RUN_COMMAND" \
@@ -319,7 +319,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --task-arn "AWS-RunPatchBaseline" ^
        --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
-       --max-concurrency 2 ^    
+       --max-concurrency 2 ^
        --max-errors 1 ^
        --priority 1 ^
        --task-invocation-parameters "RunCommand={Parameters={Operation=Install}}"

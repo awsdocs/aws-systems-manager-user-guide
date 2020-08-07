@@ -18,18 +18,18 @@ You can view information about a runbook by either choosing the runbook name in 
 
 ## Using a runbook to remediate an OpsItem issue<a name="OpsCenter-remediating-how-to"></a>
 
-When you execute a runbook from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** opens the runbook in Systems Manager Automation, which provides several options for executing the runbook\.
+When you run a runbook from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** opens the runbook in Systems Manager Automation, which provides several options for executing the runbook\.
 
 ![\[An OpsCenter runbook that uses the Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
 
 The following procedure describes how to run a simple version of a runbook\. For information about executing an **Advanced configuration** runbook, see [Working with automations](automation-working.md)\.
 
 **Before You Begin**  
-Before you execute a runbook to remediate an OpsItem issue, do the following:
+Before you run a runbook to remediate an OpsItem issue, do the following:
 + Verify that you have permission to run Systems Manager Automation documents\. For more information, see [Getting started with Automation](automation-setup.md)\.
-+ Collect resource\-specific ID information for the runbook that you want to execute\. For example, if you want to execute a runbook that restarts an EC2 instance, then you must specify the ID of the instance to restart\.
++ Collect resource\-specific ID information for the runbook that you want to run\. For example, if you want to run a runbook that restarts an EC2 instance, then you must specify the ID of the instance to restart\.
 
-**To execute a runbook to remediate an OpsItem issue**
+**To run a runbook to remediate an OpsItem issue**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -40,7 +40,7 @@ Before you execute a runbook to remediate an OpsItem issue, do the following:
 
 1. Scroll to the **Runbooks** section\.
 
-1. Use the Runbooks Search bar or the numbers in the upper right to find the runbook that you want to execute\.  
+1. Use the Runbooks Search bar or the numbers in the upper right to find the runbook that you want to run\.  
 ![\[Using controls to locate an OpsCenter runbook.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_list_2.png)
 
 1. Choose a runbook, and then choose **Execute**\.
@@ -52,7 +52,7 @@ Before you execute a runbook to remediate an OpsItem issue, do the following:
 
 ## Working with associated runbooks<a name="OpsCenter-remediating-associated-runbooks"></a>
 
-After you execute a runbook from an OpsItem, the runbook is automatically associated with the related resource of that OpsItem for future reference and easy execution\. Associated runbooks are ranked higher than others in the **Runbooks** list, as shown in the following\.
+After you run a runbook from an OpsItem, the runbook is automatically associated with the related resource of that OpsItem for future reference and easy execution\. Associated runbooks are ranked higher than others in the **Runbooks** list, as shown in the following\.
 
 ![\[An associated runbook in an OpsItem\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_associated_runbook.png)
 
@@ -60,19 +60,19 @@ Associated runbooks are also available in the **Run automation** list in the **R
 
 ![\[Using controls to locate an OpsCenter runbook.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_associated_runbook_2.png)
 
-Use the following procedure to execute a runbook that has already been associated with a related resource in an OpsItem\. For information about adding related resources, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
+Use the following procedure to run a runbook that has already been associated with a related resource in an OpsItem\. For information about adding related resources, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
 
-**To execute a resource\-associated runbook to remediate an OpsItem issue**
+**To run a resource\-associated runbook to remediate an OpsItem issue**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. In the navigation pane, choose **OpsCenter**\.
 
-1. Open the OpsItem for which you want to execute a runbook\.
+1. Open the OpsItem for which you want to run a runbook\.
 
-1. In the **Related resources** section, choose the resource on which you want to execute a runbook\.
+1. In the **Related resources** section, choose the resource on which you want to run a runbook\.
 
-1. Choose **Run automation**, and then choose the associated runbook that you want to execute\.
+1. Choose **Run automation**, and then choose the associated runbook that you want to run\.
 
 1. Enter the required information for the runbook, and then choose **Execute**\.
 

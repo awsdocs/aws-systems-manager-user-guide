@@ -146,7 +146,7 @@ Cron expressions that lead to rates faster than five \(5\) minute are not suppor
 For more information about cron expressions, see [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) at the *Wikipedia website*\.
 
 **Rate Expressions**  
-Rate expressions have the following two required fields\. Fields are separated by white space\.
+Rate expressions have the following two required fields\. Fields are separated by spaces\.
 
 
 **Required fields for rate expressions**  

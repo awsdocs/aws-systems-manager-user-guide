@@ -17,7 +17,7 @@ Running automations across multiple Regions and accounts or OUs works as follows
 
 1. Verify that all resources on which you want to run the automation, in all Regions and accounts or OUs, use identical tags\. If they don't, you can add them to an AWS resource group and target that group\. For more information, see [What Is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/)
 
-1. Sign in to the AWS Identity and Access Management \(IAM\) account that you want to configure as the Automation Master account\.
+1. Sign in to the AWS Identity and Access Management \(IAM\) account that you want to configure as the Automation Primary account\.
 
 1. Use the procedure in this topic to create the IAM automation role named **AWS\-SystemsManager\-AutomationExecutionRole**\. This role gives the user permission to run automation workflows\.
 
@@ -27,9 +27,9 @@ Running automations across multiple Regions and accounts or OUs works as follows
 **Note**  
 Automations do not run recursively through OUs\. Be sure the target OU contains the desired accounts\.
 
-1. Run the automation\. When running automations across multiple Regions, accounts, or OUs, the automation you run from the master account starts child automations in each of the target accounts\. The automation in the master account will have `aws:executeAutomation` steps for each of the target accounts\.
+1. Run the automation\. When running automations across multiple Regions, accounts, or OUs, the automation you run from the primary account starts child automations in each of the target accounts\. The automation in the primary account will have `aws:executeAutomation` steps for each of the target accounts\.
 
-1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor workflow progress\. The output of the steps for the automation in your master account will be the `AutomationExecutionId` of the child automations\. To view the output of the child automations created in your target accounts, be sure to specify the appropriate account, Region, and `AutomationExecutionId` in your request\.
+1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor workflow progress\. The output of the steps for the automation in your primary account will be the `AutomationExecutionId` of the child automations\. To view the output of the child automations created in your target accounts, be sure to specify the appropriate account, Region, and `AutomationExecutionId` in your request\.
 
 ## Setting up management account permissions for multi\-Region and multi\-account automation<a name="systems-manager-automation-multiple-accounts-and-regions-permissions"></a>
 

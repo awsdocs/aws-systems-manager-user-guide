@@ -227,7 +227,7 @@ To grant access for members of a group to register tasks for maintenance windows
 #### [ Linux ]
 
    ```
-   aws iam list-group-policies \    
+   aws iam list-group-policies \
        --group-name "group-name"
    ```
 
@@ -235,7 +235,7 @@ To grant access for members of a group to register tasks for maintenance windows
 #### [ Windows ]
 
    ```
-   aws iam list-group-policies ^    
+   aws iam list-group-policies ^
        --group-name "group-name"
    ```
 
@@ -318,7 +318,7 @@ To grant access for members of a group to register tasks for maintenance windows
 #### [ Linux ]
 
    ```
-   aws iam list-group-policies \    
+   aws iam list-group-policies \
        --group-name "group-name"
    ```
 
@@ -326,7 +326,7 @@ To grant access for members of a group to register tasks for maintenance windows
 #### [ Windows ]
 
    ```
-   aws iam list-group-policies ^    
+   aws iam list-group-policies ^
        --group-name "group-name"
    ```
 

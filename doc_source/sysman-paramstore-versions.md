@@ -6,7 +6,9 @@ You can also specify the version of a parameter to use in API commands and SSM d
 
 You can use parameter versions to see how many times a parameter changed over a period of time\. Parameter versions also provide a layer of protection if a parameter value is accidentally changed\. 
 
-You can create a maximum of 100 versions of a parameter\.
+You can create and maintain up to 100 versions of a parameter\. After you have created 100 versions of a parameter, each time you create a new version, the oldest version of the parameter is removed from history to make room for the new version\. 
+
+An exception to this is when there are already 100 parameter versions in history, and a parameter label is assigned to the oldest version of a parameter\. In this case, that version is not removed from history, and the request to create a new parameter version fails\. This safeguard is to prevent parameter versions with mission critical labels assigned to them from being deleted\. To continue creating new parameters, first move the label from the oldest version of the parameter to a newer one for use in your operations\. For information about moving parameter labels, see [Move a parameter label \(console\)](sysman-paramstore-labels-console.md#sysman-paramstore-labels-console-move) and [Move a parameter label \(CLI\)](sysman-paramstore-labels-cli.md#sysman-paramstore-labels-cli-move)\.
 
 The following procedures show you how to edit a parameter and then verify that a new version was created\.
 

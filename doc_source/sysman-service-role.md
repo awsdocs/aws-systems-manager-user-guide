@@ -37,7 +37,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 #### [ Linux ]
 
    ```
-   aws iam create-role \ 
+   aws iam create-role \
        --role-name SSMServiceRole \
        --assume-role-policy-document file://SSMService-Trust.json
    ```
@@ -46,7 +46,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 #### [ Windows ]
 
    ```
-   aws iam create-role ^ 
+   aws iam create-role ^
        --role-name SSMServiceRole ^
        --assume-role-policy-document file://SSMService-Trust.json
    ```

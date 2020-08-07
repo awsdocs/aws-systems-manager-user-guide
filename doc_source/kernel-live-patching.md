@@ -100,7 +100,7 @@ When you enable Kernel Live Patching, if the kernel already running on the insta
 
   ```
   aws ssm send-command \
-      --document-name "AWS-ConfigureKernelLivePatching" \ 
+      --document-name "AWS-ConfigureKernelLivePatching" \
       --parameters "EnableOrDisable=Enable" \
       --targets "Key=instanceids,Values=instance-id"
   ```

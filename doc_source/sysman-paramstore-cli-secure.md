@@ -134,7 +134,7 @@ Use the following procedure to create a `SecureString` parameter\. For more info
    ```
    aws ssm put-parameter \
        --name "the-name-that-you-specified" \
-       --value "a-new-parameter-value" \  
+       --value "a-new-parameter-value" \
        --type "SecureString" \
        --key-id "the-CMK-ID" \
        --overwrite
@@ -155,7 +155,7 @@ Use the following procedure to create a `SecureString` parameter\. For more info
    ```
    aws ssm put-parameter ^
        --name "the-name-that-you-specified" ^
-       --value "a-new-parameter-value" ^  
+       --value "a-new-parameter-value" ^
        --type "SecureString" ^
        --key-id "the-CMK-ID" ^
        --overwrite

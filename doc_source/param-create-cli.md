@@ -12,6 +12,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 + [Create a `String` Parameter \(AWS CLI\)](#param-create-cli-string)
 + [Create a `StringList` parameter \(AWS CLI\)](#param-create-cli-stringlist)
 + [Create a SecureString parameter \(AWS CLI\)](#param-create-cli-securestring)
++ [Create a multi\-line parameter \(AWS CLI\)](param-create-cli-multiline.md)
 
 ## Create a `String` Parameter \(AWS CLI\)<a name="param-create-cli-string"></a>
 
@@ -26,7 +27,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 
    ```
    aws ssm put-parameter \
-       --name "parameter-name" \    
+       --name "parameter-name" \
        --value "parameter-value" \
        --type String \
        --tags "Key=tag-key,Value=tag-value"
@@ -37,7 +38,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 
    ```
    aws ssm put-parameter ^
-       --name "parameter-name" ^    
+       --name "parameter-name" ^
        --value "parameter-value" ^
        --type String ^
        --tags "Key=tag-key,Value=tag-value"
@@ -250,7 +251,7 @@ To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assign
 
    ```
    aws ssm get-parameters \
-       --name "the-parameter-name-you-specified" \   
+       --name "the-parameter-name-you-specified" \
        --with-decryption
    ```
 
@@ -259,7 +260,7 @@ To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assign
 
    ```
    aws ssm get-parameters ^
-       --name "the-parameter-name-you-specified" ^   
+       --name "the-parameter-name-you-specified" ^
        --with-decryption
    ```
 

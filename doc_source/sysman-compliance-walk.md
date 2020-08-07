@@ -100,7 +100,7 @@ The following procedure walks you through the process of using the [PutComplianc
 #### [ Linux ]
 
    ```
-   aws ssm list-compliance-items \ 
+   aws ssm list-compliance-items \
    --resource-ids instance_ID \
    --resource-types ManagedInstance \
    --filters one_or_more_filters
@@ -110,7 +110,7 @@ The following procedure walks you through the process of using the [PutComplianc
 #### [ Windows ]
 
    ```
-   aws ssm list-compliance-items ^ 
+   aws ssm list-compliance-items ^
    --resource-ids instance_ID ^
    --resource-types ManagedInstance ^
    --filters one_or_more_filters
@@ -124,7 +124,7 @@ The following procedure walks you through the process of using the [PutComplianc
 #### [ Linux ]
 
    ```
-   aws ssm list-compliance-items \ 
+   aws ssm list-compliance-items \
    --resource-ids i-1234567890abcdef0 \
    --resource-type ManagedInstance \
    --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88cc6c46dcc Key=Severity,Values=UNSPECIFIED
@@ -134,7 +134,7 @@ The following procedure walks you through the process of using the [PutComplianc
 #### [ Windows ]
 
    ```
-   aws ssm list-compliance-items ^ 
+   aws ssm list-compliance-items ^
    --resource-ids i-1234567890abcdef0 ^
    --resource-type ManagedInstance ^
    --filters Key=DocumentName,Values=AWS-RunPowerShellScript Key=Status,Values=NON_COMPLIANT,Type=NotEqual Key=Id,Values=cee20ae7-6388-488e-8be1-a88cc6c46dcc Key=Severity,Values=UNSPECIFIED

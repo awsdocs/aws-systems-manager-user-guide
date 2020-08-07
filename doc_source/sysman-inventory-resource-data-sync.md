@@ -105,8 +105,8 @@ Before you start this walkthrough, you must collect inventory metadata from your
 #### [ Linux ]
 
    ```
-   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ \ 
-   --sse aws:kms \ 
+   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ \
+   --sse aws:kms \
    --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" \
    --region region, for example, us-east-2
    ```
@@ -116,9 +116,9 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
    ```
    aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ ^ 
-   --sse aws:kms ^ 
-   --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" ^
-   --region region, for example, us-east-2
+       --sse aws:kms ^
+       --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" ^
+       --region region, for example, us-east-2
    ```
 
 ------
@@ -131,7 +131,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
 #### [ Linux ]
 
    ```
-   aws ssm create-resource-data-sync \ 
+   aws ssm create-resource-data-sync \
    --sync-name a_name \
    --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
    ```
@@ -140,7 +140,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
 #### [ Windows ]
 
    ```
-   aws ssm create-resource-data-sync ^ 
+   aws ssm create-resource-data-sync ^
    --sync-name a_name ^
    --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
    ```
@@ -153,9 +153,10 @@ If the sync and the target S3 bucket are located in different regions, you may b
 #### [ Linux ]
 
    ```
-   aws ssm create-resource-data-sync \ 
-   --sync-name InventoryDataWest \
-   --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" \ --region us-west-1
+   aws ssm create-resource-data-sync \
+       --sync-name InventoryDataWest \
+       --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" 
+       --region us-west-1
    ```
 
 ------

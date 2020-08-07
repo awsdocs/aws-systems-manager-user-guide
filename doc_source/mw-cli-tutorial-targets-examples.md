@@ -120,7 +120,7 @@ Run the following command on your local machine to register a specified resource
 ```
 aws ssm register-target-with-maintenance-window \
     --window-id "mw-0c50858d01EXAMPLE" \
-    --resource-type "RESOURCE_GROUP" \    
+    --resource-type "RESOURCE_GROUP" \
     --target "Key=resource-groups:Name,Values=MyResourceGroup"
 ```
 

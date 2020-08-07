@@ -14,12 +14,12 @@ Every on\-premises server and VM you previously registered remains registered as
 If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes tags\.
 
 ```
-aws ssm create-activation \ 
-  --default-instance-name MyWebServers \ 
-  --description "Activation for Finance department webservers"
-  --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \ 
-  --registration-limit 10 \ 
-  --region us-east-2 \ 
+aws ssm create-activation \
+  --default-instance-name MyWebServers \
+  --description "Activation for Finance department webservers" \
+  --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
+  --registration-limit 10 \
+  --region us-east-2 \
   --tags "Key=Department,Value=Finance"
 ```
 
@@ -86,11 +86,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 #### [ Linux ]
 
    ```
-   aws ssm create-activation \ 
+   aws ssm create-activation \
      --default-instance-name name \
      --iam-role iam-service-role-name \
      --registration-limit number-of-managed-instances \
-     --region region \ 
+     --region region \
      --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
@@ -98,11 +98,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 #### [ Windows ]
 
    ```
-   aws ssm create-activation ^ 
+   aws ssm create-activation ^
      --default-instance-name name ^
      --iam-role iam-service-role-name ^
      --registration-limit number-of-managed-instances ^
-     --region region ^ 
+     --region region ^
      --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
@@ -128,7 +128,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    aws ssm create-activation \
      --default-instance-name MyWebServers \
      --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
-     --registration-limit 10 \ 
+     --registration-limit 10 \
      --region us-east-2 \
      --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
@@ -138,11 +138,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm create-activation ^
-     --default-instance-name MyWebServers ^
-     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
-     --registration-limit 10 ^ 
-     --region us-east-2 ^
-     --tags "Key=Environment,Value=Production "Key=Department,Value=Finance"
+         --default-instance-name MyWebServers ^
+         --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
+         --registration-limit 10 ^
+         --region us-east-2 ^
+         --tags "Key=Environment,Value=Production "Key=Department,Value=Finance"
    ```
 
 ------

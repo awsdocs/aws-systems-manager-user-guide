@@ -270,7 +270,7 @@ If State Manager failed to apply the association to your instances, then start b
 If the AWS\-ApplyDSCMofs document successfully ran, then the Systems Manager execution status shows **Success**\. This status does not reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
 
 **Stderr states: Name resolution failure attempting to reach service**  
-This error indicates that the script can't reach a remote service\. Most likely, the script can't reach Amazon S3\. This issue most often occurs when the script attempts to write compliance reports or compliance status to the Amazon S3 bucket supplied in the document parameters\. Typically, this error occurs when a computing environment uses a firewall or transparent proxy that includes a whitelist\. To resolve this issue:
+This error indicates that the script can't reach a remote service\. Most likely, the script can't reach Amazon S3\. This issue most often occurs when the script attempts to write compliance reports or compliance status to the Amazon S3 bucket supplied in the document parameters\. Typically, this error occurs when a computing environment uses a firewall or transparent proxy that includes an allow list\. To resolve this issue:
 + Use region\-specific bucket syntax for all Amazon S3 bucket parameters\. For example, the **Mofs to Apply** parameter should be formatted as follows:
 
   s3:*bucket\-region*:*bucket\-name*:*mof\-file\-name*\.mof\.

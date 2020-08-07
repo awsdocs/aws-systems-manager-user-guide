@@ -255,7 +255,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 #### [ Linux ]
 
    ```
-   aws ssm create-association \ 
+   aws ssm create-association \
      --association-name Update_SSM_Agent_Linux \
      --name "AWS-UpdateSSMAgent" \
      --targets "Key=instanceids,Values=*" \
@@ -270,15 +270,15 @@ When you create an association, you specify when the schedule runs\. You must sp
 #### [ Windows ]
 
    ```
-   aws ssm create-association ^ 
-     --association-name Update_SSM_Agent_Linux ^
-     --name "AWS-UpdateSSMAgent" ^
-     --targets "Key=instanceids,Values=*" ^
-     --compliance-severity "MEDIUM" ^
-     --schedule "cron(0 2 ? * SUN *)" ^
-     --max-errors "5" ^
-     --max-concurrency "10" ^
-     --apply-only-at-cron-interval
+   aws ssm create-association ^
+         --association-name Update_SSM_Agent_Linux ^
+         --name "AWS-UpdateSSMAgent" ^
+         --targets "Key=instanceids,Values=*" ^
+         --compliance-severity "MEDIUM" ^
+         --schedule "cron(0 2 ? * SUN *)" ^
+         --max-errors "5" ^
+         --max-concurrency "10" ^
+         --apply-only-at-cron-interval
    ```
 
 ------

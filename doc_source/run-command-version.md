@@ -35,9 +35,9 @@ Use the following procedure to run a command using the document version paramete
 
    ```
    aws ssm send-command \
-       --document-name "AWS-RunShellScript" \ 
-       --parameters commands="echo Hello" \ 
-       --instance-ids instance-ID \ 
+       --document-name "AWS-RunShellScript" \
+       --parameters commands="echo Hello" \
+       --instance-ids instance-ID \
        --document-version '$LATEST'
    ```
 
@@ -61,17 +61,17 @@ Use the following procedure to run a command using the document version paramete
 1. Use the following command to view the different versions of a document\.
 
    ```
-   aws ssm list-document-versions ^ 
+   aws ssm list-document-versions ^
        --name "document-name"
    ```
 
 1. Use the following command to run a command that uses an SSM document version\.
 
    ```
-   aws ssm send-command ^ 
-       --document-name "AWS-RunShellScript" ^ 
-       --parameters commands="echo Hello" ^ 
-       --instance-ids instance-ID ^ 
+   aws ssm send-command ^
+       --document-name "AWS-RunShellScript" ^
+       --parameters commands="echo Hello" ^
+       --instance-ids instance-ID ^
        --document-version "$LATEST"
    ```
 
@@ -103,9 +103,9 @@ Use the following procedure to run a command using the document version paramete
 
    ```
    Send-SSMCommand `
-       -DocumentName "AWS-RunShellScript" ` 
-       -Parameter @{commands = "echo helloWorld"} ` 
-       -InstanceIds "instance-ID" ` 
+       -DocumentName "AWS-RunShellScript" `
+       -Parameter @{commands = "echo helloWorld"} `
+       -InstanceIds "instance-ID" `
        -DocumentVersion $LATEST
    ```
 

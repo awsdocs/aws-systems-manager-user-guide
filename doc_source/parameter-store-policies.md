@@ -120,7 +120,7 @@ Use the following procedure to add policies to an existing parameter by using th
        --name "parameter-name" \
        --value 'parameter-value' \
        --type parameter-type \
-       --overwrite \    
+       --overwrite \
        --policies "[{policies-enclosed-in-brackets-and-curly-braces}]"
    ```
 

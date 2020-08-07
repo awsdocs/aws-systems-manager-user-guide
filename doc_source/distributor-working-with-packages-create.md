@@ -451,8 +451,8 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
    aws ssm create-document \
        --name "package-name" \
        --content file://path-to-manifest-file \
-       --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" \ 
-       --version-name version-value-from-manifest \ 
+       --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" \
+       --version-name version-value-from-manifest \
        --document-type Package
    ```
 

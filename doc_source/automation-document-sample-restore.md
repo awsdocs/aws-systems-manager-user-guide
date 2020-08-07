@@ -221,7 +221,7 @@ mainSteps:
    "parameters": {
       "AutomationAssumeRole": {
          "type": "String",
-         "description": "(Required) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to execute this document.",
+         "description": "(Required) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document.",
          "default": ""
       },
       "InstanceId": {

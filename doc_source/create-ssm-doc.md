@@ -23,7 +23,7 @@ The Linux and Windows commands use the `jq` command line tool to filter the JSON
 
 ```
 latestDocVersion=$(aws ssm update-document \
-    --content file://path/to/file/documentContent.json \  
+    --content file://path/to/file/documentContent.json \
     --name "ExampleDocument" \
     --document-format JSON \
     --document-version '$LATEST' \
@@ -36,7 +36,7 @@ aws ssm update-document-default-version \
 
 ```
 latestDocVersion=$(aws ssm update-document ^
-    --content file://C:\path\to\file\documentContent.json ^  
+    --content file://C:\path\to\file\documentContent.json ^
     --name "ExampleDocument" ^
     --document-format JSON ^
     --document-version "$LATEST" ^
