@@ -470,6 +470,9 @@ mainSteps:
   inputs:
     name: "{{ name }}"
     action: "{{ action }}"
+    additionalArguments: 
+      SSM_parameter_store_arg: "{{ ssm:parameter_store_arg }}"
+      SSM_custom_arg: "myValue"
 ```
 
 ------
@@ -500,7 +503,11 @@ mainSteps:
       "name": "configurePackage",
       "inputs": {
         "name": "{{ name }}",
-        "action": "{{ action }}"
+        "action": "{{ action }}",
+        "additionalArguments": {
+          "SSM_parameter_store_arg": "{{ ssm:parameter_store_arg }}",
+          "SSM_custom_arg": "myValue"
+        }
       }
     }
   ]
@@ -526,6 +533,11 @@ Required: Yes
 The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option is not supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
 Type: Enum  
 Valid values: `Uninstall and reinstall` \| `In-place update`  
+Required: No
+
+**additionalArguments**  
+The additional parameters to provide to your install, uninstall, or update scripts\. Each parameter must be prefixed with `SSM_`\. You can reference a Parameter Store parameter in your additional arguments by using the convention `{{ssm:parameter-name}}`\. To use the additional parameter in your install, uninstall, or update script, you must reference the parameter as an environment variable using the syntax appropriate for the operating system\. For example, in PowerShell, you reference the `SSM_arg` argument as `$Env:SSM_arg`\. There is no limit to the number of arguments you define, but the additional argument input has a 4096 character limit\. This limit includes all of the keys and values you define\.  
+Type: StringMap  
 Required: No
 
 **version**  
@@ -746,7 +758,7 @@ Required: Yes
 
     The default is `master`\.
 
-    `"branch"` is required only if your SSM document is stored in a branch other than `master`\.
+    `branch` parameter is required only if your SSM document is stored in a branch other than `master`\.
   + commitID:*commitID*
 
     The default is `head`\.
@@ -761,31 +773,28 @@ Required: Yes
 This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters are not supported for any other fields, nor for any other SSM document plugins\.
 
 ```
-Example syntax:
 {
-"owner":"TestUser", 
-"repository":"GitHubTest", 
-"path": "scripts/python/test-script",
-"getOptions" : "branch:master",
-"tokenInfo":"{{ssm-secure:secure-string-token}}" 
+    "owner":"TestUser",
+    "repository":"GitHubTest",
+    "path":"scripts/python/test-script",
+    "getOptions":"branch:master",
+    "tokenInfo":"{{ssm-secure:secure-string-token}}"
 }
 ```
  **For sourceType S3, specify the following:**   
 + path: The URL to the file or directory you want to download from Amazon S3\.
 
 ```
-Example syntax:
 {
-"path": "https://s3.amazonaws.com/aws-executecommand-test/powershell/helloPowershell.ps1" 
+    "path": "https://s3.amazonaws.com/aws-executecommand-test/powershell/helloPowershell.ps1" 
 }
 ```
  **For sourceType SSMDocument, specify *one* of the following:**   
 + name: The name and version of the document in the following format: `name:version`\. Version is optional\. 
 
   ```
-  Example syntax:
   {
-  "name": "Example-RunPowerShellScript:3" 
+      "name": "Example-RunPowerShellScript:3" 
   }
   ```
 + name: The ARN for the document in the following format: arn:aws:ssm:*region*:*account\_id*:document/*document\_name*

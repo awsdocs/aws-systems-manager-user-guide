@@ -19,7 +19,9 @@ Use the following procedure to configure CloudWatch Events to send notification 
 
 1. In the **Event Type** field, choose **Automation**\.
 
-1. Choose the detail types and statuses for which you want to receive notifications, and then choose **Add targets**\.
+1. Choose the detail types and statuses for which you want to receive notifications\. For example, to select events for automations that fail choose **EC2 Automation Execution Status\-change Notification** and **Failed**\.
+
+1. Choose **Add targets**\.
 
 1. In the **Select target type** list, choose a target type\. For information about the different types of targets, see the corresponding AWS Help documentation\.
 

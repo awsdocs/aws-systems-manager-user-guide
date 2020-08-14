@@ -77,7 +77,7 @@ You can restrict access to instances based on specific Amazon EC2 tags\. In the 
 }
 ```
 
-You can create IAM policies that enable a user to start sessions to instances that are tagged with multiple tags\. The following policy enables the user to start sessions to instances that have of both the specified tags applied to them\. If a user sends a command to an instance that is not tagged with both of these tags, the command result will include `AccessDenied`\.
+You can create IAM policies that enable a user to start sessions to instances that are tagged with multiple tags\. The following policy enables the user to start sessions to instances that have both the specified tags applied to them\. If a user sends a command to an instance that is not tagged with both of these tags, the command result will include `AccessDenied`\.
 
 ```
 {

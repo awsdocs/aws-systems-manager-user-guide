@@ -1,6 +1,6 @@
 # Install or update packages<a name="distributor-working-with-packages-deploy"></a>
 
-You can use the AWS Management Console or the AWS CLI to deploy packages to your AWS Systems Manager managed instances by using AWS Systems Manager Distributor\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\.
+You can use the AWS Management Console or the AWS CLI to deploy packages to your AWS Systems Manager managed instances by using AWS Systems Manager Distributor\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager to install packages\. Using State Manager helps ensure that your instances are always running the most up\-to\-date version of your package\.
 
 
 | Preference | AWS Systems Manager action | More information | 
@@ -171,7 +171,7 @@ When you add new or changed files, you must include `"installationType":["In-pla
       --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["ExamplePackage"]}'
   ```
 
-For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.\.
+For information about other options you can use with the send\-command command, see [https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.
 
 ## Scheduling a package installation \(AWS CLI\)<a name="distributor-smdeploy-pkg-cli"></a>
 

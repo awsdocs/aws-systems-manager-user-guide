@@ -7,8 +7,10 @@ Systems Manager Explorer displays data from the following sources\.
 + Systems Manager State Manager association compliance
 + AWS Trusted Advisor
 + AWS Compute Optimizer
++ AWS Support Center cases
 
 **Note**  
+To view AWS Support Center cases in Explorer, you must have either an Enterprise or Business account set up with AWS Support\.
 You can't configure Explorer to stop displaying OpsCenter OpsItem data\.
 
 **Before you begin**  

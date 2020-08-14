@@ -4,6 +4,9 @@ The following procedure describes how to use your preferred command line tool to
 
 For information about using command line tools to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
+**Note**  
+You can use this procedure to create custom session documents for your Session Manager preferences that override account level settings\. When you create your custom session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom session documents, you must provide the name of your custom session document for the `--document-name` parameter when starting a session from the AWS CLI\. When you start a session from the console, you can't specify custom session documents\.
+
 **To create Session Manager preferences \(command line\)**
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:

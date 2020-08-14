@@ -1,15 +1,18 @@
-# Running SSM documents from remote locations<a name="run-remote-documents"></a>
+# Running Systems Manager command documents from remote locations<a name="run-remote-documents"></a>
 
-You can run SSM documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports the following remote locations:
+You can run Systems Manager documents \(SSM documents\) from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports running SSM documents stored in the following locations:
 + GitHub repositories \(public and private\)
-+ Amazon S3
-+ Documents saved in Systems Manager
++ Amazon S3 buckets
++ Systems Manager
 
-The following procedure describes how to run remote SSM documents by using the console\. This procedure shows how to run the remote document by using Run Command, but you can also run remote documents by using State Manager or Automation\.
+While you can also run remote documents by using State Manager or Automation, the following procedure describes only how to run remote SSM documents by using Run Command in the AWS Systems Manager console\. 
+
+**Note**  
+`AWS-RunDocument` can be used to run only command\-type SSM documents, not other types such as Automation documents\. The `AWS-RunDocument` uses the `aws:downloadContent` plugin\. For more information about the `aws:downloadContent` plugin, see [aws:downloadContent](ssm-plugins.md#aws-downloadContent)\.
 
 **Before you begin**  
 Before you run a remote document, you must complete the following tasks\.
-+ Create an SSM document and save it in a remote location\. For more information, see [Creating Systems Manager documents](create-ssm-doc.md)
++ Create an SSM command document and save it in a remote location\. For more information, see [Creating Systems Manager documents](create-ssm-doc.md)
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Run a remote document \(console\)<a name="run-remote-documents-console"></a>
@@ -35,9 +38,9 @@ Before you run a remote document, you must complete the following tasks\.
      {
          "owner": "owner_name",
          "repository": "repository_name",
-         "branch": "branch_name",
          "path": "path_to_document",
-         "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}"
+         "getOptions":"branch:branch_name",
+         "tokenInfo": "{{ssm-secure:secure-string-token}}"
      }
      ```
 
@@ -45,15 +48,15 @@ Before you run a remote document, you must complete the following tasks\.
 
      ```
      {
-         "owner": "TestUser1",
-         "repository": "SSMTestDocsRepo",
-         "path": "SSMDocs/mySSMdoc.yml",
-         "branch": "myBranch",
-         "tokenInfo": "{{ssm-secure:myAccessTokenParam}}"
+         "owner":"TestUser",
+         "repository":"GitHubTestExamples",
+         "path":"scripts/python/test-script",
+         "getOptions":"branch:exampleBranch",
+         "tokenInfo":"{{ssm-secure:my-secure-string-token}}"
      }
      ```
 **Note**  
-`"branch"` is required only if your SSM document is stored in a branch other than `master`\.  
+`getOptions` are extra options to retrieve content from a branch other than master, or from a specific commit in the repository\. `getOptions` can be omitted if you are using the latest commit in the master branch\. The `branch` parameter is required only if your SSM document is stored in a branch other than `master`\.  
 To use the version of your SSM document in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
 
      ```

@@ -38,7 +38,7 @@ On CentOS, the patch selection process is as follows:
 
 1. On the instance, the YUM library \(on CentOS 6\.x and 7\.x versions\) or the DNF library \(on CentOS 8\.x\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
-The `updateinfo.xml` file might not be available if the repo is not one managed by Oracle\. If there is no `updateinfo.xml` found, no patch will be applied\.
+If there is no `updateinfo.xml` found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    

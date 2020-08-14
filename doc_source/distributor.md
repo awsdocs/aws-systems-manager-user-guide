@@ -1,10 +1,13 @@
 # AWS Systems Manager Distributor<a name="distributor"></a>
 
-AWS Systems Manager Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\. Publishing a package advertises specific versions of the package's document—a Systems Manager [document](sysman-ssm-docs.md) that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, AWS account IDs, tags, or an AWS Region\.
+AWS Systems Manager Distributor lets you package your own software—and find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**, or third\-party packages such as **Trend Micro**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\. Publishing a package advertises specific versions of the package's document—a Systems Manager [document](sysman-ssm-docs.md) that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, AWS account IDs, tags, or an AWS Region\.
 
-After you create a package in Distributor, which creates an AWS Systems Manager document, you can install the package in one of the following ways\.
-+ One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)\.
-+ On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)\.
+After you create a package in Distributor, which creates an AWS Systems Manager document, you can install the package in one of the following ways:
++ One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)
++ On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)
+
+**Important**  
+Distributor does not guarantee that the third\-party packages you install are free of any potential malware\. We encourage that you conduct your own additional due diligence to ensure compliance with your internal security controls\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/)\.
 
 ## How can Distributor benefit my organization?<a name="distributor-benefits"></a>
 

@@ -12,6 +12,7 @@ You can delete or repurpose this bucket after you finish creating your package b
 AWS\-published packages are already packaged and ready for deployment\. To deploy an AWS\-published package to managed instances, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
 **Topics**
++ [View packages](distributor-view-packages.md)
 + [Create a package](distributor-working-with-packages-create.md)
 + [Edit package permissions \(console\)](distributor-working-with-packages-ep.md)
 + [Edit package tags \(console\)](distributor-working-with-packages-tags.md)
