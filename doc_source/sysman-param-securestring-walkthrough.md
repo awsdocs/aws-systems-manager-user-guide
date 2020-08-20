@@ -69,11 +69,12 @@ Using CloudWatch features is optional, but we recommend setting them up at the b
                "inputs": {
                    "runCommand": [
                        "$domain = (Get-SSMParameterValue -Name domainName).Parameters[0].Value",
+                       "if ((gwmi Win32_ComputerSystem).domain -eq $domain){write-host \"Computer is part of $domain, exiting\"; exit 0}",
                        "$username = (Get-SSMParameterValue -Name domainJoinUserName).Parameters[0].Value",
                        "$password = (Get-SSMParameterValue -Name domainJoinPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force",
                        "$credential = New-Object System.Management.Automation.PSCredential($username,$password)",
-                       "Add-Computer -DomainName $domain -Credential $credential -ErrorAction Stop",
-                       "Restart-Computer -force"
+                       "Add-Computer -DomainName $domain -Credential $credential -ErrorAction SilentlyContinue -ErrorVariable domainjoinerror",
+                       "if($?){Write-Host \"Domain join succeeded, restarting\"; exit 3010}else{Write-Host \"Failed to join domain with error:\" $domainjoinerror; exit 1 }"
                    ]
                }
            }
@@ -92,4 +93,21 @@ Using CloudWatch features is optional, but we recommend setting them up at the b
 
    ```
    Send-SSMCommand -InstanceId instance-id -DocumentName JoinInstanceToDomain 
+   ```
+
+   If the command succeeds, the system returns information similar to the following\. 
+
+   ```
+   WARNING: The changes will take effect after you restart the computer EC2ABCD-EXAMPLE.
+   Domain join succeeded, restarting
+   Computer is part of example.local, exiting
+   ```
+
+   If the command fails, the system returns information similar to the following\. 
+
+   ```
+   Failed to join domain with error:
+   Computer 'EC2ABCD-EXAMPLE' failed to join domain 'example.local'
+   from its current workgroup 'WORKGROUP' with following error message:
+   The specified domain either does not exist or could not be contacted.
    ```

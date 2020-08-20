@@ -339,7 +339,7 @@ You can control the rate at which commands are sent to instances in a group by u
 
 ### Using concurrency controls<a name="send-commands-velocity"></a>
 
-You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation completes before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
+You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation is acknowledged before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
 
 ------
 #### [ Linux ]

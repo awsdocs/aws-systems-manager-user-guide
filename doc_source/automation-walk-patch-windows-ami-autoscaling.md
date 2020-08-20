@@ -1,8 +1,8 @@
 # Walkthrough: Patch an AMI and update an Auto Scaling group<a name="automation-walk-patch-windows-ami-autoscaling"></a>
 
-The following example builds on the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly\-patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
+The following example builds on the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
-The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly\-patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
+The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
@@ -19,13 +19,15 @@ Use the following procedure to create an IAM service role for AWS Lambda\. This 
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Select type of trusted entity** page, under **AWS Service**, choose **Lambda**\.
+1. On the **Select type of trusted entity** page, choose **AWS Service**\.
 
-1. In the **Select your use case** section, choose **Lambda**, and then choose **Next: Permissions**\.
+1. In the **Choose a use case** section, choose **Lambda**, and then choose **Next: Permissions**\.
 
-1. On the **Attach permissions policy** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
+1. On the **Attach permissions policies** page, search for **AWSLambdaExecute**, and then choose the option next to it\. Search for **AutoScalingFullAccess**, and then choose the option next to it\.
 
-1. Choose **Next: Review**\.
+1. Choose **Next: Tags**\. 
+
+1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this role, and then choose **Next: Review**\.
 
 1. On the **Review** page, verify that **AWSLambdaExecute** and **AutoScalingFullAccess** are listed under **Policies**\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb-role.png)
@@ -46,15 +48,15 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Verify that **Author from scratch** is selected\.
 
-1. In the **Name** field type Automation\-UpdateAsg\.
+1. In the **Function name** field, enter **Automation\-UpdateAsg**\.
 
 1. In the **Runtime** list, choose **Python 2\.7**\.
 
-1. In the **Role** list, verify that **Choose an existing role** is selected\.
+1. Expand **Choose or create an execution role** and then, in the **Execution role** list, verify that **Use an existing role** is selected\.
 
 1. In the **Existing role** list, choose the role you created earlier\.
 
-1. Choose **Create function**\. The systems displays a code and configuration page for Automation\-UpdateSAsg\.
+1. Choose **Create function**\. The systems displays a code and configuration page for Automation\-UpdateAsg\.
 
 1. Make no changes in the **Designer** section\.
 
@@ -112,7 +114,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. In the **Event template** list, verify that **Hello World** is selected\.
 
-1. In the **Event name** field, type a name\.
+1. In the **Event name** field, enter a name\.
 
 1. Replace the existing sample with the following JSON\. Enter an AMI ID and Auto Scaling group\.
 
@@ -123,7 +125,7 @@ Use the following procedure to create a Lambda function that automatically updat
    }
    ```
 
-1. Choose **Save**\.
+1. Choose **Create**\.
 
 1. Choose **Test**\. The output states that the Auto Scaling group was successfully updated with a new launch configuration\.
 
@@ -143,7 +145,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. Choose **Create automation**\.
 
-1. In the **Name** field, type PatchAmiandUpdateAsg\.
+1. In the **Name** field, enter **PatchAmiandUpdateAsg**\.
 
 1. Choose the **Editor** tab, and choose the **Edit** button\.
 
@@ -268,7 +270,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. In the **Automation document** list, choose **PatchAmiandUpdateAsg**\.
 
-1. In the **Document details** section verify that **Document version** is set to **1**\.
+1. In the **Document details** section, verify that **Document version** is set to **1**\.
 
 1. In the **Execution mode** section, choose **Execute the entire automation at once**\.
 

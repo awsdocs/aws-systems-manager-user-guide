@@ -60,7 +60,7 @@ This walkthrough shows how to work with parameters and parameter hierarchies by 
 
 ------
 
-   The system throws the following error because the new value does not meet the requirements of the allowed pattern you specified in the previous step\.
+   The system returns the following error because the new value does not meet the requirements of the allowed pattern you specified in the previous step\.
 
    ```
    An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}

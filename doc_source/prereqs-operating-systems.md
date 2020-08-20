@@ -3,22 +3,9 @@
 Your EC2 instances, on\-premises servers, and virtual machines \(VMs\) must be running one of the following operating systems in order to be used with AWS Systems Manager\.
 
 **Topics**
-+ [Windows Server](#prereqs-os-windows-server)
 + [Linux](#prereqs-os-linux)
 + [Raspbian](#prereqs-os-raspbian)
-
-## Windows Server<a name="prereqs-os-windows-server"></a>
-
-
-****  
-
-| Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
-| --- | --- | --- | --- | 
-| 2008 | ✓ | ✓ |  | 
-| 2008 R2 |  | ✓ |  | 
-| 2012 and 2012 R2 |  | ✓ |  | 
-| 2016 |  | ✓ |  | 
-| 2019 |  | ✓ |  | 
++ [Windows Server](#prereqs-os-windows-server)
 
 ## Linux<a name="prereqs-os-linux"></a>
 
@@ -115,3 +102,19 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | --- | --- | 
 | Jessie | ✓ | 
 | Stretch | ✓ | 
+
+## Windows Server<a name="prereqs-os-windows-server"></a>
+
+
+****  
+
+| Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 2008 | ✓ | ✓ |  | 
+| 2008 R2 |  | ✓ |  | 
+| 2012 and 2012 R2 |  | ✓ |  | 
+| 2016 |  | ✓ |  | 
+| 2019 |  | ✓ |  | 
+
+**Important**  
+SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows Server instances \(for example, the legacy **AWS\-ApplyPatchBaseline** document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [Windows Management Framework 3\.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.

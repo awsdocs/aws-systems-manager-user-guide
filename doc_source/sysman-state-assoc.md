@@ -41,7 +41,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
    If you don't want the association to run immediately after you create it, choose **Apply association only at the next specified Cron interval**\. 
 
-1. In the **Advanced options** section us the **Compliance severity** to choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
+1. In the **Advanced options** section use **Compliance severity** to choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
 1. In the **Rate control** section, choose options to control how the assocation runs on multiple instances\. For more information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
