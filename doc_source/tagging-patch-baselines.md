@@ -12,7 +12,7 @@ The topics in this section describe how to work with tags on patch baselines\.
 You can add tags to Systems Manager parameters at the time you create them\.
 
 For information, see the following topics:
-+ [Create a custom patch baseline](sysman-patch-baseline-console.md)
++ [Working with custom patch baselines](sysman-patch-baseline-console.md)
 + [Create a patch baseline](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline)
 + [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)
 

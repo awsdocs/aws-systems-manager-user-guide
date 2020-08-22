@@ -23,4 +23,4 @@ For more information, see [ Set an existing patch baseline as the default](set-d
 
    \-or\-
 
-   To create your own default patch baseline, continue to the topic [Create a custom patch baseline](sysman-patch-baseline-console.md)\.
+   To create your own default patch baseline, continue to the topic [Working with custom patch baselines](sysman-patch-baseline-console.md)\.

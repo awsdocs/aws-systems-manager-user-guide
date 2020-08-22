@@ -13,17 +13,6 @@ For information about using CloudTrail to monitor Systems Manager actions, see [
 
 For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
 
-**Getting Started with Patch Manager**  
-To get started with Patch Manager, complete the tasks described in the following table\.
-
-
-| Task | For more information | 
-| --- | --- | 
-|  Verify Systems Manager prerequisites  |  [Systems Manager prerequisites](systems-manager-prereqs.md)  | 
-|  Learn how to set up and configure patching  |  [Working with Patch Manager \(console\)](sysman-patch-working.md)  | 
-|  Configure permissions for Maintenance Windows \(Required if you intend to use this feature when patching\.\)  |  [Controlling access to maintenance windows](sysman-maintenance-permissions.md)  | 
-|  Create patch baselines, patch groups, and a maintenance window to run patching in a test environment  |  [Working with Patch Manager \(console\)](sysman-patch-working.md)  | 
-
 **Topics**
 + [Patch Manager prerequisites](patch-manager-prerequisites.md)
 + [How Patch Manager operations work](patch-manager-how-it-works.md)
