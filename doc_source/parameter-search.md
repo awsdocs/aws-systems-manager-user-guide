@@ -22,6 +22,8 @@ For information about using the Systems Manager console and AWS CLI to view info
 **Note**  
 In the console, the default search type for Name is contains\.
 
+1. Press Enter\.
+
 The list of parameters is updated with the results of your search\.
 
 ## Search for a parameter \(AWS CLI\)<a name="parameter-search-cli"></a>

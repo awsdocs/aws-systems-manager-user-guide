@@ -3,7 +3,7 @@
 You can use a *patch group* to associate instances with a specific patch baseline\. Patch groups help ensure that you are deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
 **Note**  
-A patch group can only be registered with one patch baseline\.
+A patch group can be registered with only one patch baseline for each operating system type\.
 
 When you run `AWS-RunPatchBaseline`, you can target managed instances using their instance ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the instance\.
 

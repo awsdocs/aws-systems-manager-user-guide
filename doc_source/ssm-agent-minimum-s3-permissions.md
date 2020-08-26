@@ -24,7 +24,7 @@ The following table describes each of the Amazon S3 policy permissions needed fo
 Amazon S3 permissions required by SSM Agent
 
 
-| Permission | Description | 
+| S3 bucket ARN | Description | 
 | --- | --- | 
 | arn:aws:s3:::aws\-ssm\-region/\* |  Provides access to the S3 bucket containing modules required for use with SSM documents\.  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `aws-patch-manager-me-south-1-a53fc9dce`     | 
 | arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support Windows operating systems\.  | 
@@ -32,7 +32,7 @@ Amazon S3 permissions required by SSM Agent
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 
 | arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  This permission is needed for all AWS Regions *except* the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
 | arn:aws:s3:::aws\-ssm\-distributor\-file\-region/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  This permission is needed *only* for the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
-| arn:aws:s3:::aws\-ssm\-document\-attachments\-region/\* |  Provides access to the S3 bucket containing Distributor packages\.  | 
+| arn:aws:s3:::aws\-ssm\-document\-attachments\-region/\* |  Provides access to the S3 bucket containing the Distributor packages that are owned by Amazon\.  | 
 | arn:aws:s3:::patch\-baseline\-snapshot\-region/\* |  Provides access to the S3 bucket containing patch baseline snapshots\. This is required if you use the `AWS-RunPatchBaseline` SSM document or legacy `AWS-ApplyPatchBaseline` SSM document\.  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `patch-baseline-snapshot-me-south-1-uduvl7q8`     | 
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
