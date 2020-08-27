@@ -20,7 +20,7 @@ The following table includes information to help you get started with Run Comman
 **Related content**
 + [Remotely Run Commands on an EC2 Instance \(10 minute tutorial\)](https://aws.amazon.com/getting-started/tutorials/remotely-run-commands-ec2-instance-systems-manager/)
 + [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*
-+  [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/) 
++ [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/) 
 
 **Topics**
 + [Setting up Run Command](sysman-rc-setting-up.md)

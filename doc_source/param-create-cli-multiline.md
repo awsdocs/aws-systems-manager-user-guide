@@ -6,7 +6,7 @@ You can use the AWS CLI to create a parameter with line breaks\. Adding line bre
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1.  Run the following command to create a multi\-line parameter\. 
+1. Run the following command to create a multi\-line parameter\. 
 
 ------
 #### [ Linux ]

@@ -143,7 +143,7 @@ Packages are then filtered from `codename-security` repos, where the codename is
 
 On Microsoft Windows operating systems, Patch Manager retrieves a list of available updates that Microsoft publishes to Microsoft Update and are automatically available to Windows Server Update Services \(WSUS\)\.
 
- Patch Manager continuously monitors for new updates in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. When the patch information from Microsoft is processed, Patch Manager removes updates that have been replaced by later updates from its patch list \. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
+Patch Manager continuously monitors for new updates in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. When the patch information from Microsoft is processed, Patch Manager removes updates that have been replaced by later updates from its patch list \. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
 
 **Note**  
 Patch Manager only makes available patches for Windows Server operating system versions that are supported for Patch Manager\. For example, Patch Manager can't be used to patch Windows RT\.

@@ -30,7 +30,7 @@ Required permissions in either of the following cases:
   arn:aws:s3:::aws-ssm-region/*
   ```
 
-   For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
+  For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
 + **Case 2**: You plan to use an S3 bucket that you create as part of your Systems Manager operations\.
 
   Your EC2 instance profile for Systems Manager must grant access to an S3 bucket that you own for tasks like the following: 

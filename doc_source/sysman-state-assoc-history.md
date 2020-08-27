@@ -62,7 +62,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
 
 ------
 #### [ Windows ]
@@ -74,7 +74,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `--filters` parameter and ` Key=CreatedTime,Value="2018-04-10T19:15:38.372Z",Type=GREATER_THAN` value\.
 
 ------
 #### [ PowerShell ]
@@ -86,7 +86,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
 
 **Note**  
- This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `-Filter` parameter and ` @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}` value\.
+This command includes a filter to limit the results to only those executions that occurred after a specific date and time\. If you want to view all executions for a specific association ID, remove the `-Filter` parameter and ` @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}` value\.
 
 ------
 

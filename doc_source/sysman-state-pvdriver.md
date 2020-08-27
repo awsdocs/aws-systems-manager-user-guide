@@ -49,7 +49,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-1. Choose **Create Association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. 
+1. Choose **Create association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. 
 
    If you created the association on one or more EC2 instances for Windows Server, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
 

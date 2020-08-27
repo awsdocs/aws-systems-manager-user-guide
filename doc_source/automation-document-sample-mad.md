@@ -1,6 +1,6 @@
 # Deploy VPC architecture and Microsoft Active Directory domain controllers<a name="automation-document-sample-mad"></a>
 
- To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
+To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
 
 The following sample AWS Systems Manager Automation document performs these actions\.
 + Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers\.

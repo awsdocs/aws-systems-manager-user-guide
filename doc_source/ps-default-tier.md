@@ -27,7 +27,7 @@ The following are reasons you might choose Intelligent\-Tiering as the default t
 
 Here are some examples of automatic upgrade:
 + Your AWS CloudFormation templates provision numerous parameters when they are run\. When this process causes you to reach the 10,000 parameter limit in the standard\-parameter tier, Intelligent\-Tiering automatically upgrades you to the advanced\-parameter tier, and your AWS CloudFormation processes are not interrupted\.
-+  You store a certificate value in a parameter, rotate the certificate value regularly, and the content is less than the 4 KB limit of the standard\-parameter tier\. If a replacement certificate value exceeds 4 KB, Intelligent\-Tiering automatically upgrades the parameter to the advanced\-parameter tier\.
++ You store a certificate value in a parameter, rotate the certificate value regularly, and the content is less than the 4 KB limit of the standard\-parameter tier\. If a replacement certificate value exceeds 4 KB, Intelligent\-Tiering automatically upgrades the parameter to the advanced\-parameter tier\.
 + You want to associate numerous existing standard parameters to a parameter policy, which requires the advanced\-parameter tier\. Instead of your having to include the option `--tier Advanced` in all of the calls to update the parameters, Intelligent\-Tiering automatically upgrades the parameters to the advanced\-parameter tier\. The Intelligent\-Tiering option upgrades parameters from standard to advanced whenever criteria for the advanced\-parameter tier are introduced\.
 
 Options that require an advanced parameter include the following:

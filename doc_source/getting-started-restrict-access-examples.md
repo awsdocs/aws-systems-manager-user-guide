@@ -117,7 +117,7 @@ Session Manager provides two methods to control which sessions a user in your AW
 The following IAM policy lets a user view the IDs of all sessions in your account\. However, users can interact with instances only through sessions they started\. A user who is assigned the following policy can't connect to or end other users' sessions\. The policy uses the variable `{aws:username}` to achieve this\.
 
 **Note**  
- This method does not work for accounts that grant access to AWS using federated IDs\.
+This method does not work for accounts that grant access to AWS using federated IDs\.
 
 ```
 {

@@ -1,5 +1,9 @@
 # AWS Systems Manager State Manager<a name="systems-manager-state"></a>
 
+**Note**  
+State Manager and Maintenance Windows can perform some similar types of updates on your managed instances\. Which one you choose depends on whether you need to automate system compliance or perform high\-priority, time\-sensitive tasks only during periods you specify\.  
+For more information, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md)\.
+
 AWS Systems Manager State Manager is a secure and scalable configuration management service that automates the process of keeping your Amazon EC2 and hybrid infrastructure in a state that you define\.
 
 The following list describes the types of tasks you can perform with State Manager\.

@@ -80,7 +80,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
-1.  \(Optional\) For **Description**, enter a description for the policy\. 
+1. \(Optional\) For **Description**, enter a description for the policy\. 
 
 1. Choose **Create policy**\.
 
@@ -170,7 +170,7 @@ To output session logs to an S3 bucket owned by a different AWS account, you mus
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
-1.  \(Optional\) For **Description**, enter a description for the policy\. 
+1. \(Optional\) For **Description**, enter a description for the policy\. 
 
 1. Choose **Create policy**\.
 
@@ -180,7 +180,7 @@ To output session logs to an S3 bucket owned by a different AWS account, you mus
 
 1. Choose **Next: Permissions**\.
 
-1.  On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
+1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
 
 1. Choose **Next: Review**\.
 

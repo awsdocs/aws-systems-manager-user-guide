@@ -69,7 +69,7 @@ After the installation process completes, the reference to the `jessie-backports
 **Note**  
 Because it's not possible to reliably determine the release dates of update packages for Debian, the auto\-approval options are not supported for this operating system\.
 
-    Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Debian 8 this is repo is `debian-security jessie`\. For Debian 9, it is `debian-security stretch`\.
+   Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Debian 8 this is repo is `debian-security jessie`\. For Debian 9, it is `debian-security stretch`\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
@@ -159,7 +159,7 @@ On Ubuntu Server, the patch baseline service offers filtering on the *Priority* 
 **Note**  
 Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
 
-    Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
+   Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 

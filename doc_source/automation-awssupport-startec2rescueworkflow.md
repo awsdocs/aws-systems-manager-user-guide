@@ -11,7 +11,7 @@ Amazon EC2 instances created from Marketplace Amazon Machine Images \(AMIs\) are
 
  **Additional Information** 
 
- To base64 encode a script, you can use either Powershell or Bash\. Powershell:
+To base64 encode a script, you can use either Powershell or Bash\. Powershell:
 
 ```
 [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes([System.IO.File]::ReadAllText('PATH_TO_FILE')))

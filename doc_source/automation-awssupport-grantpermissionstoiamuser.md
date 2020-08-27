@@ -58,7 +58,7 @@ Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is run\.
 
  **Direct execution** 
 
- It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed policy attached, and the following additional permissions to be able to create the Lambda function and the IAM Role to pass to Lambda: 
+It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed policy attached, and the following additional permissions to be able to create the Lambda function and the IAM Role to pass to Lambda: 
 
 ```
 {

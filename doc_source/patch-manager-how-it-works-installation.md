@@ -42,7 +42,7 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
 
 On CentOS instances, the patch installation workflow is as follows:
 
-1.  Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
+1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
 

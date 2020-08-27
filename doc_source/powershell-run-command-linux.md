@@ -28,7 +28,7 @@ The following procedure describes how to run a PowerShell script on a Linux inst
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Where are my instances?](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Some of my instances are missing](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, type information about this command\.

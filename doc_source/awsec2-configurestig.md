@@ -30,13 +30,13 @@ Windows STIG components are designed for standalone servers and apply Local Grou
 The following STIG settings have *not* been applied due to organization\-specific policies and/or technical limitations\. All other applicable STIGs have been applied\. For a complete list, see the [STIGs Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows)\. For instructions on how to view the complete list, see [How to View SRGs and STIGs ](https://dl.dod.cyber.mil/wp-content/uploads/stigs/doc/HOW_TO_VIEW_SRGs_and_STIGs.doc)\.
 + **Windows Server 2019 STIG V1 Release 3:**
 
-   V\-93149, V\-93187, V\-93229, and V\-93231 
+  V\-93149, V\-93187, V\-93229, and V\-93231 
 + **Windows Server 2016 STIG V1 Release 11:**
 
-   V\-73307, V\-73649, V\-90355, and V\-90357 
+  V\-73307, V\-73649, V\-90355, and V\-90357 
 + **Windows Server 2012R2 STIG V2 Release 18:**
 
-   V\-1076, V\-1112, V\-3472, V\-4445, V\-26359, V\-36678, V\-36733, V\-40172, and V\-40173 
+  V\-1076, V\-1112, V\-3472, V\-4445, V\-26359, V\-36678, V\-36733, V\-40172, and V\-40173 
 + **Microsoft \.NET Framework STIG 4\.0 V1 Release 9:**
 
   V\-30937 and V\-30972

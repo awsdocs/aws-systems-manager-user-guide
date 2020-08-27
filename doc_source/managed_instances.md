@@ -36,3 +36,4 @@ For more information increasing your security posture against unauthorized root\
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
 + [Resetting passwords on managed instances](managed-instances-password-reset.md)
 + [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
++ [Troubleshooting managed instances](troubleshooting-managed-instances.md)

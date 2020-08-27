@@ -167,7 +167,7 @@ The following example grants permissions to list all document names that begin w
 
 ### Example 3: Allow a user to use a specific SSM document to run commands on specific instances<a name="identity-based-policies-example-3"></a>
 
- The following example IAM policy allows a user to do the following\.
+The following example IAM policy allows a user to do the following\.
 + List Systems Manager documents and document versions\.
 + View details about documents\.
 + Send a command using the document specified in the policy\. The name of the document is determined by this entry:

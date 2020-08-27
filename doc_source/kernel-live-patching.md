@@ -219,7 +219,7 @@ If you no longer need to use Kernel Live Patching, you can disable it at any tim
 For information about disabling Kernel Live Patching by running `yum` commands directly on the instance, see [Enabling Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
- When you disable Kernel Live Patching, the process uninstalls the Kernel Live Patching plugin and then reboots the instance\.
+When you disable Kernel Live Patching, the process uninstalls the Kernel Live Patching plugin and then reboots the instance\.
 
 **To disable Kernel Live Patching using Run Command \(console\)**
 

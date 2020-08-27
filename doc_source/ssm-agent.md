@@ -57,3 +57,4 @@ The source code for SSM Agent is available on [GitHub](https://github.com/aws/am
 + [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)
 + [Subscribe to SSM Agent notifications](ssm-agent-subscribe-notifications.md)
 + [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)
++ [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md)

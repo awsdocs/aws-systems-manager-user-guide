@@ -63,7 +63,7 @@ You can view the content for Automation documents in the Systems Manager console
 + [AWSSupport\-GrantPermissionsToIAMUser](automation-awssupport-grantpermissionstoiamuser.md)
 + [AWSSupport\-ManageRDPSettings](automation-awssupport-managerdpsettings.md)
 + [AWSSupport\-ManageWindowsService](automation-awssupport-managewindowsservice.md)
-+ [AWS\-PatchASGInstance](automation-aws-patchasginstance.md)
++ [AWS\-PatchAsgInstance](automation-aws-patchasginstance.md)
 + [AWS\-PatchInstanceWithRollback](automation-aws-patchinstancewithrollback.md)
 + [AWS\-PublishSNSNotification](automation-aws-publishsnsnotification.md)
 + [AWS\-RebootRDSInstance](automation-aws-rebootrdsinstance.md)

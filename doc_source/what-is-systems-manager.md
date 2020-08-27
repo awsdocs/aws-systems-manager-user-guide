@@ -52,7 +52,7 @@ For on\-premises servers and VMs in your hybrid environment, we recommend that y
 Some Systems Manager capabilities charge a fee\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 **Systems Manager Service Name history**  
- AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:  
+AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:  
 + **Systems Manager Agent**: SSM Agent
 + **Systems Manager parameters**: SSM parameters
 + **Systems Manager service endpoints**: `ssm.us-east-2.amazonaws.com`

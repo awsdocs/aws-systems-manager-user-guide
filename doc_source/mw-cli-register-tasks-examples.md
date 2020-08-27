@@ -51,7 +51,7 @@ The following sections provide a sample AWS CLI command for registering a suppor
 
 ### Register a Systems Manager Run Command task<a name="register-tasks-tutorial-run-command"></a>
 
- The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI\.
+The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI\.
 
 **AWS CLI command:**
 
@@ -262,7 +262,7 @@ aws ssm register-task-with-maintenance-window ^
 
 ### Register an AWS Step Functions task<a name="register-tasks-tutorial-step-functions"></a>
 
- The following examples demonstrate how to register AWS Step Functions state machine tasks with a maintenance window using the AWS CLI\.
+The following examples demonstrate how to register AWS Step Functions state machine tasks with a maintenance window using the AWS CLI\.
 
 For these examples, the user who created the Step Functions state machine created a state machine named `SSMMyStateMachine` with a parameter called `instanceId`\.
 
