@@ -37,7 +37,7 @@ For best results, we recommend starting sessions on Windows clients using the Wi
 1. Run the downloaded installer and follow the on\-screen instructions\.
 
    Leave the install location box blank to install the plugin to the default directory:
-   + `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
+   +  `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager Plugin installation](#install-plugin-verify)\.
 **Note**  

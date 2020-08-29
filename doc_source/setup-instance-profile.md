@@ -3,7 +3,7 @@
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
 
 **Note**  
-You can use Systems Manager Quick Setup to quickly configure an instance profile on all instances in your AWS account\. Quick Setup can also create an assume role, which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip this step \(Step 4\) and Step 5\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
+You can use Systems Manager Quick Setup to quickly configure an instance profile on all instances in your AWS account\. Quick Setup also creates an IAM service role \(or *assume* role\), which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip this step \(Step 4\) and Step 5\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
 
 Note the following details about creating an IAM instance profile:
 + If you are configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, you must configure your servers and VMs to use an IAM service role\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
@@ -79,6 +79,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
                    "arn:aws:s3:::amazon-ssm-packages-region/*",
                    "arn:aws:s3:::region-birdwatcher-prod/*",
                    "arn:aws:s3:::aws-ssm-distributor-file-region/*",
+                   "arn:aws:s3:::aws-ssm-document-attachments-region/*",
                    "arn:aws:s3:::patch-baseline-snapshot-region/*"
                ]
            },

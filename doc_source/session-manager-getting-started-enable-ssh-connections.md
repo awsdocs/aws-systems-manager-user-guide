@@ -13,9 +13,9 @@ Logging and auditing are not available for Session Manager sessions that connect
 
      For information about installing or updating SSM Agent on an instance, see the following topics:
      + [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
-     + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
-     + [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)
-     + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
+     +  [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) 
+     +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
+     +  [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) 
 **Note**  
 To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
@@ -25,7 +25,7 @@ To use Session Manager with on\-premises servers and virtual machines \(VMs\) th
      For information about installing the Session Manager plugin, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
    + Update the SSH configuration file to enable running a proxy command that starts a Session Manager session and transfer all data through the connection\.
 
-     **Linux**
+      **Linux** 
 **Tip**  
 The SSH configuration file is typically located at `~/.ssh/config`\.
 
@@ -37,7 +37,7 @@ The SSH configuration file is typically located at `~/.ssh/config`\.
          ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
      ```
 
-     **Windows**
+      **Windows** 
 **Tip**  
 The SSH configuration file is typically located at `C:\Users\username\.ssh\config`\.
 

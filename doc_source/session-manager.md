@@ -5,22 +5,22 @@ Session Manager is a fully managed AWS Systems Manager capability that lets you 
 ## How can Session Manager benefit my organization?<a name="session-manager-benefits"></a>
 
 Session Manager offers these benefits:
-+ **Centralized access control to instances using IAM policies**
++  **Centralized access control to instances using IAM policies** 
 
   Administrators have a single place to grant and revoke access to instances\. Using only AWS Identity and Access Management \(IAM\) policies, you can control which individual users or groups in your organization can use Session Manager and which instances they can access\. 
-+ **No open inbound ports and no need to manage bastion hosts or SSH keys**
++  **No open inbound ports and no need to manage bastion hosts or SSH keys** 
 
   Leaving inbound SSH ports and remote PowerShell ports open on your instances greatly increases the risk of entities running unauthorized or malicious commands on the instances\. Session Manager helps you improve your security posture by letting you close these inbound ports, freeing you from managing SSH keys and certificates, bastion hosts, and jump boxes\.
-+ **One\-click access to instances from the console and CLI**
++  **One\-click access to instances from the console and CLI** 
 
   Using the AWS Systems Manager console or Amazon EC2 console, you can start a session with a single click\. Using the AWS CLI, you can also start a session that runs a single command or a sequence of commands\. Because permissions to instances are provided through IAM policies instead of SSH keys or other mechanisms, the connection time is greatly reduced\.
-+ **Port forwarding**
++  **Port forwarding** 
 
   Redirect any port inside your remote instance to a local port on a client\. After that, connect to the local port and access the server application that is running inside the instance\.
-+ **Cross\-platform support for both Windows and Linux**
++  **Cross\-platform support for both Windows and Linux** 
 
   Session Manager provides both Windows and Linux support from a single tool\. For example, you don't need to use an SSH client for Linux instances and an RDP connection for Windows Server instances\.
-+ **Logging and auditing session activity**
++  **Logging and auditing session activity** 
 
   To meet operational or security requirements in your organization, you might need to provide a record of the connections made to your instances and the commands that were run on them\. You can also receive notifications when a user in your organization starts or ends session activity\. 
 
@@ -44,7 +44,7 @@ Logging and auditing are not available for Session Manager sessions that connect
   Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported Windows and Linux operating system types, see [Getting started with Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
-+ **Console, CLI, and SDK access to Session Manager capabilities**
++  **Console, CLI, and SDK access to Session Manager capabilities** 
 
   You can work with Session Manager in the following ways:
 
@@ -57,22 +57,22 @@ Session Manager support for on\-premises servers is provided for the advanced\-i
 To use the AWS CLI to run session commands, you must be using version 1\.16\.12 of the CLI \(or later\), and you must have installed the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
   The **Session Manager SDK** consists of libraries and sample code that enables application developers to build frontend applications, such as custom shells or self\-service portals for internal users that natively use Session Manager to connect to instances\. Developers and partners can integrate Session Manager into their client\-side tooling or Automation workflows using the Session Manager APIs\. You can even build custom solutions\.
-+ **IAM access control**
++  **IAM access control** 
 
   Through the use of IAM policies, you can control which members of your organization can initiate sessions to instances and which instances they can access\. You can also provide temporary access to your instances\. For example, you might want to give an on\-call engineer \(or a group of on\-call engineers\) access to production servers only for the duration of their rotation\.
-+ **Logging and auditing capability support**
++  **Logging and auditing capability support** 
 
   Session Manager provide you with options for auditing and logging session histories in your AWS account through integration with a number of other AWS services\. For more information, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
-+ **Customer key data encryption support**
++  **Customer key data encryption support** 
 
   You can configure Session Manager to encrypt the session data logs that you send to an S3 bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Auditing and logging session activity](session-manager-logging-auditing.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
-+ **AWS PrivateLink support for instances without public IP addresses**
++  **AWS PrivateLink support for instances without public IP addresses** 
 
   You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. PrivateLink limits all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
-+ **Tunneling**
++  **Tunneling** 
 
   In a session, use a Session\-type SSM document to tunnel traffic, such as http or a custom protocol, between a local port on a client machine and a remote port on an instance\.
-+ **Interactive Commands**
++  **Interactive Commands** 
 
   Create a Session\-type SSM document that uses a session to interactively run a single command, giving you a way to manage what users can do on an instance\.
 

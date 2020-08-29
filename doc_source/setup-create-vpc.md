@@ -38,7 +38,7 @@ The security group attached to the VPC endpoint must allow incoming connections 
 
 **Amazon S3 buckets**  
 Your VPC endpoint policy must allow at least access to the following Amazon S3 buckets:
-+ The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets for the code to be retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
++ The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\.Each AWS Region has its own patch baseline operations buckets from which the code is retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
 **Note**  
 If you use an on\-premises firewall and plan to use Patch Manager, that firewall must also allow access to the patch baseline endpoint indicated below\.
 
@@ -62,6 +62,9 @@ In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, these buckets use d
   arn:aws:s3:::aws-ssm-us-east-2/*
   ```
 + The S3 buckets listed in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
+
+**Amazon CloudWatch Logs**  
+If you do not allow your instances to access the internet, you must create a VPC endpoint for CloudWatch Logs to use features that send logs to CloudWatch Logs\. For more information about creating an endpoint for CloudWatch Logs, see [Creating a VPC endpoint for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs) in the *Amazon CloudWatch Logs User Guide*\.
 
 **DNS in hybrid environment**  
 For information about configuring DNS to work with PrivateLink endpoints in hybrid environments, see [Private DNS](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-private-dns)\. If you want to use your own DNS, you can use Route 53 Resolver\. For more information, see [Resolving DNS Queries Between VPCs and Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide*\. 

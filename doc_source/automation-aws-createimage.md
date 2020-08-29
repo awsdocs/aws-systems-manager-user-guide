@@ -32,3 +32,25 @@ Windows, Linux
   Type: Boolean
 
   Description: \(Optional\) Do not reboot the instance before creating the image\.
+
+**Required IAM Permissions**
+
+The `AutomationAssumeRole` requires the following actions to successfully execute the Automation document:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateImage",
+                "ec2:DescribeImages"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```

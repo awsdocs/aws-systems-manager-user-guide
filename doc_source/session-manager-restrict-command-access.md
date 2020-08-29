@@ -166,7 +166,7 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have n
 
 You can create IAM policies that allow users to access only the `Session` documents you define\. This restricts the commands a user can run in a Session Manager session to only the commands defined in your custom `Session` type SSM documents\.
 
-**Allow a user to run an interactive command on a single instance**  
+ **Allow a user to run an interactive command on a single instance**   
 
 ```
 {
@@ -189,7 +189,7 @@ You can create IAM policies that allow users to access only the `Session` docume
 }
 ```
 
-**Allow a user to run an interactive command on all instances**  
+ **Allow a user to run an interactive command on all instances**   
 
 ```
 {
@@ -212,7 +212,7 @@ You can create IAM policies that allow users to access only the `Session` docume
 }
 ```
 
-**Allow a user to run multiple interactive commands on all instances**  
+ **Allow a user to run multiple interactive commands on all instances**   
 
 ```
 {

@@ -142,7 +142,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
          --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
          --registration-limit 10 ^
          --region us-east-2 ^
-         --tags "Key=Environment,Value=Production "Key=Department,Value=Finance"
+         --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
 ------
