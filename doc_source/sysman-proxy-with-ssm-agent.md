@@ -71,7 +71,7 @@ The steps in the following procedure describe how to configure SSM Agent to use 
    ```
    [Service]
    Environment="http_proxy=http://hostname:port"
-   Environment="http_proxy=http://hostname:port"
+   Environment="https_proxy=http://hostname:port"
    Environment="no_proxy=169.254.169.254"
    ```
 
