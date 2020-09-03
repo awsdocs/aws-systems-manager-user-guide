@@ -69,7 +69,15 @@ After the installation process completes, the reference to the `jessie-backports
 **Note**  
 Because it's not possible to reliably determine the release dates of update packages for Debian, the auto\-approval options are not supported for this operating system\.
 
-   Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Debian 8 this is repo is `debian-security jessie`\. For Debian 9, it is `debian-security stretch`\.
+   Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
+
+   If nonsecurity updates are excluded, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\. In this case, for Debian, patch candidate versions are limited to patches included in the following repos:
+
+   These repos are named as follows:
+   + Debian 8: `debian-security jessie`
+   + Debian 9: `debian-security stretch`
+
+   If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
@@ -159,7 +167,15 @@ On Ubuntu Server, the patch baseline service offers filtering on the *Priority* 
 **Note**  
 Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
 
-   Only packages with candidate versions appearing in the distribution security repo \(archive\) are selected\. For Ubuntu Server 14 this is repo is `trusty-security`\. For Ubuntu Server 16, it is `xenial-security`\.
+   Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
+
+   If nonsecurity updates are excluded, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\. In this case, for Ubuntu Server, patch candidate versions are limited to patches included in the following repos:
+   + Ubuntu Server 14: `trusty-security`
+   + Ubuntu Server 16: `xenial-security`
+   + Ubuntu Server 18: `bionic-security`
+   + Ubuntu Server 20: `focal-security`
+
+   If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 

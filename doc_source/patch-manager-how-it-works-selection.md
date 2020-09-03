@@ -136,7 +136,11 @@ SLES instances use Zypper as the package manager, and Zypper uses the concept of
 
 On Ubuntu Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
-Packages are then filtered from `codename-security` repos, where the codename is something like `trusty` or `xenial`\. For example, on Ubuntu Server 14, Patch Manager only identifies upgrades that are part of `trusty-security`\. On Ubuntu Server 16, only upgrades that are part of `xenial-security` are identified\.
+Packages are then filtered from `codename-security` repos, where the codename is unique to the release version, such as `trusty` for Ubuntu Server 14\. Patch Manager only identifies upgrades that are part of these repos: 
++ Ubuntu Server 14: `trusty-security`
++ Ubuntu Server 16: `xenial-security`
++ Ubuntu Server 18: `bionic-security`
++ Ubuntu Server 20: `focal-security`
 
 ------
 #### [ Windows ]

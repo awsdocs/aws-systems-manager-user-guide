@@ -169,7 +169,7 @@ This sections includes the following procedures for configuring deduplication st
 + [Specifying a deduplication string by using the AWS CLI](#OpsCenter-working-deduplication-configuring-manual-cli)
 
 **Note**  
-For information about entering deduplication strings when you manually create an OpsItem in the console, see [Creating OpsItems manually](OpsCenter-creating-OpsItems.md#OpsCenter-manually-create-OpsItems)\.
+For information about entering deduplication strings when you manually create an OpsItem in the console, see [Creating OpsItems manually](OpsCenter-manually-create-OpsItems.md)\.
 
 #### Editing a deduplication string in an OpsCenter default CloudWatch Events rule<a name="OpsCenter-working-deduplication-editing-cwe"></a>
 
