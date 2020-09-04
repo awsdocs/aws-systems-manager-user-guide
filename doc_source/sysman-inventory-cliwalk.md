@@ -66,7 +66,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    --name "AWS-GatherSoftwareInventory" \
    --targets "Key=instanceids,Values=an_instance_ID" \
    --schedule-expression "rate(240 minutes)" \
-   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" \
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"AWSDOC-EXAMPLE-BUCKET\", \"OutputS3KeyPrefix\": \"Test\" } }" \
    --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
@@ -78,7 +78,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    --name "AWS-GatherSoftwareInventory" ^
    --targets "Key=instanceids,Values=an_instance_ID" ^
    --schedule-expression "rate(240 minutes)" ^
-   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"region_ID, for example us-east-2\", \"OutputS3BucketName\": \"AWSDOC-EXAMPLE-BUCKET\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
    --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
@@ -120,7 +120,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
            "Targets": [
                {
                    "Values": [
-                      "i-1a2b3c4d5e6f7g"
+                      "i-02573cafcfEXAMPLE"
                    ],
                    "Key": "InstanceIds"
                }
@@ -139,7 +139,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    --name "AWS-GatherSoftwareInventory" \
    --targets "Key=tag:Environment,Values=Production" \
    --schedule-expression "rate(240 minutes)" \
-   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" \
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"AWSDOC-EXAMPLE-BUCKET\", \"OutputS3KeyPrefix\": \"Test\" } }" \
    --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 
@@ -151,7 +151,7 @@ Use the following procedure to manually configure Systems Manager Inventory on y
    --name "AWS-GatherSoftwareInventory" ^
    --targets "Key=tag:Environment,Values=Production" ^
    --schedule-expression "rate(240 minutes)" ^
-   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"Test bucket\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
+   --output-location "{ \"S3Location\": { \"OutputS3Region\": \"us-east-2\", \"OutputS3BucketName\": \"AWSDOC-EXAMPLE-BUCKET\", \"OutputS3KeyPrefix\": \"Test\" } }" ^
    --parameters "networkConfig=Enabled,windowsUpdates=Enabled,applications=Enabled"
    ```
 

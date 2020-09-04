@@ -114,7 +114,7 @@ For information about specifying preferences for storing session logs, see [Audi
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following\. Be sure to replace *s3\-bucket\-name* and *s3\-bucket\-prefix* with the names for your bucket and its prefix \(if any\)\. For information about `ssmmessages` in the following policy, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
+1. Replace the default content with the following\. Be sure to replace *AWSDOC\-EXAMPLE\-BUCKET* and *s3\-bucket\-prefix* with the names for your bucket and its prefix \(if any\)\. For information about `ssmmessages` in the following policy, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
    ```
    {
@@ -146,7 +146,7 @@ For information about specifying preferences for storing session logs, see [Audi
                "Action": [
                    "s3:PutObject"
                ],
-               "Resource": "arn:aws:s3:::s3-bucket-name/s3-bucket-prefix"
+               "Resource": "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/s3-bucket-prefix"
            },
            {
                "Effect": "Allow",

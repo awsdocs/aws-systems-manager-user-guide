@@ -63,7 +63,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --association-id b85ccafe-9f02-4812-9b81-01234EXAMPLE \
      --association-name association_name \
      --parameters (if any) \
-     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=bucketname,OutputS3KeyPrefix=keyprefix}' \
+     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=AWSDOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' \
      --scheduleexpression "cron_or_rate_expression"
    ```
 
@@ -78,7 +78,7 @@ To retain existing parameter values of your association, such as association nam
      --association-id b85ccafe-9f02-4812-9b81-01234EXAMPLE ^
      --association-name association_name ^
      --parameters (if any) ^
-     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=bucketname,OutputS3KeyPrefix=keyprefix}' ^
+     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=AWSDOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' ^
      --scheduleexpression "cron_or_rate_expression"
    ```
 
@@ -93,7 +93,7 @@ To retain existing parameter values of your association, such as association nam
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
      -AssociationName document_name `
      -Parameter (if any) `
-     -S3Location_OutputS3BucketName bucket_name `
+     -S3Location_OutputS3BucketName AWSDOC-EXAMPLE-BUCKET `
      -S3Location_OutputS3KeyPrefix key_prefix `
      -S3Location_OutputS3Region region `
      -ScheduleExpression "cron_or_rate_expression"
@@ -114,7 +114,7 @@ To retain existing parameter values of your association, such as association nam
      --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE \
      --association-name TestHostnameAssociation2 \
      --parameters commands="echo Association" \
-     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=statemanager,OutputS3KeyPrefix=logs}' \
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=AWSDOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' \
      --schedule-expression "cron(0 */1 * * ? *)"
    ```
 
@@ -126,7 +126,7 @@ To retain existing parameter values of your association, such as association nam
      --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE ^
      --association-name TestHostnameAssociation2 ^
      --parameters commands="echo Association" ^
-     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=statemanager,OutputS3KeyPrefix=logs}' ^
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=AWSDOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' ^
      --schedule-expression "cron(0 */1 * * ? *)"
    ```
 
@@ -138,7 +138,7 @@ To retain existing parameter values of your association, such as association nam
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
      -AssociationName TestHostnameAssociation2 `
      -Parameter @{"commands"="echo Association"} `
-     -S3Location_OutputS3BucketName statemanager `
+     -S3Location_OutputS3BucketName AWSDOC-EXAMPLE-BUCKET `
      -S3Location_OutputS3KeyPrefix logs `
      -S3Location_OutputS3Region us-east-1 `
      -ScheduleExpression "cron(0 */1 * * ? *)"
@@ -186,7 +186,7 @@ To retain existing parameter values of your association, such as association nam
            "OutputLocation": {
                "S3Location": {
                    "OutputS3KeyPrefix": "logs",
-                   "OutputS3BucketName": "statemanager",
+                   "OutputS3BucketName": "DOC-EXAMPLE-BUCKET",
                    "OutputS3Region": "us-east-1"
                }
            },
@@ -231,7 +231,7 @@ To retain existing parameter values of your association, such as association nam
            "OutputLocation": {
                "S3Location": {
                    "OutputS3KeyPrefix": "logs",
-                   "OutputS3BucketName": "statemanager",
+                   "OutputS3BucketName": "DOC-EXAMPLE-BUCKET",
                    "OutputS3Region": "us-east-1"
                }
            },

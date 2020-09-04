@@ -82,12 +82,12 @@ For a description of how you might use the `InstallOverrideList` parameter to ap
 + **https URL format**:
 
   ```
-  https://s3.amazonaws.com/my-patch-approval-lists-bucket/my-windows-override-list.yaml
+  https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml
   ```
 + **Amazon S3 path\-style URL**:
 
   ```
-  s3://my-patch-approval-lists-bucket/my-windows-override-list.yaml
+  s3://DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml
   ```
 
 **Valid YAML content formats**

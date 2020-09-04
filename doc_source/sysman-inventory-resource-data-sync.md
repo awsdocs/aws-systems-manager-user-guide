@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *bucket\-name* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *AWSDOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {
@@ -51,7 +51,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::bucket-name"
+               "Resource": "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET"
            },
            {
                "Sid": " SSMBucketDelivery",
@@ -60,7 +60,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:PutObject",
-               "Resource": ["arn:aws:s3:::bucket-name/bucket-prefix/*/accountid=account-id/*"],
+               "Resource": ["arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id/*"],
                "Condition": {
                    "StringEquals": {
                        "s3:x-amz-acl": "bucket-owner-full-control"
@@ -83,7 +83,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
                "Service":"ssm.amazonaws.com"
             },
             "Action":"s3:PutObject",
-            "Resource":"arn:aws:s3:::bucket_name/prefix/*",
+            "Resource":"arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*",
             "Condition":{
                "StringEquals":{
                   "s3:x-amz-server-side-encryption":"aws:kms",
@@ -105,7 +105,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 #### [ Linux ]
 
    ```
-   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ \
+   aws s3 cp ./A_file_in_the_bucket s3://AWSDOC-EXAMPLE-BUCKET/prefix/ \
    --sse aws:kms \
    --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" \
    --region region, for example, us-east-2
@@ -115,7 +115,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 #### [ Windows ]
 
    ```
-   aws s3 cp ./A_file_in_the_bucket s3://bucket-name/prefix/ ^ 
+   aws s3 cp ./A_file_in_the_bucket s3://AWSDOC-EXAMPLE-BUCKET/prefix/ ^ 
        --sse aws:kms ^
        --sse-kms-key-id "arn:aws:kms:region:account_ID:key/KMS_key_id" ^
        --region region, for example, us-east-2
@@ -133,7 +133,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync \
    --sync-name a_name \
-   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
+   --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
    ```
 
 ------
@@ -142,7 +142,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync ^
    --sync-name a_name ^
-   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
+   --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,Region=bucket_region"
    ```
 
 ------
@@ -155,7 +155,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync \
        --sync-name InventoryDataWest \
-       --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" 
+       --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" 
        --region us-west-1
    ```
 
@@ -165,7 +165,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync ^ 
    --sync-name InventoryDataWest ^
-   --s3-destination "BucketName=InventoryData,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" ^ --region us-west-1
+   --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=HybridEnv,SyncFormat=JsonSerDe,Region=us-west-2" ^ --region us-west-1
    ```
 
 ------
@@ -178,7 +178,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync \
    --sync-name sync_name \
-   --s3-destination "BucketName=S3_bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" \
+   --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" \
    --region region
    ```
 
@@ -188,7 +188,7 @@ If the sync and the target S3 bucket are located in different regions, you may b
    ```
    aws ssm create-resource-data-sync ^
    --sync-name sync_name ^
-   --s3-destination "BucketName=bucket_name,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" ^
+   --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=prefix_name, if_specified,SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:region:account_ID:key/KMS_key_ID,Region=bucket_region" ^
    --region region
    ```
 
@@ -224,7 +224,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system creates a database called ssminventory\.
 
-1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *bucket\_name* and *bucket\_prefix* with the name and prefix of the Amazon S3 target\.
+1. Copy and paste the following statement into the query editor and then choose **Run Query**\. Replace *AWSDOC\-EXAMPLE\-BUCKET* and *bucket\_prefix* with the name and prefix of the Amazon S3 target\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
@@ -242,7 +242,7 @@ The following section describes how to view and query the data in Amazon Athena\
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket_name/bucket_prefix/AWS:Application/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket_prefix/AWS:Application/'
    ```
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**\.
@@ -270,7 +270,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
 
    The query returns a count of different versions of aws\-cfn\-bootstrap, which is an AWS application present on EC2 instances for both Linux and Windows Server\.
 
-1. Individually copy and paste the following statements into the query editor, replace *bucket\-name* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional inventory tables in Athena\.
+1. Individually copy and paste the following statements into the query editor, replace *AWSDOC\-EXAMPLE\-BUCKET* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional inventory tables in Athena\.
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_AWSComponent (
@@ -287,7 +287,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:AWSComponent/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket-prefix/AWS:AWSComponent/'
    ```
 
    ```
@@ -306,7 +306,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:WindowsUpdate/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket-prefix/AWS:WindowsUpdate/'
    ```
 
    ```
@@ -329,7 +329,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:InstanceInformation/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket-prefix/AWS:InstanceInformation/'
    ```
 
    ```
@@ -352,7 +352,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:Network/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket-prefix/AWS:Network/'
    ```
 
    ```
@@ -379,7 +379,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
    WITH SERDEPROPERTIES (
      'serialization.format' = '1'
-   ) LOCATION 's3://bucket-name/bucket-prefix/AWS:PatchSummary/'
+   ) LOCATION 's3://AWSDOC-EXAMPLE-BUCKET/bucket-prefix/AWS:PatchSummary/'
    ```
 
    ```

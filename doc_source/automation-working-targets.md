@@ -132,7 +132,7 @@ You can also download the file from an S3 bucket, as long as you have permission
 ```
 aws ssm start-automation-execution \
     --document-name name_of_document \
-    --target-maps http://bucket_name.s3.amazonaws.com/file_name.json
+    --target-maps http://AWSDOC-EXAMPLE-BUCKET.s3.amazonaws.com/file_name.json
 ```
 
 Here is an example scenario to help you understand the `TargetMaps` option\. In this scenario, a user wants to create EC2 instances of different types from different AMIs\. To perform this task, the user creates an Automation document named AMI\_Testing\. This document defines two input parameters: `instanceType` and `imageId`\. 

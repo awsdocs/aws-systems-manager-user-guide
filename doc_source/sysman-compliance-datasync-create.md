@@ -16,7 +16,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
 1. Open the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *Bucket\-Name* and *Account\-ID* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *AWSDOC\-EXAMPLE\-BUCKET* and *Account\-ID* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *Bucket\-Prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *Bucket\-Prefix*/ from the ARN in the policy\. 
 
    ```
    {
@@ -29,7 +29,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::Bucket-Name"
+               "Resource": "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET"
            },
            {
                "Sid": " SSMBucketDelivery",
@@ -38,7 +38,7 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:PutObject",
-               "Resource": ["arn:aws:s3:::Bucket-Name/Bucket-Prefix/*/accountid=Account_ID_number/*"],
+               "Resource": ["arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/Bucket-Prefix/*/accountid=Account_ID_number/*"],
                "Condition": {
                    "StringEquals": {
                        "s3:x-amz-acl": "bucket-owner-full-control"

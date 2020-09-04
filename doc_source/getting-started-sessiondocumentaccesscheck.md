@@ -8,7 +8,7 @@ When you configure Session Manager for your account, the system creates a `Sessi
   "description": "Document to hold regional settings for Session Manager",
   "sessionType": "Standard_Stream",
   "inputs": {
-    "s3BucketName": "MyBucketName",
+    "s3BucketName": "AWSDOC-EXAMPLE-BUCKET",
     "s3KeyPrefix": "MyBucketPrefix",
     "s3EncryptionEnabled": true,
     "cloudWatchLogGroupName": "MyLogGroupName",

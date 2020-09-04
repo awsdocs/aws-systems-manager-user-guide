@@ -79,9 +79,25 @@ Before you begin, verify that you have permission to reference Secrets Manager s
 
    **AWS CLI Example 1: Reference by using the name of the secret**
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret --with-decryption
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/s1-secret \
+       --with-decryption
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/s1-secret ^
+       --with-decryption
+   ```
+
+------
 
    The command returns information like the following\.
 
@@ -92,7 +108,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
            "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
            "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-west-1:123456789:secret:s1-secret-
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
                   E18LRP",
            "SourceResult": 
                  "{
@@ -101,8 +117,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
                       \"VersionId\": \"aaabbbccc-1111-222-333-123456789\",
                       \"SecretString\": \"Fl*MEishm!al875\",
                       \"VersionStages\": [\"AWSCURRENT\"],
-                      \"ARN\": \"arn:aws:secretsmanager:us-west-
-                             1:123456789:secret:s1-secret-E18LRP\"
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
                   }"
          }
    }
@@ -110,9 +125,25 @@ Before you begin, verify that you have permission to reference Secrets Manager s
 
    **AWS CLI Example 2: Reference that includes the version ID**
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:11111-aaa-bbb-ccc-123456789 --with-decryption
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/s1-secret:11111-aaa-bbb-ccc-123456789 \
+       --with-decryption
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/s1-secret:11111-aaa-bbb-ccc-123456789 ^
+       --with-decryption
+   ```
+
+------
 
    The command returns information like the following\.
 
@@ -123,7 +154,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
            "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
            "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-west-1:123456789:secret:s1-secret-
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
                   E18LRP",
            "SourceResult": 
                  "{
@@ -132,8 +163,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
                       \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
                       \"SecretString\": \"Fl*MEishm!al875\",
                       \"VersionStages\": [\"AWSCURRENT\"],
-                      \"ARN\": \"arn:aws:secretsmanager:us-west-
-                             1:123456789:secret:s1-secret-E18LRP\"
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
                   }"
            "Selector": ":11111-aaa-bbb-ccc-123456789"
          }
@@ -142,9 +172,25 @@ Before you begin, verify that you have permission to reference Secrets Manager s
 
    **AWS CLI Example 3: Reference that includes the version stage**
 
+------
+#### [ Linux ]
+
    ```
-   aws ssm get-parameter --name /aws/reference/secretsmanager/s1-secret:AWSCURRENT --with-decryption
+   aws ssm get-parameter \
+       --name /aws/reference/secretsmanager/s1-secret:AWSCURRENT \
+       --with-decryption
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm get-parameter ^
+       --name /aws/reference/secretsmanager/s1-secret:AWSCURRENT ^
+       --with-decryption
+   ```
+
+------
 
    The command returns information like the following\.
 
@@ -155,7 +201,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
            "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
            "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-west-1:123456789:secret:s1-secret-
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
                    E18LRP",
            "SourceResult": 
                  "{
@@ -164,8 +210,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
                       \"VersionId\": \"11111-aaa-bbb-ccc-123456789\",
                       \"SecretString\": \"Fl*MEishm!al875\",
                       \"VersionStages\": [\"AWSCURRENT\"],
-                      \"ARN\": \"arn:aws:secretsmanager:us-west-
-                             1:123456789:secret:s1-secret-E18LRP\"
+                      \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
                   }"
            "Selector": ":AWSCURRENT"
          }

@@ -18,7 +18,7 @@ inputs:
   Capabilities:
   - CAPABILITY_IAM
   StackName: myStack
-  TemplateURL: http://s3.amazonaws.com/mybucket/myStackTemplate
+  TemplateURL: http://s3.amazonaws.com/doc-example-bucket/myStackTemplate
   TimeoutInMinutes: 5
 ```
 
@@ -36,7 +36,7 @@ inputs:
             "CAPABILITY_IAM"
         ],
         "StackName": "myStack",
-        "TemplateURL": "http://s3.amazonaws.com/mybucket/myStackTemplate",
+        "TemplateURL": "http://s3.amazonaws.com/doc-example-bucket/myStackTemplate",
         "TimeoutInMinutes": 5
     }
 }

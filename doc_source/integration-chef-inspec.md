@@ -124,13 +124,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    **Amazon S3**
 
    ```
-   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/directory/Inspec.yml_file\"}"]}'
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/Inspec.yml_file\"}"]}'
    ```
 
    Here is an example\.
 
    ```
-   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/Compliance/InSpec/PortCheck.yml\"}"]}' 
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:testEnvironment","Values":["webServers"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/InSpec/PortCheck.yml\"}"]}' 
    ```
 
 1. Run the following command to view a summary of the Compliance scan\.

@@ -155,7 +155,7 @@ AWS Glue charges your account based on an hourly rate, billed by the second, for
 
 1. In the crawlers list, choose the option next to the Systems Manager Inventory data crawler\. The crawler name uses the following format:
 
-   AWSSystemsManager\-*Resource\_Data\_Sync\_bucket\_name*\-*Region*\-*AWS\_account\_ID*
+   AWSSystemsManager\-*AWSDOC\-EXAMPLE\-BUCKET*\-*Region*\-*AWS\_account\_ID*
 
 1. Choose **Action**, and then choose **Edit crawler**\.
 

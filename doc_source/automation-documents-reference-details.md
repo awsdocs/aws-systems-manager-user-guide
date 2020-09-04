@@ -80,7 +80,6 @@ You can view the content for Automation documents in the Systems Manager console
 + [AWSSupport\-SetupIPMonitoringFromVPC](automation-aws-setupipmonitoringfromvpc.md)
 + [AWS\-SetupManagedInstance](automation-aws-setupmanagedinstance.md)
 + [AWS\-SetupManagedRoleOnEC2Instance](automation-aws-setupmanagedroleonec2instance.md)
-+ [AWSSupport\-ShareRDSSnapshot](automation-aws-sharerdssnapshot.md)
 + [AWSEC2\-SQLServerDBRestore](automation-awsec2-sqlserverdbrestore.md)
 + [AWS\-StartEC2Instance](automation-aws-startec2instance.md)
 + [AWSSupport\-StartEC2RescueWorkflow](automation-awssupport-startec2rescueworkflow.md)

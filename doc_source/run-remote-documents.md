@@ -71,7 +71,7 @@ To use the version of your SSM document in a particular *commit* in your reposit
      For example:
 
      ```
-     {"path":"https://s3.amazonaws.com/aws-executecommand-test/scripts/ruby/mySSMdoc.json"}
+     {"path":"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/scripts/ruby/mySSMdoc.json"}
      ```
    + If you choose **SSMDocument**, specify **Source Info** information in the following format:
 

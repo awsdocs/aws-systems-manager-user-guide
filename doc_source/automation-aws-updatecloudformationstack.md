@@ -38,4 +38,4 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Required\) S3 bucket location that contains the updated CloudFormation template \(e\.g\. https://s3\.amazonaws\.com/example/updated\.template\)
+  Description: \(Required\) S3 bucket location that contains the updated CloudFormation template \(e\.g\. https://s3\.amazonaws\.com/doc\-example\-bucket/updated\.template\)

@@ -113,8 +113,8 @@ aws ssm register-task-with-maintenance-window ^
                 ],
                 "NotificationType": "Invocation"
             },
-            "OutputS3BucketName": "my-s3-bucket-name",
-            "OutputS3KeyPrefix": "my-s3-bucket-folder-name",
+            "OutputS3BucketName": "AWSDOC-EXAMPLE-BUCKET",
+            "OutputS3KeyPrefix": "DOC-EXAMPLE-FOLDER",
             "TimeoutSeconds": 3600
         }
     }

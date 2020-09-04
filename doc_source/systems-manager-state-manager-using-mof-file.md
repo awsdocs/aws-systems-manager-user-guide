@@ -136,13 +136,13 @@ Before you create an association that runs MOF files, verify that your managed i
       + An Amazon S3 bucket name\. Bucket names must use lowercase letters\. Specify this information by using the following format:
 
         ```
-        s3:bucket_name:MOF_file_name.mof
+        s3:doc-example-bucket:MOF_file_name.mof
         ```
 
         If you want to specify an AWS Region, then use the following format:
 
         ```
-        s3:bucket_Region:bucket_name:MOF_file_name.mof
+        s3:bucket_Region:doc-example-bucket:MOF_file_name.mof
         ```
       + A secure web site\. Specify this information by using the following format:
 
@@ -153,7 +153,7 @@ Before you create an association that runs MOF files, verify that your managed i
         Here is an example:
 
         ```
-        https://AWS.Amazon.com/TestMOF.mof
+        https://www.example.com/TestMOF.mof
         ```
       + A file system on a local share\. Specify this information by using the following format:
 
@@ -179,11 +179,11 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
 
    1. **Status Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write MOF execution status information\. These status reports are singleton summaries of the most recent compliance run of an instance\. This means that the report is overwritten the next time the association runs MOF files\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific region that does not include us\-east\-1, then you must prefix the bucket name with a region\. If the bucket name is not prefixed, it will automatically discover the bucket region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific region that does not include us\-east\-1, then you must prefix the bucket name with a region\. If the bucket name is not prefixed, it will automatically discover the bucket region using the us\-east\-1 endpoint\.
 
    1. **Module Source Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket that contains PowerShell module files\. If you specify **None**, then you must choose **True** for the next option, **Allow PS Gallery Module Source**\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific region that does not include us\-east\-1, then you must prefix the bucket name with a region\. If the bucket name is not prefixed, it will automatically discover the bucket region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific region that does not include us\-east\-1, then you must prefix the bucket name with a region\. If the bucket name is not prefixed, it will automatically discover the bucket region using the us\-east\-1 endpoint\.
 
    1. **Allow PS Gallery Module Source**: \(Optional\) Choose **True** to download PowerShell modules from [https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\. If you choose **False**, then you must specify a source for the previous option, **ModuleSourceBucketName**\.
 
@@ -275,11 +275,11 @@ This error indicates that the script can't reach a remote service\. Most likely,
 
   s3:*bucket\-region*:*bucket\-name*:*mof\-file\-name*\.mof\.
 
-  Here is an example: s3:us\-west\-2:my\-bucket:my\-mof\.mof
+  Here is an example:` s3:us-west-2:doc-example-bucket:my-mof.mof`
 
   The Report, Status, and Module Source bucket names should be formatted as follows:
 
-  *bucket\-region*:*bucket\-name*\. Here is an example: us\-west\-1:my\-bucket
+  *bucket\-region*:*bucket\-name*\. Here is an example: `us-west-1:doc-example-bucket`
 + If Region\-specific syntax does not fix the problem, then make sure that the targeted instance\(s\) can access Amazon S3 in the desired region\. To verify this:
 
   1. Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region\. For information, see [Amazon S3 Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) in the *Amazon Web Services General Reference*\.

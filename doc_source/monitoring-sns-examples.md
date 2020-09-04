@@ -19,7 +19,7 @@ The following examples show the structure of the JSON output returned by Amazon 
     ],
     "requestedDateTime": "2019-04-25T17:57:09.17Z",
     "expiresAfter": "2019-04-25T19:07:09.17Z",
-    "outputS3BucketName": "awss3bucketname",
+    "outputS3BucketName": "DOC-EXAMPLE-BUCKET",
     "outputS3KeyPrefix": "runcommand",
     "status": "InProgress",
     "eventTime": "2019-04-25T17:57:09.236Z"

@@ -12,4 +12,3 @@ Systems Manager has built\-in integration for the following products and service
 
 **Topics**
 + [Running scripts from GitHub](integration-remote-scripts.md)
-+ [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)

@@ -443,7 +443,7 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
 
 **To add a package to Amazon S3 \(AWS CLI\)**
 
-1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
+1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *AWSDOC\-EXAMPLE\-BUCKET* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
    If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
 
@@ -451,7 +451,7 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
    aws ssm create-document \
        --name "package-name" \
        --content file://path-to-manifest-file \
-       --attachments Key="SourceUrl",Values="S3-bucket-URL-of-package" \
+       --attachments Key="SourceUrl",Values="AWSDOC-EXAMPLE-BUCKET" \
        --version-name version-value-from-manifest \
        --document-type Package
    ```
@@ -462,7 +462,7 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
    aws ssm create-document \
        --name "ExamplePackage" \
        --content file://path-to-manifest-file \
-       --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/mybucket/ExamplePackage" \
+       --attachments Key="SourceUrl",Values="https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/ExamplePackage" \
        --version-name 1.0.1 \
        --document-type Package
    ```
