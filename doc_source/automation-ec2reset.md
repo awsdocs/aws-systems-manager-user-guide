@@ -1,6 +1,6 @@
 # Walkthrough: Reset passwords and SSH keys on EC2 instances<a name="automation-ec2reset"></a>
 
-You can use the **AWSSupport\-ResetAccess** document to automatically reenable local Administrator password generation on EC2 instances for Windows Server, and to generate a new SSH key on EC2 instances for Linux\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administrator password\.
+You can use the **AWSSupport\-ResetAccess** document to automatically enable local Administrator password generation on EC2 instances for Windows Server, and to generate a new SSH key on EC2 instances for Linux\. The **AWSSupport\-ResetAccess** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administrator password\.
 
 You can use Automation with the **AWSSupport\-ResetAccess** document to solve the following problems:
 
