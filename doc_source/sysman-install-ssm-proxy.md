@@ -24,7 +24,7 @@ If your instance is a Windows Server 2008\-2012 R2 instance created *before* Nov
    Restart-Service AmazonSSMAgent
    ```
 
-After running the preceding command, you can review the SSM Agent logs to confirm the proxy settings were applied\. Entries in the logs look similar to the following\. For more information about SSM Agent logs, see [View SSM Agent logs](sysman-agent-logs.md)\.
+After running the preceding command, you can review the SSM Agent logs to confirm the proxy settings were applied\. Entries in the logs look similar to the following\. For more information about SSM Agent logs, see [Viewing SSM Agent logs](sysman-agent-logs.md)\.
 
 ```
 2020-02-24 15:31:54 INFO Getting IE proxy configuration for current user: The operation completed successfully.

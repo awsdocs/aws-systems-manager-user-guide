@@ -5,7 +5,7 @@ AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed
 If you monitor traffic, you will see your EC2 instances, and any on\-premises servers or VMs in your hybrid environment, communicating with `ec2messages.*` endpoints\. For more information, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\. For information about porting SSM Agent logs to Amazon CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
 
 **Keeping SSM Agent up\-to\-date**  
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Note**  
 AMIs that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.  
@@ -49,12 +49,13 @@ You must manually install SSM Agent on EC2 instances created from other Linux AM
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
 
 **Topics**
-+ [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)
 + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
-+ [Getting the currently installed SSM Agent version](ssm-agent-get-version.md)
-+ [View SSM Agent logs](sysman-agent-logs.md)
-+ [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-+ [Automate updates to SSM Agent](ssm-agent-automatic-updates.md)
-+ [Subscribe to SSM Agent notifications](ssm-agent-subscribe-notifications.md)
++ [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
++ [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)
++ [Checking the SSM Agent version number](ssm-agent-get-version.md)
++ [Viewing SSM Agent logs](sysman-agent-logs.md)
++ [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
++ [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)
++ [Subscribing to SSM Agent notifications](ssm-agent-subscribe-notifications.md)
 + [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)
 + [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md)

@@ -29,7 +29,7 @@ The [AWS Systems Manager Distributor](distributor.md) capability lets you packag
 **Patch Manager**  
 The [AWS Systems Manager Patch Manager](systems-manager-patch.md) capability helps you select and deploy operating system and software patches automatically across large groups of EC2 instances or on\-premises servers and VMs\.
 + [Working with custom patch baselines](sysman-patch-baseline-console.md)
-+ [Create a patch group](sysman-patch-group-tagging.md)
++ [Creating a patch group](sysman-patch-group-tagging.md)
 + [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 
 **Maintenance Windows**  

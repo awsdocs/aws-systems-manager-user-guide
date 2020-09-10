@@ -136,7 +136,7 @@ Systems Manager defines its own set of condition keys and also supports using so
 To see a list of Systems Manager condition keys, see [Condition Keys for AWS Systems Manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssystemsmanager.html#awssystemsmanager-policy-keys) in the *IAM User Guide*\. To learn with which actions and resources you can use a condition key, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.
 
 For information about using the `ssm:resourceTag/*` condition key, see the following topics:
-+ [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
++ [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 

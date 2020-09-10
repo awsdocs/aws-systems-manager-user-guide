@@ -12,7 +12,7 @@ Logging and auditing are not available for Session Manager sessions that connect
    + Ensure that SSM Agent version 2\.3\.672\.0 or later is installed on the instance\.
 
      For information about installing or updating SSM Agent on an instance, see the following topics:
-     + [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
+     + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
      +  [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) 
      +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
      +  [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) 

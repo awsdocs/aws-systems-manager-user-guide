@@ -30,7 +30,7 @@ AWS Config provides AWS Managed Rules, which are predefined, customizable rules 
 For information about Systems Manager prerequisites, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Increase security posture on managed instances**  
-For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restrict access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
 **Topics**
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)

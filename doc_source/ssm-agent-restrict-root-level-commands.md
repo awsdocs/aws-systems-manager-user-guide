@@ -1,4 +1,4 @@
-# Restrict access to root\-level commands through SSM Agent<a name="ssm-agent-restrict-root-level-commands"></a>
+# Restricting access to root\-level commands through SSM Agent<a name="ssm-agent-restrict-root-level-commands"></a>
 
 SSM Agent runs on EC2 instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. Because these are the highest level of system access privileges, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions\. \(In AWS, a trusted entity that can perform actions and access resources in AWS is called a principal\. A principal can be an AWS account root user, an IAM user, or a role\.\)
 

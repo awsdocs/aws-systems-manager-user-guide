@@ -1,6 +1,6 @@
-# Create a custom patch baseline \(Linux\)<a name="create-baseline-console-linux"></a>
+# Creating a custom patch baseline \(Linux\)<a name="create-baseline-console-linux"></a>
 
-Use the following procedure to create a custom patch baseline for Linux instances\. For information about creating a patch baseline for Windows Server instances, see [Create a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
+Use the following procedure to create a custom patch baseline for Linux instances\. For information about creating a patch baseline for Windows Server instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
 
 **To create a custom patch baseline for Linux instances**
 
@@ -22,7 +22,7 @@ Use the following procedure to create a custom patch baseline for Linux instance
 
 1. If you want to begin using this patch baseline as the default for the selected operating system as soon as you create it, check the box next to **Set this patch baseline as the default patch baseline for *operating system name* instances**\.
 
-   For information about setting an existing patch baseline as the default, see [ Set an existing patch baseline as the default](set-default-patch-baseline.md)\.
+   For information about setting an existing patch baseline as the default, see [ Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating\-systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `RedhatEnterpriseLinux7.4`\. The default selection is `All`\.

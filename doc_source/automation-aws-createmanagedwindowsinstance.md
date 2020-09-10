@@ -16,7 +16,7 @@ Amazon
 
 **Platforms**
 
-Windows, Linux
+Windows
 
 **Parameters**
 + AmiId

@@ -1,4 +1,4 @@
-# Subscribe to SSM Agent notifications<a name="ssm-agent-subscribe-notifications"></a>
+# Subscribing to SSM Agent notifications<a name="ssm-agent-subscribe-notifications"></a>
 
 Amazon Simple Notification Service \(Amazon SNS\) can notify you when new versions of SSM Agent are released\. Use the following procedure to subscribe to these notifications\.
 

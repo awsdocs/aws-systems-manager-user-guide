@@ -25,7 +25,7 @@ Windows
 
 **Prerequisites**
 + The EC2 instance must use a version of Windows Server that is Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
-+ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)\.
++ Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
 + Configure the instance to use an AWS Identity and Access Management \(IAM\) instance profile role\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 + Verify that the instance has 20 GB of free disk space in the instance boot disk\.
 + For instances that use a Bring Your Own License \(BYOL\) SQL Server version, the following additional prerequisites apply:

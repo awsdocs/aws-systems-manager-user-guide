@@ -16,7 +16,7 @@ An instance profile for Systems Manager must already be attached to the EC2 inst
 + Attach the instance profile to an existing EC2 instance: [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide*
 
 **Windows Server instance**  
-To practice installing or updating SSM Agent on an EC2 instance for Windows Server, follow the steps in [Install and configure SSM Agent on EC2 instances for Windows Server](sysman-install-win.md)\.
+To practice installing or updating SSM Agent on an EC2 instance for Windows Server, follow the steps in [Manually install SSM Agent on EC2 instances for Windows Server](sysman-install-win.md)\.
 
 **Linux instance**  
 To practice installing or updating SSM Agent on an EC2 instance for Linux, follow the steps for your Linux operating system type in [Manually install SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.

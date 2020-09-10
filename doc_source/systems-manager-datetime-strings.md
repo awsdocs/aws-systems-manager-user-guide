@@ -1,10 +1,10 @@
-# Reference: Creating formatted date and time strings for Systems Manager<a name="sytems-manager-datetime-strings"></a>
+# Reference: Creating formatted date and time strings for Systems Manager<a name="systems-manager-datetime-strings"></a>
 
 Many AWS Systems Manager API actions accept filters to limit the number of results returned by a request\. Some of these API actions accept filters that require a formatted string to represent a specific date and time\. For example, the `DescribeSessions` API action accepts the `InvokedAfter` and `InvokedBefore` keys as some of the valid values for a `SessionFilter` object\. Another example is the `DescribeAutomationExecutions` API action, which accepts the `StartTimeBefore` and `StartTimeAfter` keys as some of the valid values for an `AutomationExecutionFilter` object\. The values you provide for these keys when filtering your requests must match the ISO 8601 standard\. For information about ISO 8601, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)\.
 
 These formatted date and time strings are not limited to filters\. There are also API actions that require an ISO 8601 formatted string to represent a specific date and time when providing a value for a request parameter\. For example, the `AtTime` request parameter for the `GetCalendarState` action\. These strings are difficult to create\. Use the examples in this topic to create formatted date and time strings to use with Systems Manager API actions\.
 
-## Formatting date and time strings for Systems Manager<a name="sytems-manager-datetime-strings-format"></a>
+## Formatting date and time strings for Systems Manager<a name="systems-manager-datetime-strings-format"></a>
 
 The following is an example of an ISO 8601 formatted date and time string\.
 
@@ -26,7 +26,7 @@ hh:mm:ss
 
 The time portion of the string ends with the letter "Z", denoting the UTC standard\.
 
-## Creating custom date and time strings for Systems Manager<a name="sytems-manager-datetime-strings-custom"></a>
+## Creating custom date and time strings for Systems Manager<a name="systems-manager-datetime-strings-custom"></a>
 
 You can create custom date and time strings from your local machine using your preferred command line tool\. The syntax you use to create an ISO 8601 formatted date and time string differs depending on your local machine's operating system\. The following are examples of how you can use `date` from GNU's coreutils on Linux, or PowerShell on Windows to create an ISO 8601 formatted date and time string\.
 

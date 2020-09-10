@@ -1,4 +1,4 @@
-# Create a patch group<a name="sysman-patch-group-tagging"></a>
+# Creating a patch group<a name="sysman-patch-group-tagging"></a>
 
 To help you organize your patching efforts, we recommend that you add instances to patch groups by using tags\. Patch groups require use of the tag key **Patch Group**\. You can specify any tag value, but the tag key must be **Patch Group**\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
 

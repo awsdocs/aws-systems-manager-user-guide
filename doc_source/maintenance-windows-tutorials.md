@@ -23,7 +23,7 @@ Before trying these tutorials, complete the following prerequisites\.
   + Amazon ECS\-Optimized
 
   For information about installing SSM Agent on an instance, see the following topics:
-  + [Installing and configuring SSM Agent on Windows Server instances](sysman-install-ssm-win.md)
+  + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
   + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 
   For information about creating and attaching an IAM instance profile for Systems Manager to your instance, see the following topics:

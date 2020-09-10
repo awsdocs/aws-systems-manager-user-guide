@@ -2,6 +2,8 @@
 
 This section provides technical details that explain how Patch Manager determines which patches to install and how it installs them on each supported operating system\. For Linux operating systems, it also provides information about specifying a source repository, in a custom patch baseline, for patches other than the default configured on an instance\. This section also provides details about how patch baseline rules work on different distributions of the Linux operating system\.
 
+The information in the following topics applies both when you are patching instances on a schedule and patching instances on demand\.
+
 **Topics**
 + [How security patches are selected](patch-manager-how-it-works-selection.md)
 + [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)
