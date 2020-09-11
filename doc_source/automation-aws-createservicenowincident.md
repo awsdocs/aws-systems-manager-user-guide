@@ -19,6 +19,34 @@ Amazon
 Windows, Linux
 
 **Parameters**
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ Category 
+
+  Type: String
+
+  Description: \(Optional\) The category of the incident\.
+
+  Valid values: None \| Inquiry/Help \| Software \| Hardware \| Network \| Database
+
+  Default Value: None
++ Description
+
+  Type: String
+
+  Description: \(Required\) A detailed explanation on the incident\.
++ Impact
+
+  Type: String
+
+  Description: \(Optional\) The effect an incident has on business\.
+
+  Valid values: High \| Medium \| Low
+
+  Default Value: Low
 + ServiceNowInstanceUsername
 
   Type: String
@@ -39,43 +67,15 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) A brief description of the incident\.
-+ Description
-
-  Type: String
-
-  Description: \(Required\) A detailed explanation on the incident\.
-+ Impact
-
-  Type: String
-
-  Description: \(Optional\) The effect an incident has on business\.
-
-  Valid Values: High \| Medium \| Low
-
-  Default Value: Low
-+ Category 
-
-  Type: String
-
-  Description: \(Optional\) The category of the incident\.
-
-  Valid Values: None \| Inquiry/Help \| Software \| Hardware \| Network \| Database
-
-  Default Value: None
 + Subcategory
 
   Type: String
 
   Description: \(Optional\) The subcategory of the incident\.
 
-  Valid Values: None \| Antivirus \| Email \| Internal Application \| Operating System \| CPU \| Disk \| Keyboard \| Hardware \| Memory \| Monitor \| Mouse \| DHCP \| DNS \| IP Address \| VPN \| Wireless \| DB2 \| MS SQL Server \| Oracle 
+  Valid values: None \| Antivirus \| Email \| Internal Application \| Operating System \| CPU \| Disk \| Keyboard \| Hardware \| Memory \| Monitor \| Mouse \| DHCP \| DNS \| IP Address \| VPN \| Wireless \| DB2 \| MS SQL Server \| Oracle 
 
   Default Value: None
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
 
 **Document Steps**
 

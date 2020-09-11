@@ -6,54 +6,56 @@ The AWSSupport\-ManageWindowsService automation document enables a user to stop,
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageWindowsService)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
 Windows
 
- **Parameters** 
+**Parameters**
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + InstanceId
 
   Type: String
 
   Description: \(Required\) The ID of the managed instance to manage the RDP settings of\.
++ ServiceAction
+
+  Type: String
+
+  Valid values: Check \| Restart \| Force\-Restart \| Start \| Stop \| Force\-Stop \| Pause
+
+  Default: Check
+
+  Description: \(Required\) An action to apply to the Windows service\. Note that `Force-Restart` and `Force-Stop` can be used to restart and to stop a service that has dependent services\. 
++ StartupType
+
+  Type: String
+
+  Valid values: Check \| Auto \| Demand \| Disabled \| DelayedAutoStart
+
+  Default: Check
+
+  Description: \(Required\) A startup type to apply to the Windows service\.
 + WindowsServiceName
 
   Type: String
 
   Description: \(Required\) A valid Windows service name\.
-+ StartupType
 
-  Type: String
+**Required IAM Permissions**
 
-  Allowed values: Check,Auto,Demand,Disabled,DelayedAutoStart
-
-  Default: Check
-
-  Description: \(Required\) A startup type to apply to the Windows service: Auto, Demand \(Manual\), Disabled, DelayAutoStart, Check\. 
-+ ServiceAction
-
-  Type: String
-
-  Allowed values: Check,Restart,Force\-Restart,Start,Stop,Force\-Stop,Pause
-
-  Default: Check
-
-  Description: \(Required\) An action to apply to the Windows service: Restart, Force\-Restart, Start, Stop, Force\-Stop, Pause, Check\. Note: Force\-Restart and Force\-Stop can be used to restart and to stop a service that has dependent services\. 
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Required IAM Permissions** 
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. The user must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\.
 

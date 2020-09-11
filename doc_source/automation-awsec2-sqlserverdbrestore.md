@@ -35,9 +35,83 @@ Linux
 
 This automation does not support restoring to SQL Server running on EC2 instances for Windows Server\. This automation only restores database backups that are compatible with SQL Server Linux 2017\. For more information, see [Editions and Supported Features of SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-editions-and-components-2017?view=sql-server-2017)\.
 
+**Parameters**
++ DatabaseNames
+
+  Type: String
+
+  Description: \(Optional\) Comma\-separated list of the names of databases to restore\.
++ DataDirectorySize
+
+  Type: String
+
+  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server Data directory for the new EC2 instance\.
+
+  Default value: 100
++ KeyPair
+
+  Type: String
+
+  Description: \(Optional\) Key pair to use when creating the new EC2 instance\.
++ IamInstanceProfileName
+
+  Type: String
+
+  Description: \(Optional\) The IAM instance profile to attach to the new EC2 instance\. The IAM instance profile must have the `AmazonSSMManagedInstanceCore` managed policy attached\.
++ InstanceId
+
+  Type: String
+
+  Description: \(Optional\) The instance running SQL Server 2017 on Linux\. If no InstanceId is provided, the automation launches a new EC2 instance using the InstanceType and SQLServerEdition provided\.
++ InstanceType
+
+  Type: String
+
+  Description: \(Optional\) The instance type of the EC2 instance to be launched\.
++ IsS3PresignedUrl
+
+  Type: String
+
+  Description: \(Optional\) If S3Input is a pre\-signed S3 URL, indicate `yes`\.
+
+  Default value: no
+
+  Valid values: yes \| no 
++ LogDirectorySize
+
+  Type: String
+
+  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server Log directory for the new EC2 instance\.
+
+  Default value: 100
++ S3Input
+
+  Type: String
+
+  Description: \(Required\) S3 bucket name, comma\-separated list of S3 object keys, or comma\-separated list of pre\-signed S3 URLs containing the SQL backup files to be restored\.
++ SQLServerEdition
+
+  Type: String
+
+  Description: \(Optional\) The edition of SQL Server 2017 to be installed on the newly created EC2 instance\.
+
+  Valid values: Standard \| Enterprise \| Web \| Express
++ SubnetId
+
+  Type: String
+
+  Description: \(Optional\) The subnet in which to launch the new EC2 instance\. The subnet must have outbound connectivity to AWS services\. If a value for SubnetId is not provided, the automation uses the default subnet\.
++ TempDbDirectorySize
+
+  Type: String
+
+  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server TempDB directory for the new EC2 instance\.
+
+  Default value: 100
+
 **Required IAM Permissions**
 
-The user who runs the Automation workflow must have the following permissions:
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 ```
 {
@@ -65,80 +139,6 @@ The user who runs the Automation workflow must have the following permissions:
     ]
 }
 ```
-
-**Parameters**
-+ S3Input
-
-  Type: String
-
-  Description: \(Required\) S3 bucket name, comma\-separated list of S3 object keys, or comma\-separated list of pre\-signed S3 URLs containing the SQL backup files to be restored\.
-+ IsS3PresignedUrl
-
-  Type: String
-
-  Description: \(Optional\) If S3Input is a pre\-signed S3 URL, indicate “yes”\.
-
-  Default value: "no"
-
-  Allowed values: "yes", "no" 
-+ InstanceId
-
-  Type: String
-
-  Description: \(Optional\) The instance running SQL Server 2017 on Linux\. If no InstanceId is provided, the automation launches a new EC2 instance using the InstanceType and SQLServerEdition provided\.
-+ InstanceType
-
-  Type: String
-
-  Description: \(Optional\) The instance type of the EC2 instance to be launched\.
-+ SQLServerEdition
-
-  Type: String
-
-  Description: \(Optional\) The edition of SQL Server 2017 to be installed on the newly created EC2 instance\.
-
-  Allowed values: "Standard", "Enterprise", "Web", "Express"
-+ SubnetId
-
-  Type: String
-
-  Description: \(Optional\) The subnet in which to launch the new EC2 instance\. The subnet must have outbound connectivity to AWS services\. If a value for SubnetId is not provided, the automation uses the default subnet\.
-+ IamInstanceProfileName
-
-  Type: String
-
-  Description: \(Optional\) The IAM instance profile to attach to the new EC2 instance\. The IAM instance profile must have the `AmazonSSMManagedInstanceCore` managed policy attached\.
-+ DataDirectorySize
-
-  Type: String
-
-  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server Data directory for the new EC2 instance\.
-
-  Default value: 100
-+ LogDirectorySize
-
-  Type: String
-
-  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server Log directory for the new EC2 instance\.
-
-  Default value: 100
-+ TempDbDirectorySize
-
-  Type: String
-
-  Description: \(Optional\) Desired volume size \(GiB\) of the SQL Server TempDB directory for the new EC2 instance\.
-
-  Default value: 100
-+ DatabaseNames
-
-  Type: String
-
-  Description: \(Optional\) Comma\-separated list of the names of databases to restore\.
-+ KeyPair
-
-  Type: String
-
-  Description: \(Optional\) Key pair to use when creating the new EC2 instance\.
 
 **Document Steps**
 

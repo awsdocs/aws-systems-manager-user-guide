@@ -23,7 +23,14 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ ForceReplace
+
+  Type: Boolean
+
+  Description: \(Optional\) Flag to specify whether to replace the existing IAM profile or not\.
+
+  Default: true
 + InstanceId
 
   Type: String
@@ -34,13 +41,6 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The IAM role name to add to the managed instance\.
-+ ForceReplace
-
-  Type: Boolean
-
-  Description: \(Optional\) Flag to specify whether to replace the existing IAM profile or not\.
-
-  Default: true
 
 **Document Steps**
 

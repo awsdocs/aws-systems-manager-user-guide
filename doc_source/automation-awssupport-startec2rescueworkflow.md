@@ -76,19 +76,58 @@ Linux:
 |  EC2RESCUE\_S3\_PREFIX  |  \{\{ S3Prefix \}\}  |  myprefix/  | 
 |  EC2RESCUE\_SOURCE\_INSTANCE  |  \{\{ InstanceId \}\}  |  i\-abcdefgh123456789  | 
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
 Windows, Linux
 
- **Parameters** 
+**Parameters**
++ AMIPrefix
+
+  Type: String
+
+  Default: AWSSupport\-EC2Rescue
+
+  Description: \(Optional\) A prefix for the backup AMI name\.
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ CreatePostEC2RescueBackup
+
+  Type: String
+
+  Valid values: True \| False
+
+  Default: False
+
+  Description: \(Optional\) Set it to True to create an AMI of InstanceId after running the script, before starting it\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\.
++ CreatePreEC2RescueBackup
+
+  Type: String
+
+  Valid values: True \| False
+
+  Default: False
+
+  Description: \(Optional\) Set it to True to create an AMI of InstanceId before running the script\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. 
++ EC2RescueInstanceType
+
+  Type: String
+
+  Valid values: t2\.small \| t2\.medium \| t2\.large
+
+  Default: t2\.small
+
+  Description: \(Optional\) The EC2 instance type for the EC2Rescue instance\.
 + InstanceId
 
   Type: String
@@ -99,22 +138,6 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) Base64 encoded script to run against the helper instance\. Use Bash if your source instance is Linux, and PowerShell if it is Windows\.
-+ EC2RescueInstanceType
-
-  Type: String
-
-  Allowed values: t2\.small,t2\.medium,t2\.large
-
-  Default: t2\.small
-
-  Description: \(Optional\) The EC2 instance type for the EC2Rescue instance\.
-+ SubnetId
-
-  Type: String
-
-  Default: SelectedInstanceSubnet
-
-  Description: \(Optional\) The subnet ID for the EC2Rescue instance\. By default, the same subnet where the provided instance resides is used\. IMPORTANT: If you provide a custom subnet, it must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 + S3BucketName
 
   Type: String
@@ -127,31 +150,13 @@ Windows, Linux
   Default: AWSSupport\-EC2Rescue
 
   Description: \(Optional\) A prefix for the S3 logs\.
-+ AMIPrefix
++ SubnetId
 
   Type: String
 
-  Default: AWSSupport\-EC2Rescue
+  Default: SelectedInstanceSubnet
 
-  Description: \(Optional\) A prefix for the backup AMI name\.
-+ CreatePreEC2RescueBackup
-
-  Type: String
-
-  Allowed values: True,False
-
-  Default: False
-
-  Description: \(Optional\) Set it to True to create an AMI of InstanceId before running the script\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. 
-+ CreatePostEC2RescueBackup
-
-  Type: String
-
-  Allowed values: True,False
-
-  Default: False
-
-  Description: \(Optional\) Set it to True to create an AMI of InstanceId after running the script, before starting it\. The AMI will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\.
+  Description: \(Optional\) The subnet ID for the EC2Rescue instance\. By default, the same subnet where the provided instance resides is used\. IMPORTANT: If you provide a custom subnet, it must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 + UniqueId
 
   Type: String
@@ -159,13 +164,10 @@ Windows, Linux
   Default: \{\{ automation:EXECUTION\_ID \}\}
 
   Description: \(Optional\) A unique identifier for the workflow\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document\.
 
 **Required IAM Permissions**
+
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition to that policy, the user must have:
 

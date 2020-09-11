@@ -9,29 +9,24 @@ Changes to the RDP settings, RDP service and Windows Firewall profiles should be
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
 Windows
 
- **Parameters** 
-+ InstanceId
-
-  Type: String
-
-  Description: \(Required\) The ID of the instance to troubleshoot the RDP settings of\.
+**Parameters**
 + Action
 
   Type: String
 
-  Allowed values: CheckAll,FixAll,Custom
+  Valid values: CheckAll \| FixAll \| Custom
 
   Default: Custom
 
@@ -40,25 +35,53 @@ Windows
 
   Type: String
 
-  Allowed values: True,False
+  Valid values: True \| False
 
   Default: False
 
   Description: \(Optional\) Fix only \- Set it to true if you allow an offline RDP remediation in case the online troubleshooting fails, or the provided instance is not a managed instance\. Note: For the offline remediation, SSM Automation stops the instance, and creates an AMI before attempting any operations\.
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + Firewall
 
   Type: String
 
-  Allowed values: Check,Disable
+  Valid values: Check \| Disable
 
   Default: Check
 
   Description: \(Optional\) Check or disable the Windows firewall \(all profiles\)\.
++ InstanceId
+
+  Type: String
+
+  Description: \(Required\) The ID of the instance to troubleshoot the RDP settings of\.
++ NLASettingAction
+
+  Type: String
+
+  Valid values: Check \| Disable
+
+  Default: Check
+
+  Description: \(Optional\) Check or disable Network Layer Authentication \(NLA\)\.
++ RDPPortAction
+
+  Type: String
+
+  Valid values: Check \| Modify
+
+  Default: Check
+
+  Description: \(Optional\) Check the current port used for RDP connections, or modify the RDP port back to 3389 and restart the service\.
 + RDPServiceAction
 
   Type: String
 
-  Allowed values: Check,Start,Restart,Force\-Restart
+  Valid values: Check \| Start \| Restart \| Force\-Restart
 
   Default: Check
 
@@ -67,38 +90,25 @@ Windows
 
   Type: String
 
-  Allowed values: Check,Auto
+  Valid values: Check \| Auto
 
   Default: Check
 
   Description: \(Optional\) Check or set the RDP service to automatically start when Windows boots\.
-+ RDPPortAction
-
-  Type: String
-
-  Allowed values: Check,Modify
-
-  Default: Check
-
-  Description: \(Optional\) Check the current port used for RDP connections, or modify the RDP port back to 3389 and restart the service\.
-+ NLASettingAction
-
-  Type: String
-
-  Allowed values: Check,Disable
-
-  Default: Check
-
-  Description: \(Optional\) Check or disable Network Layer Authentication \(NLA\)\.
 + RemoteConnections
 
   Type: String
 
-  Allowed values: Check,Enable
+  Valid values: Check \| Enable
 
   Default: Check
 
   Description: \(Optional\) An action to perform on the fDenyTSConnections setting: Check, Enable\.
++ S3BucketName
+
+  Type: String
+
+  Description: \(Optional\) Offline only \- S3 bucket name in your account where you want to upload the troubleshooting logs\. Make sure the bucket policy does not grant unnecessary read/write permissions to parties that do not need access to the collected logs\.
 + SubnetId
 
   Type: String
@@ -106,18 +116,10 @@ Windows
   Default: SelectedInstanceSubnet
 
   Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting\. If no subnet ID is specified, AWS Systems Manager Automation will create a new VPC\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
-+ S3BucketName
 
-  Type: String
+**Required IAM Permissions**
 
-  Description: \(Optional\) Offline only \- S3 bucket name in your account where you want to upload the troubleshooting logs\. Make sure the bucket policy does not grant unnecessary read/write permissions to parties that do not need access to the collected logs\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Required IAM Permissions** 
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. For the online remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:ExecuteAutomation**, **ec2:DescribeInstances**, plus **ssm:GetAutomationExecution** to be able to read the automation output\. AWSSupport\-TroubleshootRDP calls AWSSupport\-ExecuteEC2Rescue to perform the offline remediation \- please review the permissions for AWSSupport\-ExecuteEC2Rescue to ensure you can run the automation successfully\.
 

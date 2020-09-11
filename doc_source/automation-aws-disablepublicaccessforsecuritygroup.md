@@ -14,19 +14,24 @@ If the security group is located in a non\-default VPC and, for example, specifi
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisablePublicAccessForSecurityGroup)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platform\(s\)** 
+**Platforms**
 
 Windows, Linux
 
- **Parameters** 
+**Parameters**
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + GroupId
 
   Type: String
@@ -37,11 +42,6 @@ Windows, Linux
   Type: String
 
   Description: \(Optional\) Additional IPv4 addresses from which access should be blocked, in the format `1.2.3.4/32`\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
 
  **Outputs** 
 

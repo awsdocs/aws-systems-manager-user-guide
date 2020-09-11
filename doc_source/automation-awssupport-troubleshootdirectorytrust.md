@@ -6,20 +6,24 @@ The AWSSupport\-TroubleshootDirectoryTrust Automation document diagnoses trust c
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootDirectoryTrust)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Parameters** 
+**Platforms**
+
+Windows, Linux
+
+**Parameters**
 + AutomationAssumeRole
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + DirectoryId
 
   Type: String
@@ -31,7 +35,7 @@ Amazon
 
   Type: StringList
 
-  Allowed values: ^\(\(\[0\-9\]\|\[1\-9\]\[0\-9\]\|1\[0\-9\]\{2\}\|2\[0\-4\]\[0\-9\]\|25\[0\-5\]\)\\\.\)\{3\}\(\[0\-9\]\|\[1\-9\]\[0\-9\]\|1\[0\-9\]\{2\}\|2\[0\-4\]\[0\-9\]\|25\[0\-5\]\)\(\\/\(3\[0\-2\]\|\[1\-2\]\[0\-9\]\|\[1\-9\]\)\)$
+  Allowed pattern: ^\(\(\[0\-9\]\|\[1\-9\]\[0\-9\]\|1\[0\-9\]\{2\}\|2\[0\-4\]\[0\-9\]\|25\[0\-5\]\)\\\.\)\{3\}\(\[0\-9\]\|\[1\-9\]\[0\-9\]\|1\[0\-9\]\{2\}\|2\[0\-4\]\[0\-9\]\|25\[0\-5\]\)\(\\/\(3\[0\-2\]\|\[1\-2\]\[0\-9\]\|\[1\-9\]\)\)$
 
   Description: \(Required\) The CIDR\(s\) of the remote domain you are attempting to establish a trust relationship with\. You can add multiple CIDRs using comma\-separated values\. For example, 172\.31\.48\.0/20, 192\.168\.1\.10/32\.
 + RemoteDomainName
@@ -61,7 +65,7 @@ Amazon
 
 **Required IAM Permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully execute the Automation document\.
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ds:DescribeConditionalForwarders`
 + `ds:DescribeDirectories`
 + `ds:DescribeTrusts`

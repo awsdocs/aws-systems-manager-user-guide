@@ -69,7 +69,7 @@ If you run an automation that invokes other AWS services by using an IAM service
                    "s3:PutObject",
                    "s3:GetObject"
                ],
-               "Resource": "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/*"
+               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*"
            }
        ]
    }

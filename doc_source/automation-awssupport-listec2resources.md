@@ -1,4 +1,4 @@
-# AWSSupport\-ListEC2Resources<a name="automation-awssupport-listec2"></a>
+# AWSSupport\-ListEC2Resources<a name="automation-awssupport-listec2resources"></a>
 
  **Description** 
 
@@ -16,7 +16,7 @@ Amazon
 
 **Platforms**
 
-Linux, Windows
+Windows, Linux
 
 **Parameters**
 + AutomationAssumeRole
@@ -24,6 +24,11 @@ Linux, Windows
   Type: String
 
   Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ Bucket
+
+  Type: String
+
+  Description: \(Optional\) The name of the S3 bucket where the information gathered is uploaded to\.
 + DisplayResourceDeletionDocumentation
 
   Type: String
@@ -31,11 +36,6 @@ Linux, Windows
   Default: True
 
   Description: \(Optional\) If set to `True`, the automation creates links in the output to documentation related to deleting your resources\.
-+ Bucket
-
-  Type: String
-
-  Description: \(Optional\) The name of the S3 bucket where the information gathered is uploaded to\.
 + RegionsToQuery
 
   Type: String
@@ -46,7 +46,7 @@ Linux, Windows
 
 **Required IAM Permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully run the Automation document:
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `autoscaling:DescribeAutoScalingGroups`
 + `ec2:DescribeAddresses`
 + `ec2:DescribeImages`

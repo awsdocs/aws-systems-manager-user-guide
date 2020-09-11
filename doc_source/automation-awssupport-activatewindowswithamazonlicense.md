@@ -9,44 +9,49 @@ This document cannot be used on Bring Your Own License \(BYOL\) Windows Server i
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
 Windows
 
- **Parameters** 
-+ InstanceId
-
-  Type: String
-
-  Description: \(Required\) ID of your managed EC2 instance for Windows Server\.
-+ ForceActivation
-
-  Type: String
-
-  Allowed values: True,False
-
-  Default: False
-
-  Description: \(Optional\) Set it to True if you want to proceed even if Windows is already activated\.
+**Parameters**
 + AllowOffline
 
   Type: String
 
-  Allowed values: True,False
+  Valid values: True \| False
 
   Default: False
 
   Description: \(Optional\) Set it to True if you allow an offline Windows activation remediation in case the online troubleshooting fails, or if the provided instance is not a managed instance\.
 **Important**  
 The offline method requires that the provided EC2 instance be stopped and then started\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ ForceActivation
+
+  Type: String
+
+  Valid values: True \| False
+
+  Default: False
+
+  Description: \(Optional\) Set it to True if you want to proceed even if Windows is already activated\.
++ InstanceId
+
+  Type: String
+
+  Description: \(Required\) ID of your managed EC2 instance for Windows Server\.
 + SubnetId
 
   Type: String
@@ -54,13 +59,10 @@ The offline method requires that the provided EC2 instance be stopped and then s
   Default: CreateNewVPC
 
   Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting\. Use SelectedInstanceSubnet to use the same subnet as your instance, or CreateNewVPC to create a new VPC\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
-+ AutomationAssumeRole
 
-  Type: String
+**Required IAM Permissions**
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Required IAM Permissions** 
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. You must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, see the permissions needed by **AWSSupport\-StartEC2RescueWorkflow**\.
 

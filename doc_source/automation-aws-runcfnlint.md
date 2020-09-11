@@ -19,32 +19,27 @@ Amazon
 Windows, Linux
 
 **Parameters**
-+ TemplateS3BucketName
++ AutomationAssumeRole
 
   Type: String
 
-  Description: The name of the S3 bucket containing the packer template\.
-+ TemplateFileName
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ ConfigureRuleFlag
 
   Type: String
 
-  Description: The name, or key, of the template file in the S3 bucket\.
+  Description: \(Optional\) Configuration options for a rule to pass to the \-\-configure\-rule parameter\. 
+
+  Example: E2001:strict=false,E3012:strict=false\.
 + FormatFlag
 
   Type: String
 
   Description: \(Optional\) Value to pass to the \-\-format parameter to specify the output format\.
 
-  Valid Values: Default \| quiet \| parseable \| json
+  Valid values: Default \| quiet \| parseable \| json
 
   Default: Default
-+ RegionsFlag
-
-  Type: String
-
-  Description: \(Optional\) Values to pass to the for \-\-regions parameter to test the template against specified AWS Regions\.
-
-  Example: us\-east\-1,us\-west\-1
 + IgnoreChecksFlag
 
   Type: String
@@ -59,13 +54,6 @@ Windows, Linux
   Description: \(Optional\) IDs of rules to pass to the \-\-include\-checks parameter\. These rules are checked\.
 
   Example: E1001,E1003,W7001
-+ ConfigureRuleFlag
-
-  Type: String
-
-  Description: \(Optional\) Configuration options for a rule to pass to the \-\-configure\-rule parameter\. 
-
-  Example: E2001:strict=false,E3012:strict=false\.
 + InfoFlag
 
   Type: String
@@ -73,11 +61,23 @@ Windows, Linux
   Description: \(Optional\) Option for the \-\-info parameter\. Include the option to enable additional logging information about the template processing\.
 
   Default: False
-+ AutomationAssumeRole
++ TemplateFileName
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
+  Description: The name, or key, of the template file in the S3 bucket\.
++ TemplateS3BucketName
+
+  Type: String
+
+  Description: The name of the S3 bucket containing the packer template\.
++ RegionsFlag
+
+  Type: String
+
+  Description: \(Optional\) Values to pass to the for \-\-regions parameter to test the template against specified AWS Regions\.
+
+  Example: us\-east\-1,us\-west\-1
 
 **Document Steps**
 

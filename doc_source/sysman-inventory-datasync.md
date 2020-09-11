@@ -37,7 +37,7 @@ Before you create a resource data sync, use the following procedure to create a 
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *AWSDOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\.
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\.
 
    To enable multiple AWS accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
 
@@ -64,7 +64,7 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
                "Service":"ssm.amazonaws.com"
             },
             "Action":"s3:GetBucketAcl",
-            "Resource":"arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET"
+            "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET"
          },
          {
             "Sid":" SSMBucketDelivery",
@@ -74,9 +74,9 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
             },
             "Action":"s3:PutObject",
             "Resource":[
-               "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-1/*",
-               "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-2/*",
-               "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-3/*"
+               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-1/*",
+               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-2/*",
+               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-3/*"
             ],
             "Condition":{
                "StringEquals":{
@@ -154,7 +154,7 @@ Use the following procedure to create a central S3 bucket to store aggregated in
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *AWSDOC\-EXAMPLE\-BUCKET* and *organization\-id* with the name of the Amazon S3 bucket you created and a valid AWS Organizations account ID\.
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *organization\-id* with the name of the Amazon S3 bucket you created and a valid AWS Organizations account ID\.
 
    Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
 
@@ -169,7 +169,7 @@ Use the following procedure to create a central S3 bucket to store aggregated in
                    "Service": "ssm.amazonaws.com"
                },
                "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET"
+               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET"
            },
            {
                "Sid": " SSMBucketDelivery",
@@ -179,7 +179,7 @@ Use the following procedure to create a central S3 bucket to store aggregated in
                },
                "Action": "s3:PutObject",
                "Resource": [
-                   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
+                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
                ],
                "Condition": {
                    "StringEquals": {
@@ -196,7 +196,7 @@ Use the following procedure to create a central S3 bucket to store aggregated in
                },
                "Action": "s3:PutObjectTagging",
                "Resource": [
-                   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
+                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
                ]
            }
        ]
@@ -224,8 +224,8 @@ The following procedure describes how to use the AWS CLI to create a resource da
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a resource data sync for multiple accounts defined in AWS Organizations\. For *AWSDOC\-EXAMPLE\-BUCKET*, specify the name of the Amazon S3 bucket you created earlier in this topic\. If you created a prefix \(subdirectory\) for your bucket, then specify this information for *prefix\-name*\. 
+1. Run the following command to create a resource data sync for multiple accounts defined in AWS Organizations\. For *DOC\-EXAMPLE\-BUCKET*, specify the name of the Amazon S3 bucket you created earlier in this topic\. If you created a prefix \(subdirectory\) for your bucket, then specify this information for *prefix\-name*\. 
 
    ```
-   aws ssm create-resource-data-sync --sync-name name --s3-destination "BucketName=AWSDOC-EXAMPLE-BUCKET,Prefix=prefix-name,SyncFormat=JsonSerDe,Region=AWS Region, for example us-east-2,DestinationDataSharing={DestinationDataSharingType=Organization}"
+   aws ssm create-resource-data-sync --sync-name name --s3-destination "BucketName=DOC-EXAMPLE-BUCKET,Prefix=prefix-name,SyncFormat=JsonSerDe,Region=AWS Region, for example us-east-2,DestinationDataSharing={DestinationDataSharingType=Organization}"
    ```

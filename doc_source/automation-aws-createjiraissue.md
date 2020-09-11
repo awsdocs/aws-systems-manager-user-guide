@@ -14,11 +14,21 @@ Automation
 
 Amazon
 
-**Platform\(s\)**
+**Platforms**
 
 Windows, Linux
 
 **Parameters**
++ AssigneeName
+
+  Type: String
+
+  Description: \(Optional\) The username of the person the issue should be assigned to\.
++ DueDate
+
+  Type: String
+
+  Description: \(Optional\) The due date for the issue in yyyy\-mm\-dd format\.
 + IssueDescription
 
   Type: String
@@ -44,6 +54,11 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The name of the user the issue will be created with\.
++ PriorityName
+
+  Type: String
+
+  Description: \(Optional\) The name of the priority of the issue\.
 + ProjectKey
 
   Type: String
@@ -54,21 +69,6 @@ Windows, Linux
   Type: String
 
   Description: \(Required\) The name of an encrypted SSM Parameter containing the API key or password for the Jira user\.
-+ AssigneeName
-
-  Type: String
-
-  Description: \(Optional\) The username of the person the issue should be assigned to\.
-+ DueDate
-
-  Type: String
-
-  Description: \(Optional\) The due date for the issue in yyyy\-mm\-dd format\.
-+ PriorityName
-
-  Type: String
-
-  Description: \(Optional\) The name of the priority of the issue\.
 
 **Document Steps**
 

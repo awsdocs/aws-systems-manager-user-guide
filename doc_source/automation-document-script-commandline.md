@@ -23,7 +23,7 @@ aws ssm create-document \
   --name CustomAutomationScript \
   --content file://AutomationDocument.yaml \
   --document-format YAML \
-  --attachments "Key=S3FileUrl,Name=script.py,Values=https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
+  --attachments "Key=S3FileUrl,Name=script.py,Values=https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
   --document-type Automation
 ```
 
@@ -35,7 +35,7 @@ aws ssm create-document ^
   --name CustomAutomationScript ^
   --content file://AutomationDocument.yaml ^
   --document-format YAML ^
-  --attachments Key=S3FileUrl,Name=script.py,Values="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
+  --attachments Key=S3FileUrl,Name=script.py,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
   --document-type Automation
 ```
 
@@ -50,11 +50,11 @@ New-SSMDocument `
   -Attachments @{
       "Key"="S3FileUrl";
       "Name"="script.py";
-      "Values"="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
+      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
     }, @{
       "Key"="S3FileUrl";
       "Name"="Zip-file.zip";
-      "Values"="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
+      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
     } `
   -DocumentType Automation
 ```
@@ -72,7 +72,7 @@ aws ssm create-document \
   --name CustomAutomationScript \
   --content file://AutomationDocument.yaml \
   --document-format YAML \
-  --attachments Key=SourceUrl,Values="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
+  --attachments Key=SourceUrl,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
   --document-type Automation
 ```
 
@@ -84,7 +84,7 @@ aws ssm create-document ^
   --name CustomAutomationScript ^
   --content file://AutomationDocument.yaml ^
   --document-format YAML ^
-  --attachments Key=SourceUrl,Values="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
+  --attachments Key=SourceUrl,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
   --document-type Automation
 ```
 
@@ -98,7 +98,7 @@ New-SSMDocument `
   -DocumentFormat YAML `
   -Attachments @{
       "Key"="SourceUrl";
-      "Values"="https://AWSDOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
+      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
     } `
   -DocumentType Automation
 ```

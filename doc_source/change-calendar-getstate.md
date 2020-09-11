@@ -5,9 +5,12 @@ You can get the overall state of the calendar, or the state at a specific time\.
 You can do this task only by using the `GetCalendarState` API\. The procedure in this section uses the AWS CLI\.
 + Run the following command to show the state of one or more calendar entries at a specific time\. The `--calendar-names` parameter is required, but `--at-time` is optional\.
 
+------
+#### [ Linux ]
+
   ```
   aws ssm get-calendar-state \
-      --calendar-names ["Calendar_name_or_document_ARN_1","Calendar_name_or_document_ARN_2"] \
+      --calendar-names "Calendar_name_or_document_ARN_1" "Calendar_name_or_document_ARN_2" \
       --at-time "ISO_8601_time_format"
   ```
 
@@ -15,9 +18,28 @@ You can do this task only by using the `GetCalendarState` API\. The procedure in
 
   ```
   aws ssm get-calendar-state \
-      --calendar-names ["arn:aws:ssm:us-east-2:123456789012:document/MyChangeCalendarDocument","arn:aws:ssm:us-east-2:123456789012:document/SupportOffHours"] \
+      --calendar-names "arn:aws:ssm:us-east-2:123456789012:document/MyChangeCalendarDocument" "arn:aws:ssm:us-east-2:123456789012:document/SupportOffHours" \
       --at-time "2020-07-30T11:05:14-0700"
   ```
+
+------
+#### [ Windows ]
+
+  ```
+  aws ssm get-calendar-state ^
+      --calendar-names "Calendar_name_or_document_ARN_1" "Calendar_name_or_document_ARN_2" ^
+      --at-time "ISO_8601_time_format"
+  ```
+
+  The following is an example\.
+
+  ```
+  aws ssm get-calendar-state ^
+      --calendar-names "arn:aws:ssm:us-east-2:123456789012:document/MyChangeCalendarDocument" "arn:aws:ssm:us-east-2:123456789012:document/SupportOffHours" ^
+      --at-time "2020-07-30T11:05:14-0700"
+  ```
+
+------
 
   The command returns information like the following\.
 

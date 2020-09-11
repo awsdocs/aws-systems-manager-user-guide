@@ -22,31 +22,31 @@ Amazon
 Windows, Linux
 
 **Parameters**
-+ TemplateS3BucketName
++ AutomationAssumeRole
 
   Type: String
 
-  Description: The name of the S3 bucket containing the packer template\.
-+ TemplateFileName
-
-  Type: String
-
-  Description: The name, or key, of the template file in the S3 bucket\.
-+ Mode
-
-  Type: String
-
-  Description: The mode, or command, in which to use Packer when validating against the template\. Options include `Build`, `Validate`, and `Fix`\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + Force
 
   Type: Boolean
 
   Description: A Packer option to force a builder to run when artifacts from a previous build otherwise prevent a build from running\. 
-+ AutomationAssumeRole
++ Mode
 
   Type: String
 
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\.
+  Description: The mode, or command, in which to use Packer when validating against the template\. Options include `Build`, `Validate`, and `Fix`\.
++ TemplateFileName
+
+  Type: String
+
+  Description: The name, or key, of the template file in the S3 bucket\.
++ TemplateS3BucketName
+
+  Type: String
+
+  Description: The name of the S3 bucket containing the packer template\.
 
 **Document Steps**
 

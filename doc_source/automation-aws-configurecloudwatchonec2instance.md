@@ -23,7 +23,7 @@ Windows, Linux
 
   Type: String
 
-  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the role that allows Systems Manager Automation to perform the actions on your behalf\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + InstanceId
 
   Type: String
@@ -36,7 +36,7 @@ Windows, Linux
   Description: \(Optional\) This parameter is not supported\. It is listed here for backwards compatibility\.
 + status
 
-  Allowed values: Enabled \| Disabled
+  Valid values: Enabled \| Disabled
 
   Description: \(Optional\) Specifies whether to enable or disable CloudWatch\.
 

@@ -1,4 +1,4 @@
-# AWSSupport\-SetupIPMonitoringFromVPC<a name="automation-aws-setupipmonitoringfromvpc"></a>
+# AWSSupport\-SetupIPMonitoringFromVPC<a name="automation-awssupport-setupipmonitoringfromvpc"></a>
 
 **Description**
 
@@ -21,17 +21,16 @@ Automation
 
 Amazon
 
+**Platforms**
+
+Windows, Linux
+
 **Parameters**
-+ SubnetId
++ AutomationAssumeRole
 
   Type: String
 
-  Description: \(Required\) The subnet ID for the monitor instance\. Be aware that if you specify a private subnet, then you must make sure there is Internet access to allow the monitor instance to setup the test \(meaning, install the CloudWatch Logs agent, interact with Systems Manager and CloudWatch\)\.
-+ TargetIPs
-
-  Type: String
-
-  Description: \(Required\) Comma separated list of IPv4s and/or IPv6s to monitor\. No spaces allowed\. Maximum size is 255 characters\. Be aware that if you provide an invalid IP, then the automation will fail and rollback the test setup\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + CloudWatchLogGroupNamePrefix
 
   Type: String
@@ -43,7 +42,7 @@ Amazon
 
   Type: String
 
-  Allowed values: 1,3,5,7,14,30,60,90,120,150,180,365,400,545,731,1827,3653
+  Valid values: 1 \| 3 \| 5 \| 7 \| 14 \| 30 \| 60 \| 90 \| 120 \| 150 \| 180 \| 365 \| 400 \| 545 \| 731 \| 1827 \| 3653
 
   Default: 7
 
@@ -52,18 +51,25 @@ Amazon
 
   Type: String
 
-  Allowed values: t2\.micro, t2\.small,t2\.medium,t2\.large
+  Valid values: t2\.micro \| t2\.small \| t2\.medium \| t2\.large
 
   Default: t2\.micro
 
   Description: \(Optional\) The EC2 instance type for the EC2Rescue instance\. Recommended size: t2\.micro\.
-+ AutomationAssumeRole
++ SubnetId
 
   Type: String
 
-  Description: \(Optional\) The AWS Identity and Access Management \(IAM\) role for this execution\. If no role is specified, then Systems Manager Automation uses the permissions of the user that runs this document\.
+  Description: \(Required\) The subnet ID for the monitor instance\. Be aware that if you specify a private subnet, then you must make sure there is Internet access to allow the monitor instance to setup the test \(meaning, install the CloudWatch Logs agent, interact with Systems Manager and CloudWatch\)\.
++ TargetIPs
+
+  Type: String
+
+  Description: \(Required\) Comma separated list of IPv4s and/or IPv6s to monitor\. No spaces allowed\. Maximum size is 255 characters\. Be aware that if you provide an invalid IP, then the automation will fail and rollback the test setup\.
 
 **Required IAM Permissions**
+
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended that the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition, the user must have the following policy attached to their user account, group, or role:
 

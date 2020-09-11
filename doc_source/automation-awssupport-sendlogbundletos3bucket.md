@@ -6,19 +6,24 @@ The AWSSupport\-SendLogBundleToS3Bucket Automation document uploads a log bundle
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SendLogBundleToS3Bucket)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
 Windows, Linux
 
- **Parameters** 
+**Parameters**
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + InstanceId
 
   Type: String
@@ -36,13 +41,6 @@ Windows, Linux
   Default: AWSSupport\-SendLogBundleToS3Bucket/
 
   Description: \(Optional\) S3 path for the collected logs\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
-
- **Required IAM Permissions** 
 
 It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. The user must have at least **ssm:ExecuteAutomation** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\.
 

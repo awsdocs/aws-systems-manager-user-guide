@@ -23,6 +23,8 @@ Amazon
 
 Windows
 
+**Parameters**
+
 **Prerequisites**
 + The EC2 instance must use a version of Windows Server that is Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
@@ -47,16 +49,21 @@ Windows
 + SQL Server deployments in HA and mirroring mode are not supported\.
 
 **Parameters**
-+ InstanceId
-
-  Type: String
-
-  Description: \(Required\) The instance running Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
 + IamInstanceProfile
 
   Type: String
 
   Description: \(Required\) The IAM instance profile\.
++ InstanceId
+
+  Type: String
+
+  Description: \(Required\) The instance running Windows Server 2008 R2 \(or later\) and SQL Server 2008 \(or later\)\.
++ KeepPreUpgradeImageBackUp
+
+  Type: String
+
+  Description: \(Optional\) If set to True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
 + SubnetId
 
   Type: String
@@ -67,11 +74,6 @@ Windows
   Type: String
 
   Description: \(Conditional\) Snapshot ID for SQL Server 2016 installation media\. This parameter is required for instances that use a BYOL SQL Server version\. This parameter is optional for SQL Server license\-included instances \(instances launched using an AWS provided Amazon Machine Image for Windows Server with Microsoft SQL Server\)\.
-+ KeepPreUpgradeImageBackUp
-
-  Type: String
-
-  Description: \(Optional\) If set to True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
 + RebootInstanceBeforeTakingImage
 
   Type: String

@@ -9,22 +9,24 @@ If you provide an existing IAM group, all current IAM users in the group receive
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Parameters** 
-+ IAMUserName
+**Platforms**
+
+Windows, Linux
+
+**Parameters**
++ AutomationAssumeRole
 
   Type: String
 
-  Default: ExampleUser
-
-  Description: \(Required\) Must be an existing user\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + IAMGroupName
 
   Type: String
@@ -32,31 +34,35 @@ Amazon
   Default: ExampleSupportAndBillingGroup
 
   Description: \(Required\) Can be a new or existing group\. Must comply with [IAM Entity Name Limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-names)\.
-+ Permissions
++ IAMUserName
 
   Type: String
 
-  Allowed values: SupportFullAccess,BillingFullAccess,SupportAndBillingFullAccess
+  Default: ExampleUser
 
-  Default: SupportAndBillingFullAccess
-
-  Description: \(Required\) Choose one of: SupportFullAccess \- Grants full access to the Support center \| BillingFullAccess \- Grants full access to the Billing dashboard \| SupportAndBillingFullAccess \- Grants full access to both Support center and the Billing dashboard\. More info on policies under Document details\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\. 
+  Description: \(Required\) Must be an existing user\.
 + LambdaAssumeRole
 
   Type: String
 
   Description: \(Optional\) The ARN of the role assumed by lambda\.
++ Permissions
 
- **Required IAM Permissions** 
+  Type: String
 
-Least privileges depend on how AWSSupport\-GrantPermissionsToIAMUser is run\. 
+  Valid values: SupportFullAccess \| BillingFullAccess \| SupportAndBillingFullAccess
 
- **Direct execution** 
+  Default: SupportAndBillingFullAccess
+
+  Description: \(Required\) Choose one of: `SupportFullAccess` grants full access to the Support center\. `BillingFullAccess` grants full access to the Billing dashboard\. `SupportAndBillingFullAccess` grants full access to both Support center and the Billing dashboard\. More info on policies under Document details\.
+
+**Required IAM Permissions**
+
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
+
+The permissions required depend on how AWSSupport\-GrantPermissionsToIAMUser is run\. 
+
+ **Running as the currently logged in user or role** 
 
 It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed policy attached, and the following additional permissions to be able to create the Lambda function and the IAM Role to pass to Lambda: 
 

@@ -37,7 +37,7 @@ You can use this procedure to create custom session documents for your Session M
      "description": "Document to hold regional settings for Session Manager",
      "sessionType": "Standard_Stream",
      "inputs": {
-       "s3BucketName": "AWSDOC-EXAMPLE-BUCKET",
+       "s3BucketName": "DOC-EXAMPLE-BUCKET",
        "s3KeyPrefix": "MyBucketPrefix",
        "s3EncryptionEnabled": true,
        "cloudWatchLogGroupName": "MyLogGroupName",

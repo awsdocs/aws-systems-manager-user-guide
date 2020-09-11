@@ -6,37 +6,38 @@ AWSSupport\-TerminateIPMonitoringFromVPC terminates an IP monitoring test previo
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TerminateIPMonitoringFromVPC)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Parameters** 
-+ AutomationExecutionId
+**Platforms**
+
+Windows, Linux
+
+**Parameters**
++ AutomationAssumeRole
 
   Type: String
 
-  Description: \(Required\) AWSSupport\-SetupIPMonitoringFromVPC automation execution ID of the test you want to terminate\.
-+ SubnetId
-
-  Type: String
-
-  Description: \(Required\) The subnet ID for the monitor instance\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + InstanceId
 
   Type: String
 
   Description: \(Required\) The instance ID for the monitor instance\.
-+ AutomationAssumeRole
++ SubnetId
 
   Type: String
 
-  Description: \(Optional\) The IAM role for this execution\. If no role is specified, AWS Systems Manager Automation will use the permissions of the user that runs this document\.
+  Description: \(Required\) The subnet ID for the monitor instance\.
 
 **Required IAM Permissions**
+
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 It is recommended that the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached\. In addition, the user must have the following policy attached to their user account, group, or role:
 

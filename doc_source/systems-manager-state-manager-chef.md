@@ -186,7 +186,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
    --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["AWSDOC-EXAMPLE-BUCKET"]}' \
+   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
    --association-name "name" --schedule-expression "cron_or_rate_expression"
    ```
 
@@ -196,7 +196,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
    --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["AWSDOC-EXAMPLE-BUCKET"]}' ^
+   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
    --association-name "name" --schedule-expression "cron_or_rate_expression"
    ```
 
@@ -219,7 +219,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
    --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["AWSDOC-EXAMPLE-BUCKET"]}' \
+   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
    --association-name "name" --schedule-expression "cron_or_rate_expression"
    ```
 
@@ -229,7 +229,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
    --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["AWSDOC-EXAMPLE-BUCKET"]}' ^
+   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
    --association-name "name" --schedule-expression "cron_or_rate_expression"
    ```
 

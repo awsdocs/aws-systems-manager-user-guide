@@ -9,33 +9,47 @@ If your instances connect to AWS Systems Manager using VPC endpoints, this docum
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-UpgradeWindowsAWSDrivers)
 
- **Document Type** 
+**Document Type**
 
 Automation
 
- **Owner** 
+**Owner**
 
 Amazon
 
- **Platforms** 
+**Platforms**
 
-Windows
+Windows, Linux
 
- **Parameters** 
+**Parameters**
++ AllowOffline
+
+  Type: String
+
+  Valid values: True \| False
+
+  Default: False
+
+  Description: \(Optional\) Set it to true if you allow an offline drivers upgrade in case the online installation cannot be performed\. Note: The offline method requires the provided EC2 instance be stopped and then started\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
++ AutomationAssumeRole
+
+  Type: String
+
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
++ ForceUpgrade
+
+  Type: String
+
+  Valid values: True \| False
+
+  Default: False
+
+  Description: \(Optional\) Offline only \- Set it to true if you allow the offline drivers upgrade to proceed even though your instance already has the latest drivers installed\.
 + InstanceId
 
   Type: String
 
   Description: \(Required\) ID of your EC2 instance for Windows Server\.
-+ AllowOffline
-
-  Type: String
-
-  Allowed values: True,False
-
-  Default: False
-
-  Description: \(Optional\) Set it to true if you allow an offline drivers upgrade in case the online installation cannot be performed\. Note: The offline method requires the provided EC2 instance be stopped and then started\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
 + SubnetId
 
   Type: String
@@ -45,22 +59,10 @@ Windows
   Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline drivers upgrade\. If no subnet ID is specified, Systems Manager Automation will create a new VPC\.
 **Important**  
 The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
-+ ForceUpgrade
 
-  Type: String
+**Required IAM Permissions**
 
-  Allowed values: True,False
-
-  Default: False
-
-  Description: \(Optional\) Offline only \- Set it to true if you allow the offline drivers upgrade to proceed even though your instance already has the latest drivers installed\.
-+ AutomationAssumeRole
-
-  Type: String
-
-  Description: \(Optional\) The ARN of the role that allows Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document\.
-
- **Required IAM Permissions** 
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
 The EC2 instance receiving the command must at minimum have an IAM role that includes permissions for **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. You can attach the `AmazonSSMManagedInstanceCore` Amazon managed policy to your IAM role to provide these permissions\. We recommend, however, using the Automation IAM role `AmazonSSMAutomationRole` for this purpose\. For more information, see [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
 

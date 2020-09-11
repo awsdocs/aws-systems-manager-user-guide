@@ -52,16 +52,26 @@ This Automation doesn't support upgrading Windows domain controllers, clusters, 
 + Remote Desktop Web Access \(RDWA\)
 
 **Parameters**
-+ InstanceId
++ BYOLWindowsMediaSnapshotId
 
   Type: String
 
-  Description: \(Required\) The instance running Windows Server 2008 R2 or 2012 R2\.
+  Description: \(Optional\) The ID of the Amazon EBS snapshot to copy that includes Windows Server 2012R2 installation media\. Required only if you are upgrading a BYOL instance\.
 + IamInstanceProfile
 
   Type: String
 
   Description: \(Required\) The name of the IAM instance profile that enables Systems Manager to manage the instance\.
++ InstanceId
+
+  Type: String
+
+  Description: \(Required\) The instance running Windows Server 2008 R2 or 2012 R2\.
++ KeepPreUpgradeImageBackUp
+
+  Type: String
+
+  Description: \(Optional\) If set True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
 + SubnetId
 
   Type: String
@@ -74,16 +84,6 @@ This Automation doesn't support upgrading Windows domain controllers, clusters, 
   Description: \(Required\) Select the target Windows version\.
 
   Default: 2012R2
-+ BYOLWindowsMediaSnapshotId
-
-  Type: String
-
-  Description: \(Optional\) The ID of the Amazon EBS snapshot to copy that includes Windows Server 2012R2 installation media\. Required only if you are upgrading a BYOL instance\.
-+ KeepPreUpgradeImageBackUp
-
-  Type: String
-
-  Description: \(Optional\) If set True, the Automation doesn't delete the AMI created from the instance before the upgrade\. If set to True, then you must delete the AMI\. By default, the AMI is deleted\.
 + RebootInstanceBeforeTakingImage
 
   Type: String

@@ -124,7 +124,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    **Amazon S3**
 
    ```
-   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/Inspec.yml_file\"}"]}'
+   aws ssm send-command --document-name "AWS-RunInspecChecks" --targets '[{"Key":"tag:tag_name","Values":["tag_value"]}]' --parameters'{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/Inspec.yml_file\"}"]}'
    ```
 
    Here is an example\.

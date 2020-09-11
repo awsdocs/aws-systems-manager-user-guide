@@ -92,8 +92,8 @@ For information about the AWS managed S3 buckets you provide access to in the po
                    "s3:GetEncryptionConfiguration" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
                ],
                "Resource": [
-                   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET/*",
-                   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
+                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
                ]
            }
        ]
@@ -108,7 +108,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
 
    **4** The `GetEncryptionConfiguration` element is required if your S3 bucket is configured to use encryption\.
 
-   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, arn:aws:s3:::*AWSDOC\-EXAMPLE\-BUCKET*\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
+   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, arn:aws:s3:::*DOC\-EXAMPLE\-BUCKET*\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
 
 1. If you are using a VPC endpoint in your operations, do the following: 
 
@@ -122,14 +122,14 @@ We recommend that you avoid using wildcard characters \(\*\) in place of specifi
 
 1. If you are using an S3 bucket of your own in your Systems Manager operations, do the following:
 
-   In the second `Statement` element, replace **AWSDOC\-EXAMPLE\-BUCKET** with the name of an S3 bucket in your account\. You will use this bucket for your Systems Manager operations\. It provides permission for objects in the bucket, using `"arn:aws:s3:::my-bucket-name/*"` as the resource\. For more information about providing permissions for buckets or objects in buckets, see the topic [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) in the *Amazon Simple Storage Service Developer Guide* and the AWS blog post [IAM Policies and Bucket Policies and ACLs\! Oh, My\! \(Controlling Access to S3 Resources\)](http://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/)\.
+   In the second `Statement` element, replace **DOC\-EXAMPLE\-BUCKET** with the name of an S3 bucket in your account\. You will use this bucket for your Systems Manager operations\. It provides permission for objects in the bucket, using `"arn:aws:s3:::my-bucket-name/*"` as the resource\. For more information about providing permissions for buckets or objects in buckets, see the topic [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) in the *Amazon Simple Storage Service Developer Guide* and the AWS blog post [IAM Policies and Bucket Policies and ACLs\! Oh, My\! \(Controlling Access to S3 Resources\)](http://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/)\.
 **Note**  
 If you use more than one bucket, provide the ARN for each one\. For example, for permissions on buckets:  
 
    ```
    "Resource": [
-   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET1/*",
-   "arn:aws:s3:::AWSDOC-EXAMPLE-BUCKET2/*"
+   "arn:aws:s3:::DOC-EXAMPLE-BUCKET1/*",
+   "arn:aws:s3:::DOC-EXAMPLE-BUCKET2/*"
                   ]
    ```
 

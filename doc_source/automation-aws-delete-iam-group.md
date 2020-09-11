@@ -18,12 +18,12 @@ Amazon
 
 Windows, Linux
 
- **Parameters** 
+**Parameters**
 + AutomationAssumeRole
 
   Type: String
 
-  Description: \(Required\) The Amazon Resource Name \(ARN\) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + GroupName
 
   Type: String
@@ -32,7 +32,7 @@ Windows, Linux
 
 **Required IAM Permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully execute the Automation document\.
+The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:ExecuteAutomation`
 + `ssm:GetAutomationExecution`
 + `iam:DeleteGroup`
