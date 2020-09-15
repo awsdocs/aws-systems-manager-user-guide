@@ -1,6 +1,6 @@
 # Enable run as support for Linux instances<a name="session-preferences-run-as"></a>
 
-By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system account\. Session Manager provides two methods for specifying the operating system account to use\.
+By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system account\. Only the operating system account's credentials are used to start the session\. Other operating system account settings, like shell profiles, are not applied to your sessions\. Session Manager provides two methods for specifying the operating system account to use\.
 
 **Method 1: Tag an IAM user or role \(recommended\)**  
 You can specify the operating system user account that is used to start sessions by tagging an IAM user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.

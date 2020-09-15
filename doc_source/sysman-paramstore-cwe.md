@@ -96,7 +96,7 @@ You are modifying sample code we provide instead of using the event pattern buil
 
 ## Configuring CloudWatch Events for parameter policies<a name="cwe-parameter-policy-status"></a>
 
-This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed, You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
+This topic explains how to create CloudWatch Events rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 **To configure CloudWatch Events for Systems Manager parameter policies**
 

@@ -101,7 +101,6 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS Systems Manager OpsCenter](OpsCenter.md)
       + [Getting started with OpsCenter](OpsCenter-getting-started.md)
       + [Creating OpsItems](OpsCenter-creating-OpsItems.md)
-         + [Configuring CloudWatch to automatically create OpsItems for specific alarms](OpsCenter-automatically-create-OpsItems-1.md)
          + [Configuring CloudWatch Events to automatically create OpsItems for specific events](OpsCenter-automatically-create-OpsItems-2.md)
          + [Configuring CloudWatch Application Insights for .NET and SQL Server to automatically create OpsItems](OpsCenter-getting-started-user-CloudWatch-Application-Insights.md)
          + [Creating OpsItems manually](OpsCenter-manually-create-OpsItems.md)
