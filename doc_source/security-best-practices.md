@@ -53,7 +53,7 @@ Use Tag Editor to identify security\-sensitive or audit\-sensitive resources, th
 Create resource groups for your Systems Manager resources\. For more information, see [What Is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html) 
 
 **Implement monitoring using Amazon CloudWatch monitoring tools**  
-Monitoring is an important part of maintaining the reliability, security, availability, and performance of Systems Manager and your AWS solutions\. CloudWatch provides several tools and services to help you monitor Systems Manager and your other AWS services\. For more information, see [Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md) and [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+Monitoring is an important part of maintaining the reliability, security, availability, and performance of Systems Manager and your AWS solutions\. CloudWatch provides several tools and services to help you monitor Systems Manager and your other AWS services\. For more information, see [Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md) and [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
 **Use AWS CloudTrail**  
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. Using the information collected by AWS CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
@@ -66,14 +66,9 @@ You should regularly check security advisories posted in Trusted Advisor for you
 Further, actively monitor the primary email address registered to each of your AWS accounts\. AWS will contact you, using this email address, about emerging security issues that might affect you\.  
 AWS operational issues with broad impact are posted on the [AWS Service Health Dashboard](https://status.aws.amazon.com/)\. Operational issues are also posted to individual accounts via the Personal Health Dashboard\. For more information, see the [AWS Health Documentation](https://docs.aws.amazon.com/health/)\.
 
-**Related Content**
-
-[Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) \(whitepaper\)
-
-[Getting Started: Follow Security Best Practices as You Configure Your AWS Resources](http://aws.amazon.com/blogs/security/getting-started-follow-security-best-practices-as-you-configure-your-aws-resources/) \(AWS Security Blog\)
-
-[IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
-
-[Security Best Practices in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html)
-
-[Security Best Practices for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html)
+**Related content**
++ [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) \(whitepaper\)
++ [Getting Started: Follow Security Best Practices as You Configure Your AWS Resources](http://aws.amazon.com/blogs/security/getting-started-follow-security-best-practices-as-you-configure-your-aws-resources/) \(AWS Security Blog\)
++ [IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
++ [Security Best Practices in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/best-practices-security.html)
++ [Security Best Practices for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/security-best-practices.html)

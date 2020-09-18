@@ -3,7 +3,7 @@
 Systems Manager Automation simplifies common maintenance and deployment tasks of EC2 instances and other AWS resources\. Automation enables you to do the following:
 + Build Automation workflows to configure and manage instances and AWS resources\.
 + Create custom workflows or use pre\-defined workflows maintained by AWS\.
-+ Receive notifications about Automation tasks and workflows by using Amazon CloudWatch Events\.
++ Receive notifications about Automation tasks and workflows by using Amazon EventBridge\.
 + Monitor Automation progress and execution details by using the Amazon EC2 or the AWS Systems Manager console\. 
 
 **Primary Components**  
@@ -28,7 +28,7 @@ This section includes common uses cases for AWS Systems Manager Automation\.
 **Perform common IT tasks**  
 Automation can simplify common IT tasks such as changing the state of one or more instances \(using an approval workflow\) and managing instance states according to a schedule\. Here are some examples:
 + Use the AWS\-StopEC2InstanceWithApproval document to request that one or more AWS Identity and Access Management \(IAM\) users approve the instance stop action\. After the approval is received, Automation stops the instance\.
-+ Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon CloudWatch Events or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
++ Use the AWS\-StopEC2Instance document to automatically stop instances on a schedule by using Amazon EventBridge or by using a maintenance window task\. For example, you can configure an Automation workflow to stop instances every Friday evening, and then restart them every Monday morning\.
 + Use the AWS\-UpdateCloudFormationStackWithApproval document to update resources that were deployed by using CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
 
 For information about how to run an Automation workflow by using State Manager, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
@@ -57,6 +57,9 @@ For an example of how to delegate access to an Automation workflow, see [Running
 Automation lets you share best practices with rest of your organization\.
 
 You can create best practices for resource management in Automation documents and easily share the documents across AWS Regions and groups\. You can also constrain the allowed values for the parameters the document accepts\.
+
+**Amazon EventBridge support**  
+This Systems Manager capability is supported as a *target* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Automation use cases](#automation-use-cases)

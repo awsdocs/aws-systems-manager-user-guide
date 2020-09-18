@@ -6,8 +6,8 @@ You must also create an IAM instance profile role for any instance that will pro
 
 We also strongly recommend completing the following optional setup tasks to help minimize the security posture and day\-to\-day management of your instances\.
 
-Monitor command executions using Amazon CloudWatch Events  
-You can use Amazon CloudWatch Events to log command execution status changes\. You can create a rule that runs whenever there is a state transition, or when there is a transition to one or more states that are of interest\. You can also specify Run Command as a target action when a CloudWatch event occurs\. For more information, see [Configuring CloudWatch Events for Run Command](rc-cwe.md)\.
+Monitor command executions using Amazon EventBridge  
+You can use Amazon EventBridge to log command execution status changes\. You can create a rule that runs whenever there is a state transition, or when there is a transition to one or more states that are of interest\. You can also specify Run Command as a target action when an EventBridge event occurs\. For more information, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md)\.
 
 Monitor command executions using Amazon CloudWatch Logs  
 You can configure Run Command to periodically send all command output and error logs to a CloudWatch Logs log group\. You can monitor these output logs in near real\-time, search for specific phrases, values, or patterns, and create alarms based on the search\. For more information, see [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)\.

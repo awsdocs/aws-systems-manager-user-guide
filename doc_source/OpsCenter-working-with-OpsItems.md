@@ -11,7 +11,7 @@ This section describes how to configure the options available in an OpsItem\. Fo
 
 ## Working with related resources<a name="OpsCenter-working-with-OpsItems-related-resources"></a>
 
-A related resource is the impacted resource \(the resource that needs to be investigated or the resource that triggered the Amazon CloudWatch Events event that created the OpsItem\)\. Each OpsItem has a **Related resources** section\. If CloudWatch Events creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
+A related resource is the impacted resource \(the resource that needs to be investigated or the resource that triggered the Amazon EventBridge event that created the OpsItem\)\. Each OpsItem has a **Related resources** section\. If EventBridge creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
 **Note**  
 You can manually add the ARNs of additional related resources\. Each OpsItem can list a maximum of 100 related resource ARNs\.
@@ -46,7 +46,7 @@ The **OpsItem details** section includes information about the OpsItem, includin
 
 ![\[Viewing details in the console about an OpsItem\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_3.png)
 
-For OpsItems that were created automatically, Amazon CloudWatch Events populates the **Title**, **Source**, and **Description** fields\. You can edit the **Title** and the **Description** fields, but you can't edit the **Source** field\.
+For OpsItems that were created automatically, Amazon EventBridge populates the **Title**, **Source**, and **Description** fields\. You can edit the **Title** and the **Description** fields, but you can't edit the **Source** field\.
 
 **About OpsItem Status**  
 When you edit an OpsItem, you can specify a status\. The **Status** list includes the following options:
@@ -155,7 +155,7 @@ Note the following information about OpsCenter and deduplication:
 ### Configuring deduplication strings<a name="OpsCenter-working-deduplication-configuring"></a>
 
 OpsCenter includes the following options for configuring deduplication strings\.
-+ **Edit preconfigured deduplication strings**: Each of the OpsItem default CloudWatch Events rules includes a preconfigured deduplication string\. You can edit these deduplication strings in CloudWatch Events\.
++ **Edit preconfigured deduplication strings**: Each of the OpsItem default EventBridge rules includes a preconfigured deduplication string\. You can edit these deduplication strings in EventBridge\.
 + **Manually specify deduplication strings**: You can enter a deduplication string by using either the **Deduplication string** field in the console or the `OperationalData` parameter when you create a new OpsItem by using either the AWS CLI or AWS Tools for Windows PowerShell\. 
 
 After the system creates an OpsItem, it populates the **Deduplication string** field, if a string was specified\. Here's an example\.
@@ -165,29 +165,27 @@ After the system creates an OpsItem, it populates the **Deduplication string** f
 After you create an OpsItem, you *can't* edit or change the deduplication strings in that OpsItem\.
 
 This sections includes the following procedures for configuring deduplication strings\.
-+ [Editing a deduplication string in an OpsCenter default CloudWatch Events rule](#OpsCenter-working-deduplication-editing-cwe)
++ [Editing a deduplication string in an OpsCenter default EventBridge rule](#OpsCenter-working-deduplication-editing-cwe)
 + [Specifying a deduplication string by using the AWS CLI](#OpsCenter-working-deduplication-configuring-manual-cli)
 
 **Note**  
 For information about entering deduplication strings when you manually create an OpsItem in the console, see [Creating OpsItems manually](OpsCenter-manually-create-OpsItems.md)\.
 
-#### Editing a deduplication string in an OpsCenter default CloudWatch Events rule<a name="OpsCenter-working-deduplication-editing-cwe"></a>
+#### Editing a deduplication string in an OpsCenter default EventBridge rule<a name="OpsCenter-working-deduplication-editing-cwe"></a>
 
-Use the following procedure to specify a deduplication string for a CloudWatch Events rule that targets OpsCenter\.
+Use the following procedure to specify a deduplication string for an EventBridge rule that targets OpsCenter\.
 
-**To edit a deduplication string in an OpsItem default CloudWatch Events rule**
+**To edit a deduplication string in an OpsItem default EventBridge rule**
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+1. Sign in to the AWS Management Console and open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
 1. In the navigation pane, choose **Rules**\.
 
-1. Choose a rule, and then choose **Actions**, **Edit**\.  
-![\[Choosing an OpsItem default CloudWatch Events rule in the console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_dedup_2.png)
+1. Choose a rule, and then choose **Edit**\.
 
-1. In the **Targets** section, expand the lower **Input transformer** field and locate the `"operationalData": { "/aws/dedup"` JSON entry and the deduplication strings that you want to edit\.  
-![\[Editing a deduplication string in CloudWatch Events\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_dedup_4.png)
+1. In the **Select targets** section, expand **Configure input**\. In the lower **Input transformer** field, locate the `"operationalData": { "/aws/dedup"` JSON entry and the deduplication strings that you want to edit\.
 
-   The deduplication string entry in CloudWatch Events rules uses the following JSON format\.
+   The deduplication string entry in EventBridge rules uses the following JSON format\.
 
    ```
    "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"Words the system should use to check for duplicate OpsItems\"}"}
@@ -199,7 +197,7 @@ Use the following procedure to specify a deduplication string for a CloudWatch E
    "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"SSMOpsCenter-EBS-volume-performance-issue\"}"}
    ```
 
-1. Edit the deduplications strings, and then choose **Configure details** to finish updating the rule\.
+1. Edit the deduplications strings, and then choose **Update** to finish updating the rule\.
 
 #### Specifying a deduplication string by using the AWS CLI<a name="OpsCenter-working-deduplication-configuring-manual-cli"></a>
 
@@ -211,14 +209,31 @@ You can specify a deduplication string when you manually create a new OpsItem by
 
 Here is an example command that specifies a deduplication string of `disk full`\.
 
-**Linux**
+------
+#### [ Linux ]
 
 ```
-aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 1 --source ec2 --operational-data '{"/aws/dedup":{"Value":"{\"dedupString\": \"disk full\"}","Type":"SearchableString"}}' --tags "Key=EC2,Value=ProductionServers" --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser"
+aws ssm create-ops-item \
+    --title "EC2 instance disk full" \
+    --description "Log clean up may have failed which caused the disk to be full" \
+    --priority 1 \
+    --source ec2 \
+    --operational-data '{"/aws/dedup":{"Value":"{\"dedupString\": \"disk full\"}","Type":"SearchableString"}}' \
+    --tags "Key=EC2,Value=ProductionServers" \
+    --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser"
 ```
 
-**Windows**
+------
+#### [ Windows ]
 
 ```
-aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 1 --source EC2 --operational-data={\"/aws/dedup\":{\"Value\":\"{\\"""dedupString\\""":\\"""disk full\\"""}\",\"Type\":\"SearchableString\"}} --tags "Key=EC2,Value=ProductionServers" --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser"
+aws ssm create-ops-item ^
+    --title "EC2 instance disk full" ^
+    --description "Log clean up may have failed which caused the disk to be full" ^
+    --priority 1 ^
+    --source EC2 ^
+    --operational-data={\"/aws/dedup\":{\"Value\":\"{\\"""dedupString\\""":\\"""disk full\\"""}\",\"Type\":\"SearchableString\"}} ^
+    --tags "Key=EC2,Value=ProductionServers" --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser"
 ```
+
+------

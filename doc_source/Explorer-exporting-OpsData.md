@@ -108,3 +108,5 @@ The role includes the following trust entity\.
 1. Choose **Create**\.
 
 You can now export OpsData from Explorer pages to the specified S3 bucket\.
+
+If you can't export data by using this procedure, verify that your IAM user account, group, or role includes the `iam:CreatePolicyVersion` and `iam:DeletePolicyVersion` actions\. For information about adding these actions to your user account, group, or role, see [Editing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.

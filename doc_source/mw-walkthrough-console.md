@@ -60,9 +60,9 @@ Use the following procedure to register a target with the maintenance window you
 
 1. For **Description**, enter a description\.
 
-1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon CloudWatch Events raised while running tasks for these targets in this maintenance window\.
+1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon EventBridge event raised while running tasks for these targets in this maintenance window\.
 
-   For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+   For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
 1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance IDs\.
 **Note**  

@@ -29,7 +29,7 @@ aws cloudwatch list-metrics --namespace "AWS/SSM-RunCommand"
 
 ## Systems Manager Run Command metrics and dimensions<a name="metrics-and-dimensions"></a>
 
-Systems Manager sends Systems Manager Run Command command metrics to CloudWatch one time every minute\. 
+Systems Manager sends Systems Manager Run Command command metrics to CloudWatch one time every minute\.
 
 Systems Manager sends the following command metrics to CloudWatch\.
 

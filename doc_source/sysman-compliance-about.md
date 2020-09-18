@@ -61,7 +61,7 @@ Use the following procedure to view compliance data in the Systems Manager conso
 1. On the **Instance ID** details page, select the **Configuration compliance** tab to view its detailed configuration compliance report\.
 
 **Note**  
-For information about fixing compliance issues, see [Remediating compliance issues](sysman-compliance-fixing.md)\.
+For information about fixing compliance issues, see [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)\.
 
 ### Viewing current compliance data \(AWS CLI\)<a name="compliance-view-data-cli"></a>
 

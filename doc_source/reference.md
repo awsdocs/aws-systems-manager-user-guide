@@ -30,6 +30,7 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 [Management Tools](https://aws.amazon.com/blogs/mt/)
 
 **Topics**
++ [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)
 + [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
 + [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)
 + [Reference: Creating formatted date and time strings for Systems Manager](systems-manager-datetime-strings.md)

@@ -30,10 +30,14 @@ Parameter Store offers the following benefits and features\.
   + AWS Key Management Service \(AWS KMS\)
   + Amazon Simple Notification Service \(Amazon SNS\)
   + Amazon CloudWatch
+  + Amazon EventBridge
   + AWS CloudTrail
 
 **Tagging a parameter**  
 You can tag your parameters to help you quickly identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments, departments, users, groups, or periods\. You can also restrict access to parameters by creating an IAM policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
+
+**Amazon EventBridge support**  
+This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Parameter types and examples](parameter-store-about-examples.md)

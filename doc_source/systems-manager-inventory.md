@@ -30,6 +30,9 @@ Inventory cards automatically filter out Amazon EC2 managed instances with a sta
 
 If you create a resource data sync to synchronize and store all of your data in a single S3 bucket, then you can drill down into the data on the **Inventory Detailed View** page\. For more information, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md)\.
 
+**Amazon EventBridge support**  
+This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+
 **Topics**
 + [Learn more about Systems Manager Inventory](sysman-inventory-about.md)
 + [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)

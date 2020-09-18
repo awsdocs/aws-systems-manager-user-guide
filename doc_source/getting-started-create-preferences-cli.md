@@ -23,7 +23,7 @@ You can use this procedure to create custom session documents for your Session M
            "cloudWatchLogGroupName": "",
            "cloudWatchEncryptionEnabled": true,
            "kmsKeyId": "",
-           "runAsEnabled": "false",
+           "runAsEnabled": false,
            "runAsDefaultUser": ""
        }
    }

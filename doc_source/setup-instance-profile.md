@@ -45,8 +45,8 @@ This AWS managed policy allows SSM Agent to access AWS Directory Service on your
 
 **Policy: CloudWatchAgentServerPolicy**  
 Required only if you plan to install and run the CloudWatch agent on your instances to read metric and log data on an instance and write it to Amazon CloudWatch\. These help you monitor, analyze, and quickly respond to issues or changes to your AWS resources\.  
-Your instance profile needs this policy only if you will use CloudWatch features, such as CloudWatch Events or CloudWatch Logs\. \(You can also create a more restrictive policy that, for example, limits writing access to a specific CloudWatch Logs log stream\.\)  
-Using CloudWatch features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon CloudWatch Events User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
+Your instance profile needs this policy only if you will use features such as Amazon EventBridge or CloudWatch Logs\. \(You can also create a more restrictive policy that, for example, limits writing access to a specific CloudWatch Logs log stream\.\)  
+Using EventBridge and CloudWatch Logs features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 To create an instance profile with permissions for additional Systems Manager services, see the following resources\.  
 + [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)
 + [Getting started with Automation](automation-setup.md)
@@ -165,7 +165,7 @@ Depending on whether you are creating a new role for your instance profile or ad
      The console retains your selection even if you search for other policies\.
    + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
-   + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
+   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
 
 1. Choose **Next: Tags**\.
 
@@ -191,7 +191,7 @@ Make a note of the role name\. You will choose this role when you create new ins
    + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
    + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy)\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
-   + If you plan to use CloudWatch Events or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
+   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
 
 1. Choose **Attach policy**\.
 

@@ -2,9 +2,9 @@
 
 Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer and Systems Manager OpsCenter\. In this documentation, Explorer and OpsCenter Setup is called *Integrated Setup*\. If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\. Integrated Setup performs the following tasks\.
 
-1. [Configures roles and permissions](Explorer-setup-permissions.md): Integrated Setup creates an AWS Identity and Access Management \(IAM\) role that enables Amazon CloudWatch Events to automatically create OpsItems based on default rules\. After setting up, you must configure IAM user, group, or role permissions for OpsCenter, as described in this section\. 
+1. [Configures roles and permissions](Explorer-setup-permissions.md): Integrated Setup creates an AWS Identity and Access Management \(IAM\) role that enables Amazon EventBridge to automatically create OpsItems based on default rules\. After setting up, you must configure IAM user, group, or role permissions for OpsCenter, as described in this section\. 
 
-1. [Enables default rules for OpsItem creation](Explorer-setup-default-rules.md): Integrated Setup creates default rules in CloudWatch Events\. These rules automatically create OpsItems in response to events\. Examples of these events are: state change for an AWS resource, a change in security settings, or a service becoming unavailable\.
+1. [Enables default rules for OpsItem creation](Explorer-setup-default-rules.md): Integrated Setup creates default rules in EventBridge\. These rules automatically create OpsItems in response to events\. Examples of these events are: state change for an AWS resource, a change in security settings, or a service becoming unavailable\.
 
 1. [Enables OpsData sources](#Explorer-setup-data-sources): Integrated Setup enables data sources that populate Explorer widgets\.
 

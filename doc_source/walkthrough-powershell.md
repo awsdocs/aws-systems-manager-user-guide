@@ -12,7 +12,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 + [Install an application using the AWS\-InstallApplication document](#walkthrough-powershell-install-application)
 + [Install a PowerShell module using the AWS\-InstallPowerShellModule JSON document](#walkthrough-powershell-install-module)
 + [Join an instance to a Domain using the AWS\-JoinDirectoryServiceDomain JSON document](#walkthrough-powershell-domain-join)
-+ [Send Windows metrics to amazon CloudWatch using the AWS\-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics)
++ [Send Windows metrics to Amazon CloudWatch Logs using the AWS\-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics)
 + [Update EC2Config using the AWS\-UpdateEC2Config document](#walkthrough-powershell-update-ec2config)
 + [Enable/Disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
 + [Manage Windows updates using Run Command](#walkthough-powershell-windows-updates)
@@ -277,9 +277,9 @@ Get-SSMCommandInvocation `
 	-Details $true | Select -ExpandProperty CommandPlugins
 ```
 
-## Send Windows metrics to amazon CloudWatch using the AWS\-ConfigureCloudWatch document<a name="walkthrough-powershell-windows-metrics"></a>
+## Send Windows metrics to Amazon CloudWatch Logs using the AWS\-ConfigureCloudWatch document<a name="walkthrough-powershell-windows-metrics"></a>
 
-You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time are not included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to Amazon CloudWatch\.
+You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time are not included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
 
 If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the C:\\Program Files\\Amazon\\EC2ConfigService\\Settings\\AWS\.EC2\.Windows\.CloudWatch\.json file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
 

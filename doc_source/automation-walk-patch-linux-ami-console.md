@@ -8,7 +8,7 @@ The `AWS-UpdateLinuxAmi` document enables you to automate image\-maintenance tas
 + Install additional software packages\.
 
 **Before You Begin**  
-Before you begin working with Automation documents, configure roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting started with Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+Before you begin working with Automation documents, configure roles and, optionally, EventBridge for Automation\. For more information, see [Getting started with Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 The `AWS-UpdateLinuxAmi` document accepts the following input parameters\.
 

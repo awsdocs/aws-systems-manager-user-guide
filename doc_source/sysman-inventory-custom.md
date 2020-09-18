@@ -463,9 +463,9 @@ The system returns information like the following\.
 }
 ```
 
-### Viewing inventory delete actions in CloudWatch Events<a name="sysman-inventory-delete-cwe"></a>
+### Viewing inventory delete actions in EventBridge<a name="sysman-inventory-delete-cwe"></a>
 
-You can configure Amazon CloudWatch Events to create an event anytime a user deletes custom inventory\. CloudWatch Events offers three types of events for custom inventory delete operations:
+You can configure Amazon EventBridge to create an event anytime a user deletes custom inventory\. EventBridge offers three types of events for custom inventory delete operations:
 + **Delete action for an instance**: If the custom inventory for a specific managed instance was successfully deleted or not\. 
 + **Delete action summary**: A summary of the delete action\.
 + **Warning for disabled custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
@@ -547,26 +547,40 @@ Here are examples of each event:
 }
 ```
 
-Use the following procedure to create a CloudWatch Events rule for custom inventory delete operations\. This procedure shows you how to create a rule that sends notifications for custom inventory delete operations to an Amazon SNS topic\. Before you begin, verify that you have an Amazon SNS topic, or create a new one\. For more information, see [Getting Started](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
+Use the following procedure to create an EventBridge rule for custom inventory delete operations\. This procedure shows you how to create a rule that sends notifications for custom inventory delete operations to an Amazon SNS topic\. Before you begin, verify that you have an Amazon SNS topic, or create a new one\. For more information, see [Getting Started](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
-**To configure CloudWatch Events for delete inventory operations**
+**To configure EventBridge for delete inventory operations**
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
-1. In the left navigation pane, choose **Events**, and then choose **Create rule**\.
+1. In the navigation pane, choose **Rules**, and then choose **Create rule**\.
 
-1. Under **Event Source**, verify that **Event Pattern** is selected\.
+   \-or\-
 
-1. In the **Service Name** field, choose **EC2 Simple Systems Manager \(SSM\)\.**
+   If the Amazon EventBridge home page opens first, choose **Create rule**\.
 
-1. In the **Event Type** field, choose **Inventory**\.
+1. Enter a name and description for the rule\.
 
-1. Verify that **Any detail type** is selected, and then choose **Add targets**\.
+   A rule can't have the same name as another rule in the same Region and on the same event bus\.
 
-1. In the **Select target type** list, choose **SNS topic**, and then choose your topic from the list\.
+1. For **Define pattern**, choose **Event pattern**\.
 
-1. In the **Configure input** list, verify that **Matched event** is selected\.
+1. Choose **Pre\-defined pattern by service**\.
 
-1. Choose **Configure details**\.
+1. For **Service provider**, choose **AWS**\.
 
-1. Specify a name and a description, and then choose **Create rule**\.
+1. For **Service name**, choose **EC2 Simple Systems Manager \(SSM\)**
+
+1. For **Event type**, choose **Inventory**\.
+
+1. Verify that **Any detail type** is selected\.
+
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select ** AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+
+1. For **Target**, choose **SNS topic**, and then choose your topic from the **Topic** list\.
+
+1. Expand **Configure input** and verify that **Matched event** is selected\.
+
+1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
+
+1. Choose **Create**\.

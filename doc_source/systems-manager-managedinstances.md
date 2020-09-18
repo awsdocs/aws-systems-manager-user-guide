@@ -10,9 +10,9 @@ Configuring your hybrid environment for Systems Manager enables you to do the fo
 + Centralize auditing and your view into the actions performed on your servers and VMs by recording all actions in AWS CloudTrail\.
 
   For information about using CloudTrail to monitor Systems Manager actions, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
-+ Centralize monitoring by configuring CloudWatch Events and Amazon SNS to send notifications about service execution success\.
++ Centralize monitoring by configuring EventBridge and Amazon SNS to send notifications about service execution success\.
 
-  For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+  For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
 **About managed instances**  
 After you finish configuring your servers and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed instances*\. EC2 instances configured for Systems Manager are also described as managed instances\. In the console, however, the IDs of your hybrid instances are distinguished from EC2 instances with the prefix "mi\-"\. EC2 instance IDs use the prefix "i\-"\.

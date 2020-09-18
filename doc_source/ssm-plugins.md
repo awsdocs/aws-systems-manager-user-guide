@@ -158,7 +158,7 @@ You can export and monitor the following data types:
 Sends application event log data to CloudWatch Logs\.
 
 **CustomLogs**  
-Sends any text\-based log file to CloudWatch Logs\. The CloudWatch plugin creates a fingerprint for log files\. The system then associates a data offset with each fingerprint\. The plugin uploads files when there are changes, records the offset, and associates the offset with a fingerprint\. This method is used to avoid a situation where a user enables the plugin, associates the service with a directory that contains a large number of files, and the system uploads all of the files\.  
+Sends any text\-based log file to Amazon CloudWatch Logs\. The CloudWatch plugin creates a fingerprint for log files\. The system then associates a data offset with each fingerprint\. The plugin uploads files when there are changes, records the offset, and associates the offset with a fingerprint\. This method is used to avoid a situation where a user enables the plugin, associates the service with a directory that contains a large number of files, and the system uploads all of the files\.  
 Be aware that if your application truncates or attempts to clean logs during polling, any logs specified for `LogDirectoryPath` can lose entries\. If, for example, you want to limit log file size, create a new log file when that limit is reached, and then continue writing data to the new file\.
 
 **ETW**  

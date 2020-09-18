@@ -1,26 +1,38 @@
-# Running automations with triggers using CloudWatch Events<a name="automation-cwe-target"></a>
+# Running automations with triggers using EventBridge<a name="automation-cwe-target"></a>
 
-You can start an automation by specifying an Automation document as the target of an Amazon CloudWatch event\. You can start workflows according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create an Automation document named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* document \(and corresponding workflow\) as a target of a CloudWatch event, you first create a new CloudWatch Events rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* document as the target of the event using the CloudWatch console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\. When a new instance starts, the system runs the workflow and installs software\.
+You can start an automation by specifying an Automation document as the target of an Amazon EventBridge event\. You can start workflows according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create an Automation document named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* document \(and corresponding workflow\) as a target of an EventBridge event, you first create a new EventBridge rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* document as the target of the event using the EventBridge console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\. When a new instance starts, the system runs the workflow and installs software\.
 
 For information about creating Automation documents, see [Working with Automation documents](automation-documents.md)\.
 
-## Creating a CloudWatch event that runs an automation \(console\)<a name="automation-cwe-target-console"></a>
+## Creating an EventBridge event that runs an automation \(console\)<a name="automation-cwe-target-console"></a>
 
-Use the following procedure to configure an automation as the target of a CloudWatch event\.
+Use the following procedure to configure an automation as the target of a EventBridge event\.
 
-**To configure an Automation document as a target of a CloudWatch event rule**
+**To configure an Automation document as a target of a EventBridge event rule**
 
-1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
+1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
-1. In the left navigation pane, choose **Events**, and then choose **Create rule**\.
+1. In the navigation pane, choose **Rules**, and then choose **Create rule**\.
 
-1. Choose **Event Pattern** or **Schedule**\. **Event Pattern** lets you build a rule that generates events for specific actions in AWS services\. **Schedule** lets you build a rule that generates events according to a schedule that you specify by using the cron format\.
+   \-or\-
+
+   If the Amazon EventBridge home page opens first, choose **Create rule**\.
+
+1. Enter a name and description for the rule\.
+
+   A rule can't have the same name as another rule in the same Region and on the same event bus\.
+
+1. For **Define pattern**, choose either **Event pattern** or **Schedule**\. **Event pattern** lets you build a rule that generates events for specific actions in AWS services\. **Schedule** lets you build a rule that generates events according to a schedule that you specify by using the cron format\.
 
 1. Choose the remaining options for the rule you want to create, and then choose **Add target**\.
 
-1. In the **Select target type** list, choose **SSM Automation**\. 
+   For information about creating EventBridge rules, see [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*\.
 
-1. In the **Document** list, choose an Automation document to run when your target is invoked\.
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select ** AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+
+1. For **Target**, choose **SSM Automation**\. 
+
+1. For**Document**, choose an Automation document to run when your target is invoked\.
 
 1. Expand **Configure document version**, and choose a version\. $DEFAULT was explicitly set as the default document version in Systems Manager\. You can choose a specific version, or use the latest version\.
 
@@ -28,21 +40,23 @@ Use the following procedure to configure an automation as the target of a CloudW
 **Note**  
 Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't run\.
 
-1. In the permissions section, choose an option\. CloudWatch uses the role to start the automation\. 
+1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the Automation workflow with the specified document and paramters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
 
-1. Choose **Configure details** and complete the wizard\.
+1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
 
-## Create a CloudWatch event that runs an Automation document \(command line\)<a name="automation-cwe-target-commandline"></a>
+1. Choose **Create** and complete the wizard\.
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create a CloudWatch event rule and configure an Automation document as the target\.
+## Create an EventBridge event that runs an Automation document \(command line\)<a name="automation-cwe-target-commandline"></a>
 
-**To configure an Automation document as a target of a CloudWatch event rule**
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create an EventBridge event rule and configure an Automation document as the target\.
+
+**To configure an Automation document as a target of an EventBridge event rule**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Create a command to specify a new CloudWatch event rule\. Here are some template commands to help\.
+1. Create a command to specify a new EventBridge event rule\. Here are some template commands to help\.
 
    *Triggers based on a schedule*
 
@@ -75,7 +89,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates a CloudWatch event rule that triggers every day at 9:00am \(UTC\)\.
+   The following example creates an EventBridge event rule that triggers every day at 9:00am \(UTC\)\.
 
 ------
 #### [ Linux ]
@@ -137,7 +151,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates a CloudWatch event rule that triggers when any EC2 instance in the Region changes state\.
+   The following example creates an EventBridge event rule that triggers when any EC2 instance in the Region changes state\.
 
 ------
 #### [ Linux ]
@@ -168,7 +182,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The command returns details for the new CloudWatch rule similar to the following\.
+   The command returns details for the new EventBridge rule similar to the following\.
 
 ------
 #### [ Linux ]
@@ -197,7 +211,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Create a command to specify an Automation document as a target of the CloudWatch event rule you created in step 2\. Here are some template commands to help\.
+1. Create a command to specify an Automation document as a target of the EventBridge event rule you created in step 2\. Here are some template commands to help\.
 
 ------
 #### [ Linux ]
@@ -234,7 +248,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates a CloudWatch event target that starts the specified instance ID using the document `AWS-StartEC2Instance`\.
+   The following example creates an EventBridge event target that starts the specified instance ID using the document `AWS-StartEC2Instance`\.
 
 ------
 #### [ Linux ]

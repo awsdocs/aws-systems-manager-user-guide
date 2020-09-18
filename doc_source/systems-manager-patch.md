@@ -9,11 +9,11 @@ Patch Manager uses *patch baselines*, which include rules for auto\-approving pa
 
 Patch Manager provides options to scan your instances and report compliance on a schedule, install available patches on a schedule, and patch or scan instances on demand whenever you need to\.
 
-Patch Manager integrates with AWS Identity and Access Management \(IAM\), AWS CloudTrail, and Amazon CloudWatch Events to provide a secure patching experience that includes event notifications and the ability to audit usage\.
+Patch Manager integrates with AWS Identity and Access Management \(IAM\), AWS CloudTrail, and Amazon EventBridge to provide a secure patching experience that includes event notifications and the ability to audit usage\.
 
 For information about using CloudTrail to monitor Systems Manager actions, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 
-For information about using CloudWatch Events to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon CloudWatch Events](monitoring-cloudwatch-events.md)\.
+For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
 **Topics**
 + [Patch Manager prerequisites](patch-manager-prerequisites.md)

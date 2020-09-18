@@ -5,7 +5,7 @@ The following example expands on how to update a Windows AMI, as described in [W
 The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 
 **Before You Begin**  
-Configure Automation roles and, optionally, CloudWatch Events for Automation\. For more information, see [Getting started with Automation](automation-setup.md)\.
+Configure Automation roles and, optionally, EventBridge for Automation\. For more information, see [Getting started with Automation](automation-setup.md)\.
 
 **Topics**
 + [Task 1: Create a parameter in Systems Manager Parameter Store](#automation-pet1)

@@ -78,6 +78,5 @@ The general process to scan or install patches using Run Command and Patch Manag
 
 1. **Patch scan or install**: After determining the appropriate patch baseline to use, SSM Agent begins either scanning for or installing patches based on the operation value specified in Step 1\. The patches that are scanned for or installed are determined by the approval rules and patch exceptions defined in the patch baseline snapshot provided by Patch Manager\.
 
-### Related content<a name="sysman-patch-patchgroups-related"></a>
-
-[About patch compliance status values](about-patch-compliance-states.md)
+**Related content**
++ [About patch compliance status values](about-patch-compliance-states.md)

@@ -123,7 +123,7 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use CloudWatch features, such as Amazon CloudWatch Events or Amazon CloudWatch Logs\.
+   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
 
    ```
    aws iam attach-role-policy \
@@ -185,7 +185,7 @@ The policies you add for a service profile for managed instances in a hybrid env
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
    ```
 
-   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use CloudWatch features, such as Amazon CloudWatch Events or Amazon CloudWatch Logs\.
+   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
 
    ```
    Register-IAMRolePolicy `

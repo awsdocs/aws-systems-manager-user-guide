@@ -10,7 +10,7 @@ Integrated Setup automatically creates and configures IAM roles for Systems Mana
 
 Integrated Setup creates and configures the following roles for working with Explorer and OpsCenter\.
 + **AWSServiceRoleForAmazonSSM**: Provides access to AWS Resources managed or used by Systems Manager\.
-+ **OpsItem\-CWE\-Role**: Enables CloudWatch Events to create OpsItems in response to common events\.
++ **OpsItem\-CWE\-Role**: Enables CloudWatch Events and EventBridge to create OpsItems in response to common events\.
 + **AWSServiceRoleForAmazonSSM\_AccountDiscovery**: Enables Systems Manager to call other AWS services to discover AWS account information when synchronizing data\. For more information about this role, see [About the AWSServiceRoleForAmazonSSM\_AccountDiscovery role](#Explorer-service-role-details)\.
 + **AmazonSSMExplorerExport**: Enables Explorer to export OpsData to a comma\-separated value \(CSV\) file\.
 

@@ -96,7 +96,7 @@ OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured
 
 ### Task 4: Enable default OpsItems rules to send notifications for new OpsItems<a name="OpsCenter-getting-started-sns-default-rules"></a>
 
-Default OpsItems rules in Amazon CloudWatch Events aren't configured with an ARN for Amazon SNS notifications\. Use the following procedure to edit a rule in CloudWatch Events and enter a `notifications` block\. 
+Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for Amazon SNS notifications\. Use the following procedure to edit a rule in EventBridge and enter a `notifications` block\. 
 
 **To add a notifications block to a default OpsItem rule**
 
@@ -107,7 +107,7 @@ Default OpsItems rules in Amazon CloudWatch Events aren't configured with an ARN
 1. Choose the **OpsItems** tab, and then choose **Configure sources**\.
 
 1. Choose the source rule that you want to configure with a `notification` block, as shown in the following example:  
-![\[Choosing a CloudWatch Events rule to add an Amazon SNS notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
+![\[Choosing an EventBridge rule to add an Amazon SNS notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
 
 1. On the rule details page, choose **Edit**\.  
 ![\[Choosing the edit button\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_3.png)
@@ -127,14 +127,14 @@ The next time the systems creates an OpsItem for the default rule, it publishes 
 We recommend that each organization create a simple set of guidelines that promote consistency when creating and editing OpsItems\. Guidelines make it easier for users to locate and resolve OpsItems\. The guidelines for your organization should define best practices when users enter information into the following OpsItem fields\.
 
 **Note**  
-Amazon CloudWatch Events populates the **Title**, **Source**, and **Description** fields of automatically generated OpsItems\. You can edit the **Title** and the **Description** fields, but you can't edit the **Source** field\.
+Amazon EventBridge populates the **Title**, **Source**, and **Description** fields of automatically generated OpsItems\. You can edit the **Title** and the **Description** fields, but you can't edit the **Source** field\.
 
 
 ****  
 
 | Field | Description | 
 | --- | --- | 
-|  **Title**  |  Guidelines should encourage a consistent OpsItem naming experience\. For example, your guidelines might require that each title include information about the impacted resource, the status, the environment, and the name or the alias of the engineer actively working the issue, if applicable\. All OpsItems created by CloudWatch include a title that describes the event that caused the creation of the OpsItem, but you can edit these titles\.You can search OpsItems for *Title*:*contains*\. If your naming guidelines encourage consistent use of keywords, you improve your search results\.  | 
+|  **Title**  |  Guidelines should encourage a consistent OpsItem naming experience\. For example, your guidelines might require that each title include information about the impacted resource, the status, the environment, and the name or the alias of the engineer actively working the issue, if applicable\. All OpsItems created by EventBridge include a title that describes the event that caused the creation of the OpsItem, but you can edit these titles\.You can search OpsItems for *Title*:*contains*\. If your naming guidelines encourage consistent use of keywords, you improve your search results\.  | 
 |  **Source**  |  Guidelines can include specifying IDs, software version numbers \(if applicable\) or other relevant data to help users identify the origin of the issue\. You can't edit the **Source** field after the OpsItem is created\.  | 
 |  **Priority**  |  \(Optional\) Guidelines include determining the highest and lowest priority for your organization, and any service\-level agreements based on priority\. You can specify priority from 1 to 5\.  | 
 |  **Description**  |  Guidelines should suggest how much detail about the issue to include and any steps \(if applicable\) for reproducing the issue\.   | 

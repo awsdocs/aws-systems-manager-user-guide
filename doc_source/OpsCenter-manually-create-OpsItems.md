@@ -1,6 +1,6 @@
 # Creating OpsItems manually<a name="OpsCenter-manually-create-OpsItems"></a>
 
-This section includes procedures for manually create OpsItems for issues that aren't automatically created by Amazon CloudWatch Events\.
+This section includes procedures for manually create OpsItems for issues that aren't automatically created by Amazon EventBridge\.
 
 **Before You Begin**  
 If you manually create an OpsItem for an impacted AWS resource, then collect information about that resource so that you can create an Amazon Resource Name \(ARN\)\. If you specify an ARN when you create an OpsItem, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.

@@ -12,6 +12,7 @@ For an explanation of how the various schedule\-related options for maintenance 
 
 For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
+**Supported task types**  
 Maintenance windows support running four types of tasks:
 + Systems Manager Run Command commands
 
@@ -35,6 +36,9 @@ This means you can use maintenance windows to perform tasks like the following o
 + Run AWS Lambda functions that trigger additional actions, such as scanning your instances for patch updates\.
 + Run AWS Step Functions state machines to perform tasks such as removing an instance from an Elastic Load Balancing environment, patching the instance, and then adding the instance back to the Elastic Load Balancing environment\.
 + Target instances that are offline by specifying an AWS resource group as the target\.
+
+**Amazon EventBridge support**  
+This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Controlling access to maintenance windows](sysman-maintenance-permissions.md)
