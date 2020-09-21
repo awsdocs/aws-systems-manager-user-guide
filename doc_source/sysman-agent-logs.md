@@ -11,12 +11,16 @@ You can view SSM Agent logs on instances in the following locations\.
 
 `/var/log/amazon/ssm/errors.log`
 
+`/var/log/amazon/ssm/audits/amazon-ssm-agent-audit-YYYY-MM-DD`
+
 ------
 #### [ Windows ]
 
 `%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
 
 `%PROGRAMDATA%\Amazon\SSM\Logs\errors.log`
+
+`%PROGRAMDATA%\Amazon\SSM\Logs\audits\amazon-ssm-agent-audit-YYYY-MM-DD`
 
 ------
 
@@ -39,15 +43,11 @@ Use the following procedure to enable SSM Agent debug logging on Windows Server 
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 
-   ```
-   /etc/amazon/ssm/seelog.xml.template
-   ```
+   `/etc/amazon/ssm/seelog.xml.template`
 
 1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
-   ```
-   <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
-   ```
+   `<seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">`
 
 1. Restart the SSM Agent using the following command\.
 
@@ -64,44 +64,32 @@ Use the following procedure to enable SSM Agent debug logging on Windows Server 
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 
-   ```
-   %PROGRAMFILES%\Amazon\SSM\seelog.xml.template
-   ```
+   `%PROGRAMFILES%\Amazon\SSM\seelog.xml.template`
 
 1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
-   ```
-   <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
-   ```
+   `<seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">`
 
 1. Locate the following entry:
 
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
+   `filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"`
 
    Change this entry to use the following path:
 
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"
-   ```
+   `filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"`
 
 1. Locate the following entry:
 
-   ```
-   filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"
-   ```
+   `filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"`
 
    Change this entry to use the following path:
 
-   ```
-   filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"
-   ```
+   `filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"`
 
 1. Restart the SSM Agent using the following PowerShell command in Administrator mode:
 
    ```
-    Restart-Service AmazonSSMAgent
+   Restart-Service AmazonSSMAgent
    ```
 
 ------

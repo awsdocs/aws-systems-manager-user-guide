@@ -26,9 +26,31 @@ After you create one or more State Manager associations, compliance status infor
 
 You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to explicitly note which managed instances are running older versions of software X\. Currently you can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
 
+------
+#### [ Linux ]
+
 ```
-aws ssm put-compliance-items --resource-id i-1234567890abcdef0 --resource-type ManagedInstance --compliance-type Custom:SoftwareXCheck --execution-summary ExecutionTime=AnyStringToDenoteTimeOrDate --items Id=Version2.0,Title=SoftwareXVersion,Severity=CRITICAL,Status=NON_COMPLIANT 
+aws ssm put-compliance-items \
+    --resource-id i-1234567890abcdef0 \
+    --resource-type ManagedInstance \
+    --compliance-type Custom:SoftwareXCheck \
+    --execution-summary ExecutionTime=AnyStringToDenoteTimeOrDate \
+    --items Id=Version2.0,Title=SoftwareXVersion,Severity=CRITICAL,Status=NON_COMPLIANT
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-compliance-items ^
+    --resource-id i-1234567890abcdef0 ^
+    --resource-type ManagedInstance ^
+    --compliance-type Custom:SoftwareXCheck ^
+    --execution-summary ExecutionTime=AnyStringToDenoteTimeOrDate ^
+    --items Id=Version2.0,Title=SoftwareXVersion,Severity=CRITICAL,Status=NON_COMPLIANT
+```
+
+------
 
 Compliance managers can then view summaries or create reports about which instances are or aren't compliant\. You can assign a maximum of 10 different custom compliance types to an instance\.
 

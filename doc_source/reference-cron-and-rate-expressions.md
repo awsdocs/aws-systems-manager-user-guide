@@ -2,7 +2,7 @@
 
 When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
 
-When you create a maintenance window, you can specify a time stamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
+When you create a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
 
 ```
 cron(0 30 23 ? * TUE#3 *)
@@ -13,12 +13,12 @@ If the schedule offset is `2`, the maintenance window won't run until 11:30 PM t
 **Note**  
 If you create a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the maintenance window will not run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window will not run tomorrow\. 
 
-When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS CLI, you must specify a schedule parameter with a valid cron or rate expression \(or time stamp for maintenance windows\) in the correct format\.
+When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), you must specify a schedule parameter with a valid cron or rate expression \(or timestamp for maintenance windows\) in the correct format\.
 
 When you use the AWS Systems Manager console to create a maintenance window or association, you can specify a schedule using a valid cron or rate expression\. You can also use tools in the user interface that simplify the process of creating your schedule\. 
 
 **Maintenance window examples**  
-To create maintenance windows using the AWS CLI, you include the \-\-schedule parameter with a cron or rate expression or a time stamp\. For example, using the AWS CLI on a local Linux machine: 
+To create maintenance windows using the AWS CLI, you include the `--schedule` parameter with a cron or rate expression or a timestamp\. The following examples use the AWS CLI on a local Linux machine\. 
 
 ```
 aws ssm create-maintenance-window \
@@ -62,8 +62,8 @@ aws ssm create-maintenance-window \
     --cutoff 1
 ```
 
-**Association Examples**  
-To create State Manager associations using the AWS CLI, you include the \-\-schedule\-expression parameter with a cron or rate expression\. For example, using the AWS CLI on a local Linux machine:
+**Association examples**  
+To create State Manager associations using the AWS CLI, you include the `--schedule-expression` parameter with a cron or rate expression\. The following examples use the AWS CLI on a local Linux machine\.
 
 ```
 aws ssm create-association \
@@ -80,6 +80,18 @@ aws ssm create-association \
     --targets Key=tag:ServerRole,Values=WebServer \
     --name AWS-UpdateSSMAgent
 ```
+
+```
+aws ssm create-association \
+    --association-name "My-Rate-Association" \
+    --schedule-expression "at(2020-07-07T15:55:00)" \
+    --targets Key=tag:ServerRole,Values=WebServer \
+    --name AWS-UpdateSSMAgent \
+    --apply-only-at-cron-interval
+```
+
+**Note**  
+By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified\. Specify `--apply-only-at-cron-interval` so that the association doesn't run immediately after you create it\.
 
 **Topics**
 + [General information about cron and rate expressions](#reference-cron-and-rate-expressions-intro)
@@ -103,7 +115,7 @@ Cron expressions for Systems Manager have six required fields\. A seventh field,
 | 0/10 | \* | ? | \* | MON\-FRI | \* | Run every 10 minutes Monday through Friday | 
 | 0/5 | 8\-17 | ? | \* | MON\-FRI | \* | Run every 5 minutes Monday through Friday between 8:00 AM and 5:55 PM \(UTC\) | 
 
-**Supported Values**  
+**Supported values**  
 The following table shows supported values for required cron entries\.
 
 **Note**  
@@ -145,7 +157,7 @@ Cron expressions that lead to rates faster than five \(5\) minute are not suppor
 
 For more information about cron expressions, see [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) at the *Wikipedia website*\.
 
-**Rate Expressions**  
+**Rate expressions**  
 Rate expressions have the following two required fields\. Fields are separated by spaces\.
 
 
@@ -160,7 +172,7 @@ If the value is equal to `1`, then the unit must be singular\. Similarly, for va
 
 ## Cron and rate expressions for associations<a name="reference-cron-and-rate-expressions-association"></a>
 
-This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following restrictions\.
+This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following restrictions:
 + Associations only support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day or every week at a specific time\.
 + Associations only support the following rate expressions: intervals of 30 minutes or greater and less than 31 days\.
 + If you specify the optional `Seconds` field, its value can only be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`

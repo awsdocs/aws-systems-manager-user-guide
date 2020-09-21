@@ -52,17 +52,18 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 
 1. Connect to the instance where you installed SSM Agent\.
 
-1. Run the following command:
+1. Run one of the follow commands, depending on the operating system type\.
+   + On Ubuntu Server instances where SSM Agent is installed by using a snap:
 
-   ```
-   systemctl edit amazon-ssm-agent
-   ```
+     ```
+     systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
+     ```
 
-   For Ubuntu Server instances installed by using a snap, run the following command:
+     On other operating systems:
 
-   ```
-   systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
-   ```
+     ```
+     systemctl edit amazon-ssm-agent
+     ```
 
 1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, specify one of the following setting options\.
 
@@ -86,20 +87,28 @@ The steps in the following procedure describe how to configure SSM Agent to use 
 **Note**  
 You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
-1. Save your changes\. The system creates a file named `amazon-ssm-agent.override` \(or `override.conf` on Amazon Linux 2\) instances in the `etc/systemd/system/amazon-ssm-agent.service.d` folder\.
+1. Save your changes\. The system creates one of the following files, depending on the operating system type\.
+   + On Ubuntu Server instances where SSM Agent is installed by using a snap: 
 
-1. Restart SSM Agent by using the following commands:
+     `etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/override.conf`
+   + On Amazon Linux 2 instances: 
 
-   ```
-   sudo systemctl stop amazon-ssm-agent
-   sudo systemctl daemon-reload
-   ```
+     `etc/systemd/system/amazon-ssm-agent.service.d/override.conf`
+   + On other operating systems: 
 
-   For Ubuntu Server instances installed by using a snap, restart SSM Agent by using the following command:
+     `etc/systemd/system/amazon-ssm-agent.service.d/amazon-ssm-agent.override`
 
-   ```
-   systemctl start snap.amazon-ssm-agent.amazon-ssm-agent
-   ```
+1. Restart SSM Agent by using one of the following commands, depending on the operating system type\.
+   + On Ubuntu Server instances installed by using a snap:
+
+     ```
+     systemctl start snap.amazon-ssm-agent.amazon-ssm-agent
+     ```
+   + On other operating systems:
+
+     ```
+     sudo systemctl stop amazon-ssm-agent ; sudo systemctl daemon-reload
+     ```
 
 **Note**  
-For more information about working with \.override files in systemd environments, see [Modifying Existing Unit Files](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd#sect-Managing_Services_with_systemd-Unit_File_Modify) in the *Red Hat Enterprise Linux 7 System Administrator's Guide*\.
+For more information about working with `.override` files in systemd environments, see [Modifying Existing Unit Files](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd#sect-Managing_Services_with_systemd-Unit_File_Modify) in the *Red Hat Enterprise Linux 7 System Administrator's Guide*\.

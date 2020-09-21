@@ -3,6 +3,8 @@
 The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface \(AWS CLI\)\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about the SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 
 **Note**  
+Note the following details about automatically updating SSM Agent:  
+Beginning September 21, 2020, auto\-update installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3](ssm-agent-v3.md)\.
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before you begin**  

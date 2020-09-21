@@ -70,6 +70,7 @@ You must manually install SSM Agent on EC2 instances created from other Linux AM
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
 
 **Topics**
++ [SSM Agent version 3](ssm-agent-v3.md)
 + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
 + [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)

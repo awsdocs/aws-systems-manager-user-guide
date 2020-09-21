@@ -19,9 +19,7 @@ You can also subscribe to notifications by watching the [SSM Agent Release Notes
 
    1. For **Topic ARN**, use the following Amazon Resource Name \(ARN\):
 
-      ```
-      arn:aws:sns:us-east-1:720620558202:SSM-Agent-Update
-      ```
+      `arn:aws:sns:us-east-1:720620558202:SSM-Agent-Update`
 
    1. For **Protocol**, choose `Email` or `SMS`\.
 

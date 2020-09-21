@@ -195,7 +195,7 @@ Type: String
 Required: No
 
 TimeoutSeconds  
-The run\-command timeout value, in seconds\.  
+The amount of time in seconds to wait for a command to deliver to the SSM Agent on an instance\. If the command is not received by the SSM Agent on the instance before the value specified is reached, then the status of the command changes to `Delivery Timed Out`\.  
 Type: Integer  
 Required: NoOutput
 
