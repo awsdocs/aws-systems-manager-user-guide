@@ -24,7 +24,7 @@ For an example of creating a patch baseline that is limited to installing Window
 
 1. If you want to begin using this patch baseline as the default for Windows as soon as you create it, select **Set this patch baseline as the default patch baseline for Windows Server instances** \.
 
-   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [ Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
+   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `WindowsServer2008`\. The default selection is `All`\.

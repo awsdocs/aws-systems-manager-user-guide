@@ -1,10 +1,10 @@
-# AWS\-DeleteDynamoDBTableBackups<a name="automation-aws-deletedynamodbtablebackups"></a>
+# AWS\-DeleteDynamoDbTableBackups<a name="automation-aws-deletedynamodbtablebackups"></a>
 
 **Description**
 
 Delete DynamoDB table backups based on retention days or count\.
 
-[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDBTableBackups)
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDbTableBackups)
 
 **Document Type**
 

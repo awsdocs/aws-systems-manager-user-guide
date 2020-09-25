@@ -1,10 +1,16 @@
 # AWS Systems Manager Configuration Compliance<a name="systems-manager-compliance"></a>
 
-You can use AWS Systems Manager Configuration Compliance to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Configuration Compliance displays current compliance data about Systems Manager Patch Manager patching and Systems Manager State Manager associations\. Systems Manager Compliance offers the following additional benefits and features:
+You can use AWS Systems Manager Configuration Compliance to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Configuration Compliance displays current compliance data about Systems Manager Patch Manager patching and Systems Manager State Manager associations\. 
+
+Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [Integrating Patch Manager with AWS Security Hub](security-hub-integration.md)\. 
+
+Systems Manager Compliance offers the following additional benefits and features: 
 + View compliance history and change tracking for Patch Manager patching data and State Manager associations by using AWS Config\.
 + Customize Systems Manager Compliance to create your own compliance types based on your IT or business requirements\.
 + Remediate issues by using Systems Manager Run Command, State Manager, or Amazon EventBridge\.
 + Port data to Amazon Athena and Amazon QuickSight to generate fleet\-wide reports\.
+
+Configuration Compliance is offered at no additional charge\. You only pay for the AWS resources that you use\.
 
 **Amazon EventBridge support**  
 This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.

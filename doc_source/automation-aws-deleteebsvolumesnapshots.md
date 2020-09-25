@@ -1,4 +1,4 @@
-# AWS\-DeleteEBSVolumeSnapshots<a name="automation-aws-deleteebsvolumesnapshots"></a>
+# AWS\-DeleteEbsVolumeSnapshots<a name="automation-aws-deleteebsvolumesnapshots"></a>
 
 **Description**
 
@@ -7,7 +7,7 @@ Delete a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\.
 **Note**  
 The AWS Lambda function that runs during this operation has a maximum execution time \(timeout\) of 60 seconds\. If you have a large number of Amazon EBS volume snapshots to delete, the operation might fail with an error message\.
 
-[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteEBSVolumeSnapshots)
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteEbsVolumeSnapshots)
 
 **Document Type**
 

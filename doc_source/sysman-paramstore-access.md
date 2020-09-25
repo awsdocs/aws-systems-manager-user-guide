@@ -65,9 +65,66 @@ For trusted administrators, you can provide access to all Systems Manager parame
 ```
 
 **Topics**
-+ [Allowing only specific parameters to run on instances](#sysman-paramstore-access-inst)
++ [Deny permissions](#sysman-paramstore-deny-permissions)
++ [Allowing only specific parameters to be accessed from instances](#sysman-paramstore-access-inst)
 
-## Allowing only specific parameters to run on instances<a name="sysman-paramstore-access-inst"></a>
+## Deny permissions<a name="sysman-paramstore-deny-permissions"></a>
+
+Each API is unique and has distinct operations and permissions that you can allow or deny individually\. An explicit deny in any policy overrides the allow\.
+
+**Note**  
+The default AWS KMS key has `Decrypt` permission for all IAM principals within the AWS account\. If you want to have different access levels to `SecureString` parameters in your account, we do not recommend that you use the default key\.
+
+If you want all API operations retrieving parameter values to have the same behavior, then you can use a pattern like `GetParameter*` in a policy\. The following example shows how to deny `GetParameter`, `GetParameters`, `GetParameterHistory`, and `GetParametersByPath` for all parameters beginning with `prod-*`\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "GetParameter*"
+            ],
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*"
+        }
+    ]
+}
+```
+
+The following example shows how to deny some commands while allowing the user to perform other commands on all parameters that begin with `prod-*`\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+            "Effect": "Deny",
+            "Action": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:DeleteParameters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParametersByPath",
+                "ssm:GetParameters",
+                "ssm:GetParameter",
+                "ssm:GetParameterHistory"
+                "ssm:DescribeParameters"
+            ],
+            "Resource": "arn:aws:ssm:region:account-id:parameter/prod-*"
+        }
+    ]
+}
+```
+
+**Note**  
+The parameter history includes all parameter versions, including the current one\. Therefore, if a user is denied permission for `GetParameter`, `GetParameters`, and `GetParameterByPath` but is allowed permission for `GetParameterHistory`, they can see the current parameter, including `SecureString` parameters, using `GetParameterHistory`\.
+
+## Allowing only specific parameters to be accessed from instances<a name="sysman-paramstore-access-inst"></a>
 
 You can control access so that instances can run only parameters that you specify\. 
 

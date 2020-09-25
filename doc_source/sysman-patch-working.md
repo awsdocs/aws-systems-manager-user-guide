@@ -21,9 +21,11 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 
 **Topics**
 + [Viewing AWS predefined patch baselines](view-predefined-patch-baselines.md)
++ [Viewing patch compliance results](viewing-patch-compliance-results.md)
 + [Working with custom patch baselines](sysman-patch-baseline-console.md)
 + [Setting an existing patch baseline as the default](set-default-patch-baseline.md)
 + [Creating a patching configuration \(console\)](create-patching-configuration.md)
 + [Creating a patch group](sysman-patch-group-tagging.md)
 + [Patching instances on demand](patch-on-demand.md)
 + [Creating a maintenance window for patching](sysman-patch-mw-console.md)
++ [Integrating Patch Manager with AWS Security Hub](security-hub-integration.md)

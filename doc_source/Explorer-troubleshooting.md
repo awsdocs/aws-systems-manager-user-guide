@@ -12,7 +12,7 @@ For more information, see [Setting up Systems Manager Explorer to display data f
 
  **Explorer doesn't display any data at all** 
 + Verify that you completed Integrated Setup in each account and Region where you want Explorer to access and display data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
-+ When using Explorer to view data from multiple accounts and Regions, verify that you are logged into the AWS Organizations Master Account\. To view OpsData and OpsItems from multiple accounts and Regions, you must be signed in to this account\.
++ When using Explorer to view data from multiple accounts and Regions, verify that you are logged into the AWS Organizations master account\. To view OpsData and OpsItems from multiple accounts and Regions, you must be signed in to this account\.
 
  **Widgets about EC2 instances don't display data** 
 

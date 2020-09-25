@@ -25,7 +25,9 @@ A structure that defines the parameters the document accepts\. For parameters th
 For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
-+ `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `Integer`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.
++ `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.
+**Note**  
+To use a number as a parameter value, use `String` as the parameter type\.
 + `description`: \(Optional\) A description of the parameter\.
 + `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
 + `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that is not allowed, the execution fails to start\.

@@ -19,7 +19,7 @@ Diagram 1 shows how resource data sync aggregates inventory data from managed in
 If you delete a managed instance, resource data sync preserves the inventory file for the deleted instance\. For running instances, however, resource data sync automatically overwrites old inventory files when new files are created and written to the S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:ManagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
 
 Use the procedures in this section to create a resource data sync for Inventory by using the Amazon S3 and AWS Systems Manager consoles\. You can also use AWS CloudFormation to create or delete a resource data sync\. To use AWS CloudFormation, add the [AWS::SSM::ResourceDataSync](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html) resource to your AWS CloudFormation template\. For information, see one of the following documentation resources:
-+ [AWS CloudFormation Resource for Resource Data Sync in AWS Systems Manager](https://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
++ [AWS CloudFormation Resource for Resource Data Sync in AWS Systems Manager](http://aws.amazon.com/blogs//mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
 **Note**  

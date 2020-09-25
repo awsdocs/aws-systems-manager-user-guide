@@ -6,9 +6,8 @@ SSM Agent processes Systems Manager requests and configures your machine as spec
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
 Amazon Linux
 Amazon Linux 2
-Ubuntu Server 16\.04
-Ubuntu Server 18\.04
-Amazon ECS\-Optimized
+Ubuntu Server 16\.04, 18\.04, and 20\.04
+Amazon ECS\-Optimized AMIs
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. 
 
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, AWS does not currently provide support for running modified copies of this software\.

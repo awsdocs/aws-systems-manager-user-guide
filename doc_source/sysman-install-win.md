@@ -1,6 +1,8 @@
 # Manually install SSM Agent on EC2 instances for Windows Server<a name="sysman-install-win"></a>
 
-SSM Agent is installed by default on instances created from Windows Server 2016 and Windows Server 2019 Amazon Machine Images \(AMIs\), and on instances created from Windows Server 2008\-2012 R2 AMIs published in November 2016 or later\.
+SSM Agent is installed, by default, on the following Amazon Machine Images \(AMIs\):
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2016 and 2019
 
 If your instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. We recommend that you upgrade your existing instances to use the latest version of EC2Config\. By using the latest EC2Config installer, you install SSM Agent side\-by\-side with EC2Config\. This side\-by\-side version of SSM Agent is compatible with your instances created from earlier Windows Server AMIs and enables you to use SSM features published after November 2016\. For information about how to install the latest version of the EC2Config service, see [Installing the Latest Version of EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_Install.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 

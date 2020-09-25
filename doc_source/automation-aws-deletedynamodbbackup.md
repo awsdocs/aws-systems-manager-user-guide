@@ -1,10 +1,10 @@
-# AWS\-DeleteDynamoDBBackup<a name="automation-aws-deletedynamodbbackup"></a>
+# AWS\-DeleteDynamoDbBackup<a name="automation-aws-deletedynamodbbackup"></a>
 
 **Description**
 
 Delete the backup of an Amazon DynamoDB table\.
 
-[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDBBackup)
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteDynamoDbBackup)
 
 **Document Type**
 

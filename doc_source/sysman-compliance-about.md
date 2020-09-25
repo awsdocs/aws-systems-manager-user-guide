@@ -16,7 +16,7 @@ Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InS
 
 After you use Systems Manager Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\.
 
-For information about patch compliance status values, see [About patch compliance status values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
 ## About State Manager association compliance<a name="sysman-compliance-about-association"></a>
 

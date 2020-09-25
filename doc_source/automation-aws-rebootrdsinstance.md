@@ -1,10 +1,10 @@
-# AWS\-RebootRDSInstance<a name="automation-aws-rebootrdsinstance"></a>
+# AWS\-RebootRdsInstance<a name="automation-aws-rebootrdsinstance"></a>
 
 **Description**
 
 The AWS\-RebootRdsInstance Automation document reboots an Amazon Relational Database Service \(Amazon RDS\) DB instance if it is not already rebooting\.
 
-[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RebootRDSInstance)
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RebootRdsInstance)
 
 **Document Type**
 

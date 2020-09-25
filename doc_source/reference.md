@@ -27,7 +27,7 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 [AWS Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)
 
  **AWS News Blog**  
-[Management Tools](https://aws.amazon.com/blogs/mt/)
+[Management Tools](http://aws.amazon.com/blogs//mt/)
 
 **Topics**
 + [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)
