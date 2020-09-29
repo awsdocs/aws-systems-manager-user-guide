@@ -21,6 +21,8 @@ Before trying these tutorials, complete the following prerequisites\.
   + Ubuntu Server 16\.04, 18\.04, and 20\.04
   + Amazon ECS\-Optimized AMIs
 
+  SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
+
   For information about installing SSM Agent on an instance, see the following topics:
   + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
   + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)

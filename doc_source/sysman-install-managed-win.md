@@ -27,7 +27,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
    $dir = $env:TEMP + "\ssm"
    New-Item -ItemType directory -Path $dir -Force
    cd $dir
-   (New-Object System.Net.WebClient).DownloadFile("https://amazon-ssm-$region.s3.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe", $dir + "\AmazonSSMAgentSetup.exe")
+   (New-Object System.Net.WebClient).DownloadFile("https://amazon-ssm-$region.s3.$region.amazonaws.com/latest/windows_amd64/AmazonSSMAgentSetup.exe", $dir + "\AmazonSSMAgentSetup.exe")
    Start-Process .\AmazonSSMAgentSetup.exe -ArgumentList @("/q", "/log", "install.log", "CODE=$code", "ID=$id", "REGION=$region") -Wait
    Get-Content ($env:ProgramData + "\Amazon\SSM\InstanceData\registration")
    Get-Service -Name "AmazonSSMAgent"
@@ -43,7 +43,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
    $dir = $env:TEMP + "\ssm"
    New-Item -ItemType directory -Path $dir -Force
    cd $dir
-   (New-Object System.Net.WebClient).DownloadFile("https://amazon-ssm-$region.s3.amazonaws.com/latest/windows_386/AmazonSSMAgentSetup.exe", $dir + "\AmazonSSMAgentSetup.exe")
+   (New-Object System.Net.WebClient).DownloadFile("https://amazon-ssm-$region.s3.$region.amazonaws.com/latest/windows_386/AmazonSSMAgentSetup.exe", $dir + "\AmazonSSMAgentSetup.exe")
    Start-Process .\AmazonSSMAgentSetup.exe -ArgumentList @("/q", "/log", "install.log", "CODE=$code", "ID=$id", "REGION=$region") -Wait
    Get-Content ($env:ProgramData + "\Amazon\SSM\InstanceData\registration")
    Get-Service -Name "AmazonSSMAgent"
