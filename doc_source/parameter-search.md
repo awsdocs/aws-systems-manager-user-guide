@@ -12,7 +12,11 @@ For information about using the Systems Manager console and AWS CLI to view info
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the left navigation, choose **Parameter Store**\.
+1. In the navigation pane, choose **Parameter Store**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
 
 1. Click in the search box and choose how you want to search\. For example, Type or Name\.
 
@@ -82,7 +86,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
-In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
+In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
    If successful, the command returns output similar to the following\.
 

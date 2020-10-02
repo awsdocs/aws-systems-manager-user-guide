@@ -5,6 +5,12 @@ Increasing Parameter Store throughput increases the maximum number of transactio
 **Note**  
 The Parameter Store throughput setting applies to all transactions created by all AWS Identity and Access Management \(IAM\) users in the current AWS account and Region\. The throughput setting applies to standard and advanced parameters\. 
 
+**Topics**
++ [Configuring permissions to increase Parameter Store throughput](#parameter-store-throughput-permissions)
++ [Increasing throughput \(console\)](#parameter-store-throughput-increasing)
++ [Increasing throughput \(AWS CLI\)](#parameter-store-throughput-increasing-cli)
++ [Increasing throughput \(PowerShell\)](#parameter-store-throughput-increasing-ps)
+
 ## Configuring permissions to increase Parameter Store throughput<a name="parameter-store-throughput-permissions"></a>
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to increase Parameter Store throughput by doing one of the following:

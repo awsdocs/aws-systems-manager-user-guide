@@ -27,7 +27,7 @@ To encrypt `SecureString` parameter values, Parameter Store uses an AWS Key Mana
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [Parameter types and examples](parameter-store-about-examples.md) and [SecureString parameters](sysman-paramstore-securestring.md)\.
+For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter) and [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
 
 **Content in Amazon S3 Buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 

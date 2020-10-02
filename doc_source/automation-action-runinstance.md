@@ -199,3 +199,6 @@ Required: NoOutput
 
 InstanceIds  
 The IDs of the instances\.
+
+InstanceStates  
+The current state of the instance\.

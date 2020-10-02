@@ -75,7 +75,7 @@ Type: String
 Required: No
 
 [isCritical](#critProp)  
-Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. This property is only evaluated if you explicitly define it in your step\. The default value for this option is true\.  
+Designates a step as critical for the successful completion of the Automation\. If a step with this designation fails, then Automation reports the final status of the Automation as Failed\. This property is only evaluated if you explicitly define it in your step\. If the `onFailure` property is set to `Continue` in a step, the value defaults to false\. Otherwise, the default value for this option is true\.  
 Type: Boolean  
 Valid values: true \| false  
 Required: No

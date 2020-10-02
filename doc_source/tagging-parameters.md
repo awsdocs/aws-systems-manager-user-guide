@@ -12,7 +12,7 @@ The topics in this section describe how to work with tags on Systems Manager par
 You can add tags to Systems Manager parameters at the time you create them\.
 
 For information, see the following topics:
-+ [Create a Systems Manager parameter \(console\)](param-create-console.md)
++ [Create a parameter \(console\)](parameter-create-console.md#param-create-console)
 + [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
 + [Create a Systems Manager parameter \(Tools for Windows PowerShell\)](param-create-ps.md)
 

@@ -140,7 +140,7 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 
-For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Organizing parameters into hierarchies](sysman-paramstore-su-organize.md)\.
+For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)\.
 
 ### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 

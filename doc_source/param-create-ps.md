@@ -85,7 +85,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 ## Create a SecureString parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-securestring"></a>
 
-Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [SecureString parameters](sysman-paramstore-securestring.md)\.
+Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
 1. Install and configure the AWS Tools for PowerShell, if you have not already\.
 

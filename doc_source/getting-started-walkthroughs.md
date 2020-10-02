@@ -52,10 +52,10 @@ The [AWS Systems Manager documents](sysman-ssm-docs.md) capability lets you crea
 
 **Parameter Store**  
 The [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md) capability provides a centralized store to manage your configuration data, whether plain\-text data such as database strings or secrets such as passwords\. This allows you to separate your secrets and configuration data from your code\. Parameters can be tagged and organized into hierarchies, helping you manage parameters more easily\.
-+ [Walkthrough: Create and test a String parameter \(console\)](sysman-paramstore-console.md)
-+ [Walkthrough: Create and update a String parameter \(AWS CLI\)](sysman-paramstore-cli.md)
-+ [Walkthrough: Manage parameters using hierarchies \(AWS CLI\)](sysman-paramstore-walk-hierarchies.md)
-+ Advanced: [Walkthrough: Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
++ [Create a parameter \(console\)](parameter-create-console.md#param-create-console)
++ [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
++ [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)
++ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-paramstore-walk.md#sysman-param-securestring-walkthrough)
 
 **Inventory**  
 The [AWS Systems Manager Inventory](systems-manager-inventory.md) capability collects information about your instances and the software installed on them, helping you to understand your system configurations and installed applications\.
