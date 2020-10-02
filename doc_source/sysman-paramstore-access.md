@@ -84,7 +84,7 @@ If you want all API operations retrieving parameter values to have the same beha
         {
             "Effect": "Deny",
             "Action": [
-                "GetParameter*"
+                "ssm:GetParameter*"
             ],
             "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*"
         }
