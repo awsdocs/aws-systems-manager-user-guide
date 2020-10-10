@@ -6,15 +6,15 @@ Use the following information to help you troubleshoot problems with Session Man
 + [No permission to start a session](#session-manager-troubleshooting-start-permissions)
 + [No permission to change session preferences](#session-maner-troubleshooting-preferences-permissions)
 + [Instance not available or not configured for Session Manager](#session-manager-troubleshooting-instances)
-+ [Session Manager Plugin not found](#plugin-not-found)
-+ [Session Manager Plugin not automatically added to command line path \(Windows\)](#windows-plugin-env-var-not-set)
++ [Session Manager plugin not found](#plugin-not-found)
++ [Session Manager plugin not automatically added to command line path \(Windows\)](#windows-plugin-env-var-not-set)
 + [TargetNotConnected](#ssh-target-not-connected)
 + [Blank screen displays after starting a session](#session-manager-troubleshooting-start-blank-screen)
 
 ## No permission to start a session<a name="session-manager-troubleshooting-start-permissions"></a>
 
 **Problem**: You try to start a session, but the system tells you that you do not have the necessary permissions\.
-+ **Solution**: A system administrator has not granted you IAM policy permissions for starting Session Manager sessions\. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
++ **Solution**: A system administrator has not granted you AWS Identity and Access Management \(IAM\) policy permissions for starting Session Manager sessions\. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 ## No permission to change session preferences<a name="session-maner-troubleshooting-preferences-permissions"></a>
 
@@ -36,17 +36,17 @@ If SSM Agent is already running on an instance when you attach the IAM instance 
 
   Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more instances at a time\. For information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 **Tip**  
-To always keep your agent up\-to\-date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
+To always keep your agent up to date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 Run `AWS-UpdateSSMAgent` as part of a maintenance window\. For information about working with maintenance windows, see [Working with maintenance windows \(console\)](sysman-maintenance-working.md) and [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)\.
-+ **Solution C**: The instance is in a Virtual Private Cloud \(VPC\), but an `ssmmessages` endpoint has not been created in the VPC\. An `ssmmessages` endpoint in the format **com\.amazonaws\.*region*\.ssmmessages** is required if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
-+ **Solution D**: The instance has limited available CPU or memory resources\. Though your instance may otherwise be functional, if the instance does not have enough available resources, you can't establish a session\. For more information, see [Troubleshooting an Unreachable Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html)\.
++ **Solution C**: The instance is in a virtual private cloud \(VPC\), but an `ssmmessages` endpoint has not been created in the VPC\. An `ssmmessages` endpoint in the format **com\.amazonaws\.*region*\.ssmmessages** is required if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
++ **Solution D**: The instance has limited available CPU or memory resources\. Although your instance may otherwise be functional, if the instance does not have enough available resources, you can't establish a session\. For more information, see [Troubleshooting an Unreachable Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html)\.
 
-## Session Manager Plugin not found<a name="plugin-not-found"></a>
+## Session Manager plugin not found<a name="plugin-not-found"></a>
 
-To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
-## Session Manager Plugin not automatically added to command line path \(Windows\)<a name="windows-plugin-env-var-not-set"></a>
+## Session Manager plugin not automatically added to command line path \(Windows\)<a name="windows-plugin-env-var-not-set"></a>
 
 When you install the Session Manager plugin on Windows, the `session-manager-plugin` executable should be automatically added to your operating system's `PATH` environment variable\. If the command failed after you ran it to check whether the Session Manager plugin installed correctly \(`aws ssm start-session --target instance-id`\), you might need to set it manually using the following procedure\.
 
@@ -77,7 +77,7 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 
 **Problem**: You start a session and Session Manager displays a blank screen\.
 + **Solution A**: This issue can occur when the root volume on the instance is full\. Due to lack of disk space, SSM Agent on the instance stops working\. To resolve this issue, use Amazon CloudWatch to collect metrics and logs from the operating systems\. For information, see [Monitoring memory and disk metrics for Amazon EC2 Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html) or [Monitoring memory and disk metrics for Amazon EC2 Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/mon-scripts.html)\.
-+ **Solution B**: A blank screen might display if you've accessed the console using a link that includes a mismatched endpoint and Region pair\. For example, in the following console URL, `us-west-2` is the specified endpoint, but `us-west-1` is the specified AWS Region:
++ **Solution B**: A blank screen might display if you accessed the console using a link that includes a mismatched endpoint and Region pair\. For example, in the following console URL, `us-west-2` is the specified endpoint, but `us-west-1` is the specified AWS Region\.
 
   ```
   https://us-west-2.console.aws.amazon.com/systems-manager/session-manager/sessions?region=us-west-1

@@ -48,7 +48,7 @@ If the version of SSM Agent on the instance doesn't support password resets, you
 
 1. To reset the password for a user on a managed instance, run the following command\.
 **Note**  
-To use the AWS CLI to reset a password, the Session Manager plugin must be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager Plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to reset a password, the Session Manager plugin must be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ------
 #### [ Linux ]

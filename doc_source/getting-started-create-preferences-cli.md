@@ -1,15 +1,15 @@
 # Create Session Manager preferences \(command line\)<a name="getting-started-create-preferences-cli"></a>
 
-The following procedure describes how to use your preferred command line tool to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an S3 bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
 For information about using command line tools to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 **Note**  
-You can use this procedure to create custom session documents for your Session Manager preferences that override account level settings\. When you create your custom session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom session documents, you must provide the name of your custom session document for the `--document-name` parameter when starting a session from the AWS CLI\. When you start a session from the console, you can't specify custom session documents\.
+You can use this procedure to create custom session documents for your Session Manager preferences that override account level settings\. When you create your custom session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom session documents, you must provide the name of your custom session document for the `--document-name` parameter when starting a session from the AWS Command Line Interface \(AWS CLI\)\. When you start a session from the console, you can't specify custom session documents\.
 
 **To create Session Manager preferences \(command line\)**
 
-1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it:
+1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it\.
 
    ```
    {
@@ -29,7 +29,7 @@ You can use this procedure to create custom session documents for your Session M
    }
    ```
 
-1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and EC2 instances, provide the AWS KMS key to use for encryption\. The following is an example\.
+1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and Amazon Elastic Compute Cloud \(Amazon EC2\) instances, provide the AWS KMS key to use for encryption\. The following is an example\.
 
    ```
    {
@@ -49,15 +49,15 @@ You can use this procedure to create custom session documents for your Session M
    }
    ```
 **Note**  
-If you do not want to encrypt the session log data, change "true" to "false" for `s3EncryptionEnabled`\.  
-If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to enable Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the "inputs" section does not end with a comma\.  
+If you do not want to encrypt the session log data, change `true` to `false` for `s3EncryptionEnabled`\.  
+If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to enable Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the `inputs` section does not end with a comma\.  
 If you add a AWS KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the CMK with Session Manager through IAM policies\. For information, see the following topics:  
-Add CMK permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
-Add CMK permissions for instances in your account: [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
+Add CMK permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)
+Add CMK permissions for instances in your account: [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 
 1. Save the file\.
 
-1. In the directory where you created the JSON file, run the following command:
+1. In the directory where you created the JSON file, run the following command\.
 
 ------
 #### [ Linux ]
@@ -94,7 +94,7 @@ Add CMK permissions for instances in your account: [Step 2: Verify or create an 
 
 ------
 
-   If successful, the command returns output similar to the following:
+   If successful, the command returns output similar to the following\.
 
    ```
    {

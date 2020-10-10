@@ -66,7 +66,7 @@ Use the following procedure to register a target with the maintenance window you
 
 1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance IDs\.
 **Note**  
-If you don't see the instances that you want to target, verify that those instances are configured for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. Choose **Register target**\.
 
@@ -92,7 +92,7 @@ If the targets you registered in the preceding step are Windows Server 2012 R2 o
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If you choose to select instances manually, and an instance you expect to see is not included in the list, see [Some of my instances are missing](troubleshooting-remote-commands.md#where-are-instances) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.

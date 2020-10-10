@@ -161,7 +161,7 @@ If successful, the command returns the version number of the parameter\. **Excep
    The system returns information like the following\.
 
    ```
-   {s
+   {
        "InvalidParameters": [],
        "Parameters": [
            {            

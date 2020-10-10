@@ -22,7 +22,9 @@ When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Pat
 
 1. In the navigation pane, choose **Managed Instances**\.
 
-1. In the **Managed instances** list, choose a the ID of a managed EC2 instance that you want to configure for patching\.
+1. In the **Managed instances** list, choose the ID of a managed EC2 instance that you want to configure for patching\.
+**Note**  
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. Select the **Tags** tab, then choose **Edit**\.
 
@@ -63,6 +65,8 @@ For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Syste
 1. In the navigation pane, choose **Managed Instances**\.
 
 1. In the **Managed instances** list, choose a managed instance that you want to configure for patching\.
+**Note**  
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. Choose **View details**\.
 

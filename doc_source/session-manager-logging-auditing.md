@@ -7,7 +7,7 @@ In addition to providing information about current and completed sessions in the
 + Automatically initiate another action on an AWS resource as the result of session activity, such as running an AWS Lambda function, starting an AWS CodePipeline pipeline, or running an AWS Systems Manager Run Command document\.
 
 **Important**  
-Take note of the following requirements and limitations for Session Manager\.  
+Take note of the following requirements and limitations for Session Manager:  
 If you are using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.
 If you are using Linux instances, ensure that the screen utility is installed\. If it is not, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
 Logging and auditing are not available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
@@ -18,7 +18,7 @@ Refer to the following topics for more information about auditing and logging op
 
 ## Audit session activity using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
 
-AWS CloudTrail captures session API calls through the Systems Manager console, the AWS CLI, and the Systems Manager SDK\. The information can be viewed on the CloudTrail console or stored in a specified Amazon S3 bucket\. One bucket is used for all CloudTrail logs for your account\. 
+AWS CloudTrail captures session API calls through the Systems Manager console, the AWS Command Line Interface \(AWS CLI\), and the Systems Manager SDK\. You can view the information on the CloudTrail console or store it in a specified Amazon Simple Storage Service \(Amazon S3\) bucket\. One S3 bucket is used for all CloudTrail logs for your account\. 
 
 For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
 
@@ -29,7 +29,7 @@ You can choose to store session log data in a specified S3 bucket for auditing p
 **Important**  
 When you use virtual hosted–style buckets with Secure Sockets Layer \(SSL\), the SSL wildcard certificate only matches buckets that don't contain periods\. To work around this, use HTTP or write your own certificate verification logic\. We recommend that you do not use periods \("\."\) in bucket names when using virtual hosted–style buckets\.
 
-**S3 Bucket Encryption**  
+**S3 bucket encryption**  
 In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
 **Customer\-managed CMK**  
@@ -50,7 +50,7 @@ You can also use the AWS CLI to specify or change the S3 bucket that session dat
 
 1. Select the check box next to **S3 bucket**\.
 
-1. \(Optional\) If you do not want to encrypt the log data that is sent to the S3 bucket, clear the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using the server\-side encryption key specified for the bucket\. You must also clear the check box if encryption is not enabled on the bucket\.
+1. \(Optional\) If you do not want to encrypt the log data that is sent to the S3 bucket, clear the check box next to **Encrypt log data**\. Otherwise, log data is encrypted using the server\-side encryption key specified for the bucket\. You must also clear the check box if encryption is not enabled on the S3 bucket\.
 
 1. For **S3 bucket name**, select one of the following:
 **Note**  
@@ -66,7 +66,7 @@ For more information about working with Amazon S3 and S3 buckets, see the *[Amaz
 
 ## Logging session data using Amazon CloudWatch Logs \(console\)<a name="session-manager-logging-auditing-cloudwatch-logs"></a>
 
-Amazon CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can send the data to your log group with or without encryption\. 
+With Amazon CloudWatch Logs, you can monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for auditing purposes\. The default option is for log data to be sent with encryption using your AWS KMS key, but you can send the data to your log group with or without encryption\. 
 
 Follow these steps to configure Session Manager to send session log data to a CloudWatch Logs log group\.
 
@@ -95,11 +95,11 @@ For more information about working with CloudWatch Logs, see the *[Amazon CloudW
 
 ## Monitoring session activity using Amazon EventBridge \(console\)<a name="session-manager-logging-auditing-eventbridge-events"></a>
 
-EventBridge lets you set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
+With EventBridge, you can set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 
 EventBridge support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with EventBridge to respond to most AWS Systems Manager events\.\)
 
-The following steps outline how to trigger notifications through Amazon Simple Notification Service \(Amazon SNS\) when a Session Manager API event occurs, such as StartSession\.
+The following steps outline how to initiate notifications through Amazon Simple Notification Service \(Amazon SNS\) when a Session Manager API event occurs, such as StartSession\.
 
 **To monitor session activity using Amazon EventBridge \(console\)**
 
@@ -115,6 +115,6 @@ The following steps outline how to trigger notifications through Amazon Simple N
    + For **Service Name**, choose **EC2 Simple Systems Manager \(SSM\)**\.
    + For **Event Type**, choose **AWS API Call via CloudTrail**\.
    + Choose **Specific operation\(s\)**, and then enter the Session Manager command or commands \(one at a time\) you want to receive notifications for\. You can choose StartSession, ResumeSession, and TerminateSession\. \(EventBridge doesn't support `Get*`,` List*`, and `Describe*` commands\.\)
-   + For**Targets**, choose **SNS topic**\. For **Topic**, choose the name of the Amazon SNS topic you created in Step 1\.
+   + For **Targets**, choose **SNS topic**\. For **Topic**, choose the name of the Amazon SNS topic you created in Step 1\.
 
 For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon Simple Notification Service Getting Started Guide](https://docs.aws.amazon.com/sns/latest/gsg/)*\.

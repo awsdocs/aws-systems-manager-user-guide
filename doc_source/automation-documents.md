@@ -19,6 +19,8 @@ For information about the actions that you can specify in a Systems Manager Auto
 
 For information about the AWS managed Automation documents that run scripts, see [Amazon managed Automation documents that run scripts](runbook-scripts.md)\.
 
+For information about using the AWS Toolkit for Visual Studio Code to create Automation documents, see [Working with Systems Manager Automation documents](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) in the *AWS Toolkit for Visual Studio Code User Guide*\.
+
 For information about using Document Builder to create a custom Automation document, see [Creating Automation documents using Document Builder](automation-document-builder.md)\. 
 
 For information about creating custom Automation documents that run scripts, see the following topics:

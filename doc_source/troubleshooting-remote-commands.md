@@ -11,9 +11,10 @@ Run Command provides status details with each command execution\. For more infor
 
 In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\.
 
-After you create, activate, reboot, or restart a managed instance, install SSM Agent on an instance, or attach an IAM instance profile to an instance, it can take a few minutes for the instance to appear in the list\.
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-If an instance you expect to see is still not listed, see [Where are my instances?](troubleshooting-managed-instances.md#missing-instances) for troubleshooting tips\.
+**Note**  
+After you create, activate, reboot, or restart a managed instance, install SSM Agent on an instance, or attach an IAM instance profile to an instance, it can take a few minutes for the instance to appear in the list\.
 
 ## A step in my script failed, but the overall status is 'succeeded'<a name="ts-exit-codes"></a>
 

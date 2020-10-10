@@ -73,7 +73,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
 
 Each API is unique and has distinct operations and permissions that you can allow or deny individually\. An explicit deny in any policy overrides the allow\.
 
-**Note**
+**Note**  
 The default AWS Key Management Service \(AWS KMS\) key has `Decrypt` permission for all IAM principals within the AWS account\. If you want to have different access levels to `SecureString` parameters in your account, we do not recommend that you use the default key\.
 
 If you want all API operations retrieving parameter values to have the same behavior, then you can use a pattern like `GetParameter*` in a policy\. The following example shows how to deny `GetParameter`, `GetParameters`, `GetParameterHistory`, and `GetParametersByPath` for all parameters beginning with `prod-*`\.
@@ -122,7 +122,7 @@ The following example shows how to deny some commands while allowing the user to
 }
 ```
 
-**Note**
+**Note**  
 The parameter history includes all parameter versions, including the current one\. Therefore, if a user is denied permission for `GetParameter`, `GetParameters`, and `GetParameterByPath` but is allowed permission for `GetParameterHistory`, they can see the current parameter, including `SecureString` parameters, using `GetParameterHistory`\.
 
 ## Allowing only specific parameters to run on instances<a name="sysman-paramstore-access-inst"></a>
@@ -139,7 +139,7 @@ aws kms describe-key --key-id alias/aws/ssm
 
 The following example enables instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
-**Note**
+**Note**  
 Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 ```
@@ -208,7 +208,7 @@ When using a customer managed key, the IAM policy that grants a user access to a
 
 By contrast, all users within the customer account have access to the default AWS managed key\. If you use this default key to encrypt `SecureString` parameters and do not want users to work with `SecureString` parameters, their IAM policies must explicitly deny access to the default key, as demonstrated in the following policy example\.
 
-**Note**
+**Note**  
 You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KMS console on the [AWS managed keys](https://console.aws.amazon.com/kms/home#/kms/defaultKeys) page\. The default key is the one identified with `aws/ssm` in the **Alias** column\.
 
 ```

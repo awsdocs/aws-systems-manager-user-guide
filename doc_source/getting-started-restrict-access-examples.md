@@ -1,6 +1,6 @@
 # Additional sample IAM policies for Session Manager<a name="getting-started-restrict-access-examples"></a>
 
-Refer to the following example policies to help you create a custom IAM policy for any Session Manager user access scenarios you want to support\.
+Refer to the following example policies to help you create a custom AWS Identity and Access Management \(IAM\) policy for any Session Manager user access scenarios you want to support\.
 
 **Topics**
 + [Example 1: Restrict access to specific instances](#restrict-access-example-instances)
@@ -155,7 +155,7 @@ When a user in your AWS account starts a session, Session Manager applies two re
 Session Manager doesn’t support custom tags for this IAM access control policy\. You must use the resource tags supplied by AWS, described below\. 
 
  **aws:ssmmessages:target\-id**   
-With this tag key, you include the instance ID as the value in policy\. In the following policy block, the condition statement lets a user end only the instance i\-02573cafcfEXAMPLE:  
+With this tag key, you include the instance ID as the value in policy\. In the following policy block, the condition statement lets a user end only the instance i\-02573cafcfEXAMPLE\.  
 
 ```
 {
@@ -182,7 +182,7 @@ If the user tries to end a session for which they haven’t been granted this `T
 
  **aws:ssmmessages:session\-id**   
 This tag key includes a variable for the session ID as the value in the request to start a session\.  
-The following example demonstrates a policy for cases where the caller type is User\. The value you supply for `aws:ssmmessages:session-id` is the ID of the user\. In this example, `AIDIODR4TAW7CSEXAMPLE` represents the ID of a user in your AWS account\. To retrieve the ID for a user in your AWS account, use the IAM command, `get-user`\. For information, see [get\-user](https://docs.aws.amazon.com/IAM/latest/UserGuide/get-user.html) in the AWS Identity and Access Management section of the *IAM User Guide*\.   
+The following example demonstrates a policy for cases where the caller type is `User`\. The value you supply for `aws:ssmmessages:session-id` is the ID of the user\. In this example, `AIDIODR4TAW7CSEXAMPLE` represents the ID of a user in your AWS account\. To retrieve the ID for a user in your AWS account, use the IAM command, `get-user`\. For information, see [get\-user](https://docs.aws.amazon.com/IAM/latest/UserGuide/get-user.html) in the AWS Identity and Access Management section of the *IAM User Guide*\.   
 
 ```
 {

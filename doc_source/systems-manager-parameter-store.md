@@ -2,10 +2,8 @@
 
 AWS Systems Manager Parameter Store provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
-**Important**  
-Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
-For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)   
-To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets ManagerUserguide*\.
+**Note**  
+To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
 
 ## How can Parameter Store benefit my organization?<a name="parameter-store-benefits"></a>
 
@@ -52,9 +50,9 @@ Parameter Store offers these benefits:
   Configure integration with the following AWS services for encryption, notification, monitoring, and auditing:
   + AWS Key Management Service \(AWS KMS\)
   + Amazon Simple Notification Service \(Amazon SNS\)
-  + Amazon CloudWatch: For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes) 
-  + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md) 
-  + AWS CloudTrail: For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
+  + Amazon CloudWatch: For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)\. 
+  + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\. 
+  + AWS CloudTrail: For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 
 ## What is a parameter?<a name="what-is-a-parameter"></a>
 
@@ -84,15 +82,15 @@ StringList
 
 SecureString  
 A `SecureString` parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plaintext, such as passwords or license keys, create those parameters using the `SecureString` datatype\.  
-Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.
+Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
+For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 We recommend using `SecureString` parameters for the following scenarios:  
 + You want to use data/parameters across AWS services without exposing the values as plaintext in commands, functions, agent logs, or AWS CloudTrail logs\.
 + You want to control who has access to sensitive data\.
 + You want to be able to audit when sensitive data is accessed \(AWS CloudTrail\)\.
 + You want to encrypt your sensitive data, and you want to bring your own encryption keys to manage access\.
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
-The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using an AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\. \(Use your own CMK if you need to restrict user access to `SecureString` parameters\. For information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions)\.\)  
-Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md) in this guide\.
+The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using an AWS Key Management Service \(KMS\) key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\. \(Use your own CMK if you need to restrict user access to `SecureString` parameters\. For more information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions)\.\)  
 You can also use `SecureString` parameters with other AWS services\. In the following example, the AWS Lambda function retrieves a `SecureString` parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.  
 
 ```
@@ -113,6 +111,7 @@ def lambda_handler(event, context):
     print("value1 = " + value)
     return value  # Echo back the first key value
 ```
+Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. For more information, see [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md) in this guide\.
 **AWS KMS encryption and pricing**  
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\.
 There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS Key Management Service encryption do apply\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing)\.  
@@ -127,7 +126,6 @@ For an example of how to create and use a `SecureString` parameter, see [Create 
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)
-For more information about `SecureString` parameters, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
 **Topics**
 + [How can Parameter Store benefit my organization?](#parameter-store-benefits)

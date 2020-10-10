@@ -1,9 +1,9 @@
 # Enable run as support for Linux instances<a name="session-preferences-run-as"></a>
 
-By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system account\. Only the operating system account's credentials are used to start the session\. Other operating system account settings, like shell profiles, are not applied to your sessions\. Session Manager provides two methods for specifying the operating system account to use\.
+By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system \(OS\) account\. Session Manager provides two methods for specifying the operating system account to use\.
 
 **Method 1: Tag an IAM user or role \(recommended\)**  
-You can specify the operating system user account that is used to start sessions by tagging an IAM user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.
+You can specify the operating system user account that is used to start sessions by tagging an AWS Identity and Access Management \(IAM\) user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.
 
 Using this method, you could specify a different OS account name for each IAM user or role you tag, or use the same OS user name for them all\.
 
@@ -12,11 +12,11 @@ For more information about tagging IAM entities, see the following topics:
 + [Add Tags to Manage Your AWS IAM Users and Roles](http://aws.amazon.com/blogs/security/add-tags-to-manage-your-aws-iam-users-and-roles/) on the *AWS Security Blog*
 
 **Method 2: Specify an OS user name in Session Manager preferences**  
-When you configure Session Manager preferences in the console or by using the AWS CLI, you can specify the operating system user name to start sessions with\. 
+When you configure Session Manager preferences in the console or by using the AWS Command Line Interface \(AWS CLI\), you can specify the operating system user name to start sessions with\. 
 
 Using this method, all sessions are run by the same OS user for all the IAM users in your account who connect to the instance using Session Manager\.
 
-**How It Works**  
+**How it works**  
 If you enable Run As support for sessions, the system checks for access permissions as follows:
 
 1. For the user who is starting the session, has their IAM user account or role been tagged with `SSMSessionRunAs = os-user-account-name`?
@@ -31,7 +31,7 @@ If you enable Run As support for sessions, the system checks for access permissi
 
    At this point, Session Manager does not fall back on the default `ssm-user` account\. In other words, enabling Run As support prevents sessions from being started using an `ssm-user` account on an instance\.
 
-**To enable run as support for Linux instances**
+**To enable Run As support for Linux instances**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -46,6 +46,6 @@ If you enable Run As support for sessions, the system checks for access permissi
    + **Option 2**: Choose the **IAM console** link\. In the navigation pane, choose either **Users** or **Roles**\. Choose the entity \(user or role\) to add tags to, and then choose the **Tags** tab\. Enter `SSMSessionRunAs` for the key name\. Enter the name of a user account on your target instance for the key value\. Choose **Save changes**\. 
 
      The following is an example\.  
-![\[Illustration of specifying tags for Session Manager Run As permission. Key = SSMSessionRunAs,Value=My-OS-User-Name\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssn-run-as-tags.png)
+![\[Screenshot of specifying tags for Session Manager Run As permission. Key = SSMSessionRunAs,Value=My-OS-User-Name\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssn-run-as-tags.png)
 
 1. Choose **Save**\.

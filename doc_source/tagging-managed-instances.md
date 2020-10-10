@@ -38,6 +38,8 @@ You can add tags to managed instances by using the Systems Manager console or th
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Managed Instances**\.
 
 1. Choose the name of the managed instance to add tags to, and then choose the **Tags** tab\.
+**Note**  
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Tags** section, choose **Edit**, and then add one or more key\-value tag pairs\.
 

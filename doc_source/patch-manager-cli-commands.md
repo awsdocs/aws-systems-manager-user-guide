@@ -612,7 +612,7 @@ After you group your instances using tags, you add the patch group value to a pa
 ### Task 1:Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
 
 **Note**  
-When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. Ensure that SSM Agent is installed and running on instances that you want to manage using Systems Manager\. For more information, see [Working with SSM Agent](ssm-agent.md)\.
+When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group`, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 Run the following command to add the `Patch Group` tag to an EC2 instance\.
 

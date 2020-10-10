@@ -567,12 +567,17 @@ parameters:
   directoryName:
     description: "(Required) The name of the domain."
     type: String
+  dnsIpAddresses:
+    description: "(Required) The IP addresses of the DNS servers for your directory."
+    type: StringList
 mainSteps:
 - action: aws:domainJoin
   name: domainJoin
   inputs:
     directoryId: "{{ directoryId }}"
     directoryName: "{{ directoryName }}"
+    directoryOU: "{{ directoryOU }}"
+    dnsIpAddresses: "{{ dnsIpAddresses }}"
 ```
 
 ------
@@ -590,7 +595,11 @@ mainSteps:
     "directoryName": {
       "description": "(Required) The name of the domain.",
       "type": "String"
-    }
+    },
+    "dnsIpAddresses": {
+      "description": "(Required) The IP addresses of the DNS servers for your directory.",
+      "type": "StringList"
+    },
   },
   "mainSteps": [
     {
@@ -598,7 +607,9 @@ mainSteps:
       "name": "domainJoin",
       "inputs": {
         "directoryId": "{{ directoryId }}",
-        "directoryName": "{{ directoryName }}"
+        "directoryName": "{{ directoryName }}",
+        "directoryOU":"{{ directoryOU }}",
+        "dnsIpAddresses":"{{ dnsIpAddresses }}"
       }
     }
   ]
@@ -665,8 +676,8 @@ Example: "directoryOU": "OU=test,DC=example,DC=com"
 
 **dnsIpAddresses**  
 The IP addresses of the DNS servers\.  
-Type: Array  
-Required: No  
+Type: StringList  
+Required: Yes  
 Example: "dnsIpAddresses": \["198\.51\.100\.1","198\.51\.100\.2"\]
 
 ### Examples<a name="domainJoin-examples"></a>

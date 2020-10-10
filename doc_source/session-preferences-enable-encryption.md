@@ -1,6 +1,6 @@
 # Enable AWS KMS key encryption of session data \(console\)<a name="session-preferences-enable-encryption"></a>
 
-Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your EC2 instances and the local machines of users in your AWS account is encrypted using AWS KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) AWS KMS key encryption for sessions is accomplished using a customer master key \(CMK\) that is created in AWS KMS\. To use the option to encrypt session data using a customer master key \(CMK\) created in AWS Key Management Service \(AWS KMS\), version 2\.3\.539\.0 or later of SSM Agent must be installed on the managed instance\. 
+Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and the local machines of users in your AWS account is encrypted using AWS KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) AWS KMS key encryption for sessions is accomplished using a customer master key \(CMK\) that is created in AWS KMS\. To use the option to encrypt session data using a CMK created in AWS KMS, version 2\.3\.539\.0 or later of SSM Agent must be installed on the managed instance\. 
 
 **Note**  
 You must enable AWS KMS encryption in order to reset passwords on your managed instances from the Systems Manager console\. For more information, see [Reset a password on a managed instance](managed-instances-password-reset.md#managed-instance-reset-a-password)\.
@@ -33,7 +33,7 @@ There is a charge to use CMKs\. For information, see [AWS Key Management Service
 
      \-or\-
 
-     Choose the button next to **Enter a KMS key alias or KMS key ARN**\. Manually enter an AWS KMS key alias for a key created in your current account, or enter the key ARN for a key in another account\. The following are examples\.
+     Choose the button next to **Enter a KMS key alias or KMS key ARN**\. Manually enter an AWS KMS key alias for a key created in your current account, or enter the key Amazon Resource Name \(ARN\) for a key in another account\. The following are examples:
      + Key alias: `alias/my-kms-key-alias`
      + Key ARN: `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`
 

@@ -23,7 +23,10 @@ If you create new instances and assign the specified tag key and value to those 
 For information about assigning tags to your instances, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
 **Choose instances manually**  
-Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current AWS account and Region\. You can manually select as many instances as you want\. If you don't see instances in the list for which you want to create an association, verify that the instances are running and are configured for Systems Manager\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
+Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current AWS account and Region\. You can manually select as many instances as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
+
+**Note**  
+If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 **Choose a resource group**  
 Use this option to create an association on all instances returned by an AWS Resource Groups tag\-based or AWS CloudFormation stack\-based query\. 
