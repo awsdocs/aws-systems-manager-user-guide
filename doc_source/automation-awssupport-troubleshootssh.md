@@ -6,7 +6,7 @@ The AWSSupport\-TroubleshootSSH automation document installs the Amazon EC2Rescu
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootSSH)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -62,7 +62,7 @@ Linux
 **Important**  
 The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

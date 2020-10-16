@@ -102,7 +102,7 @@ Use [Systems Manager Configuration Compliance](systems-manager-compliance.md) to
 ------
 #### [ Inventory ]
 
-[Inventory Manager](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory Manager to gather metadata about applications, files, components, patches, and more on your managed instances\.
+[Inventory](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory to gather metadata about applications, files, components, patches, and more on your managed instances\.
 
 ------
 #### [ Managed Instances ]

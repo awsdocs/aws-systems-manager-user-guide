@@ -6,7 +6,7 @@ Create a Systems Manager Inventory association for one or more managed instances
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupInventory)
 
-**Document Type**
+**Document type**
 
 Automation
 

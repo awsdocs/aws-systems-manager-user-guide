@@ -6,7 +6,7 @@ This document will use the EC2Rescue tool on the specified EC2 instance to re\-e
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ResetAccess)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -50,7 +50,7 @@ Systems Manager Automation stops this instance, and creates an AMI before attemp
 **Important**  
 The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

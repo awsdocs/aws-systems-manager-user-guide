@@ -6,7 +6,7 @@ The AWS\-RebootRdsInstance Automation document reboots an Amazon Relational Data
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RebootRdsInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

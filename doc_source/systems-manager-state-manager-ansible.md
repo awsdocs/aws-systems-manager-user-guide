@@ -66,7 +66,7 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for speci
 ## Installed dependencies<a name="systems-manager-state-manager-ansible-depedencies"></a>
 
 If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that the following dependencies are installed on your instances\. If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
-+ **Ubuntu/Debian**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
++ **Ubuntu Server/Debian Server**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
 + **Amazon Linux**: Ansible
 + **RHEL**: Python 3, Ansible, Unzip
 

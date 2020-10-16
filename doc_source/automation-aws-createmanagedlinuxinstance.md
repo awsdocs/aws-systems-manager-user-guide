@@ -6,7 +6,7 @@ Create an EC2 instance for Linux that is configured for Systems Manager\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedLinuxInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

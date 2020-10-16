@@ -547,7 +547,7 @@ Required: No
 
 ## aws:domainJoin<a name="aws-domainJoin"></a>
 
-Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html)\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Join an EC2 instance to a domain\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 

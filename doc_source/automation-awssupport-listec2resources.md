@@ -6,7 +6,7 @@ The AWSSupport\-ListEC2Resources Automation document returns information on Amaz
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ListEC2Resources)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -44,7 +44,7 @@ Windows, Linux
 
   Description: \(Optional\) The Regions you want to gather Amazon EC2 related information from\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `autoscaling:DescribeAutoScalingGroups`

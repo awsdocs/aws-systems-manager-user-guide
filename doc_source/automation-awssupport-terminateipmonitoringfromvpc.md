@@ -6,7 +6,7 @@ AWSSupport\-TerminateIPMonitoringFromVPC terminates an IP monitoring test previo
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TerminateIPMonitoringFromVPC)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -35,7 +35,7 @@ Windows, Linux
 
   Description: \(Required\) The subnet ID for the monitor instance\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

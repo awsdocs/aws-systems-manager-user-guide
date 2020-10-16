@@ -77,11 +77,11 @@ This procedure describes how to view findings in Security Hub about managed inst
 
 1. In the navigation pane, choose **Findings**\.
 
-1. Choose the **Add filters** box\.
+1. Choose the **Add filters** \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)\) box\.
 
 1. In the menu, under **Filters**, choose **Product name**\.
 
-1. In the dialog box that opens, choose **is** in the first field and then enter **Patch Manager** in the second field\.
+1. In the dialog box that opens, choose **is** in the first field and then enter **Systems Manager Patch Manager** in the second field\.
 
 1. Choose **Apply**\.
 
@@ -91,7 +91,7 @@ This procedure describes how to view findings in Security Hub about managed inst
 
    A pane opens on the right side of the screen with more details about the resource, the issue discovered, and a recommended remediation\.
 **Important**  
-At this time, Security Hub reports the resource type of all managed instances as `EC2 instance`\. This includes on\-premises servers and virtual machines \(VMs\) that you have registered for use with Systems Manager\.
+At this time, Security Hub reports the resource type of all managed instances as `AwsEc2Instance`\. This includes on\-premises servers and virtual machines \(VMs\) that you have registered for use with Systems Manager\.
 
 **Related content**
 + [Findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html) in the *AWS Security Hub User Guide*

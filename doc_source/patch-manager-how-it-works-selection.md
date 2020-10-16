@@ -57,14 +57,14 @@ However, CentOS default repos aren't configured with an update notice\. This mea
 CentOS update notices are supported\. Repos with update notices can be downloaded after launch\.
 
 ------
-#### [ Debian ]
+#### [ Debian Server ]
 
-On Debian, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
+On Debian Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
-Packages are then filtered from `debian-security codename` repos, where the codename is something like `jessie` or `stretch`\. For example, on Debian 8, Patch Manager only identifies upgrades that are part of `debian-security jessie`\. On Debian 9, only upgrades that are part of `debian-security stretch` are identified\.
+Packages are then filtered from `debian-security codename` repos, where the codename is something like `jessie` or `stretch`\. For example, on Debian Server 8, Patch Manager only identifies upgrades that are part of `debian-security jessie`\. On Debian Server 9, only upgrades that are part of `debian-security stretch` are identified\.
 
 **Note**  
-On Debian 8 only: Because some Debian 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs additional steps to ensure that patching operations succeed\. For more information, see [How patches are installed](patch-manager-how-it-works-installation.md)\.
+On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs additional steps to ensure that patching operations succeed\. For more information, see [How patches are installed](patch-manager-how-it-works-installation.md)\.
 
 ------
 #### [ Oracle Linux ]

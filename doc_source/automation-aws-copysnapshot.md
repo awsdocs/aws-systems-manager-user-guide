@@ -6,7 +6,7 @@ Copies a point\-in\-time snapshot of an Amazon Elastic Block Store \(Amazon EBS\
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot)
 
-**Document Type**
+**Document type**
 
 Automation
 

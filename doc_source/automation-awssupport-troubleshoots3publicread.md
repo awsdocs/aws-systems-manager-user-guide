@@ -11,7 +11,7 @@ The AWSSupport\-TroubleshootS3PublicRead Automation document diagnoses issues re
 + This automation does not evaluate condition keys in the S3 bucket policy\.
 + If you're using AWS Organizations, this automation does not evaluate service control policies to confirm that access to Amazon S3 is allowed\.
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -100,7 +100,7 @@ Windows, Linux
 
   Description: \(Optional\) To return more detailed information during the automation, set this parameter to `true`\. Only warning and error messages will be returned if the parameter is set to `false`\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

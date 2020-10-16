@@ -19,7 +19,7 @@ Due to the large number of available packages for Linux operating systems, Syste
 The `AWS-ApplyPatchBaseline` SSM document doesn't support Linux instances\. For applying patch baselines to both Windows Server and Linux instances, the recommended SSM document is `AWS-RunPatchBaseline`\. For more information, see [About SSM documents for patching instances](patch-manager-ssm-documents.md) and [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
 **Difference 4: Application patches**  
-Patch Manager's primary focus is applying patches to operating systems\. However, you can also use Patch Manager to apply patches to some applications on your instances\.  
+The primary focus of Patch Manager is applying patches to operating systems\. However, you can also use Patch Manager to apply patches to some applications on your instances\.  
 **Linux**  
 On Linux operating systems, Patch Manager uses the configured repositories for updates, and does not differentiate between operating systems and application patches\. You can use Patch Manager to define which repositories to fetch updates from\. For more information, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 **Windows**  

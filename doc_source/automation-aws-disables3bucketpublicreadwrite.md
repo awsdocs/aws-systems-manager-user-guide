@@ -6,7 +6,7 @@ Use Amazon Simple Storage Service \(Amazon S3\) `Block Public Access` to disable
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisableS3BucketPublicReadWrite)
 
-**Document Type**
+**Document type**
 
 Automation
 

@@ -6,7 +6,7 @@ The AWSSupport\-ManageWindowsService automation document enables a user to stop,
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageWindowsService)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -53,7 +53,7 @@ Windows
 
   Description: \(Required\) A valid Windows service name\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

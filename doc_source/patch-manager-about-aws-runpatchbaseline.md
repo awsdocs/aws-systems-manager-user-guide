@@ -18,7 +18,7 @@ On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads an
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
 + Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
 + RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires Python 2 or Python 3\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
-+ Debian and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
++ Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 ------
@@ -179,7 +179,7 @@ Any other fields you want to provide in a patch list for Linux are optional and 
           id: 'dhcp*'
           title: '*10:3.1.1-50.P1.26.amzn1'
   ```
-+ **Debian **
++ **Debian Server**
 
   ```
   patches:

@@ -5,7 +5,7 @@ The rules in a patch baseline for Linux distributions operate differently based 
 **Topics**
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How patch baseline rules work on CentOS](#patch-manager-how-it-works-linux-rules-centos)
-+ [How patch baseline rules work on Debian](#patch-manager-how-it-works-linux-rules-debian)
++ [How patch baseline rules work on Debian Server](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
 + [How patch baseline rules work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
 + [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
@@ -53,29 +53,29 @@ For information about accepted formats for lists of approved patches and rejecte
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
-## How patch baseline rules work on Debian<a name="patch-manager-how-it-works-linux-rules-debian"></a>
+## How patch baseline rules work on Debian Server<a name="patch-manager-how-it-works-linux-rules-debian"></a>
 
-On Debian, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
+On Debian Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
-1. On Debian systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
+1. On Debian Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
 **Important**  
-On Debian 8 only: Because Debian 8\.\* operating systems refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:  
+On Debian Server 8 only: Because Debian Server 8\.\* operating systems refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:  
 On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
-A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian 8\.\* distributions\.
+A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian Server 8\.\* distributions\.
 An `apt-get` operation is run to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
 After the installation process completes, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
 
 1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
 **Note**  
-Because it's not possible to reliably determine the release dates of update packages for Debian, the auto\-approval options are not supported for this operating system\.
+Because it's not possible to reliably determine the release dates of update packages for Debian Server, the auto\-approval options are not supported for this operating system\.
 
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 
-   If nonsecurity updates are excluded, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\. In this case, for Debian, patch candidate versions are limited to patches included in the following repos:
+   If nonsecurity updates are excluded, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\. In this case, for Debian Server, patch candidate versions are limited to patches included in the following repos:
 
    These repos are named as follows:
-   + Debian 8: `debian-security jessie`
-   + Debian 9: `debian-security stretch`
+   + Debian Server 8: `debian-security jessie`
+   + Debian Server 9: `debian-security stretch`
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
@@ -84,7 +84,7 @@ For information about accepted formats for lists of approved patches and rejecte
 To view the contents of the *Priority* and *Section *fields, run the following `aptitude` command: 
 
 **Note**  
-You may need to first install Aptitude on Debian systems\.
+You may need to first install Aptitude on Debian Server systems\.
 
 ```
 aptitude search -F '%p %P %s %t %V#' '~U'

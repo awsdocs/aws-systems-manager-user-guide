@@ -9,7 +9,7 @@ This document cannot be used on Bring Your Own License \(BYOL\) Windows Server i
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -60,7 +60,7 @@ The offline method requires that the provided EC2 instance be stopped and then s
 
   Description: \(Optional\) Offline only \- The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting\. Use SelectedInstanceSubnet to use the same subnet as your instance, or CreateNewVPC to create a new VPC\. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

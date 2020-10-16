@@ -26,6 +26,7 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 + [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups)
 + [Deregister a patch group from a patch baseline](#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group)
 + [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline)
++ [Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `CRITICAL`](#patch-manager-cli-commands-describe-available-patches-linux)
 + [Get all patches for Windows Server 2012 that have a MSRC severity of Critical](#patch-manager-cli-commands-describe-available-patches)
 + [Get all available patches](#patch-manager-cli-commands-describe-available-patches)
 + [List the tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource)
@@ -612,7 +613,7 @@ After you group your instances using tags, you add the patch group value to a pa
 ### Task 1:Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
 
 **Note**  
-When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group`, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` tag, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 Run the following command to add the `Patch Group` tag to an EC2 instance\.
 
@@ -835,10 +836,17 @@ The system returns information like the following\.
 
 ## Get all patches defined by a patch baseline<a name="patch-manager-cli-commands-describe-effective-patches-for-patch-baseline"></a>
 
+**Note**  
+This command is supported for Windows Server patch baselines only\.
+
 ------
 #### [ Linux ]
 
-*This command is supported for Windows Server patch baselines only\.*
+```
+aws ssm describe-effective-patches-for-patch-baseline \
+    --region us-east-2 \
+    --baseline-id "pb-0c10e65780EXAMPLE"
+```
 
 ------
 #### [ Windows ]
@@ -912,6 +920,52 @@ The system returns information like the following\.
          }
       }
      ---output truncated---
+```
+
+## Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `CRITICAL`<a name="patch-manager-cli-commands-describe-available-patches-linux"></a>
+
+------
+#### [ Linux ]
+
+```
+aws ssm describe-available-patches \
+    --region us-east-2 \
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITCAL
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm describe-available-patches ^
+    --region us-east-2 ^
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITCAL
+```
+
+------
+
+The system returns information like the following\.
+
+```
+{
+    "Patches": [
+        {
+            "AdvisoryIds": ["ALAS-2011-1"],
+            "BugzillaIds": [ "1234567" ],
+            "Classification": "SECURITY",
+            "CVEIds": [ "CVE-2011-3192"],
+            "Name": "zziplib",
+            "Epoch": "0",
+            "Version": "2.71",
+            "Release": "1.3.amzn1",
+            "Arch": "i686",
+            "Product": "AmazonLinux2018.03",
+            "ReleaseDate": 1590519815,
+            "Severity": "CRITICAL"
+        }
+    ]
+}     
+---output truncated---
 ```
 
 ## Get all patches for Windows Server 2012 that have a MSRC severity of Critical<a name="patch-manager-cli-commands-describe-available-patches"></a>

@@ -100,17 +100,17 @@ sudo rm /usr/local/bin/session-manager-plugin
 ## Install Session Manager plugin on Linux<a name="install-plugin-linux"></a>
 
 1. Download the Session Manager plugin RPM package\.
-   + 64\-bit
+   + Intel 64\-bit \(x86\_64\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
-   + 32\-bit
+   + Intel 32\-bit \(x86\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
-   + ARM 64\-bit
+   + ARM 64\-bit \(arm64\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
@@ -130,17 +130,17 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
 ## Install the Session Manager plugin on Ubuntu Server<a name="install-plugin-debian"></a>
 
 1. Download the Session Manager plugin deb package\.
-   + 64\-bit
+   + Intel 64\-bit \(x86\_64\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
-   + 32\-bit
+   + Intel 32\-bit \(x86\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
-   + ARM 64\-bit
+   + ARM 64\-bit \(arm64\)
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
@@ -264,6 +264,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 
 | 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 
 | 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.   | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 

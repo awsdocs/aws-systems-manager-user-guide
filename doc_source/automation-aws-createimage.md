@@ -6,7 +6,7 @@ Create a new Amazon Machine Image \(AMI\) from an EC2 instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateImage)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -35,7 +35,7 @@ Windows, Linux
 
   Description: \(Optional\) Do not reboot the instance before creating the image\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

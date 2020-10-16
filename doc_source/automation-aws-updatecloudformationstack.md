@@ -6,7 +6,7 @@ Update an AWS CloudFormation stack by using an AWS CloudFormation template store
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateCloudFormationStack)
 
-**Document Type**
+**Document type**
 
 Automation
 

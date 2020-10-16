@@ -6,7 +6,7 @@ Start an Amazon Relational Database Service \(Amazon RDS\) instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartRdsInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

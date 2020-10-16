@@ -8,13 +8,14 @@ AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed
 If the Amazon Machine Image \(AMI\) type you choose in the first procedure doesn't come with SSM Agent preinstalled, you must manually install the agent on the new instance before it can be used with Systems Manager\. If SSM Agent isn't installed on the existing EC2 instance you choose in the second procedure, you must manually install the agent on the instance before it can be used with Systems Manager\.
 
 SSM Agent is installed by default on the following AMIs:
-+ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2
++ Amazon Linux 2 ECS\-Optimized AMIs
 + Ubuntu Server 16\.04, 18\.04, and 20\.04
-+ Amazon ECS\-Optimized AMIs
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2016 and 2019
 
+**Note**  
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.

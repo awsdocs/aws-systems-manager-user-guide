@@ -14,7 +14,7 @@ If the security group is located in a non\-default VPC and, for example, specifi
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisablePublicAccessForSecurityGroup)
 
-**Document Type**
+**Document type**
 
 Automation
 

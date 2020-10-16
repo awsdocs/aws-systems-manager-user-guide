@@ -6,7 +6,7 @@ Update an Amazon Machine Image \(AMI\) with Linux distribution packages and Amaz
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateLinuxAmi)
 
-**Document Type**
+**Document type**
 
 Automation
 

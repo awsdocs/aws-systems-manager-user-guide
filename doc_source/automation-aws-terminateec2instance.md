@@ -6,7 +6,7 @@ Terminate one or more EC2 instances\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-TerminateEC2Instance)
 
-**Document Type**
+**Document type**
 
 Automation
 

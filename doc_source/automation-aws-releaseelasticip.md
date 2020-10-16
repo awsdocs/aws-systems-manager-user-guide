@@ -6,7 +6,7 @@ Release the specified Elastic IP address using the allocation ID\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ReleaseElasticIP)
 
-**Document Type**
+**Document type**
 
 Automation
 

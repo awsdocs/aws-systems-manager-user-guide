@@ -13,10 +13,10 @@ For a list of example scenarios for using this option, see [Sample uses for alte
 
 For information about default and custom patch baselines, see [About predefined and custom patch baselines](sysman-patch-baselines.md)\.
 
-**Using the Console**  
+**Example: Using the console**  
 To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
 
-**Using the AWS CLI**  
+**Example: Using the AWS CLI**  
 For an example of using the `--sources` option with the CLI, see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)\.
 
 **Topics**

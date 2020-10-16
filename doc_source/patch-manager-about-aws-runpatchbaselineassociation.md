@@ -59,7 +59,7 @@ If more than one patch baseline is found with the tags specified in the `AWS-Run
 **Note**  
 On Linux instances, the appropriate package manager for each instance type is used to install packages:   
 Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-Debian and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
+Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 After a scan completes, or after all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to the Patch Compliance service\. 

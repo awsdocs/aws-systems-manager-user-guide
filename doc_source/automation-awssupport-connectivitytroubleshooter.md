@@ -10,7 +10,7 @@ The AWSSupport\-ConnectivityTroubleshooter Automation document diagnoses connect
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ConnectivityTroubleshooter)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -65,7 +65,7 @@ Windows, Linux
 
   Description: \(Optional\) The ID of the Amazon VPC you want to test connectivity from\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ec2:DescribeNatGateways`

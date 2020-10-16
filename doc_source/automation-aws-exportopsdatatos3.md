@@ -6,7 +6,7 @@ This document retrieves a list of OpsData summaries in AWS Systems Manager Explo
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3)
 
-**Document Type**
+**Document type**
 
 Automation
 

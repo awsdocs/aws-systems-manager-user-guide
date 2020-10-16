@@ -6,7 +6,7 @@ Brings EC2 instance into compliance with standing baseline; rolls back root volu
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchInstanceWithRollback)
 
-**Document Type**
+**Document type**
 
 Automation
 

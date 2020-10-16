@@ -52,7 +52,7 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
 
 1. \(Optional\) In the **Activation description** field, enter a description for this activation\. The description is optional, be we recommend that you enter a description if you plan to activate large numbers of servers and VMs\.
 
-1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. 
+1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. The default value is 1 instance\.
 
 1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
@@ -60,7 +60,7 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
 
    1. Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\.
 
-1. In the **Activation expiry date** field, specify an expiration date for the activation\. 
+1. In the **Activation expiry date** field, specify an expiration date for the activation\. The default value is 24 hours\.
 **Note**  
 If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
 

@@ -185,7 +185,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
      lsb_release -a
      ```
 
-     If these methods fail, you can usually find the release based on the distribution\. For example, on Debian, you can scan the `/etc/debian_version` file, or on Red Hat Enterprise Linux, the `/etc/redhat-release` file\.
+     If these methods fail, you can usually find the release based on the distribution\. For example, on Debian Server, you can scan the `/etc/debian_version` file, or on Red Hat Enterprise Linux, the `/etc/redhat-release` file\.
 
      ```
      hostnamectl

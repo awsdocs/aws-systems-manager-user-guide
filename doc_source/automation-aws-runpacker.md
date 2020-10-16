@@ -9,7 +9,7 @@ If you specify a `vpc_id` value, you must also specify the `subnet_id` value of 
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker)
 
-**Document Type**
+**Document type**
 
 Automation
 

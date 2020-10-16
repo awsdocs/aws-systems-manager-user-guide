@@ -6,7 +6,7 @@ Attach an AWS Identity and Access Management \(IAM\) role to a managed instance\
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachIAMToInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

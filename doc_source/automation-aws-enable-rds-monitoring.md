@@ -6,7 +6,7 @@ The AWSConfigRemediation\-EnableEnhancedMonitoringOnRDSInstance automation docum
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEnhancedMonitoringOnRDSInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -42,7 +42,7 @@ Databases
 
   Description: \(Required\) The resource identifier for the DB instance you want to enable Enhanced Monitoring on\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:ExecuteAutomation`

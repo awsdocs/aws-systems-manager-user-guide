@@ -6,7 +6,7 @@ Configure an instance with an AWS Identity and Access Management \(IAM\) role fo
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupManagedInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

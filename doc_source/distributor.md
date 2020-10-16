@@ -14,7 +14,7 @@ Distributor does not guarantee that the third\-party packages you install are fr
 Distributor offers these benefits:
 +  **One package, many platforms** 
 
-  One document can have attached \.zip files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
+  One document can have attached \.zip files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian Server, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
 +  **Control package access across groups of managed instances** 
 
   You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
@@ -68,7 +68,7 @@ Distributor supports package distribution to any release version of the followin
 | Platform | Code value in manifest file | Architecture | 
 | --- | --- | --- | 
 |  Windows Server  |   `windows`   |  `x86_64` or `386`  | 
-|  Debian  |   `debian`   |  `x86_64` or `386`  | 
+|  Debian Server  |   `debian`   |  `x86_64` or `386`  | 
 |  Ubuntu Server  |   `ubuntu`   |  `x86_64` or `386` `arm64` \(Ubuntu Server 16 and later, A1 instance types\)  | 
 |  Red Hat Enterprise Linux \(RHEL\)  |   `redhat`   |  `x86_64` or `386` `arm64` \(RHEL 7\.6 and later, A1 instance types\)  | 
 |  CentOS  |   `centos`   |  `x86_64` or `386`  | 

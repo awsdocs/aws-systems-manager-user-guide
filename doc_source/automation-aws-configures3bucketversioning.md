@@ -6,7 +6,7 @@ Configure versioning for an Amazon Simple Storage Service \(Amazon S3\) bucket\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureS3BucketVersioning)
 
-**Document Type**
+**Document type**
 
 Automation
 

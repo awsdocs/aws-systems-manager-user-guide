@@ -56,13 +56,14 @@ In order for the ssm\-user account to be created, the instance profile attached 
 
 **AMIs with SSM Agent preinstalled**  
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
-+ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016 and 2019
 + Amazon Linux
 + Amazon Linux 2
++ Amazon Linux 2 ECS\-Optimized AMIs
 + Ubuntu Server 16\.04, 18\.04, and 20\.04
-+ Amazon ECS\-Optimized AMIs
++ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
++ Windows Server 2016 and 2019
 
+**Note**  
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.

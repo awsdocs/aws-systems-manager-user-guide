@@ -6,7 +6,7 @@ The AWSSupport\-TroubleshootConnectivityToRDS Automation document diagnoses conn
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootConnectivityToRDS)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -37,7 +37,7 @@ Windows, Linux
 
   Description: \(Required\) The ID of the EC2 instance to test connectivity from\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ec2:DescribeInstances`

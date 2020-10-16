@@ -6,7 +6,7 @@ Patch EC2 instances in an Auto Scaling group\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchAsgInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

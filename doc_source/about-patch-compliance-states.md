@@ -7,9 +7,9 @@ If you want to assign a specific patch compliance state to an instance, you can 
 
 Use the information in the following tables to help you identify why an instance might be out of patch compliance\.
 
-## Patch compliance values for Debian and Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
+## Patch compliance values for Debian Server and Ubuntu Server<a name="patch-compliance-values-ubuntu"></a>
 
-For Debian and Ubuntu Server, the rules for package classification into the different compliance states are described in the following table\.
+For Debian Server and Ubuntu Server, the rules for package classification into the different compliance states are described in the following table\.
 
 **Note**  
 Keep the following in mind when you are evaluating the **Installed**, **Installed Other**, and **Missing** status values: If you do not select the **Include nonsecurity updates** check box when creating or updating a patch baseline, patch candidate versions are limited to patches included in `trusty-security` \(Ubuntu Server 14\), `xenial-security` \(Ubuntu Server 16\), `bionic-security` \(Ubuntu Server 18\), `focal-security` \(Ubuntu Server 20\), or `debian-security` \(Debian Stretch or Jessie\)\. If you do select the **Include nonsecurity updates** check box, patches from other repositories are considered as well\.
@@ -26,7 +26,7 @@ Keep the following in mind when you are evaluating the **Installed**, **Installe
 
 ## Patch compliance values for other operating systems<a name="patch-compliance-values"></a>
 
-For all operating systems besides Debian and Ubuntu Server, the rules for package classification into the different compliance states are described in the following table\. 
+For all operating systems besides Debian Server and Ubuntu Server, the rules for package classification into the different compliance states are described in the following table\. 
 
 
 |  Patch state | Description | Compliance value | 

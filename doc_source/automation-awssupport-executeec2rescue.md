@@ -6,7 +6,7 @@ This document will use the EC2Rescue tool to troubleshoot and where possible rep
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ExecuteEC2Rescue)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -51,7 +51,7 @@ Windows, Linux
 
   Description: \(Required\) ID of your unreachable EC2 instance\. IMPORTANT: AWS Systems Manager Automation stops this instance, and creates an AMI before attempting any operations\. Data stored in instance store volumes will be lost\. The public IP address will change if you are not using an Elastic IP\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

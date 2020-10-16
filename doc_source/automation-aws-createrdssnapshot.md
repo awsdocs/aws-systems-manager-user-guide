@@ -6,7 +6,7 @@ Create an Amazon Relational Database Service \(Amazon RDS\) snapshot for an Amaz
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateRdsSnapshot)
 
-**Document Type**
+**Document type**
 
 Automation
 

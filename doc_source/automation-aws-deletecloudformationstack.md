@@ -6,7 +6,7 @@ Delete an AWS CloudFormation stack\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteCloudFormationStack)
 
-**Document Type**
+**Document type**
 
 Automation
 

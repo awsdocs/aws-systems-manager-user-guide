@@ -6,7 +6,7 @@ Delete an Amazon Machine Image \(AMI\) and all associated snapshots\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteImage)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -30,7 +30,7 @@ Windows, Linux
 
   Description: \(Required\) The ID of the AMI\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

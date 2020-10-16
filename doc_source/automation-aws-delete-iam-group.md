@@ -6,7 +6,7 @@ The AWSConfigRemediation\-DeleteUnusedIAMGroup automation document deletes an IA
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedIAMGroup)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -30,7 +30,7 @@ Windows, Linux
 
   Description: \(Required\) The name of the IAM group that you want to delete\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:ExecuteAutomation`

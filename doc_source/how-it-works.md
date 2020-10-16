@@ -8,6 +8,6 @@ Diagram 1 below shows a general example of the different processes that Systems 
 
 1. **Reporting**: SSM Agent reports the status of the configuration changes and actions to Systems Manager in the AWS cloud\. Systems Manager then sends the status to the user and various AWS services, if configured\.
 
-**Diagram 1: General Example of Systems Manager Process Flow**
+**Diagram 1: General example of Systems Manager process flow**
 
 ![\[Diagram showing how Systems Manager capabilities, for example Run Command or Maintenance Windows, use a similar process of set up, execution, processing, and reporting.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)

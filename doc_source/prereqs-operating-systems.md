@@ -27,13 +27,14 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 2\.0 and all later versions |  | ✓ | ✓ | 
 
 
-**Ubuntu Server**  
+**CentOS**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
-| 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
-| 20\.04 LTS |  | ✓ | ✓ | 
+| 6\.0 | ✓ |  |  | 
+| 6\.3 and later 6\.x versions | ✓ | ✓ |  | 
+| 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
+| 8\.0, 8\.1, and 8\.2 versions |  | ✓ |  | 
 
 
 **Debian Server**  
@@ -45,6 +46,17 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | Buster \(10\) |  | ✓ |  | 
 
 
+**Oracle Linux**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 7\.5 |  | ✓ |  | 
+| 7\.6 |  | ✓ |  | 
+| 7\.7 |  | ✓ |  | 
+| 7\.8 |  | ✓ |  | 
+| 7\.9 |  | ✓ |  | 
+
+
 **Red Hat Enterprise Linux \(RHEL\)**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
@@ -52,6 +64,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 6\.0 |  | ✓ |  | 
 | 6\.5 | ✓ | ✓ |  | 
 | 6\.9 | ✓ | ✓ |  | 
+| 6\.10 |  | ✓ |  | 
 | 7\.0 |  | ✓ |  | 
 | 7\.1 |  | ✓ |  | 
 | 7\.2 |  | ✓ |  | 
@@ -66,32 +79,21 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 8\.2 |  | ✓ | ✓ | 
 
 
-**Oracle Linux**  
-
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
-| --- | --- | --- | --- | 
-| 7\.5 |  | ✓ |  | 
-| 7\.6 |  | ✓ |  | 
-| 7\.7 |  | ✓ |  | 
-| 7\.8 |  | ✓ |  | 
-
-
-**CentOS**  
-
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
-| --- | --- | --- | --- | 
-| 6\.0 | ✓ |  |  | 
-| 6\.3 and later 6\.x versions | ✓ | ✓ |  | 
-| 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
-| 8\.0 and 8\.1 versions |  | ✓ |  | 
-
-
 **SUSE Linux Enterprise Server \(SLES\)**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
 | 12 and later 12\.x versions |  | ✓ |  | 
 | 15 and later 15\.x versions |  | ✓ |  | 
+
+
+**Ubuntu Server**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
+| 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
+| 20\.04 LTS |  | ✓ | ✓ | 
 
 ## Raspbian<a name="prereqs-os-raspbian"></a>
 
@@ -117,4 +119,4 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 2019 |  | ✓ |  | 
 
 **Important**  
-SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows Server instances \(for example, the legacy **AWS\-ApplyPatchBaseline** document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [Windows Management Framework 3\.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
+SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.

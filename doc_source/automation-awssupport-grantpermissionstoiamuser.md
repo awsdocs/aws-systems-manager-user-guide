@@ -9,7 +9,7 @@ If you provide an existing IAM group, all current IAM users in the group receive
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -56,7 +56,7 @@ Windows, Linux
 
   Description: \(Required\) Choose one of: `SupportFullAccess` grants full access to the Support center\. `BillingFullAccess` grants full access to the Billing dashboard\. `SupportAndBillingFullAccess` grants full access to both Support center and the Billing dashboard\. More info on policies under Document details\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

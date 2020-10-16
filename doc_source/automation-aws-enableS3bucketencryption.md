@@ -6,7 +6,7 @@ Enable encryption for an Amazon Simple Storage Service \(Amazon S3\) bucket \(en
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableS3BucketEncryption)
 
-**Document Type**
+**Document type**
 
 Automation
 

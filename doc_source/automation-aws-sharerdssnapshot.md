@@ -9,7 +9,7 @@ If you do not specify a value for the `KMSKey` parameter, the automation creates
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ShareRDSSnapshot)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -48,7 +48,7 @@ Databases
 
   Description: \(Optional\) The ID of the DB cluster or instance snapshot that you want to use\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:StartAutomationExecution`

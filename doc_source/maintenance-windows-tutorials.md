@@ -14,14 +14,14 @@ Before trying these tutorials, complete the following prerequisites\.
 + **Create or configure a Systems Manager\-compatible instance**: You need at least one EC2 instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
 
   We recommend launching an instance from one of the following Amazon Machine Image \(AMI\) types\. SSM Agent is preinstalled on each one:
-  + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-  + Windows Server 2016 and 2019
   + Amazon Linux
   + Amazon Linux 2
+  + Amazon Linux 2 ECS\-Optimized AMIs
   + Ubuntu Server 16\.04, 18\.04, and 20\.04
-  + Amazon ECS\-Optimized AMIs
-
-  SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
+  + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
+  + Windows Server 2016 and 2019
+**Note**  
+SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
   For information about installing SSM Agent on an instance, see the following topics:
   + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)

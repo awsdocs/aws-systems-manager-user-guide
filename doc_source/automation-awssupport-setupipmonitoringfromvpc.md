@@ -13,7 +13,7 @@ To clean up resources created by AWSSupport\-SetupIPMonitoringFromVPC, you can r
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -67,7 +67,7 @@ Windows, Linux
 
   Description: \(Required\) Comma separated list of IPv4s and/or IPv6s to monitor\. No spaces allowed\. Maximum size is 255 characters\. Be aware that if you provide an invalid IP, then the automation will fail and rollback the test setup\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

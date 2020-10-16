@@ -6,7 +6,7 @@ The AWSSupport\-TroubleshootDirectoryTrust Automation document diagnoses trust c
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootDirectoryTrust)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -63,7 +63,7 @@ Windows, Linux
 
   Description: \(Optional\) The ID of the trust relationship to troubleshoot\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ds:DescribeConditionalForwarders`

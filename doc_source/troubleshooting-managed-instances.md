@@ -10,12 +10,12 @@ In order for an EC2 instance to be managed by Systems Manager and available in l
 **Note**  
 Some Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\)   
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
-Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-Windows Server 2016 and 2019
 Amazon Linux
 Amazon Linux 2
+Amazon Linux 2 ECS\-Optimized AMIs
 Ubuntu Server 16\.04, 18\.04, and 20\.04
-Amazon ECS\-Optimized AMIs
+Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
+Windows Server 2016 and 2019
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
 1. An AWS Identity and Access Management \(IAM\) instance profile that supplies the required permissions for the instance to communicate with the Systems Manager service must be attached to the instance\.
@@ -149,4 +149,4 @@ Verify that the operation you have chosen can be run on the type of instance you
 
 ## Solution 5: Verify you are working in the same AWS Region as the EC2 instance<a name="instances-missing-solution-5"></a>
 
-EC2 instances are created and available in specific AWS Regions, such as the US East \(Ohio\) Region \(us\-east\-2\) or Europe \(Ireland\) Region \(eu\-west\-1\)\. Ensure that you are working in the same AWS Region as the EC2 instance that you want to work with\. For more information, see [Choosing a Region](console-ug-url;#select-region) in *Getting Started with the AWS Management Console*\.
+EC2 instances are created and available in specific AWS Regions, such as the US East \(Ohio\) Region \(us\-east\-2\) or Europe \(Ireland\) Region \(eu\-west\-1\)\. Ensure that you are working in the same AWS Region as the EC2 instance that you want to work with\. For more information, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) in *Getting Started with the AWS Management Console*\.

@@ -11,7 +11,7 @@ If you want to modify the computer name of the EC2 instance launched from the ne
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-CloneInstanceAndUpgradeSQLServer)
 
-**Document Type**
+**Document type**
 
 Automation
 

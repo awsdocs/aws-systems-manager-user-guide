@@ -6,7 +6,7 @@ Configure an instance with the SSMRoleForManagedInstance managed IAM role for Sy
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupManagedRoleOnEC2Instance)
 
-**Document Type**
+**Document type**
 
 Automation
 

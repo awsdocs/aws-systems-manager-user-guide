@@ -9,7 +9,7 @@ The AWS Lambda function that runs during this operation has a maximum execution 
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteEbsVolumeSnapshots)
 
-**Document Type**
+**Document type**
 
 Automation
 

@@ -6,7 +6,7 @@ Restart one or more EC2 instances\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RestartEC2Instance)
 
-**Document Type**
+**Document type**
 
 Automation
 

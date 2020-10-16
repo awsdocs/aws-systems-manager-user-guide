@@ -6,7 +6,7 @@ Change the instance type of an EC2 instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ResizeInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

@@ -109,7 +109,7 @@ This automation does not support restoring to SQL Server running on EC2 instance
 
   Default value: 100
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

@@ -69,15 +69,15 @@ On CentOS instances, the patch installation workflow is as follows:
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
 ------
-#### [ Debian ]
+#### [ Debian Server ]
 
-On Debian instances, the patch installation workflow is as follows:
+On Debian Server instances, the patch installation workflow is as follows:
 
-1. On Debian 8 only: Because some Debian 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:
+1. On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:
 
    1. On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
 
-   1. A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian 8\.\* distributions\.
+   1. A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian Server 8\.\* distributions\.
 
    1. An `apt-get` operation is run to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
 
@@ -85,13 +85,13 @@ On Debian instances, the patch installation workflow is as follows:
 
    The next time Patch Manager updates the system, the same process is repeated\.
 
-   The remaining steps in the patch installation workflow apply to both Debian 8 and 9\.
+   The remaining steps in the patch installation workflow apply to both Debian Server 8 and 9\.
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\. 
 **Note**  
-Because it's not possible to reliably determine the release dates of update packages for Debian, the auto\-approval options are not supported for this operating system\.
+Because it's not possible to reliably determine the release dates of update packages for Debian Server, the auto\-approval options are not supported for this operating system\.
 
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 
@@ -99,7 +99,7 @@ Because it's not possible to reliably determine the release dates of update pack
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
-For Debian, patch candidate versions are limited to patches included in `debian-security`\.
+For Debian Server, patch candidate versions are limited to patches included in `debian-security`\.
 
 1. Apply [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) as specified in the patch baseline\. The approved patches are approved for update even if they are discarded by [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) or if no approval rule specified in [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) grants it approval\.
 

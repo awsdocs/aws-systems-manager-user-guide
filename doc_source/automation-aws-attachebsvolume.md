@@ -6,7 +6,7 @@ Attach an Amazon Elastic Block Store \(Amazon EBS\) volume to an EC2 instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachEBSVolume)
 
-**Document Type**
+**Document type**
 
 Automation
 

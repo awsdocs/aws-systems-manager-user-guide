@@ -76,7 +76,7 @@ Linux:
 |  EC2RESCUE\_S3\_PREFIX  |  \{\{ S3Prefix \}\}  |  myprefix/  | 
 |  EC2RESCUE\_SOURCE\_INSTANCE  |  \{\{ InstanceId \}\}  |  i\-abcdefgh123456789  | 
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -165,7 +165,7 @@ Windows, Linux
 
   Description: \(Optional\) A unique identifier for the workflow\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

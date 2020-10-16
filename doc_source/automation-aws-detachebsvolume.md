@@ -6,7 +6,7 @@ Detach an Amazon EBS volume from an EC2 instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DetachEBSVolume)
 
-**Document Type**
+**Document type**
 
 Automation
 

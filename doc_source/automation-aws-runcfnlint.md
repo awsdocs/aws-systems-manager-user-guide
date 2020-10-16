@@ -6,7 +6,7 @@ This document uses an [AWS CloudFormation Linter](https://github.com/aws-cloudfo
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunCfnLint)
 
-**Document Type**
+**Document type**
 
 Automation
 

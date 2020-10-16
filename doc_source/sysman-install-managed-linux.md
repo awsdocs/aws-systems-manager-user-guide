@@ -19,28 +19,28 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 
 ------
 #### [ Amazon Linux 2, Amazon Linux, RHEL, Oracle Linux, CentOS, and SLES ]
-+ **64\-bit**
++ **Intel 64\-bit \(x86\_64\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
-+ **32\-bit**
++ **Intel 32\-bit \(x86\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
-+ **ARM 64\-bit**
++ **ARM 64\-bit \(arm64\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_arm64/amazon\-ssm\-agent\.rpm
 
 ------
 #### [ Ubuntu Server ]
-+ **64\-bit**
++ **Intel 64\-bit \(x86\_64\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
-+ **32\-bit**
++ **Intel 32\-bit \(x86\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
 
 ------
 #### [ Debian Server ]
-+ **64\-bit**
++ **Intel 64\-bit \(x86\_64\)**
 
   https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
 
@@ -93,7 +93,7 @@ sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -reg
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Debian<a name="deb"></a>
+## Debian Server<a name="deb"></a>
 
 ```
 mkdir /tmp/ssm

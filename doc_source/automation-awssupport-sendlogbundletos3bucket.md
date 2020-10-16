@@ -6,7 +6,7 @@ The AWSSupport\-SendLogBundleToS3Bucket Automation document uploads a log bundle
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SendLogBundleToS3Bucket)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -42,7 +42,7 @@ Windows, Linux
 
   Description: \(Optional\) S3 path for the collected logs\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

@@ -11,7 +11,7 @@ This automation requires at least 10 percent of available disk space on the root
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-CollectEKSInstanceLogs)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -40,7 +40,7 @@ Linux
 
   Description: \(Optional\) The S3 bucket in your account to upload the archived logs to\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:ExecuteAutomation`

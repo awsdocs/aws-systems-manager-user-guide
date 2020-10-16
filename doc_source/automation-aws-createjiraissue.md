@@ -6,7 +6,7 @@ Create an issue in Jira\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateJiraIssue)
 
-**Document Type**
+**Document type**
 
 Automation
 

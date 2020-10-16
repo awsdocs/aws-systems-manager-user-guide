@@ -6,7 +6,7 @@ Stop an Amazon Relational Database Service \(Amazon RDS\) instance\. This docume
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StopRdsInstance)
 
-**Document Type**
+**Document type**
 
 Automation
 

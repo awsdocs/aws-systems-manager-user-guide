@@ -6,7 +6,7 @@ Publish a notification to Amazon SNS\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PublishSNSNotification)
 
-**Document Type**
+**Document type**
 
 Automation
 

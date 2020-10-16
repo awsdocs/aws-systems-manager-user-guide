@@ -35,7 +35,7 @@ This collection of capabilities is a powerful set of tools and features that you
 Systems Manager simplifies resource and application management, shortens the time to detect and resolve operational problems, and helps you operate and manage your AWS infrastructure securely at scale\. 
 
 **Note**  
-AWS Systems Manager was formerly known as *Amazon Simple Systems Manager \(SSM\)* and *Amazon EC2 Systems Manager \(SSM\)*\. For more information, see [Systems Manager Service Name History](#service-naming-history)\.
+AWS Systems Manager was formerly known as *Amazon Simple Systems Manager \(SSM\)* and *Amazon EC2 Systems Manager \(SSM\)*\. For more information, see [Systems Manager service name history](#service-naming-history)\.
 
 **Video: What is AWS Systems Manager?**  
 View a video introduction to Systems Manager \(Duration: 1:42\)
@@ -44,14 +44,14 @@ View a video introduction to Systems Manager \(Duration: 1:42\)
 
 View more AWS videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices)\.
 
-**Systems Manager Supported Regions**  
+**Systems Manager supported AWS Regions**  
 AWS Systems Manager is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
 For on\-premises servers and VMs in your hybrid environment, we recommend that you choose the Region closest to your data center or computing environment\.
 
-**Systems Manager Pricing**  
+**Systems Manager pricing**  
 Some Systems Manager capabilities charge a fee\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
-**Systems Manager Service Name history**  
+**Systems Manager service name history**  
 AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:  
 + **Systems Manager Agent**: SSM Agent
 + **Systems Manager parameters**: SSM parameters

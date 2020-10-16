@@ -6,7 +6,7 @@ Create a backup of an Amazon DynamoDB table\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateDynamoDBBackup)
 
-**Document Type**
+**Document type**
 
 Automation
 

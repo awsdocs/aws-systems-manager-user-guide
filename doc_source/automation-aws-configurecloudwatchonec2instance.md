@@ -6,7 +6,7 @@ Enable or disable Amazon CloudWatch monitoring on managed instances\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureCloudWatchOnEC2Instance)
 
-**Document Type**
+**Document type**
 
 Automation
 

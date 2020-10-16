@@ -1,6 +1,6 @@
 # AWS Systems Manager documents<a name="sysman-ssm-docs"></a>
 
-An AWS Systems Manager document \(SSM document\) defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than 100 pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\.
+An AWS Systems Manager document \(SSM document\) defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen pre\-configured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\.
 
 **Types of SSM documents**  
 The following table describes the different types of SSM documents\.
@@ -38,4 +38,5 @@ For information about SSM document quotas, see [Systems Manager service quotas](
 + [Systems Manager Command document plugin reference](ssm-plugins.md)
 + [Creating Systems Manager documents](create-ssm-doc.md)
 + [Sharing SSM documents](ssm-sharing.md)
++ [Searching for SSM documents](ssm-documents-searching.md)
 + [Running Systems Manager command documents from remote locations](run-remote-documents.md)

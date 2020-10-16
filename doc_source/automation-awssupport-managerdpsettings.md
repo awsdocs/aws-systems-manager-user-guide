@@ -9,7 +9,7 @@ Changes to the RDP settings should be carefully reviewed before running this doc
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageRDPSettings)
 
-**Document Type**
+**Document type**
 
 Automation
 
@@ -67,7 +67,7 @@ Windows
 
   Description: \(Required\) An action to perform on the fDenyTSConnections setting\.
 
-**Required IAM Permissions**
+**Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 

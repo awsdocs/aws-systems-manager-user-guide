@@ -6,7 +6,7 @@ Delete a snapshot of an Amazon EBS volume\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteSnapshot)
 
-**Document Type**
+**Document type**
 
 Automation
 

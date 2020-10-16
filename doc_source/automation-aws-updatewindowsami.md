@@ -9,7 +9,7 @@ If your instances connect to AWS Systems Manager using VPC endpoints, this docum
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateWindowsAmi)
 
-**Document Type**
+**Document type**
 
 Automation
 

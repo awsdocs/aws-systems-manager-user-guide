@@ -6,7 +6,7 @@ Create an AWS CloudTrail trail and configure logging to an S3 bucket\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCloudTrail)
 
-**Document Type**
+**Document type**
 
 Automation
 

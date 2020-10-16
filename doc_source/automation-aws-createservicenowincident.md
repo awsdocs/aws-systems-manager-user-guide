@@ -6,7 +6,7 @@ This document creates an incident in the ServiceNow incident table\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateServiceNowIncident)
 
-**Document Type**
+**Document type**
 
 Automation
 
