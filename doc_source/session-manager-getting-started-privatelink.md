@@ -4,6 +4,9 @@ You can further improve the security posture of your managed instances by config
 
 AWS PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. \(Managed instances don't have access to the internet\.\) Also, you don't need an internet gateway, a NAT device, or a virtual private gateway\. 
 
-In addition to the three endpoints required to use AWS PrivateLink with Systems Manager, you can create a fourth endpoint, **com\.amazonaws\.*region*\.ssmmessages**, for use with Session Manager\.
+AWS PrivateLink with Systems Manager, requires the managed instances allow HTTPS (port 443) outbound traffic to the following endpoints:
+   + **com\.amazonaws\.*region*\.ssm**: The endpoint for the Systems Manager service\.
+   + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
+   + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
