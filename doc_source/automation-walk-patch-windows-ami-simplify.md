@@ -5,7 +5,7 @@ The following example expands on how to update a Windows AMI, as described in [W
 The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 
 **Before You Begin**  
-Configure Automation roles and, optionally, EventBridge for Automation\. For more information, see [Getting started with Automation](automation-setup.md)\.
+Configure Automation roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
 
 **Topics**
 + [Task 1: Create a parameter in Systems Manager Parameter Store](#automation-pet1)
@@ -19,7 +19,7 @@ Create a string parameter in Parameter Store that uses the following information
 + **Name**: `latestAmi`\.
 + **Value**: a Windows AMI ID\. For example:` ami-188d6e0e`\.
 
-For information about how to create a Parameter Store string parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+For information about how to create a Parameter Store string parameter, see [Creating Systems Manager parameters](paramstore-create-parameters.md)\.
 
 ## Task 2: Create an IAM role for AWS Lambda<a name="automation-pet2"></a>
 
@@ -230,7 +230,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. Replace the default contents in the **Document editor** field with following JSON sample document\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting started with Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting up Automation](automation-setup.md)\.
 
    ```
    {

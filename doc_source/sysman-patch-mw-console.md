@@ -5,7 +5,7 @@ You can continue to use this legacy topic to create a maintenance window for pat
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\. 
+You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To create a maintenance window for patching**
 

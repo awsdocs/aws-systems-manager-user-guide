@@ -10,7 +10,7 @@ Be sure to follow Jenkins security best\-practices when configuring your instanc
 **Before You Begin**  
 Complete the following tasks before you configure Automation with Jenkins\.
 + Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting started with Automation](automation-setup.md)\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting up Automation](automation-setup.md)\.
 + After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The Automation workflow uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during execution\.
 
 **To create a user account for the Jenkins server**

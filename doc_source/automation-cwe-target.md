@@ -40,7 +40,7 @@ Use the following procedure to configure an automation as the target of a EventB
 **Note**  
 Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't run\.
 
-1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the Automation workflow with the specified document and paramters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
+1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the Automation workflow with the specified document and parameters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
 

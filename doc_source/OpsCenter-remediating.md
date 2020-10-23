@@ -37,7 +37,7 @@ The following procedure describes how to run a simple version of a runbook\. For
 
 **Before You Begin**  
 Before you run an automation document \(runbook\) to remediate an OpsItem issue, do the following:
-+ Verify that you have permission to run Systems Manager Automation documents\. For more information, see [Getting started with Automation](automation-setup.md)\.
++ Verify that you have permission to run Systems Manager Automation documents\. For more information, see [Setting up Automation](automation-setup.md)\.
 + Collect resource\-specific ID information for the automation that you want to run\. For example, if you want to run an automation that restarts an EC2 instance, then you must specify the ID of the instance to restart\.
 
 **To run an Automation document \(runbook\) to remediate an OpsItem issue**

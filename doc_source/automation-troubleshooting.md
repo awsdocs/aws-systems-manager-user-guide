@@ -47,7 +47,7 @@ When you run an Automation, an assume role is either provided in the document or
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Getting started with Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
++ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
 + Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [I Can't Assume A Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role) in the *IAM User Guide*\. 
 
 ## Execution started, but status is failed<a name="automation-trbl-exstrt"></a>

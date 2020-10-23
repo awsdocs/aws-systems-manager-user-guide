@@ -1,4 +1,4 @@
-# Getting started with Session Manager<a name="session-manager-getting-started"></a>
+# Setting up Session Manager<a name="session-manager-getting-started"></a>
 
 Before you use Session Manager to connect to the Amazon Elastic Compute Cloud \(Amazon EC2\) instances in your account, complete the steps in the following topics\.
 

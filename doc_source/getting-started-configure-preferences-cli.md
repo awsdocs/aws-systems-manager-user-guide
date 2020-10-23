@@ -19,7 +19,11 @@ The following procedure describes how to use your preferred command line tool to
            "cloudWatchEncryptionEnabled": true,
            "kmsKeyId": "",
            "runAsEnabled": true,
-           "runAsDefaultUser": ""
+           "runAsDefaultUser": "",
+           "shellProfile": {
+               "windows": "date",
+               "linux": "pwd;ls"
+           }
        }
    }
    ```
@@ -39,7 +43,11 @@ The following procedure describes how to use your preferred command line tool to
        "cloudWatchEncryptionEnabled": true,
        "kmsKeyId": "MyKMSKeyID",
        "runAsEnabled": true,
-       "runAsDefaultUser": "MyDefaultRunAsUser"
+       "runAsDefaultUser": "MyDefaultRunAsUser",
+       "shellProfile": {
+           "windows": "MyCommands",
+           "linux": "MyCommands"
+       }
      }
    }
    ```

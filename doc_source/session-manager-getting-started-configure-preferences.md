@@ -4,12 +4,14 @@ An AWS Identity and Access Management \(IAM\) user with administrator permission
 + Enable Run As support for Linux instances\. This makes it possible to start sessions using the credentials of a specified operating system user instead of the credentials of a system\-generated `ssm-user` account that Session Manager can create on a managed instance\.
 + Configure Session Manager to use AWS Key Management Service \(AWS KMS\) key encryption to provide additional protection to the data transmitted between client machines and managed instances\.
 + Configure Session Manager to create and send session history logs to an Amazon Simple Storage Service \(Amazon S3\) bucket or an Amazon CloudWatch Logs log group\. The stored log data can then be used to audit or report on the session connections made to your instances and the commands run on them during the sessions\.
++ Configure Session Manager to use configurable shell profiles\. These customizable profiles enable you to define preferences within sessions such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
 
 **Note**  
 Before a user can update Session Manager preferences, they must have been granted the specific permissions that will let them make these updates, if they do not possess them already\. Without these permissions, the user can't configure logging options or set other session preferences for your account\.
 
 **Topics**
 + [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)
++ [Enable configurable shell profiles](session-preferences-shell-config.md)
 + [Enable run as support for Linux instances](session-preferences-run-as.md)
 + [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)
 + [Create Session Manager preferences \(command line\)](getting-started-create-preferences-cli.md)

@@ -7,7 +7,7 @@ This makes the password reset option useful when a user has forgotten a password
 **Prerequisites**  
 Before you can reset the password on an instance, the following requirements must be met:
 + The instance you want to change a password on must be a Systems Manager managed instance\. This means that SSM Agent is installed on the instance\. \(SSM Agent Version 2\.3\.668\.0 or later is required for changing passwords\.\) For information about installing or updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
-+ The password reset functionality uses the AWS Session Manager configuration that is set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current Region\. For more information, see [Getting started with Session Manager](session-manager-getting-started.md)\.
++ The password reset functionality uses the AWS Session Manager configuration that is set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current Region\. For more information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 + The AWS user who is changing the password must have the `ssm:SendCommand` permission for the instance\. For information, see [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
@@ -116,4 +116,4 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### Session Manager error message<a name="password-reset-troubleshooting-session-manager"></a>
 
 **Problem**: You receive an error message related to Session Manager\.
-+ **Solution**: Password reset support requires that Session Manager is configured correctly\. For information, see [Getting started with Session Manager](session-manager-getting-started.md) and [Troubleshooting Session Manager](session-manager-troubleshooting.md)\.
++ **Solution**: Password reset support requires that Session Manager is configured correctly\. For information, see [Setting up Session Manager](session-manager-getting-started.md) and [Troubleshooting Session Manager](session-manager-troubleshooting.md)\.

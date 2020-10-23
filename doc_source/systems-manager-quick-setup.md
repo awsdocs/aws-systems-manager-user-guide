@@ -30,7 +30,7 @@ If your **Organization** Quick Setup targets an account that has previously run 
 
 **Local** Quick Setup is available in all Regions where Systems Manager is supported\. For a list of supported Regions, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-To access Quick Setup, choose **Quick Setup** in the navigation pane of the Systems Manager console\. You can also access Quick Setup by choosing **AWS Systems Manager** at the top of the navigation pane, and then choosing **Get Started with Systems Manager**, as shown in the following image\. To access the **Organization** Quick Setup type, which enables you to target multiple accounts and Regions, you must be logged in to the master account for your organization\. For information on how to get started with AWS Organizations, see [Getting started with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started.html) in the *AWS Organizations User Guide*\.
+To access Quick Setup, choose **Quick Setup** in the navigation pane of the Systems Manager console\. You can also access Quick Setup by choosing **AWS Systems Manager** at the top of the navigation pane, and then choosing **Get Started with Systems Manager**, as shown in the following image\. To access the **Organization** Quick Setup type, which enables you to target multiple accounts and Regions, you must be logged in to the management account for your organization\. For information on how to get started with AWS Organizations, see [Getting started with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started.html) in the *AWS Organizations User Guide*\.
 
 ![\[Accessing AWS Quick Setup\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/quick-setup-access.png)
 
@@ -175,6 +175,7 @@ SSM Agent is Amazon software that processes requests from the Systems Manager se
 + Amazon Linux 2 ECS\-Optimized AMIs
 + Ubuntu Server 16\.04, 18\.04, and 20\.04
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
++ Ubuntu Server 16\.04, 18\.04, 20\.04, and 20\.10
 + Windows Server 2016 and 2019
 
 **Note**  
@@ -247,7 +248,7 @@ To edit the association for a Quick Setup option, choose the **Edit** button in 
 
 To view compliance data for your Quick Setup, choose the **View compliance summary in Explorer** button\. This opens the AWS Systems Manager Explorer dashboard\. For more information about Explorer, see [AWS Systems Manager Explorer](Explorer.md)\.
 
-When viewing Quick Setup results while signed in to the master account for your AWS Organizations organization, you see a summary of the results for your **Organization** Quick Setup in the **Organization** tab\. This view shows the **Applied configuration** for your Quick Setup, allows you to filter results, shows the **Deployment** and **Association** statuses for your targets, and enables you to view more details for individual targets in the **Quick Setup deployments** card\.
+When viewing Quick Setup results while signed in to the management account for your AWS Organizations organization, you see a summary of the results for your **Organization** Quick Setup in the **Organization** tab\. This view shows the **Applied configuration** for your Quick Setup, allows you to filter results, shows the **Deployment** and **Association** statuses for your targets, and enables you to view more details for individual targets in the **Quick Setup deployments** card\.
 
 **Deployment status** refers to the state of a target or stack instance\. In other words, this status indicates whether AWS CloudFormation successfully deployed your configuration options\. **Deployment status** does not evaluate the status of the associations created in your Quick Setup\.
 
@@ -260,7 +261,7 @@ If a Quick Setup card shows **Not configured**, you might have missed an option 
 If you still see a problem with one or more Quick Setup results cards, then use the following procedure to troubleshoot the issue\.
 
 **Note**  
-To investigate **Failed** associations for an **Organization** Quick Setup, you must sign in to the account with the failed association and use the following procedure\. The **Association ID** is not a hyperlink to the target account when viewing results from the master account\.
+To investigate **Failed** associations for an **Organization** Quick Setup, you must sign in to the account with the failed association and use the following procedure\. The **Association ID** is not a hyperlink to the target account when viewing results from the management account\.
 
 **To troubleshoot a failed Quick Setup configuration**
 

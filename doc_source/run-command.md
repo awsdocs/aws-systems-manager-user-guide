@@ -9,7 +9,7 @@ For information about how to send commands using Windows PowerShell, see [Walkth
 
 **Important**  
 When you run a command in Run Command, do not include any sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket, in AWS CloudTrail logs\. This means that any user with access to that S3 bucket can view the plaintext values of those secrets\. For this reason, we strongly recommend creating and using `SecureString` parameters to encrypt the sensitive data you use in your Systems Manager operations\.  
-For more information, see [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
+For more information, see [Restricting access to Systems Manager parameters using IAM policies](paramstore-access.md)\.
 
 **Topics**
 + [Running commands from the console](rc-console.md)

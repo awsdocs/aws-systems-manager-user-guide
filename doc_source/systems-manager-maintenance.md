@@ -41,7 +41,7 @@ This means you can use maintenance windows to perform tasks like the following o
 This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
-+ [Controlling access to maintenance windows](sysman-maintenance-permissions.md)
++ [Setting up Maintenance Windows](sysman-maintenance-permissions.md)
 + [Working with maintenance windows \(console\)](sysman-maintenance-working.md)
 + [Systems Manager Maintenance Windows tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
 + [Maintenance window walkthroughs](maintenance-window-walkthroughs.md)

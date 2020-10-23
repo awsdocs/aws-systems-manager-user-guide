@@ -30,6 +30,6 @@ The following are some benefits of Systems Manager Change Calendar\.
 **Topics**
 + [Who should use Change Calendar?](#systems-manager-change-calendar-who)
 + [Benefits of Change Calendar](#systems-manager-change-calendar-benefits)
-+ [Getting started with Change Calendar](systems-manager-change-calendar-prereqs.md)
++ [Setting up Change Calendar](systems-manager-change-calendar-prereqs.md)
 + [Working with Change Calendar](systems-manager-change-calendar-working.md)
 + [Add Change Calendar dependencies to Automation documents](systems-manager-change-calendar-automations.md)

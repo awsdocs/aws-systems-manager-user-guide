@@ -1,4 +1,4 @@
-# Controlling access to maintenance windows<a name="sysman-maintenance-permissions"></a>
+# Setting up Maintenance Windows<a name="sysman-maintenance-permissions"></a>
 
 Before users in your account can create and schedule maintenance window tasks, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
 

@@ -93,7 +93,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | --- | --- | --- | --- | 
 | 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
-| 20\.04 LTS |  | ✓ | ✓ | 
+| 20\.04 LTS and 20\.10 LTS |  | ✓ | ✓ | 
 
 ## Raspbian<a name="prereqs-os-raspbian"></a>
 

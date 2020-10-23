@@ -75,8 +75,8 @@ The remainder of this topic describes the types of Systems Manager events that y
 
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
-| Parameter Store Change | The state of a parameter changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html)For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)\. | 
-| Parameter Store Policy Action | A condition of an advanced parameter policy change is met\. You can add one or more of the following status changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html)For more information, see [Configuring EventBridge for parameter policies](sysman-paramstore-cwe.md#cwe-parameter-policy-status)\. | 
+| Parameter Store Change | The state of a parameter changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html)For more information, see [Configuring EventBridge for parameters](paramstore-cwe.md#cwe-parameter-changes)\. | 
+| Parameter Store Policy Action | A condition of an advanced parameter policy change is met\. You can add one or more of the following status changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html)For more information, see [Configuring EventBridge for parameter policies](paramstore-cwe.md#cwe-parameter-policy-status)\. | 
 
 ## Event type: Run Command<a name="event-type-run-command"></a>
 

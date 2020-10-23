@@ -53,6 +53,18 @@ Required: Yes
 [runAsDefaultUser](#runUser)  
 The name of the user account to start sessions with on Linux instances when the `runAsEnabled` input is set to `true`\. The user account you specify for this input must exist on the instances you'll be connecting to; otherwise, sessions will fail to start\.  
 Type: String  
+Required: No  
+[shellProfile](#shell)  
+The preferences you specify per operating system to apply within sessions such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.  
+Type: StringMap  
+Required: No    
+[windows](#win)  
+The shell preferences, environment variables, working directories, and commands you specify for sessions on Windows instances\.  
+Type: String  
+Required: No  
+[linux](#lin)  
+The shell preferences, environment variables, working directories, and commands you specify for sessions on Linux instances\.  
+Type: String  
 Required: No
 
 [parameters](#param)  
@@ -61,7 +73,7 @@ An object that defines the parameters the document accepts\. For more informatio
 ```
 {{ssm:parameter-name}}
 ```
-For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
+For more information about Parameter Store, see [AWS Systems Manager Parameter Store](sysman-paramstore.md)\.  
 Type: StringMap  
 Required: No
 
@@ -91,6 +103,9 @@ inputs:
   kmsKeyId: ''
   runAsEnabled: true
   runAsDefaultUser: ''
+  shellProfile:
+    windows: ''
+    linux: ''
 ```
 
 ------
@@ -109,7 +124,11 @@ inputs:
         "cloudWatchEncryptionEnabled": true,
         "kmsKeyId": "",
         "runAsEnabled": true,
-        "runAsDefaultUser": ""
+        "runAsDefaultUser": "",
+        "shellProfile": {
+            "windows": "date",
+            "linux": "pwd;ls"
+        }
     }
 }
 ```

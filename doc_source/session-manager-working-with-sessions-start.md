@@ -15,7 +15,7 @@ You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(
 You can use the AWS Systems Manager console to start a session with an instance in your account\.
 
 **Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
 **To start a session \( Systems Manager console\)**
 
@@ -67,7 +67,7 @@ For information, see [Install or upgrade AWS command line tools](getting-started
 To start a session using the AWS CLI, run the following command\.
 
 **Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.  
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```
@@ -90,7 +90,7 @@ Take note of the following requirements and limitations for session connections 
 + Logging and auditing are not available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 **Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
 To start a session using SSH, run the following command\.
 
@@ -116,7 +116,7 @@ For information about other options you can use with the start\-session command,
 To start a Session Manager port forwarding session, version 2\.3\.672\.0 or later of SSM Agent must be installed on the managed instance\.
 
 **Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.  
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
 Depending on your operating system and command line tool, the placement of quotation marks can differ and escape characters might be required\.
 
@@ -159,7 +159,7 @@ For more information about port forwarding sessions, see [Port Forwarding Using 
 To start an interactive command session, run the following command:
 
 **Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Getting started with Session Manager](session-manager-getting-started.md)\.  
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ```

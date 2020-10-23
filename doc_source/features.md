@@ -65,7 +65,7 @@ Application Management is a suite of capabilities that help you manage your appl
 ------
 #### [ Parameter Store ]
 
-[Parameter Store](systems-manager-parameter-store.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, EC2 instance IDs and Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
+[Parameter Store](sysman-paramstore.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, EC2 instance IDs and Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
 
 ------
 

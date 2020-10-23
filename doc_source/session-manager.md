@@ -41,7 +41,7 @@ Logging and auditing are not available for Session Manager sessions that connect
 ## What are the main features of Session Manager?<a name="session-manager-features"></a>
 + **Support for both Windows Server and Linux instances**
 
-  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported Windows and Linux operating system types, see [Getting started with Session Manager](session-manager-getting-started.md)\.
+  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported Windows and Linux operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 +  **Console, CLI, and SDK access to Session Manager capabilities** 
@@ -63,6 +63,9 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
 +  **Logging and auditing capability support** 
 
   Session Manager provide you with options for auditing and logging session histories in your AWS account through integration with a number of other AWS services\. For more information, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
++ **Configurable shell profiles**
+
+  Session Manager provides you with options to configure preferences within sessions\. These customizable profiles enable you to define preferences such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
 +  **Customer key data encryption support** 
 
   You can configure Session Manager to encrypt the session data logs that you send to an S3 bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Auditing and logging session activity](session-manager-logging-auditing.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
@@ -89,7 +92,7 @@ When John sends that first command to start the session, the Session Manager ser
 + [Who should use Session Manager?](#session-manager-who)
 + [What are the main features of Session Manager?](#session-manager-features)
 + [What is a session?](#what-is-a-session)
-+ [Getting started with Session Manager](session-manager-getting-started.md)
++ [Setting up Session Manager](session-manager-getting-started.md)
 + [Working with Session Manager](session-manager-working-with.md)
 + [Auditing and logging session activity](session-manager-logging-auditing.md)
 + [Session document schema](session-manager-schema.md)

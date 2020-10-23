@@ -1,4 +1,4 @@
-# Getting started with Automation<a name="automation-setup"></a>
+# Setting up Automation<a name="automation-setup"></a>
 
 To set up Automation, you must verify user access to the Automation service and situationally configure roles so that the service can perform actions on your resources\. To ensure proper access to Systems Manager Automation, review the following user and service role requirements\.
 

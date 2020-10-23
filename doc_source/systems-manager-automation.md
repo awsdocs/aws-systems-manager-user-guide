@@ -63,7 +63,7 @@ This Systems Manager capability is supported as a *target* type in EventBridge r
 
 **Topics**
 + [Automation use cases](#automation-use-cases)
-+ [Getting started with Automation](automation-setup.md)
++ [Setting up Automation](automation-setup.md)
 + [Working with automations](automation-working.md)
 + [Systems Manager Automation actions reference](automation-actions.md)
 + [Working with Automation documents](automation-documents.md)

@@ -6,7 +6,7 @@ The final step of the Automation workflow in this example uses an AWS Lambda fun
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Getting started with Automation](automation-setup.md)\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting up Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
 ## Task 1: Create an IAM role for AWS Lambda<a name="automation-asg1"></a>
@@ -153,7 +153,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. In the **Document editor** field, paste the following JSON sample document content\.
 **Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Getting started with Automation](automation-setup.md)\.
+You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting up Automation](automation-setup.md)\.
 
    ```
    {

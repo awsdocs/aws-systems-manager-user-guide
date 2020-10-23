@@ -4,7 +4,7 @@ This topic includes information about how to troubleshoot common problems with S
 
  **The AWS Organizations options on the *Create resource data sync* page are greyed out** 
 
-The following options on the **Create resource data sync** page are only available if you set up and configured AWS Organizations\. If you set up and configured AWS Organizations, then either the AWS Organizations master account or an Explorer delegated administrator can create resource data syncs that use these options\. 
+The following options on the **Create resource data sync** page are only available if you set up and configured AWS Organizations\. If you set up and configured AWS Organizations, then either the AWS Organizations management account or an Explorer delegated administrator can create resource data syncs that use these options\. 
 
 ![\[AWS Organizations options for Explorer resource data sync.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-delegated-administration-2.png)
 
@@ -12,7 +12,7 @@ For more information, see [Setting up Systems Manager Explorer to display data f
 
  **Explorer doesn't display any data at all** 
 + Verify that you completed Integrated Setup in each account and Region where you want Explorer to access and display data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
-+ When using Explorer to view data from multiple accounts and Regions, verify that you are logged into the AWS Organizations master account\. To view OpsData and OpsItems from multiple accounts and Regions, you must be signed in to this account\.
++ When using Explorer to view data from multiple accounts and Regions, verify that you are logged into the AWS Organizations management account\. To view OpsData and OpsItems from multiple accounts and Regions, you must be signed in to this account\.
 
  **Widgets about EC2 instances don't display data** 
 
@@ -22,7 +22,7 @@ If widgets about EC2 instances, such as the **Instance count**, **Managed instan
 + Verify that the **Amazon EC2** OpsData source is enabled on the **Settings** page\. Also, verify that more than 6 hours have passed since you enabled configuration recorder or since you made changes to your instances\. Systems Manager can take up to six hours to display data from AWS Config in Explorer EC2 widgets after you initially enable configuration recorder or make changes to your instances\.
 + Be aware that if an instance is either stopped or terminated, then Explorer stops showing those instances after 24 hours\.
 + Verify that you are in the correct AWS Region where you configured your EC2 instances\. Explorer doesn't display data about on\-premises instances\.
-+ If you configured a resource data sync for multiple accounts and Regions, verify that you are signed in to the Organizations master account\. 
++ If you configured a resource data sync for multiple accounts and Regions, verify that you are signed in to the Organizations management account\. 
 
  **Patch widget doesn't display data** 
 

@@ -6,7 +6,7 @@ This section describes how to create, configure, and update, and delete maintena
 We recommend that you initially create and configure maintenance windows in a test environment\. 
 
 **Before you begin**  
-Before you create a maintenance window, you must configure access to Maintenance Windows\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\.
+Before you create a maintenance window, you must configure access to Maintenance Windows\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 **Topics**
 + [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)

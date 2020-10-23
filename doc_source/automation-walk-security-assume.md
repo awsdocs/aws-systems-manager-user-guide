@@ -257,4 +257,4 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-For more examples of how to use Systems Manager Automation, see [Automation walkthroughs](automation-walk.md)\. For information about how to get started with Automation, see [Getting started with Automation](automation-setup.md)\.
+For more examples of how to use Systems Manager Automation, see [Automation walkthroughs](automation-walk.md)\. For information about how to get started with Automation, see [Setting up Automation](automation-setup.md)\.

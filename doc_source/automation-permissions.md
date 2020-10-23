@@ -1,6 +1,6 @@
 # Method 2: Use IAM to configure roles for Automation<a name="automation-permissions"></a>
 
-If you need to create a service role for Systems Manager Automation, complete the following tasks\. For more information on when a service role is required for Automation, see [Getting started with Automation](automation-setup.md)\.
+If you need to create a service role for Systems Manager Automation, complete the following tasks\. For more information on when a service role is required for Automation, see [Setting up Automation](automation-setup.md)\.
 
 **Topics**
 + [Task 1: Create a service role for Automation](#automation-role)

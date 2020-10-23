@@ -547,7 +547,7 @@ Required: No
 
 ## aws:domainJoin<a name="aws-domainJoin"></a>
 
-Join an EC2 instance to a domain\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 
@@ -797,7 +797,7 @@ This `tokenInfo` field is the only SSM document plugin field that supports a Sec
 
 ```
 {
-    "path": "https://s3.amazonaws.com/aws-executecommand-test/powershell/helloPowershell.ps1" 
+    "path": "https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1" 
 }
 ```
  **For sourceType SSMDocument, specify *one* of the following:**   

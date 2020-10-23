@@ -16,6 +16,12 @@ For more information about the permissions required to use Amazon S3 or Amazon C
 
 Refer to the following topics for more information about auditing and logging options for Session Manager\.
 
+**Topics**
++ [Audit session activity using AWS CloudTrail](#session-manager-logging-auditing-cloudtrail)
++ [Logging session data using Amazon S3 \(console\)](#session-manager-logging-auditing-s3)
++ [Logging session data using Amazon CloudWatch Logs \(console\)](#session-manager-logging-auditing-cloudwatch-logs)
++ [Monitoring session activity using Amazon EventBridge \(console\)](#session-manager-logging-auditing-eventbridge-events)
+
 ## Audit session activity using AWS CloudTrail<a name="session-manager-logging-auditing-cloudtrail"></a>
 
 AWS CloudTrail captures session API calls through the Systems Manager console, the AWS Command Line Interface \(AWS CLI\), and the Systems Manager SDK\. You can view the information on the CloudTrail console or store it in a specified Amazon Simple Storage Service \(Amazon S3\) bucket\. One S3 bucket is used for all CloudTrail logs for your account\. 

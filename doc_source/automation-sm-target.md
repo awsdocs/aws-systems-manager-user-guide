@@ -13,7 +13,7 @@ Use the following procedures to create a State Manager association that runs an 
 
 **Before You Begin**  
 Be aware of the following important details before you run automation by using State Manager\.
-+ Before you can create an association that runs an Automation document, verify that you configured permissions for Systems Manager Automation\. For more information, see [Getting started with Automation](automation-setup.md)\.
++ Before you can create an association that runs an Automation document, verify that you configured permissions for Systems Manager Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
 + State Manager associations that run Automation documents contribute to the maximum number of concurrently running Automations in your AWS account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 

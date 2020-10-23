@@ -5,7 +5,28 @@ Use this procedure to view patch compliance information about your managed insta
 This procedure applies to patch operations that use the `AWS-RunPatchBaseline` document\. For information about viewing patch compliance information for patch operations that use the `AWS-RunPatchBaselineAssociation` document, see [Identifying out\-of\-compliance instances](patch-compliance-identify.md)\.
 
 **Note**  
-The AWS Systems Manager Quick Setup and AWS Systems ManagerExplorer patch scan processes use the `AWS-RunPatchBaselineAssociation` document\.
+The AWS Systems Manager Quick Setup and AWS Systems Manager Explorer patch scan processes use the `AWS-RunPatchBaselineAssociation` document\.
+
+**Identify the patch solution for a specific CVE issue \(Linux\)**  
+For many Linux\-based operating systems, patch compliance results indicate which Common Vulnerabilities and Exposure \(CVE\) bulletin issues are resolved by which patches\. This information can help you determine how urgently you need to install a missing or failed patch\.
+
+CVE details are included for the following operating system types:
++ Amazon Linux
++ Amazon Linux 2
++ Oracle Linux
++ Red Hat Enterprise Linux \(RHEL\)
++ SUSE Linux Enterprise Server \(SLES\)
++ CentOS
+
+  By default, CentOS does not provide CVE information about updates\. You can, however, enable this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
+
+**Note**  
+You can also add CVE IDs to your lists of approved or rejected patches in your patch baselines, as the situation and your patching goals warrant\.  
+For information about working with approved and rejected patch lists, see the following topics:  
+[Working with custom patch baselines](sysman-patch-baseline-console.md)
+[About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)
+[How patch baseline rules work on Linux\-based systems](patch-manager-how-it-works-linux-rules.md)
+[How patches are installed](patch-manager-how-it-works-installation.md)
 
 **To view patch compliance results**
 

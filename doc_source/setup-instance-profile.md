@@ -48,8 +48,8 @@ Required only if you plan to install and run the CloudWatch agent on your instan
 Your instance profile needs this policy only if you will use features such as Amazon EventBridge or CloudWatch Logs\. \(You can also create a more restrictive policy that, for example, limits writing access to a specific CloudWatch Logs log stream\.\)  
 Using EventBridge and CloudWatch Logs features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 To create an instance profile with permissions for additional Systems Manager services, see the following resources\.  
-+ [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)
-+ [Getting started with Automation](automation-setup.md)
++ [Restricting access to Systems Manager parameters using IAM policies](paramstore-access.md)
++ [Setting up Automation](automation-setup.md)
 + [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 + [Setting up Run Command](sysman-rc-setting-up.md)
 

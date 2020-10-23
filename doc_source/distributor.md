@@ -83,7 +83,7 @@ Distributor supports package distribution to any release version of the followin
 + [Who should use Distributor?](#distributor-who)
 + [What are the features of Distributor?](#distributor-features)
 + [What is a package?](#what-is-a-package)
-+ [Getting started with Distributor](distributor-getting-started.md)
++ [Setting up Distributor](distributor-getting-started.md)
 + [Working with Distributor](distributor-working-with.md)
 + [Auditing and logging Distributor activity](distributor-logging-auditing.md)
 + [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)

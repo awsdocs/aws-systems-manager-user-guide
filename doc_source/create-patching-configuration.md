@@ -7,7 +7,7 @@ Many patching use cases benefit from patching instances on a schedule with a mai
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-If you plan to add the patching configuration to a maintenance window, you must first configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Controlling access to maintenance windows](sysman-maintenance-permissions.md)\. 
+If you plan to add the patching configuration to a maintenance window, you must first configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To create a patching configuration \(console\)**
 

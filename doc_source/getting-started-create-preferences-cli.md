@@ -24,7 +24,11 @@ You can use this procedure to create custom session documents for your Session M
            "cloudWatchEncryptionEnabled": true,
            "kmsKeyId": "",
            "runAsEnabled": false,
-           "runAsDefaultUser": ""
+           "runAsDefaultUser": "",
+           "shellProfile": {
+               "windows": "date",
+               "linux": "pwd;ls"
+           }
        }
    }
    ```
@@ -44,7 +48,11 @@ You can use this procedure to create custom session documents for your Session M
        "cloudWatchEncryptionEnabled": true,
        "kmsKeyId": "MyKMSKeyID",
        "runAsEnabled": true,
-       "runAsDefaultUser": "MyDefaultRunAsUser"
+       "runAsDefaultUser": "MyDefaultRunAsUser",
+       "shellProfile": {
+           "windows": "MyCommands",
+           "linux": "MyCommands"
+       }
      }
    }
    ```

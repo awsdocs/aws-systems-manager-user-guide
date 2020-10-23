@@ -216,7 +216,7 @@ ${Env:ProgramFiles}\Amazon\AmazonCloudWatchAgent\config.json
 
 We recommend keeping a backup of the JSON in this file on a location other than the instance itself\.
 
-For information about creating a parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+For information about creating a parameter, see [Creating Systems Manager parameters](paramstore-create-parameters.md)\.
 
 For more information about the CloudWatch agent, see [Collect metrics from Amazon Elastic Compute Cloud instances and on\-premises servers with the CloudWatch agent ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
