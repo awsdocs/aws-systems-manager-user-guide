@@ -58,9 +58,9 @@ You can verify the source AMI ID creation date for an instance using either of t
 ## Install SSM Agent on Ubuntu Server instances<a name="agent-install-ubuntu-tabs"></a>
 
 ------
-#### [ Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04 LTS 64\-bit \(Snap\) ]
+#### [ Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS 64\-bit \(Snap\) ]
 
-**To install SSM Agent on Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances \(with Snap package\)**
+**To install SSM Agent on Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances \(with Snap package\)**
 
 1. SSM Agent is installed, by default, on Ubuntu Server 20\.04, 18\.04, and 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\.
 
@@ -70,13 +70,13 @@ You can verify the source AMI ID creation date for an instance using either of t
    sudo snap install amazon-ssm-agent --classic
    ```
 **Important**  
-The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances\.  
+The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances\.  
 
    ```
    sudo snap switch --channel=candidate amazon-ssm-agent
    ```
 **Note**  
-Note the following details about SSM Agent on Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04:  
+Note the following details about SSM Agent on Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS:  
 Because of a known issue with Snap, you might see a `Maximum timeout exceeded` error with `snap` commands\. If you get this error, run the following commands one at a time to start the agent, stop it, and check its status:   
 
      ```
@@ -90,9 +90,9 @@ Because of a known issue with Snap, you might see a `Maximum timeout exceeded` e
      ```
      sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
      ```
-On Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to  any configuration files in this directory, then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files have not changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
-On Ubuntu Server 20\.10, 20\.04 and 18\.04, use Snaps only\. Don't install deb packages\. Also verify that only one instance of the agent is installed and running on your instances\.
-On Ubuntu Server 20\.10, 20\.04, 18\.04, and 16\.04, SSM Agent provides support for the arm64 processor architecture\.
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to  any configuration files in this directory, then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files have not changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
+On Ubuntu Server 20\.10 STR & 20\.04 and 18\.04 LTS, use Snaps only\. Don't install deb packages\. Also verify that only one instance of the agent is installed and running on your instances\.
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent provides support for the arm64 processor architecture\.
 On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\.
 
 1. Run the following command to determine if SSM Agent is running\. 

@@ -127,7 +127,7 @@ sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Ubuntu<a name="ubu"></a>
+## Ubuntu Server<a name="ubu"></a>
 + **Using \.deb packages**
 
   ```
