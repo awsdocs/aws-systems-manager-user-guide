@@ -17,7 +17,7 @@ The title of each section here is an active link to the corresponding section in
 + Define a schedule to perform potentially disruptive actions on your instances such as OS patching, driver updates, or software installations\.
 + For information on the differences between State Manager and Maintenance Windows, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md)\.
 
-**[Parameter Store](sysman-paramstore.md)**
+**[Parameter Store](systems-manager-parameter-store.md)**
 + Use Parameter Store to centrally manage global configuration settings\.
 + [Use Parameter Store to encrypt and manage secrets by using AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
 + [Reference AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md)\.
@@ -32,7 +32,7 @@ The title of each section here is an active link to the corresponding section in
 + Audit all API calls made by on or on behalf of Run Command using AWS CloudTrail\.
 + When you run a command in Run Command, do not include any sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket, in AWS CloudTrail logs\. This means that any user with access to that S3 bucket can view the plaintext values of those secrets\. For this reason, we strongly recommend creating and using `SecureString` parameters to encrypt the sensitive data you use in your Systems Manager operations\.
 
-  For more information, see [Restricting access to Systems Manager parameters using IAM policies](paramstore-access.md)\.
+  For more information, see [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
 **Note**  
 By default, the log files delivered by CloudTrail to your bucket are encrypted by Amazon [server\-side encryption with Amazon S3\-managed encryption keys \(SSE\-S3\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html)\. To provide a security layer that is directly manageable, you can instead use [server\-side encryption with AWS KMS–managed keys \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) for your CloudTrail log files\.  
 For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Managed Keys \(SSE\-KMS\)](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html) in the *AWS CloudTrail User Guide*\.

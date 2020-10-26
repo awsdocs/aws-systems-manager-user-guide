@@ -3,7 +3,7 @@
 This section includes procedures to help you run Ansible Playbooks from GitHub by using either the console or the AWS CLI\.
 
 **Before you begin**  
-If you plan to run a script that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](paramstore-create-parameters.md)\.
+If you plan to run a script that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Run an Ansible Playbook from GitHub \(console\)<a name="integration-github-ansible-console"></a>
 

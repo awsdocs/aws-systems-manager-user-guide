@@ -103,7 +103,7 @@ The following table describes the ARN formats for the resource types supported b
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png) To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of fifteen levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager parameters](paramstore-create-parameters.md)\.
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png) To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of fifteen levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png) In most cases, the session ID is constructed using the ID of the account user who started the session, plus an alphanumeric suffix\. For example:
 
@@ -140,7 +140,7 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 
-For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Working with parameter hierarchies](paramstore-hierarchies.md)\.
+For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)\.
 
 ### Examples<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 

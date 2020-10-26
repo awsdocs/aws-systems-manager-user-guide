@@ -19,7 +19,7 @@ Create a string parameter in Parameter Store that uses the following information
 + **Name**: `latestAmi`\.
 + **Value**: a Windows AMI ID\. For example:` ami-188d6e0e`\.
 
-For information about how to create a Parameter Store string parameter, see [Creating Systems Manager parameters](paramstore-create-parameters.md)\.
+For information about how to create a Parameter Store string parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Task 2: Create an IAM role for AWS Lambda<a name="automation-pet2"></a>
 

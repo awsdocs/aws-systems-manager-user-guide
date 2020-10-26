@@ -22,7 +22,7 @@ A structure that defines the parameters the document accepts\. For parameters th
 ```
 {{ssm:parameter-name}}
 ```
-For more information about Parameter Store, see [AWS Systems Manager Parameter Store](sysman-paramstore.md)\.  
+For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Boolean`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.

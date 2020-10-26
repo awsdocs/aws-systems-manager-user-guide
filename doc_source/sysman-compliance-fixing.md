@@ -4,7 +4,7 @@ You can quickly remediate patch and association compliance issues by using Syste
 
 For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
 
-For more information about associations, see [Working with associations in Systems Manager](sysman-state-assoceations.md)\.
+For more information about associations, see [Working with associations in Systems Manager](systems-manager-associations.md)\.
 
 For more information about running a command, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
