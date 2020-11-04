@@ -52,6 +52,11 @@ This Automation doesn't support upgrading Windows domain controllers, clusters, 
 + Remote Desktop Web Access \(RDWA\)
 
 **Parameters**
++ AlternativeKeyPairName
+
+  Type: String
+
+  Description: \(Optional\) The name of an alternative key pair to use during the upgrade process\. This is useful in situations where the key pair assigned to the original instance is unavailable\. If the original instance was not assigned a key pair, you must specify a value for this parameter\.
 + BYOLWindowsMediaSnapshotId
 
   Type: String

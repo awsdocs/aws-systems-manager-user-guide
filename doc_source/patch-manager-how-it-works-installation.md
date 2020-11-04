@@ -85,7 +85,7 @@ On Debian Server instances, the patch installation workflow is as follows:
 
    The next time Patch Manager updates the system, the same process is repeated\.
 
-   The remaining steps in the patch installation workflow apply to both Debian Server 8 and 9\.
+   The remaining steps in the patch installation workflow apply to Debian Server 8 9, and 10\.
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
@@ -244,7 +244,7 @@ Because it's not possible to reliably determine the release dates of update pack
 
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 **Note**  
-For Ubuntu Server, patch candidate versions are limited to patches included in `trusty-security` \(Ubuntu Server 14\), `xenial-security` \(Ubuntu Server 16\), `bionic-security` \(Ubuntu Server 18\), or `focal-security` \(Ubuntu Server 20\)\.
+For Ubuntu Server, patch candidate versions are limited to patches included in `trusty-security` \(Ubuntu Server 14\.04 LTS\), `xenial-security` \(Ubuntu Server 16\.04 LTS\), `bionic-security` \(Ubuntu Server 18\.04 LTS\), `focal-security` \(Ubuntu Server 20\.04 LTS\), or `groovy-gorilla` \(Ubuntu Server 20\.10 STR\)\.
 
 1. Apply [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) as specified in the patch baseline\. The approved patches are approved for update even if they are discarded by [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) or if no approval rule specified in [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) grants it approval\.
 

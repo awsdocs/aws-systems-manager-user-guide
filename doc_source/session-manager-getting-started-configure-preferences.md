@@ -18,5 +18,5 @@ Before a user can update Session Manager preferences, they must have been grante
 + [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)
 
 For information about using the Systems Manager console to configure options for logging session data, see the following topics:
-+  [Logging session data using Amazon S3 \(console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-s3) 
-+  [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging-auditing.md#session-manager-logging-auditing-cloudwatch-logs) 
++  [Logging session data using Amazon S3 \(console\)](session-manager-logging.md#session-manager-logging-s3) 
++  [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging.md#session-manager-logging-cloudwatch-logs) 

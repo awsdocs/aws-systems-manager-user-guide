@@ -569,7 +569,7 @@ Use the following procedure to create an EventBridge rule for custom inventory d
 
 1. For **Service provider**, choose **AWS**\.
 
-1. For **Service name**, choose **EC2 Simple Systems Manager \(SSM\)**
+1. For **Service name**, choose **Systems Manager**\.
 
 1. For **Event type**, choose **Inventory**\.
 

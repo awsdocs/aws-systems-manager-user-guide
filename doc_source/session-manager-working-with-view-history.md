@@ -10,7 +10,7 @@ You can use the AWS Systems Manager console or the AWS Command Line Interface \(
 
 Using the AWS CLI, you can view a list of sessions in your account, but not the additional details that are available in the console\.
 
-For information about auditing and logging session history information, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
+For information about logging session history information, see [Logging session activity](session-manager-logging.md)\.
 
 **Topics**
 + [Viewing session history \(console\)](#view-console)

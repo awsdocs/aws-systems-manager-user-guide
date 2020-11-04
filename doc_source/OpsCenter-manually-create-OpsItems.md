@@ -26,7 +26,11 @@ This section includes the following procedures\.
 **Note**  
 You can't edit the **Source** field after you create the OpsItem\.
 
-1. For **Priority**, choose the priority level\.
+1. \(Optional\) For **Priority**, choose the priority level\.
+
+1. \(Optional\) For **Severity**, choose the severity level\.
+
+1. \(Optional\) For **Category**, choose a category\.
 
 1. For **Description**, enter information about this OpsItem including \(if applicable\) steps for reproducing the issue\. 
 
@@ -34,7 +38,7 @@ You can't edit the **Source** field after you create the OpsItem\.
 
 1. \(Optional\) For **Notifications**, specify the SNS topic ARN where you want notifications sent when this OpsItem is updated\. You must specify an Amazon SNS ARN that is in the same AWS Region as the OpsItem\.
 
-1. \(Optional\) Under **Related resources**, choose **Add** to specify the ARN of the impacted resource and any related resources\.
+1. \(Optional\) Under **Related resources**, choose **Add** to specify the ID or an Amazon Resource Name \(ARN\) of the impacted resource and any related resources\.
 
 1. Choose **Create OpsItem**\.
 

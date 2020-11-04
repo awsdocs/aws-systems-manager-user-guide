@@ -10,7 +10,7 @@ Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\
 ------
 #### [ Windows ]
 
-On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\.
+On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot contains a list of approved patches that is compiled by querying the patch baseline against a Windows Server Update Services \(WSUS\) server\. This list is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\. 
 
 ------
 #### [ Linux ]
@@ -22,6 +22,8 @@ On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python modu
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
 
 ------
+
+Each snapshot is specific to an AWS account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. 
 
@@ -64,7 +66,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 | Mode | Best practice | Details | 
 | --- | --- | --- | 
-| Running AWS\-RunPatchBaseline inside a maintenance window | Do not supply a Snapshot ID\. Patch Manager will supply it for you\. |  If you use a maintenance window to run **AWS\-RunPatchBaseline**, you should not provide your own generated Snapshot ID\. In this scenario, Systems Manager provides a GUID value based on the maintenance window execution ID\. This ensures that a correct ID is used for all the invocations of **AWS\-RunPatchBaseline** in that maintenance window\.  If you do specify a value in this scenario, note that the snapshot of the patch baseline might not remain in place for more than 24 hours\. After that, a new snapshot will be generated even if you specify the same ID after the snapshot expires\.   | 
+| Running AWS\-RunPatchBaseline inside a maintenance window | Do not supply a Snapshot ID\. Patch Manager will supply it for you\. |  If you use a maintenance window to run **AWS\-RunPatchBaseline**, you should not provide your own generated Snapshot ID\. In this scenario, Systems Manager provides a GUID value based on the maintenance window execution ID\. This ensures that a correct ID is used for all the invocations of **AWS\-RunPatchBaseline** in that maintenance window\.  If you do specify a value in this scenario, note that the snapshot of the patch baseline might not remain in place for more than three days\. After that, a new snapshot will be generated even if you specify the same ID after the snapshot expires\.   | 
 | Running AWS\-RunPatchBaseline outside of a maintenance window | Generate and specify a custom GUID value for the Snapshot ID\.¹ |  When you are not using a maintenance window to run **AWS\-RunPatchBaseline**, we recommend that you generate and specify a unique Snapshot ID for each patch baseline, particularly if you are running the **AWS\-RunPatchBaseline** document on multiple instances in the same operation\. If you do not specify an ID in this scenario, Systems Manager generates a different Snapshot ID for each instance the command is sent to\. This might result in varying sets of patches being specified among the instances\. For instance, say that you are running the **AWS\-RunPatchBaseline** document directly via Run Command and targeting a group of 50 instances\. Specifying a custom Snapshot ID results in the generation of a single baseline snapshot that is used to evaluate and patch all the instances, ensuring that they end up in a consistent state\.   | 
 |  ¹ You can use any tool capable of generating a GUID to generate a value for the Snapshot ID parameter\. For example, in PowerShell, you can use the `New-Guid` cmdlet to generate a GUID in the format of `12345699-9405-4f69-bc5e-9315aEXAMPLE`\.  | 
 

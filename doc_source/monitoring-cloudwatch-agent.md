@@ -25,7 +25,7 @@ Configuring an agent to send log data to Amazon CloudWatch Logs provides the fol
 + Logs can be maintained and accessed regardless of the status of the instance\.
 + Access to other CloudWatch features such as metrics and alarms\.
 
-For information about monitoring Session Manager activity, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
+For information about monitoring Session Manager activity, see [Auditing session activity](session-manager-auditing.md) and [Logging session activity](session-manager-logging.md)\.
 
 ## Migrate Windows Server instance log collection to the CloudWatch agent<a name="monitoring-cloudwatch-agent-migrate"></a>
 

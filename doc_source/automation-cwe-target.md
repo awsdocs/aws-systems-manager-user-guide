@@ -32,7 +32,7 @@ Use the following procedure to configure an automation as the target of a EventB
 
 1. For **Target**, choose **SSM Automation**\. 
 
-1. For**Document**, choose an Automation document to run when your target is invoked\.
+1. For **Document**, choose an Automation document to run when your target is invoked\.
 
 1. Expand **Configure document version**, and choose a version\. $DEFAULT was explicitly set as the default document version in Systems Manager\. You can choose a specific version, or use the latest version\.
 

@@ -61,7 +61,7 @@ CentOS update notices are supported\. Repos with update notices can be downloade
 
 On Debian Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
-Packages are then filtered from `debian-security codename` repos, where the codename is something like `jessie` or `stretch`\. For example, on Debian Server 8, Patch Manager only identifies upgrades that are part of `debian-security jessie`\. On Debian Server 9, only upgrades that are part of `debian-security stretch` are identified\.
+Packages are then filtered from `debian-security codename` repos\. This means that on Debian Server 8, Patch Manager only identifies upgrades that are part of `debian-security jessie`\. On Debian Server 9, only upgrades that are part of `debian-security stretch` are identified\. On Debian Server 10, only upgrades that are part of `debian-security buster` are identified\.
 
 **Note**  
 On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs additional steps to ensure that patching operations succeed\. For more information, see [How patches are installed](patch-manager-how-it-works-installation.md)\.
@@ -137,10 +137,11 @@ SLES instances use Zypper as the package manager, and Zypper uses the concept of
 On Ubuntu Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
 Packages are then filtered from `codename-security` repos, where the codename is unique to the release version, such as `trusty` for Ubuntu Server 14\. Patch Manager only identifies upgrades that are part of these repos: 
-+ Ubuntu Server 14: `trusty-security`
-+ Ubuntu Server 16: `xenial-security`
-+ Ubuntu Server 18: `bionic-security`
-+ Ubuntu Server 20: `focal-security`
++ Ubuntu Server 14\.04 LTS: `trusty-security`
++ Ubuntu Server 16\.04 LTS: `xenial-security`
++ Ubuntu Server 18\.04 LTS: `bionic-security`
++ Ubuntu Server 20\.04 LTS: `focal-security`
++ Ubuntu Server 20\.10 STR: `groovy-gorilla`
 
 ------
 #### [ Windows ]

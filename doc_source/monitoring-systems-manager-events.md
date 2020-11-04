@@ -27,13 +27,14 @@ When an AWS service in your account emits an event, it always goes to your accou
 
 1. For **Service provider**, choose **AWS**\.
 
-1. For **Service name**, choose **EC2 Simple Systems Manager \(SSM\)**\.
+1. For **Service name**, choose **Systems Manager**\.
 
 1. For **Event type**, do one of the following: 
    + Choose **All Events**\. 
 
      If you choose **All Events**, all events emitted by Systems Manager will match the rule\. Be aware that this option can result in a very large number of event target actions\.
    + Choose the type of Systems Manager event to use for this rule\. EventBridge currently supports events from the following Systems Manager capabilities: 
+     +  Change Calendar
      + Configuration Compliance
      + Inventory
      + Maintenance Windows
@@ -41,7 +42,7 @@ When an AWS service in your account emits an event, it always goes to your accou
      + Run Command
      + State Manager
 **Note**  
-For Systems Manager actions that aren't supported by EventBridge, you can choose AWS API Call via CloudTrail to create an event rule that is based on an API call, which are recorded by AWS CloudTrail\. For an example, see [ Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-logging-auditing.md#session-manager-logging-auditing-eventbridge-events)\. 
+For Systems Manager actions that aren't supported by EventBridge, you can choose AWS API Call via CloudTrail to create an event rule that is based on an API call, which are recorded by AWS CloudTrail\. For an example, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\. 
 
    \(Optional\) If you want to customize the event pattern, choose **Edit** next to **Event pattern**, make your changes, and choose **Save**\.
 

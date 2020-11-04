@@ -26,6 +26,15 @@ The remainder of this topic describes the types of Systems Manager events that y
 | EC2 Automation Execution Status\-change Notification | The overall status of an Automation workflow changes\. You can add one or more of the following status changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | EC2 Automation Step Status\-change Notification | The status of a specific step in an Automation workflow changes\. You can add one or more of the following status changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 
+## Event type: Change Calendar<a name="event-type-change-calendar"></a>
+
+
+****  
+
+| Event type name | Description of events you can add to a rule | 
+| --- | --- | 
+| Calendar State Change | The state of a Change Calendar changes\. You can add one or both of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) State changes for calendars shared from other AWS accounts are not currently supported\.  | 
+
 ## Event type: Configuration Compliance<a name="event-type-configuration-compliance"></a>
 
 

@@ -16,6 +16,8 @@ Among the many types of Systems Manager events that EventBridge can detect are:
 + A parameter value being updated
 
 EventBridge supports events from the following Systems Manager capabilities:
++  Change Calendar
++ Configuration Compliance
 + Inventory
 + Maintenance Windows
 + Parameter Store

@@ -54,7 +54,7 @@ Delegated administration enables you to provide permissions for certain tasks on
 For an example of how to delegate access to an Automation workflow, see [Running an automation by using delegated administration](automation-walk-security-delegated.md)\. 
 
 **Share best practices**  
-Automation lets you share best practices with rest of your organization\.
+Automation lets you share best practices with the rest of your organization\.
 
 You can create best practices for resource management in Automation documents and easily share the documents across AWS Regions and groups\. You can also constrain the allowed values for the parameters the document accepts\.
 

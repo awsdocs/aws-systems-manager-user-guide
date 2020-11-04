@@ -26,6 +26,10 @@ The following are some benefits of Systems Manager Change Calendar\.
 + **Get the current or upcoming state of the calendar**
 
   You can run the Systems Manager `GetCalendarState` API operation to show you the current state of the calendar, the state at a specified time, or the next time that the calendar state is scheduled to change\.
++ 
+
+**Amazon EventBridge support**  
+This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Who should use Change Calendar?](#systems-manager-change-calendar-who)

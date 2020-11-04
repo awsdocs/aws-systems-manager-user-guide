@@ -6,11 +6,13 @@ Use the following procedure to configure **SSM OpsItems** as the target of an Ev
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
-1. In the navigation pane, choose **Rule**, and then either choose to create a new rule or edit an existing rule\.
+1. In the navigation pane, choose **Rules**\.
 
-1. After verifying the details of the rule, for **Select event** bus, choose **AWS default event bus**\.
+1. On the **Rules** page, either choose an existing rule and then choose **Edit**, or choose **Create rule**\.
 
-1. For **Target** list, choose **SSM OpsItem**\. 
+1. After verifying or entering the details of the rule, for **Select event** bus, choose **AWS default event bus**\.
+
+1. For **Select targets**, choose **SSM OpsItem**\. 
 
 1. Expand **Configure input** and verify that **Matched event** is selected\.
 
@@ -22,10 +24,8 @@ Use the following procedure to configure **SSM OpsItems** as the target of an Ev
 
    If editing a rule, choose **Update**\.
 
-1. In the navigation pane, choose **Rules**\. If you created a new rule, verify that the list includes a new rule that begins with `AwsSSMOpsCenter-*`, such as `AwsSSMOpsCenter-EC2` or `AwsSSMOpsCenter-DynamoDB`\.
+1. In the navigation pane, choose **Rules**\. If you created a new rule, verify that the list includes the new rule\.
 
 After an OpsItem is created from an event, you can view the event details by opening the OpsItem and scrolling down to the **Private operational data** section\.
-
-![\[Viewing operational data to view event details.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_2.png)
 
 For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.

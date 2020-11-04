@@ -59,7 +59,7 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. Browse to and choose your EC2 instance from the list\.
 
-1. In the **Actions** menu, choose **Instance Settings**, **Attach/Replace IAM Role**\.
+1. In the **Actions** menu, choose **Security**, **Modify IAM role**\.
 
 1. For **IAM role**, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 

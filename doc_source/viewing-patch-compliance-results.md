@@ -10,7 +10,7 @@ The AWS Systems Manager Quick Setup and AWS Systems Manager Explorer patch scan 
 **Identify the patch solution for a specific CVE issue \(Linux\)**  
 For many Linux\-based operating systems, patch compliance results indicate which Common Vulnerabilities and Exposure \(CVE\) bulletin issues are resolved by which patches\. This information can help you determine how urgently you need to install a missing or failed patch\.
 
-CVE details are included for the following operating system types:
+CVE details are included for supported versions of the following operating system types:
 + Amazon Linux
 + Amazon Linux 2
 + Oracle Linux

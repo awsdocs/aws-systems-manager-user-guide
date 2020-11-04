@@ -104,7 +104,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
 
 Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
 
-For information about specifying preferences for storing session logs, see [Auditing and logging session activity](session-manager-logging-auditing.md)\.
+For information about specifying preferences for storing session logs, see [Logging session activity](session-manager-logging.md)\.
 
 **To create an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)**
 

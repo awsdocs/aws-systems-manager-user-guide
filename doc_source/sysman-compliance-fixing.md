@@ -33,7 +33,7 @@ Use the following procedure to configure Configuration Compliance as the target 
 
 1. For **Service provider**, choose **AWS**\.
 
-1. For **Service Name**, choose **EC2 Simple Systems Manager \(SSM\)**
+1. For **Service Name**, choose **Systems Manager**\.
 
 1. For **Event type**, choose **Configuration Compliance**\.
 

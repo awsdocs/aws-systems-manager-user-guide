@@ -76,6 +76,7 @@ Because it's not possible to reliably determine the release dates of update pack
    These repos are named as follows:
    + Debian Server 8: `debian-security jessie`
    + Debian Server 9: `debian-security stretch`
+   + Debian Server 10: `debian-security buster`
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
@@ -170,10 +171,11 @@ Because it's not possible to reliably determine the release dates of update pack
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 
    If nonsecurity updates are excluded, an implicit rule is applied in order to select only packages with upgrades in security repos\. For each package, the candidate version of the package \(which is typically the latest version\) must be part of a security repo\. In this case, for Ubuntu Server, patch candidate versions are limited to patches included in the following repos:
-   + Ubuntu Server 14: `trusty-security`
-   + Ubuntu Server 16: `xenial-security`
-   + Ubuntu Server 18: `bionic-security`
-   + Ubuntu Server 20: `focal-security`
+   + Ubuntu Server 14\.04 LTS: `trusty-security`
+   + Ubuntu Server 16\.04 LTS: `xenial-security`
+   + Ubuntu Server 18\.04 LTS: `bionic-security`
+   + Ubuntu Server 20\.04 LTS: `focal-security`
+   + Ubuntu Server 20\.10 STR: `groovy-gorilla`
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  

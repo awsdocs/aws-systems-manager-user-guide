@@ -129,11 +129,11 @@ Verify that the instance is configured with an AWS Identity and Access Managemen
 **To create and attach an instance profile with the necessary permissions to a new EC2 instance**
 + Complete the tasks in the following topics:
   + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
-  + [Launch an instance that uses the Systems Manager instance profile \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-new.title)
+  + [Launch an instance that uses the Systems Manager instance profile \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-new)
 
 **To attach an existing instance profile with the necessary permissions to an existing EC2 instance**
 + Complete the task in the following topic:
-  + [Attach the Systems Manager instance profile to an existing instance \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-existing.title)
+  + [Attach the Systems Manager instance profile to an existing instance \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-existing)
 
 ## Solution 3: Verify service endpoint connectivity<a name="instances-missing-solution-3"></a>
 

@@ -12,7 +12,7 @@ Use the information in the following tables to help you identify why an instance
 For Debian Server and Ubuntu Server, the rules for package classification into the different compliance states are described in the following table\.
 
 **Note**  
-Keep the following in mind when you are evaluating the **Installed**, **Installed Other**, and **Missing** status values: If you do not select the **Include nonsecurity updates** check box when creating or updating a patch baseline, patch candidate versions are limited to patches included in `trusty-security` \(Ubuntu Server 14\), `xenial-security` \(Ubuntu Server 16\), `bionic-security` \(Ubuntu Server 18\), `focal-security` \(Ubuntu Server 20\), or `debian-security` \(Debian Stretch or Jessie\)\. If you do select the **Include nonsecurity updates** check box, patches from other repositories are considered as well\.
+Keep the following in mind when you are evaluating the **Installed**, **Installed Other**, and **Missing** status values: If you do not select the **Include nonsecurity updates** check box when creating or updating a patch baseline, patch candidate versions are limited to patches included in `trusty-security` \(Ubuntu Server 14\.04 LTS\), `xenial-security` \(Ubuntu Server 16\.04 LTS\), `bionic-security` \(Ubuntu Server 18\.04 LTS\), `focal-security` \(Ubuntu Server 20\.04 LTS\), `groovy-gorilla` \(Ubuntu Server 20\.10 STR\), or `debian-security` \(Debian Stretch or Debian Jessie\)\. If you do select the **Include nonsecurity updates** check box, patches from other repositories are considered as well\.
 
 
 | Patch state | Description | Compliance status | 
