@@ -1,4 +1,4 @@
-# Edit and create a new version of an association<a name="sysman-state-assoc-edit"></a>
+# Editing and creating a new version of an association<a name="sysman-state-assoc-edit"></a>
 
 You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
@@ -37,7 +37,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 ```
 --targets Key=tag:Environment,Values=Development,Test,Pre-production
-``` Target instances by using AWS Resource Groups 
+```  When using Amazon EC2 tags, you can only use one tag key\. If you want to target your instances using more than one tag key, use the resource group option\.  Target instances by using AWS Resource Groups 
 
 ```
 --targets Key=resource-groups:Name,Values=resource-group-name

@@ -41,8 +41,8 @@ The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) ca
 
 **State Manager**  
 The [AWS Systems Manager State Manager](systems-manager-state.md) capability helps you maintain consistent configuration of your EC2 instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, anti\-virus definitions, firewall settings, and more\.
-+ [Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md)
-+ [Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)
++ [Walkthrough: Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md)
++ [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server \(console\)](sysman-state-pvdriver.md)
 
 **Documents**  

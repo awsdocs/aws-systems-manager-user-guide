@@ -68,6 +68,9 @@ SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
+**Note**  
+SSM Agent might be pre\-installed on Community AMIs that support other operating systems\. AWS does not support these Community AMIs\.
+
 **SSM Agent on GitHub**  
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/master/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
 

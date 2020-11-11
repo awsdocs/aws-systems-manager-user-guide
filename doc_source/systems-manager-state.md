@@ -32,7 +32,7 @@ Complete the following tasks to get started with State Manager\.
 | --- | --- | 
 |  Verify Systems Manager prerequisites  |  [Systems Manager prerequisites](systems-manager-prereqs.md)  | 
 |  Learn more about State Manager  |  [About State Manager](sysman-state-about.md)  | 
-|  Create and assign a State Manager association to your instances  |  [Create an association](sysman-state-assoc.md)  | 
+|  Create and assign a State Manager association to your instances  |  [Creating associations](sysman-state-assoc.md)  | 
 
 **Related content**
 + [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows PowerShell DSC](http://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/)

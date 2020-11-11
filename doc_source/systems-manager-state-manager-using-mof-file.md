@@ -1,4 +1,4 @@
-# Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
+# Walkthrough: Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
 
 You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure web site with an HTTPS domain\.
 

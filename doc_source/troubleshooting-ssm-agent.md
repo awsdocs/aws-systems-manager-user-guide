@@ -24,3 +24,5 @@ If you choose to view these logs by using Windows File Explorer, be sure to enab
 **On Linux**
 + `/var/log/amazon/ssm/amazon-ssm-agent.log`
 + `/var/log/amazon/ssm/errors.log`
+
+For Linux instances, you might find more information in the `messages` file written to the following directory: /var/log\.

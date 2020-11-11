@@ -54,6 +54,9 @@ OpsData is any operations data that is displayed in the Systems Manager Explorer
 + **AWS Support Center cases**
 
   Data displayed in Explorer includes: case ID, severity, status, created time, subject, service, and category\. 
++ **AWS Config**
+
+  Data displayed in Explorer includes: overall summary of compliant and non\-compliant AWS Config rules, the number of compliant and non\-compliant resources, and specific details about each \(when you drill down into a non\-compliant rule or resource\)\. 
 
 **Note**  
 To view AWS Trusted Advisor and AWS Support Center cases in Explorer, you must have either an Enterprise or Business account set up with AWS Support\.

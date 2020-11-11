@@ -222,6 +222,7 @@ After you choose Quick Setup options, choose which instances you want to configu
 + **Choose all instances in the current AWS account and Region**: Quick Setup locates and applies the configuration options to all instances in the current AWS account and Region\.
 + **Specify instance tags**: Quick Setup uses the tag key and \(optional\) tag value that you specify to locate instances\.
 + **Choose instances manually**: Quick Setup enables you to choose one or more instances from a list\.
++ **Choose a resource group**: Quick Setup enables you to choose a resource group that includes the resources you want to target\.
 
 **Organization**
 + **Target organizational units \(OUs\)**: Quick Setup enables you to target multiple AWS Organizations organizational units \(OUs\)\. Quick Setup applies your configuration to all accounts within an OU\.

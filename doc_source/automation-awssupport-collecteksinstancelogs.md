@@ -33,7 +33,7 @@ Linux
 
   Type: String
 
-  Description: \(Required\) ID of the Amazon EKS EC2 instance you want to collect logs from\. The SSM Agent must be installed on the instance you specify\.
+  Description: \(Required\) ID of the Amazon EKS EC2 instance you want to collect logs from\.
 + LogDestination
 
   Type: String

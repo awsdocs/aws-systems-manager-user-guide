@@ -2,7 +2,7 @@
 
 Use the following procedure to configure **SSM OpsItems** as the target of an EventBridge event\. When EventBridge receives the event, it creates a new OpsItem in OpsCenter\.
 
-**To configure OpsCenter as a target of a CloudWatch event**
+**To configure OpsCenter as a target of an EventBridge event**
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 

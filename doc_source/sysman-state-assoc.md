@@ -1,4 +1,4 @@
-# Create an association<a name="sysman-state-assoc"></a>
+# Creating associations<a name="sysman-state-assoc"></a>
 
 The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
 
@@ -88,6 +88,9 @@ Target instances by using Amazon EC2 tags
 ```
 --targets Key=tag:Environment,Values=Development,Test,Pre-production
 ```
+
+**Note**  
+When using Amazon EC2 tags, you can only use one tag key\. If you want to target your instances using more than one tag key, use the resource group option\.
 
 Target instances by using AWS Resource Groups
 

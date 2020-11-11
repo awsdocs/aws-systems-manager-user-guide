@@ -1,4 +1,4 @@
-# Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
+# Walkthrough: Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
 
 You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` document\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` document\. This document offers the following benefits for running Chef recipes:
 + Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
@@ -39,7 +39,7 @@ Systems Manager can deliver compliance reports to an S3 bucket, the Systems Mana
 
 ### Logging the document run<a name="state-manager-chef-logging"></a>
 
-When you run a Systems Manager document by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an S3 bucket or CloudWatch Logs\. For more information, see [Create an association](sysman-state-assoc.md)\.
+When you run a Systems Manager document by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an S3 bucket or CloudWatch Logs\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 
 ## Use GitHub as a cookbook source<a name="state-manager-chef-github"></a>
 

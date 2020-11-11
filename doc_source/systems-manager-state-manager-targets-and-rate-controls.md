@@ -20,6 +20,11 @@ Use this option to specify a tag key and \(optionally\) a tag value that are cur
 
 If you create new instances and assign the specified tag key and value to those instances, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\. If you delete the specified tags from an instance, the system no longer runs the association on those instances\.
 
+It is a best practice to use instance tags when creating associations to run Auto Scaling groups\. For more information, see [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md)\.
+
+**Note**  
+When using Amazon Elastic Compute Cloud \(Amazon EC2\) tags, you can only use one tag key\. If you want to target your instances using more than one tag key, use the resource group option\.
+
 For information about assigning tags to your instances, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
 **Choose instances manually**  

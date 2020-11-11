@@ -109,15 +109,15 @@ You can use the AWS Systems Manager console to schedule the installation or upda
 
 1. For **Targets**, choose **Selecting all managed instances in this account**, **Specifying tags**, or **Manually Selecting Instance**\. If you target resources by using tags, enter a tag key and a tag value in the fields provided\.
 
-1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Create an association](sysman-state-assoc.md)\. Use the controls to create a `cron` or rate schedule for the association\.
+1. For **Specify schedule**, choose **On Schedule** to run the association on a regular schedule, or **No Schedule** to run the association once\. For more information about these options, see [Creating associations](sysman-state-assoc.md)\. Use the controls to create a `cron` or rate schedule for the association\.
 
 1. Choose **Create Association**\.
 
 1. On the **Association** page, choose the button next to the association you created, and then choose **Apply association now**\.
 
-   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Create an association](sysman-state-assoc.md) in this guide\.
+   State Manager creates and immediately runs the association on the specified instances or targets\. For more information about the results of running associations, see [Creating associations](sysman-state-assoc.md) in this guide\.
 
-For more information about working with the options in **Advanced options**, **Rate control**, and **Output options**, see [Create an association](sysman-state-assoc.md)\. 
+For more information about working with the options in **Advanced options**, **Rate control**, and **Output options**, see [Creating associations](sysman-state-assoc.md)\. 
 
 ## Installing a package one time \(AWS CLI\)<a name="distributor-deploy-pkg-cli"></a>
 

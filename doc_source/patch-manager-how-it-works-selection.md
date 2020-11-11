@@ -29,22 +29,19 @@ If you select the **Approved patches include non\-security updates** check box i
 ------
 #### [ CentOS ]
 
-On CentOS, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. Here are some examples from a CentOS 6\.9 Amazon Machine Image \(AMI\):
-+ **Repo ID**: ultra\-centos\-6\.9\-base
+On CentOS, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. The following list provides examples for a fictitious CentOS 8\.2 Amazon Machine Image \(AMI\):
++ **Repo ID**: example\-centos\-8\.2\-base
 
-  **Repo name**: UltraServe CentOS\-6\.9 \- Base
-+ **Repo ID**: ultra\-centos\-6\.9\-extras 
+  **Repo name**: Example CentOS\-8\.2 \- Base
++ **Repo ID**: example\-centos\-8\.2\-extras 
 
-  **Repo name**: UltraServe CentOS\-6\.9 \- Extras
-+ **Repo ID**: ultra\-centos\-6\.9\-updates
+  **Repo name**: Example CentOS\-8\.2 \- Extras
++ **Repo ID**: example\-centos\-8\.2\-updates
 
-  **Repo name**: UltraServe CentOS\-6\.9 \- Updates
-+ **Repo ID**: ultra\-centos\-6\.x\-glusterfs
+  **Repo name**: Example CentOS\-8\.2 \- Updates
++ **Repo ID**: example\-centos\-8\.x\-examplerepo
 
-  **Repo name**: UltraServe CentOS\-6\.x \- GlusterFS
-+ **Repo ID**: ultra\-centos\-6\.x\-ultrarepo
-
-  **Repo name**: UltraServe CentOS\-6\.x – UltraServe Repo Packages
+  **Repo name**: Example CentOS\-8\.x – Example Repo Packages
 
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.

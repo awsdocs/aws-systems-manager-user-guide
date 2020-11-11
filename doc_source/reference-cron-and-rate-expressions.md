@@ -91,7 +91,7 @@ aws ssm create-association \
 ```
 
 **Note**  
-By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified\. Specify `--apply-only-at-cron-interval` so that the association doesn't run immediately after you create it\.
+By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified\. Specify `--apply-only-at-cron-interval` so that the association doesn't run immediately after you create it\. This parameter is not supported for rate expressions\.
 
 **Topics**
 + [General information about cron and rate expressions](#reference-cron-and-rate-expressions-intro)
