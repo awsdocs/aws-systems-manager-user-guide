@@ -70,7 +70,7 @@ The bundled installer does not support installing to paths that contain spaces\.
    sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
    ```
 **Note**  
-The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
+The plugin requires Python 2\.6\.5+ or Python 3\.3+\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
 
    ```
    sudo /usr/local/bin/python3.6 sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
