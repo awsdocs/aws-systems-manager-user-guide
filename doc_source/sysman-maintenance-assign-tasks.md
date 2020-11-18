@@ -5,8 +5,10 @@ In this procedure, you add a task to a maintenance window\. Tasks are the action
 The following four types of tasks can be added to a maintenance window:
 + AWS Systems Manager Run Command commands
 + Systems Manager Automation workflows
-+ AWS Lambda functions
 + AWS Step Functions tasks
++ AWS Lambda functions
+**Important**  
+The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to Lambda function \(or alias\) names\. Before you proceed to register this type of task, you must update its name in AWS Lambda to include `SSM`\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
 
 **To assign tasks to a maintenance window**
 
@@ -16,17 +18,17 @@ The following four types of tasks can be added to a maintenance window:
 
 1. In the list of maintenance windows, choose a maintenance window\.
 
-1. Choose **Actions**, and then choose the option for the type of task you want to register with the maintenance window:
+1. Choose **Actions**, and then choose the option for the type of task you want to register with the maintenance window\.
    + **Register Run command task**
    + **Register Automation task**
-   + **Register Lambda task**
    + **Register Step Functions task**
+   + **Register Lambda task**
 
 1. For **Name**, enter a name for the task\.
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the SSM Command or Automation document that defines the tasks to run\.
+1. For **Document**, choose the SSM command or Automation document that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 

@@ -42,6 +42,10 @@ Required: No
 If set to `true`, the log group you specified in the `cloudWatchLogGroupName` input must be encrypted\.  
 Type: Boolean  
 Required: Yes  
+[cloudWatchStreamingEnabled](#cwStream)  
+If set to `true`, a continuous stream of session data logs are sent to the log group you specified in the `cloudWatchLogGroupName` input\. If set to `false`, session logs are sent to the log group you specified in the `cloudWatchLogGroupName` input at the end of your sessions\.  
+Type: Boolean  
+Required: Yes  
 [kmsKeyId](#kms)  
 The ID of the AWS Key Management Service \(AWS KMS\) key you want to use to further encrypt data between your local client machines and the Amazon Elastic Compute Cloud \(Amazon EC2\) instances you connect to\.  
 Type: String  
@@ -53,6 +57,11 @@ Required: Yes
 [runAsDefaultUser](#runUser)  
 The name of the user account to start sessions with on Linux instances when the `runAsEnabled` input is set to `true`\. The user account you specify for this input must exist on the instances you'll be connecting to; otherwise, sessions will fail to start\.  
 Type: String  
+Required: No  
+[sessionTimeout](#timeout)  
+The amount of time of inactivity you want to allow before a session ends\. This input is measured in minutes\.  
+Type: String  
+Valid values: 1\-60  
 Required: No  
 [shellProfile](#shell)  
 The preferences you specify per operating system to apply within sessions such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.  
@@ -100,9 +109,11 @@ inputs:
   s3EncryptionEnabled: true
   cloudWatchLogGroupName: ''
   cloudWatchEncryptionEnabled: true
+  cloudWatchStreamingEnabled: true
   kmsKeyId: ''
   runAsEnabled: true
   runAsDefaultUser: ''
+  sessionTimeout: '20'
   shellProfile:
     windows: ''
     linux: ''
@@ -122,9 +133,11 @@ inputs:
         "s3EncryptionEnabled": true,
         "cloudWatchLogGroupName": "",
         "cloudWatchEncryptionEnabled": true,
+        "cloudWatchStreamingEnabled": true,
         "kmsKeyId": "",
         "runAsEnabled": true,
         "runAsDefaultUser": "",
+        "sessionTimeout": "20",
         "shellProfile": {
             "windows": "date",
             "linux": "pwd;ls"

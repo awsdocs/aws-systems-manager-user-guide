@@ -18,5 +18,6 @@ To view details about the different versions of SSM Agent, see the [release note
 
 **Topics**
 + [Manually install SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)
++ [Verifying the signature of the SSM Agent](verify-agent-signature.md)
 + [Configure SSM Agent to use a proxy](sysman-proxy-with-ssm-agent.md)
 + [Uninstall SSM Agent from Linux instances](sysman-uninstall-agent.md)

@@ -36,7 +36,7 @@ The following table lists the differences between major schema versions\.
 |  not applicable  |  name  |  In version 2\.2, `name` is any user\-defined name for a step\.  | 
 
 **Using the precondition parameter**  
-With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin\. The `precondition` parameter supports `platformType` and a value of either `Windows` or `Linux`\.
+With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document\. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using a value of either `Windows` or `Linux`\.
 
 For documents that use schema version 2\.2 or later, if `precondition` is not specified, each plugin is either run or skipped based on the plugin’s compatibility with the operating system\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
 
@@ -156,8 +156,8 @@ mainSteps:
 
 ------
 
-**Schema version 2\.2 precondition parameter example**  
-Schema version 2\.2 provides cross\-platform support\. This means that within a single SSM document you can specify different operating systems for different plugins\. Cross\-platform support uses the `precondition` parameter within a step, as shown in the following example\. 
+**Schema version 2\.2 precondition parameter examples**  
+Schema version 2\.2 provides cross\-platform support\. This means that within a single SSM document you can specify different operating systems for different plugins\. Cross\-platform support uses the `precondition` parameter within a step, as shown in the following example\. You can also use the `precondition` parameter to validate input parameters you've defined in your SSM document\. You can see this in the second example below\.
 
 ------
 #### [ YAML ]
@@ -222,6 +222,103 @@ mainSteps:
          "inputs": {
             "runCommand": [
                "cmds"
+            ]
+         }
+      }
+   ]
+}
+```
+
+------
+
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '2.2'
+parameters:
+  action:
+    type: String
+    allowedValues:
+    - Install
+    - Uninstall
+  confirmed:
+    type: String
+    allowedValues:
+    - True
+    - False
+mainSteps:
+- action: aws:runShellScript
+  name: InstallAwsCLI
+  precondition:
+    StringEquals:
+    - "{{ action }}"
+    - "Install"
+  inputs:
+    runCommand:
+    - sudo apt install aws-cli
+- action: aws:runShellScript
+  name: UninstallAwsCLI
+  precondition:
+    StringEquals:
+    - "{{ action }} {{ confirmed }}"
+    - "Uninstall True"
+  inputs:
+    runCommand:
+    - sudo apt remove aws-cli
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion": "2.2",
+   "parameters": {
+      "action": {
+         "type": "String",
+         "allowedValues": [
+            "Install",
+            "Uninstall"
+         ]
+      },
+      "confirmed": {
+         "type": "String",
+         "allowedValues": [
+            true,
+            false
+         ]
+      }
+   },
+   "mainSteps": [
+      {
+         "action": "aws:runShellScript",
+         "name": "InstallAwsCLI",
+         "precondition": {
+            "StringEquals": [
+               "{{ action }}",
+               "Install"
+            ]
+         },
+         "inputs": {
+            "runCommand": [
+               "sudo apt install aws-cli"
+            ]
+         }
+      },
+      {
+         "action": "aws:runShellScript",
+         "name": "UninstallAwsCLI",
+         "precondition": {
+            "StringEquals": [
+               "{{ action }} {{ confirmed }}",
+               "Uninstall True"
+            ]
+         },
+         "inputs": {
+            "runCommand": [
+               "sudo apt remove aws-cli"
             ]
          }
       }

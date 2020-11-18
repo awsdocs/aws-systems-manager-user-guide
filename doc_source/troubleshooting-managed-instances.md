@@ -93,6 +93,7 @@ If the command doesn't return results after five minutes or so, use the followin
 + [Solution 3: Verify service endpoint connectivity](#instances-missing-solution-3)
 + [Solution 4: Verify target operating system support](#instances-missing-solution-4)
 + [Solution 5: Verify you are working in the same AWS Region as the EC2 instance](#instances-missing-solution-5)
++ [Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance](#instances-missing-solution-6)
 
 ## Solution 1: Verify that SSM Agent is installed and running on the instance<a name="instances-missing-solution-1"></a>
 
@@ -150,3 +151,7 @@ Verify that the operation you have chosen can be run on the type of instance you
 ## Solution 5: Verify you are working in the same AWS Region as the EC2 instance<a name="instances-missing-solution-5"></a>
 
 EC2 instances are created and available in specific AWS Regions, such as the US East \(Ohio\) Region \(us\-east\-2\) or Europe \(Ireland\) Region \(eu\-west\-1\)\. Ensure that you are working in the same AWS Region as the EC2 instance that you want to work with\. For more information, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) in *Getting Started with the AWS Management Console*\.
+
+## Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance<a name="instances-missing-solution-6"></a>
+
+Verify that the proxy configuration you applied to the SSM Agent on your EC2 instance is correct\. If the proxy configuration is incorrect, the instance can't connect to the required service endpoints, or Systems Manager might identify the operating system of the instance incorrectly\. For more information, see [Configure SSM Agent to use a proxy ](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.

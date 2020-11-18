@@ -16,7 +16,7 @@ You can only target Systems Manager managed instances\. This means you must set 
 State Manager includes the following target options when creating an association\.
 
 **Specify instance tags**  
-Use this option to specify a tag key and \(optionally\) a tag value that are currently assigned to your instances\. When you run the request, the system locates and attempts to create the association on all instances that match the specified tag key and value\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
+Use this option to specify a tag key and \(optionally\) a tag value that are currently assigned to your instances\. When you run the request, the system locates and attempts to create the association on all instances that match the specified tag key and value\. If you specified multiple tags, the association targets any instance with at least one of those tags\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
 
 If you create new instances and assign the specified tag key and value to those instances, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\. If you delete the specified tags from an instance, the system no longer runs the association on those instances\.
 

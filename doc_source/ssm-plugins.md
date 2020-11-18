@@ -750,7 +750,7 @@ mainSteps:
 ### Inputs<a name="downloadContent-inputs"></a>
 
 **sourceType**  
-The download source\. Systems Manager currently supports the following source types for downloading scripts and SSM documents: `GitHub`, `S3`, and `SSMDocument`\.  
+The download source\. Systems Manager currently supports the following source types for downloading scripts and SSM documents: `GitHub`, `Git`, `HTTP`, `S3`, and `SSMDocument`\.  
 Type: String  
 Required: Yes
 
@@ -758,7 +758,7 @@ Required: Yes
 The information required to retrieve the content from the required source\.  
 Type: StringMap  
 Required: Yes  
- **For sourceType GitHub, specify the following:**   
+ **For sourceType `GitHub,` specify the following:**   
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
@@ -792,7 +792,84 @@ This `tokenInfo` field is the only SSM document plugin field that supports a Sec
     "tokenInfo":"{{ssm-secure:secure-string-token}}"
 }
 ```
- **For sourceType S3, specify the following:**   
+ **For sourceType `Git`, you must specify the following:**   
++ repository
+
+  The Git repository URL to the file or directory you want to download\.
+
+  Type: String
+Additionally, you can specify the following optional parameters:  
++ getOptions
+
+  Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\.
+
+  Type: String
+
+  This parameter uses the following format:
+  + branch:*branch\_name*
+
+    The default is `master`\.
+
+    `"branch"` is required only if your SSM document is stored in a branch other than `master`\.
+  + commitID:*commitID*
+
+    The default is `head`\.
+
+    To use the version of your SSM document in a commit other than the latest, specify the full commit ID\. For example:
+
+    ```
+    "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
+    ```
++ privateSSHKey
+
+  The SSH key to use when connecting to the `repository` you specify\. You can use the following format to reference a `SecureString` parameter for the value of your SSH key: `{{ssm-secure:your-secure-string-parameter}}`\.
+
+  Type: String
++ skipHostKeyChecking
+
+  Determines the value of the StrictHostKeyChecking option when connecting to the `repository` you specify\. The default value is `false`\.
+
+  Type: Boolean
++ username
+
+  The username to use when connecting to the `repository` you specify using HTTP\. You can use the following format to reference a `SecureString` parameter for the value of your username: `{{ssm-secure:your-secure-string-parameter}}`\.
+
+  Type: String
++ password
+
+  The password to use when connecting to the `repository` you specify using HTTP\. You can use the following format to reference a `SecureString` parameter for the value of your password: `{{ssm-secure:your-secure-string-parameter}}`\.
+
+  Type: String
+ **For sourceType `HTTP`, you must specify the following:**   
++ url
+
+  The URL to the file or directory you want to download\.
+
+  Type: String
+Additionally, you can specify the following optional parameters:  
++ allowInsecureDownload
+
+  Determines whether a download can be performed over a connection that is not encrypted with Secure Socket Layer \(SSL\) or Transport Layer Security \(TLS\)\. The default value is `false`\. We do not recommend performing downloads without encryption\. If you choose to do so, you assume all associated risks\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/)\.
+
+  Type: Boolean
++ authMethod
+
+  Determines whether a username and password are used for authentication when connecting to the `url` you specify\. If you specify `Basic`, you must provide values for the `username` and `password` parameters\.
+
+  Type: String
+
+  Valid values: `None` \| `Basic`
++ username
+
+  The username to use when connecting to the `url` you specify using `Basic` authentication\. You can use the following format to reference a `SecureString` parameter for the value of your username: `{{ssm-secure:your-secure-string-parameter}}`\.
+
+  Type: String
++ password
+
+  The password to use when connecting to the `url` you specify using `Basic` authentication\. You can use the following format to reference a `SecureString` parameter for the value of your password: `{{ssm-secure:your-secure-string-parameter}}`\.
+
+  Type: String
+ **For sourceType `S3`, specify the following:**   
 + path: The URL to the file or directory you want to download from Amazon S3\.
 
 ```
@@ -800,7 +877,7 @@ This `tokenInfo` field is the only SSM document plugin field that supports a Sec
     "path": "https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1" 
 }
 ```
- **For sourceType SSMDocument, specify *one* of the following:**   
+ **For sourceType `SSMDocument`, specify *one* of the following:**   
 + name: The name and version of the document in the following format: `name:version`\. Version is optional\. 
 
   ```

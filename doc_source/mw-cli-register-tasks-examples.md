@@ -198,7 +198,7 @@ The following examples demonstrate how to register AWS Lambda function tasks wit
 For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `instanceId` and `targetType`\.
 
 **Important**  
-The IAM policy for Maintenance Windows requires that you prefix Lambda function \(or alias\) names with `SSM`\. Before you proceed to register this type of task, you must update its name in AWS Lambda to include SSM\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
+The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to Lambda function \(or alias\) names\. Before you proceed to register this type of task, you must update its name in AWS Lambda to include `SSM`\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
 
 **AWS CLI command:**
 

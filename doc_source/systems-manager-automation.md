@@ -69,4 +69,5 @@ This Systems Manager capability is supported as a *target* type in EventBridge r
 + [Working with Automation documents](automation-documents.md)
 + [Systems Manager Automation documents reference](automation-documents-reference.md)
 + [Automation walkthroughs](automation-walk.md)
++ [Understanding automation statuses](automation-statuses.md)
 + [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)
