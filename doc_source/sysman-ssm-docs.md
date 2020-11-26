@@ -37,6 +37,7 @@ For information about SSM document quotas, see [Systems Manager service quotas](
 + [SSM document syntax](sysman-doc-syntax.md)
 + [Systems Manager Command document plugin reference](ssm-plugins.md)
 + [Creating Systems Manager documents](create-ssm-doc.md)
++ [Comparing SSM document versions](ssm-comparing.md)
 + [Sharing SSM documents](ssm-sharing.md)
 + [Searching for SSM documents](ssm-documents-searching.md)
 + [Running Systems Manager command documents from remote locations](run-remote-documents.md)

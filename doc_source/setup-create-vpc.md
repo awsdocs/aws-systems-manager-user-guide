@@ -1,6 +1,6 @@
 # Step 6: \(Optional\) Create a Virtual Private Cloud endpoint<a name="setup-create-vpc"></a>
 
-You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. An interface VPC endpoint \(interface endpoint\) enables you to connect to services powered by AWS PrivateLink, a technology that enables you to privately access Amazon EC2 and Systems Manager APIs by using private IP addresses\. PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. \(Managed instances don't have access to the Internet\.\) Also, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. 
+You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. An interface VPC endpoint \(interface endpoint\) enables you to connect to services powered by AWS PrivateLink, a technology that enables you to privately access Amazon EC2 and Systems Manager APIs by using private IP addresses\. PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. This means that your managed instances don't have access to the Internet\. If you use PrivateLink, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. 
 
 You are not required to configure PrivateLink, but it's recommended\. For more information about PrivateLink and VPC endpoints, see [Accessing AWS Services Through PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html#what-is-privatelink)\.
 
@@ -17,6 +17,7 @@ Amazon Virtual Private Cloud \(Amazon VPC\) enables you to define a virtual netw
 **Topics**
 + [VPC endpoint restrictions and limitations](#vpc-requirements-and-limitations)
 + [Creating VPC endpoints for Systems Manager](#sysman-setting-up-vpc-create)
++ [Create an interface VPC endpoint policy](#sysman-endpoint-policies)
 
 ## VPC endpoint restrictions and limitations<a name="vpc-requirements-and-limitations"></a>
 
@@ -90,5 +91,34 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
 
 1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
    + **com\.amazonaws\.*region*\.s3**: Systems Manager uses this endpoint to update SSM Agent and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
+
+## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
+
+You can create policies for VPC interface endpoints for AWS Systems Manager in which you can specify:
++ The principal that can perform actions
++ The actions that can be performed
++ The resources that can have actions performed on them
+
+For more information, see [Controlling access to services with VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) in the *Amazon VPC User Guide*\.
+
+Example 1: Allow users to only get and list command invocations
+
+```
+{
+   "Statement":[
+      {
+         "Sid":"SSMCommandsReadOnly",
+         "Principal":"*",
+         "Action":[
+            "ssm:ListCommands",
+            "ssm:ListCommandInvocations",
+            "ssm:GetCommandInvocation"
+         ],
+         "Effect":"Allow",
+         "Resource":"*"
+      }
+   ]
+}
+```
 
 Continue to [Step 7: \(Optional\) Create Systems Manager service roles](setup-service-role.md)\.

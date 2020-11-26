@@ -3,7 +3,7 @@
 The topics in this section explain how to use Amazon EventBridge and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to Systems Manager parameters\. You can create an EventBridge rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
 
 **Note**  
-Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
+Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Working with parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 The topics below also explain how to trigger other actions on a target for specific parameter events\. For example, you can run an AWS Lambda function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. EventBridge also supports running Run Command commands and Automations executions, and actions in many other AWS services\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*\.
 
@@ -100,7 +100,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
 ## Configuring EventBridge for parameter policies<a name="cwe-parameter-policy-status"></a>
 
-This topic explains how to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
+This topic explains how to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Working with parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 **To configure EventBridge for Systems Manager parameter policies**
 

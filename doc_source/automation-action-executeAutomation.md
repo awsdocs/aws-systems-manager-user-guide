@@ -56,10 +56,10 @@ Required: Yes
 DocumentVersion  
 The version of the secondary Automation document to run\. If not specified, Automation runs the default document version\.  
 Type: String  
-Required: Yes
+Required: No
 
 RuntimeParameters  
-Required parameters for the secondary document execution\. The mapping uses the following format: \{"parameter1" : \["value1"\], "parameter2" : \["value2"\] \}  
+Required parameters for the secondary document execution\. The mapping uses the following format: \{"parameter1" : "value1", "parameter2" : "value2" \}  
 Type: Map  
 Required: NoOutput
 
@@ -83,11 +83,11 @@ Here is an example:
     Api: DescribeVolumes
     Filters:
     - Name: attachment.device
-        Values:
-        - /dev/sda1
+      Values:
+      - /dev/sda1
     - Name: attachment.instance-id
-        Values:
-        - '{{launchNewWindowsInstance.Output}}'
+      Values:
+      - '{{launchNewWindowsInstance.Output}}'
   outputs:
   - Name: rootVolumeId
     Selector: '$.Volumes[0].VolumeId'

@@ -1,4 +1,4 @@
-# Assigning parameter policies<a name="parameter-store-policies"></a>
+# Working with parameter policies<a name="parameter-store-policies"></a>
 
 Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\. The policies are described in more detail in this section\.
 

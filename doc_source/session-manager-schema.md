@@ -58,7 +58,7 @@ Required: Yes
 The name of the user account to start sessions with on Linux instances when the `runAsEnabled` input is set to `true`\. The user account you specify for this input must exist on the instances you'll be connecting to; otherwise, sessions will fail to start\.  
 Type: String  
 Required: No  
-[sessionTimeout](#timeout)  
+[idleSessionTimeout](#timeout)  
 The amount of time of inactivity you want to allow before a session ends\. This input is measured in minutes\.  
 Type: String  
 Valid values: 1\-60  
@@ -113,7 +113,7 @@ inputs:
   kmsKeyId: ''
   runAsEnabled: true
   runAsDefaultUser: ''
-  sessionTimeout: '20'
+  idleSessionTimeout: '20'
   shellProfile:
     windows: ''
     linux: ''
@@ -137,7 +137,7 @@ inputs:
         "kmsKeyId": "",
         "runAsEnabled": true,
         "runAsDefaultUser": "",
-        "sessionTimeout": "20",
+        "idleSessionTimeout": "20",
         "shellProfile": {
             "windows": "date",
             "linux": "pwd;ls"

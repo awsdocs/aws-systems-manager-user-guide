@@ -57,7 +57,7 @@ To use the AWS CLI to reset a password, the Session Manager plugin must be insta
    aws ssm start-session \
        --target instance-id \
        --document-name "AWS-PasswordReset" \
-       --parameters "{"username": "user-name"}"
+       -parameters '{"username": ["user-name"]}'
    ```
 
 ------
@@ -67,7 +67,7 @@ To use the AWS CLI to reset a password, the Session Manager plugin must be insta
    aws ssm start-session ^
        --target instance-id ^
        --document-name "AWS-PasswordReset" ^
-       --parameters "{"username": "user-name"}"
+       --parameters username="user-name"
    ```
 
 ------

@@ -15,7 +15,7 @@ The following table describes the differences between the tiers\.
 | --- | --- | --- | 
 |  Total number of parameters allowed \(per AWS account and Region\)  |  10,000  |  100,000  | 
 |  Maximum size of a parameter value  |  4 KB  |  8 KB  | 
-|  Parameter policies available  |  No  |  Yes For more information, see [Assigning parameter policies](parameter-store-policies.md)\.  | 
+|  Parameter policies available  |  No  |  Yes For more information, see [Working with parameter policies](parameter-store-policies.md)\.  | 
 |  Cost  |  No additional charge  |  Charges apply For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.  | 
 
 **Topics**

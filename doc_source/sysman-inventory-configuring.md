@@ -19,6 +19,7 @@ If an instance is assigned multiple inventory associations and each uses a tag k
 Before you configure inventory collection, complete the following tasks\.
 + Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
++ For Microsoft Windows instances, verify that your instance is configured with Windows PowerShell 3\.0 \(or later\)\. SSM Agent uses the `ConvertTo-Json` cmdlet in PowerShell to convert Windows update inventory data to the required format\.
 + \(Optional\) Create a resource data sync to centrally store inventory data in an S3 bucket\. Resource Data Sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with custom inventory](sysman-inventory-custom.md)\.
 

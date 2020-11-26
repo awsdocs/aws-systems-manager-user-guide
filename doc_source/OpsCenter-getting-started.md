@@ -4,6 +4,9 @@ Set up for Systems Manager OpsCenter is integrated with set up for Systems Manag
 
 If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
+**Note**  
+Integrated Setup is only available in the Systems Manager console\. You can't set up Explorer and OpsCenter programmatically\.
+
 ## \(Optional\) Receive OpsItem notifications<a name="OpsCenter-getting-started-sns"></a>
 
 You can configure OpsCenter to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic when the systems creates a new OpsItem or updates an existing OpsItem\. Complete the following tasks to receive notifications for OpsItems\.

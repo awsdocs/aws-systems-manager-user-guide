@@ -23,7 +23,7 @@ For information about how to create a Parameter Store string parameter, see [Cre
 
 ## Task 2: Create an IAM role for AWS Lambda<a name="automation-pet2"></a>
 
-Use the following procedure to create an IAM service role for AWS Lambda\. This role includes the `AWSLambdaExecute` and `AmazonSSMFullAccess` managed policies\. These policies give Lambda permission to update the value of the `latestAmi` parameter using a Lambda function and Systems Manager\.
+Use the following procedure to create an IAM service role for AWS Lambda\. These policies give Lambda permission to update the value of the `latestAmi` parameter using a Lambda function and Systems Manager\.
 
 **To create an IAM service role for Lambda**
 

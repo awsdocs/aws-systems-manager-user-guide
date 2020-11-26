@@ -70,7 +70,7 @@ The bundled installer does not support installing to paths that contain spaces\.
    sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
    ```
 **Note**  
-The plugin requires Python 2\.6\.5 or later or Python 3\.3\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
+ The plugin requires either Python 2\.6\.5 or later, or Python 3\.3 or later\. By default, the install script runs under the system default version of Python\. If you have installed an alternative version of Python and want to use that to install the Session Manager plugin, run the install script with that version by absolute path to the Python executable\. The following is an example\.  
 
    ```
    sudo /usr/local/bin/python3.6 sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
@@ -262,6 +262,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.30\.0 |  November 24, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Improved overall performance\.  | 
 | 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 
 | 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 
 | 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.   | 

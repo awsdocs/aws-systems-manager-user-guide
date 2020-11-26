@@ -56,7 +56,7 @@ With this condition element set to `true`, explicit access to a session document
         "ssm:StartSession"
     ],
     "Resource": [
-        "arn:aws:ec2:*:*:instance/instance-id",
+        "arn:aws:ec2:region:account-id:instance/instance-id",
         "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell"
     ] 
 }
