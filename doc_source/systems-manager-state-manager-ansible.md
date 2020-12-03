@@ -8,7 +8,8 @@ You can create State Manager associations that run Ansible playbooks by using th
 + Ability to specify which playbook to run when playbooks are bundled
 
 **Note**  
-Systems Manager includes two SSM documents that enable you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.
+Systems Manager includes two SSM documents that enable you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.  
+Associations that run Ansible playbooks are not currently supported on macOS\.
 
 **Support for running complex playbooks**
 

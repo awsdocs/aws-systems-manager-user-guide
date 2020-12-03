@@ -61,6 +61,16 @@ For Ubuntu Server lists, do not include elements such as architecture or version
   + `SUSE-SLE-Example-Package-12-2018-*`
   + `example-pkg-2018.11.4-46.17.1.*.rpm`
 
+## Package name formats for macOS<a name="patch-manager-approved-rejected-package-name-formats-macos"></a>
+
+**Supported package managers**: softwareupdate, installer, Brew, Brew Cask
+
+**Approved patches** and **rejected patches**: For both approved and rejected patch lists, you specify full package names, in formats such as:
++ `XProtectPlistConfigData`
++ `MRTConfigData`
+
+Wildcards are not supported in approved and rejected patch lists for macOS\.
+
 ## Package name formats for Windows operating systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
 
 For Windows operating systems, specify patches using Microsoft Knowledge Base IDs and Microsoft Security Bulletin IDs; for example:

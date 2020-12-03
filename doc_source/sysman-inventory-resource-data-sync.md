@@ -268,7 +268,7 @@ If you create resource data syncs from additional AWS Regions or accounts, then 
    order  by frequency desc
    ```
 
-   The query returns a count of different versions of aws\-cfn\-bootstrap, which is an AWS application present on EC2 instances for both Linux and Windows Server\.
+   The query returns a count of different versions of `aws-cfn-bootstrap`, which is an AWS application present on EC2 instances for Linux, macOS, and Windows Server\.
 
 1. Individually copy and paste the following statements into the query editor, replace *DOC\-EXAMPLE\-BUCKET* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional inventory tables in Athena\.
 

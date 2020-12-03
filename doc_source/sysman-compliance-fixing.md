@@ -2,7 +2,7 @@
 
 You can quickly remediate patch and association compliance issues by using Systems Manager Run Command\. You can target either instance IDs or Amazon EC2 tags and run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssociation` document\. If refreshing the association or re\-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command executions did not resolve the problem\. 
 
-For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
+For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the AWS\-RunPatchBaseline SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
 
 For more information about associations, see [Working with associations in Systems Manager](systems-manager-associations.md)\.
 

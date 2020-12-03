@@ -83,7 +83,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 1. In the **Parameters** section, use the lists to enable or disable different types of inventory collection\. See the following samples if you want to create an inventory search for **Files** or the **Windows Registry**\.
 
 **Files**
-   + On Linux, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
+   + On Linux and macOS, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
 
      ```
      [{"Path":"/home/ec2-user","Pattern":["*.sh", "*.sh"],"Recursive":false}]

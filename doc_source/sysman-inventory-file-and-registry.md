@@ -1,6 +1,6 @@
 # Working with file and Windows registry inventory<a name="sysman-inventory-file-and-registry"></a>
 
-Systems Manager Inventory enables you to search and inventory files on Windows and Linux operating systems\. You can also search and inventory the Windows Registry\.
+Systems Manager Inventory enables you to search and inventory files on Windows, Linux, and macOS operating systems\. You can also search and inventory the Windows Registry\.
 
 **Files**: You can collect metadata information about files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few\. To start collecting file inventory, you specify a file path where you want to perform the inventory, one or more patterns that define the types of files you want to inventory, and if the path should be traversed recursively\. Systems Manager inventories all file metadata for files in the specified path that match the pattern\. File inventory uses the following parameter input\.
 
@@ -21,7 +21,7 @@ Systems Manager Inventory enables you to search and inventory files on Windows a
 Inventory collects metadata for a maximum of 500 files across all specified paths\.
 
 Here are some examples of how to specify the parameters when performing an inventory of files\.
-+ On Linux, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
++ On Linux and macOS, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
 
   ```
   [{"Path":"/home/ec2-user","Pattern":["*.sh", "*.sh"],"Recursive":false}]

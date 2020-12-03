@@ -22,7 +22,7 @@ You must either have administrator privileges on the instances you want to confi
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. List all available documents
+1. List all available documents\.
 
    This command lists all of the documents available for your account based on IAM permissions\. 
 
@@ -30,7 +30,7 @@ You must either have administrator privileges on the instances you want to confi
    aws ssm list-documents
    ```
 
-1. Verify that an instance is ready to receive commands
+1. Verify that an instance is ready to receive commands\.
 
    The output of the following command shows if instances are online\.
 
@@ -140,6 +140,9 @@ aws ssm send-command \
 	--output text
 ```
 
+**Note**  
+If the operating system type of your target instance is Windows Server, change the command from `ifconfig` to `ipconfig`\.
+
 ------
 #### [ Windows ]
 
@@ -151,6 +154,9 @@ aws ssm send-command ^
 	--parameters commands=ifconfig ^
 	--output text
 ```
+
+**Note**  
+If the operating system type of your target instance is Windows Server, change the command from `ifconfig` to `ipconfig`\.
 
 ------
 

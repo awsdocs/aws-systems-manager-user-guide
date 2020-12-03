@@ -2,7 +2,7 @@
 
 After you configure your managed instances for AWS Systems Manager Inventory, you can view aggregated counts of inventory data\. For example, say you configured dozens or hundreds of managed instances to collect the AWS:Application inventory type\. By using the information in this section, you can see an exact count of how many instances are configured to collect this data\.
 
-You can also see specific inventory details by aggregating on a data type\. For example, the AWS:InstanceInformation inventory type collects operating system platform information with the `Platform` data type\. By aggregating data on the `Platform` data type, you can quickly see how many instances are running Windows and how many are running Linux\. 
+You can also see specific inventory details by aggregating on a data type\. For example, the AWS:InstanceInformation inventory type collects operating system platform information with the `Platform` data type\. By aggregating data on the `Platform` data type, you can quickly see how many instances are running Windows, how many are running Linux, and how many are running macOS\. 
 
 The procedures in this section describe how to view aggregated counts of inventory data by using the AWS CLI\. You can also view pre\-configured aggregated counts in the AWS Systems Manager console on the **Inventory** page\. These pre\-configured dashboards are called *Inventory Insights* and they offer one\-click remediation of your inventory configuration issues\.
 

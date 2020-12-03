@@ -12,7 +12,7 @@ The following list describes the types of tasks you can perform with State Manag
 + Configure network settings
 + Join instances to a Windows domain \(Windows Server instances only\)\.
 + Patch instances with software updates throughout their lifecycle
-+ Run scripts on Linux and Windows managed instances throughout their lifecycle
++ Run scripts on Linux, macOS, and Windows managed instances throughout their lifecycle
 
 State Manager integrates with AWS CloudTrail to provide a record of all executions that you can audit, and Amazon EventBridge to track state changes\. You can also choose to store and view detailed command output in Amazon S3\. For more information, see the following topics:
 + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)

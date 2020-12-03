@@ -6,6 +6,7 @@ The rules in a patch baseline for Linux distributions operate differently based 
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How patch baseline rules work on CentOS](#patch-manager-how-it-works-linux-rules-centos)
 + [How patch baseline rules work on Debian Server](#patch-manager-how-it-works-linux-rules-debian)
++ [How patch baseline rules work on macOS](#patch-manager-how-it-works-linux-rules-macos)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
 + [How patch baseline rules work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
 + [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
@@ -27,7 +28,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the following guidelines:    
+1. Packages are selected for the update according to the following guidelines\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
@@ -48,7 +49,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the following guidelines:    
+1. Packages are selected for the update according to the following guidelines\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
@@ -99,6 +100,21 @@ name, priority, section, archive, candidate version
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
+## How patch baseline rules work on macOS<a name="patch-manager-how-it-works-linux-rules-macos"></a>
+
+On macOS, the patch selection process is as follows:
+
+1. On the instance, Patch Manager accesses the parsed contents of the `InstallHistory.plist` file and identifies package names and versions\. 
+
+   For details about the parsing process, see the **macOS** tab in [How patches are installed](patch-manager-how-it-works-installation.md)\.
+
+1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
+
+1. Packages are selected for the update according to the following guidelines\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
+
+For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
+
 ## How patch baseline rules work on Oracle Linux<a name="patch-manager-how-it-works-linux-rules-oracle"></a>
 
 On Oracle Linux, the patch selection process is as follows:
@@ -115,7 +131,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the following guidelines:    
+1. Packages are selected for the update according to the following guidelines\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
@@ -136,7 +152,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the Product key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\.
 
-1. Packages are selected for the update according to the following guidelines:    
+1. Packages are selected for the update according to the following guidelines\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.html)
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.

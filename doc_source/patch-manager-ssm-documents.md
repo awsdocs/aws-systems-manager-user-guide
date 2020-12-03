@@ -21,7 +21,7 @@ Refer to the following sections for more information about using these SSM docum
 **Topics**
 + [SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)
 + [Legacy SSM documents for patching instances](#patch-manager-ssm-documents-legacy)
-+ [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)
++ [About the AWS\-RunPatchBaseline SSM document](patch-manager-about-aws-runpatchbaseline.md)
 + [About the SSM Document AWS\-RunPatchBaselineAssociation](patch-manager-about-aws-runpatchbaselineassociation.md)
 + [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)
 
@@ -70,7 +70,7 @@ Installs patches on your instances or scans instances to determine whether any q
 
 The legacy document **AWS\-ApplyPatchBaseline** applies only to Windows Server instances, and does not provide support for application patching\. The newer **AWS\-RunPatchBaseline** provides the same support for both Windows and Linux systems\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\. 
 
-For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
+For more information about the **AWS\-RunPatchBaseline** SSM document, see [About the AWS\-RunPatchBaseline SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
 
 ### AWS\-RunPatchBaselineAssociation<a name="patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation"></a>
 

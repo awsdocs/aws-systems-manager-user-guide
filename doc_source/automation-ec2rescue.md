@@ -6,7 +6,7 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and po
 
 **Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
 
-**Linux**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information, see the [aws\-ec2rescue\-linux](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\. 
+**Linux** and **macOS**: Some EC2Rescue for Linux modules detect and attempt to remediate issues\. For more information, see the [aws\-ec2rescue\-linux](https://github.com/awslabs/aws-ec2rescue-linux/tree/master/docs) documentation for each module on GitHub\.
 
 ## How it works<a name="automation-ec2rescue-how"></a>
 

@@ -1,6 +1,6 @@
 # Rebooting managed instance from scripts<a name="send-commands-reboot"></a>
 
-If the scripts that you run by using Run Command reboot managed instances, then you must specify an exit code in your script\. If you attempt to reboot an instance from a script by using some other mechanism, the script execution status might not be updated correctly, even if the reboot is the last step in your script\. For Windows managed instances, you specify `exit 3010` in your script\. For Linux managed instances, you specify `exit 194`\. The exit code instructs SSM Agent to reboot the managed instance, and then restart the script after the reboot completed\. Before starting the reboot, SSM Agent informs the Systems Manager service in the cloud that communication will be disrupted during the server reboot\.
+If the scripts that you run by using Run Command reboot managed instances, then you must specify an exit code in your script\. If you attempt to reboot an instance from a script by using some other mechanism, the script execution status might not be updated correctly, even if the reboot is the last step in your script\. For Windows managed instances, you specify `exit 3010` in your script\. For Linux and macOS managed instances, you specify `exit 194`\. The exit code instructs SSM Agent to reboot the managed instance, and then restart the script after the reboot completed\. Before starting the reboot, SSM Agent informs the Systems Manager service in the cloud that communication will be disrupted during the server reboot\.
 
 **Create idempotent scripts**
 

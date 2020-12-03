@@ -109,8 +109,10 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for A
 
 1. Choose the **OpsItems** tab, and then choose **Configure sources**\.
 
-1. Choose the source rule that you want to configure with a `notification` block, as shown in the following example:  
+1. Choose the name of the source rule that you want to configure with a `notification` block, as shown in the following example:  
 ![\[Choosing an EventBridge rule to add an Amazon SNS notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
+
+   The rule opens in Amazon EventBridge\.
 
 1. On the rule details page, choose **Edit**\.  
 ![\[Choosing the edit button\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_3.png)
@@ -118,7 +120,19 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for A
 1. Scroll to the **Select targets** section\.  
 ![\[Locating the Select targets section.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_4.png)
 
-1. Enter the `notifications` block before the `resources` block, as shown here\.  
+1. Enter a `notifications` block in the following format:
+
+   ```
+   "notifications":[{"arn":"arn:aws:sns:region:account_ID:topic_name"}],
+   ```
+
+   Here's an example\.
+
+   ```
+   "notifications":[{"arn":"arn:aws:sns:us-west-2:1234567890:MySNSTopic"}],
+   ```
+
+   Enter the notifications block before the `resources` block, as shown here\.  
 ![\[Adding a notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup.png)
 
 1. Scroll to the bottom of the rule details page and choose **Update**\.

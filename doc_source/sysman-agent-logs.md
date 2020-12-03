@@ -5,7 +5,7 @@ SSM Agent writes information about executions, commands, scheduled actions, erro
 You can view SSM Agent logs on instances in the following locations\.
 
 ------
-#### [ Linux ]
+#### [ Linux and macOS ]
 
 `/var/log/amazon/ssm/amazon-ssm-agent.log`
 
@@ -32,20 +32,28 @@ For more information about `cihub/seelog` configuration, see the [Seelog Wiki](h
 
 ## Enabling SSM Agent debug logging<a name="ssm-agent-debug-log-files"></a>
 
-Use the following procedure to enable SSM Agent debug logging on Windows Server and Linux managed instances\.
+Use the following procedure to enable SSM Agent debug logging on your managed instances\.
 
 ------
 #### [ Linux ]
 
-**To enable SSM Agent debug logging on Linux instances**
+**To enable SSM Agent debug logging on Linux and macOS instances**
 
 1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
-1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. 
+1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
+
+   Linux:
 
    On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
 
    On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/`\.
+
+   macOS:
+
+   ```
+   /opt/aws/ssm/seelog.xml.template
+   ```
 
 1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
@@ -53,8 +61,16 @@ Use the following procedure to enable SSM Agent debug logging on Windows Server 
 
 1. Restart SSM Agent using the following command\.
 
+   Linux:
+
    ```
    sudo service amazon-ssm-agent restart
+   ```
+
+   macOS:
+
+   ```
+   sudo /opt/aws/ssm/bin/amazon-ssm-agent restart
    ```
 
 ------

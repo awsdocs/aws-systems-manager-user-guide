@@ -45,7 +45,7 @@ For related information, see the following topics:
 This topic in the *AWS SDK for Go Developer Guide* describes the default provider chain in terms of the SDK for Go; however, the same principles apply to evaluating credentials for SSM Agent\.
 
 **About the local ssm\-user account**  
-Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux and macOS\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
 
 On Windows Server, SSM Agent handles setting a new password for the `ssm-user` account when each session starts\. No passwords are set for `ssm-user` on Linux managed instances\.
 
@@ -59,6 +59,7 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized AMIs
++ macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
@@ -77,6 +78,7 @@ The source code for SSM Agent is available on [GitHub](https://github.com/aws/am
 **Topics**
 + [SSM Agent version 3](ssm-agent-v3.md)
 + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
++ [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)
 + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
 + [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)
 + [Checking the SSM Agent version number](ssm-agent-get-version.md)

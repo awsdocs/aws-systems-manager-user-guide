@@ -17,9 +17,9 @@ Session Manager offers these benefits:
 +  **Port forwarding** 
 
   Redirect any port inside your remote instance to a local port on a client\. After that, connect to the local port and access the server application that is running inside the instance\.
-+  **Cross\-platform support for both Windows and Linux** 
++ **Cross\-platform support for Windows, Linux, and macOS**
 
-  Session Manager provides both Windows and Linux support from a single tool\. For example, you don't need to use an SSH client for Linux instances and an RDP connection for Windows Server instances\.
+  Session Manager provides support for Windows, Linux, and macOS from a single tool\. For example, you don't need to use an SSH client for Linux and macOS instances or an RDP connection for Windows Server instances\.
 +  **Logging and auditing session activity** 
 
   To meet operational or security requirements in your organization, you might need to provide a record of the connections made to your instances and the commands that were run on them\. You can also receive notifications when a user in your organization starts or ends session activity\. 
@@ -35,13 +35,13 @@ Logging is not available for Session Manager sessions that connect through port 
 ## Who should use Session Manager?<a name="session-manager-who"></a>
 + Any AWS customer who wants to improve their security and audit posture, reduce operational overhead by centralizing access control on instances, and reduce inbound instance access\. 
 + Information Security experts who want to monitor and track instance access and activity, close down inbound ports on instances, or enable connections to instances that do not have a public IP address\. 
-+ Administrators who want to grant and revoke access from a single location, and who want to provide one solution to users for both Windows and Linux instances\.
-+ End users who want to connect to an instance with just one click from the browser or AWS CLI without having to provide SSH keys\.
++ Administrators who want to grant and revoke access from a single location, and who want to provide one solution to users for Linux, macOS, and Windows Server instances\.
++ Users who want to connect to an instance with just one click from the browser or AWS CLI without having to provide SSH keys\.
 
 ## What are the main features of Session Manager?<a name="session-manager-features"></a>
-+ **Support for both Windows Server and Linux instances**
++ **Support for Windows Server, Linux and macOS instances**
 
-  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported Windows and Linux operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
+  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 +  **Console, CLI, and SDK access to Session Manager capabilities** 

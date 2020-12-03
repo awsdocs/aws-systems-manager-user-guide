@@ -37,6 +37,7 @@ For more information about Amazon EC2, see the following:
 + [Getting Started with Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html)
 +  [What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) \(Linux\)
 + [What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/concepts.html) \(Windows\)
++ [Amazon EC2 Mac instances](url-ec2-user;ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
 
 For more information about IAM, see the following:
 + [AWS Identity and Access Management \(IAM\)](https://aws.amazon.com/iam/)

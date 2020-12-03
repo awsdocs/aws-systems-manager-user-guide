@@ -21,7 +21,7 @@ If you choose to view these logs by using Windows File Explorer, be sure to enab
 + `%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
 + `%PROGRAMDATA%\Amazon\SSM\Logs\errors.log`
 
-**On Linux**
+**On Linux and macOS**
 + `/var/log/amazon/ssm/amazon-ssm-agent.log`
 + `/var/log/amazon/ssm/errors.log`
 

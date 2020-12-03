@@ -10,6 +10,9 @@ You can create State Manager associations that run Chef recipes by using the `AW
 
 You can use GitHub or S3 buckets as sources for Chef cookbooks and recipes that you specify in an `AWS-ApplyChefRecipes` document\.
 
+**Note**  
+Associations that run Chef recipes are not currently supported on macOS\.
+
 ## Prerequisites: Set up your association, repository, and cookbooks<a name="state-manager-chef-prereqs"></a>
 
 Before you create an `AWS-ApplyChefRecipes` document, prepare your Chef cookbooks and cookbook repository\. If you don't already have a Chef cookbook that you want to use, you can get started by using a test `HelloWorld` cookbook that AWS has prepared for you\. The `AWS-ApplyChefRecipes` document already points to this cookbook by default\. Your cookbooks should be set up similarly to the following directory structure\. In the following example, `jenkins` and `nginx` are examples of Chef cookbooks that are available in the [Chef Supermarket](https://supermarket.chef.io/) on the Chef website\.

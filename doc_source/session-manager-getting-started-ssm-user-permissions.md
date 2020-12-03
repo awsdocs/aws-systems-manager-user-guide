@@ -1,16 +1,16 @@
 # Step 7: \(Optional\) Disable or enable ssm\-user account administrative permissions<a name="session-manager-getting-started-ssm-user-permissions"></a>
 
-Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux\) or to the Administrators group \(Windows\)\. On agent versions earlier than 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default operating system \(OS\) user when a Session Manager session is started\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to `/etc/sudoers` \(Linux and macOS\) or to the Administrators group \(Windows\)\. On agent versions earlier than 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default operating system \(OS\) user when a Session Manager session is started\.
 
 If you want to prevent Session Manager users from running administrative commands on an instance, you can update the `ssm-user` account permissions\. You can also restore these permissions after they have been removed\.
 
 **Topics**
-+ [Managing ssm\-user sudo account permissions on Linux](#ssm-user-permissions-linux)
++ [Managing ssm\-user sudo account permissions on Linux and macOS](#ssm-user-permissions-linux)
 + [Managing ssm\-user Administrator account permissions on Windows Server](#ssm-user-permissions-windows)
 
-## Managing ssm\-user sudo account permissions on Linux<a name="ssm-user-permissions-linux"></a>
+## Managing ssm\-user sudo account permissions on Linux and macOS<a name="ssm-user-permissions-linux"></a>
 
-Use one of the following procedures to disable or enable the ssm\-user account sudo permissions on Linux instances\.
+Use one of the following procedures to disable or enable the ssm\-user account sudo permissions on Linux and macOS instances:
 
 **Use Run Command to modify ssm\-user sudo permissions \(console\)**
 + Use the procedure in [Running commands from the console](rc-console.md) with the following values:

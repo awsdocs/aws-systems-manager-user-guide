@@ -8,6 +8,7 @@ In this task, you install or update the SSM Agent on an EC2 instance\.
 If you are working with your own on\-premises servers or VMs, see the following topics:  
 [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
 [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
+ macOS is not currently supported for Systems Manager hybrid environments\.
 
 **Prerequisites**  
 An instance profile for Systems Manager must already be attached to the EC2 instance that you update\. Refer to the following topics as needed to meet this requirement:
@@ -19,4 +20,7 @@ An instance profile for Systems Manager must already be attached to the EC2 inst
 To practice installing or updating SSM Agent on an EC2 instance for Windows Server, follow the steps in [Manually install SSM Agent on EC2 instances for Windows Server](sysman-install-win.md)\.
 
 **Linux instance**  
-To practice installing or updating SSM Agent on an EC2 instance for Linux, follow the steps for your Linux operating system type in [Manually install SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
+To practice installing or updating SSM Agent on an EC2 instance for Linux, follow the steps for your Linux operating system type in [Manually install SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\. 
+
+**macOS instance**  
+ To practice installing or updating SSM Agent on an EC2 instance for macOS, follow the steps in [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)\. 

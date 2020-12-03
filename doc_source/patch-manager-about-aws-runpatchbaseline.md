@@ -1,11 +1,11 @@
-# About the SSM document AWS\-RunPatchBaseline<a name="patch-manager-about-aws-runpatchbaseline"></a>
+# About the AWS\-RunPatchBaseline SSM document<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
 AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
 
 This document supports both Linux and Windows instances\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
-Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on both Linux and Windows instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
+Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on Linux, macOS, and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
 
 ------
 #### [ Windows ]
@@ -20,6 +20,11 @@ On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python modu
 + RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires Python 2 or Python 3\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
 + Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
+
+------
+#### [ macOS ]
+
+On macOS instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. Next, a Python subprocess invokes the CLI on the instance to retrieve the installation and update information for the specified package managers and to drive the appropriate package manager for each update package\.
 
 ------
 
@@ -107,7 +112,9 @@ patches:
 Although you can provide additional fields in your YAML file, they are ignored during patch operations\.
 
 In addition, we recommend verifying that the format of your YAML file is valid before adding or updating the list in your S3 bucket\. For more information about the YAML format, see [yaml\.org](http://www.yaml.org)\. For validation tool options, perform a web search for "yaml format validators"\.
-+ Linux
+
+------
+#### [ Linux ]
 
 **id**  
 The **id** field is required\. Use it to specify patches using the package name and architecture\. For example: `'dhclient.x86_64'`\. You can use wildcards in id to indicate multiple packages\. For example: `'dhcp*'` and `'dhcp*1.*'`\.
@@ -115,34 +122,41 @@ The **id** field is required\. Use it to specify patches using the package name 
 **Title**  
 The **title** field is optional, but on Linux systems it does provide additional filtering capabilities\. If you use **title**, it should contain the package version information in the one of the following formats:
 
-  YUM/SUSE Linux Enterprise Server \(SLES\):
+YUM/SUSE Linux Enterprise Server \(SLES\):
 
-  ```
-  {name}.{architecture}:{epoch}:{version}-{release}
-  ```
+```
+{name}.{architecture}:{epoch}:{version}-{release}
+```
 
-  APT
+APT
 
-  ```
-  {name}.{architecture}:{version}
-  ```
+```
+{name}.{architecture}:{version}
+```
 
-  For Linux patch titles, you can use one or more wildcards in any position to expand the number of package matches\. For example: `'*32:9.8.2-0.*.rc1.57.amzn1'`\. 
+For Linux patch titles, you can use one or more wildcards in any position to expand the number of package matches\. For example: `'*32:9.8.2-0.*.rc1.57.amzn1'`\. 
 
-  For example: 
-  + apt package version 1\.2\.25 is currently installed on your instance, but version 1\.2\.27 is now available\. 
-  + You add apt\.amd64 version 1\.2\.27 to the patch list\. It depends on apt utils\.amd64 version 1\.2\.27, but apt\-utils\.amd64 version 1\.2\.25 is specified in the list\. 
+For example: 
++ apt package version 1\.2\.25 is currently installed on your instance, but version 1\.2\.27 is now available\. 
++ You add apt\.amd64 version 1\.2\.27 to the patch list\. It depends on apt utils\.amd64 version 1\.2\.27, but apt\-utils\.amd64 version 1\.2\.25 is specified in the list\. 
 
-  In this case, apt version 1\.2\.27 will be blocked from installation and reported as “Failed\-NonCompliant\.”
-+ Microsoft Windows
+In this case, apt version 1\.2\.27 will be blocked from installation and reported as “Failed\-NonCompliant\.”
+
+------
+#### [ Windows ]
 
 **id**  
 The **id** field is required\. Use it to specify patches using Microsoft Knowledge Base IDs \(for example, KB2736693\) and Microsoft Security Bulletin IDs \(for example, MS17\-023\)\. 
 
-  Any other fields you want to provide in a patch list for Windows are optional and are for your own informational use only\. You can use additional fields such as **title**, **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
+Any other fields you want to provide in a patch list for Windows are optional and are for your own informational use only\. You can use additional fields such as **title**, **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
 
-**Other fields**  
-Any other fields you want to provide in a patch list for Linux are optional and are for your own informational use only\. You can use additional fields such as **classification**, **severity**, or anything else for providing more detailed information about the specified patches\.
+------
+#### [ macOS ]
+
+**id**  
+The **id** field is required\. The value for the **id** field can be supplied using either a `{package-name}.{package-version}` format or a \{package\_name\} format\.
+
+------
 
 **Sample patch lists**
 + **Amazon Linux**
@@ -200,6 +214,19 @@ Any other fields you want to provide in a patch list for Linux are optional and 
       -
           id: 'apt-utils.amd64'
           title: '*1.2.25'
+  ```
++ **macOS**
+
+  ```
+  patches:
+      -
+          id: 'XProtectPlistConfigData'
+      -
+          id: 'MRTConfigData.1.61'
+      -
+          id: 'Command Line Tools for Xcode.11.5'
+      -
+          id: 'Gatekeeper Configuration Data'
   ```
 + **Oracle Linux**
 
@@ -308,7 +335,7 @@ NoReboot
 When you choose the `NoReboot` option, Patch Manager does not reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied, or you have applications or processes running on an instance that should not be disrupted by a patching operation reboot\. It is also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\.  
 If you choose the `NoReboot` option and a patch is installed, the patch is assigned a status of `InstalledPendingReboot`\. The instance itself, however, is marked as `Non-Compliant`\. After a reboot occurs and a `Scan` operation is run, the instance status is updated to `Compliant`\.
 
-**Patch installation tracking file**: To track patch installation, especially patches that have been installed since the last system reboot, Systems Manager maintains a file on the managed instance\.
+**Patch installation tracking file**: To track patch installation, especially patches that were installed since the last system reboot, Systems Manager maintains a file on the managed instance\.
 
 **Important**  
 Do not delete or modify the tracking file\. If this file is deleted or corrupted, the patch compliance report for the instance is inaccurate\. If this happens, reboot the instance and run a patch Scan operation to restore the file\.

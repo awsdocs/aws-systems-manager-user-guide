@@ -34,6 +34,8 @@ Distributor offers these benefits:
 +  **Deployment of packages to both Windows and Linux instances** 
 
   Distributor lets you deploy software packages to EC2 instances for Linux and Windows Server\. For a list of supported instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
+**Note**  
+Distributor is not currently supported on the macOS operating system\.
 +  **Deploy packages one time, or on an automated schedule** 
 
   You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\. 

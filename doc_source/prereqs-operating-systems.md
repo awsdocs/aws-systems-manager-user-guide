@@ -4,6 +4,7 @@ Your EC2 instances, on\-premises servers, and virtual machines \(VMs\) must be r
 
 **Topics**
 + [Linux](#prereqs-os-linux)
++ [macOS](#prereqs-os-mac)
 + [Raspbian](#prereqs-os-raspbian)
 + [Windows Server](#prereqs-os-windows-server)
 
@@ -57,6 +58,16 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 7\.9 |  | ✓ |  | 
 
 
+**Oracle Linux**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 7\.5 |  | ✓ |  | 
+| 7\.6 |  | ✓ |  | 
+| 7\.7 |  | ✓ |  | 
+| 7\.8 |  | ✓ |  | 
+
+
 **Red Hat Enterprise Linux \(RHEL\)**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
@@ -94,6 +105,25 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
 | 20\.04 LTS and 20\.10 STR |  | ✓ | ✓ | 
+
+## macOS<a name="prereqs-os-mac"></a>
+
+
+****  
+
+| Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 10\.14\.x \(Mojave\) |  | ✓ |  | 
+| 10\.15\.x \(Catalina\) |  | ✓ |  | 
+
+**Note**  
+macOS support is currently limited to the following AWS Regions:  
+US East \(N\. Virginia\) \(us\-east\-1\)
+US East \(Ohio\) \(us\-east\-2\)
+US West \(Oregon\) \(us\-west\-2\)
+Europe \(Ireland\) \(eu\-west\-1\)
+Asia Pacific \(Singapore\) \(ap\-southeast\-1\)
+For more information about Amazon EC2 support for macOS, see see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
 
 ## Raspbian<a name="prereqs-os-raspbian"></a>
 

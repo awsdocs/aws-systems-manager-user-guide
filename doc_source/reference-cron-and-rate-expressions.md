@@ -5,7 +5,7 @@ When you create an AWS Systems Manager maintenance window or a State Manager ass
 When you create a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
 
 ```
-cron(0 30 23 ? * TUE#3 *)
+cron(30 23 ? * TUE#3 *)
 ```
 
 If the schedule offset is `2`, the maintenance window won't run until 11:30 PM two days later\.
@@ -36,7 +36,7 @@ aws ssm create-maintenance-window \
 aws ssm create-maintenance-window \
     --name "My-Cron-Offset-Maintenance-Window" \
     --allow-unassociated-targets \
-    --schedule "cron(0 30 23 ? * TUE#3 *)" \
+    --schedule "cron(30 23 ? * TUE#3 *)" \
     --duration 4 \
     --cutoff 1 \
     --schedule-offset 2
@@ -68,7 +68,7 @@ To create State Manager associations using the AWS CLI, you include the `--sched
 ```
 aws ssm create-association \
     --association-name "My-Cron-Association" \
-    --schedule-expression "cron(0 0 2 ? * SUN *)" \
+    --schedule-expression "cron(0 2 ? * SUN *)" \
     --targets Key=tag:ServerRole,Values=WebServer \
     --name AWS-UpdateSSMAgent
 ```

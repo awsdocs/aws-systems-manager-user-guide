@@ -1,6 +1,6 @@
 # Patch Manager prerequisites<a name="patch-manager-prerequisites"></a>
 
-**SSM Agent Version**  
+**SSM Agent version**  
 Version 2\.0\.834\.0 or later of SSM Agent be running on the instances you want to manage with Patch Manager\.
 
 **Note**  
@@ -13,4 +13,5 @@ The Patch Manager capability does not support all the same operating systems ver
 | Operating system | Details | 
 | --- | --- | 
 |  Linux  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-prerequisites.html) Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.  | 
+| macOS |  macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)  | 
 |  Windows  |  Windows Server 2008 through Windows Server 2019, including R2 versions\.  | 

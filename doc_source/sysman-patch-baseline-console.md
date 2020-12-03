@@ -7,4 +7,5 @@ The following procedures describe how to create, update, and delete your own cus
 **Topics**
 + [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)
 + [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)
++ [Create a custom patch baseline \(macOS\)](create-baseline-console-macos.md)
 + [Updating or deleting a custom patch baseline \(console\)](patch-baseline-update-or-delete.md)

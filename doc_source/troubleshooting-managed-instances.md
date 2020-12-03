@@ -13,6 +13,7 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 Amazon Linux
 Amazon Linux 2
 Amazon Linux 2 ECS\-Optimized AMIs
+macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
 Ubuntu Server 16\.04, 18\.04, and 20\.04  
 Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 Windows Server 2016 and 2019
@@ -154,4 +155,4 @@ EC2 instances are created and available in specific AWS Regions, such as the US 
 
 ## Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance<a name="instances-missing-solution-6"></a>
 
-Verify that the proxy configuration you applied to the SSM Agent on your EC2 instance is correct\. If the proxy configuration is incorrect, the instance can't connect to the required service endpoints, or Systems Manager might identify the operating system of the instance incorrectly\. For more information, see [Configure SSM Agent to use a proxy ](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.
+Verify that the proxy configuration you applied to the SSM Agent on your EC2 instance is correct\. If the proxy configuration is incorrect, the instance can't connect to the required service endpoints, or Systems Manager might identify the operating system of the instance incorrectly\. For more information, see [Configure SSM Agent to use a proxy \(Linux\)](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.

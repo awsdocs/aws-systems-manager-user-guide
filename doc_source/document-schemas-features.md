@@ -36,7 +36,7 @@ The following table lists the differences between major schema versions\.
 |  not applicable  |  name  |  In version 2\.2, `name` is any user\-defined name for a step\.  | 
 
 **Using the precondition parameter**  
-With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document\. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using a value of either `Windows` or `Linux`\.
+With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document\. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using values of `Linux`, `MacOS`, and `Windows`\.
 
 For documents that use schema version 2\.2 or later, if `precondition` is not specified, each plugin is either run or skipped based on the plugin’s compatibility with the operating system\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
 

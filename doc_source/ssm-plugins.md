@@ -5,7 +5,13 @@ This reference describes the plugins that you can specify in an AWS Systems Mana
 Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Note**  
-Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.
+Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.   
+Currently, only the following document plugins are supported on EC2 instances for macOS:  
+`aws:refreshAssociation`
+`aws:runShellScript`
+`aws:runPowerShellScript`
+`aws:softwareInventory`
+`aws:updateSsmAgent`
 
 **Topics**
 + [aws:applications](#aws-applications)

@@ -14,8 +14,9 @@ Logging is not available for Session Manager sessions that connect through port 
      For information about installing or updating SSM Agent on an instance, see the following topics:
      + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
      +  [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) 
+     + [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md) 
      +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
-     +  [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) 
+     + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 **Note**  
 To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
@@ -24,6 +25,8 @@ To use Session Manager with on\-premises servers and virtual machines \(VMs\) th
 
      For information about installing the Session Manager plugin, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
    + Update the SSH configuration file to enable running a proxy command that starts a Session Manager session and transfer all data through the connection\.
+
+     **Linux and macOS**
 
       **Linux** 
 **Tip**  

@@ -1,6 +1,6 @@
 # AWS Systems Manager Managed Instances<a name="managed_instances"></a>
 
-A *managed instance* is any machine configured for AWS Systems Manager\. You can configure EC2 instances or on\-premises machines in a hybrid environment as managed instances\. Systems Manager supports various distributions of Linux, including Raspberry Pi devices, and Microsoft Windows Server\.
+A *managed instance* is any machine configured for AWS Systems Manager\. You can configure EC2 instances or on\-premises machines in a hybrid environment as managed instances\. Systems Manager supports various distributions of Linux, including Raspberry Pi devices, macOS, and Microsoft Windows Server\.
 
 **Note**  
 In the AWS Management Console, any machine prefixed with "mi\-" is an on\-premises server or virtual machine \(VM\) managed instance\. 

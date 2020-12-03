@@ -14,7 +14,7 @@ Before a user can update Session Manager preferences, they must have been grante
 + [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)
 + [Specify an idle session timeout value](session-preferences-timeout.md)
 + [Enable configurable shell profiles](session-preferences-shell-config.md)
-+ [Enable run as support for Linux instances](session-preferences-run-as.md)
++ [Enable run as support for Linux and macOS instances](session-preferences-run-as.md)
 + [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)
 + [Create Session Manager preferences \(command line\)](getting-started-create-preferences-cli.md)
 + [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)

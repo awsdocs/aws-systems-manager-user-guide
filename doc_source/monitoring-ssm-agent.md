@@ -11,10 +11,12 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
 
 1. Log into an instance and locate the following file:
 
-**Linux**  
 On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 
    On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`\.
+
+**macOS**  
+`/opt/aws/ssm/seelog.xml.template`
 
 **Windows**  
 `%ProgramFiles%\Amazon\SSM\seelog.xml.template`
@@ -24,7 +26,7 @@ On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 1. Open the `seelog.xml` file in a text editor, and locate the following section\.
 
 ------
-#### [ Linux ]
+#### [ Linux and macOS ]
 
    ```
    <outputs formatid="fmtinfo">
@@ -54,7 +56,7 @@ On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 1. Edit the file, and add a *custom name* element after the closing </filter> tag\. In the following example, the custom name as been specified as `cloudwatch_receiver`\.
 
 ------
-#### [ Linux ]
+#### [ Linux and macOS ]
 
    ```
    <outputs formatid="fmtinfo">

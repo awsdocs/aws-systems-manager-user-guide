@@ -4,6 +4,13 @@ This reference describes the Automation actions that you can specify in an AWS S
 
 Systems Manager Automation runs steps defined in Automation documents\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your Automation document\.
 
+**Note**  
+Currently, only the following plugins are supported on EC2 instances for macOS:  
+`aws:configurePackage`
+`aws:refreshAssociation`
+`aws:runShellScript`
+`aws:softwareInventory`
+
 You don't need to specify the outputs of an action or step\. The outputs are predetermined by the action associated with the step\. When you specify step inputs in your Automation documents, you can reference one or more outputs from an earlier step\. For example, you can make the output of `aws:runInstances` available for a subsequent `aws:runCommand` action\. You can also reference outputs from earlier steps in the `Output` section of the Automation document\. 
 
 **Important**  

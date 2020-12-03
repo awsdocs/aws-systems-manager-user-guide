@@ -17,6 +17,7 @@ Before trying these tutorials, complete the following prerequisites\.
   + Amazon Linux
   + Amazon Linux 2
   + Amazon Linux 2 ECS\-Optimized AMIs
+  + macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
   + Ubuntu Server 16\.04, 18\.04, and 20\.04  
   + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
   + Windows Server 2016 and 2019

@@ -20,7 +20,7 @@ Amazon
 
 **Platforms**
 
-Windows, Linux
+Linux, macOS, Windows
 
 **Parameters**
 + AutomationAssumeRole

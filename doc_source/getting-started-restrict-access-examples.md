@@ -104,7 +104,7 @@ You can create IAM policies that enable a user to start sessions to instances th
 }
 ```
 
-For more information about creating IAM user policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging instances, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux instances\)\. For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For more information about creating IAM user policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging instances, see [ Tagging managed instances](tagging-managed-instances.md) and [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux instances\)\. For more information increasing your security posture against unauthorized root\-level commands on your instances, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
 ## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 

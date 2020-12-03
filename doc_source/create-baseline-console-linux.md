@@ -1,6 +1,8 @@
 # Creating a custom patch baseline \(Linux\)<a name="create-baseline-console-linux"></a>
 
-Use the following procedure to create a custom patch baseline for Linux instances\. For information about creating a patch baseline for Windows Server instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
+Use the following procedure to create a custom patch baseline for Linux instances\. 
+
+For information about creating a patch baseline for macOS instances, see [Create a custom patch baseline \(macOS\)](create-baseline-console-macos.md)\. For information about creating a patch baseline for Windows instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
 
 **To create a custom patch baseline for Linux instances**
 
@@ -33,7 +35,7 @@ For Linux operating systems, minor version upgrades are not classified consisten
 **Option 1**: The broadest approval rule to ensure minor version upgrades are installed when available is to specify **Classification** as **All** \(\*\) and choose the **Include nonsecurity updates** option\.
 **Option 2**: To ensure patches for an operating system version are installed, you can use a wildcard \(\*\) to specify its kernel format in the **Patch exceptions** section of the baseline\. For example, the kernel format for RHEL 7\.\* is `kernel-3.10.0-*.el7.x86_64`\.  
 Enter `kernel-3.10.0-*.el7.x86_64` in the **Approved patches** list in your patch baseline to ensure all patches, including minor version upgrades, are applied to your RHEL 7\.\* instances\. \(If you know the exact package name of a minor version patch, you can enter that instead\.\)
-**Option 3**: You can have the most control over which patches are applied to your managed instances, including minor version upgrades, by using the [InstallOverrideList](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist) parameter in the `AWS-RunPatchBaseline` document\. For more information, see [About the SSM document AWS\-RunPatchBaseline](patch-manager-about-aws-runpatchbaseline.md)\.
+**Option 3**: You can have the most control over which patches are applied to your managed instances, including minor version upgrades, by using the [InstallOverrideList](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist) parameter in the `AWS-RunPatchBaseline` document\. For more information, see [About the AWS\-RunPatchBaseline SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
    + **Severity**: The severity value of patches the rule is to apply to, such as `Critical`\. The default selection is `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
 **Note**  
@@ -54,7 +56,7 @@ For SUSE Linux Enterprise Server, \(SLES\) it isn't necessary to select the chec
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
    + \(Optional\) For **Approved patches compliance level**, assign a compliance level to the patches in the list\.
-   + If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** box for these patches to be installed on your Linux operating system as well\.
+   + If any approved patches you specify aren't related to security, select the **Approved patches include non\-security updates** check box for these patches to be installed on your Linux operating system as well\.
 
 1. If you want to explicitly reject any patches that otherwise meet your approval rules, do the following in the **Patch exceptions** section:
    + For **Rejected patches**, enter a comma\-separated list of the patches you want to reject\.

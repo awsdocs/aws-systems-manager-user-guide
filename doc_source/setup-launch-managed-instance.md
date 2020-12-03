@@ -11,6 +11,7 @@ SSM Agent is installed by default on the following AMIs:
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized AMIs
++ macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
@@ -65,6 +66,8 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. Choose **Apply**\.
 
-For more information about attaching IAM roles to instances, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*\.
+For more information about attaching IAM roles to instances, choose one of the following, depending on your selected operating system type:
++ [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
++ [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
 
 Continue to [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.

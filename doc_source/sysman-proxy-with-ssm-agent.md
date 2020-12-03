@@ -1,4 +1,4 @@
-# Configure SSM Agent to use a proxy<a name="sysman-proxy-with-ssm-agent"></a>
+# Configure SSM Agent to use a proxy \(Linux\)<a name="sysman-proxy-with-ssm-agent"></a>
 
 You can configure SSM Agent to communicate through an HTTP proxy by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for creating an override file in both *upstart* and *systemd* environments\. 
 
