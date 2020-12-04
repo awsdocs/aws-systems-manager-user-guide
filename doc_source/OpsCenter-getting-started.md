@@ -9,7 +9,7 @@ Integrated Setup is only available in the Systems Manager console\. You can't se
 
 ## \(Optional\) Receive OpsItem notifications<a name="OpsCenter-getting-started-sns"></a>
 
-You can configure OpsCenter to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic when the systems creates a new OpsItem or updates an existing OpsItem\. Complete the following tasks to receive notifications for OpsItems\.
+You can configure OpsCenter to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic when the system creates a new OpsItem or updates an existing OpsItem\. Complete the following tasks to receive notifications for OpsItems\.
 + [Task 1: Create and subscribe to an Amazon SNS topic](#OpsCenter-getting-started-sns-create-topic)
 + [Task 2: Update the Amazon SNS access policy](#OpsCenter-getting-started-sns-encryption-policy)
 + [Task 3: Update the AWS KMS access policy \(optional\)](#OpsCenter-getting-started-sns-KMS-policy)

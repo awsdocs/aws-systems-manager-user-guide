@@ -72,7 +72,7 @@ An Amazon SNS *topic* is a communication channel that Run Command and Run Comman
 **Note**  
 After you create the topic, copy or make a note of the **Topic ARN**\. You specify this ARN when you send a command that is configured to return status notifications\.
 
-After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribing an endpoint to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribing an endpoint to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 Amazon SNS sends a confirmation email from *AWS Notifications* to the email address that you specify\. Open the email and choose the **Confirm subscription** link\.
 
@@ -119,7 +119,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
 ### Task 3: Create an IAM role for Amazon SNS notifications<a name="monitoring-iam-notifications"></a>
 
-Use the following procedure to create an IAM role for Amazon SNS notifications\. This service role is used by Systems Manager to trigger Amazon SNS notifications\. 
+Use the following procedure to create an IAM role for Amazon SNS notifications\. This service role is used by Systems Manager to trigger Amazon SNS notifications\. In all subsequent procedures, this role is referred to as the Amazon SNS IAM role\.
 
 **To create an IAM service role for Amazon SNS notifications**
 
@@ -143,7 +143,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
-1. Copy or make a note of the **Role ARN**\. This Role ARN is used when you send a command that is configured to return Amazon SNS notifications\.
+1. Copy or make a note of the **Role ARN**\. This Role Amazon Resource Name \(ARN\) is used when you send a command that is configured to return Amazon SNS notifications\.
 
 1. Leave the **Summary** page open\.
 
@@ -171,7 +171,7 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. Choose **Resources**\. Verify that **Specific** is selected, and then choose **Add ARN**\.
 
-1. In the **Specify ARN for role** field, paste the Amazon SNS role ARN that you copied at the end of Task 3\. The system automatically populates the **Account** and **Role name with path** fields\.
+1. In the **Specify ARN for role** field, paste the Amazon SNS IAM role ARN that you copied at the end of Task 3\. The system automatically populates the **Account** and **Role name with path** fields\.
 
 1. Choose **Add**\.
 
@@ -183,7 +183,7 @@ Use the following procedure to configure a user account to use Run Command and M
 
 When you register a Run Command task with a maintenance window, you specify a service role Amazon Resource Name \(ARN\)\. This service role is used by Systems Manager to run tasks registered to the maintenance window\. To configure Amazon SNS notifications for a registered Run Command task, you must attach an `iam:PassRole` policy to the maintenance window service role specified\. If you do not intend to configure the registered task for Amazon SNS notifications, then this task can be skipped\.
 
-The `iam:PassRole` policy allows the Maintenance Windows service role to pass the SNS role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the` iam:PassRole` policy to the Maintenance Windows service role\.
+The `iam:PassRole` policy allows the Maintenance Windows service role to pass the Amazon SNS IAM role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the` iam:PassRole` policy to the Maintenance Windows service role\.
 
 **Note**  
 You must use a custom service role for your maintenance window to send notifications related to the Run Command tasks registered\. For information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.  
@@ -196,7 +196,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Roles** and select the Amazon SNS role created in Task 3\.
+1. In the navigation pane, choose **Roles** and select the Amazon SNS IAM role role created in Task 3\.
 
 1. Copy or make a note of the **Role ARN** and return to the **Roles** section of the IAM console\.
 

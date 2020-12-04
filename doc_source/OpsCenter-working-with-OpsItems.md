@@ -189,13 +189,13 @@ Use the following procedure to specify a deduplication string for an EventBridge
    The deduplication string entry in EventBridge rules uses the following JSON format\.
 
    ```
-   "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"Words the system should use to check for duplicate OpsItems\"}"}
+   "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"Words the system should use to check for duplicate OpsItems\"}"}}
    ```
 
    Here is an example\.
 
    ```
-   "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"SSMOpsCenter-EBS-volume-performance-issue\"}"}
+   "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"SSMOpsCenter-EBS-volume-performance-issue\"}"}}
    ```
 
 1. Edit the deduplications strings, and then choose **Update** to finish updating the rule\.

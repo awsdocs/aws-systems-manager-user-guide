@@ -42,9 +42,9 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, choose **Enable SNS notifications**\.
 
-1. In the **IAM role** field, type or paste the SNS IAM role ARN you created in Task 3 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+1. In the **IAM role** section, choose the Amazon SNS IAM role ARN you created in Task 3 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
-1. In the **SNS topic** field, type or paste the Amazon SNS topic ARN to be used\.
+1. In the **SNS topic** field, enter the Amazon SNS topic ARN to be used\.
 
 1. In the **Notify me on** field, choose the events for which you want to receive notifications\.
 

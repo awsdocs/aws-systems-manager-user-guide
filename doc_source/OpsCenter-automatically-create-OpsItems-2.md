@@ -17,7 +17,11 @@ Use the following procedure to configure **SSM OpsItems** as the target of an Ev
 
 1. In the **Select targets** section, use the **Target** list to choose **SSM OpsItem**\. 
 
-1. Expand **Configure input** and choose either **Matched events** or **Input transformer** is selected\. If you choose **Input transformer**, enter information in the **Input Path** and **Input Template** boxes\. Here's an example of how to enter the input path\.
+1. Expand **Configure input** and choose either **Matched events** or **Input transformer**\.
+**Note**  
+We recommend that you choose **Input transformer**\. This option enables you to specify a dedup string and other important information for OpsItems such as a title and a severity\.
+
+   If you choose **Input transformer**, enter information in the **Input Path** and **Input Template** boxes\. Here's an example of how to enter the input path\.
 
    ```
    {
