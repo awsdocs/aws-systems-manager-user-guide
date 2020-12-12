@@ -63,13 +63,13 @@ Some of the steps in this procedure contain explicit instructions for Ubuntu Ser
    + On Ubuntu Server instances where SSM Agent is installed by using a snap:
 
      ```
-     systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
+     sudo systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
      ```
 
      On other operating systems:
 
      ```
-     systemctl edit amazon-ssm-agent
+     sudo systemctl edit amazon-ssm-agent
      ```
 
 1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, add one of the following configurations\.
@@ -97,24 +97,24 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
 1. Save your changes\. The system automatically creates one of the following files, depending on the operating system type\.
    + On Ubuntu Server instances where SSM Agent is installed by using a snap: 
 
-     `etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/override.conf`
+     `/etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/override.conf`
    + On Amazon Linux 2 instances: 
 
-     `etc/systemd/system/amazon-ssm-agent.service.d/override.conf`
+     `/etc/systemd/system/amazon-ssm-agent.service.d/override.conf`
    + On other operating systems: 
 
-     `etc/systemd/system/amazon-ssm-agent.service.d/amazon-ssm-agent.override`
+     `/etc/systemd/system/amazon-ssm-agent.service.d/amazon-ssm-agent.override`
 
 1. Restart SSM Agent by using one of the following commands, depending on the operating system type\.
    + On Ubuntu Server instances installed by using a snap:
 
      ```
-     systemctl start snap.amazon-ssm-agent.amazon-ssm-agent
+     sudo systemctl daemon-reload && sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
      ```
    + On other operating systems:
 
      ```
-     sudo systemctl stop amazon-ssm-agent ; sudo systemctl daemon-reload
+     sudo systemctl daemon-reload && sudo systemctl restart amazon-ssm-agent
      ```
 
 **Note**  
