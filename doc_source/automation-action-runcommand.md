@@ -47,7 +47,7 @@ This action supports most send command parameters\. For more information, see [S
 ------
 
 DocumentName  
-The name of the Run Command document, if using an AWS public document (document that begins with AWS-\*) or a document that you own. If using a shared document owned by a different AWS account, you must specify the document Amazon Resource Name (ARN). For more information about using shared documents, see [Using shared SSM documents](ssm-using-shared.md)\.\
+If the Command type document is owned by you or AWS, specify the name of the document. If you're using a document shared with you by a different AWS account, specify the Amazon Resource Name (ARN) of the document. For more information about using shared documents, see [Using shared SSM documents](ssm-using-shared.md)\.\
 Type: String  
 Required: Yes
 
