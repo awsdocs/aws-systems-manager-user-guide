@@ -64,11 +64,6 @@ For trusted administrators, you can provide access to all Systems Manager parame
 }
 ```
 
-**Topics**
-+ [Deny permissions](#sysman-paramstore-deny-permissions)
-+ [Allowing only specific parameters to run on instances](#sysman-paramstore-access-inst)
-+ [IAM permissions for using AWS default keys and customer managed keys](#ps-kms-permissions)
-
 ## Deny permissions<a name="sysman-paramstore-deny-permissions"></a>
 
 Each API is unique and has distinct operations and permissions that you can allow or deny individually\. An explicit deny in any policy overrides the allow\.

@@ -1,6 +1,6 @@
 # Create a Systems Manager parameter \(console\)<a name="parameter-create-console"></a>
 
-You can use the AWS Systems Manager console to create to create and run `String`, `StringList`, and `SecureString` parameter types\.
+You can use the AWS Systems Manager console to create and run `String`, `StringList` and `SecureString` parameter types\.
 
 **Note**  
 Parameters are only available in the AWS Region where they were created\.

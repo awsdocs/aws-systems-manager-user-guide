@@ -1,11 +1,11 @@
-# Working with parameter policies<a name="parameter-store-policies"></a>
+# Assigning parameter policies<a name="parameter-store-policies"></a>
 
-Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\. The policies are described in more detail in this section\.
+Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\.
 
 **Note**  
 To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
 
-Parameter Store enforces parameter policies by using asynchronous, periodic scans\. After you create a policy, you don't need to perform additional actions to enforce the policy\. Parameter Store independently performs the action defined by the policy according to the criteria you specified\. 
+Parameter Store enforces parameter policies by using asynchronous, periodic scans\. After you create a policy, you don't need to perform additional actions to enforce the policy\. Parameter Store independently performs the action defined by the policy according to the criteria you specified\.
 
 **Note**  
 Parameter policies are available for parameters that use the advanced parameters tier\. For more information, see [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
@@ -74,7 +74,7 @@ This section includes information about how to add policies to an existing param
 **Topics**
 + [Add policies to an existing parameter \(console\)](#sysman-paramstore-policy-create-console)
 + [Add policies to an existing parameter \(AWS CLI\)](#sysman-paramstore-policy-create-cli)
-+ [Add policies to an existing parameter by using the Tools for Windows PowerShell](#sysman-paramstore-policy-create-ps)
++ [Add policies to an existing parameter \(Tools for Windows PowerShell\)](#sysman-paramstore-policy-create-ps)
 
 ### Add policies to an existing parameter \(console\)<a name="sysman-paramstore-policy-create-console"></a>
 
@@ -210,7 +210,7 @@ To remove all policies from an existing parameter, edit the parameter and apply 
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 
-### Add policies to an existing parameter by using the Tools for Windows PowerShell<a name="sysman-paramstore-policy-create-ps"></a>
+### Add policies to an existing parameter \(Tools for Windows PowerShell\)<a name="sysman-paramstore-policy-create-ps"></a>
 
 Use the following procedure to add policies to an existing parameter by using Tools for Windows PowerShell\.
 

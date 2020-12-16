@@ -1,5 +1,10 @@
 # AWS Systems Manager Managed Instances<a name="managed_instances"></a>
 
+
+|  | 
+| --- |
+| Systems Manager Managed Instances is now part of Systems Manager Fleet Manager\. To learn more about Fleet Manager, see [AWS Systems Manager Fleet Manager](fleet.md)\. | 
+
 A *managed instance* is any machine configured for AWS Systems Manager\. You can configure EC2 instances or on\-premises machines in a hybrid environment as managed instances\. Systems Manager supports various distributions of Linux, including Raspberry Pi devices, macOS, and Microsoft Windows Server\.
 
 **Note**  

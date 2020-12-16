@@ -1,18 +1,18 @@
-# Configuring Resource Data Sync for Inventory<a name="sysman-inventory-datasync"></a>
+# Configuring resource data sync for Inventory<a name="sysman-inventory-datasync"></a>
 
 This topic describes how to set up and configure resource data sync for Systems Manager Inventory\. For information about resource data sync for Systems Manager Explorer, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)\.
 
-## About Resource Data Sync<a name="systems-manager-inventory-datasync-about"></a>
+## About resource data sync<a name="systems-manager-inventory-datasync-about"></a>
 
-You can use Systems Manager resource data sync to send inventory data collected from all of your managed instances to a single S3 bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. With all inventory data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\.
+You can use Systems Manager resource data sync to send inventory data collected from all of your managed instances to a single Amazon Simple Storage Service \(Amazon S3\) bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. With all inventory data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\.
 
-For example, say that you've configured inventory to collect data about the operating system \(OS\) and applications running on a fleet of 150 managed instances\. Some of these instances are located in a hybrid data center, and others are running in Amazon EC2 across multiple AWS Regions\. If you have *not* configured resource data sync, you either need to manually gather the collected inventory data for each instance, or you have to create scripts to gather this information\. You would then need to port the data into an application so that you can run queries and analyze it\.
+For example, say that you've configured inventory to collect data about the operating system \(OS\) and applications running on a fleet of 150 managed instances\. Some of these instances are located in a hybrid data center, and others are running in Amazon Elastic Compute Cloud \(Amazon EC2\) across multiple AWS Regions\. If you have *not* configured resource data sync, you either need to manually gather the collected inventory data for each instance, or you have to create scripts to gather this information\. You would then need to port the data into an application so that you can run queries and analyze it\.
 
 With resource data sync, you perform a one\-time operation that synchronizes all inventory data from all of your managed instances\. After the sync is successfully created, Systems Manager creates a baseline of all inventory data and saves it in the target S3 bucket\. When new inventory data is collected, Systems Manager automatically updates the data in the S3 bucket\. You can then quickly and cost\-effectively port the data to Amazon Athena and Amazon QuickSight\.
 
 Diagram 1 shows how resource data sync aggregates inventory data from managed instances in Amazon EC2 and a hybrid environment to a target S3 bucket\. This diagram also shows how resource data sync works with multiple AWS accounts and AWS Regions\.
 
-**Diagram 1: Resource Data Sync with Multiple AWS Accounts and AWS Regions**
+**Diagram 1: Resource data sync with multiple AWS accounts and AWS Regions**
 
 ![\[Systems Manager resource data sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync.png)
 
@@ -23,7 +23,7 @@ Use the procedures in this section to create a resource data sync for Inventory 
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
 **Note**  
-You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the S3 bucket\. For an example of how to create an encrypted sync by using the AWS CLI and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)\. 
+You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the S3 bucket\. For an example of how to create an encrypted sync by using the AWS Command Line Interface \(AWS CLI\) and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)\. 
 
 ## Before you begin<a name="sysman-inventory-datasync-before-you-begin"></a>
 
@@ -88,7 +88,7 @@ For information about viewing your AWS account ID, see [Your AWS Account ID and 
    }
    ```
 **Note**  
-The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
+The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
 
    ```
    {
@@ -99,29 +99,31 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
             },
    ```
 
-## Create a Resource Data Sync for Inventory<a name="sysman-inventory-datasync-create"></a>
+## Create a resource data sync for Inventory<a name="sysman-inventory-datasync-create"></a>
 
 Use the following procedure to create a resource data sync for Systems Manager Inventory by using the Systems Manager console\. For information about how to create a resource data sync by using the AWS CLI, see [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
 
-**To create a Resource Data Sync**
+**To create a resource data sync**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **Managed Instances**\.
+1. In the navigation pane, choose **Fleet Manager**\.
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Managed Instances**\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
 
-1. Choose **Configure Inventory**, **Resource Data Syncs**, and then choose **Create resource data sync**\.
+1. In the **Account management** menu, choose **Resource data sync**\.
 
-1. In the **Sync name** field, type a name for the sync configuration\.
+1. Choose **Create resource data sync**\.
 
-1. In the **Bucket name** field, type the name of the Amazon S3 bucket you created at the start of this procedure\.
+1. In the **Sync name** field, enter a name for the sync configuration\.
 
-1. \(Optional\) In the **Bucket prefix** field, type the name of an S3 bucket prefix \(subdirectory\)\.
+1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created at the start of this procedure\.
 
-1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
+1. \(Optional\) In the **Bucket prefix** field, enter the name of an S3 bucket prefix \(subdirectory\)\.
+
+1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
 **Note**  
 If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
@@ -133,7 +135,7 @@ To synchronize inventory data from multiple AWS Regions, you must create a resou
 
 ![\[Systems Manager resource data sync from multiple AWS Regions\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)
 
-## Creating an Inventory Resource Data Sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations"></a>
+## Creating an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations"></a>
 
 You can synchronize inventory data from AWS accounts defined in AWS Organizations to a central Amazon S3 bucket\. After you complete the following procedures, inventory data is synchronized to *individual* Amazon S3 key prefixes in the central bucket\. Each key prefix represents a different AWS account ID\.
 
@@ -203,7 +205,7 @@ Use the following procedure to create a central S3 bucket to store aggregated in
    }
    ```
 **Note**  
-The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
+The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
 
    ```
    {
@@ -214,7 +216,7 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
             },
    ```
 
-### Create an inventory Resource Data Sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>
+### Create an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>
 
 The following procedure describes how to use the AWS CLI to create a resource data sync for accounts that are defined in AWS Organizations\. You must use the AWS CLI to perform this task\. You must also perform this procedure for each AWS Region and account defined in AWS Organizations\.
 

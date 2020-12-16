@@ -6,10 +6,6 @@ Use the following information to help you troubleshoot problems with Parameter S
 
 Use the following information to help troubleshoot problems with creating `aws:ec2:image` data type parameters\.
 
-**Topics**
-+ [EventBridge reports the failure message "Unable to Describe Resource"](#ps-ec2-aliases-1)
-+ [New `aws:ec2:image` parameter isn't available](#ps-ec2-aliases-2)
-
 ### EventBridge reports the failure message "Unable to Describe Resource"<a name="ps-ec2-aliases-1"></a>
 
 **Problem**: You ran a command to create an `aws:ec2:image` parameter, but parameter creation failed\. You receive a notification from EventBridge that reports the exception "Unable to Describe Resource"\. 

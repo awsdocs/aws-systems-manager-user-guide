@@ -2,10 +2,6 @@
 
 You can share SSM documents by using the AWS Systems Manager console\. You can also share SSM documents programmatically by calling the `ModifyDocumentPermission` API action using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
-**Topics**
-+ [Share a document \(console\)](#share-using-console)
-+ [Share a document \(command line\)](#share-using-cli)
-
 ## Share a document \(console\)<a name="share-using-console"></a>
 
 **Share a document**

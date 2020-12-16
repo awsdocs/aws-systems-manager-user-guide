@@ -6,7 +6,7 @@ For example, you can create a composite document that performs the following act
 
 1. Updates SSM Agent to the latest version\.
 
-1. Installs all whitelisted patches\.
+1. Installs all patches in the allow list\.
 
 1. Installs antivirus software\.
 

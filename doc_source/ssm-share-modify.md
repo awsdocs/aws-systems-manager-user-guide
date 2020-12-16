@@ -2,10 +2,6 @@
 
 If you share a command, users can view and use that command until you either remove access to the SSM document or delete the SSM document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
 
-**Topics**
-+ [Stop sharing a document \(console\)](#unshare-using-console)
-+ [Stop sharing a document \(command line\)](#unshare-using-cli)
-
 ## Stop sharing a document \(console\)<a name="unshare-using-console"></a>
 
 **Stop sharing a document**

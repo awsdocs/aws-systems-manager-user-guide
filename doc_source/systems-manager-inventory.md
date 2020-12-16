@@ -35,7 +35,7 @@ This Systems Manager capability is supported as an *event* type in EventBridge r
 
 **Topics**
 + [Learn more about Systems Manager Inventory](sysman-inventory-about.md)
-+ [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)
++ [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)
 + [Configuring inventory collection](sysman-inventory-configuring.md)
 + [Working with Systems Manager inventory data](systems-manager-inventory-data-working.md)
 + [Working with custom inventory](sysman-inventory-custom.md)

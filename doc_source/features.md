@@ -6,19 +6,13 @@ Systems Manager capabilities are grouped into the following capability types:
 + [Quick Setup](#features-quick-setup)
 + [Operations Management](#features-operations-management)
 + [Application Management](#systems-manager-application-management)
-+ [Actions & Change](#features-actions-and-change)
-+ [Instances & Nodes](#features-instances-and-nodes)
++ [Change Management](#features-actions-and-change)
++ [Node Management](#features-instances-and-nodes)
 + [Shared Resources](#features-shared)
 
 ## Quick Setup<a name="features-quick-setup"></a>
 
-[Quick Setup](systems-manager-quick-setup.md) is a tool you can use to quickly configure required security roles and commonly used Systems Manager capabilities on your EC2 instances\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. Specifically, Quick Setup helps you configure the following components on the instances you choose or target by using tags:
-+ AWS Identity and Access Management \(IAM\) instance profile roles for Systems Manager\.
-+ A scheduled, bi\-weekly update of SSM Agent\.
-+ A scheduled collection of Inventory metadata every 30 minutes\.
-+ A daily scan of your instances to identify missing patches\.
-+ A one\-time installation and configuration of the Amazon CloudWatch agent\.
-+ A scheduled, monthly update of the CloudWatch agent\.
+Use [Quick Setup](systems-manager-quick-setup.md) to quickly configure frequently used AWS services and features with recommended best practices\. You can use Quick Setup in an individual account or across multiple accounts and AWS Regions by integrating with AWS Organizations\. Quick Setup simplifies setting up services, including AWS Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\.
 
 ## Operations Management<a name="features-operations-management"></a>
 
@@ -53,12 +47,17 @@ The AWS Personal Health Dashboard provides information about AWS Health events t
 Application Management is a suite of capabilities that help you manage your applications running in AWS\. Choose the tabs to learn more\.
 
 ------
+#### [ Application Manager ]
+
+[Application Manager](application-manager.md) helps you investigate and remediate issues with your AWS resources in the context of your applications\. Application Manager aggregates operations information from multiple AWS services and Systems Manager capabilities to a single AWS Management Console\.
+
+------
 #### [ Resource Groups ]
 
 [AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html): An AWS *resource* is an entity you can work with in AWS, such as Systems Manager SSM documents, patch baselines, maintenance windows, parameters, and managed instances; an Amazon Elastic Compute Cloud \(EC2\) instance; an Amazon Elastic Block Store \(Amazon EBS\) volume; a security group; or an Amazon Virtual Private Cloud \(VPC\)\. A *resource group* is a collection of AWS resources that are all in the same AWS Region, and that match criteria provided in a query\. You build queries in the Resource Groups console, or pass them as arguments to Resource Groups commands in the AWS CLI\. With Resource Groups, you can create a custom console that organizes and consolidates information based on criteria that you specify in tags\. You can also use groups as the basis for viewing monitoring and configuration insights in AWS Systems Manager\.
 
 ------
-#### [ AWS AppConfig ]
+#### [ AppConfig ]
 
 [AppConfig](appconfig.md) helps you create, manage, and quickly deploy application configurations\. AppConfig supports controlled deployments to applications of any size\. You can use AppConfig with applications hosted on EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices\. To prevent errors when deploying application configurations, AppConfig includes validators\. A validator provides a syntactic or semantic check to ensure that the configuration you want to deploy works as intended\. During a configuration deployment, AppConfig monitors the application to ensure that the deployment is successful\. If the system encounters an error or if the deployment triggers an alarm, AppConfig rolls back the change to minimize impact for your application users\.
 
@@ -69,9 +68,14 @@ Application Management is a suite of capabilities that help you manage your appl
 
 ------
 
-## Actions & Change<a name="features-actions-and-change"></a>
+## Change Management<a name="features-actions-and-change"></a>
 
 Systems Manager provides the following capabilities for taking action against or changing your AWS resources\. Choose the tabs to learn more\.
+
+------
+#### [ Change Manager ]
+
+[Change Manager](change-manager.md) is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple AWS accounts in multiple AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single AWS account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
 
 ------
 #### [ Automation ]
@@ -90,7 +94,7 @@ Use [Maintenance Windows](systems-manager-maintenance.md) to set up recurring sc
 
 ------
 
-## Instances & Nodes<a name="features-instances-and-nodes"></a>
+## Node Management<a name="features-instances-and-nodes"></a>
 
 Systems Manager provides the following capabilities for managing your EC2 instances, your on\-premises servers and virtual machines \(VMs\) in your hybrid environment, and other types of AWS resources \(nodes\)\. Choose the tabs to learn more\.
 
@@ -100,9 +104,9 @@ Systems Manager provides the following capabilities for managing your EC2 instan
 Use [Systems Manager Configuration Compliance](systems-manager-compliance.md) to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Configuration Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
 
 ------
-#### [ Inventory ]
+#### [ Fleet Manager ]
 
-[Inventory](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory to gather metadata about applications, files, components, patches, and more on your managed instances\.
+[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on\-premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. You can also gather data from individual instances to perform common troubleshooting and management tasks from the console\. This includes viewing folder and file contents, Windows registry management, operating system user management, and more\.
 
 ------
 #### [ Managed Instances ]
@@ -110,9 +114,9 @@ Use [Systems Manager Configuration Compliance](systems-manager-compliance.md) to
 A [managed instance](systems-manager-setting-up.md) is any EC2 instance or on\-premises machine–a server or a virtual machine \(VM\)–in your hybrid environment that is configured for Systems Manager\. To set up managed instances, you need to install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
 
 ------
-#### [ Hybrid Activations ]
+#### [ Inventory ]
 
-To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed\-instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+[Inventory](systems-manager-inventory.md) automates the process of collecting software inventory from managed instances\. You can use Inventory to gather metadata about applications, files, components, patches, and more on your managed instances\.
 
 ------
 #### [ Session Manager ]
@@ -138,6 +142,11 @@ Use [Patch Manager](systems-manager-patch.md) to automate the process of patchin
 #### [ Distributor ]
 
 Use [Distributor](distributor.md) to create and deploy packages to managed instances\. Distributor lets you package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on AWS Systems Manager managed instances\. After you install a package for the first time, you can use Distributor to completely uninstall and reinstall a new package version, or perform an in\-place update that adds new or changed files only\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\.
+
+------
+#### [ Hybrid Activations ]
+
+To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed\-instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
 ------
 

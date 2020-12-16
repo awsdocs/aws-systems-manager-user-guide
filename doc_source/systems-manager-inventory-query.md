@@ -8,7 +8,7 @@ This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Servi
 You can view inventory data on the **Inventory Detail View** page in all AWS Regions where Amazon Athena is available\. For a list of supported Regions, see [Amazon Athena Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/athena.html#athena_region) in the *Amazon Web Services General Reference*\.
 
 **Before you begin**  
-Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring Resource Data Sync for Inventory](sysman-inventory-datasync.md)\.
+Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
 Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central S3 bucket used by resource data sync\. If you are not the owner of the central S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
 

@@ -1,9 +1,9 @@
 # Walkthrough: Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
 
-You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` document\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` document\. This document offers the following benefits for running Chef recipes:
+You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSMdocument\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
 + Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
 + Automatically installs the Chef client software on target instances\.
-+ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an S3 bucket\.
++ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3Amazon S3\) bucket\.
 + Runs multiple cookbooks and recipes in a single run of the document\.
 + Optionally runs recipes in `why-run` mode, to show which recipes will change on target instances without making changes\.
 + Optionally applies custom JSON attributes to `chef-client` runs\.

@@ -1,11 +1,11 @@
-# Calling public parameters for AWS services, Regions, endpoints, availability zones, and local zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
+# Calling public parameters for AWS Regions, services, endpoints, availability zones, and local zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
-You can call AWS service, Region, endpoint, and availability zone public parameters by using the following path\.
+You can call the AWS Region, service, endpoint, and Availability Zone of public parameters by using the following path\.
 
-/aws/service/global\-infrastructure
+`/aws/service/global-infrastructure`
 
 **View active AWS Regions**  
-You can view a list of all active AWS Regions by using the following command in the AWS CLI\.
+You can view a list of all active AWS Regions by using the following command in the AWS Command Line Interface \(AWS CLI\)\.
 
 ------
 #### [ Linux ]
@@ -196,8 +196,8 @@ The command returns information like the following\.
 "ssm.us-west-1.amazonaws.com"
 ```
 
-**View complete availability zone details**  
-You can view availability zones by using the following command\.
+**View complete Availability Zone details**  
+You can view Availability Zones by using the following command\.
 
 ------
 #### [ Linux ]
@@ -248,8 +248,8 @@ The command returns information like the following\. This example has been trunc
         },
 ```
 
-**View availability zone names only**  
-You can view the names of availability zones only by using the following command\.
+**View Availability Zone names only**  
+You can view the names of Availability Zones only by using the following command\.
 
 ------
 #### [ Linux ]
@@ -287,8 +287,8 @@ The command returns information like the following\. This example has been trunc
     "/aws/service/global-infrastructure/availability-zones/apne1-az4",
 ```
 
-**View names of availability zones in a single Region**  
-You can view the names of the availability zones in one Region \(`us-east-1`, in this example\) using the following command\.
+**View names of Availability Zones in a single Region**  
+You can view the names of the Availability Zones in one Region \(`us-east-1`, in this example\) using the following command\.
 
 ------
 #### [ Linux ]
@@ -322,8 +322,8 @@ The command returns information like the following\. This example has been trunc
     "/aws/service/global-infrastructure/regions/us-east-1/availability-zones/use1-az6"
 ```
 
-**View availability zone ARNs only**  
-You can view the ARNs of availability zones only by using the following command\. 
+**View Availability Zone ARNs only**  
+You can view the Amazon Resource Names \(ARNs\) of Availability Zones only by using the following command\. 
 
 ------
 #### [ Linux ]

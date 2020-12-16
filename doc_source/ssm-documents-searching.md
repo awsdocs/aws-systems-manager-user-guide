@@ -6,7 +6,7 @@ You can search the AWS Systems Manager document store for SSM documents by using
 
 The search box on the Systems Manager **Documents** page supports free text search\. Free text search compares the search term or terms that you enter against the document name in each SSM document\. If you enter a single search term, for example **ansible**, then Systems Manager returns all SSM documents where this term was discovered\. If you enter multiple search terms, then Systems Manager searches by using an `OR` statement\. For example, if you specify **ansible** and **linux**, then search returns all documents with *either* keyword in their name\.
 
-If you enter a free text search term and choose a search option, such as **Platform type**, then search uses an `AND` statement and returns all documents with the keyword in their name and the specified platfrom type\.
+If you enter a free text search term and choose a search option, such as **Platform type**, then search uses an `AND` statement and returns all documents with the keyword in their name and the specified platform type\.
 
 **Note**  
 Note the following details about free text search\.  

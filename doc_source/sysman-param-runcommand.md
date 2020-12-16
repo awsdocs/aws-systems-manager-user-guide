@@ -1,6 +1,6 @@
-# Working with Parameters using Run Command commands<a name="sysman-param-runcommand"></a>
+# Working with parameters using Run Command commands<a name="sysman-param-runcommand"></a>
 
-You can work with parameters in Run Command\. For more information, see For more information on Run Command see [Running commands using Systems Manager Run Command](run-command.md)\.
+You can work with parameters in Run Command\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Run a String parameter \(console\)<a name="param-test-console"></a>
 

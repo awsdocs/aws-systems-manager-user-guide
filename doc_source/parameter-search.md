@@ -2,8 +2,6 @@
 
 When you have a large number of parameters in your account, it can be difficult to find information about just one or a few parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the Systems Manager console, the AWS CLI, the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
 
-For information about using the Systems Manager console and AWS CLI to view information about parameters in your account by using search, or filter options, see the following topics\.
-
 **Topics**
 + [Search for a parameter \(console\)](#parameter-search-console)
 + [Search for a parameter \(AWS CLI\)](#parameter-search-cli)

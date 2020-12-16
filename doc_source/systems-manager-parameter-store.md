@@ -126,14 +126,3 @@ For an example of how to create and use a `SecureString` parameter, see [Create 
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)
-
-**Topics**
-+ [How can Parameter Store benefit my organization?](#parameter-store-benefits)
-+ [Who should use Parameter Store?](#parameter-store-who)
-+ [What are the features of Parameter Store?](#parameter-store-features)
-+ [What is a parameter?](#what-is-a-parameter)
-+ [Setting up Parameter Store](parameter-store-setting-up.md)
-+ [Working with Parameter Store](parameter-store-working-with.md)
-+ [Parameter Store walkthroughs](sysman-paramstore-walk.md)
-+ [Auditing and logging Parameter Store activity](parameter-store-logging-auditing.md)
-+ [Troubleshooting Parameter Store](parameter-store-troubleshooting.md)

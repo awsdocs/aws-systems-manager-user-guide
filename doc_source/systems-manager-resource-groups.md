@@ -2,6 +2,9 @@
 
 You can use *resource groups* to organize your AWS resources\. Resource groups make it easier to manage, monitor, and automate tasks on large numbers of resources at one time\.
 
+**Important**  
+Beginning December 15, 2020, all resource groups in Systems Manager are listed in the **Custom applications** category of Systems Manager Application Manager\.
+
 AWS Resource Groups provides two general methods for defining a resource group\. Both methods involve using a query to identify the members for a group\. 
 
 The first method relies on tags applied to AWS resources to add resources to a group\. Using this method, you apply the same key/value pair tags to resources of various types in your account and then use the AWS Resource Groups service to create a group based on that tag pair\. 
@@ -42,13 +45,17 @@ Several AWS services, including Systems Manager, let you act on, monitor, or sha
 
 For information about all AWS services that can use resource groups, see [Service Integrations with AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/orgs_integrated-services-list.html) in the *AWS Resource Groups User Guide*\.
 
-In Systems Manager, you can work with resource groups in a number of ways\.
+In Systems Manager, you can work with resource groups in the following ways\.
 
-First, you can create and manage resource groups\. Systems Manager includes a console that provides the same functionality as the Resource Groups service console\. To access this console, do the following:
+First, you can create and manage resource groups in Systems Manager Application Manager\. All of your existing resource groups are listed in the Application Manager **Custom applications** category\. In the context of Application Manager, a resource group is an application\.
+
+To view resource groups in Application Manager
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **Resource Groups**\.
+1. In the navigation pane, choose **Application Manager**\.
+
+1. In the **Applications** section, choose **Custom applications**\.
 
 For information about working with the Resource Groups console, see [Getting Started with AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted.html) in the *AWS Resource Groups User Guide*\.
 

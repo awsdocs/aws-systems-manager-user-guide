@@ -16,6 +16,8 @@ For information about creating EventBridge rules, see the following topics:
 
 The remainder of this topic describes the types of Systems Manager events that you can include in your EventBridge rules\.
 
+ 
+
 ## Event type: Automation<a name="event-type-automation"></a>
 
 
