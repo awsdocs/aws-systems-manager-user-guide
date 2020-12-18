@@ -1,6 +1,6 @@
 # Running a simple automation<a name="automation-working-executing"></a>
 
-The following procedures describe how to run a simple Systems Manager automation using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
+The following procedures describe how to run a simple Systems Manager automation using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
 
 **Note**  
 For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 

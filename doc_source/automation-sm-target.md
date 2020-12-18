@@ -9,7 +9,7 @@ You can start an automation by creating a State Manager association with an Auto
 + Start, restart, or stop managed instances and Amazon Relational Database Service \(Amazon RDS\) instances\.
 + Apply patches to Linux, macOS, and Window AMIs\.
 
-Use the following procedures to create a State Manager association that runs an automation using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
+Use the following procedures to create a State Manager association that runs an automation using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
 **Before You Begin**  
 Be aware of the following important details before you run automation by using State Manager\.

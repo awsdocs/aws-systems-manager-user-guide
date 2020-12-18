@@ -1,6 +1,6 @@
 # Understanding automation statuses<a name="automation-statuses"></a>
 
-AWS Systems Manager Automation reports detailed status information about the various statuses an automation action or step goes through when you run an automation, and for the overall automation\. You can monitor automation statuses using the following methods:
+AWS Systems Manager Automation reports detailed status information about the various statuses an automation action or step goes through when you run an automation and for the overall automation\. You can monitor automation statuses using the following methods:
 + Monitor the **Execution status** in the Systems Manager Automation console\.
 + Use your preferred command line tools\. For the AWS Command Line Interface \(AWS CLI\), you can use [describe\-automation\-step\-executions](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-automation-step-executions.html) or [get\-automation\-execution](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-automation-execution.html)\. For the AWS Tools for Windows PowerShell, you can use [Get\-SSMAutomationStepExecution](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMAutomationStepExecution.html) or [Get\-SSMAutomationExecution](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMAutomationExecution.html)\.
 + Configure Amazon EventBridge to respond to action or automation status changes\.

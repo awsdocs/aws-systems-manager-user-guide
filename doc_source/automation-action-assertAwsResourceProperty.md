@@ -1,6 +1,6 @@
 # aws:assertAwsResourceProperty – Assert an AWS resource state or event state<a name="automation-action-assertAwsResourceProperty"></a>
 
-The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
+The `aws:assertAwsResourceProperty` action enables you to assert a specific resource state or event state for a specific Automation step\. For example, you can specify that an Automation step must wait for an EC2 instance to start\. Then it will call the Amazon EC2 [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API action with the DesiredValue property of `running`\. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running\.
 
 For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)\.
 

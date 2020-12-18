@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ManageWindowsService automation document enables a user to stop, start, restart, pause, or disable any Windows service on the target instance\.
+The AWSSupport\-ManageWindowsService automation document enables you to stop, start, restart, pause, or disable any Windows service on the target instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageWindowsService)
 

@@ -16,7 +16,7 @@ For example, you can assign a resource tag of "`Operation=North Region OS Patchi
 After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in your North region\. If a problem arises with any of these resources, you can take corrective action immediately\. 
 
 **Capabilities in Systems Manager**  
-Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into five categories: *Operations Management*, *Application Management*, *Actions & Change*, *Instances & Nodes*, and *Shared Resources*\.
+Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into five categories: *Operations Management*, *Application Management*, *Change Management*, *Node Management*, and *Shared Resources*\.
 
 This collection of capabilities is a powerful set of tools and features that you can use to perform many operational tasks\. For example:
 + Group AWS resources together by any purpose or activity you choose, such as application, environment, region, project, campaign, business unit, or software lifecycle\.

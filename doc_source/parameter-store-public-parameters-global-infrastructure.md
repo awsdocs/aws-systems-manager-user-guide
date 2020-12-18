@@ -1,4 +1,4 @@
-# Calling public parameters for AWS Regions, services, endpoints, availability zones, and local zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
+# Calling public parameters for AWS services, Regions, endpoints, availability zones, local zones, and wavelength zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
 You can call the AWS Region, service, endpoint, and Availability Zone of public parameters by using the following path\.
 
@@ -361,15 +361,12 @@ The command returns information like the following\.
 **View local zone details**  
 You can view local zones by using the following command\.
 
-**Note**  
-Only one local zone is currently available\.
-
 ------
 #### [ Linux ]
 
 ```
 aws ssm get-parameters-by-path \
-    --path /aws/service/global-infrastructure/local-zones/
+    --path /aws/service/global-infrastructure/local-zones
 ```
 
 ------
@@ -377,7 +374,7 @@ aws ssm get-parameters-by-path \
 
 ```
 aws ssm get-parameters-by-path ^
-    --path /aws/service/global-infrastructure/local-zones/
+    --path /aws/service/global-infrastructure/local-zones
 ```
 
 ------
@@ -392,8 +389,120 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "usw2-lax1-az1",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.291000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1"
+            "LastModifiedDate": "2020-04-29T20:36:58.284000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az2",
+            "Type": "String",
+            "Value": "usw2-lax1-az2",
+            "Version": 2,
+            "LastModifiedDate": "2020-08-27T15:22:58.350000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az2",
+            "DataType": "text"
+        }
+    ]
+}
+```
+
+**View wavelength zone details**  
+You can view wavelength zones by using the following command\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm get-parameters-by-path \
+    --path /aws/service/global-infrastructure/wavelength-zones
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm get-parameters-by-path ^
+    --path /aws/service/global-infrastructure/wavelength-zones
+```
+
+------
+
+The command returns information like the following\.
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-atl-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-atl-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-09-22T13:10:33.763000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-atl-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-bos-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-bos-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-08-06T07:11:42.758000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-bos-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-dfw-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-dfw-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-11-11T07:35:17.303000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-dfw-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-mia-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-mia-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-11-11T07:35:29.329000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-mia-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-nyc-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-nyc-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-09-22T13:10:22.365000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-nyc-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-was-wlz1",
+            "Type": "String",
+            "Value": "use1-wl1-was-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-09-22T13:10:26.787000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-was-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-las-wlz1",
+            "Type": "String",
+            "Value": "usw2-wl1-las-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-01T07:29:21.944000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-las-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
+            "Type": "String",
+            "Value": "usw2-wl1-sfo-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-08-06T07:11:38.750000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
+            "DataType": "text"
         }
     ]
 }

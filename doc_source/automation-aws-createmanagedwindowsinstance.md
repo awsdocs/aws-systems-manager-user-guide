@@ -2,7 +2,7 @@
 
 **Description**
 
-Create an EC2 instance for Windows Server that is configured for Systems Manager\.
+Create an EC2 instance for a Windows Server that is configured for Systems Manager\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedWindowsInstance)
 

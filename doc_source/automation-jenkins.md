@@ -1,6 +1,6 @@
 # Walkthrough: Using Automation with Jenkins<a name="automation-jenkins"></a>
 
-If your organization uses Jenkins software in a CI/CD pipeline, you can add Automation as a post\-build step to pre\-install application releases into Amazon Machines Images \(AMIs\)\. You can also use the Jenkins scheduling feature to call Automation and create your own operating system \(OS\) patching cadence\.
+If your organization uses Jenkins software in a CI/CD pipeline, you can add Automation as a post\-build step to pre\-install application releases into Amazon Machine Images \(AMIs\)\. You can also use the Jenkins scheduling feature to call Automation and create your own operating system \(OS\) patching cadence\.
 
 The example below shows how to invoke Automation from a Jenkins server that is running either on\-premises or in Amazon EC2\. For authentication, the Jenkins server uses AWS credentials based on an AWS Identity and Access Management \(IAM\) user that you create in the example\. If your Jenkins server is running in Amazon EC2, you can also authenticate it using an IAM instance profile role\.
 

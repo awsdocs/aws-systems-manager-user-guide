@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ListEC2Resources Automation document returns information on Amazon EC2 instances and related resources like Amazon Elastic Block Store \(Amazon EBS\) volumes, Elastic IP addresses, and Amazon EC2 Auto Scaling groups from the AWS Regions you specify\. By default, the information is gathered from all Regions and is displayed in the output of the automation\. Optionally, you can specify an Amazon Simple Storage Service \(Amazon S3\) bucket for the information to be uploaded to as a comma\-separated values \(\.csv\) file\.
+The AWSSupport\-ListEC2Resources Automation document returns information about Amazon EC2 instances and related resources like Amazon Elastic Block Store \(Amazon EBS\) volumes, Elastic IP addresses, and Amazon EC2 Auto Scaling groups from the AWS Regions you specify\. By default, the information is gathered from all Regions and is displayed in the output of the automation\. Optionally, you can specify an Amazon Simple Storage Service \(Amazon S3\) bucket for the information to be uploaded to as a comma\-separated values \(\.csv\) file\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ListEC2Resources)
 

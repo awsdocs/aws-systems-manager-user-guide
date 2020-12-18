@@ -368,7 +368,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates targets for association instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on all instances in the current account and Region\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 AM every Sunday\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the accounts, `111122223333`, `444455556666`, and `123456789012`, in two different regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The IAM role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\. 
+   The following example creates targets for association instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on all instances in the current account and Region\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 AM every Sunday\. This association doesn't run immediately when it is created\. It runs only at the specified Cron schedule\. It runs on the accounts, `111122223333`, `444455556666`, and `123456789012`, in two different regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The IAM role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\. 
 
 ------
 #### [ Linux ]

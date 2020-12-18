@@ -1,6 +1,6 @@
 # Running an automation as the current authenticated user<a name="automation-walk-security-user"></a>
 
-The following procedures describe how to run an automation that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\. Running the automation in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this automation\.
+The following procedures describe how to run an automation that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. Running the automation in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this automation\.
 
 ## Running an automation as the current authenticated user \(console\)<a name="automation-walk-security-user-console"></a>
 

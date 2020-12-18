@@ -18,7 +18,7 @@ aws ec2 run-instances \
     --security-groups my-security-group
 ```
 
-You can also choose the Systems Manager containing your preferred AMI when you create an instance using the Amazon EC2 console\. For more information, see [Using a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon EC2 User Guide for Windows Instances*\.
+You can also choose your preferred AMI when you create an instance using the Amazon EC2 console\. For more information, see [Using a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 When it's time to use a different AMI in your instance creation workflow, you need only update the parameter with the new AMI value, and Parameter Store again validates that you have entered an ID in the proper format\.
 

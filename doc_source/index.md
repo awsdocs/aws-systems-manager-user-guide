@@ -152,7 +152,7 @@ Amazon's trademarks and trade dress may not be used in
             + [Calling AMI public parameters](parameter-store-public-parameters-ami.md)
             + [Calling the ECS optimized AMI public parameter](parameter-store-public-parameters-ecs.md)
             + [Calling the EKS optimized AMI public parameter](parameter-store-public-parameters-eks.md)
-            + [Calling public parameters for AWS Regions, services, endpoints, availability zones, and local zones](parameter-store-public-parameters-global-infrastructure.md)
+            + [Calling public parameters for AWS services, Regions, endpoints, availability zones, local zones, and wavelength zones](parameter-store-public-parameters-global-infrastructure.md)
          + [Assigning parameter policies](parameter-store-policies.md)
          + [Searching for Systems Manager parameters](parameter-search.md)
          + [Working with parameters using Run Command commands](sysman-param-runcommand.md)

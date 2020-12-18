@@ -1,6 +1,6 @@
 # Creating an Automation document that runs scripts \(command line\)<a name="automation-document-script-commandline"></a>
 
-The following examples show how to use the AWS CLI \(on Linux or Windows Server\) or AWS Tools for PowerShell to create an Automation document that runs a script using the `Attachment` parameter\.
+The following examples show how to use the AWS CLI or AWS Tools for PowerShell to create an Automation document that runs a script using the `Attachment` parameter\.
 
 **Before You Begin**  
 Before you begin, ensure you have the following resources prepared\. 

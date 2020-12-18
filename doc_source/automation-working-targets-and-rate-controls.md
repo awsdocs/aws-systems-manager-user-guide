@@ -4,7 +4,7 @@ AWS Systems Manager enables you to run automations on a fleet of AWS resources b
 
 For more information about concurrency and error thresholds, see [About concurrency and error thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About targets](automation-working-targets.md)\.
 
-The following procedures describe how to run an automation with targets and rate controls by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell\.
+The following procedures describe how to run an automation with targets and rate controls by using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
 ## Running an automation with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 

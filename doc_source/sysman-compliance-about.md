@@ -5,13 +5,6 @@ Configuration Compliance collects and reports data about the status of Patch Man
 **Note**  
 Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
 
-**Topics**
-+ [About patch compliance](#sysman-compliance-monitor-patch)
-+ [About State Manager association compliance](#sysman-compliance-about-association)
-+ [About custom compliance](#sysman-compliance-custom)
-+ [Viewing current compliance data](#compliance-view-results)
-+ [Viewing compliance configuration history and change tracking](#sysman-compliance-history)
-
 ## About patch compliance<a name="sysman-compliance-monitor-patch"></a>
 
 After you use Systems Manager Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\.

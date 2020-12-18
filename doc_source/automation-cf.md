@@ -2,10 +2,6 @@
 
 You can create a service role for Automation from an AWS CloudFormation template\. After you create the service role, you can specify the service role in Automation workflows using the parameter `AutomationAssumeRole`\. For information about how to run an Automation workflow using the Automation service role, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
-**Topics**
-+ [Create the service role using AWS CloudFormation](#automation-cf-create)
-+ [Copy role information for Automation](#automation-cf-copy)
-
 ## Create the service role using AWS CloudFormation<a name="automation-cf-create"></a>
 
 Use the following procedure to create the required IAM role for Systems Manager Automation by using AWS CloudFormation\.

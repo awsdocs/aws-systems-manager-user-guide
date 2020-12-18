@@ -1,6 +1,6 @@
 # aws:executeStateMachine – Run an AWS Step Functions state machine<a name="automation-action-executeStateMachine"></a>
 
-Run an AWS Step Functions state machine\.
+Runs an AWS Step Functions state machine\.
 
 **Input**
 

@@ -1,6 +1,6 @@
 # aws:executeScript – Run a script<a name="automation-action-executeScript"></a>
 
-Runs the Python or PowerShell script provided, using the specified runtime and handler\. \(For PowerShell, the handler is not required\.\)
+Runs the Python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, the handler is not required\.\)
 
 Currently, the `aws:executeScript` action contains the following preinstalled PowerShell Core modules\. 
 + Microsoft\.PowerShell\.Host

@@ -13,4 +13,4 @@ You can call this information from your scripts and code by using the [GetParame
 + [Calling AMI public parameters](parameter-store-public-parameters-ami.md)
 + [Calling the ECS optimized AMI public parameter](parameter-store-public-parameters-ecs.md)
 + [Calling the EKS optimized AMI public parameter](parameter-store-public-parameters-eks.md)
-+ [Calling public parameters for AWS Regions, services, endpoints, availability zones, and local zones](parameter-store-public-parameters-global-infrastructure.md)
++ [Calling public parameters for AWS services, Regions, endpoints, availability zones, local zones, and wavelength zones](parameter-store-public-parameters-global-infrastructure.md)

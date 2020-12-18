@@ -2,7 +2,7 @@
 
 **Description**
 
-Brings EC2 instance into compliance with standing baseline; rolls back root volume on failure\.
+Brings EC2 instance into compliance with standing baseline and rolls back root volume on failure\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchInstanceWithRollback)
 

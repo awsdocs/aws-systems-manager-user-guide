@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an EC2 instance for Windows Server with a license provided by Amazon\. The automation verifies and configures required key management service operating system settings and attempts activation\. This includes operating system routes to Amazon's key management servers, and key management service operating system settings\. Setting the `AllowOffline` parameter to `True` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance\.
+The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an EC2 instance for Windows Server with a license provided by Amazon\. The automation verifies and configures required key management service operating system settings and attempts activation\. This includes operating system routes to Amazon's key management servers and key management service operating system settings\. Setting the `AllowOffline` parameter to `True` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance\.
 
 **Note**  
 This document cannot be used on Bring Your Own License \(BYOL\) Windows Server instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
