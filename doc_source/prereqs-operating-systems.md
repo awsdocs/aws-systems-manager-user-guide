@@ -55,17 +55,6 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 7\.6 |  | ✓ |  | 
 | 7\.7 |  | ✓ |  | 
 | 7\.8 |  | ✓ |  | 
-| 7\.9 |  | ✓ |  | 
-
-
-**Oracle Linux**  
-
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
-| --- | --- | --- | --- | 
-| 7\.5 |  | ✓ |  | 
-| 7\.6 |  | ✓ |  | 
-| 7\.7 |  | ✓ |  | 
-| 7\.8 |  | ✓ |  | 
 
 
 **Red Hat Enterprise Linux \(RHEL\)**  

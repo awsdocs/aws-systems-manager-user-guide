@@ -1,8 +1,6 @@
 # Manually install SSM Agent on EC2 instances for macOS<a name="sysman-manual-agent-install-macos2"></a>
 
-Connect to your macOS instance and perform the following steps to install SSM Agent\. 
-
-Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your macOS instance and perform the following steps to install SSM Agent\. Perform these steps on *each* instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on macOS**
 
@@ -11,7 +9,13 @@ Perform these steps on each instance that will run commands using Systems Manage
 Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL for downloading the agent for macOS\.
 
    ```
-   sudo curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/darwin_amd64/amazon-ssm-agent.pkg
+   sudo wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/darwin_amd64/amazon-ssm-agent.pkg
+   ```
+
+   Here is an example\.
+
+   ```
+   sudo wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/darwin_amd64/amazon-ssm-agent.pkg
    ```
 
 1. Use the following command to run the SSM Agent installer\. 
@@ -31,7 +35,7 @@ Even though the following download URL shows 'ec2\-downloads\-windows', this is 
    1. Start the service\.
 
      ```
-     sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist && sudo launchctl start com.amazon.aws.ss
+     sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist && sudo launchctl start com.amazon.aws.ssm
      ```
 
 **Important**  

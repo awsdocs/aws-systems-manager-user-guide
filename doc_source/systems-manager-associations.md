@@ -10,3 +10,4 @@ Use the following topics to help you create and manage State Manager association
 + [Editing and creating a new version of an association](sysman-state-assoc-edit.md)
 + [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md)
 + [Viewing association histories](sysman-state-assoc-history.md)
++ [Working with associations using IAM](systems-manager-state-manager-iam.md)
