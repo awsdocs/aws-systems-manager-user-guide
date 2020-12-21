@@ -49,7 +49,7 @@ inputs:
 ------
 
 DocumentName  
-The name of the secondary Automation document to run during the step\. The document must belong to the same AWS account as the primary Automation document\.  
+The name of the secondary Automation document to run during the step\. The document must belong to the same AWS account as the primary Automation document. If you're using a document shared with you by a different AWS account, specify the Amazon Resource Name (ARN) of the document. For more information about using shared documents, see [Using shared SSM documents](ssm-using-shared.md)\.\
 Type: String  
 Required: Yes
 
