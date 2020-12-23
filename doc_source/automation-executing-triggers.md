@@ -5,4 +5,4 @@ This section includes information about how to run automations using a trigger\.
 **Topics**
 + [Running automations with triggers using EventBridge](automation-cwe-target.md)
 + [Running automations with triggers using State Manager](automation-sm-target.md)
-+ [Running automations with triggers using Maintenance Windows](automation-mw-target.md)
++ [Running automations with triggers using a maintenance window](automation-mw-target.md)

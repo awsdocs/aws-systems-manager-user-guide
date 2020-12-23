@@ -64,7 +64,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
               "Effect": "Allow",
               "Action": "ssm:StartSession",
               "Resource": [
-                  "arn:aws:ec2:*:*:instance/instance-id",
+                  "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
                   "arn:aws:ssm:*:*:document/AWS-StartSSHSession"
               ]
           }

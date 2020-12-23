@@ -148,7 +148,7 @@ aws ssm update-maintenance-window ^
     --window-id mw-0c50858d01EXAMPLE ^
     --schedule "rate(7 days)"
 ```
-For information about managing maintenance window schedules, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  
+For information about managing maintenance window schedules, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  
 For information about using the AWS CLI to modify a maintenance window, see [Tutorial: Update a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
 
 For practice running AWS CLI commands to view more details about your maintenance window task and its executions, continue to [Tutorial: View information about tasks and task executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)\.

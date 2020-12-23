@@ -2,6 +2,9 @@
 
 You can register a Systems Manager Run Command task with a maintenance window using the AWS CLI, as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
 
+**Note**  
+You must specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+
 In this topic, we provide examples of using the `register-task-with-maintenance-window` CLI command to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
 
 **Using the \-\-cli\-input\-json option**  
@@ -134,13 +137,11 @@ The following command restarts EC2 instances that belong to the maintenance wind
 
 ```
 aws ssm register-task-with-maintenance-window \
-    --window-id "mw-0c50858d01EXAMPLE" \
-    --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
     --task-arn "AWS-RestartEC2Instance" \
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
     --task-type AUTOMATION \
     --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{RESOURCE_ID}}'}}" \
-    --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" \
+    --priority 0 --name "My-Restart-EC2-Instances-Automation-Task" \
     --description "Automation task to restart EC2 instances"
 ```
 
@@ -150,12 +151,11 @@ aws ssm register-task-with-maintenance-window \
 ```
 aws ssm register-task-with-maintenance-window ^
     --window-id "mw-0c50858d01EXAMPLE" ^
-    --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
-    --task-arn "AWS-RestartEC2Instance" ^
+   --task-arn "AWS-RestartEC2Instance" ^
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole ^
     --task-type AUTOMATION ^
     --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{TARGET_ID}}'}}" ^
-    --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" ^
+    --priority 0 --name "My-Restart-EC2-Instances-Automation-Task" ^
     --description "Automation task to restart EC2 instances"
 ```
 
@@ -166,19 +166,8 @@ aws ssm register-task-with-maintenance-window ^
 ```
 {
     "WindowId": "mw-0c50858d01EXAMPLE",
-    "Targets": [
-        {
-            "Key": "WindowTargetIds",
-            "Values": [
-                "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
-            ]
-        }
-    ],
-    "TaskArn": "AWS-PatchInstanceWithRollback",
-    "TaskType": "AUTOMATION",
-    "MaxConcurrency": "10",
-    "MaxErrors": "10",
-    "TaskInvocationParameters": {
+        "TaskArn": "AWS-PatchInstanceWithRollback",
+    "TaskType": "AUTOMATION","TaskInvocationParameters": {
         "Automation": {
             "DocumentVersion": "1",
             "Parameters": {

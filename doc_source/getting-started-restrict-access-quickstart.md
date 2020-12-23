@@ -37,7 +37,7 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/instance-id",
+                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
                 "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
@@ -92,7 +92,7 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/instance-id"
+                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE"
             ]
         },
         {
@@ -132,7 +132,7 @@ Use this sample policy to provider users with the ability to start sessions from
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/instance-id",
+                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
                 "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
@@ -223,7 +223,7 @@ Use this sample policy to provider administrators with the ability to perform se
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/*"
+                "arn:aws:ec2:us-west-2:987654321098:instance/*"
             ],
             "Condition": {
                 "StringLike": {
@@ -281,7 +281,7 @@ Use this sample policy to provider administrators with the ability to perform se
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/*"
+                "arn:aws:ec2:us-west-2:987654321098:instance/*"
             ],
             "Condition": {
                 "StringLike": {
@@ -328,7 +328,7 @@ Use this sample policy to provider administrators with the ability to perform se
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
-                "arn:aws:ec2:*:*:instance/*"
+                "arn:aws:ec2:us-west-2:987654321098:instance/*"
             ],
             "Condition": {
                 "StringLike": {

@@ -23,6 +23,20 @@ On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 `%ProgramFiles%\Amazon\SSM\seelog.xml.template`
 
 1. Change the file name from `seelog.xml.template` to `seelog.xml`\.
+**Note**  
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following three commands:  
+
+   ```
+   sudo mkdir -p /etc/amazon/ssm
+   ```
+
+   ```
+   sudo cp -pr /snap/amazon-ssm-agent/current/* /etc/amazon/ssm
+   ```
+
+   ```
+   sudo cp -p /etc/amazon/ssm/seelog.xml.template /etc/amazon/ssm/seelog.xml
+   ```
 
 1. Open the `seelog.xml` file in a text editor, and locate the following section\.
 

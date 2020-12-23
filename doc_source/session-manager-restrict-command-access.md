@@ -176,8 +176,8 @@ You can create IAM policies that allow users to access only the `Session` docume
          "Effect":"Allow",
          "Action":"ssm:StartSession",
          "Resource":[
-            "arn:aws:ec2:us-west-2:987654321098:instance/i-02573cafcfEXAMPLE",
-            "arn:aws:ssm:us-west-2:987654321098:document/exampleAllowedSessionDocument"
+            "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
+            "arn:aws:ssm:region:987654321098:document/exampleAllowedSessionDocument"
          ],
          "Condition":{
             "BoolIfExists":{

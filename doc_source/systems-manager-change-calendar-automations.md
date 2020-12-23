@@ -9,7 +9,7 @@ mainSteps:
     inputs:
       Service: ssm
       Api: GetCalendarState
-      CalendarNames: 'arn:aws:ssm:us-east-1:123456789012:document/SaleDays'
+      CalendarNames: ["arn:aws:ssm:us-east-1:123456789012:document/SaleDays"]
       PropertySelector: '$.State'
       DesiredValues:
       - OPEN

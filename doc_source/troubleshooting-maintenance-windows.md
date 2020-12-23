@@ -5,6 +5,7 @@ Use the following information to help you troubleshoot problems with maintenance
 **Topics**
 + [Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."](#maintenance-window-role-troubleshooting)
 + [Not all maintenance window targets are updated](#targets-not-updated)
++ [Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"](#maxconcurrency-maxerrors-not-supported)
 
 ## Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."<a name="maintenance-window-role-troubleshooting"></a>
 
@@ -19,8 +20,17 @@ Use the following information to help you troubleshoot problems with maintenance
 ## Not all maintenance window targets are updated<a name="targets-not-updated"></a>
 
 **Problem:** You notice that maintenance window tasks didn't run on all the resources targeted by your maintenance window\. For example, in the maintenance window run results, the task for that resource is marked as failed or timed out\.
-+ **Solution:** The most common reasons for a maintenance window task not running on a target resource involve connectivity and availability\. For example:
-  + Systems Manager lost connection to the resource before or during the maintenance window operation\.
-  + The resource was offline or stopped during the maintenance window operation\.
+
+**Solution:** The most common reasons for a maintenance window task not running on a target resource involve connectivity and availability\. For example:
++ Systems Manager lost connection to the resource before or during the maintenance window operation\.
++ The resource was offline or stopped during the maintenance window operation\.
 
 You can wait for the next scheduled maintenance window time to run tasks on the resources\. You can manually run the maintenance window tasks on the resources that weren't available or were offline\.
+
+## Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"<a name="maxconcurrency-maxerrors-not-supported"></a>
+
+**Problem:** When you register a Run Command\-type task, you must specify at least one target for the task to run on\. For other task types \(Automation, AWS Lambda, and AWS Step Functions\), depending on the nature of the task, targets are optional\. The options MaxConcurrency \(the number of resources to run a task on at the same time\) and MaxErrors \(the number of failures to run the task on target resources before the task fails\) are not required or supported for maintenance window tasks that do not specify targets\. The system generates these error messages if values are specified for either of these options when no task target is specified\.
+
+**Solution**: If you receive either of these errors, remove the values for concurrency and error threshhold before continuing to register or update the maintenance window task\.
+
+For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md) in the *AWS Systems Manager User Guide*\.

@@ -8,7 +8,7 @@ AWS Systems Manager Maintenance Windows let you define a schedule for when to pe
 
 Each maintenance window has a schedule, a maximum duration, a set of registered targets \(the instances or other AWS resources that are acted upon\), and a set of registered tasks\. You can add tags to your maintenance windows when you create or update them\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can also specify dates that a maintenance window should not run before or after, and you can specify the international time zone on which to base the maintenance window schedule\. 
 
-For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
+For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
 
 For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
@@ -26,6 +26,9 @@ Maintenance windows support running four types of tasks:
 + AWS Step Functions tasks
 
   For more information about Step Functions, see the *[AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/)*\.
+
+**Note**  
+One or more targets must be specified for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 This means you can use maintenance windows to perform tasks like the following on your selected targets:
 + Install or update applications\.
@@ -45,5 +48,6 @@ This Systems Manager capability is supported as an *event* type in EventBridge r
 + [Working with maintenance windows \(console\)](sysman-maintenance-working.md)
 + [Systems Manager Maintenance Windows tutorials \(AWS CLI\)](maintenance-windows-tutorials.md)
 + [Maintenance window walkthroughs](maintenance-window-walkthroughs.md)
-+ [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)
++ [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)
++ [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)
 + [Troubleshooting maintenance windows](troubleshooting-maintenance-windows.md)

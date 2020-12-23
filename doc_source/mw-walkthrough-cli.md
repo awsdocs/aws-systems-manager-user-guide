@@ -71,7 +71,7 @@ Use the following procedure to create a maintenance window and specify its basic
 
    For information about creating cron expressions for the `schedule` parameter, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Reference: Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
+   For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
 
    For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 

@@ -1,14 +1,14 @@
-# Running automations with triggers using Maintenance Windows<a name="automation-mw-target"></a>
+# Running automations with triggers using a maintenance window<a name="automation-mw-target"></a>
 
 You can start an automation by configuring a runbook as a registered task for a maintenance window\. By registering the runbook as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
 
-For example, let's say you create a runbook named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* runbook \(and corresponding automation\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* runbook as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation and creates an AMI of the registered targets\.
+For example, let's say you create a runbook named `CreateAMI` that creates an Amazon Machine Image \( AMI\) of instances registered as targets to the maintenance window\. To specify the `CreateAMI` runbook \(and corresponding automation\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the `CreateAMI` document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation and creates an AMI of the registered targets\.
 
-For information about creating runbooks, see [Working with runbooks](automation-documents.md)\.
+For information about creating Automation runbooks, see [Working with runbooks](automation-documents.md)\.
 
 Use the following procedures to configure an automation as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
-## Registering an automation task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
+## Registering an Automation task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
 
 The following procedure describes how to use the Systems Manager console to configure an automation as a registered task for a maintenance window\.
 
@@ -21,7 +21,7 @@ Before you complete the following procedure, you must create a maintenance windo
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the left navigation pane, choose **Maintenance Windows**, and then choose the maintenance window you want to register an automation task with\.
+1. In the left navigation pane, choose **Maintenance Windows**, and then choose the maintenance window you want to register an Automation task with\.
 
 1. Choose **Actions**\. Then choose **Register Automation task** to run your choice of an automation on targets by using a runbook\.
 
@@ -33,18 +33,24 @@ Before you complete the following procedure, you must create a maintenance windo
 
 1. For **Document version**, choose the runbook version to use\.
 
-1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order; tasks that have the same priority are scheduled in parallel\.
+1. For **Task priority**, specify a priority for this task\. `1` is the highest priority\. Tasks in a maintenance window are scheduled in priority order; tasks that have the same priority are scheduled in parallel\.
 
-1. In the **Targets** section, identify the targets on which you want to run this automation by specifying tags or by selecting instances manually\.
-**Important**  
-If you choose a runbook that doesn't target managed instances, you must still select at least one maintenance window target\. In this situation, we recommend registering a target for a tag key\-value pair that is not used by your managed instances\.   
-For example, if you choose the runbook `AWS-CopySnapshot`, then the resulting automation targets Amazon Elastic Block Store \(EBS\) snapshots instead of managed instances\. In this case, you can register a target to your maintenance window, which targets a tag key\-value pair that is not used by your managed instances, such as key=MaintenanceWindow and value=Snapshot\.
+1. In the **Targets** section, if the runbook you chose is one that runs tasks on resources, identify the targets on which you want to run this automation by specifying tags or by selecting instances manually\.
+
+   If you chose a runbook that doesn't run tasks on resources, you do not need to specify a maintenance window target\. 
+**Note**  
+Automation tasks more commonly don't need a target specified explicitly for a task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
+
+   For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 1. \(Optional\) For **Rate control**:
-   + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation at the same time\.
 **Note**  
-If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.  
-When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
+If the task you are running does not specify targets, you do not need to specify rate controls\.
+   + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation at the same time\.
+
+     If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
+
+     When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.
 
 1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the automation:
@@ -71,7 +77,7 @@ For example, the service\-linked role for Systems Manager doesn't have the IAM p
 
 1. Choose **Register Automation task**\.
 
-## Registering an automation task to a maintenance window \(command line\)<a name="automation-mw-target-commandline"></a>
+## Registering an Automation task to a maintenance window \(command line\)<a name="automation-mw-target-commandline"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to configure an automation as a registered task for a maintenance window\.
 
@@ -106,7 +112,9 @@ Before you complete the following procedure, you must create a maintenance windo
    ```
 
 **Note**  
-If you configure an automation as a registered task by using the AWS CLI, use the `--Task-Invocation-Parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--Task-Parameters` parameter\. The `--Task-Parameters` parameter is a legacy parameter\.
+If you configure an automation as a registered task by using the AWS CLI, use the `--Task-Invocation-Parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--Task-Parameters` parameter\. The `--Task-Parameters` parameter is a legacy parameter\.  
+For maintenance window tasks without a target specified, you cannot supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which may be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values do not affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 #### [ Windows ]
@@ -126,7 +134,9 @@ If you configure an automation as a registered task by using the AWS CLI, use th
    ```
 
 **Note**  
-If you configure an automation as a registered task by using the AWS CLI, use the `--Task-Invocation-Parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--Task-Parameters` parameter\. The `--Task-Parameters` parameter is a legacy parameter\.
+If you configure an automation as a registered task by using the AWS CLI, use the `--task-invocation-parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--task-parameters` parameter\. The `--task-parameters` parameter is a legacy parameter\.  
+For maintenance window tasks without a target specified, you cannot supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which may be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values do not affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 #### [ PowerShell ]
@@ -146,11 +156,13 @@ If you configure an automation as a registered task by using the AWS CLI, use th
    ```
 
 **Note**  
-If you configure an automation as a registered task by using the AWS Tools for PowerShell, use the `-Automation_Parameter` parameter to specify parameters to pass to a task when the task runs\. Don't use the `-TaskParameters` parameter\. The `-TaskParameters` parameter is a legacy parameter\.
+If you configure an automation as a registered task by using the AWS Tools for PowerShell, use the `-Automation_Parameter` parameter to specify parameters to pass to a task when the task runs\. Don't use the `-TaskParameters` parameter\. The `-TaskParameters` parameter is a legacy parameter\.  
+For maintenance window tasks without a target specified, you cannot supply values for `-MaxError` and `-MaxConcurrency`\. Instead, the system inserts a placeholder value of 1, which may be reported in the response to commands such as `Get-SSMMaintenanceWindowTaskList` and `Get-SSMMaintenanceWindowTask`\. These values do not affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 
-   The following example configures an automation as a registered task to a maintenance window with priority 1\. The automation uses the `AWS-StartEC2Instance` runbook and the specified Automation assume role to start EC2 instances registered as targets to the maintenance window\. The maintenance window runs the automation simultaneously on 5 instances maximum at any given time\. Also, the registered task stops running on more instances for a particular interval if the error count exceeds 1\.
+   The following example configures an automation as a registered task to a maintenance window with priority 1\. It also demonstrates omitting the `--targets`, `--max-errors`, and `--max-concurrency` options for a targetless maintenance window task\. The automation uses the `AWS-StartEC2Instance` runbook and the specified Automation assume role to start EC2 instances registered as targets to the maintenance window\. The maintenance window runs the automation simultaneously on 5 instances maximum at any given time\. Also, the registered task stops running on more instances for a particular interval if the error count exceeds 1\.
 
 ------
 #### [ Linux ]
@@ -160,13 +172,10 @@ If you configure an automation as a registered task by using the AWS Tools for P
        --window-id mw-0c50858d01EXAMPLE \
        --name StartEC2Instances \
        --task-arn AWS-StartEC2Instance \
-       --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
        --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole \
        --task-type AUTOMATION \
        --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" \
-       --priority 1 \
-       --max-concurrency 5 \
-       --max-errors 1
+       --priority 1
    ```
 
 ------
@@ -177,13 +186,10 @@ If you configure an automation as a registered task by using the AWS Tools for P
        --window-id mw-0c50858d01EXAMPLE ^
        --name StartEC2Instances ^
        --task-arn AWS-StartEC2Instance ^
-       --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
        --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole ^
        --task-type AUTOMATION ^
        --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" ^
-       --priority 1 ^
-       --max-concurrency 5 ^
-       --max-errors 1
+       --priority 1
    ```
 
 ------
@@ -194,13 +200,10 @@ If you configure an automation as a registered task by using the AWS Tools for P
        -WindowId mw-0c50858d01EXAMPLE `
        -Name "StartEC2" `
        -TaskArn "AWS-StartEC2Instance" `
-       -Target @{ Key="WindowTargetIds";Values="e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" } `
        -ServiceRoleArn "arn:aws:iam::123456789012:role/MaintenanceWindowRole" `
        -TaskType "AUTOMATION" `
        -Automation_Parameter @{ "InstanceId"="{{TARGET_ID}}";"AutomationAssumeRole"="arn:aws:iam::123456789012:role/AutomationAssumeRole" } `
-       -Priority 1 `
-       -MaxConcurrency 5 `
-       -MaxError 1
+       -Priority 1
    ```
 
 ------
@@ -274,19 +277,13 @@ If you configure an automation as a registered task by using the AWS Tools for P
                "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
                "MaxErrors": "1",
                "TaskArn": "AWS-StartEC2Instance",
-               "MaxConcurrency": "5",
+               "MaxConcurrency": "1",
                "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
                "TaskParameters": {},
-               "Priority": 0,
+               "Priority": 1,
                "WindowId": "mw-0c50858d01EXAMPLE",
                "Type": "AUTOMATION",
                "Targets": [
-                   {
-                       "Values": [
-                           "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
-                       ],
-                       "Key": "WindowTargetIds"
-                   }
                ],
                "Name": "StartEC2"
            }
@@ -304,19 +301,13 @@ If you configure an automation as a registered task by using the AWS Tools for P
                "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
                "MaxErrors": "1",
                "TaskArn": "AWS-StartEC2Instance",
-               "MaxConcurrency": "5",
+               "MaxConcurrency": "1",
                "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
                "TaskParameters": {},
-               "Priority": 0,
+               "Priority": 1,
                "WindowId": "mw-0c50858d01EXAMPLE",
                "Type": "AUTOMATION",
                "Targets": [
-                   {
-                       "Values": [
-                           "e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE"
-                       ],
-                       "Key": "WindowTargetIds"
-                   }
                ],
                "Name": "StartEC2"
            }
@@ -335,7 +326,7 @@ If you configure an automation as a registered task by using the AWS Tools for P
    Name           : StartEC2
    Priority       : 1
    ServiceRoleArn : arn:aws:iam::123456789012:role/MaintenanceWindowRole
-   Targets        : {WindowTargetIds}
+   Targets        : {}
    TaskArn        : AWS-StartEC2Instance
    TaskParameters : {}
    Type           : AUTOMATION
