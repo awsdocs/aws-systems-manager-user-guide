@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableRedshiftClusterAutomatedSnapshot Automation document enables automated snapshots for the Amazon Redshift cluster you specify\.
+The AWSConfigRemediation\-EnableRedshiftClusterAutomatedSnapshot runbook enables automated snapshots for the Amazon Redshift cluster you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterAutomatedSnapshot)
 

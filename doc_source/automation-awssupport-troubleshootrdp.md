@@ -2,10 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootRDP automation document allows the user to check or modify common settings on the target instance which may impact Remote Desktop Protocol \(RDP\) connections, such as the RDP port, Network Layer Authentication \(NLA\) and Windows Firewall profiles\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the document reads and outputs the values of the settings\.
+The AWSSupport\-TroubleshootRDP runbook allows the user to check or modify common settings on the target instance which may impact Remote Desktop Protocol \(RDP\) connections, such as the RDP port, Network Layer Authentication \(NLA\) and Windows Firewall profiles\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the runbook reads and outputs the values of the settings\.
 
 **Important**  
-Changes to the RDP settings, RDP service and Windows Firewall profiles should be carefully reviewed before running this document\.
+Changes to the RDP settings, RDP service and Windows Firewall profiles should be carefully reviewed before using this runbook\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP)
 

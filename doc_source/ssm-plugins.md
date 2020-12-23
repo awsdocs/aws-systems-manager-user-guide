@@ -1,12 +1,12 @@
 # Systems Manager Command document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command document\. These plugins cannot be used in SSM Automation documents, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
+This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins cannot be used in SSM Automation documents, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Note**  
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.   
-Currently, only the following document plugins are supported on EC2 instances for macOS:  
+Currently, only the following document plugins are supported on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for macOS:  
 `aws:refreshAssociation`
 `aws:runShellScript`
 `aws:runPowerShellScript`
@@ -14,6 +14,7 @@ Currently, only the following document plugins are supported on EC2 instances fo
 `aws:updateSsmAgent`
 
 **Topics**
++ [Shared inputs](#shared-inputs)
 + [aws:applications](#aws-applications)
 + [aws:cloudWatch](#aws-cloudWatch)
 + [aws:configureDocker](#aws-configuredocker)
@@ -29,6 +30,109 @@ Currently, only the following document plugins are supported on EC2 instances fo
 + [aws:softwareInventory](#aws-softwareinventory)
 + [aws:updateAgent](#aws-updateagent)
 + [aws:updateSsmAgent](#aws-updatessmagent)
+
+## Shared inputs<a name="shared-inputs"></a>
+
+All plugins can use the following inputs:
+
+**finallyStep**  
+The last step you want the document to run\. If this input is defined for a step, it takes precedence over an `exit` value specified in the `onFailure` or `onSuccess` inputs\. In order for a step with this input to run as expected, the step must be the last one defined in the `mainSteps` of your document\.  
+Type: Boolean  
+Valid values: `true` \| `false`  
+Required: No
+
+**onFailure**  
+If you specify this input for a plugin with the `exit` value and the step fails, the step status reflects the failure and the document does not run any remaining steps unless a `finallyStep` has been defined\. If you specify this input for a plugin with the `successAndExit` value and the step fails, the step status shows successful and the document does not run any remaining steps unless a `finallyStep` has been defined\.  
+Type: String  
+Valid values: `exit` \| `successAndExit`  
+Required: No
+
+**onSuccess**  
+If you specify this input for a plugin and the step completes successfully, the document does not run any remaining steps unless a `finallyStep` has been defined\.  
+Type: String  
+Valid values: `exit`  
+Required: No
+
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '2.2'
+description: Shared inputs example
+parameters:
+  customDocumentParameter:
+    type: String
+    description: Example parameter for a custom Command-type document.
+mainSteps:
+- action: aws:runDocument
+  name: runCustomConfiguration
+  inputs:
+    documentType: SSMDocument
+    documentPath: "yourCustomDocument"
+    documentParameters: '"documentParameter":{{customDocumentParameter}}}'
+    onSuccess: exit
+- action: aws:runDocument
+  name: ifConfigurationFailure
+  inputs:
+    documentType: SSMDocument
+    documentPath: "yourCustomRepairDocument"
+    onFailure: exit
+- action: aws:runDocument
+  name: finalConfiguration
+  inputs:
+    documentType: SSMDocument
+    documentPath: "yourCustomFinalDocument"
+    finallyStep: true
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion": "2.2",
+   "description": "Shared inputs example",
+   "parameters": {
+      "customDocumentParameter": {
+         "type": "String",
+         "description": "Example parameter for a custom Command-type document."
+      }
+   },
+   "mainSteps":[
+      {
+         "action": "aws:runDocument",
+         "name": "runCustomConfiguration",
+         "inputs": {
+            "documentType": "SSMDocument",
+            "documentPath": "yourCustomDocument",
+            "documentParameters": "\"documentParameter\":{{customDocumentParameter}}}",
+            "onSuccess": "exit"
+         }
+      },
+      {
+         "action": "aws:runDocument",
+         "name": "ifConfigurationFailure",
+         "inputs": {
+            "documentType": "SSMDocument",
+            "documentPath": "yourCustomRepairDocument",
+            "onFailure": "exit"
+         }
+      },
+      {
+         "action": "aws:runDocument",
+         "name":"finalConfiguration",
+         "inputs": {
+            "documentType": "SSMDocument",
+            "documentPath": "yourCustomFinalDocument",
+            "finallyStep": true
+         }
+      }
+   ]
+}
+```
+
+------
 
 ## aws:applications<a name="aws-applications"></a>
 

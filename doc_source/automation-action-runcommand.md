@@ -3,7 +3,7 @@
 Runs the specified commands\.
 
 **Note**  
-Automation only supports *output* of one Run Command action\. A document can include multiple Run Command actions, but output is supported for only one action at a time\.
+Automation only supports *output* of one Run Command action\. A runbook can include multiple Run Command actions, but output is supported for only one action at a time\.
 
 **Input**  
 This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.
@@ -180,7 +180,7 @@ The configurations for sending notifications\.
 Required: No
 
 OutputS3BucketName  
-The name of the S3 bucket for command execution responses\.  
+The name of the S3 bucket for command output responses\.  
 Type: String  
 Required: No
 

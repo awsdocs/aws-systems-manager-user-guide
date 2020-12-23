@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DeleteLambdaFunction Automation document deletes the AWS Lambda function you specify\.
+The AWSConfigRemediation\-DeleteLambdaFunction runbook deletes the AWS Lambda function you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteLambdaFunction)
 

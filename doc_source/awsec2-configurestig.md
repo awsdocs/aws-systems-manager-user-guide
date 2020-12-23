@@ -2,7 +2,7 @@
 
 Security Technical Implementation Guides \(STIGs\) are the configuration standards created by the Defense Information Systems Agency \(DISA\) to secure information systems and software\. To make your systems compliant with STIG standards, you must install, configure, and test a variety of security settings\. 
 
-Amazon EC2 provides an SSM document, AWSEC2\-ConfigureSTIG, to apply STIG to an instance to help you quickly build compliant images for STIG standards\. The STIG SSM document scans for misconfigurations and runs a remediation script\. The STIG SSM document installs InstallRoot on Windows AMIs from the Department of Defense \(DoD\) to install and update the DoD certificates and remove unnecessary certificates to maintain STIG compliance\. There are no additional charges for using the STIG SSM document\. 
+Amazon EC2 provides a runbook, AWSEC2\-ConfigureSTIG, to apply STIG to an instance to help you quickly build compliant images for STIG standards\. The STIG runbook scans for misconfigurations and runs a remediation script\. The STIG runbook installs InstallRoot on Windows AMIs from the Department of Defense \(DoD\) to install and update the DoD certificates and remove unnecessary certificates to maintain STIG compliance\. There are no additional charges for using the STIG runbook\. 
 
 You can choose the STIG compliance category to apply\. 
 

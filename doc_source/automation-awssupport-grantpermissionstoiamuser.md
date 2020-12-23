@@ -2,7 +2,7 @@
 
  **Description** 
 
-This document grants the specified permissions to an IAM group \(new or existing\), and adds the existing IAM user to it\. Policies you can choose from: [Billing](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary) or [Support](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary)\. To enable billing access for IAM, remember to also activate [IAM user and federated user access to the Billing and Cost Management pages](https://docs.aws.amazon.com/console/iam/billing-enable)\.
+This runbook grants the specified permissions to an IAM group \(new or existing\), and adds the existing IAM user to it\. Policies you can choose from: [Billing](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary) or [Support](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary)\. To enable billing access for IAM, remember to also activate [IAM user and federated user access to the Billing and Cost Management pages](https://docs.aws.amazon.com/console/iam/billing-enable)\.
 
 **Important**  
 If you provide an existing IAM group, all current IAM users in the group receive the new permissions\.
@@ -123,7 +123,7 @@ It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed po
 
  **Using AutomationAssumeRole and LambdaAssumeRole** 
 
-The user must have the **ssm:ExecuteAutomation** permissions on the document, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole**\. Here are the permissions each IAM role needs: 
+The user must have the **ssm:ExecuteAutomation** permissions on the runbook, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole**\. Here are the permissions each IAM role needs: 
 
 ```
 AutomationAssumeRole

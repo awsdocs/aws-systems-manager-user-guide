@@ -11,6 +11,7 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
 
 1. Log into an instance and locate the following file:
 
+**Linux**  
 On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 
    On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`\.

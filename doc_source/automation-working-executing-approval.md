@@ -1,13 +1,13 @@
 # Running an automation with approvers<a name="automation-working-executing-approval"></a>
 
-The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an AWS Systems Manager Automation workflow with approvals using simple execution\. The workflow uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
+The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation with approvals using simple execution\. The automation uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to use this runbook\.
 
 **Note**  
 For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
 **Before You Begin**  
-In addition to the standard inputs required by the Automation document, the `aws:approve` action requires the following two parameters: 
-+ A list of approvers\. The list of approvers must contain at least one approver in the form of an IAM user or a user ARN\. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the Automation document\. 
+In addition to the standard inputs required by the runbook, the `aws:approve` action requires the following two parameters: 
++ A list of approvers\. The list of approvers must contain at least one approver in the form of an IAM user or a user ARN\. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the runbook\. 
 + An Amazon Simple Notification Service \(Amazon SNS\) topic ARN\. The Amazon SNS topic name must start with `Automation`\.
 
 This procedure assumes that you have already created an Amazon SNS topic, which is required to deliver the approval request\. For information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) in the *Amazon Simple Notification Service Developer Guide*\.
@@ -37,7 +37,7 @@ You can view information about a document by choosing the document name\.
 
 1. In the **Input parameters** section, specify the required input parameters\.
 
-   For example, if you chose the **AWS\-StartEC2InstanceWithApproval** document, then you must specify or choose instance IDs for the **InstanceId** parameter\. 
+   For example, if you chose the **AWS\-StartEC2InstanceWithApproval** runbook, then you must specify or choose instance IDs for the **InstanceId** parameter\. 
 
 1. In the **Approvers** section, specify the IAM users or user ARNs of approvers for the automation action\.
 
@@ -49,7 +49,7 @@ You can view information about a document by choosing the document name\.
 
 The specified approver receives an Amazon SNS notification with details to approve or reject the automation\. This approval action is valid for 7 days from the date of issue and can be issued using the Systems Manager console or the AWS Command Line Interface \(AWS CLI\)\.
 
-If you chose to approve the automation, the workflow continues to run the steps included in the specified Automation document\. The console displays the status of the automation\. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
+If you chose to approve the automation, the automation continues to run the steps included in the specified runbook\. The console displays the status of the automation\. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
 **To approve or deny an automation**
 
@@ -73,11 +73,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Use the following command to run an automation with approvers\. In the document name section, specify an Automation document that includes the automation action, `aws:approve`\.
+1. Use the following command to run an automation with approvers\. In the document name section, specify a runbook that includes the automation action, `aws:approve`\.
 
    For `Approvers`, specify the IAM users or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The SNS topic name must start with **Automation**\.
 **Note**  
-The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the document you choose\. 
+The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the runbook you choose\. 
 
 ------
 #### [ Linux ]

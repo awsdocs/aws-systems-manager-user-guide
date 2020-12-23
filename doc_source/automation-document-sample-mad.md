@@ -2,11 +2,11 @@
 
 To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
 
-The following sample AWS Systems Manager Automation document performs these actions\.
+The following sample AWS Systems Manager runbook performs these actions\.
 + Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers\.
-+ Uses the `aws:executeAwsApi` Automation action to call several AWS API actions to create the VPC architecture\. The domain controller instances are launched in private subnets, and connect to the internet using a NAT gateway\. This enables the SSM Agent on the instances to access the requisite Systems Manager endpoints\.
-+ Uses the `aws:waitForAwsResourceProperty` Automation action to confirm the instances launched by the previous action are `Online` for AWS Systems Manager\.
-+ Uses the `aws:runCommand` Automation action to configure the instances launched as Microsoft Active Directory domain controllers\.
++ Uses the `aws:executeAwsApi` automation action to call several AWS API actions to create the VPC architecture\. The domain controller instances are launched in private subnets, and connect to the internet using a NAT gateway\. This enables the SSM Agent on the instances to access the requisite Systems Manager endpoints\.
++ Uses the `aws:waitForAwsResourceProperty` automation action to confirm the instances launched by the previous action are `Online` for AWS Systems Manager\.
++ Uses the `aws:runCommand` automation action to configure the instances launched as Microsoft Active Directory domain controllers\.
 
 ------
 #### [ YAML ]
@@ -22,7 +22,7 @@ parameters:
     description: >-
       (Optional) The ARN of the role that allows Automation to perform the
       actions on your behalf. If no role is specified, Systems Manager
-      Automation uses your IAM permissions to run this document.
+      Automation uses your IAM permissions to run this runbook.
 mainSteps:
   - name: getLatestWindowsAmi
     action: aws:executeAwsApi
@@ -515,7 +515,7 @@ mainSteps:
   "parameters": {
     "AutomationAssumeRole": {
       "type": "String",
-      "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to execute this document.",
+      "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to run this runbook.",
       "default": ""
     }
   },

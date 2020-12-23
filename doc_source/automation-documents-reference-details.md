@@ -1,16 +1,16 @@
-# Automation document details reference<a name="automation-documents-reference-details"></a>
+# Runbook details reference<a name="automation-documents-reference-details"></a>
 
-This section includes topics that describe each of the Systems Manager Automation documents that are owned by AWS and AWS Support\. Each page provides an explanation of the required and optional parameters you can specify when using the document\. Each page also lists the steps in the document and the output of the execution, if any\. 
+This section includes topics that describe each of the Systems Manager runbooks that are owned by AWS, AWS Support, and AWS Config\. Each page provides an explanation of the required and optional parameters you can specify when using the runbook\. Each page also lists the steps in the runbook and the output of the automation, if any\. 
 
-This section does *not* include a separate page for documents that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval document\. Any document name that includes *WithApproval*, means the document includes the [aws:approve – Pause an execution for manual approval](automation-action-approve.md) action\. This action temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. 
+This section does *not* include a separate page for runbooks that require approval such as the AWS\-CreateManagedLinuxInstanceWithApproval or AWS\-StopEC2InstanceWithApproval runbook\. Any runbook name that includes *WithApproval*, means the runbook includes the [aws:approve – Pause an automation for manual approval](automation-action-approve.md) action\. This action temporarily pauses an automation until designated principals either approve or reject the action\. After the required number of approvals is reached, the automation resumes\. 
 
 For information about running Automation documents, see [Running a simple automation](automation-working-executing.md)\. For information about running Automation documents on multiple targets, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
 
-## View Automation document content<a name="view-automation-json"></a>
+## View runbook content<a name="view-automation-json"></a>
 
-You can view the content for Automation documents in the Systems Manager console\.
+You can view the content for runbooks in the Systems Manager console\.
 
-**To view Automation document content**
+**To view runbook content**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -20,12 +20,12 @@ You can view the content for Automation documents in the Systems Manager console
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. Choose a document, and then choose **View details**\.
+1. Choose a runbook, and then choose **View details**\.
 
 1. Choose the **Content** tab\.
 
 **Topics**
-+ [View Automation document content](#view-automation-json)
++ [View runbook content](#view-automation-json)
 + [AWSSupport\-ActivateWindowsWithAmazonLicense](automation-awssupport-activatewindowswithamazonlicense.md)
 + [AWS\-ASGEnterStandby](automation-aws-asgenterstandby.md)
 + [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)

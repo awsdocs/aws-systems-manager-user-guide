@@ -1,10 +1,10 @@
 # Running an automation by using delegated administration<a name="automation-walk-security-delegated"></a>
 
-When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the execution\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run automation is called *delegated administration*\.
+When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the automation\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run automation is called *delegated administration*\.
 
 When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more EC2 instances\. The automation restarts the instances, but the service role does not give the user permission to access those instances\.
 
-You can specify a service role at runtime when you run an automation, or you can create custom Automation documents and specify the service role directly in the document\. If you specify a service role, either at runtime or in an Automation document, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the automation\.
+You can specify a service role at runtime when you run an automation, or you can create custom runbooks and specify the service role directly in the runbook\. If you specify a service role, either at runtime or in a runbook, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the automation\.
 
 **Note**  
 You must specify a service role for automation that you expect to run longer than 12 hours\. If you start a long\-running automation in the context of a user, the user's temporary session expires after 12 hours\.
@@ -14,7 +14,7 @@ Delegated administration ensures elevated security and control of your AWS resou
 To properly illustrate how delegated administration can work in an organization, this topic describes the following tasks as though these tasks were performed by three different people in an organization:
 + Create a test IAM user account called AutomationRestrictedOperator \(Administrator\)\.
 + Create an IAM service role for Automation \(Administrator\)\.
-+ Create a simple Automation document \(based on a preexisting Automation document\) that specifies the service role \(SSM Document Author\)\.
++ Create a simple runbook \(based on a preexisting runbook\) that specifies the service role \(Runbook Author\)\.
 + Run the automation as the test user \(Restricted Operator\)\.
 
 In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here shows how delegated administration enables enhanced security in complex organizations\.
@@ -27,8 +27,8 @@ The procedures in this section link to topics in other AWS guides or other Syste
 **Topics**
 + [Create a test user account](#automation-walk-security-operator)
 + [Create an IAM service role for Automation](#automation-walk-security-service-role)
-+ [Create a custom Automation document](#automation-walk-security-document)
-+ [Run the custom Automation document](#automation-walk-security-execute)
++ [Create a custom runbook](#automation-walk-security-document)
++ [Run the custom runbook](#automation-walk-security-execute)
 
 ## Create a test user account<a name="automation-walk-security-operator"></a>
 
@@ -74,11 +74,11 @@ The following procedure links to other topics to help you create the service rol
 
 1. Note the service role Amazon Resource Name \(ARN\)\. You will specify this ARN in the next procedure\.
 
-## Create a custom Automation document<a name="automation-walk-security-document"></a>
+## Create a custom runbook<a name="automation-walk-security-document"></a>
 
-This section describes how to create a custom Automation document that restarts EC2 instances\. AWS provides a default SSM document for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that document to show you how to enter the service role in a document when you create your own\. By specifying the service role directly in the document, the user running the document does not require iam:PassRole permissions\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
+This section describes how to create a custom runbook that restarts EC2 instances\. AWS provides a runbook for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that runbook to show you how to enter the service role in a runbook when you create your own\. By specifying the service role directly in the runbook, the user does not require iam:PassRole permissions when using the runbook\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
 
-**To create a custom Automation document**
+**To create a custom runbook**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -90,7 +90,7 @@ This section describes how to create a custom Automation document that restarts 
 
 1. Choose **Create document**\. 
 
-1. In the **Name** field, type a name for the document, such as Restart\-EC2InstanceDemo\.
+1. In the **Name** field, type a name for the runbook, such as Restart\-EC2InstanceDemo\.
 
 1. In the **Document type** list, choose **Automation document**\. 
 
@@ -130,9 +130,9 @@ This section describes how to create a custom Automation document that restarts 
 
 1. Choose **Create document**\. 
 
-## Run the custom Automation document<a name="automation-walk-security-execute"></a>
+## Run the custom runbook<a name="automation-walk-security-execute"></a>
 
-The following procedure describes how to run the document you just created using the restricted operator role you created earlier in this topic\. The user can run the document you created earlier because their IAM account permissions enable them to see and run the document\. The user can't, however, log on to the instances that you will restart with this automation\.
+The following procedure describes how to run the runbook you just created using the restricted operator role you created earlier in this topic\. The user can run the runbook you created earlier because their IAM account permissions enable them to see and run the runbook\. The user can't, however, log on to the instances that you will restart with this automation\.
 
 1. In the [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/), copy the instance IDs for one or more instances that you want to restart by using the following automation\.
 
@@ -148,7 +148,7 @@ The following procedure describes how to run the document you just created using
 
 1. Choose **Execute automation**\. 
 
-1. Choose the custom Automation document you created earlier in this topic\. 
+1. Choose the custom runbook you created earlier in this topic\. 
 
 1. In the **Document details** section, verify that **Document version** is set to **1 \(Default\)**\. 
 

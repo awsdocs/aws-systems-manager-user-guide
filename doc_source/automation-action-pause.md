@@ -1,6 +1,6 @@
-# aws:pause – Pause an automation execution<a name="automation-action-pause"></a>
+# aws:pause – Pause an automation<a name="automation-action-pause"></a>
 
-This action pauses the Automation execution\. Once paused, the execution status is *Waiting*\. To continue the Automation execution, use the [SendAutomationSignal](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html) API action with the Resume signal type\. 
+This action pauses the automation\. Once paused, the automation status is *Waiting*\. To continue the automation, use the [SendAutomationSignal](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html) API action with the Resume signal type\. 
 
 **Input**  
 The input is as follows\.

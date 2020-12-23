@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DeleteUnusedIAMGroup automation document deletes an IAM group that does not contain any IAM users\.
+The AWSConfigRemediation\-DeleteUnusedIAMGroup runbook deletes an IAM group that does not contain any IAM users\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedIAMGroup)
 

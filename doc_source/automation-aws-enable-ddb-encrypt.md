@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableEncryptionOnDynamoDBTable Automation document encrypts an Amazon DynamoDB \(DynamoDB\) table using the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) you specify for the `KMSKeyId` parameter\.
+The AWSConfigRemediation\-EnableEncryptionOnDynamoDBTable runbook encrypts an Amazon DynamoDB \(DynamoDB\) table using the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) you specify for the `KMSKeyId` parameter\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEncryptionOnDynamoDBTable)
 

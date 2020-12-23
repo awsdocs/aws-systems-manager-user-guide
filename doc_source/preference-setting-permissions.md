@@ -12,6 +12,7 @@ An administrator can have the following policy to create and update preferences 
         {
             "Action": [
                 "ssm:CreateDocument",
+                "ssm:GetDocument",
                 "ssm:UpdateDocument",
                 "ssm:DeleteDocument"
             ],
@@ -34,6 +35,7 @@ Use the following policy to prevent end users in your account from updating or o
         {
             "Action": [
                 "ssm:CreateDocument",
+                "ssm:GetDocument",
                 "ssm:UpdateDocument",
                 "ssm:DeleteDocument"
             ],

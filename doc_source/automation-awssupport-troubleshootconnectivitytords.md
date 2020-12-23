@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootConnectivityToRDS Automation document diagnoses connectivity issues between an EC2 instance and an Amazon Relational Database Service instance\. The automation ensures the DB instance is available, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
+The AWSSupport\-TroubleshootConnectivityToRDS runbook diagnoses connectivity issues between an EC2 instance and an Amazon Relational Database Service instance\. The automation ensures the DB instance is available, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootConnectivityToRDS)
 
@@ -63,11 +63,11 @@ The `AutomationAssumeRole` requires the following actions to successfully run th
 + aws:executeScript \- Evaluates security group rules\.
 + aws:executeScript \- Evaluates network ACLs\.
 + aws:executeScript \- Evaluates route tables\.
-+ aws:sleep \- Ends the automation execution\.
++ aws:sleep \- Ends the automation\.
 
 **Outputs**
 
-getRDSInstanceProperties\.DBInstanceIdentifier \- The DB instance used in the automation execution\.
+getRDSInstanceProperties\.DBInstanceIdentifier \- The DB instance used in the automation\.
 
 getRDSInstanceProperties\.DBInstanceStatus \- The current status of the DBInstance\.
 

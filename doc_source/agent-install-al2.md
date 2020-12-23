@@ -1,14 +1,14 @@
 # Manually install SSM Agent on Amazon Linux 2 instances<a name="agent-install-al2"></a>
 
-Connect to your Amazon Linux 2 instance and perform the following steps to install SSM Agent\. 
-
-**Note**  
-If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
-
-Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Amazon Linux 2 instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **Important**  
-SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
+This topic provides commands for working with SSM Agent on Amazon Linux 2 instances\. Some of these commands are not supported on Amazon Linux instances\. Before continuing, ensure you are viewing the correct topic for your instance type\. For commands to run on Amazon Linux instances, see [Manually install SSM Agent on Amazon Linux instances](agent-install-al.md)\.
+
+**Before you begin**  
+Before you install SSM Agent on an Amazon Linux 2 instance, note the following:
++ SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
++ If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 **To install SSM Agent on Amazon Linux 2**  
 Use one of the following commands to download and run the SSM Agent installer\. 
@@ -51,7 +51,7 @@ ARM 64\-bit \(arm64\)
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
   ```
 
-After installing the agent, run the following command to determine if the SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
+After installing the agent, run the following command to determine if the SSM Agent is running on your Amazon Linux 2 instance\. The command should return the message amazon\-ssm\-agent is running\.
 
 ```
 sudo systemctl status amazon-ssm-agent

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableRedshiftClusterEncryption Automation document enables encryption on the Amazon Redshift cluster you specify using an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. This Automation document should only be used as a baseline to ensure that your Amazon Redshift clusters are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple clusters with different CMKs\. This automation cannot change the AWS KMS CMK used on an already encrypted cluster\. To change the AWS KMS CMK used to encrypt a cluster, you must first disable encryption on the cluster\.
+The AWSConfigRemediation\-EnableRedshiftClusterEncryption runbook enables encryption on the Amazon Redshift cluster you specify using an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. This runbook should only be used as a baseline to ensure that your Amazon Redshift clusters are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple clusters with different CMKs\. This runbook cannot change the AWS KMS CMK used on an already encrypted cluster\. To change the AWS KMS CMK used to encrypt a cluster, you must first disable encryption on the cluster\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterEncryption)
 

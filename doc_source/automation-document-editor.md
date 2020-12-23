@@ -1,15 +1,15 @@
-# Creating an Automation document using the Editor<a name="automation-document-editor"></a>
+# Creating a runbook using the Editor<a name="automation-document-editor"></a>
 
-If the AWS Systems Manager public Automation documents don't perform all the actions you want to perform on your AWS resources, you can create your own documents\. For example, you can use the editor to modify parameters, add additional steps to an existing Automation document, or combine multiple Automation documents into a single document\. If you're familiar with writing your own Automation documents in JSON or YAML, you can use the editor to enter the JSON or YAML document content\.
+If the AWS Systems Manager public runbooks don't perform all the actions you want to perform on your AWS resources, you can create your own runbooks\. For example, you can use the editor to modify parameters, add additional steps to an existing runbook, or combine multiple runbooks into a single runbook\. If you're familiar with writing your own runbooks in JSON or YAML, you can use the editor to enter the JSON or YAML runbook content\.
 
-For examples of custom Automation documents, see [Sample scenarios and custom Automation document solutions](automation-document-samples.md)\.
+For examples of custom runbooks, see [Sample scenarios and custom runbook solutions](automation-document-samples.md)\.
 
 **Note**  
-If your Automation document uses the `aws:executeScript` Automation action with the `Attachment` input parameter, you must use the AWS CLI or Document Builder to successfully create the document\.
+If your runbook uses the `aws:executeScript` automation action with the `Attachment` input parameter, you must use the AWS CLI or Document Builder to successfully create the runbook\.
 
-The following procedure describes how to use the editor to create an Automation document\.
+The following procedure describes how to use the editor to create a runbook\.
 
-**To create an Automation document using the editor**
+**To create a runbook using the editor**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -21,10 +21,10 @@ The following procedure describes how to use the editor to create an Automation 
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type a descriptive name for the document\.
+1. For **Name**, type a descriptive name for the runbook\.
 
 1. Choose the **Editor** tab, and choose **Edit**\.
 
-1. Enter the document content using JSON or YAML\.
+1. Enter the runbook content using JSON or YAML\.
 
 1. Choose **Create automation**\.

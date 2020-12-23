@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableEbsEncryptionByDefault Automation document enables encryption on all new Amazon Elastic Block Store \(Amazon EBS\) volumes in the AWS account and AWS Region where you run the automation\. Volumes that were created before you run the automation are not encrypted\.
+The AWSConfigRemediation\-EnableEbsEncryptionByDefault runbook enables encryption on all new Amazon Elastic Block Store \(Amazon EBS\) volumes in the AWS account and AWS Region where you run the automation\. Volumes that were created before you run the automation are not encrypted\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEbsEncryptionByDefault)
 

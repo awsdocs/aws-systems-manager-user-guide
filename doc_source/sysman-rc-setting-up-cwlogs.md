@@ -12,15 +12,19 @@ If you are using a custom policy on your instances, then you must update the pol
 
 ```
 {
+    "Effect": "Allow",
+    "Action": "logs:DescribeLogGroups",
+    "Resource": "*"
+},
+{
    "Effect":"Allow",
    "Action":[
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
-      "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
       "logs:PutLogEvents"
    ],
-   "Resource":"arn:aws:logs:::log-group:/aws/ssm/*"
+   "Resource":"arn:aws:logs:*:*:log-group:/aws/ssm/*"
 },
 ```
 
@@ -30,9 +34,29 @@ To specify CloudWatch Logs as the output when you send a command from the AWS Ma
 
 If you run commands by using the AWS CLI, then you must specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example:
 
+------
+#### [ Linux ]
+
 ```
-aws ssm send-command --document-name "AWS-RunPowerShellScript" --parameters commands=["echo helloWorld"] --targets "Key=instanceids,Values=an instance ID” --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
+aws ssm send-command \
+    --document-name "AWS-RunPowerShellScript" \
+    --parameters commands=["echo helloWorld"] \
+    --targets "Key=instanceids,Values=an instance ID” \
+    --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm send-command ^
+    --document-name "AWS-RunPowerShellScript" ^
+    --parameters commands=["echo helloWorld"] ^
+    --targets "Key=instanceids,Values=an instance ID” ^
+    --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
+```
+
+------
 
 ## Viewing command output in CloudWatch Logs<a name="sysman-rc-setting-up-cwlogs-view"></a>
 

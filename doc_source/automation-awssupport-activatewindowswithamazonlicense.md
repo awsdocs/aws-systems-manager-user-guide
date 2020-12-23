@@ -2,10 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-ActivateWindowsWithAmazonLicense automation document activates an EC2 instance for Windows Server with a license provided by Amazon\. The automation verifies and configures required key management service operating system settings and attempts activation\. This includes operating system routes to Amazon's key management servers and key management service operating system settings\. Setting the `AllowOffline` parameter to `True` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance\.
+The AWSSupport\-ActivateWindowsWithAmazonLicense runbook activates an EC2 instance for Windows Server with a license provided by Amazon\. The automation verifies and configures required key management service operating system settings and attempts activation\. This includes operating system routes to Amazon's key management servers and key management service operating system settings\. Setting the `AllowOffline` parameter to `True` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance\.
 
 **Note**  
-This document cannot be used on Bring Your Own License \(BYOL\) Windows Server instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
+This runbook cannot be used on Bring Your Own License \(BYOL\) Windows Server instances\. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/)\. 
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense)
 
@@ -76,7 +76,7 @@ It is recommended that the EC2 instance receiving the command has an IAM role wi
 
    1. \(Offline activation fix\) If the input instance is not a managed instance:
 
-      1. aws:assertAwsResourceProperty \- Verifies the AllowOffline flag is set to True\. If so, the offline fix starts, otherwise the workflow ends\.
+      1. aws:assertAwsResourceProperty \- Verifies the AllowOffline flag is set to True\. If so, the offline fix starts, otherwise the automation ends\.
 
       1. aws:executeAutomation \- Invoke AWSSupport\-StartEC2RescueWorkflow with the Windows activation offline fix script\. The script leverages EC2Config or EC2Launch depending on the OS version\.
 

@@ -2,12 +2,12 @@
 
 **Description**
 
-The `AWSEC2-SQLServerDBRestore` document restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud \(EC2\) Linux instance\. You may provide your own EC2 instance running SQL Server 2017 Linux\. If an EC2 instance is not provided, the automation workflow launches and configures a new Ubuntu 16\.04 EC2 instance with SQL Server 2017\. The automation supports restoring full, differential, and transactional log backups\. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided\.
+The `AWSEC2-SQLServerDBRestore` runbook restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud \(EC2\) Linux instance\. You may provide your own EC2 instance running SQL Server 2017 Linux\. If an EC2 instance is not provided, the automation launches and configures a new Ubuntu 16\.04 EC2 instance with SQL Server 2017\. The automation supports restoring full, differential, and transactional log backups\. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided\.
 
 To automate both backup and restore of an on\-premises SQL Server database to an EC2 instance running SQL Server 2017 Linux, you can use the AWS\-signed PowerShell script [samples/MigrateSQLServerToEC2Linux.zip](samples/MigrateSQLServerToEC2Linux.zip)\. 
 
 **Important**  
-This automation workflow resets the SQL Server server administrator \(SA\) user password every time the workflow runs\. After the automation workflow is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
+This runbook resets the SQL Server server administrator \(SA\) user password every time the automation runs\. After the automation is complete, you must set your own SA user password again before you connect to the SQL Server instance\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-SQLServerDBRestore)
 
@@ -24,8 +24,8 @@ Amazon
 Linux
 
 **Prerequisites**
-+ This Automation document only works with EC2 instances for Linux running SQL Server\.
-+ This Automation workflow must be run by a user with, at minimum, the permissions designated in the **Required IAM Permissions** section below\.
++ This runbook only works with EC2 instances for Linux running SQL Server\.
++ This runbook must be run by a user with, at minimum, the permissions designated in the **Required IAM Permissions** section below\.
 + If you are providing your own EC2 instance:
   + Configure the EC2 instance with an AWS Identity and Access Management \(IAM\) instance profile that has the `AmazonSSMManagedInstanceCore` managed policy attached\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
   + Verify that SSM Agent is installed on your EC2 instance\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.

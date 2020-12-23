@@ -2,7 +2,7 @@
 
 **Description**
 
-This document uses the HashiCorp [Packer](https://www.packer.io/) tool to validate, fix, or build packer templates that are used to create machine images\. This document uses Packer v1\.4\.4\.
+This runbook uses the HashiCorp [Packer](https://www.packer.io/) tool to validate, fix, or build packer templates that are used to create machine images\. This runbook uses Packer v1\.4\.4\.
 
 **Note**  
 If you specify a `vpc_id` value, you must also specify the `subnet_id` value of a public subnet\. Unless you modify your subnet's IPv4 public addressing attribute, you must also set `associate_public_ip_address` to true\.

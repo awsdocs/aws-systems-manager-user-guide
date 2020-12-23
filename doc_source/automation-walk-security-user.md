@@ -1,12 +1,12 @@
 # Running an automation as the current authenticated user<a name="automation-walk-security-user"></a>
 
-The following procedures describe how to run an automation that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. Running the automation in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to run the Automation document, and any actions called by the document\. If the IAM user has have administrator permissions in IAM, then you have permission to run this automation\.
+The following procedures describe how to run an automation that runs in the context of the current AWS Identity and Access Management \(IAM\) user using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. Running the automation in the context of the current IAM user means that you don't need to configure additional IAM permissions as long as IAM user has permission to use the runbook, and any actions called by the runbook\. If the IAM user has have administrator permissions in IAM, then you have permission to use this runbook\.
 
 ## Running an automation as the current authenticated user \(console\)<a name="automation-walk-security-user-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run an automation as the current authenticated user\.
 
-**To run the Automation document as the current authenticated user**
+**To use the runbook as the current authenticated user**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -25,7 +25,7 @@ You can view information about a document by choosing the document name\.
 
 1. In the **Execution Mode** section, choose **Simple execution**\.
 **Note**  
-This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control** or **Manual execution** and run the Automation workflow as the current authenticated user\.
+This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control** or **Manual execution** and run the automation as the current authenticated user\.
 
 1. In the **Input parameters** section, specify the required inputs\. To run the automation as the current authenticated user, do not specify an IAM service role for the value AutomationAssumeRole\.
 
@@ -48,8 +48,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name DocumentName \
-       --parameters ParametersRequiredByDocument
+       --document-name RunbookName \
+       --parameters ParametersRequiredByRunbook
    ```
 
 ------
@@ -57,8 +57,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name DocumentName ^
-       --parameters ParametersRequiredByDocument
+       --document-name RunbookName ^
+       --parameters ParametersRequiredByRunbook
    ```
 
 ------
@@ -66,13 +66,13 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-       -DocumentName DocumentName `
-       -Parameter ParametersRequiredByDocument
+       -DocumentName RunbookName `
+       -Parameter ParametersRequiredByRunbook
    ```
 
 ------
 
-   Here is an example using the document `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
+   Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
 
 ------
 #### [ Linux ]
@@ -132,7 +132,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to retrieve the status of the Automation workflow\.
+1. Run the following command to retrieve the status of the automation\.
 
 ------
 #### [ Linux ]

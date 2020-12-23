@@ -193,7 +193,7 @@ Type: MapList \(For more information, see [TagSpecification](https://docs.aws.am
 Required: No
 
 UserData  
-An execution script provided as a string literal value\. If a literal value is entered, then it must be Base64\-encoded\.  
+A script provided as a string literal value\. If a literal value is entered, then it must be Base64\-encoded\.  
 Type: String  
 Required: NoOutput
 

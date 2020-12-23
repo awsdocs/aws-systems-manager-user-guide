@@ -9,9 +9,9 @@ Be sure to follow Jenkins security best\-practices when configuring your instanc
 
 **Before You Begin**  
 Complete the following tasks before you configure Automation with Jenkins\.
-+ Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** automation document created in that example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting up Automation](automation-setup.md)\.
-+ After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The Automation workflow uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during execution\.
++ Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
++ After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The automation uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during the automation\.
 
 **To create a user account for the Jenkins server**
 
@@ -112,10 +112,10 @@ Use the following procedure to configure your Jenkins project to invoke Automati
 1. In the **Command** box, run an AWS CLI command like the following:
 
    ```
-   aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your document name --parameters parameters for the document
+   aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your runbook name --parameters parameters for the runbook
    ```
 
-   The following example command uses the **UpdateMyLatestWindowsAmi** document and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
+   The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
 
    ```
    aws --region region-id ssm start-automation-execution \

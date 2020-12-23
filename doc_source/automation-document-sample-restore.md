@@ -2,10 +2,10 @@
 
 The operating system on a root volume can become corrupted for various reasons\. For example, following a patching operation, instances may fail to boot successfully due to a corrupted kernel or registry\. Automating common troubleshooting tasks, like restoring a root volume from the latest snapshot taken before the patching operation, can reduce downtime and expedite your troubleshooting efforts\. AWS Systems Manager Automation actions can help you accomplish this\.
 
-The following sample AWS Systems Manager Automation document performs these actions\. 
-+ Uses the `aws:executeAwsApi` Automation action to retrieve details from the root volume of the instance\.
-+ Uses the `aws:executeScript` Automation action to retrieve the latest snapshot for the root volume\.
-+ Uses the `aws:branch` Automation action to continue the execution if a snapshot is found for the root volume\.
+The following sample AWS Systems Manager runbook performs these actions\. 
++ Uses the `aws:executeAwsApi` automation action to retrieve details from the root volume of the instance\.
++ Uses the `aws:executeScript` automation action to retrieve the latest snapshot for the root volume\.
++ Uses the `aws:branch` automation action to continue the automation if a snapshot is found for the root volume\.
 
 ------
 #### [ YAML ]
@@ -20,7 +20,7 @@ parameters:
     type: String
     description: "(Required) The ARN of the role that allows Automation to perform
       the actions on your behalf. If no role is specified, Systems Manager Automation
-      uses your IAM permissions to execute this document."
+      uses your IAM permissions to use this runbook."
     default: ''
   InstanceId:
       type: String
@@ -221,7 +221,7 @@ mainSteps:
    "parameters": {
       "AutomationAssumeRole": {
          "type": "String",
-         "description": "(Required) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to run this document.",
+         "description": "(Required) The ARN of the role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to run this runbook.",
          "default": ""
       },
       "InstanceId": {

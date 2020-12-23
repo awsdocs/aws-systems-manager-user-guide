@@ -2,15 +2,14 @@
 
  **Description** 
 
-This document disables default SSH and RDP ports that are opened to all IP addresses\.
+This runbook disables default SSH and RDP ports that are opened to all IP addresses\.
 
 **Important**  
-This document fails with an "InvalidPermission\.NotFound" error for security groups that meet both of the following criteria: 1\) The security group is located in a non\-default VPC; and 2\) The inbound rules for the security group don't specify open ports using all four of the following patterns:   
+This runbook fails with an "InvalidPermission\.NotFound" error for security groups that meet both of the following criteria: 1\) The security group is located in a non\-default VPC; and 2\) The inbound rules for the security group don't specify open ports using all four of the following patterns:   
 `0.0.0.0/0`
 `::/0`
 `SSH or RDP port + 0.0.0.0/0`
 `SSH or RDP port + ::/0`
-If the security group is located in a non\-default VPC and, for example, specifies open ports using only the `SSH or RDP port + 0.0.0.0/0` format, then the document fails to run\. 
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisablePublicAccessForSecurityGroup)
 

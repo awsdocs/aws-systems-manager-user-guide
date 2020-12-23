@@ -1,6 +1,6 @@
 # aws:waitForAwsResourceProperty – Wait on an AWS resource property<a name="automation-action-waitForAwsResourceProperty"></a>
 
-The `aws:waitForAwsResourceProperty` action enables your Automation workflow to wait for a specific resource state or event state before continuing the workflow\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation workflow](automation-aws-apis-calling.md)\.
+The `aws:waitForAwsResourceProperty` action enables your automation to wait for a specific resource state or event state before continuing the automation\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
 **Input**  
 Inputs are defined by the API action that you choose\.
@@ -79,6 +79,6 @@ Type: Integer, Boolean, String, StringList, StringMap, or MapList
 Required: Yes
 
 DesiredValues  
-The expected status or state on which to continue the Automation workflow\.  
+The expected status or state on which to continue the automation\.  
 Type: Varies  
 Required: Yes

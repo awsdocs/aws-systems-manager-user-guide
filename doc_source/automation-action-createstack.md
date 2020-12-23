@@ -20,6 +20,11 @@ inputs:
   StackName: myStack
   TemplateURL: http://s3.amazonaws.com/doc-example-bucket/myStackTemplate
   TimeoutInMinutes: 5
+  Parameters:
+    - ParameterKey: LambdaRoleArn
+      ParameterValue: "{{LambdaAssumeRole}}"
+    - ParameterKey: createdResource
+      ParameterValue: createdResource-{{automation:EXECUTION_ID}}
 ```
 
 ------
@@ -37,7 +42,16 @@ inputs:
         ],
         "StackName": "myStack",
         "TemplateURL": "http://s3.amazonaws.com/doc-example-bucket/myStackTemplate",
-        "TimeoutInMinutes": 5
+        "TimeoutInMinutes": 5,
+        "Parameters": [
+          {
+            "ParameterKey": "LambdaRoleArn",
+            "ParameterValue": "{{LambdaAssumeRole}}"
+          },
+          {
+            "ParameterKey": "createdResource",
+            "ParameterValue": "createdResource-{{automation:EXECUTION_ID}}"
+          }
     }
 }
 ```

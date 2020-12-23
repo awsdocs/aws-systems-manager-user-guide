@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableAccountAccessAnalyzer Automation document creates an AWS Identity and Access Management \(IAM\) Access Analyzer in your AWS account\. For information about Access Analyzer, see [Using AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) in the *IAM User Guide*\.
+The AWSConfigRemediation\-EnableAccountAccessAnalyzer runbook creates an AWS Identity and Access Management \(IAM\) Access Analyzer in your AWS account\. For information about Access Analyzer, see [Using AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) in the *IAM User Guide*\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAccountAccessAnalyzer)
 

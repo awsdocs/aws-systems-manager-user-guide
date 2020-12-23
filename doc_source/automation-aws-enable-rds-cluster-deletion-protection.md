@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableRDSClusterDeletionProtection Automation document enables deletion protection on the Amazon Relational Database Service \(Amazon RDS\) cluster you specify\. AWS Config must be enabled in the AWS Region where you run this automation\.
+The AWSConfigRemediation\-EnableRDSClusterDeletionProtection runbook enables deletion protection on the Amazon Relational Database Service \(Amazon RDS\) cluster you specify\. AWS Config must be enabled in the AWS Region where you run this automation\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRDSClusterDeletionProtection)
 

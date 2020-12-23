@@ -1,8 +1,8 @@
 # Running an automation manually<a name="automation-working-executing-manually"></a>
 
-The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run a Systems Manager Automation workflow using the manual execution mode\. By using the manual execution mode, the automation starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the workflow proceeds, which is useful if you need to review the result of a step before continuing\.
+The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation using the manual execution mode\. By using the manual execution mode, the automation starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the automation proceeds, which is useful if you need to review the result of a step before continuing\.
 
-The workflow runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the Automation document, and any actions called by the document\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
+The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
 
 **Note**  
 For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
@@ -34,11 +34,11 @@ You can view information about a document by choosing the document name\.
 
 1. Choose **Execute**\. 
 
-1. Choose **Execute this step** when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 3 of this procedure\. If the document has multiple steps, you must select **Execute this step** for each step for the workflow to proceed\.
+1. Choose **Execute this step** when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 3 of this procedure\. If the runbook has multiple steps, you must select **Execute this step** for each step for the automation to proceed\. Each time you choose **Execute this step** the action runs\.
 **Note**  
 The console displays the status of the automation\. If the automation fails to run a step, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
-1. After you complete all steps specified in the Automation document, choose **Complete and view results** to finish the automation and view the results\.
+1. After you complete all steps specified in the runbook, choose **Complete and view results** to finish the automation and view the results\.
 
 ## Running an automation step by step \(command line\)<a name="automation-working-executing-manually-commandline"></a>
 
@@ -84,7 +84,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   Here is an example using the document `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
+   Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
 
 ------
 #### [ Linux ]
@@ -147,7 +147,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the Automation document you chose in step 1 of this procedure\. If the document has multiple steps, you must run the following command for each step for the workflow to proceed\.
+1. Run the following command when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
 
 ------
 #### [ Linux ]
@@ -339,7 +339,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to complete the automation after all steps specified within the chosen Automation document have finished\.
+1. Run the following command to complete the automation after all steps specified within the chosen runbook have finished\.
 
 ------
 #### [ Linux ]

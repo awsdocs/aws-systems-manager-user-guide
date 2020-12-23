@@ -2,7 +2,7 @@
 
 The following example expands on how to update a Windows AMI, as described in [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
 
-The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the Automation workflow\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
+The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the automation\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
 
 **Before you begin**  
 Configure Automation roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
@@ -11,7 +11,7 @@ Configure Automation roles and, optionally, EventBridge for Automation\. For mor
 + [Task 1: Create a parameter in Systems Manager Parameter Store](#automation-pet1)
 + [Task 2: Create an IAM role for AWS Lambda](#automation-pet2)
 + [Task 3: Create an AWS Lambda function](#automation-pet3)
-+ [Task 4: Create an Automation document and patch the AMI](#automation-pet4)
++ [Task 4: Create a runbook and patch the AMI](#automation-pet4)
 
 ## Task 1: Create a parameter in Systems Manager Parameter Store<a name="automation-pet1"></a>
 
@@ -208,11 +208,11 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
 
-## Task 4: Create an Automation document and patch the AMI<a name="automation-pet4"></a>
+## Task 4: Create a runbook and patch the AMI<a name="automation-pet4"></a>
 
-Use the following procedure to create and run an Automation document that patches the AMI you specified for the **latestAmi** parameter\. After the Automation workflow completes, the value of **latestAmi** is updated with the ID of the newly\-patched AMI\. Subsequent executions use the AMI created by the previous execution\.
+Use the following procedure to create and run a runbook that patches the AMI you specified for the **latestAmi** parameter\. After the automation completes, the value of **latestAmi** is updated with the ID of the newly\-patched AMI\. Subsequent automations use the AMI created by the previous execution\.
 
-**To create an Automation document and patch an AMI**
+**To create a runbook and patch an AMI**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -228,7 +228,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. Choose the **Editor** tab, and then choose **Edit**\.
 
-1. Replace the default contents in the **Document editor** field with following JSON sample document\.
+1. Replace the default contents in the **Document editor** field with following JSON sample runbook\.
 **Note**  
 You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting up Automation](automation-setup.md)\.
 
@@ -333,7 +333,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
    }
    ```
 
-1. Choose **Create automation** to save the document\.
+1. Choose **Create automation** to save the runbook\.
 
 1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
@@ -347,4 +347,4 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Choose **Execute**\.
 
-1. After execution completes, choose **Parameter Store** in the navigation pane and confirm that the new value for `latestAmi` matches the value returned by the Automation workflow\. You can also verify the new AMI ID matches the Automation output in the **AMIs** section of the Amazon EC2 console\.
+1. After the automation completes, choose **Parameter Store** in the navigation pane and confirm that the new value for `latestAmi` matches the value returned by the automation\. You can also verify the new AMI ID matches the Automation output in the **AMIs** section of the Amazon EC2 console\.

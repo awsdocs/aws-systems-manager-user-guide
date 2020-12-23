@@ -1,6 +1,6 @@
 # Walkthrough: Using input transformers with Automation<a name="automation-transformers"></a>
 
-This Systems Manager Automation walkthrough shows how to use the input transformer feature of Amazon EventBridge to extract the `instance-id` of an EC2 instance from an instance state change event\. We use the input transformer to pass that data to the `AWS-CreateImage` Systems Manager Automation document target as the `InstanceId` input parameter\. The rule is triggered when any instance changes to the `stopped` state\.
+This Systems Manager Automation walkthrough shows how to use the input transformer feature of Amazon EventBridge to extract the `instance-id` of an EC2 instance from an instance state change event\. We use the input transformer to pass that data to the `AWS-CreateImage` runbook target as the `InstanceId` input parameter\. The rule is triggered when any instance changes to the `stopped` state\.
 
 For more information about working with input transformers, see [Tutorial: Use Input Transformer to Customize What is Passed to the Event Target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-input-transformer-tutorial.html) in the *Amazon EventBridge User Guide*\.
 

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DeleteEgressOnlyInternetGateway Automation document deletes the egress\-only internet gateway you specify\.
+The AWSConfigRemediation\-DeleteEgressOnlyInternetGateway runbook deletes the egress\-only internet gateway you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteEgressOnlyInternetGateway)
 

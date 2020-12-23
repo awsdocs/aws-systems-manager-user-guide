@@ -70,7 +70,7 @@ The JSON input for your Lambda function\.
 Required: NoOutput
 
 StatusCode  
-The function execution status code\.
+The HTTP status code\.
 
 FunctionError  
 Indicates whether an error occurred while running the Lambda function\. If an error occurred, this field will show either `Handled` or `Unhandled`\. `Handled` errors are reported by the function\. `Unhandled` errors are detected and reported by AWS Lambda\.

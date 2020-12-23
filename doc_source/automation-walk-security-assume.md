@@ -51,8 +51,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name DocumentName \
-       --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name RunbookName \
+       --parameters "ParametersRequiredByRunbook","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -60,8 +60,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name DocumentName ^
-       --parameters "ParametersRequiredByDocument","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name RunbookName ^
+       --parameters "ParametersRequiredByRunbook","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -69,15 +69,15 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-       -DocumentName DocumentName `
+       -DocumentName RunbookName `
        -Parameter @{
-       "ParametersRequiredByDocument"="ParameterValues";
+       "ParametersRequiredByRunbook"="ParameterValues";
        "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"}
    ```
 
 ------
 
-   Here is an example using the document `AWS-RestartEC2Instance` to restart the specified EC2 instance using the IAM service role `AmazonSSMAutomationRole`\.
+   Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance using the IAM service role `AmazonSSMAutomationRole`\.
 
 ------
 #### [ Linux ]

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableEnhancedMonitoringOnRDSInstance automation document enables Enhanced Monitoring on the Amazon RDS database instance you specify\. For information on Enhanced Monitoring, see [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html) in the *Amazon RDS User Guide*\.
+The AWSConfigRemediation\-EnableEnhancedMonitoringOnRDSInstance runbook enables Enhanced Monitoring on the Amazon RDS database instance you specify\. For information on Enhanced Monitoring, see [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html) in the *Amazon RDS User Guide*\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEnhancedMonitoringOnRDSInstance)
 

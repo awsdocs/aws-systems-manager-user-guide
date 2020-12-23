@@ -39,7 +39,7 @@ The type of role you should choose depends on the following factors:
 
   Another example: the Automation document `AWS-CopySnapshot` requires permission to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot, and so the service role needs the permission `ec2:CreateSnapshot`\. This permission isn't included in the service\-linked role for Systems Manager\. 
 
-  For information about the role permissions needed by Automation documents, see the document descriptions in [ Automation document details reference](automation-documents-reference-details.md)\.
+  For information about the role permissions needed by Automation documents, see the document descriptions in [Runbook details reference](automation-documents-reference-details.md)\.
 
 **Systems Manager service\-linked role**: We recommend that you use a Systems Manager service\-linked role in all other cases\.
 

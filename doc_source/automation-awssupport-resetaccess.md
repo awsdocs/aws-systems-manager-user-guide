@@ -2,7 +2,7 @@
 
  **Description** 
 
-This document will use the EC2Rescue tool on the specified EC2 instance to re\-enable password decryption using the EC2 Console \(Windows\) or to generate and add a new SSH key pair \(Linux\)\. If you lost your key pair, this automation will create a password\-enabled AMI that you can use to launch a new EC2 instance with a key pair you own \(Windows\)\.
+This runbook will use the EC2Rescue tool on the specified EC2 instance to re\-enable password decryption using the EC2 Console \(Windows\) or to generate and add a new SSH key pair \(Linux\)\. If you lost your key pair, this automation will create a password\-enabled AMI that you can use to launch a new EC2 instance with a key pair you own \(Windows\)\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ResetAccess)
 

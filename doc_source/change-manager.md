@@ -28,6 +28,9 @@ In addition to restricting the changes that can be made when a runbook workflow 
 
 After a runbook workflow has completed, you can review details about the changes made\. These details include the reason for a change request, which change template was used, who requested and approved the changes, and how the changes were implemented\. 
 
+**Related content**  
+[Introducing AWS Systems Manager Change Manager](aws.amazon.com/blogsaws/introducing-systems-manager-change-manager/) on the *AWS News Blog*
+
 ## How can Change Manager benefit my operations?<a name="change-manager-benefits"></a>
 
 Benefits of Systems Manager Change Manager include the following:
@@ -135,3 +138,4 @@ A runbook workflow is the process of requested changes being made to the targete
 + [Setting up Change Manager](change-manager-setting-up.md)
 + [Working with Change Manager](working-with-change-manager.md)
 + [Auditing and logging Change Manager activity](change-manager-auditing.md)
++ [Troubleshooting Change Manager](change-manager-troubleshooting.md)

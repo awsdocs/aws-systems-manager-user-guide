@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-CreateGuardDutyDetector Automation document creates an Amazon GuardDuty \(GuardDuty\) detector in the AWS Region where you run the automation\.
+The AWSConfigRemediation\-CreateGuardDutyDetector runbook creates an Amazon GuardDuty \(GuardDuty\) detector in the AWS Region where you run the automation\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-CreateGuardDutyDetector)
 

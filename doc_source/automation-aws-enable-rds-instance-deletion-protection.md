@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableRDSInstanceDeletionProtection Automation document enables deletion protection on the Amazon RDS database instance you specify\.
+The AWSConfigRemediation\-EnableRDSInstanceDeletionProtection runbook enables deletion protection on the Amazon RDS database instance you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRDSInstanceDeletionProtection)
 

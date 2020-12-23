@@ -2,7 +2,7 @@
 
 You can run AWS Systems Manager automations across multiple AWS Regions and AWS accounts or AWS Organizational Units \(OUs\) from an Automation management account\. Running automations in multiple Regions and accounts or OUs reduces the time required to administer your AWS resources while enhancing the security of your computing environment\.
 
-For example, you can centrally implement patching and security updates, remediate compliance drift on VPC configurations or S3 bucket policies, and manage resources, such as EC2 instances, at scale\. The following graphic shows an example of a user who is running the AWS\-RestartEC2Instances document in multiple Regions and accounts from an Automation management account\. The automation locates the instances by using the specified tags in the specified Regions and accounts\.
+For example, you can centrally implement patching and security updates, remediate compliance drift on VPC configurations or S3 bucket policies, and manage resources, such as EC2 instances, at scale\. The following graphic shows an example of a user who is running the AWS\-RestartEC2Instances runbook in multiple Regions and accounts from an Automation management account\. The automation locates the instances by using the specified tags in the specified Regions and accounts\.
 
 **Note**  
 When you run an automation across multiple Regions and accounts, you target resources by using tags or the name of an AWS resource group\. The resource group must exist in each target account and Region, and the resource group name must be the same in each target account and Region\. The automation fails to run on those resources that don't have the specified tag or that aren't included in the specified resource group\.
@@ -10,7 +10,7 @@ When you run an automation across multiple Regions and accounts, you target reso
 ![\[Illustration showing Systems Manager Automation running in multiple Regions and multiple accounts.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-multi-region-and-multi-account.png)
 
 **Important**  
-Your account is charged for running automations in multiple Regions and accounts\. Multi\-Region and account step executions are considered *special steps*\. There is no step limit for special steps, but your account is charged for each step processed by Systems Manager\. For more information, see the [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/) page\.
+Your account is charged for running automations in multiple Regions and accounts\. Multi\-Region and account steps are considered *special steps*\. There is no step limit for special steps, but your account is charged for each step processed by Systems Manager\. For more information, see the [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/) page\.
 
 **How It Works**  
 Running automations across multiple Regions and accounts or OUs works as follows:
@@ -19,17 +19,17 @@ Running automations across multiple Regions and accounts or OUs works as follows
 
 1. Sign in to the AWS Identity and Access Management \(IAM\) account that you want to configure as the Automation Primary account\.
 
-1. Use the procedure in this topic to create the IAM automation role named **AWS\-SystemsManager\-AutomationExecutionRole**\. This role gives the user permission to run automation workflows\.
+1. Use the procedure in this topic to create the IAM automation role named **AWS\-SystemsManager\-AutomationExecutionRole**\. This role gives the user permission to run automations\.
 
-1. Use the procedure in this topic to create the second IAM role, named **AWS\-SystemsManager\-AutomationAdministrationRole**\. This role gives the user permission to run automation workflows in multiple AWS accounts and OUs\.
+1. Use the procedure in this topic to create the second IAM role, named **AWS\-SystemsManager\-AutomationAdministrationRole**\. This role gives the user permission to run automations in multiple AWS accounts and OUs\.
 
-1. Choose the Automation document, Regions, and accounts or OUs where you want to run the automation\.
+1. Choose the runbook, Regions, and accounts or OUs where you want to run the automation\.
 **Note**  
 Automations do not run recursively through OUs\. Be sure the target OU contains the desired accounts\.
 
 1. Run the automation\. When running automations across multiple Regions, accounts, or OUs, the automation you run from the primary account starts child automations in each of the target accounts\. The automation in the primary account will have `aws:executeAutomation` steps for each of the target accounts\.
 
-1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor workflow progress\. The output of the steps for the automation in your primary account will be the `AutomationExecutionId` of the child automations\. To view the output of the child automations created in your target accounts, be sure to specify the appropriate account, Region, and `AutomationExecutionId` in your request\.
+1. Use the [GetAutomationExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAutomationExecution.html), [DescribeAutomationStepExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html), and [DescribeAutomationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationExecutions.html) API actions from the AWS Systems Manager console or the AWS CLI to monitor automation progress\. The output of the steps for the automation in your primary account will be the `AutomationExecutionId` of the child automations\. To view the output of the child automations created in your target accounts, be sure to specify the appropriate account, Region, and `AutomationExecutionId` in your request\.
 
 ## Setting up management account permissions for multi\-Region and multi\-account automation<a name="systems-manager-automation-multiple-accounts-and-regions-permissions"></a>
 
@@ -113,8 +113,8 @@ You can view information about a document by choosing the document name\.
       + Choose **percent** to enter a percentage of the total number of account\-Region pairs that can run the automation simultaneously\.
 
    1. In the **Error threshold** section, choose an option:
-      + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the workflow to other resources\.
-      + Choose **percent** to enter a percentage of errors allowed before Automation stops sending the workflow to other resources\.
+      + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the automation to other resources\.
+      + Choose **percent** to enter a percentage of errors allowed before Automation stops sending the automation to other resources\.
 
 1. In the **Targets** section, choose how you want to target the AWS Resources where you want to run the Automation\. These options are required\.
 
@@ -132,7 +132,7 @@ You can view information about a document by choosing the document name\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
-You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources in multiple Regions and accounts by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance document, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
+You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources in multiple Regions and accounts by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
 
 1. Use the options in the **Rate control** section to restrict the number of AWS resources that can run the Automation within each account\-Region pair\. 
 
@@ -169,7 +169,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution \
-       --document-name name_of_Automation_document \
+       --document-name name_of_runbook \
        --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole \
        --target-parameter-name parameter_name (required) \
        --targets Key=tag_key,Values=tag_value \
@@ -181,7 +181,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name name_of_Automation_document ^
+       --document-name name_of_runbook ^
        --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
        --target-parameter-name parameter_name (required) ^
        --targets Key=tag_key,Values=tag_value ^
@@ -197,7 +197,7 @@ Before you complete the following procedure, note the following information:
    $Targets.Values = "target_value"
    
    Start-SSMAutomationExecution `
-       -DocumentName "name_of_Automation_document" `
+       -DocumentName "name_of_runbook" `
        -Parameter @{
        "AutomationAssumeRole"="arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
        -TargetParameterName "parameter_name (required)" `

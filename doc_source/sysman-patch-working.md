@@ -22,7 +22,7 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 **Topics**
 + [Viewing AWS predefined patch baselines](view-predefined-patch-baselines.md)
 + [Viewing patch compliance results](viewing-patch-compliance-results.md)
-+ [Viewing available patches](viewing-available-patches.md)
++ [Viewing available patches \(console\)](viewing-available-patches.md)
 + [Working with custom patch baselines](sysman-patch-baseline-console.md)
 + [Setting an existing patch baseline as the default](set-default-patch-baseline.md)
 + [Creating a patching configuration \(console\)](create-patching-configuration.md)

@@ -2,10 +2,10 @@
 
 **Description**
 
-This document deletes the resources associated with an Amazon EKS cluster, including node groups and Fargate profiles\. Optionally, you can choose to delete all self\-managed nodes, the AWS CloudFormation stacks used to create the nodes, and the VPC CloudFormation stack for your cluster\. For more information about deleting a cluster, see [Deleting a cluster](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html) in the *Amazon EKS User Guide*\. 
+This runbook deletes the resources associated with an Amazon EKS cluster, including node groups and Fargate profiles\. Optionally, you can choose to delete all self\-managed nodes, the AWS CloudFormation stacks used to create the nodes, and the VPC CloudFormation stack for your cluster\. For more information about deleting a cluster, see [Deleting a cluster](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html) in the *Amazon EKS User Guide*\. 
 
 **Note**  
-If you have active services in your cluster that are associated with a load balancer, you must delete those services before deleting the cluster\. If you don't, the system can't delete the load balancers\. Use the following procedure to find and delete services before you run the AWS\-DeleteEKSCluster document\.
+If you have active services in your cluster that are associated with a load balancer, you must delete those services before deleting the cluster\. If you don't, the system can't delete the load balancers\. Use the following procedure to find and delete services before you run the AWS\-DeleteEKSCluster runbook\.
 
 **To locate and delete services in your cluster**
 
@@ -23,7 +23,7 @@ If you have active services in your cluster that are associated with a load bala
    kubectl delete svc service-name
    ```
 
-You can now run the AWS\-DeleteEKSCluster document\.
+You can now run the AWS\-DeleteEKSCluster runbook\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DeleteEKSCluster)
 

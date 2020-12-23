@@ -2,11 +2,11 @@
 
 The following example builds on the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example by adding a step that updates an Auto Scaling group with the newly patched AMI\. This approach ensures that new images are automatically made available to different computing environments that use Auto Scaling groups\.
 
-The final step of the Automation workflow in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
+The final step of the automation in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
 **Before You Begin**  
 Complete the following tasks before you begin this example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process Automation workflows\. For more information, see [Setting up Automation](automation-setup.md)\.
++ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
 ## Task 1: Create an IAM role for AWS Lambda<a name="automation-asg1"></a>
@@ -129,11 +129,11 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Test**\. The output states that the Auto Scaling group was successfully updated with a new launch configuration\.
 
-## Task 3: Create an Automation document, patch the AMI, and update the Auto Scaling group<a name="automation-asg3"></a>
+## Task 3: Create a runbook, patch the AMI, and update the Auto Scaling group<a name="automation-asg3"></a>
 
-Use the following procedure to create and run an Automation document that patches the AMI you specified for the **latestAmi** parameter\. The Automation workflow then updates the Auto Scaling group to use the latest, patched AMI\.
+Use the following procedure to create and run a runbook that patches the AMI you specified for the **latestAmi** parameter\. The automation then updates the Auto Scaling group to use the latest, patched AMI\.
 
-**To create and run the Automation document**
+**To create and run the runbook**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -151,7 +151,7 @@ Use the following procedure to create and run an Automation document that patche
 
 1. Choose **OK** when prompted, and delete the placeholder content in the **Document editor** field\.
 
-1. In the **Document editor** field, paste the following JSON sample document content\.
+1. In the **Document editor** field, paste the following JSON sample runbook content\.
 **Note**  
 You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting up Automation](automation-setup.md)\.
 
@@ -280,7 +280,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Choose **Execute automation**\.
 
-1. After execution completes, in the Amazon EC2 console, choose **Auto Scaling**, and then choose **Launch Configurations**\. Verify that you see the new launch configuration, and that it uses the new AMI ID\.
+1. After automation completes, in the Amazon EC2 console, choose **Auto Scaling**, and then choose **Launch Configurations**\. Verify that you see the new launch configuration, and that it uses the new AMI ID\.
 
 1. Choose **Auto Scaling**, and then choose **Auto Scaling Groups**\. Verify that the Auto Scaling group uses the new launch configuration\.
 

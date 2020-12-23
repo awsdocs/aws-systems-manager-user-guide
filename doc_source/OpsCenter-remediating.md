@@ -25,7 +25,7 @@ The following list describes some of the features available to help you run Auto
 ![\[Status information for the last time an Automation document was run.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_results.png)
 + The **Related resource details** page for a selected OpsItem includes the **Run automation** list\. The list enables you to choose recent or resource\-specific Automation documents that you can run to remediate issues\. This page also includes helpful data providers, including Amazon CloudWatch metrics and alarms, AWS CloudTrail logs, and details from AWS Config, to name a few\.  
 ![\[List of available Automation documents you can run and metrics available on the Related Resources tab.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_related_resource_details.png)
-+ You can view information about an Automation document by either choosing its name in the console or by using the [ Automation document details reference](automation-documents-reference-details.md)\.
++ You can view information about an Automation document by either choosing its name in the console or by using the [Runbook details reference](automation-documents-reference-details.md)\.
 
 ## Using a runbook to remediate an OpsItem issue<a name="OpsCenter-remediating-how-to"></a>
 

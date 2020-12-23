@@ -68,7 +68,7 @@ Linux
 
   Default: CreateManagedInstanceStack\{\{automation:EXECUTION\_ID\}\}
 
-  Description: \(Optional\) Specify stack name used by this document
+  Description: \(Optional\) Specify stack name used by this runbook
 + SubnetId
 
   Type: String

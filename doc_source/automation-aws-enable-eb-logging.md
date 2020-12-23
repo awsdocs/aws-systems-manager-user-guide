@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableElasticBeanstalkEnvironmentLogStreaming Automation document enables logging on the AWS Elastic Beanstalk \(Elastic Beanstalk\) environment you specify\.
+The AWSConfigRemediation\-EnableElasticBeanstalkEnvironmentLogStreaming runbook enables logging on the AWS Elastic Beanstalk \(Elastic Beanstalk\) environment you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableElasticBeanstalkEnvironmentLogStreaming)
 

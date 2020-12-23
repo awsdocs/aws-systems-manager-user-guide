@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DeleteUnusedVPCNetworkACL Automation document deletes a network access control list \(ACL\) that is not associated with a subnet\.
+The AWSConfigRemediation\-DeleteUnusedVPCNetworkACL runbook deletes a network access control list \(ACL\) that is not associated with a subnet\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedVPCNetworkACL)
 

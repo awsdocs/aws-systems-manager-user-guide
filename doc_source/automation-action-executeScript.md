@@ -52,7 +52,7 @@ $tag.Value = "myTagValue"
 New-EC2Tag -Resource i-12345678 -Tag $tag
 ```
 
-For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in Automation document content, see [ Walkthrough: Using Document Builder to create a custom Automation document](automation-walk-document-builder.md)\.
+For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
 
 **Note**  
 Each `aws:executeScript` action can run up to a maximum duration of 600 seconds \(ten minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:executeScript` step\.
@@ -61,7 +61,7 @@ Each `aws:executeScript` action can run up to a maximum duration of 600 seconds 
 Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
 
 **Important**  
-The script input parameter is not supported for JSON documents\. JSON documents must provide script content using the attachment input parameter\.
+The script input parameter is not supported for JSON runbooks\. JSON runbooks must provide script content using the attachment input parameter\.
 
 ------
 #### [ YAML ]
@@ -109,7 +109,7 @@ Type: String
 Required: Yes
 
 Handler  
-The entry for script execution, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\. \(Not required for PowerShell\.\)  
+The entry for running the script, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\. \(Not required for PowerShell\.\)  
 Type: String  
 Required: Yes \(Python\) \| No \(PowerShell\)
 
@@ -119,7 +119,7 @@ Type: String
 Required: No
 
 Script  
-An embedded script that you want to run during the automation execution\. \(Not supported for JSON documents\.\)  
+An embedded script that you want to run during the automation\. \(Not supported for JSON runbooks\.\)  
 Type: String  
 Required: No \(Python\) \| Yes \(PowerShell\)
 

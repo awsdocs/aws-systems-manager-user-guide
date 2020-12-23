@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-ConfigureS3PublicAccessBlock Automation document configures an AWS account's Amazon Simple Storage Service \(Amazon S3\) public access block settings based on the values you specify in the document parameters\.
+The AWSConfigRemediation\-ConfigureS3PublicAccessBlock runbook configures an AWS account's Amazon Simple Storage Service \(Amazon S3\) public access block settings based on the values you specify in the runbook parameters\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureS3PublicAccessBlock)
 
@@ -68,4 +68,4 @@ The `AutomationAssumeRole` requires the following actions to successfully run th
 
 **Document Steps**
 + aws:executeAwsApi \- Creates or modifies the `PublicAccessBlock` configuration for the AWS account specified in the `AccountId` parameter\.
-+ aws:executeScript \- Returns the `PublicAccessBlock` configuration for the AWS account specified in the `AccountId` parameter, and verifies the changes were successfully made based on the values specified in the document parameters\.
++ aws:executeScript \- Returns the `PublicAccessBlock` configuration for the AWS account specified in the `AccountId` parameter, and verifies the changes were successfully made based on the values specified in the runbook parameters\.

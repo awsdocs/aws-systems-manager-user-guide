@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DisableSubnetAutoAssignPublicIP Automation document disables the IPv4 public addressing attribute for the subnet you specify\.
+The AWSConfigRemediation\-DisableSubnetAutoAssignPublicIP runbook disables the IPv4 public addressing attribute for the subnet you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DisableSubnetAutoAssignPublicIP)
 

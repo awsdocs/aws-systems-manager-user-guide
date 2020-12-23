@@ -1,6 +1,6 @@
 # Method 1: Use AWS CloudFormation to configure a service role for Automation<a name="automation-cf"></a>
 
-You can create a service role for Automation from an AWS CloudFormation template\. After you create the service role, you can specify the service role in Automation workflows using the parameter `AutomationAssumeRole`\. For information about how to run an Automation workflow using the Automation service role, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
+You can create a service role for Automation from an AWS CloudFormation template\. After you create the service role, you can specify the service role in runbooks using the parameter `AutomationAssumeRole`\. For information about how to run an automation using the Automation service role, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
 ## Create the service role using AWS CloudFormation<a name="automation-cf-create"></a>
 
@@ -35,10 +35,10 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 ## Copy role information for Automation<a name="automation-cf-copy"></a>
 
-Use the following procedure to copy information about the Automation service role from the AWS CloudFormation console\. You must specify these roles when you run an Automation document\.
+Use the following procedure to copy information about the Automation service role from the AWS CloudFormation console\. You must specify these roles when you use a runbook\.
 
 **Note**  
-You do not need to copy role information using this procedure if you run the `AWS-UpdateLinuxAmi` or `AWS-UpdateWindowsAmi` documents\. These documents already have the required roles specified as default values\. The roles specified in these documents use IAM managed policies\. 
+You do not need to copy role information using this procedure if you run the `AWS-UpdateLinuxAmi` or `AWS-UpdateWindowsAmi` runbooks\. These runbooks already have the required roles specified as default values\. The roles specified in these runbooks use IAM managed policies\. 
 
 **To copy the role names**
 
@@ -54,4 +54,4 @@ You do not need to copy role information using this procedure if you run the `AW
 
 1. Paste the ARN into a text file to use later\.
 
-You have finished configuring the service role for Automation\. You can now use the Automation service role ARN in your Automation documents\.
+You have finished configuring the service role for Automation\. You can now use the Automation service role ARN in your runbooks\.

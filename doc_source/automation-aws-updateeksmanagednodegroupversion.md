@@ -2,7 +2,7 @@
 
 **Description**
 
-This document updates managed node groups in your Amazon EKS cluster to the latest AMI version\. For more information about this update process, see [Updating a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html) in the *Amazon EKS User Guide*\. We also recommend that you review the following topics before you run the AWS\-UpdateEKSManagedNodegroupVersion document\.
+This runbook updates managed node groups in your Amazon EKS cluster to the latest AMI version\. For more information about this update process, see [Updating a managed node group](https://docs.aws.amazon.com/eks/latest/userguide/update-managed-node-group.html) in the *Amazon EKS User Guide*\. We also recommend that you review the following topics before you use the AWS\-UpdateEKSManagedNodegroupVersion runbook\.
 + [Managed node groups](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html)
 + [Managed node update behavior](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-update-behavior.html)
 + [UpdateNodegroupVersion](https://docs.aws.amazon.com/eks/latest/APIReference/;API_UpdateNodegroupVersion.html)
@@ -19,7 +19,7 @@ If your cluster uses autoscaling, scale the deployment down to zero replicas to 
    kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
    ```
 
-1. Run the AWS\-UpdateEKSManagedNodegroupVersion document\.
+1. Run the AWS\-UpdateEKSManagedNodegroupVersion runbook\.
 
 1. Scale the deployment back to the desired number of replicas by running the following command\.
 

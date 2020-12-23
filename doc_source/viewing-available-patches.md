@@ -1,6 +1,9 @@
-# Viewing available patches<a name="viewing-available-patches"></a>
+# Viewing available patches \(console\)<a name="viewing-available-patches"></a>
 
 Use this procedure to view all available patches for a specified operating system and, optionally, a specific operating system version\.
+
+**Tip**  
+To generate a list of available patches and save them to a file, you can use the [describe\-available\-patches](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-available-patches.html) command and specify your preferred [output](https://docs.aws.amazon.com/cli/latest/reference/cli-usage-output.html)\.
 
 **To view available patches**
 

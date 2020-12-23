@@ -2,13 +2,13 @@
 
  **Description** 
 
-The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified EC2 instance\. The document attempts to install the latest versions of AWS drivers online by calling SSM Agent\. If SSM Agent is not contactable, the document can perform an offline installation of the AWS drivers if explicitly requested\.
+The AWSSupport\-UpgradeWindowsAWSDrivers upgrades or repairs storage and network AWS drivers on the specified EC2 instance\. The runbook attempts to install the latest versions of AWS drivers online by calling SSM Agent\. If SSM Agent is not contactable, the runbook can perform an offline installation of the AWS drivers if explicitly requested\.
 
 **Note**  
 Both the online and offline upgrade will create an AMI before attempting any operations, which will persist after the automation completes\. It is your responsibility to secure access to the AMI, or to delete it\. The online method restarts the instance as part of the upgrade process, while the offline method requires the provided EC2 instance be stopped and then started\.
 
 **Important**  
-If your instances connect to AWS Systems Manager using VPC endpoints, this document will fail unless used in the us\-east\-1 Region\. This document will also fail on a domain controller\. To update AWS PV drivers on a domain controller, see [Upgrade a Domain Controller \(AWS PV Upgrade\)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Upgrading_PV_drivers.html#aws-pv-upgrade-dc)\.
+If your instances connect to AWS Systems Manager using VPC endpoints, this runbook will fail unless used in the us\-east\-1 Region\. This runbook will also fail on a domain controller\. To update AWS PV drivers on a domain controller, see [Upgrade a Domain Controller \(AWS PV Upgrade\)](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Upgrading_PV_drivers.html#aws-pv-upgrade-dc)\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-UpgradeWindowsAWSDrivers)
 
@@ -91,7 +91,7 @@ If you are performing an offline upgrade, see the permissions required by [AWSSu
 
    1. \(Offline upgrade\) If the input instance is not a managed instance:
 
-      1. aws:assertAwsResourceProperty \- Verifies the AllowOffline flag is set to True\. If so, the offline upgrade starts, otherwise the workflow ends\.
+      1. aws:assertAwsResourceProperty \- Verifies the AllowOffline flag is set to True\. If so, the offline upgrade starts, otherwise the automation ends\.
 
       1. aws:changeInstanceState \- Stop the source instance\.
 

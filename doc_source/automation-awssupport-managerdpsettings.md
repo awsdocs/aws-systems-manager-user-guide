@@ -2,10 +2,10 @@
 
  **Description** 
 
-The AWSSupport\-ManageRDPSettings automation document allows the user to manage common Remote Desktop Protocol \(RDP\) settings, such as the RDP port and Network Layer Authentication \(NLA\)\. By default, the document reads and outputs the values of the settings\.
+The AWSSupport\-ManageRDPSettings runbook allows the user to manage common Remote Desktop Protocol \(RDP\) settings, such as the RDP port and Network Layer Authentication \(NLA\)\. By default, the runbook reads and outputs the values of the settings\.
 
 **Important**  
-Changes to the RDP settings should be carefully reviewed before running this document\.
+Changes to the RDP settings should be carefully reviewed before running this runbook\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ManageRDPSettings)
 

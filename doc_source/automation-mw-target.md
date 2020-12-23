@@ -1,10 +1,10 @@
 # Running automations with triggers using Maintenance Windows<a name="automation-mw-target"></a>
 
-You can start an automation by configuring an Automation document as a registered task for a maintenance window\. By registering the Automation document as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
+You can start an automation by configuring a runbook as a registered task for a maintenance window\. By registering the runbook as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
 
-For example, let's say you create an Automation document named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* document \(and corresponding workflow\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation workflow and creates an AMI of the registered targets\.
+For example, let's say you create a runbook named *CreateAMI* that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the *CreateAMI* runbook \(and corresponding automation\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the *CreateAMI* runbook as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation and creates an AMI of the registered targets\.
 
-For information about creating Automation documents, see [Working with Automation documents](automation-documents.md)\.
+For information about creating runbooks, see [Working with runbooks](automation-documents.md)\.
 
 Use the following procedures to configure an automation as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
@@ -23,27 +23,27 @@ Before you complete the following procedure, you must create a maintenance windo
 
 1. In the left navigation pane, choose **Maintenance Windows**, and then choose the maintenance window you want to register an automation task with\.
 
-1. Choose **Actions**\. Then choose **Register Automation task** to run your choice of an automation on targets by using an Automation document\.
+1. Choose **Actions**\. Then choose **Register Automation task** to run your choice of an automation on targets by using a runbook\.
 
 1. For **Name**, enter a name for the task\.
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the Automation document that defines the tasks to run\.
+1. For **Document**, choose the runbook that defines the tasks to run\.
 
-1. For **Document version**, choose the document version to use\.
+1. For **Document version**, choose the runbook version to use\.
 
 1. For **Task priority**, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order; tasks that have the same priority are scheduled in parallel\.
 
-1. In the **Targets** section, identify the targets on which you want to run this automation workflow by specifying tags or by selecting instances manually\.
+1. In the **Targets** section, identify the targets on which you want to run this automation by specifying tags or by selecting instances manually\.
 **Important**  
-If you choose an Automation document that doesn't target managed instances, you must still select at least one maintenance window target\. In this situation, we recommend registering a target for a tag key\-value pair that is not used by your managed instances\.   
-For example, if you choose the Automation document `AWS-CopySnapshot`, then the resulting automation workflow targets Amazon Elastic Block Store \(EBS\) snapshots instead of managed instances\. In this case, you can register a target to your maintenance window, which targets a tag key\-value pair that is not used by your managed instances, such as key=MaintenanceWindow and value=Snapshot\.
+If you choose a runbook that doesn't target managed instances, you must still select at least one maintenance window target\. In this situation, we recommend registering a target for a tag key\-value pair that is not used by your managed instances\.   
+For example, if you choose the runbook `AWS-CopySnapshot`, then the resulting automation targets Amazon Elastic Block Store \(EBS\) snapshots instead of managed instances\. In this case, you can register a target to your maintenance window, which targets a tag key\-value pair that is not used by your managed instances, such as key=MaintenanceWindow and value=Snapshot\.
 
 1. \(Optional\) For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation at the same time\.
 **Note**  
-If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automation workflows that can run at the same time by specifying a percentage\.  
+If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.  
 When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.
 
@@ -64,10 +64,10 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
+1. In the **Input Parameters** section, specify parameters for the runbook\. For runbooks, the system auto\-populates some of the values\. You can keep or replace these values\.
 **Important**  
-For Automation documents, you can optionally specify an Automation Assume Role\. If you don't specify a role for this parameter, then the automation assumes the maintenance window service role you choose in step 11\. As such, you must ensure that the maintenance window service role you choose has the appropriate AWS Identity and Access Management \(IAM\) permissions to perform the actions defined within the Automation document\.   
-For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to run the Automation document `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Setting up Automation](automation-setup.md)\.
+For runbooks, you can optionally specify an Automation Assume Role\. If you don't specify a role for this parameter, then the automation assumes the maintenance window service role you choose in step 11\. As such, you must ensure that the maintenance window service role you choose has the appropriate AWS Identity and Access Management \(IAM\) permissions to perform the actions defined within the runbook\.   
+For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to use the runbook `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Setting up Automation](automation-setup.md)\.
 
 1. Choose **Register Automation task**\.
 
@@ -95,7 +95,7 @@ Before you complete the following procedure, you must create a maintenance windo
    aws ssm register-task-with-maintenance-window \
        --window-id window_id \
        --name task_name \
-       --task-arn document_name \
+       --task-arn runbook_name \
        --targets Key=targets,Values=value_1,value_2,value_3 \
        --service-role-arn service_role_arn \
        --task-type AUTOMATION \
@@ -115,7 +115,7 @@ If you configure an automation as a registered task by using the AWS CLI, use th
    aws ssm register-task-with-maintenance-window ^
        --window-id window_id ^
        --name task_name ^
-       --task-arn document_name ^
+       --task-arn runbook_name ^
        --targets Key=targets,Values=value_1,value_2,value_3 ^
        --service-role-arn service_role_arn ^
        --task-type AUTOMATION ^
@@ -135,7 +135,7 @@ If you configure an automation as a registered task by using the AWS CLI, use th
    Register-SSMTaskWithMaintenanceWindow `
        -WindowId window_id `
        -Name "task_name" `
-       -TaskArn "document_name" `
+       -TaskArn "runbook_name" `
        -Target @{ Key="targets";Values="value_1" } `
        -ServiceRoleArn "service_role_arn" `
        -TaskType "AUTOMATION" `
@@ -150,7 +150,7 @@ If you configure an automation as a registered task by using the AWS Tools for P
 
 ------
 
-   The following example configures an automation as a registered task to a maintenance window with priority 1\. The automation uses the `AWS-StartEC2Instance` document and the specified Automation assume role to start EC2 instances registered as targets to the maintenance window\. The maintenance window runs the automation simultaneously on 5 instances maximum at any given time\. Also, the registered task stops running on more instances for a particular execution interval if the error count exceeds 1\.
+   The following example configures an automation as a registered task to a maintenance window with priority 1\. The automation uses the `AWS-StartEC2Instance` runbook and the specified Automation assume role to start EC2 instances registered as targets to the maintenance window\. The maintenance window runs the automation simultaneously on 5 instances maximum at any given time\. Also, the registered task stops running on more instances for a particular interval if the error count exceeds 1\.
 
 ------
 #### [ Linux ]

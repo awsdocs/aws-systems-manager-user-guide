@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-DeleteUnusedSecurityGroup Automation document deletes the security group you specify in the `GroupId` parameter\. If you attempt to delete a security group that is associated with an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, or is referenced by another security group, the automation fails\. This automation does not delete a default security group\.
+The AWSConfigRemediation\-DeleteUnusedSecurityGroup runbook deletes the security group you specify in the `GroupId` parameter\. If you attempt to delete a security group that is associated with an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, or is referenced by another security group, the automation fails\. This automation does not delete a default security group\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedSecurityGroup)
 

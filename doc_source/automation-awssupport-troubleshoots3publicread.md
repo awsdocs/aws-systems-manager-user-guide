@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootS3PublicRead Automation document diagnoses issues reading objects from the public Amazon Simple Storage Service \(Amazon S3\) bucket you specify in the `S3BucketName` parameter\. A subset of settings are also analyzed for objects in the S3 bucket\.
+The AWSSupport\-TroubleshootS3PublicRead runbook diagnoses issues reading objects from the public Amazon Simple Storage Service \(Amazon S3\) bucket you specify in the `S3BucketName` parameter\. A subset of settings are also analyzed for objects in the S3 bucket\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootS3PublicRead)
 
@@ -161,7 +161,7 @@ The `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` permi
 + aws:assertAwsResourceProperty \- Confirms whether there is an explicit deny in the S3 bucket policy for the `GetObject` API action\.
 + aws:executeAwsApi \- Returns the access control list \(ACL\) for the S3 bucket\.
 + aws:executeScript \- Creates a CloudWatch Logs log group and log stream if you specify a value for the `CloudWatchLogGroupName` parameter\.
-+ aws:executeScript \- Based on the values you specify in the Automation document input parameters, evaluates whether any of the S3 bucket settings gathered during the automation are preventing objects from being accessed by the public\. This script performs the following functions:
++ aws:executeScript \- Based on the values you specify in the runbook input parameters, evaluates whether any of the S3 bucket settings gathered during the automation are preventing objects from being accessed by the public\. This script performs the following functions:
   + Evaluates public access block settings
   + Returns objects from your S3 bucket based on the values you specify in the `MaxObjects`, `S3PrefixName`, and `StartAfter` parameters\.
   + Returns the S3 bucket policy to simulate a custom IAM policy for the objects returned from your S3 bucket\.

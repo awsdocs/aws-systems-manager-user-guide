@@ -16,15 +16,7 @@ The following procedure describes how to use the Systems Manager console to revi
 
 **To review and approve or reject a change request**
 
-1. In the navigation pane, choose **Change Manager**\.
-
-   \-or\-
-
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Change Manager**\.
-
-1. In the **Change requests** section at the bottom of the **Overview** tab, choose the number in **Pending my approval**\.
-
-1. In the **Change requests** list, locate and choose the name of the change request to review\.
+1. Open the link in the email notification you received and sign in to the AWS Management Console, which directs you to the change request for your review\.
 
 1. In the summary page, review the proposed content of the change request\.
 

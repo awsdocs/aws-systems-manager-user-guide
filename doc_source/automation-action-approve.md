@@ -1,11 +1,11 @@
-# aws:approve – Pause an execution for manual approval<a name="automation-action-approve"></a>
+# aws:approve – Pause an automation for manual approval<a name="automation-action-approve"></a>
 
-Temporarily pauses an Automation execution until designated principals either approve or reject the action\. After the required number of approvals is reached, the Automation execution resumes\. You can insert the approval step any place in the mainSteps section of your Automation document\. 
+Temporarily pauses an automation until designated principals either approve or reject the action\. After the required number of approvals is reached, the automation resumes\. You can insert the approval step any place in the `mainSteps` section of your runbook\. 
 
 **Note**  
 The default timeout for this action is 7 days \(604800 seconds\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an aws:approve step\. If the automation step reaches the timeout value before receiving all required approval decisions, then the step and the automation stop running and return a status of Timed Out\.
 
-In the following example, the aws:approve action temporarily pauses the Automation workflow until one approver either accepts or rejects the workflow\. Upon approval, the document runs a simple PowerShell command\. 
+In the following example, the aws:approve action temporarily pauses the automation until one approver either accepts or rejects the automation\. Upon approval, the automation runs a simple PowerShell command\. 
 
 ------
 #### [ YAML ]
@@ -151,7 +151,7 @@ Approvers:
 ------
 
 NotificationArn  
-The ARN of an Amazon SNS topic for Automation approvals\. When you specify an `aws:approve` step in an Automation document, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step\. The title of the Amazon SNS topic must be prefixed with "Automation"\.  
+The ARN of an Amazon SNS topic for Automation approvals\. When you specify an `aws:approve` step in a runbook, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step\. The title of the Amazon SNS topic must be prefixed with "Automation"\.  
 Type: String  
 Required: No
 
@@ -161,7 +161,7 @@ Type: String
 Required: No
 
 MinRequiredApprovals  
-The minimum number of approvals required to resume the Automation execution\. If you don't specify a value, the system defaults to one\. The value for this parameter must be a positive number\. The value for this parameter can't exceed the number of approvers defined by the `Approvers` parameter\.   
+The minimum number of approvals required to resume the automation\. If you don't specify a value, the system defaults to one\. The value for this parameter must be a positive number\. The value for this parameter can't exceed the number of approvers defined by the `Approvers` parameter\.   
 Type: Integer  
 Required: No
 

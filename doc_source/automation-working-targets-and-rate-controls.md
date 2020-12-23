@@ -1,6 +1,6 @@
 # Running automations that use targets and rate controls<a name="automation-working-targets-and-rate-controls"></a>
 
-AWS Systems Manager enables you to run automations on a fleet of AWS resources by using targets\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the workflow to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
+AWS Systems Manager enables you to run automations on a fleet of AWS resources by using targets\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the automation to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
 For more information about concurrency and error thresholds, see [About concurrency and error thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About targets](automation-working-targets.md)\.
 
@@ -96,16 +96,16 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   Note the name of the Automation document that you want to run\.
+   Note the name of the runbook that you want to use\.
 
-1. Run the following command to view details about the Automation document\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
+1. Run the following command to view details about the runbook\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
 
 ------
 #### [ Linux ]
 
    ```
    aws ssm describe-document \
-       --name document_name
+       --name runbook_name
    ```
 
 ------
@@ -113,7 +113,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-document ^
-       --name document_name
+       --name runbook_name
    ```
 
 ------
@@ -121,7 +121,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMDocumentDescription `
-       -Name document_name
+       -Name runbook_name
    ```
 
 ------
@@ -135,7 +135,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name document_name \
+       --document-name runbook_name \
        --targets Key=tag:key_name,Values=value \
        --target-parameter-name parameter_name \
        --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
@@ -148,7 +148,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name document_name ^
+       --document-name runbook_name ^
        --targets Key=tag:key_name,Values=value ^
        --target-parameter-name parameter_name ^
        --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
@@ -165,7 +165,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "value"
    
    Start-SSMAutomationExecution `
-       DocumentName "DocumentName" `
+       DocumentName "RunbookName" `
        -Targets $Targets `
        -TargetParameterName "Parameter_Name" `
        -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
@@ -182,7 +182,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name document_name \
+       --document-name runbook_name \
        --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
        --target-parameter-name parameter_name \
        --parameters "input_parameter_name1=input_parameter_value1" \
@@ -195,7 +195,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name document_name ^
+       --document-name runbook_name ^
        --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
        --target-parameter-name parameter_name ^
        --parameters "input_parameter_name1=input_parameter_value1" ^
@@ -212,7 +212,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "value_1","value_2","value_3"
    
    Start-SSMAutomationExecution `
-       -DocumentName "DocumentName" `
+       -DocumentName "RunbookName" `
        -Targets $Targets `
        -TargetParameterName "Parameter_Name" `
        -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
@@ -229,7 +229,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name document_name \
+       --document-name runbook_name \
        --targets Key=ResourceGroup,Values=Resource_Group_name \
        --target-parameter-name parameter_name \
        --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" \
@@ -242,7 +242,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name document_name ^
+       --document-name runbook_name ^
        --targets Key=ResourceGroup,Values=Resource_Group_name ^
        --target-parameter-name parameter_name ^
        --parameters "input_parameter_name1=input_parameter_value1,input_parameter_name2=input_parameter_value2" ^
@@ -259,7 +259,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "Resource_Group_Name"
    
    Start-SSMAutomationExecution `
-       -DocumentName "DocumentName" `
+       -DocumentName "RunbookName" `
        -Targets $Targets `
        -TargetParameterName "Parameter_Name" `
        -Parameter @{"input_parameter_name1"="input_parameter_value1";"input_parameter_name2"="input_parameter_value2"} `
@@ -276,7 +276,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution \
-       --document-name document_name \
+       --document-name runbook_name \
        --targets "Key=AWS::EC2::Instance,Values=*"  \
        --target-parameter-name instanceId \
        --parameters "input_parameter_name1=input_parameter_value1" \
@@ -289,7 +289,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name document_name ^
+       --document-name runbook_name ^
        --targets Key=AWS::EC2::Instance,Values=* ^
        --target-parameter-name instanceId ^
        --parameters "input_parameter_name1=input_parameter_value1" ^
@@ -306,7 +306,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    $Targets.Values = "*"
    
    Start-SSMAutomationExecution `
-       -DocumentName "DocumentName" `
+       -DocumentName "RunbookName" `
        -Targets $Targets `
        -TargetParameterName "instanceId" `
        -Parameter @{"input_parameter_name1"="input_parameter_value1"} `
@@ -345,7 +345,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to view the automation execution\.
+1. Run the following command to view the automation\.
 
 ------
 #### [ Linux ]

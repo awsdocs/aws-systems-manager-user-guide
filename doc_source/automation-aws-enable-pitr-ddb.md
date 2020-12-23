@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnablePITRForDynamoDbTable Automation document enables point\-in\-time recovery \(PITR\) on the Amazon DynamoDB table you specify\.
+The AWSConfigRemediation\-EnablePITRForDynamoDbTable runbook enables point\-in\-time recovery \(PITR\) on the Amazon DynamoDB table you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnablePITRForDynamoDbTable)
 

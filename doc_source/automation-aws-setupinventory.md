@@ -32,7 +32,7 @@ Linux, macOS, Windows
 
   Default: AWS\-GatherSoftwareInventory
 
-  Description: \(Optional\) The name of the SSM document used to collect Inventory from the managed instance\.
+  Description: \(Optional\) The name of the runbook used to collect Inventory from the managed instance\.
 + AssociationName
 
   Type: String

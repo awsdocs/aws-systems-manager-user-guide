@@ -2,10 +2,10 @@
 
 **Description**
 
-Update a Microsoft Windows Amazon Machine Image \(AMI\)\. By default, this document installs all Windows updates, Amazon software, and Amazon drivers\. It then runs Sysprep to create a new AMI\. Supports Windows Server 2008 R2 or later\.
+Update a Microsoft Windows Amazon Machine Image \(AMI\)\. By default, this runbook installs all Windows updates, Amazon software, and Amazon drivers\. It then runs Sysprep to create a new AMI\. Supports Windows Server 2008 R2 or later\.
 
 **Important**  
-If your instances connect to AWS Systems Manager using VPC endpoints, this document will fail unless used in the us\-east\-1 Region\.
+If your instances connect to AWS Systems Manager using VPC endpoints, this runbook will fail unless used in the us\-east\-1 Region\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateWindowsAmi)
 

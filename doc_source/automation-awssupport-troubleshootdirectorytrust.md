@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootDirectoryTrust Automation document diagnoses trust creation issues between an AWS Managed Microsoft AD and a Microsoft Active Directory\. The automation ensures the directory type supports trusts, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
+The AWSSupport\-TroubleshootDirectoryTrust runbook diagnoses trust creation issues between an AWS Managed Microsoft AD and a Microsoft Active Directory\. The automation ensures the directory type supports trusts, and then checks the associated security group rules, network access control lists \(network ACLs\), and route tables for potential connectivity issues\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootDirectoryTrust)
 
@@ -77,7 +77,7 @@ The `AutomationAssumeRole` requires the following actions to successfully run th
 **Document Steps**
 + aws:assertAwsResourceProperty \- Confirms the directory type is AWS Managed Microsoft AD\.
 + aws:executeAwsApi \- Gets information about the AWS Managed Microsoft AD\.
-+ aws:branch \- Branches workflow if a value is provided for the `TrustId` input parameter\.
++ aws:branch \- Branches automation if a value is provided for the `TrustId` input parameter\.
 + aws:executeAwsApi \- Gets information about the trust relationship\.
 + aws:executeAwsApi \- Gets the conditional forwarder DNS IP addresses for the `RemoteDomainName`\.
 + aws:executeAwsApi \- Gets information about IP routes that have been added to the AWS Managed Microsoft AD\.

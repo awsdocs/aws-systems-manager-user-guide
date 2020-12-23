@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-ConfigureLambdaFunctionXRayTracing Automation document enables AWS X\-Ray live tracing on the AWS Lambda function you specify in the `FunctionName` parameter\.
+The AWSConfigRemediation\-ConfigureLambdaFunctionXRayTracing runbook enables AWS X\-Ray live tracing on the AWS Lambda function you specify in the `FunctionName` parameter\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureLambdaFunctionXRayTracing)
 

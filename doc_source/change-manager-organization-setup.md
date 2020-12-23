@@ -131,7 +131,7 @@ We recommend that you use the IAM policy editor to construct your policy and the
    }
    ```
 
-   For more information about IAM policies, see [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.htmll) in the *IAM User Guide\.*
+   For more information about IAM policies, see [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
 
 1. In the **Targets** section, choose whether to grant permissions for the job function you are creating to your entire organization or only some of your organizational units\.
 

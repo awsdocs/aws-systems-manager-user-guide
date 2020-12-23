@@ -1,35 +1,35 @@
-# Walkthrough: Using Document Builder to create a custom Automation document<a name="automation-walk-document-builder"></a>
+# Walkthrough: Using Document Builder to create a custom runbook<a name="automation-walk-document-builder"></a>
 
-The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom Automation document and then run the custom Automation document\.
+The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom runbook and then run the custom runbook\.
 
-The first step of the Automation document you create runs a script to launch an Amazon Elastic Compute Cloud \(EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation execution\.
+The first step of the runbook you create runs a script to launch an Amazon Elastic Compute Cloud \(EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation\.
 
 **Before You Begin**  
 Before you begin this walkthrough, do the following: 
 + Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 
-  For information, see [ Verifying user access for Automation workflows](automation-setup.md#automation-setup-user-access)\.
+  For information, see [ Verifying user access for runbooks](automation-setup.md#automation-setup-user-access)\.
 + Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your AWS account\. The role is required because this walkthrough uses the **aws:executeScript** action\. 
 
-  For information about creating this role, see [Configuring a service role \(assume role\) access for Automation workflows](automation-setup.md#automation-setup-configure-role)\. 
+  For information about creating this role, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\. 
 
-  For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
+  For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 + Verify that you have permission to launch EC2 instances\. 
 
   For information, see [IAM and Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingIAM.html#intro-to-iam) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Topics**
-+ [Step 1: Create the custom Automation document](#automation-walk-document-builder-create)
-+ [Step 2: Run the custom Automation document](#automation-walk-document-builder-run)
++ [Step 1: Create the custom runbook](#automation-walk-document-builder-create)
++ [Step 2: Run the custom runbook](#automation-walk-document-builder-run)
 
-## Step 1: Create the custom Automation document<a name="automation-walk-document-builder-create"></a>
+## Step 1: Create the custom runbook<a name="automation-walk-document-builder-create"></a>
 
-Use the following procedure to create a custom Automation document that launches an EC2 instance and waits for the instance status check to change to `ok`\.
+Use the following procedure to create a custom runbook that launches an EC2 instance and waits for the instance status check to change to `ok`\.
 
 **Tip**  
 If you copy and paste values from this walkthrough into Document Builder, such as parameter names and handler names, make sure to delete any leading or trailing spaces added to the text value you enter\.
 
-**To create a custom Automation document using Document Builder**
+**To create a custom runbook using Document Builder**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -41,14 +41,14 @@ If you copy and paste values from this walkthrough into Document Builder, such a
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type this descriptive name for the document: **LaunchInstanceAndCheckStatus**\.
+1. For **Name**, type this descriptive name for the runbook: **LaunchInstanceAndCheckStatus**\.
 
-1. \(Optional\) For **Document description**, replace the default text with a description for this document, using Markdown\. The following is an example\.
+1. \(Optional\) For **Document description**, replace the default text with a description for this runbook, using Markdown\. The following is an example\.
 
    ```
    ##Title: LaunchInstanceAndCheckState
    -----
-   **Purpose**: This Automation document first launches an EC2 instance using the AMI ID provided in the parameter ```imageId```. The second step of this document continuously checks the instance status check value for the launched instance until the status ```ok``` is returned.
+   **Purpose**: This runbook first launches an EC2 instance using the AMI ID provided in the parameter ```imageId```. The second step of this runbook continuously checks the instance status check value for the launched instance until the status ```ok``` is returned.
    
    ##Parameters:
    -----
@@ -58,11 +58,11 @@ If you copy and paste values from this walkthrough into Document Builder, such a
    imageId  | String | (Optional) The AMI ID to use for launching the instance. The default value uses the latest Amazon Linux AMI ID available. | {{ ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2 }}
    ```
 
-1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation execution, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your AWS account ID for 111122223333\.
+1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your AWS account ID for 111122223333\.
 
-   The role you specify is used to provide the permissions needed to start the automation execution\.
+   The role you specify is used to provide the permissions needed to start the automation\.
 **Important**  
-For Automation documents not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for running Automation executions](automation-document-script.md#execution-permissions)\.
+For runbooks not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 
 1. Expand **Input parameters** and do the following\.
 
@@ -120,11 +120,11 @@ This value launches an EC2 instance using the latest Amazon Linux Amazon Machine
 
 1. Expand **Target type** and choose **"/"**\.
 
-1. \(Optional\) Expand **Document tags** to apply resource tags to your Automation document\. For **Tag key**, enter **Purpose**, and for **Tag value**, enter **LaunchInstanceAndCheckState**\.
+1. \(Optional\) Expand **Document tags** to apply resource tags to your runbook\. For **Tag key**, enter **Purpose**, and for **Tag value**, enter **LaunchInstanceAndCheckState**\.
 
 1. In the **Step 1** section, complete the following steps\.
 
-   1. For **Step name**, enter this descriptive step name for the first step of the automation workflow: **LaunchEc2Instance**\.
+   1. For **Step name**, enter this descriptive step name for the first step of the automation: **LaunchEc2Instance**\.
 
    1. For **Action type**, choose **Run a script** \(**aws:executeScript**\)\.
 
@@ -218,11 +218,11 @@ This is not required for PowerShell\.
    + For **Selector**, enter **$\.Payload**\.
    + For **Type**, choose StringMap\.
 
-1. Choose **Add step** to add a second step to the Automation document\. The second step queries the status of the instance launched in Step 1 and waits until the status returned is `ok`\.
+1. Choose **Add step** to add a second step to the runbook\. The second step queries the status of the instance launched in Step 1 and waits until the status returned is `ok`\.
 
 1. In the **Step 2** section, do the following\.
 
-   1. For **Step name**, enter this descriptive name for the second step of the automation workflow: **WaitForInstanceStatusOk**\.
+   1. For **Step name**, enter this descriptive name for the second step of the automation: **WaitForInstanceStatusOk**\.
 
    1. For **Action type**, choose **Run a script** \(**aws:executeScript**\)\.
 
@@ -311,19 +311,19 @@ This is not required for PowerShell\.
       {{ LaunchEc2Instance.payload }}
       ```
 
-1. Choose **Create automation** to save the document\.
+1. Choose **Create automation** to save the runbook\.
 
-## Step 2: Run the custom Automation document<a name="automation-walk-document-builder-run"></a>
+## Step 2: Run the custom runbook<a name="automation-walk-document-builder-run"></a>
 
-Use the following procedure to run the custom Automation document created in Step 1\. The custom Automation document launches an EC2 instance and waits for the instance check to change to the `ok` status\.
+Use the following procedure to run the custom runbook created in Step 1\. The custom runbook launches an EC2 instance and waits for the instance check to change to the `ok` status\.
 
-**To run the custom Automation document**
+**To run the custom runbook**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
-1. In the **Automation document** list, choose the **Owned by me** tab and then choose the button next to the custom Automation document you created, **LaunchInstanceAndCheckStatus**\.
+1. In the **Automation document** list, choose the **Owned by me** tab and then choose the button next to the custom runbook you created, **LaunchInstanceAndCheckStatus**\.
 
 1. In the **Document details** section, for **Document version**, verify that **Default version at runtime** is selected\.
 
@@ -333,10 +333,10 @@ Use the following procedure to run the custom Automation document created in Ste
 
 1. Choose **Execute**\.
 
-1. After both steps in the automation workflow complete, in the **Executed steps** area, choose the step ID of a step to view steps details, including any step output\.
+1. After both steps in the automation complete, in the **Executed steps** area, choose the step ID of a step to view steps details, including any step output\.
 **Note**  
 It can take several minutes for the `ok` status to be returned\.
 
 1. \(Optional\) Unless you plan to use the EC2 instance created by this walkthrough for other purposes, you can terminate the instance\. For information, see [Terminate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 
-   You can identify the instance by the name **LaunchedBySsmAutomation** that you tagged it with in [Step 1: Create the custom Automation document](#automation-walk-document-builder-create)\.
+   You can identify the instance by the name **LaunchedBySsmAutomation** that you tagged it with in [Step 1: Create the custom runbook](#automation-walk-document-builder-create)\.

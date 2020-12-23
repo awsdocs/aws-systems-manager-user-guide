@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableMultiAZOnRDSInstance Automation document changes your Amazon Relational Database Service \(Amazon RDS\) database \(DB\) instance to a Multi\-AZ deployment\. Changing this setting doesn't result in an outage\. The change is applied during the next maintenance window unless you set the `ApplyImmediately` parameter to `true`\.
+The AWSConfigRemediation\-EnableMultiAZOnRDSInstance runbook changes your Amazon Relational Database Service \(Amazon RDS\) database \(DB\) instance to a Multi\-AZ deployment\. Changing this setting doesn't result in an outage\. The change is applied during the next maintenance window unless you set the `ApplyImmediately` parameter to `true`\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableMultiAZOnRDSInstance)
 

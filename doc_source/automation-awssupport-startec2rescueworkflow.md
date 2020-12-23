@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-StartEC2RescueWorkflow automation document runs the provided base64 encoded script \(Bash or Powershell\) on a helper instance created to rescue your instance\. The root volume of your instance is attached and mounted to the helper instance, also known as the EC2Rescue instance\. If your instance is Windows, provide a Powershell script\. Otherwise, use Bash\. The workflow sets some environment variables which you can use in your script\. The environment variables contain information about the input you provided, as well as information about the offline root volume\. The offline volume is already mounted and ready to use\. For example, you can save a Desired State Configuration file to an offline Windows root volume, or chroot to an offline Linux root volume and perform an offline remediation\.
+The AWSSupport\-StartEC2RescueWorkflow runbook runs the provided base64 encoded script \(Bash or Powershell\) on a helper instance created to rescue your instance\. The root volume of your instance is attached and mounted to the helper instance, also known as the EC2Rescue instance\. If your instance is Windows, provide a Powershell script\. Otherwise, use Bash\. The runbook sets some environment variables which you can use in your script\. The environment variables contain information about the input you provided, as well as information about the offline root volume\. The offline volume is already mounted and ready to use\. For example, you can save a Desired State Configuration file to an offline Windows root volume, or chroot to an offline Linux root volume and perform an offline remediation\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-StartEC2RescueWorkflow)
 
@@ -163,7 +163,7 @@ Linux, macOS, Windows
 
   Default: \{\{ automation:EXECUTION\_ID \}\}
 
-  Description: \(Optional\) A unique identifier for the workflow\.
+  Description: \(Optional\) A unique identifier for the automation\.
 
 **Required IAM permissions**
 

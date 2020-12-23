@@ -1,14 +1,14 @@
 # Running automations with triggers using EventBridge<a name="automation-cwe-target"></a>
 
-You can start an automation by specifying an Automation document as the target of an Amazon EventBridge event\. You can start workflows according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create an Automation document named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* document \(and corresponding workflow\) as a target of an EventBridge event, you first create a new EventBridge rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* document as the target of the event using the EventBridge console and AWS Command Line Interface \(AWS CLI\)\. When a new instance starts, the system runs the workflow and installs software\.
+You can start an automation by specifying a runbook as the target of an Amazon EventBridge event\. You can start automations according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create a runbook named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* runbook \(and corresponding automation\) as a target of an EventBridge event, you first create a new EventBridge rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* runbook as the target of the event using the EventBridge console and AWS Command Line Interface \(AWS CLI\)\. When a new instance starts, the system runs the automation and installs software\.
 
-For information about creating Automation documents, see [Working with Automation documents](automation-documents.md)\.
+For information about creating runbooks, see [Working with runbooks](automation-documents.md)\.
 
-## Creating an EventBridge event that runs an automation \(console\)<a name="automation-cwe-target-console"></a>
+## Creating an EventBridge event that uses a runbook \(console\)<a name="automation-cwe-target-console"></a>
 
-Use the following procedure to configure an automation as the target of a EventBridge event\.
+Use the following procedure to configure a runbook as the target of a EventBridge event\.
 
-**To configure an Automation document as a target of a EventBridge event rule**
+**To configure a runbook as a target of a EventBridge event rule**
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
@@ -32,25 +32,25 @@ Use the following procedure to configure an automation as the target of a EventB
 
 1. For **Target**, choose **SSM Automation**\. 
 
-1. For **Document**, choose an Automation document to run when your target is invoked\.
+1. For **Document**, choose a runbook to use when your target is invoked\.
 
-1. Expand **Configure document version**, and choose a version\. $DEFAULT was explicitly set as the default document version in Systems Manager\. You can choose a specific version, or use the latest version\.
+1. Expand **Configure document version**, and choose a version\. $DEFAULT was explicitly set as the default runbook version in Systems Manager\. You can choose a specific version, or use the latest version\.
 
 1. Expand **Configure automation parameter\(s\)**, and either keep the default parameter values \(if available\) or enter your own values\. 
 **Note**  
 Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't run\.
 
-1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the Automation workflow with the specified document and parameters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
+1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the automation with the specified runbook and parameters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
 
 1. Choose **Create** and complete the wizard\.
 
-## Create an EventBridge event that runs an Automation document \(command line\)<a name="automation-cwe-target-commandline"></a>
+## Create an EventBridge event that uses a runbook \(command line\)<a name="automation-cwe-target-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create an EventBridge event rule and configure an Automation document as the target\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to create an EventBridge event rule and configure a runbook as the target\.
 
-**To configure an Automation document as a target of an EventBridge event rule**
+**To configure a runbook as a target of an EventBridge event rule**
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
 
@@ -211,7 +211,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Create a command to specify an Automation document as a target of the EventBridge event rule you created in step 2\. Here are some template commands to help\.
+1. Create a command to specify a runbook as a target of the EventBridge event rule you created in step 2\. Here are some template commands to help\.
 
 ------
 #### [ Linux ]
@@ -219,7 +219,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws events put-targets \
        --rule CW_Event_Rule_Name \
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Automation_Document_Name","Input":"{\"DocumentParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
+       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name","Input":"{\"RunbookParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
    ```
 
 ------
@@ -228,7 +228,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws events put-targets ^
        --rule CW_Event_Rule_Name ^
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Automation_Document_Name","Input":"{\"DocumentParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
+       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name","Input":"{\"RunbookParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
    ```
 
 ------
@@ -237,9 +237,9 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    $Target = New-Object Amazon.CloudWatchEvents.Model.Target
    $Target.Id = "Target_Id"
-   $Target.Arn = "arn:aws:ssm:us-east-1:123456789012:automation-definition/Automation_Document_Name"
+   $Target.Arn = "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name"
    $Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"
-   $Target.Input = '{"DocumentParameter":["DocumentValue"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
+   $Target.Input = '{"RunbookParameter":["ParameterValue"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
    
    Write-CWETarget `
        -Rule "CW_Event_Rule_Name" `
@@ -248,7 +248,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates an EventBridge event target that starts the specified instance ID using the document `AWS-StartEC2Instance`\.
+   The following example creates an EventBridge event target that starts the specified instance ID using the runbook `AWS-StartEC2Instance`\.
 
 ------
 #### [ Linux ]

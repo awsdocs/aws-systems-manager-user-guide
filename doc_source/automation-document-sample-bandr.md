@@ -2,10 +2,10 @@
 
 Creating an Amazon Machine Image \(AMI\) of an instance is a common process used in backup and recovery\. You might also choose to copy an AMI to another Region as part of a disaster recovery architecture\. Automating common maintenance tasks can reduce downtime if an issue requires failover\. AWS Systems Manager Automation actions can help you accomplish this\.
 
-The following sample AWS Systems Manager Automation document below performs these actions\. 
-+ Uses the `aws:executeAwsApi` Automation action to create an AMI\.
-+ Uses the `aws:waitForAwsResourceProperty` Automation action to confirm the availability of the AMI\.
-+ Uses the `aws:executeScript` Automation action to copy the AMI to the destination Region\.
+The following sample AWS Systems Manager runbook below performs these actions\. 
++ Uses the `aws:executeAwsApi` automation action to create an AMI\.
++ Uses the `aws:waitForAwsResourceProperty` automation action to confirm the availability of the AMI\.
++ Uses the `aws:executeScript` automation action to copy the AMI to the destination Region\.
 
 ------
 #### [ YAML ]
@@ -20,7 +20,7 @@ parameters:
     type: String
     description: "(Required) The ARN of the role that allows Automation to perform
       the actions on your behalf. If no role is specified, Systems Manager Automation
-      uses your IAM permissions to execute this document."
+      uses your IAM permissions to use this runbook."
     default: ''
   InstanceId:
     type: String
@@ -88,7 +88,7 @@ mainSteps:
    "parameters": {
       "AutomationAssumeRole": {
          "type": "String",
-         "description": "(Required) The ARN of the role that allows Automation to perform\nthe actions on your behalf. If no role is specified, Systems Manager Automation\nuses your IAM permissions to run this document.",
+         "description": "(Required) The ARN of the role that allows Automation to perform\nthe actions on your behalf. If no role is specified, Systems Manager Automation\nuses your IAM permissions to run this runbook.",
          "default": ""
       },
       "InstanceId": {

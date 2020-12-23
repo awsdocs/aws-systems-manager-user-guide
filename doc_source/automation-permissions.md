@@ -12,7 +12,7 @@ If you need to create a service role for Systems Manager Automation, complete th
 Use the following procedure to create a service role \(or *assume role*\) for Systems Manager Automation\.
 
 **Note**  
-You can also use this role in Automation documents, such as the `AWS-CreateManagedLinuxInstance` document\. Using this role or the ARNs in Automation documents enables Automation to perform actions in your environment, such as launch new instances and perform actions on your behalf\.
+You can also use this role in runbooks, such as the `AWS-CreateManagedLinuxInstance` runbook\. Using this role or the ARNs in runbooks enables Automation to perform actions in your environment, such as launch new instances and perform actions on your behalf\.
 
 **To create an IAM role and allow Automation to assume it**
 
@@ -30,7 +30,7 @@ You can also use this role in Automation documents, such as the `AWS-CreateManag
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
-1. On the **Roles** page, choose the role you just created to open the **Summary** page\. Note the **Role Name** and **Role ARN**\. You will specify the role ARN when you attach the **iam:PassRole** policy to your IAM account in the next procedure\. You can also specify the role name and the ARN in Automation documents\.
+1. On the **Roles** page, choose the role you just created to open the **Summary** page\. Note the **Role Name** and **Role ARN**\. You will specify the role ARN when you attach the **iam:PassRole** policy to your IAM account in the next procedure\. You can also specify the role name and the ARN in runbooks\.
 
 **Note**  
 The AmazonSSMAutomationRole policy assigns the Automation role permission to a subset of AWS Lambda functions within your account\. These functions begin with "Automation"\. If you plan to use Automation with Lambda functions, the Lambda ARN must use the following format:  
@@ -39,7 +39,7 @@ If you have existing Lambda functions whose ARNs do not use this format, then yo
 
 ### \(Optional\) add an Automation inline policy to invoke other AWS services<a name="automation-role-add-inline-policy"></a>
 
-If you run an automation that invokes other AWS services by using an IAM service role, the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation documents \(AWS\-\* documents\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` documents, to name a few\. This requirement also applies to any custom Automation documents you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. 
+If you run an automation that invokes other AWS services by using an IAM service role, the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(AWS\-\* runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. 
 
 **To embed an inline policy for a service role \(IAM console\)**
 
@@ -105,7 +105,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 ## Task 2: Attach the iam:PassRole policy to your Automation role<a name="automation-passpolicy"></a>
 
-Use the following procedure to attach the `iam:PassRole` policy to your Automation service role\. This enables the Automation service to pass the role to other services or Systems Manager capabilities when running Automation workflows\.
+Use the following procedure to attach the `iam:PassRole` policy to your Automation service role\. This enables the Automation service to pass the role to other services or Systems Manager capabilities when running automations \.
 
 **To attach the iam:PassRole policy to your Automation role**
 
@@ -159,4 +159,4 @@ Use the following procedure to configure a user account to use Automation\. The 
 
 1. On the **Review Policy** page, provide a **Name** for the policy and then choose **Create policy**\.
 
-You have finished configuring the required roles for Automation\. You can now use the Automation service role ARN in your Automation documents\.
+You have finished configuring the required roles for Automation\. You can now use the Automation service role ARN in your runbooks\.

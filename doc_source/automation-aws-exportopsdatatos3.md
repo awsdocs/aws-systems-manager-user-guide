@@ -2,7 +2,7 @@
 
 **Description**
 
-This document retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified S3 bucket\.
+This runbook retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified S3 bucket\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3)
 
@@ -48,7 +48,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Optional\) Message to send when document finishes\.
+  Description: \(Optional\) Message to send when runbook finishes\.
 + snsTopicArn
 
   Type: String
@@ -66,4 +66,4 @@ getOpsSummaryStep – Retrieves up to 5,000 ops summaries to export in a CSV fil
 
 **Outputs**
 
-OpsData object – If the Automation document runs successfully, you will find the exported OpsData object in your target S3 bucket\.
+OpsData object – If the runbook runs successfully, you will find the exported OpsData object in your target S3 bucket\.

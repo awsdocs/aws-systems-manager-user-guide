@@ -2,7 +2,7 @@
 
  **Description** 
 
-The AWSSupport\-ConnectivityTroubleshooter Automation document diagnoses connectivity issues between the following:
+The AWSSupport\-ConnectivityTroubleshooter runbook diagnoses connectivity issues between the following:
 + AWS resources within an Amazon Virtual Private Cloud \(Amazon VPC\)
 + AWS resources in different Amazon VPCs within the same AWS Region that are connected using VPC peering
 + AWS resources in an Amazon VPC and an internet resource using an internet gateway

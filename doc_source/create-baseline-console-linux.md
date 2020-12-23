@@ -69,14 +69,16 @@ For information about accepted formats for lists of approved patches and rejecte
 1. \(Optional\) If you want to specify alternative patch repositories for different versions of an operating system, such as *AmazonLinux2016\.03* and *AmazonLinux2017\.09*, do the following for each product in the **Patch sources** section:
    + In **Name**, enter a name to help you identify the source configuration\.
    + In **Product**, select the version of the operating systems the patch source repository is for, such as `RedhatEnterpriseLinux7.4`\.
-   + In **Configuration**, enter the value of the yum repository configuration to use\. For example:
+   + In **Configuration**, enter the value of the yum repository configuration to use in the following format:
 
      ```
      [main]
-     cachedir=/var/cache/yum/$basesearch$releasever
-     keepcache=0
-     debuglevel=2
+     name=MyCustomRepository
+     baseurl=https://my-custom-repository
+     enabled=1
      ```
+**Tip**  
+For information about other options available for your yum repository configuration, see [dnf\.conf\(5\)](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)\.
 
      Choose **Add another source** to specify a source repository for each additional operating system version, up to a maximum of 20\.
 

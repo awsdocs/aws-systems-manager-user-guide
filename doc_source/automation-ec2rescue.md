@@ -1,8 +1,8 @@
 # Walkthrough: Run the EC2Rescue tool on unreachable instances<a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on EC2 instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** document\. The **AWSSupport\-ExecuteEC2Rescue** document is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
+EC2Rescue can help you diagnose and troubleshoot problems on EC2 instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** runbook\. The **AWSSupport\-ExecuteEC2Rescue** runbook is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
-You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
+You can use the **AWSSupport\-ExecuteEC2Rescue** runbook to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
 
 **Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
 
@@ -10,8 +10,8 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** document to troubleshoot and po
 
 ## How it works<a name="automation-ec2rescue-how"></a>
 
-Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** document works as follows:
-+ You specify the ID of the unreachable instance and run the Automation workflow\.
+Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** runbook works as follows:
++ You specify the ID of the unreachable instance and start the runbook\.
 + The system creates a temporary VPC, and then runs a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
 + The system launches a temporary, SSM\-enabled helper instance\.
@@ -28,7 +28,7 @@ Before you run the following Automation, do the following:
 
 ### Granting AWSSupport\-EC2Rescue permissions to perform actions on your instances<a name="automation-ec2rescue-access"></a>
 
-EC2Rescue needs permission to perform a series of actions on your instances during the Automation execution\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
+EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam)
 + [Granting permissions by using an AWS CloudFormation template](#automation-ec2rescue-access-cfn)
 
@@ -162,7 +162,7 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 ## Running the Automation<a name="automation-ec2rescue-executing"></a>
 
 **Important**  
-The following Automation workflow stops the unreachable instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\.
+The following automation stops the unreachable instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\.
 
 **To run the AWSSupport\-ExecuteEC2Rescue Automation**
 
@@ -178,7 +178,7 @@ The following Automation workflow stops the unreachable instance\. Stopping the 
 
 1. In the **Automation document** section, choose **Owned by Amazon** from the list\.
 
-1. In the documents list, choose the button in the card for **AWSSupport\-ExecuteEC2Rescue**, and then choose **Next**\.
+1. In the runbooks list, choose the button in the card for **AWSSupport\-ExecuteEC2Rescue**, and then choose **Next**\.
 
 1. In the **Execute automation document** page, choose **Simple execution**\.
 
@@ -196,13 +196,13 @@ The following Automation workflow stops the unreachable instance\. Stopping the 
 
    1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the unreachable instance\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
 **Note**  
-If you don't see the option to specify a bucket or a subnet ID, verify that you are using the latest **Default** version of the document\.
+If you don't see the option to specify a bucket or a subnet ID, verify that you are using the latest **Default** version of the runbook\.
 
-1. \(Optional\) In the **Tags** area, apply one or more tag key name/value pairs to help identify the execution, for example `Key=Purpose,Value=EC2Rescue`\.
+1. \(Optional\) In the **Tags** area, apply one or more tag key name/value pairs to help identify the automation, for example `Key=Purpose,Value=EC2Rescue`\.
 
 1. Choose **Execute**\.
 
-The Automation creates a backup AMI as part of the workflow\. All other resources created by the Automation workflow are automatically deleted, but this AMI remains in your account\. The AMI is named using the following convention:
+The runbook creates a backup AMI as part of the automation\. All other resources created by the automation are automatically deleted, but this AMI remains in your account\. The AMI is named using the following convention:
 
 Backup AMI: AWSSupport\-EC2Rescue:*UnreachableInstanceId*
 
