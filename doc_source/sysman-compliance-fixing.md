@@ -8,12 +8,12 @@ For more information about associations, see [Working with associations in Syste
 
 For more information about running a command, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
-**Specify Configuration Compliance as the target of an EventBridge event**  
+**Specify Compliance as the target of an EventBridge event**  
 You can also configure EventBridge to perform an action in response to Configuration Compliance events\. For example, if one or more instances fail to install Critical patch updates or run an association that installs anti\-virus software, then you can configure EventBridge to run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssocation` document when the Configuration Compliance event occurs\. 
 
-Use the following procedure to configure Configuration Compliance as the target of an EventBridge event\.
+Use the following procedure to configure Compliance as the target of an EventBridge event\.
 
-**To configure Configuration Compliance as the target of a EventBridge event \(console\)**
+**To configure Compliance as the target of a EventBridge event \(console\)**
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 

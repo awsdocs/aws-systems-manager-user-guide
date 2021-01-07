@@ -10,13 +10,6 @@ For more information about creating and managing resource groups, see [What is A
 
 For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
-**Topics**
-+ [Example 1: Register multiple targets using instance IDs](#mw-target-example-1)
-+ [Example 2: Register targets using resource tags applied to instances](#mw-target-example-2)
-+ [Example 3: Register targets using a group of tag keys \(without tag values\)](#mw-target-example-3)
-+ [Example 4: Register targets using a resource group name](#mw-target-example-4)
-+ [Example 5: Register targets by filtering resource types in a resource group](#mw-target-example-5)
-
 ## Example 1: Register multiple targets using instance IDs<a name="mw-target-example-1"></a>
 
 Run the following command on your local machine format to register multiple instances as targets using their instance IDs:

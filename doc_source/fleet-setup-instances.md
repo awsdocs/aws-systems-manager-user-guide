@@ -5,4 +5,4 @@ For instances to be monitored and managed using Fleet Manager, they must be AWS 
 You can use AWS Systems Manager Quick Setup to help you quickly configure your Amazon EC2 instances as managed instances in an individual account, or across multiple organizational units \(OUs\) and AWS Regions by integrating with AWS Organizations\. For more information about using Quick Setup to configure managed instances, see [Quick Setup Host Management](quick-setup-host-management.md)\.
 
 **Note**  
-For servers or virtual machines that are not running on AWS, you must use a hybrid activation to configure the server or VM as a managed instance\. For information about hybrid activations, see [AWS Systems Manager hybrid activations](activations.md)\.
+For servers or virtual machines that are not running on AWS, you must use a hybrid activation to configure the server or VM as a managed instance\. For information about hybrid activations, see [AWS Systems Manager Hybrid Activations](activations.md)\.

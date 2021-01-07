@@ -4,7 +4,7 @@ Users in the administrators group for an account have access to all AWS services
 
 The following Systems Manager capabilities may have additional or alternative procedures for granting user access:
 + **Session Manager** \- See [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
-+ **Distributor** \- See [Control User Access to Packages](distributor-getting-started-restrict-access.md)\.
++ **Distributor** \- See [Control user access to packages](distributor-getting-started-restrict-access.md)\.
 + **Maintenance Windows** \- See [Setting up Maintenance Windows](sysman-maintenance-permissions.md) \(see the instructions for assigning the IAM PassRole policy to an IAM user or group\)\.
 
 For more information about using IAM policies to control user access to Systems Manager capabilities and resources, see [AWS Systems Manager identity\-based policy examples](security_iam_id-based-policy-examples.md)\.

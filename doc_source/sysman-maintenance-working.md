@@ -1,6 +1,6 @@
 # Working with maintenance windows \(console\)<a name="sysman-maintenance-working"></a>
 
-This section describes how to create, configure, and update, and delete maintenance windows using the AWS Systems Manager console\. This section also provides information about managing the targets and tasks of a maintenance window\.
+This section describes how to create, configure, update, and delete maintenance windows using the AWS Systems Manager console\. This section also provides information about managing the targets and tasks of a maintenance window\.
 
 **Important**  
 We recommend that you initially create and configure maintenance windows in a test environment\. 

@@ -1,6 +1,6 @@
 # How to specify an alternative patch source repository \(Linux\)<a name="patch-manager-how-it-works-alt-source-repository"></a>
 
-When you use the default repositories configured on an instance for patching operations, Patch Manager scans for or installs security\-related patches\. This is the default behavior for Patch Manager\. For complete information on how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
+When you use the default repositories configured on an instance for patching operations, Patch Manager scans for or installs security\-related patches\. This is the default behavior for Patch Manager\. For complete information about how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
 
 On Linux systems, however, you can also use Patch Manager to install patches that are not related to security, or that are in a different source repository than the default one configured on the instance\. You can specify alternative patch source repositories when you create a custom patch baseline\. In each custom patch baseline, you can specify patch source configurations for up to 20 versions of a supported Linux operating system\. 
 

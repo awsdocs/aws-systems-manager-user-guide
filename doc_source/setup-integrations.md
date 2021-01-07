@@ -4,6 +4,9 @@ AWS Systems Manager integrates with a number of other AWS services\. In most cas
 + [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md)
 + [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)
 
+**Tip**  
+For a complete list of AWS services that integrate with Systems Manager, see [Integration with AWS services](integrations-aws.md)\.
+
 You can use some AWS services immediately to compile log data for later troubleshooting and analysis\. You can also use AWS services to monitor and quickly respond to changes in your Systems Manager environment\. Therefore, we recommend that you set up the following resources as part of your initial Systems Manager setup process\. 
 
 **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge lets you set up rules to detect when changes happen to AWS resources that you specify\. You can configure EventBridge to log status execution changes of the commands users in your account send using Systems Manager\. You can create a rule to detect when a user in your organization starts or stops a session in Session Manager\. You can also configure an EventBridge event to trigger other actions in your AWS environment\. For more information, see the following topics:

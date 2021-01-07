@@ -311,7 +311,7 @@ The **View output** link displays the last 4,000 characters of the detailed stat
 
 ![\[Viewing detailed output for MOF resource compliance issue\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
 
-For information about how to view compliance information, see [AWS Systems Manager Configuration Compliance](systems-manager-compliance.md)\.
+For information about how to view compliance information, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 
 ### Situations that affect compliance reporting<a name="systems-manager-state-manager-viewing-mof-file-compliance-reporting"></a>
 

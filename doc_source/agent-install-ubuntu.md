@@ -1,6 +1,6 @@
 # Manually install SSM Agent on Ubuntu Server instances<a name="agent-install-ubuntu"></a>
 
-Connect to your Ubuntu Server instance and perform the steps in one of the following procedures to install SSM Agent on each instance that will run commands using Systems Manager\.
+Connect to your Ubuntu Server instance and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 ## About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances<a name="agent-install-ubuntu-about-v16"></a>
 

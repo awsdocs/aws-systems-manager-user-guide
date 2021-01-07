@@ -11,6 +11,9 @@ This runbook fails with an "InvalidPermission\.NotFound" error for security grou
 `SSH or RDP port + 0.0.0.0/0`
 `SSH or RDP port + ::/0`
 
+**Note**  
+This runbook is not available in the AWS Regions located within China\.
+
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-DisablePublicAccessForSecurityGroup)
 
 **Document type**

@@ -1,6 +1,6 @@
 # Editing Systems Manager Explorer data sources<a name="Explorer-using-editing-data-sources"></a>
 
-Systems Manager Explorer displays data from the following sources\. 
+Systems Manager Explorer displays data from the following sources: 
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager patch compliance
@@ -15,7 +15,7 @@ To view AWS Support Center cases in Explorer, you must have either an Enterprise
 You can't configure Explorer to stop displaying OpsCenter OpsItem data\.
 
 **Before you begin**  
-Verify that you setup and configured services that populate Explorer widgets with data\. For more information, see [Setting up related services](Explorer-setup-related-services.md)\.
+Verify that you set up and configured services that populate Explorer widgets with data\. For more information, see [Setting up related services](Explorer-setup-related-services.md)\.
 
 **To edit data sources**
 

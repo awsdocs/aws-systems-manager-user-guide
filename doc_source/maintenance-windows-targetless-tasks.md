@@ -1,5 +1,8 @@
 # Registering maintenance window tasks without targets<a name="maintenance-windows-targetless-tasks"></a>
 
+**Note**  
+The ability to register tasks without targets is not currently supported in the Systems Manager console\.
+
 For each maintenance window you create, you can specify one or more tasks to perform when the maintenance window runs\. In most cases, you must specify the resources, or targets, that the task is to run on\. In some cases, however, you do not need to specify targets explicitly in the task\.
 
 One or more targets must be specified for maintenance window Run Command\-type tasks\. Depending on the nature of the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. 

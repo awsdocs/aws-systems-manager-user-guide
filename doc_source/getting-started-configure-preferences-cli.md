@@ -21,6 +21,7 @@ The following procedure describes how to use your preferred command line tool to
            "kmsKeyId": "",
            "runAsEnabled": true,
            "runAsDefaultUser": "",
+           "idleSessionTimeout": "",
            "shellProfile": {
                "windows": "date",
                "linux": "pwd;ls"
@@ -46,6 +47,7 @@ The following procedure describes how to use your preferred command line tool to
        "kmsKeyId": "MyKMSKeyID",
        "runAsEnabled": true,
        "runAsDefaultUser": "MyDefaultRunAsUser",
+       "idleSessionTimeout": "20",
        "shellProfile": {
            "windows": "MyCommands",
            "linux": "MyCommands"

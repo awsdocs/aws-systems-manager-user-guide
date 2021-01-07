@@ -1,6 +1,6 @@
 # Control access to maintenance windows \(Tools for Windows PowerShell\)<a name="sysman-maintenance-perm-ps"></a>
 
-The following procedures describe how to use the Tools for Windows PowerShell to create the required roles and permissions for the Maintenance Windows capability\.
+The following procedures describe how to use the Tools for Windows PowerShell to create the required roles and permissions for Maintenance Windows\.
 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)](#sysman-maintenance-role-ps)

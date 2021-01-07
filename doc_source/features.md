@@ -146,7 +146,7 @@ Use [Distributor](distributor.md) to create and deploy packages to managed insta
 ------
 #### [ Hybrid Activations ]
 
-To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed\-instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
 ------
 

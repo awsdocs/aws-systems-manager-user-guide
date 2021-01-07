@@ -1,8 +1,8 @@
 # About minimum S3 Bucket permissions for SSM Agent<a name="ssm-agent-minimum-s3-permissions"></a>
 
-This topic provides information about the Amazon Simple Storage Service \(Amazon S3\) buckets that SSM Agent might need to access to in order to perform Systems Manager operations\. These buckets are publicly accessible, but in some cases, you might need to provide explicit permission in an EC2 instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you are using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\.
+SSM Agent might need to access Amazon Simple Storage Service \(Amazon S3\) buckets in order to perform Systems Manager operations\. These buckets are publicly accessible\. However, in some cases, you might need to provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you are using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\.
 
-To grant access to these buckets, you create a custom S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
+To grant access to these buckets, you create a custom S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines\) in a hybrid environment\.
 
 For SSM Agent updates, if the instance profile does not provide permissions to these buckets, the SSM Agent makes an HTTP call to download the update\.
 
@@ -26,7 +26,7 @@ Amazon S3 permissions required by SSM Agent
 
 | S3 bucket ARN | Description | 
 | --- | --- | 
-| arn:aws:s3:::aws\-ssm\-region/\* |  Provides access to the S3 bucket containing modules required for use with SSM documents\.  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `aws-patch-manager-me-south-1-a53fc9dce`     | 
+|  For Linux and Windows Server instances: `arn:aws:s3:::aws-ssm-region/*` For Amazon EC2 instances for macOS: `aws-patchmanager-macos-region/*`  |  Provides access to the S3 bucket containing modules required for use with certain Systems Manager documents \(SSM documents\)\. For example: `arn:aws:s3:::aws-ssm-us-east-2/*` and `aws-patchmanager-macos-us-east-2/*`\.  Exceptions The Amazon S3 bucket names in a few AWS Regions use an extended naming convention, as shown by their ARNs\. For these Regions, use the following ARNs instead:  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  | 
 | arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support Windows operating systems\.  | 
 | arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\. If these permissions are not provided, the SSM Agent makes an HTTP call to download the update\.  | 
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the document `AWS-ConfigureAWSPackage`\.  | 

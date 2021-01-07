@@ -21,12 +21,6 @@ Use one of the following commands to download and run the SSM Agent installer\.
 sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 
-## Intel 32\-bit \(x86\)<a name="aLinux2Intel32"></a>
-
-```
-sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm
-```
-
 ## ARM 64\-bit \(arm64\)<a name="aLinux2Arm"></a>
 
 ```
@@ -39,11 +33,6 @@ Intel 64\-bit \(x86\_64\)
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-  ```
-Intel 32\-bit \(x86\)  
-
-  ```
-  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
   ```
 ARM 64\-bit \(arm64\)  
 

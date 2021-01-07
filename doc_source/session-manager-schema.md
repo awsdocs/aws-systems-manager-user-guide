@@ -1,6 +1,6 @@
 # Session document schema<a name="session-manager-schema"></a>
 
-The following information describes the schema elements for a Session document\. Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command\.
+The following information describes the schema elements of a Session document\. Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command\.
 
 [schemaVersion](#version)  
 The schema version of the Session document\. Currently, Session documents only support version 1\.0\.  

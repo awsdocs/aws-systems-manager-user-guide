@@ -1,12 +1,12 @@
-# Creating a Resource Data Sync for Configuration Compliance<a name="sysman-compliance-datasync-create"></a>
+# Creating a Resource Data Sync for Compliance<a name="sysman-compliance-datasync-create"></a>
 
-You can use Systems Manager Resource Data Sync to send compliance data from all of your managed instances to a target S3 bucket\. When you create the sync, you can specify managed instances from multiple AWS accounts, AWS Regions, and your on\-premises hybrid environment\. Resource Data Sync then automatically updates the centralized data when new compliance data is collected\. With all compliance data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. Configuring Resource Data Sync for configuration compliance is a one\-time operation\.
+You can use Systems Manager Resource Data Sync to send compliance data from all of your managed instances to a target S3 bucket\. When you create the sync, you can specify managed instances from multiple AWS accounts, AWS Regions, and your on\-premises hybrid environment\. Resource Data Sync then automatically updates the centralized data when new compliance data is collected\. With all compliance data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. Configuring Resource Data Sync for Compliance is a one\-time operation\.
 
 The following graphic shows how Resource Data Sync aggregates all data from different accounts, Regions, and your hybrid environment to a central repository\.
 
-![\[Resource Data Sync for Systems Manager Configuration Compliance\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ConfigComplianceDataSync.png)
+![\[Resource Data Sync for Systems Manager Compliance\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ConfigComplianceDataSync.png)
 
-Use the following procedure to create a Resource Data Sync for Configuration Compliance by using the Amazon EC2 console\.
+Use the following procedure to create a Resource Data Sync for Compliance by using the Amazon EC2 console\.
 
 **To create and configure an S3 bucket for Resource Data Sync \(console\)**
 
@@ -69,6 +69,6 @@ Use the following procedure to create a Resource Data Sync for Configuration Com
 
 1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
 **Note**  
-If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target S3 bucket are located in different Regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. Choose **Create**\.

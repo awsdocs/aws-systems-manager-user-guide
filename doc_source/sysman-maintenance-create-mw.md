@@ -1,6 +1,6 @@
 # Create a maintenance window \(console\)<a name="sysman-maintenance-create-mw"></a>
 
-In this procedure, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run during the maintenance window execution\.
+In this procedure, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the targets, or resources, that it updates and the tasks that run when the maintenance window runs\.
 
 **Note**  
 For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  

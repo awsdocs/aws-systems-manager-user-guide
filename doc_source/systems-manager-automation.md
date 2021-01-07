@@ -1,5 +1,10 @@
 # AWS Systems Manager Automation<a name="systems-manager-automation"></a>
 
+
+|  | 
+| --- |
+| Automation documents are now referred to as runbooks\. | 
+
 Systems Manager Automation simplifies common maintenance and deployment tasks of Amazon EC2 instances and other AWS resources\. Automation enables you to do the following:
 + Build automations to configure and manage instances and AWS resources\.
 + Create custom runbooks or use pre\-defined runbooks maintained by AWS\.

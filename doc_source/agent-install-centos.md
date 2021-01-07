@@ -22,12 +22,6 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
    sudo dnf install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
 
-   Intel 32\-bit \(x86\) instances:
-
-   ```
-   sudo dnf install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm
-   ```
-
 1. Run one of the following commands to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
 
    ```
@@ -65,12 +59,6 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
 
    ```
    sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
-   ```
-
-   Intel 32\-bit \(x86\) instances:
-
-   ```
-   sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm
    ```
 
    ARM 64\-bit \(arm64\) instances:

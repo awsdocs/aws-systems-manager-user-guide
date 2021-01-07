@@ -31,6 +31,7 @@ You can view the content for runbooks in the Systems Manager console\.
 + [AWS\-ASGExitStandby](automation-aws-asgexitstandby.md)
 + [AWS\-AttachEBSVolume](automation-aws-attachebsvolume.md)
 + [AWS\-AttachIAMToInstance](automation-aws-attachiamtoinstance.md)
++ [AWSSupport\-CheckAndMountEFS](automation-awssupport-check-and-mount-efs.md)
 + [AWSEC2\-CloneInstanceAndUpgradeWindows](automation-awsec2-CloneInstanceAndUpgradeWindows.md)
 + [AWSEC2\-CloneInstanceAndUpgradeSQLServer](automation-awsec2-CloneInstanceAndUpgradeSQLServer.md)
 + [AWSSupport\-CollectEKSInstanceLogs](automation-awssupport-collecteksinstancelogs.md)

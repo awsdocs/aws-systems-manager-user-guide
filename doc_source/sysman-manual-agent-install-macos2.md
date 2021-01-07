@@ -5,8 +5,6 @@ Connect to your macOS instance and perform the following steps to install SSM Ag
 **To install SSM Agent on macOS**
 
 1. Download the agent installer file using the following command\.
-**Note**  
-Even though the following download URL shows 'ec2\-downloads\-windows', this is the correct URL for downloading the agent for macOS\.
 
    ```
    sudo wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/darwin_amd64/amazon-ssm-agent.pkg

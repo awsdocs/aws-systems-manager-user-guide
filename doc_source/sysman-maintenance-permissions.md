@@ -32,6 +32,9 @@ To run maintenance tasks on your target instances, the Maintenance Windows servi
 The type of role you should choose depends on the following factors:
 
 **Custom service role**: Use a custom service role for maintenance window tasks in these cases:
++ If you want to use Amazon Simple Notification Service \(Amazon SNS\) to send notifications related to status changes for Run Command tasks registered with your maintenance windows\. For information, see the following topics:
+  + [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)
+  + [Use a maintenance window to send a command that returns status notifications](monitoring-sns-mw-register.md)
 + If you want to use a more restrictive set of permissions than those provided by the service\-linked role\. The service\-linked role supports very limited resource\-level constraints\. For example, say you want to allow maintenance window tasks to run on a limited set of instances, or you want to allow only certain SSM documents run on your target instances\. In these cases, you specify stricter permissions in a custom service role\.
 + If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. Some actions in Automation documents require expanded permissions\.
 

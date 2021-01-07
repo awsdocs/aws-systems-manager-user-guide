@@ -1,6 +1,6 @@
 # Tutorial: View information about tasks and task executions \(AWS CLI\)<a name="mw-cli-tutorial-task-info"></a>
 
-This tutorial demonstrates how to use the AWS CLI to view details about your completed maintenance window task executions\. 
+This tutorial demonstrates how to use the AWS CLI to view details about your completed maintenance window tasks\. 
 
 If you are continuing directly from [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your maintenance window to run at least once in order to see its execution results\.
 

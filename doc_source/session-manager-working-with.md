@@ -7,5 +7,5 @@ For more information about sessions, see [What is a session?](session-manager.md
 **Topics**
 + [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)
 + [Start a session](session-manager-working-with-sessions-start.md)
-+ [Terminate a session](session-manager-working-with-sessions-end.md)
++ [End a session](session-manager-working-with-sessions-end.md)
 + [View session history](session-manager-working-with-view-history.md)

@@ -1,12 +1,12 @@
 # Step 2: Create an IAM service role for a hybrid environment<a name="sysman-service-role"></a>
 
-Servers and virtual machines \(VMs\) in a hybrid environment require an IAM role to communicate with the Systems Manager service\. The role grants `AssumeRole` trust to the Systems Manager service\. You only need to create the service role for a hybrid environment once for each AWS account\.
+Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create the service role for a hybrid environment once for each AWS account\.
 
 **Note**  
-Users in your company or organization who will use Systems Manager on your hybrid machines must be granted permission in IAM to call the SSM API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Users in your company or organization who will use Systems Manager on your hybrid machines must be granted permission in IAM to call the Systems Manager API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **S3 bucket policy requirement**  
-If either of the following cases are true, you must create a custom IAM permission policy for S3 buckets before completing this procedure:
+If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
 + **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
 + **Case 2**: You plan to use an S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 **Note**  
@@ -55,7 +55,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 
 1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to enable the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
    \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
 
@@ -196,6 +196,6 @@ The policies you add for a service profile for managed instances in a hybrid env
 ------
 
 **Note**  
-Users in your company or organization who are to use Systems Manager on your hybrid machines must be granted permission in IAM to call the SSM API\. For more information, see [Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
+Users in your company or organization who are to use Systems Manager on your hybrid machines must be granted permission in IAM to call the Systems Manager API\. For more information, see [Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
 
 Continue to [Step 3: Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.

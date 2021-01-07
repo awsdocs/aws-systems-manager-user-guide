@@ -26,6 +26,7 @@ You can use this procedure to create custom session documents for your Session M
            "kmsKeyId": "",
            "runAsEnabled": false,
            "runAsDefaultUser": "",
+           "idleSessionTimeout": "",
            "shellProfile": {
                "windows": "date",
                "linux": "pwd;ls"
@@ -51,6 +52,7 @@ You can use this procedure to create custom session documents for your Session M
        "kmsKeyId": "MyKMSKeyID",
        "runAsEnabled": true,
        "runAsDefaultUser": "MyDefaultRunAsUser",
+       "idleSessionTimeout": "20",
        "shellProfile": {
            "windows": "MyCommands",
            "linux": "MyCommands"

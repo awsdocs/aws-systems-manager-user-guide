@@ -1,6 +1,6 @@
 # Run a PowerShell script from Amazon S3<a name="integration-S3-PowerShell"></a>
 
-This section includes procedures to help you run PowerShell scripts from Amazon S3 by using either the Amazon EC2 console or the AWS CLI\.
+This section includes procedures to help you run PowerShell scripts from Amazon S3 by using either the AWS Systems Manager console or the AWS CLI\.
 
 ## Run a PowerShell script from Amazon S3 \(console\)<a name="integration-S3-PowerShell-console"></a>
 

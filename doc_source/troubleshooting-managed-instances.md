@@ -5,8 +5,7 @@ For several Systems Manager operations, you can choose to manually select the in
 This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* does not appear in your lists of managed instances in Systems Manager\. 
 
 In order for an EC2 instance to be managed by Systems Manager and available in lists of managed instances, it must meet three primary requirements:
-
-1. SSM Agent must be installed and running on an instance with a supported operating system\.
++ SSM Agent must be installed and running on an instance with a supported operating system\.
 **Note**  
 Some Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\)   
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
@@ -18,10 +17,8 @@ Ubuntu Server 16\.04, 18\.04, and 20\.04
 Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 Windows Server 2016 and 2019
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
-
-1. An AWS Identity and Access Management \(IAM\) instance profile that supplies the required permissions for the instance to communicate with the Systems Manager service must be attached to the instance\.
-
-1. SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the instance must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
++ An AWS Identity and Access Management \(IAM\) instance profile that supplies the required permissions for the instance to communicate with the Systems Manager service must be attached to the instance\.
++ SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the instance must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
 
 After you verify that an EC2 instance is running, you can use the following command to check whether SSM Agent on one of these instance types has successfully registered itself with the Systems Manager service\. This command does not return results until a successful registration has taken place\.
 

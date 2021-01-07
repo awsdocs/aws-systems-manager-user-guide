@@ -1,6 +1,6 @@
 # Run Python scripts from GitHub<a name="integration-github-python"></a>
 
-This section includes procedures to help you run Python scripts from GitHub by using either the console or the AWS CLI\. 
+This section includes procedures to help you run Python scripts from GitHub by using either the Systems Manager console or the AWS CLI\. 
 
 ## Run a Python script from GitHub \(console\)<a name="integration-github-python-console"></a>
 

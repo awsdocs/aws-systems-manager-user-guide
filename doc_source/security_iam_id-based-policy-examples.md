@@ -1,6 +1,6 @@
 # AWS Systems Manager identity\-based policy examples<a name="security_iam_id-based-policy-examples"></a>
 
-By default, IAM users and roles don't have permission to create or modify Systems Manager resources\. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
+By default, IAM users and roles don't have permission to create or modify Systems Manager resources\. They also can't perform tasks using the AWS Systems Manager console, AWS CLI, or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
 
 The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the **us\-west\-2** Region\.
 
@@ -117,7 +117,7 @@ You can create standalone policies that you administer in your own AWS account\.
 The following examples of user policies grant permissions for various AWS Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
-All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\.
+All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID should not be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with AWS\-\*\)\.
 
  **Examples** 
 +  [Example 1: Allow a user to perform Systems Manager operations in a single Region](#identity-based-policies-example-1) 

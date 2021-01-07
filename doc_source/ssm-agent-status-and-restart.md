@@ -16,7 +16,7 @@ This topic lists the commands to check whether SSM Agent is running on each supp
 | SUSE Linux Enterprise Server \(SLES\) |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 
 | Ubuntu Server 14\.04 \(all\) and 16\.04 \(32\-bit\) |  `sudo status amazon-ssm-agent`  |  `sudo start amazon-ssm-agent`  | 
 | Ubuntu Server 16\.04 64\-bit instances \(deb package installation\) |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 
-| Ubuntu Server 16\.04, 18\.04, and 20\.04 LTS & and 20\.10 STR 64\-bit \(Snap package installation\) |  `sudo snap list amazon-ssm-agent`  |  `sudo snap start amazon-ssm-agent`  | 
+| Ubuntu Server 16\.04, 18\.04, and 20\.04 LTS & and 20\.10 STR 64\-bit \(Snap package installation\) |  `sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service`  |  `sudo snap start amazon-ssm-agent`  | 
 | Windows Server |  *Run in PowerShell:* `Get-Service AmazonSSMAgent`  |  *Run in PowerShell Administrator mode:* `Start-Service AmazonSSMAgent`  | 
 
 **Related content**

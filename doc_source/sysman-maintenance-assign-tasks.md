@@ -1,6 +1,6 @@
 # Assign tasks to a maintenance window \(console\)<a name="sysman-maintenance-assign-tasks"></a>
 
-In this procedure, you add a task to a maintenance window\. Tasks are the actions performed on a resource during a maintenance window execution\. 
+In this procedure, you add a task to a maintenance window\. Tasks are the actions performed on a resource when a maintenance window\. 
 
 The following four types of tasks can be added to a maintenance window:
 + AWS Systems Manager Run Command commands

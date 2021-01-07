@@ -74,7 +74,7 @@ For Run Command, you must configure `WinINet` proxy settings on your Windows Ser
 [System.Net.WebRequest]::DefaultWebProxy
 
 $proxyServer = "http://hostname:port"
-$proxyBypass = "169.254.169.*"
+$proxyBypass = "169.254.169.254"
 $WebProxy = New-Object System.Net.WebProxy($proxyServer,$true,$proxyBypass)
 
 [System.Net.WebRequest]::DefaultWebProxy = $WebProxy

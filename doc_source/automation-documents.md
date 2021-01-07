@@ -1,5 +1,10 @@
 # Working with runbooks<a name="automation-documents"></a>
 
+
+|  | 
+| --- |
+| Automation documents are now referred to as runbooks\. | 
+
 A Systems Manager Automation runbook defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation runs\. A runbook contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
 
 The process of running these actions and their steps is called the *automation*\.

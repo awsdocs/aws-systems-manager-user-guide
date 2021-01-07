@@ -1,6 +1,6 @@
 # Using Chef InSpec profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
-Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
+Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
 + Check if specific ports are open or closed\.
 + Check if specific applications are running\.
 + Check if certain packages are installed\.
@@ -35,7 +35,9 @@ Here is how the process of using InSpec profiles with Systems Manager Compliance
 1. Identify noncompliant instances by using the Compliance API or the Systems Manager Compliance console\.
 
 **Note**  
+Note the following information\.  
 Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager runs the AWS\-RunInspecChecks SSM document, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
+Running the AWS\-RunInspecChecks document, as described in this topic, assigns a compliance entry of type `Custom:Inspec` to each targeted instance\. To assign this compliance type, the document calls the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\.
 
 ## Running an InSpec compliance scan<a name="integration-chef-inspec-running"></a>
 

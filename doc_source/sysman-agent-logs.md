@@ -35,7 +35,7 @@ For more information about `cihub/seelog` configuration, see the [Seelog Wiki](h
 Use the following procedure to enable SSM Agent debug logging on your managed instances\.
 
 ------
-#### [ Linux ]
+#### [ Linux and macOS ]
 
 **To enable SSM Agent debug logging on Linux and macOS instances**
 
@@ -43,17 +43,15 @@ Use the following procedure to enable SSM Agent debug logging on your managed in
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 
-   Linux:
+   **Linux**:
 
    On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
 
    On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/`\.
 
-   macOS:
+   **macOS**: 
 
-   ```
-   /opt/aws/ssm/seelog.xml.template
-   ```
+   On **macOS**, the file is located in the directory `/opt/aws/ssm/seelog.xml.template`\.
 
 1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 

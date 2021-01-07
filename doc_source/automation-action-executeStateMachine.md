@@ -6,6 +6,17 @@ Runs an AWS Step Functions state machine\.
 
 This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
 
+**Note**  
+Currently, this action is only supported in the following AWS Regions:  
+us\-west\-2
+us\-east\-1
+us\-east\-2
+eu\-west\-1
+eu\-west\-2
+eu\-central\-1
+ap\-northeast\-1
+ap\-southeast\-2
+
 ------
 #### [ YAML ]
 
