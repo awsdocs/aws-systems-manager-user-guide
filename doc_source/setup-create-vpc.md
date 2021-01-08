@@ -9,6 +9,7 @@ The alternative to using a VPC endpoint is to enable outbound internet access on
 `ssm.region.amazonaws.com`
 `ssmmessages.region.amazonaws.com`
 `ec2messages.region.amazonaws.com`
+SSM Agent initiates all connections to the Systems Manager service in the cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.  
 For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 **About Amazon VPC**  

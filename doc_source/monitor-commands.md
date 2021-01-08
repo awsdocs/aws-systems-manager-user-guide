@@ -58,12 +58,15 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 Systems Manager enforces the following timeout values when running commands\.
 
 **Delivery Timeout**  
-In the Systems Manager console, you specify the delivery timeout value in the **Timeout \(seconds\)** field\. Systems Manager must deliver the command to the targets and the SSM Agent on the targets must begin processing the command within the number of seconds specified for **Timeout \(seconds\)**\.
+In the Systems Manager console, you specify the delivery timeout value in the **Timeout \(seconds\)** field\. After a command is sent, Run Command checks whether the command has expired or not\. If a command reaches the command expiration limit \(total timeout\), it changes status to `DeliveryTimedOut` for all invocations that are currently have status of `InProgress`, `Pending` or `Delayed`\.
 
 ![\[The Timeout (seconds) field in the Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
 
 **Execution Timeout**  
 In the Systems Manager console, you specify the execution timeout value in the **Execution Timeout** field, if available\. Not all SSM documents require that you specify an execution timeout\. If specified, the command must complete within this time period\.
+
+**Note**  
+ Run Command relies on the SSM Agent document terminal response to determine whether or not the command was delivered to the agent\. SSM Agent must send an `ExecutionTimedOut` signal for an invocation or command to be marked as `ExecutionTimedOut`\.
 
 ![\[The Execution Timeout field in the Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-execution-timeout-console.png)
 
@@ -76,9 +79,11 @@ Total timeout is equal to the value of `delivery timeout` plus `execution timeou
 **How Systems Manager Reports Timeouts**  
 If Systems Manager receives an `execution timeout` reply from SSM Agent on a target, then Systems Manager marks the command invocation as `executionTimeout`\.
 
-If Systems Manager doesn't receive any reply from SSM Agent on a target, and the command execution exceeds the `total timeout` value, then Systems Manager marks the command invocation as `deliveryTimeout`\.
+If Run Command doesn't receive a document terminal response from SSM Agent, the command invocation is marked as `deliveryTimeout`\.
 
 To determine timeout status on a target, SSM Agent combines all of the parameters and the content of the SSM document to calculate for `executionTimeout`\. When SSM Agent determines that a command has timed out, it sends `executionTimeout` to the service\.
+
+The default for **Timeout \(seconds\)** is 3600 seconds\. The default for **Execution Timeout** is also 3600 seconds\. Therefore, the total default timeout for a command is 7200 seconds\.
 
 **Note**  
 SSM Agent processes `executionTimeout` differently depending on the type of SSM document and the document version\. 
