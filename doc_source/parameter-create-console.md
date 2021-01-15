@@ -60,7 +60,7 @@ If you chose **SecureString**, the value of the parameter is masked by default \
 
 1. Choose **Create parameter**\. 
 
-1. In the parameters list, choose the name of the parameter you just created\. Verify the details on the **Overview** tab\. If you created a `SecureString`g parameter, choose **Show** to view the unencrypted value\.
+1. In the parameters list, choose the name of the parameter you just created\. Verify the details on the **Overview** tab\. If you created a `SecureString` parameter, choose **Show** to view the unencrypted value\.
 
 **Note**  
 You can’t change an advanced parameter to a standard parameter\. If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, you must delete it and recreate it as a new standard parameter\.
