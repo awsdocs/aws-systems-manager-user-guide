@@ -141,7 +141,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 ------
 
-   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and a AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
 ------
 #### [ Linux ]

@@ -29,7 +29,7 @@ Linux, macOS, Windows
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ec2:EnableEbsEncryptionByDefault`
-+ `ssm:ExecuteAutomation`
++ `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
 
 **Document Steps**

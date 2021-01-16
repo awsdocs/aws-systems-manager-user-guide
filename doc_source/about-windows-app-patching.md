@@ -29,7 +29,7 @@ aws ssm create-patch-baseline ^
 
 ------
 
-If you specify the Microsoft application product family, each product you specify must be a supported member of the selected product family\. For example, to patch the product "Active Directory Rights Management Services Client 2\.0," you must specify its product family as "Active Directory" and not, for example, "Office" or "SQL Server\." The following AWS CLI command demonstrates a match pairing of product family and product:
+If you specify the Microsoft application product family, each product you specify must be a supported member of the selected product family\. For example, to patch the product "Active Directory Rights Management Services Client 2\.0," you must specify its product family as "Active Directory" and not, for example, "Office" or "SQL Server\." The following AWS CLI command demonstrates a matched pairing of product family and product:
 
 ------
 #### [ Linux ]
@@ -51,18 +51,5 @@ aws ssm create-patch-baseline ^
 
 ------
 
-**Troubleshooting Mismatched Product Family/Product Pairs**  
-When you create a patch baseline in the console, you specify a product family and a product\. For example, you might choose:
-+ **Product family**: **Office**
-
-  **Product**: **Office 2016**
-
-If you attempt to create a patch baseline with a mismatched product family/product pair, an error message is displayed\. The following are reasons this can occur:
-+ You selected a valid product family/product pair, but then removed the product family selection\.
-+ You chose a product from the **Obsolete or mismatched options** sublist instead of the **Available and matching options** sublist\. 
-
-  Items in the product **Obsolete or mismatched options** sublist might have been entered in error through an SDK or AWS CLI `create-patch-baseline` command\. This could mean a typo was introduced or a product was assigned to the wrong product family\. A product also appears in the **Obsolete or mismatched options** sublist if it was specified for a previous patch baseline but currently has no patches available from Microsoft\. 
-
-  To avoid this issue in the console, always choose options from the **Currently available options** sublists\.
-
-  You can also view the products that have currently available patches by using the `[describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html)` command in the AWS CLI or the `[DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)` API command\.
+**Note**  
+If you receive an error message about a mismatched product and family pairing, see [Troubleshooting Mismatched Product Family/Product Pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch) for help resolving the issue\.

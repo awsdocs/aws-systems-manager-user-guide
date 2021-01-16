@@ -220,14 +220,16 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
 
 The following procedure describes how to use the AWS CLI to create a resource data sync for accounts that are defined in AWS Organizations\. You must use the AWS CLI to perform this task\. You must also perform this procedure for each AWS Region and account defined in AWS Organizations\.
 
-**To create a resource data sync for accounts defined in AWS Organizations \(AWS CLI\)**
+**To create a resource data sync for an account defined in AWS Organizations \(AWS CLI\)**
 
 1. Install and configure the AWS CLI, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a resource data sync for multiple accounts defined in AWS Organizations\. For *DOC\-EXAMPLE\-BUCKET*, specify the name of the Amazon S3 bucket you created earlier in this topic\. If you created a prefix \(subdirectory\) for your bucket, then specify this information for *prefix\-name*\. 
+1. Run the following command to create a resource data sync for an account defined in AWS Organizations\. For *DOC\-EXAMPLE\-BUCKET*, specify the name of the Amazon S3 bucket you created earlier in this topic\. If you created a prefix \(subdirectory\) for your bucket, then specify this information for *prefix\-name*\. 
 
    ```
    aws ssm create-resource-data-sync --sync-name name --s3-destination "BucketName=DOC-EXAMPLE-BUCKET,Prefix=prefix-name,SyncFormat=JsonSerDe,Region=AWS Region, for example us-east-2,DestinationDataSharing={DestinationDataSharingType=Organization}"
    ```
+
+1. Repeat Step 2 for every AWS Region and account where you want to synchronize data to the central Amazon S3 bucket\.

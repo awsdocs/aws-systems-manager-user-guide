@@ -290,7 +290,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 
 ------
 
-1. Run the following command to delete two parameters
+1. Run the following command to delete two parameters\.
 
 ------
 #### [ Linux ]

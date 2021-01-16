@@ -70,7 +70,7 @@ The `AutomationAssumeRole` requires the following actions to successfully run th
 + `ssm:DescribeAutomationStepExecutions`
 + `ssm:DescribeInstanceInformation`
 + `ssm:DescribeInstanceProperties`
-+ `ssm:ExecuteAutomation`
++ `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
 + `ssm:GetDocument`
 + `ssm:ListCommands`

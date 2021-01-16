@@ -385,6 +385,24 @@ The command returns information like the following\.
 {
     "Parameters": [
         {
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1",
+            "Type": "String",
+            "Value": "use1-bos1-az1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:37.850000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-mia1-az1",
+            "Type": "String",
+            "Value": "use1-mia1-az1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:29.234000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/use1-mia1-az1",
+            "DataType": "text"
+        },
+        {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1",
             "Type": "String",
             "Value": "usw2-lax1-az1",
@@ -432,6 +450,15 @@ The command returns information like the following\.
 ```
 {
     "Parameters": [
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/apne1-wl1-nrt-wlz1",
+            "Type": "String",
+            "Value": "apne1-wl1-nrt-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:21.815000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/apne1-wl1-nrt-wlz1",
+            "DataType": "text"
+        },
         {
             "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-atl-wlz1",
             "Type": "String",
@@ -496,12 +523,30 @@ The command returns information like the following\.
             "DataType": "text"
         },
         {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sea-wlz1",
+            "Type": "String",
+            "Value": "usw2-wl1-sea-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2021-01-07T06:10:28.236000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sea-wlz1",
+            "DataType": "text"
+        },
+        {
             "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
             "Type": "String",
             "Value": "usw2-wl1-sfo-wlz1",
             "Version": 3,
             "LastModifiedDate": "2020-08-06T07:11:38.750000-07:00",
             "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-den-wlz1",
+            "Type": "String",
+            "Value": "usw2-wl1-den-wlz1",
+            "Version": 3,
+            "LastModifiedDate": "2021-01-07T06:10:21.506000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-den-wlz1",
             "DataType": "text"
         }
     ]
@@ -539,48 +584,63 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "US",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.430000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry"
+            "LastModifiedDate": "2020-04-29T20:36:58.405000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
             "Type": "String",
             "Value": "US-CA",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.489000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion"
+            "LastModifiedDate": "2020-04-29T20:36:58.466000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/location",
+            "Type": "String",
+            "Value": "US West (Los Angeles)",
+            "Version": 1,
+            "LastModifiedDate": "2021-01-12T11:45:21.151000-08:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/location",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
             "Type": "String",
             "Value": "us-west-2-lax-1",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.611000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group"
+            "LastModifiedDate": "2020-04-29T20:36:58.597000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
             "Type": "String",
             "Value": "usw2-az2",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.736000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone"
+            "LastModifiedDate": "2020-04-29T20:36:58.783000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
             "Type": "String",
             "Value": "us-west-2",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.670000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region"
+            "LastModifiedDate": "2020-04-29T20:36:58.704000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group",
             "Type": "String",
             "Value": "us-west-2-lax-1",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:27:03.552000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+            "LastModifiedDate": "2020-04-29T20:36:58.534000-07:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group",
+            "DataType": "text"
         }
     ]
 }

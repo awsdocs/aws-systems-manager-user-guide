@@ -152,7 +152,7 @@ If successful, the command returns the version number of the parameter\. **Excep
 
 ------
 
-1. Run the following command to view the lateste parameter value and verify the details of your new parameter\.
+1. Run the following command to view the latest parameter value and verify the details of your new parameter\.
 
    ```
    aws ssm get-parameters --names "/Test/IAD/helloWorld"
@@ -195,13 +195,13 @@ Run the following command to use this parameter in a command\.
 aws ssm send-command --document-name "AWS-RunShellScript" --parameters '{"commands":["echo {{ssm:/Test/IAD/helloWorld}}"]}' --targets "Key=instanceids,Values=instance-ids"
 ```
 
-Run the following command if you only want to retreive the parameter Value\.
+Run the following command if you only want to retrieve the parameter Value\.
 
 ```
 aws ssm get-parameter --name testDataTypeParameter --query "Parameter.Value"
 ```
 
-Run the following command if you only want to retreive the parameter Value using `get-parameters`\.
+Run the following command if you only want to retrieve the parameter Value using `get-parameters`\.
 
 ```
 aws ssm get-parameters --names "testDataTypeParameter" --query "Parameters[*].Value"

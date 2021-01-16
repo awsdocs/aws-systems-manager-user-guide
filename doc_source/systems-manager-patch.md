@@ -25,3 +25,4 @@ For information about using EventBridge to monitor Systems Manager events, see [
 + [Working with Patch Manager \(console\)](sysman-patch-working.md)
 + [Working with Patch Manager \(AWS CLI\)](patch-manager-cli-commands.md)
 + [AWS Systems Manager Patch Manager walkthroughs](patch-walkthroughs.md)
++ [Troubleshooting Patch Manager](patch-manager-troubleshooting.md)

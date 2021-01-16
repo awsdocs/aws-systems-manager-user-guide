@@ -48,4 +48,4 @@ configureCloudWatch \- Configures CloudWatch on the Amazon EC2 instance with the
 
 **Outputs**
 
-The automation execution has no output\.
+This automation has no output\.

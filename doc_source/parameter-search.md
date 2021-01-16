@@ -84,7 +84,7 @@ For `describe-parameters`, the default search type for Name is `Equals`\. In you
    aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
-In the last example, *key\-id* represents the ID of a AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
+In the last example, *key\-id* represents the ID of an AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
    If successful, the command returns output similar to the following\.
 

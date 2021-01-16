@@ -5,6 +5,7 @@ Use the following information to help you troubleshoot problems with maintenance
 **Topics**
 + [Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."](#maintenance-window-role-troubleshooting)
 + [Not all maintenance window targets are updated](#targets-not-updated)
++ [Task fails with error message: "Step fails when it is validating and resolving the step inputs"](#step-fails)
 + [Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"](#maxconcurrency-maxerrors-not-supported)
 
 ## Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."<a name="maintenance-window-role-troubleshooting"></a>
@@ -26,6 +27,52 @@ Use the following information to help you troubleshoot problems with maintenance
 + The resource was offline or stopped during the maintenance window operation\.
 
 You can wait for the next scheduled maintenance window time to run tasks on the resources\. You can manually run the maintenance window tasks on the resources that weren't available or were offline\.
+
+## Task fails with error message: "Step fails when it is validating and resolving the step inputs"<a name="step-fails"></a>
+
+**Problem**: An Automation runbook or Systems Manager Command document you are using in a task requires that you specify inputs such as `InstanceId` or `SnapshotId`, but a value is not supplied or is not supplied correctly\.
++ **Solution 1**: If your task is targeting a single resource, such as a single instance or single snapshot, enter its ID in the input parameters for the task\.
++ **Solution 2**: If your task is targeting multiple resources, such as creating images from multiple instances when you use the runbook `AWS-CreateImage`, you can use one of the pseudo parameters supported for maintenance window tasks in the input parameters to represent instance IDs in the command\. 
+
+  The following commands register a Systems Manager Automation task with a maintenance window using the AWS CLI\. Note that the `--targets` value indicates a maintenance window target ID\. Also, even though the `--targets` parameter specifies a window target ID, parameters of the Automation document require that an instance ID be provided\. In this case, the command uses the pseudo parameter `{{RESOURCE_ID}}` as the `InstanceId` value\.
+
+  **AWS CLI command:**
+
+------
+#### [ Linux ]
+
+  The following command restarts Amazon Elastic Compute Cloud \(Amazon EC2\) instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
+
+  ```
+  aws ssm register-task-with-maintenance-window \
+      --window-id "mw-0c50858d01EXAMPLE" \
+      --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
+      --task-arn "AWS-RestartEC2Instance" \
+      --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
+      --task-type AUTOMATION \
+      --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={InstanceId='{{RESOURCE_ID}}'}}" \
+      --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" \
+      --description "Automation task to restart EC2 instances"
+  ```
+
+------
+#### [ Windows ]
+
+  ```
+  aws ssm register-task-with-maintenance-window ^
+      --window-id "mw-0c50858d01EXAMPLE" ^
+      --targets Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
+      --task-arn "AWS-RestartEC2Instance" ^
+      --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole ^
+      --task-type AUTOMATION ^
+      --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={InstanceId='{{RESOURCE_ID}}'}}" ^
+      --priority 0 --max-concurrency 10 --max-errors 5 --name "My-Restart-EC2-Instances-Automation-Task" ^
+      --description "Automation task to restart EC2 instances"
+  ```
+
+------
+
+  For more information about working with pseudo parameters for maintenance window tasks, see [About pseudo parameters](mw-cli-register-tasks-parameters.md) and [Task registration examples](mw-cli-register-tasks-examples.md#task-examples)\.
 
 ## Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"<a name="maxconcurrency-maxerrors-not-supported"></a>
 

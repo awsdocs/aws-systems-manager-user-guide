@@ -40,7 +40,7 @@ The default tier when you begin using Parameter Store is the standard\-parameter
 + **Advanced**: With this option, Parameter Store evaluates all requests as advanced parameters\. 
 + **Intelligent\-Tiering**: With this option, Parameter Store evaluates each request to determine if the parameter is standard or advanced\. 
 
-  If the request doesn't include any options that require an advanced parameter, the parameter is created in the standard\-parameter tier\. If one or more options requiring an advanced parameter are included in the request, Parameter Store create a parameter in the advanced\-parameter tier\.
+  If the request doesn't include any options that require an advanced parameter, the parameter is created in the standard\-parameter tier\. If one or more options requiring an advanced parameter are included in the request, Parameter Store creates a parameter in the advanced\-parameter tier\.
 
 **Benefits of Intelligent\-Tiering**  
 The following are reasons you might choose Intelligent\-Tiering as the default tier\.

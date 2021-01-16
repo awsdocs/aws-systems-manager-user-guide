@@ -16,7 +16,7 @@ Amazon
 
 **Platforms**
 
-Linux, macOS, Windows
+Databases
 
 **Parameters**
 + AutomationAssumeRole

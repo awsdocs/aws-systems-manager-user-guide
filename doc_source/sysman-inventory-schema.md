@@ -150,6 +150,7 @@ The following sample shows the complete list of metadata collected by each Inven
       { "name": "CompliantLowCount",              "dataType": "NUMBER"},
       { "name": "CompliantInformationalCount",    "dataType": "NUMBER"},
       { "name": "CompliantUnspecifiedCount",      "dataType": "NUMBER"},
+      { "name": "LastComplianceStateModifiedTime","dataType": "STRING"},
       { "name": "NonCompliantCriticalCount",      "dataType": "NUMBER"},
       { "name": "NonCompliantHighCount",          "dataType": "NUMBER"},
       { "name": "NonCompliantMediumCount",        "dataType": "NUMBER"},

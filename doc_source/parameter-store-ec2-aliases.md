@@ -22,6 +22,32 @@ You can also choose your preferred AMI when you create an instance using the Ama
 
 When it's time to use a different AMI in your instance creation workflow, you need only update the parameter with the new AMI value, and Parameter Store again validates that you have entered an ID in the proper format\.
 
+## Grant permissions to create a parameter of aws:ec2:image data type<a name="parameter-store-ec2-iam"></a>
+
+Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API actions and content\.
+
+The following example policy grants users permission to call the `PutParameter` API operation for `aws:ec2:image`\. This means that the user can add a parameter of data type `aws:ec2:image` to the system\. 
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "ssm:PutParameter",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "ec2:DescribeImages",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## How AMI format validation works<a name="parameter-ami-validation"></a>
 
 When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager does not create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.

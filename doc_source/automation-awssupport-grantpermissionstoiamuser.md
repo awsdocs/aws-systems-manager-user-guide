@@ -123,7 +123,7 @@ It is recommended you have the \*\*AmazonSSMAutomationRole\*\* Amazon managed po
 
  **Using AutomationAssumeRole and LambdaAssumeRole** 
 
-The user must have the **ssm:ExecuteAutomation** permissions on the runbook, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole**\. Here are the permissions each IAM role needs: 
+The user must have the **ssm:StartAutomationExecution** permissions on the runbook, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole**\. Here are the permissions each IAM role needs: 
 
 ```
 AutomationAssumeRole

@@ -33,7 +33,7 @@ Linux, macOS, Windows
 **Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
-+ `ssm:ExecuteAutomation`
++ `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
 + `ec2:DeleteNetworkAcl`
 + `ec2:DescribeNetworkAcls`

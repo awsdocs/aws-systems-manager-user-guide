@@ -116,7 +116,7 @@ Parameter Store is also integrated with AWS Secrets Manager\. You can retrieve S
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS Key Management Service \(KMS\) to encrypt the parameter value\.
 There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS Key Management Service encryption do apply\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing)\.  
 For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
-To view a AWS managed CMK, use the AWS KMS `DescribeKey` operation\. This AWS CLI example uses `DescribeKey` to view and AWS\-managed CMK\.  
+To view an AWS managed CMK, use the AWS KMS `DescribeKey` operation\. This AWS CLI example uses `DescribeKey` to view and AWS\-managed CMK\.  
 
 ```
 aws kms describe-key --key-id alias/aws/ssm

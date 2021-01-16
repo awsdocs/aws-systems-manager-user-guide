@@ -1,6 +1,6 @@
 # Working with Parameter Store<a name="parameter-store-working-with"></a>
 
-This section describes how to organize and create tag parameters, and how to create different versions of parameters\. You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(Amazon EC2\) console, or the AWS Command Line Interface \(AWS CLI\) to create and work with parameters\. For more information on parameters see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter)
+This section describes how to organize and create tag parameters, and how to create different versions of parameters\. You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(Amazon EC2\) console, or the AWS Command Line Interface \(AWS CLI\) to create and work with parameters\. For more information about parameters, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter)
 
 **Topics**
 + [Creating Systems Manager parameters](sysman-paramstore-su-create.md)
