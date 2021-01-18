@@ -21,7 +21,7 @@ You can add tags to your AWS resources in different ways:
 + Using the **Tag Editor** in the Resource Groups service
 
 **Supported AWS resource types**  
-For a list of all services with resources types that can be added to resource groups through the use of tags, and the resources they support, see [Supported Resources](url-arg-user;supported-resources.html) in the *AWS Resource Groups User Guide*\.
+For a list of all services with resources types that can be added to resource groups through the use of tags, and the resources they support, see [Supported Resources](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html) in the *AWS Resource Groups User Guide*\.
 
 **Supported Systems Manager resource types**  
 The Systems Manager resource types that you can tag in order to add them to resource groups include the following:
