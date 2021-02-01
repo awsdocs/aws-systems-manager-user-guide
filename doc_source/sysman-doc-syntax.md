@@ -64,6 +64,8 @@ To use a number as a parameter value, use `String` as the parameter type\.
 
 ------
 + `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.
+**Note**  
+In SSM documents, the `allowedPattern` field supports the [Google re2 regex syntax](https://github.com/google/re2/wiki/Syntax), which does not include support for lookaround\.
 
 ------
 #### [ YAML ]

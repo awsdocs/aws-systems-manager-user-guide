@@ -39,7 +39,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. For **Installation type**, choose one of the following: 
    + **Uninstall and reinstall**: The package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according you instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS\-published packages\.
+   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS\-published packages\.
 
 1. For **Name**, verify that the name of the package you selected is entered\.
 
@@ -101,7 +101,7 @@ You can use the AWS Systems Manager console to schedule the installation or upda
 
 1. For **Installation type**, choose one of the following: 
    + **Uninstall and reinstall**: The package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according you instructions you provide in an `update` script\. The application remains available throughout the update process\.
+   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\.
 
 1. For **Name**, verify that the name of your package is entered\.
 

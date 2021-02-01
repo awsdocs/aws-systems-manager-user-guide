@@ -95,7 +95,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Optional\) Specify the SubnetId if you want to launch into a specific subnet\.
+  Description: \(Optional\) The ID of the subnet you want to launch the instance into\. If you have deleted your default VPC, this parameter is required\.
 + TargetAmiName
 
   Type: String

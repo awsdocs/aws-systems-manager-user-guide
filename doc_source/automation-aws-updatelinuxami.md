@@ -71,6 +71,11 @@ Linux, macOS, Windows
   Type: String
 
   Description: \(Required\) The source Amazon Machine Image ID\.
++ SubnetId
+
+  Type: String
+
+  Description: \(Optional\) The ID of the subnet you want to launch the instance into\. If you have deleted your default VPC, this parameter is required\.
 + TargetAmiName
 
   Type: String

@@ -146,9 +146,9 @@ aws ssm start-session ^
 
  *instance\-id* represents he ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 
-*portNumber* represents the remote port on the instance where traffic should be redirected to, such as `3389`\. If this parameter is not specified, Session Manager assumes `80` as the default remote port\. 
+*portNumber* represents the remote port on the instance where traffic should be redirected to, such as `3389` for connecting to a Windows instance using the Remote Desktop Protocol \(RDP\)\. If this parameter is not specified, Session Manager assumes `80` as the default remote port\. 
 
-*localPortNumber* represents the local port on the client where traffic should be redirected to, such as `56789`\. 
+*localPortNumber* represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to an instance using a client\. For example, **localhost:56789**\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 

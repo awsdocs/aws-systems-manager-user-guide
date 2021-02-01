@@ -60,6 +60,30 @@ Currently, using `resolve` and a parameter value works only with the `--image-id
 
 Here is an example for specifying version 2 of a parameter named `MyRunCommandParameter` in an SSM document\.
 
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '2.2'
+description: Run a shell script or specify the commands to run.
+parameters:
+  commands:
+    type: String
+    description: "(Required) Specify a shell script or a command to run."
+    displayType: textarea
+    default: "{{ssm:MyRunCommandParameter:2}}"
+mainSteps:
+- action: aws:runShellScript
+  name: RunScript
+  inputs:
+    runCommand:
+    - "{{commands}}"
+```
+
+------
+#### [ JSON ]
+
 ```
 {
     "schemaVersion": "2.2",
@@ -85,3 +109,5 @@ Here is an example for specifying version 2 of a parameter named `MyRunCommandPa
     ]
 }
 ```
+
+------

@@ -7,7 +7,7 @@
 
 Using Amazon EventBridge \(EventBridge\), you can create *rules* that match incoming *events* and route them to *targets* for processing\. 
 
-An event indicates a change in an environment in your own applications, software\-as\-a\-service \(SaaS\) applications, or an AWS service\. After an event type that is specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
+An event indicates a change in an environment in your own applications, software\-as\-a\-service \(SaaS\) applications, or an AWS service\. Events are produced on a best effort basis\. After an event type that is specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
 
 For information about creating EventBridge rules, see the following topics:
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)

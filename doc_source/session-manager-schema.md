@@ -236,3 +236,57 @@ properties:
 ```
 
 ------
+
+Session document example with special characters
+
+------
+#### [ YAML ]
+
+```
+---
+schemaVersion: '1.0'
+description: Example document with quotation marks
+sessionType: InteractiveCommands
+parameters:
+  Test:
+    type: String
+    description: Test Input
+    maxChars: 32
+properties:
+  windows:
+    commands: |
+        $Test = '{{ Test }}'
+        $myVariable = \"Computer name is $env:COMPUTERNAME\"
+        Write-Host "Test variable: $myVariable`.`nInput parameter: $Test"
+    runAsElevated: false
+```
+
+------
+#### [ JSON ]
+
+```
+{
+   "schemaVersion":"1.0",
+   "description":"Test document with quotation marks",
+   "sessionType":"InteractiveCommands",
+   "parameters":{
+      "Test":{
+         "type":"String",
+         "description":"Test Input",
+         "maxChars":32
+      }
+   },
+   "properties":{
+      "windows":{
+         "commands":[
+            "$Test = '{{ Test }}'",
+            "$myVariable = \\\"Computer name is $env:COMPUTERNAME\\\"",
+            "Write-Host \"Test variable: $myVariable`.`nInput parameter: $Test\""
+         ],
+         "runAsElevated":false
+      }
+   }
+}
+```
+
+------

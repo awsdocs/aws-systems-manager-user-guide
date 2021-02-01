@@ -8,7 +8,7 @@ CloudTrail captures session API calls through the Systems Manager console, the A
 
 With EventBridge, you can set up rules to detect when changes happen to AWS resources\. You can create a rule to detect when a user in your organization starts or ends a session, and then, for example, receive a notification through Amazon SNS about the event\. 
 
-EventBridge support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with EventBridge to respond to most AWS Systems Manager events\.\)
+EventBridge support for Session Manager relies on records of API actions that were recorded by CloudTrail\. \(You can use CloudTrail integration with EventBridge to respond to most AWS Systems Manager events\.\) Actions that take place within a session, such as an `exit` command, that do not make an API call are not detected by EventBridge\.
 
 The following steps outline how to initiate notifications through Amazon Simple Notification Service \(Amazon SNS\) when a Session Manager API event occurs, such as StartSession\.
 

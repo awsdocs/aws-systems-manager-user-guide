@@ -62,6 +62,26 @@ In the Systems Manager console, you specify the delivery timeout value in the **
 
 ![\[The Timeout (seconds) field in the Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
 
+On a more technical level, delivery timeout \(**Timeout \(seconds\)**\) is a combination of two timeout values, as shown here: 
+
+`Delivery timeout = "Timeout(seconds)" from the console + "timeoutSeconds": "{{ executionTimeout }}" from your SSM document`
+
+For example, the default value of **Timeout \(seconds\)** in the Systems Manager console is 600 seconds\. If you run a command by using the `AWS-RunShellScript` SSM document, the default value of **"timeoutSeconds": "\{\{ executionTimeout \}\}"** is 3600 seconds, as shown in the following document sample:
+
+```
+  "executionTimeout": {
+      "type": "String",
+      "default": "3600",
+
+  "runtimeConfig": {
+    "aws:runShellScript": {
+      "properties": [
+        {
+          "timeoutSeconds": "{{ executionTimeout }}"
+```
+
+This means the command will run for 4,200 seconds \(70 minutes\) before the system returns a delivery timeout\.
+
 **Execution Timeout**  
 In the Systems Manager console, you specify the execution timeout value in the **Execution Timeout** field, if available\. Not all SSM documents require that you specify an execution timeout\. If specified, the command must complete within this time period\.
 

@@ -5,6 +5,7 @@ If you experience problems running operations on your managed instances, there m
 **Topics**
 + [SSM Agent is out of date](#ssm-agent-out-of-date)
 + [View SSM Agent log files](#systems-manager-ssm-agent-log-files)
++ [Agent log files don't rotate \(Windows\)](#systems-manager-ssm-agent-troubleshooting-log-rotation)
 
 ## SSM Agent is out of date<a name="ssm-agent-out-of-date"></a>
 
@@ -26,3 +27,27 @@ If you choose to view these logs by using Windows File Explorer, be sure to enab
 + `/var/log/amazon/ssm/errors.log`
 
 For Linux instances, you might find more information in the `messages` file written to the following directory: `/var/log`\.
+
+## Agent log files don't rotate \(Windows\)<a name="systems-manager-ssm-agent-troubleshooting-log-rotation"></a>
+
+If you specify date\-based log file rotation in the seelog\.xml file \(on Windows Server instances\) and the logs don't rotate, then you must specify the `fullname=true` parameter\. Here is an example of a seelog\.xml configuration file with the `fullname=true` parameter specified\.
+
+```
+<seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">
+   <exceptions>
+      <exception filepattern="test*" minlevel="error" />
+   </exceptions>
+   <outputs formatid="fmtinfo">
+      <console formatid="fmtinfo" />
+      <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log" fullname=true />
+      <filter levels="error,critical" formatid="fmterror">
+         <rollingfile type="date" datepattern="200601021504" maxrolls="4" filename="C:\ProgramData\Amazon\SSM\Logs\errors.log" fullname=true />
+      </filter>
+   </outputs>
+   <formats>
+      <format id="fmterror" format="%Date %Time %LEVEL [%FuncShort @ %File.%Line] %Msg%n" />
+      <format id="fmtdebug" format="%Date %Time %LEVEL [%FuncShort @ %File.%Line] %Msg%n" />
+      <format id="fmtinfo" format="%Date %Time %LEVEL %Msg%n" />
+   </formats>
+</seelog>
+```

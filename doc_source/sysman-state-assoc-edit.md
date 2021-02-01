@@ -31,7 +31,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-1. Choose **Edit association**\.
+1. Choose **Edit association**\. Configure the association to meet your current requirements\.
 
 1. In the **Associations** page, choose the name of the association you just edited, and then choose the **Versions** tab\. The system lists each version of the association you created and edited\.
 
@@ -40,12 +40,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose the name of the S3 bucket you specified for storing command output, and then choose the folder named with the ID of the instance that ran the association\. \(If you chose to store output in a folder in the bucket, open it first\.\)
 
 1. Drill down several levels, through the `awsrunPowerShell` folder, to the `stdout` file\.
-
-1. In the **Target accounts and Regions** section, under **Accounts and organizational units \(OUs\)**, enter the account you want to run the automation in\. Under **AWS Regions**, enter the Region you want to run the associations\.
-
-   \(Optional\) For **Automation Execution Role Name**, enter any roles you want to give permissions to run Automation workflows\. If not specified, the default value is `AWS-SystemsManager-AutomationExecutionRole`\.
-
-1. \(Optional\) Select the **Multi\-Region and account rate control** dropdown menu\. Under **Location \(account\-Region pair\) concurrency**, enter the number of targets or percent of locations allowed to run at the same time\. Under **Error threshold**, enter the number or percent of errors the task must make before it stops\. 
 
 1. Choose **Open** or **Download** to view the host name\.
 

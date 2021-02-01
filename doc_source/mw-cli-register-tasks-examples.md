@@ -140,7 +140,7 @@ aws ssm register-task-with-maintenance-window \
     --task-arn "AWS-RestartEC2Instance" \
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
     --task-type AUTOMATION \
-    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{RESOURCE_ID}}'}}" \
+    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={InstanceId='{{RESOURCE_ID}}'}}" \
     --priority 0 --name "My-Restart-EC2-Instances-Automation-Task" \
     --description "Automation task to restart EC2 instances"
 ```
@@ -154,7 +154,7 @@ aws ssm register-task-with-maintenance-window ^
    --task-arn "AWS-RestartEC2Instance" ^
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole ^
     --task-type AUTOMATION ^
-    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={instanceId='{{TARGET_ID}}'}}" ^
+    --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={InstanceId='{{TARGET_ID}}'}}" ^
     --priority 0 --name "My-Restart-EC2-Instances-Automation-Task" ^
     --description "Automation task to restart EC2 instances"
 ```
@@ -201,7 +201,7 @@ aws ssm register-task-with-maintenance-window \
     --priority 2 --max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" \
     --description "A description for my LAMBDA example task" --task-type "LAMBDA" \
     --task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" \
-    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
+    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
 ```
 
 ------
@@ -214,7 +214,7 @@ aws ssm register-task-with-maintenance-window ^
     --priority 2 --max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" ^
     --description "A description for my LAMBDA example task" --task-type "LAMBDA" ^
     --task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" ^
-    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
+    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
 ```
 
 ------
@@ -269,7 +269,7 @@ aws ssm register-task-with-maintenance-window \
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
     --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \
     --task-type STEP_FUNCTIONS \
-    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' \
+    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' \
     --priority 0 --max-concurrency 10 --max-errors 5 \
     --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
 ```
@@ -283,7 +283,7 @@ aws ssm register-task-with-maintenance-window ^
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
     --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE ^
     --task-type STEP_FUNCTIONS ^
-    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' ^
+    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' ^
     --priority 0 --max-concurrency 10 --max-errors 5 ^
     --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
 ```

@@ -11,6 +11,22 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 1. Log on to a server or VM in your hybrid environment\.
 
+1. If you use an HTTP or HTTPS proxy, you must set the `http_proxy` or `https_proxy` environment variables in the current shell session\. If you aren't using a proxy, you can skip this step\.
+
+   For an HTTP proxy server, set this variable:
+
+   ```
+   http_proxy=http://hostname:port
+   https_proxy=http://hostname:port
+   ```
+
+   For an HTTPS proxy server, set this variable:
+
+   ```
+   http_proxy=http://hostname:port
+   https_proxy=https://hostname:port
+   ```
+
 1. Open Windows PowerShell in elevated \(administrative\) mode\.
 
 1. Copy and paste the following command block into Windows PowerShell\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from\.

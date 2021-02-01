@@ -162,6 +162,172 @@ If you have not already, install and configure the AWS Command Line Interface \(
 
 ------
 
+## Interactive command parameters and the AWS CLI<a name="restrict-command-access-parameters-cli"></a>
+
+There are a variety of ways you can provide interactive command parameters when using the AWS CLI\. Depending on the operating system \(OS\) of your client machine that you use to connect to instances with the AWS CLI, the syntax you provide for commands that contain special or escape characters might differ\. The following examples show some of the different ways you can provide command parameters when using the AWS CLI, and how to handle special or escape characters\.
+
+Parameters stored in Parameter Store can be referenced in the AWS CLI for your command parameters as shown in the following example\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name MyInteractiveCommandDocument \ 
+    --parameters '{"command":["{{ssm:mycommand}}"]}'
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name MyInteractiveCommandDocument ^
+    --parameters '{"command":["{{ssm:mycommand}}"]}'
+```
+
+------
+
+The following example shows how you can use a shorthand syntax with the AWS CLI to pass parameters\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name MyInteractiveCommandDocument \ 
+    --parameters command="ifconfig"
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name MyInteractiveCommandDocument ^
+    --parameters command="ipconfig"
+```
+
+------
+
+You can also provide parameters in JSON as shown in the following example\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name MyInteractiveCommandDocument \ 
+    --parameters '{"command":["ifconfig"]}'
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name MyInteractiveCommandDocument ^
+    --parameters '{"command":["ipconfig"]}'
+```
+
+------
+
+Parameters can also be stored in a JSON file and provided to the AWS CLI as shown in the following example\. For more information about using AWS CLI parameters from a file, see [Loading AWS CLI parameters from a file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-file.html) in the *AWS Command Line Interface User Guide*\.
+
+```
+{
+    "command": [
+        "my command"
+    ]
+}
+```
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name MyInteractiveCommandDocument \ 
+    --parameters file://complete/path/to/file/parameters.json
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name MyInteractiveCommandDocument ^
+    --parameters file://complete/path/to/file/parameters.json
+```
+
+------
+
+You can also generate an AWS CLI skeleton from a JSON input file as shown in the following example\. For more information about generating AWS CLI skeletons from JSON input files, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html) in the *AWS Command Line Interface User Guide*\.
+
+```
+{
+    "Target": "instance-id",
+    "DocumentName": "MyInteractiveCommandDocument",
+    "Parameters": {
+        "command": [
+            "my command"
+        ]
+    }
+}
+```
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --cli-input-json file://complete/path/to/file/parameters.json
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --cli-input-json file://complete/path/to/file/parameters.json
+```
+
+------
+
+To escape characters inside quotation marks, you must add additional backslashes to the escape characters as shown in the following example\.
+
+------
+#### [ Linux ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name MyInteractiveCommandDocument \ 
+    --parameters '{"command":["printf \"abc\\\\tdef\""]}'
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name MyInteractiveCommandDocument ^
+    --parameters '{"command":["printf \"abc\\\\tdef\""]}'
+```
+
+------
+
+For information about using quotation marks with command parameters in the AWS CLI, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the *AWS Command Line Interface User Guide*\.
+
 ## IAM policy examples for interactive commands<a name="interactive-command-policy-examples"></a>
 
 You can create IAM policies that allow users to access only the `Session` documents you define\. This restricts the commands a user can run in a Session Manager session to only the commands defined in your custom `Session` type SSM documents\.

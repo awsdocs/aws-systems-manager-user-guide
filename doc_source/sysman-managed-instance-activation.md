@@ -60,7 +60,7 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
 
    1. Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\.
 
-1. In the **Activation expiry date** field, specify an expiration date for the activation\. The default value is 24 hours\.
+1. In the **Activation expiry date** field, specify an expiration date for the activation\. The expiry date must be in the future, and not more than 30 days into the future\. The default value is 24 hours\.
 **Note**  
 If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
 

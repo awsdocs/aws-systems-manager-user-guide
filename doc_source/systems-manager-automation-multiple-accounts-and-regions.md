@@ -33,7 +33,7 @@ Automations do not run recursively through OUs\. Be sure the target OU contains 
 
 ## Setting up management account permissions for multi\-Region and multi\-account automation<a name="systems-manager-automation-multiple-accounts-and-regions-permissions"></a>
 
-Use the following procedure to create the required IAM roles for Systems Manager Automation multi\-Region and multi\-account automation by using AWS CloudFormation\. This procedure describes how to create the **AWS\-SystemsManager\-AutomationExecutionRole** role\. You must create this role in *every* account that you want to target to run multi\-Region and multi\-account automations\.
+Use the following procedure to create the required IAM roles for Systems Manager Automation multi\-Region and multi\-account automation by using AWS CloudFormation\. This procedure describes how to create the **AWS\-SystemsManager\-AutomationExecutionRole** role\. You must create this role in *every* account that you want to target to run multi\-Region and multi\-account automations\. We recommend using AWS CloudFormation StackSets to create the **AWS\-SystemsManager\-AutomationExecutionRole** role in the accounts you want to target to run multi\-Region and multi\-account automations\.
 
 This procedure also describes how to create the **AWS\-SystemsManager\-AutomationAdministrationRole** role\. You only need to create this role in the Automation management account\.
 

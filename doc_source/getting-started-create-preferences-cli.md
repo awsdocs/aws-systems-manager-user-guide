@@ -35,6 +35,46 @@ You can use this procedure to create custom session documents for your Session M
    }
    ```
 
+   You can also pass values to your session preferences using parameters instead of hardcoding the values as shown in the following example\.
+
+   ```
+   {
+      "schemaVersion":"1.0",
+      "description":"Session Document Parameter Example JSON Template",
+      "sessionType":"Standard_Stream",
+      "parameters":{
+         "s3BucketName":{
+            "type":"String",
+            "default":""
+         },
+         "s3KeyPrefix":{
+            "type":"String",
+            "default":""
+         },
+         "s3EncryptionEnabled":{
+            "type":"Boolean",
+            "default":"false"
+         },
+         "cloudWatchLogGroupName":{
+            "type":"String",
+            "default":""
+         },
+         "cloudWatchEncryptionEnabled":{
+            "type":"Boolean",
+            "default":"false"
+         }
+      },
+      "inputs":{
+         "s3BucketName":"{{s3BucketName}}",
+         "s3KeyPrefix":"{{s3KeyPrefix}}",
+         "s3EncryptionEnabled":"{{s3EncryptionEnabled}}",
+         "cloudWatchLogGroupName":"{{cloudWatchLogGroupName}}",
+         "cloudWatchEncryptionEnabled":"{{cloudWatchEncryptionEnabled}}",
+         "kmsKeyId":""
+      }
+   }
+   ```
+
 1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and Amazon Elastic Compute Cloud \(Amazon EC2\) instances, provide the AWS KMS key to use for encryption\. The following is an example\.
 
    ```

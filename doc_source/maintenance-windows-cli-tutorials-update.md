@@ -215,7 +215,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
        --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" \
        --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
-       --task-invocation-parameters '{"Lambda":{"Payload":"{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' \
+       --task-invocation-parameters '{"Lambda":{"Payload":"{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' \
        --priority 1 --max-concurrency 10 --max-errors 5 \
        --name "New-Lambda-Task-Name" \
        --description "A description for my Lambda task"
@@ -231,7 +231,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
        --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" ^
        --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
-       --task-invocation-parameters '{"Lambda":{"Payload":"{\"instanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' ^
+       --task-invocation-parameters '{"Lambda":{"Payload":"{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' ^
        --priority 1 --max-concurrency 10 --max-errors 5 ^
        --name "New-Lambda-Task-Name" ^
        --description "A description for my Lambda task"
@@ -279,7 +279,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
        --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" \
        --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
-       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}}' \
+       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}}' \
        --priority 0 --max-concurrency 10 --max-errors 5 \
        --name "My-Step-Functions-Task" \
        --description "A description for my Step Functions task"
@@ -295,7 +295,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
        --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" ^
        --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
-       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"instanceId\":\"{{RESOURCE_ID}}\"}"}}' ^
+       --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}}' ^
        --priority 0 --max-concurrency 10 --max-errors 5 ^
        --name "My-Step-Functions-Task" ^
        --description "A description for my Step Functions task"
@@ -468,7 +468,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
        --task-arn "AutoTestDoc" \
        --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM \
-       --task-invocation-parameters "Automation={Parameters={instanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" \
+       --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" \
        --priority 3 --max-concurrency 10 --max-errors 5
    ```
 
@@ -482,7 +482,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
        --task-arn "AutoTestDoc" ^
        --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM ^
-       --task-invocation-parameters "Automation={Parameters={instanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" ^
+       --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" ^
        --priority 3 --max-concurrency 10 --max-errors 5
    ```
 
