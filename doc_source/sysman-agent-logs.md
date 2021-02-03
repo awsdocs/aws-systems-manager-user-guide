@@ -47,7 +47,7 @@ Use the following procedure to enable SSM Agent debug logging on your managed in
 
    On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
 
-   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/`\.
+   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/`\. Copy this file from `/snap` directory to `/etc/amazon/ssm/` directory before making the changes\.
 
    **macOS**: 
 
