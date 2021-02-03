@@ -41,17 +41,26 @@ Use the following procedure to enable SSM Agent debug logging on your managed in
 
 1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
-1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
+1. Locate the following file:
 
-   **Linux**:
+**Linux**  
+On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 
-   On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
+   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`\.
 
-   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/`\. Copy this file from `/snap` directory to `/etc/amazon/ssm/` directory before making the changes\.
+**macOS**  
+`/opt/aws/ssm/seelog.xml.template`
 
-   **macOS**: 
+1. Change the file name from `seelog.xml.template` to `seelog.xml`\.
+**Note**  
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following three commands:  
 
-   On **macOS**, the file is located in the directory `/opt/aws/ssm/seelog.xml.template`\.
+   ```
+   sudo mkdir -p /etc/amazon/ssm
+   ```
+   ```
+   sudo cp -p /snap/amazon-ssm-agent/current/seelog.xml.template /etc/amazon/ssm/seelog.xml
+   ```
 
 1. Edit the `seelog.xml` file to change the default logging behavior\. Change the value of **minlevel** from **info** to **debug**, as shown in the following example\.
 
