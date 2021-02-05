@@ -26,7 +26,7 @@ Connect to your macOS instance and perform the following steps to install SSM Ag
 
 1. Check the status of the agent\.
 
-   To determine if SSM Agent is running, check the agent log at `var/log/amazon/ssm/amazon-ssm-agent.log` 
+   To determine if SSM Agent is running, check the agent log at `/var/log/amazon/ssm/amazon-ssm-agent.log` 
 
 1. Run the following commands if the previous command returns the message "amazon\-ssm\-agent is stopped\."
 
