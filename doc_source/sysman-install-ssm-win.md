@@ -1,4 +1,6 @@
 # Installing and configuring SSM Agent on EC2 instances for Windows Server<a name="sysman-install-ssm-win"></a>
+
+SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 

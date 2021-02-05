@@ -39,6 +39,13 @@ For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Manage
 + [Use the targets and rate control features in Run Command to perform a staged command execution](send-commands-multiple.md)\.
 + [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 
+**[Session Manager](session-manager.md)**
++ [Audit session activity in your AWS account using AWS CloudTrail](session-manager-auditing.md)\.
++ [Log session data in your AWS account using Amazon CloudWatch Logs or Amazon S3](session-manager-logging.md)\.
++ [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
++ [Restrict access to commands in a session](session-manager-restrict-command-access.md)\.
++ [Disable or enable ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)\.
+
 **[State Manager](systems-manager-state.md)**
 + [Update SSM Agent at least once a month using the pre\-configured AWS\-UpdateSSMAgent document](sysman-state-cli.md)\.
 + [Bootstrap EC2 Instances on launch using EC2Config for Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html)\.

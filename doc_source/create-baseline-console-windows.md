@@ -42,8 +42,8 @@ You can include Windows Service Pack installations in your approval rules by inc
 If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
 
 1. In the **Approval rules for applications** section, use the fields to create one or more auto\-approval rules\.
-   + **Product family**: The general Microsoft product family for which you want to specify a rule, such as Office or Exchange Server\.
-   + **Product**: The version of the application the approval rule applies to, such as Office 2016 or Active Directory Rights Management Services Client 2\.0 2016\. The default selection is All\.
+   + **Product family**: The general Microsoft product family for which you want to specify a rule, such as `Office` or `Exchange Server`\.
+   + **Product**: The version of the application the approval rule applies to, such as `Office 2016` or `Active Directory Rights Management Services Client 2.0 2016`\. The default selection is `All`\.
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
    + **Severity**: The severity value of patches the rule applies to, such as `Critical`\. The default selection is `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.

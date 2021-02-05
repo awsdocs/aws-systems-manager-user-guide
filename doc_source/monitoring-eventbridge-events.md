@@ -16,24 +16,20 @@ Among the many types of Systems Manager events that EventBridge can detect are:
 + A parameter value being updated
 
 EventBridge supports events from the following Systems Manager capabilities:
-+  Change Calendar
++  Change Calendar \(Events are emitted on a best effort basis\)
 + Configuration Compliance
 + Inventory
-+ Maintenance Windows
++ Maintenance Windows \(Events are emitted on a best effort basis\)
 + Parameter Store
-+ Run Command
-
-  Events are emitted on a best effort basis\.
-+ State Manager
++ Run Command \(Events are emitted on a best effort basis\)
++ State Manager \(Events are emitted on a best effort basis\)
 
 For complete details about supported Systems Manager event types, see [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md) and [AWS Systems Manager Events](https://docs.aws.amazon.com/eventbridge/latest/userguide/event-types.html#ssm-event-types) in the *Amazon EventBridge User Guide*\.
 
 **Supported Systems Manager target types**  
 EventBridge supports the following three Systems Manager capabilities as targets of an event rule:
 + Running an Automation workflow
-+ Running a Run Command Command document
-
-  Events are emitted on a best effort basis\.
++ Running a Run Command Command document \(Events are emitted on a best effort basis\)
 + Creating an OpsCenter OpsItem
 
 For suggested ways you might use these targets, see [Systems Manager target type examples](monitoring-systems-manager-targets.md)\.

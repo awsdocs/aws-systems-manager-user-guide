@@ -1,14 +1,14 @@
-# About the SSM Document AWS\-RunPatchBaselineAssociation<a name="patch-manager-about-aws-runpatchbaselineassociation"></a>
+# About the AWS\-RunPatchBaselineAssociation SSM document<a name="patch-manager-about-aws-runpatchbaselineassociation"></a>
 
 Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
 **Note**  
 `AWS-RunPatchBaselineAssociation` is not currently supported for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
 
-This document supports EC2 instances for both Linux and Windows \. The document will perform the appropriate actions for each platform, invoking a Python module on Linux instances and a PowerShell module on Windows instances\.
+This document supports EC2 instances for Linux, macOS, and Windows Server \. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
 
 `AWS-RunPatchBaselineAssociation`, however, differs from `AWS-RunPatchBaseline` in the following ways: 
-+ When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key\-pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your account shares these tags, Patch Manager uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
++ When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your account shares these tags, Patch Manager uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
 
   Both of the following formats are valid for your `BaselineTags` parameter:
 
@@ -52,15 +52,15 @@ This document supports EC2 instances for both Linux and Windows \. The document 
   }
   ```
 
-If a tag key\-pair value has been specified as a parameter for the `AWS-RunPatchBaselineAssociation` document, Patch Manager searches for a custom patch baseline that matches the operating system type and has been tagged with that same tag\-key pair\. This search is not limited to the current specified default patch baseline or the baseline assigned to a patch group\. If no baseline is found with the specified tags, Patch Manager next looks for a patch group, if one was specified in the command that runs `AWS-RunPatchBaselineAssociation`\. If no patch group is matched, Patch Manager falls back to the current default patch baseline for the operating system account\. 
+If a tag key pair value has been specified as a parameter for the `AWS-RunPatchBaselineAssociation` document, Patch Manager searches for a custom patch baseline that matches the operating system type and has been tagged with that same tag\-key pair\. This search is not limited to the current specified default patch baseline or the baseline assigned to a patch group\. If no baseline is found with the specified tags, Patch Manager next looks for a patch group, if one was specified in the command that runs `AWS-RunPatchBaselineAssociation`\. If no patch group is matched, Patch Manager falls back to the current default patch baseline for the operating system account\. 
 
 If more than one patch baseline is found with the tags specified in the `AWS-RunPatchBaselineAssociation` document, Patch Manager returns an error message indicating that only one patch baseline can be tagged with that key\-value pair in order for the operation to proceed\.
 
 **Note**  
 On Linux instances, the appropriate package manager for each instance type is used to install packages:   
-Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
-SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
+Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or later\. 
+Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\. 
+SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or later\.
 
 After a scan completes, or after all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to the Patch Compliance service\. 
 
@@ -103,7 +103,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 `Key=tag-key,Values=tag-value1,tag-value2,tag-value3`
 
-The `BaselineTags` value is used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. When the patching operation runs, Patch Manager checks to see if a patch baseline for the operating system type is tagged with the same key\-value pair you specify for `BaselineTags`\. If there is a match, this custom patch baseline is used\. If there is not a match, a patch baseline is identified according to any patch group specified for the patching operating\. If there is none, the AWS predefined patch baseline for that operating system is used\. 
+The `BaselineTags` value is used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. When the patching operation runs, Patch Manager checks to see if a patch baseline for the operating system type is tagged with the same key\-value pair you specify for `BaselineTags`\. If there is a match, this custom patch baseline is used\. If there is not a match, a patch baseline is identified according to any patch group specified for the patching operating\. If there is none, the AWS managed predefined patch baseline for that operating system is used\. 
 
 **Note**  
 You do not need to tag your instances with this key\-value pair\.
@@ -112,7 +112,7 @@ You do not need to tag your instances with this key\-value pair\.
 
 **Usage**: Required\.
 
-`AssociationId` is the ID of an existingState Manager association \. It is used by Patch Manager to add compliance data to the specified Assocation\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances is not overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
+`AssociationId` is the ID of an existingState Manager association \. It is used by Patch Manager to add compliance data to the specified Association\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances is not overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
 
 ------
 #### [ Linux ]
@@ -367,5 +367,9 @@ When you choose the `NoReboot` option, Patch Manager does not reboot an instance
 Do not delete or modify the tracking file\. If this file is deleted or corrupted, the patch compliance report for the instance is inaccurate\. If this happens, reboot the instance and run a patch Scan operation to restore the file\.
 
 This tracking file is stored in the following locations on your managed instances:
-+ Linux operating systems: `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
-+ Windows Server operating system: `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
++ Linux operating systems: 
+  + `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
+  + `/var/log/amazon/ssm/patch-configuration/patch-inventory-from-last-operation.json`
++ Windows Server operating system:
+  + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
+  + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchInventoryFromLastOperation.json`

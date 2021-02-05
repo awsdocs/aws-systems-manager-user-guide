@@ -88,7 +88,7 @@ Required: No
 
 [properties](#props)  
 An object whose values you specify that are used in the `StartSession` API call\.  
-For Session documents that are used for `InteractiveCommands` sessions, the properties object includes the commands to run on the operating systems you specify\. For more information, see [ \(Optional\) Restrict access to commands in a session](session-manager-restrict-command-access.md)\.  
+For Session documents that are used for `InteractiveCommands` sessions, the properties object includes the commands to run on the operating systems you specify\. For more information, see [Restrict access to commands in a session](session-manager-restrict-command-access.md)\.  
 For Session documents that are used for `Port` sessions, the properties object contains the port number where traffic should be redirected to\. For an example, see the `Port` type Session document example below\.  
 Type: StringMap  
 Required: No

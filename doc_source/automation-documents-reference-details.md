@@ -103,6 +103,7 @@ You can view the content for runbooks in the Systems Manager console\.
 + [AWSConfigRemediation\-EnableRedshiftClusterEncryption](automation-aws-enable-redshift-encrypt.md)
 + [AWSConfigRemediation\-EnableRedshiftClusterEnhancedVPCRouting](automation-aws-enable-redshift-enhanced-routing.md)
 + [AWSConfigRemediation\-EnableRDSClusterDeletionProtection](automation-aws-enable-rds-cluster-deletion-protection.md)
++ [AWSConfigRemediation\-EnableRDSInstanceBackup](automation-aws-enable-rds-instance-backup.md)
 + [AWSConfigRemediation\-EnableRDSInstanceDeletionProtection](automation-aws-enable-rds-instance-deletion-protection.md)
 + [AWS\-EnableS3BucketEncryption](automation-aws-enableS3bucketencryption.md)
 + [AWSConfigRemediation\-EnableSecurityHub](automation-aws-enable-security-hub.md)

@@ -1,8 +1,8 @@
 # About the AWS\-RunPatchBaseline SSM document<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
-AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
+AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
-This document supports both Linux and Windows instances\. The document will perform the appropriate actions for each platform\.
+This document supports Linux, macOS, and Windows Server instances\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
 Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on Linux, macOS, and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
@@ -16,10 +16,10 @@ On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads an
 #### [ Linux ]
 
 On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
-+ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires Python 2\.6 or later\. 
-+ RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires Python 2 or Python 3\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
-+ Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires Python 3\. 
-+ SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires Python 2\.6 or later\.
++ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or later\. 
++ RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires `Python 2` or `Python 3`\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
++ Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\. 
++ SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or later\.
 
 ------
 #### [ macOS ]
@@ -83,7 +83,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 
-For a description of how you might use the `InstallOverrideList` parameter to apply different types of patches to a target group, on different maintenance window schedules, while still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)\.
+For a description of how you might use the `InstallOverrideList` parameter to apply different types of patches to a target group, on different maintenance window schedules, while still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation](override-list-scenario.md)\.
 
 **Valid URL formats**
 + **https URL format**:
@@ -341,5 +341,9 @@ If you choose the `NoReboot` option and a patch is installed, the patch is assig
 Do not delete or modify the tracking file\. If this file is deleted or corrupted, the patch compliance report for the instance is inaccurate\. If this happens, reboot the instance and run a patch Scan operation to restore the file\.
 
 This tracking file is stored in the following locations on your managed instances:
-+ Linux operating systems: `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
-+ Windows Server operating system: `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
++ Linux operating systems: 
+  + `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
+  + `/var/log/amazon/ssm/patch-configuration/patch-inventory-from-last-operation.json`
++ Windows Server operating system:
+  + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
+  + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchInventoryFromLastOperation.json`

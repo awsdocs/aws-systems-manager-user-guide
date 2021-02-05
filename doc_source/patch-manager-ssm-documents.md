@@ -2,13 +2,14 @@
 
 This topic describes the eight SSM documents currently available to help you keep your managed instances patched with the latest security\-related updates\. 
 
-We currently recommend using just four of these documents in your patching operations\. Together, these four SSM documents provide you with a full range of patching options using AWS Systems Manager\. Three of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
+We currently recommend using just five of these documents in your patching operations\. Together, these five SSM documents provide you with a full range of patching options using AWS Systems Manager\. Four of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
 
-The four recommended SSM documents include:
+The five recommended SSM documents include:
 + **AWS\-ConfigureWindowsUpdate**
 + **AWS\-InstallWindowsUpdates**
 + **AWS\-RunPatchBaseline**
 + **AWS\-RunPatchBaselineAssociation**
++ **AWS\-RunPatchBaselineWithHooks**
 
 The four legacy SSM documents that are still available for use in some AWS Regions, but might be deprecated in the future, include:
 + **AWS\-ApplyPatchBaseline**
@@ -22,18 +23,20 @@ Refer to the following sections for more information about using these SSM docum
 + [SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)
 + [Legacy SSM documents for patching instances](#patch-manager-ssm-documents-legacy)
 + [About the AWS\-RunPatchBaseline SSM document](patch-manager-about-aws-runpatchbaseline.md)
-+ [About the SSM Document AWS\-RunPatchBaselineAssociation](patch-manager-about-aws-runpatchbaselineassociation.md)
-+ [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline](override-list-scenario.md)
++ [About the AWS\-RunPatchBaselineAssociation SSM document](patch-manager-about-aws-runpatchbaselineassociation.md)
++ [About the AWS\-RunPatchBaselineWithHooks SSM document](patch-manager-about-aws-runpatchbaselinewithhooks.md)
++ [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation](override-list-scenario.md)
 
 ## SSM documents recommended for patching instances<a name="patch-manager-ssm-documents-recommended"></a>
 
-The following four SSM documents are recommended for use in your managed instance patching operations\.
+The following five SSM documents are recommended for use in your managed instance patching operations\.
 
 **Topics**
 + [AWS\-ConfigureWindowsUpdate](#patch-manager-ssm-documents-recommended-AWS-ConfigureWindowsUpdate)
 + [AWS\-InstallWindowsUpdates](#patch-manager-ssm-documents-recommended-AWS-InstallWindowsUpdates)
 + [AWS\-RunPatchBaseline](#patch-manager-ssm-documents-recommended-AWS-RunPatchBaseline)
 + [AWS\-RunPatchBaselineAssociation](#patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation)
++ [AWS\-RunPatchBaselineWithHooks](#patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation)
 
 ### AWS\-ConfigureWindowsUpdate<a name="patch-manager-ssm-documents-recommended-AWS-ConfigureWindowsUpdate"></a>
 
@@ -83,11 +86,24 @@ For Linux operating systems, compliance information is provided for patches from
  **Replaces legacy documents:**
 + **None**
 
-For more information about the **AWS\-RunPatchBaselineAssociation** SSM document, see [About the SSM Document AWS\-RunPatchBaselineAssociation](patch-manager-about-aws-runpatchbaselineassociation.md)\.
+For more information about the **AWS\-RunPatchBaselineAssociation** SSM document, see [About the AWS\-RunPatchBaselineAssociation SSM document ](patch-manager-about-aws-runpatchbaselineassociation.md)\.
+
+### AWS\-RunPatchBaselineWithHooks<a name="patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation"></a>
+
+Installs patches on your instances or scans instances to determine whether any qualified patches are missing, with optional hooks you can use to run SSM documents at three points during the patching cycle\. Available in all commercial AWS Regions\. 
+
+**AWS\-RunPatchBaselineWithHooks** differs from **AWS\-RunPatchBaseline** in its Install operation\.
+
+**AWS\-RunPatchBaselineWithHooks** supports lifecycle hooks that run at designated points during instance patching\. Because patch installations sometimes require instances to reboot, the patching operation is divided into two events, for a total of three hooks that support custom functionality\. The first hook is before the `Install with NoReboot` operation\. The second hook is after the `Install with NoReboot` operation\. The third hook is available after the reboot of the instance\.
+
+ **Replaces legacy documents:**
++ **None**
+
+For more information about the **AWS\-RunPatchBaselineWithHooks** SSM document, see [About the AWS\-RunPatchBaselineWithHooks SSM document](patch-manager-about-aws-runpatchbaselinewithhooks.md)\.
 
 ## Legacy SSM documents for patching instances<a name="patch-manager-ssm-documents-legacy"></a>
 
-The following four SSM documents are still available for use in your patching operations in some AWS Regions\. However, they might be deprecated in the future, so we do not recommend their use\. Instead, use the documents described in [ SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)\.
+The following four SSM documents are still available for use in your patching operations in some AWS Regions\. However, they might be deprecated in the future, so we do not recommend their use\. Instead, use the documents described in [SSM documents recommended for patching instances](#patch-manager-ssm-documents-recommended)\.
 
 **Topics**
 + [AWS\-ApplyPatchBaseline](#patch-manager-ssm-documents-legacy-AWS-ApplyPatchBaseline)

@@ -1,4 +1,4 @@
-# Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline<a name="override-list-scenario"></a>
+# Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation<a name="override-list-scenario"></a>
 
 You can use the `InstallOverrideList` parameter when you want to override the patches specified by the current default patch baseline\. The following example shows how to use this parameter to achieve the following:
 + Apply different sets of patches to a target group of instances\.
@@ -13,7 +13,7 @@ The following strategy lets you use the `InstallOverrideList` parameter to apply
 
 1. In the default patch baseline, ensure that only `Security` updates are specified\.
 
-1. Create a first maintenance window that runs `AWS-RunPatchBaseline` each week\. Do not specify an override list\.
+1. Create a first maintenance window that runs `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` each week\. Do not specify an override list\.
 
 1. Create an override list of the patches of all types that you want to apply on a monthly basis and store it in an Amazon S3 bucket\. A sample script that you can modify to help create the list of patches follows this procedure\. 
 

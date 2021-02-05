@@ -81,7 +81,7 @@ Change templates use a version of schema 0\.3 that does not include all the same
    aws ssm create-document \
        --name MyChangeTemplate \
        --document-format JSON \
-       --document-type Automation \
+       --document-type Automation.ChangeTemplate \
        --content file://MyChangeTemplate.json
        --tags Key=tag-key,Value=tag-value
    ```
@@ -93,7 +93,7 @@ Change templates use a version of schema 0\.3 that does not include all the same
    aws ssm create-document ^
        --name MyChangeTemplate ^
        --document-format JSON ^
-       --document-type Automation ^
+       --document-type Automation.ChangeTemplate ^
        --content file://MyChangeTemplate.json
        Key=tag-key,Value=tag-value
    ```
@@ -106,7 +106,7 @@ Change templates use a version of schema 0\.3 that does not include all the same
    New-SSMDocument `
        -Content $json `
        -Name "MyChangeTemplate" `
-       -DocumentType "Automaion" `
+       -DocumentType "Automation.ChangeTemplate" `
        -Tags "Key=tag-key,Value=tag-value"
    ```
 

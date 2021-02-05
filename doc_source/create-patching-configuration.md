@@ -32,11 +32,11 @@ Alternatively, to specify an existing patch group that is not registered with th
 If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Patching schedule** section, choose one of the following:
-   + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to step 7\. 
+   + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to Step 7\. 
    + **Schedule in a new maintenance window**: Create a new maintenance window to associate with this patching configuration\.
-   + **Skip scheduling and patch now**: Run a one\-time manual patching operation without a schedule or maintenance window\. Continue to step 7\.
+   + **Skip scheduling and patch now**: Run a one\-time manual patching operation without a schedule or maintenance window\. Continue to Step 7\.
 
-1. If you chose **Schedule in a new maintenance window** in step 5, then under **How do you want to specify a patching schedule?**, do the following:
+1. If you chose **Schedule in a new maintenance window** in Step 5, then under **How do you want to specify a patching schedule?**, do the following:
    + Under **How do you want to specify a maintenance window schedule?**, choose a schedule builder or expression option\.
    + Under **maintenance window run frequency**, specify how frequently the maintenance window runs\. If you are specifying a CRON/Rate expression, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) for more information\.
    + For **Maintenance window duration**, specify the number of hours the maintenance window is permitted to run before timing out\.

@@ -162,12 +162,27 @@ To start an interactive command session, run the following command:
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
+------
+#### [ Linux ]
+
 ```
 aws ssm start-session \
     --target instance-id \
     --document-name CustomCommandSessionDocument \
     --parameters '{"logpath":["/var/log/amazon/ssm/amazon-ssm-agent.log"]}'
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name CustomCommandSessionDocument ^
+    --parameters logpath="/var/log/amazon/ssm/amazon-ssm-agent.log"
+```
+
+------
 
  *instance\-id* represents the ID of an instance configured for use with AWS Systems Manager and its Session Manager capability, such as `i-02573cafcfEXAMPLE`\.
 

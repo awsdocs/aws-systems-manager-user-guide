@@ -12,9 +12,7 @@ For runbooks that do not use `aws:executeScript`, Automation uses one of two sou
 
 When a step in a runbook includes the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API actions\. Automation checks for this role in the following order:
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.
-+ A resource tag applied to the runbook with the tag key `AutomationScriptExecutionRole`\. In this case, Automation uses the IAM role that is specified as the tag value\. For example, `arn:aws:iam::123456789012:role/AutomationAssumeRole`\.
-
-  If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
++ If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
 
 For more information about how to use a runbook that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
