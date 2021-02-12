@@ -1,41 +1,122 @@
-# Integrating Patch Manager with AWS Security Hub<a name="security-hub-integration"></a>
+# Integration with AWS Security Hub<a name="security-hub-integration"></a>
 
-AWS Security Hub provides a comprehensive view of security alerts across AWS\. It aggregates, organizes, and prioritizes your security alerts, or findings, from multiple AWS services and partner tools\. This reduces the effort of collecting and prioritizing security findings across accounts\.
+[AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products\. With Security Hub, you can check your environment against security industry standards and best practices\. Security Hub helps you to analyze your security trends and identify the highest priority security issues\.
 
-When you integrate Patch Manager with Security Hub, Security Hub monitors the patching posture of your fleets from a security point of view\. You can also run automated, continuous account\-level configuration and compliance checks to identify specific accounts and resources requiring attention\. You can view the security findings across accounts to see the current security and compliance status using the integrated dashboard\. 
+By using the AWS Systems Manager Patch Manager integration with Security Hub, you can send findings from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those findings in its analysis of your security posture\.
 
-Using Amazon CloudWatch Events, you can receive alerts when Security Hub detects that instances in your fleet are out of compliance\.
+**Contents**
++ [How Patch Manager sends findings to Security Hub](#securityhub-integration-sending-findings)
+  + [Types of findings that Patch Manager sends](#securityhub-integration-finding-types)
+  + [Latency for sending findings](#securityhub-integration-finding-latency)
+  + [Retrying when Security Hub is not available](#securityhub-integration-retry-send)
+  + [Updating existing findings in Security Hub](#securityhub-integration-finding-updates)
++ [Typical finding from Patch Manager](#securityhub-integration-finding-example)
++ [Enabling and configuring the integration](#securityhub-integration-enable)
++ [How to stop sending findings](#securityhub-integration-disable)
 
-For more information about Security Hub, see the *AWS Security Hub User Guide*\.
+## How Patch Manager sends findings to Security Hub<a name="securityhub-integration-sending-findings"></a>
 
-There is a charge to use Security Hub\. For more information, see [Security Hub pricing](https://aws.amazon.com/security-hub/pricing/)\.
+In Security Hub, security issues are tracked as findings\. Some findings come from issues that are detected by other AWS services or by third\-party partners\. Security Hub also has a set of rules that it uses to detect security issues and generate findings\.
 
-## Enabling AWS Security Hub<a name="security-hub-integration-enable"></a>
+ Patch Manager is one of the AWS services that sends findings to Security Hub\. After you perform a patching operation by running a SSM document \(`AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, or `AWS-RunPatchBaselineWithHooks`\), the patching information is sent to Systems Manager Inventory, Systems Manager Compliance, or both\.After Inventory, Compliance, or both receive the data, Patch Manager receives a notification\. Then, Patch Manager evaluates the data for accuracy, formatting, and compliance\. If all conditions are met, Patch Manager forwards the data to Security Hub\.
 
-This procedure applies when Security Hub hasn’t been enabled in the account yet\.
+Security Hub provides tools to manage findings from across all of these sources\. You can view and filter lists of findings and view details for a finding\. For more information, see [Viewing findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-viewing.html) in the *AWS Security Hub User Guide*\. You can also track the status of an investigation into a finding\. For more information, see [Taking action on findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-taking-action.html) in the *AWS Security Hub User Guide*\.
 
-**Prerequisites**  
-You must have the required AWS Identity and Access Management \(IAM\) permissions to enable Security Hub\. For information, see [Attaching the required IAM policy to the IAM identity](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+All findings in Security Hub use a standard JSON format called the AWS Security Finding Format \(ASFF\)\. The ASFF includes details about the source of the issue, the affected resources, and the current status of the finding\. For more information, see [AWS Security Finding Format \(ASFF\)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.htm) in the *AWS Security Hub User Guide*\.
 
-**To enable AWS Security Hub**
+### Types of findings that Patch Manager sends<a name="securityhub-integration-finding-types"></a>
 
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+Patch Manager sends the findings to Security Hub using the [AWS Security Finding Format \(ASFF\)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html)\. In ASFF, the `Types` field provides the finding type\. Findings from Patch Manager have the following value for `Types`:
++ Software and Configuration Checks/Patch Management
 
-1. In the navigation pane, choose **Patch Manager**\.
+ Patch Manager sends one finding per noncompliant instance\. The finding is reported with the resource type [https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-attributes.html#asff-resourcedetails-awsec2instance](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-attributes.html#asff-resourcedetails-awsec2instance) so that findings can be correlated with other Security Hub integrations that report `AwsEc2Instance` resource types\. Patch Manager only forwards a finding to Security Hub if the operation discovered the instance to be noncompliant\. The finding includes the Patch Summary results\. For more information about compliance definitions, see [Understanding patch compliance state values](about-patch-compliance-states.md)\. For more information about `PatchSummary`, see [PatchSummary](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_PatchSummary.html) in the *AWS Security Hub API Reference*\.
 
-   \-or\-
+### Latency for sending findings<a name="securityhub-integration-finding-latency"></a>
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
+When Patch Manager creates a new finding, it is usually sent to Security Hub within a few seconds to 2 hours\. The speed depends on the traffic in the AWS Region being processed at that time\.
 
-1. Choose the **Settings** tab\.
+### Retrying when Security Hub is not available<a name="securityhub-integration-retry-send"></a>
 
-1. Choose **Open Security Hub**\.
+If there is a service outage, a Lambda function is run to put the messages back into the main queue after the service is running again\. After the messages are in the main queue, the retry is automatic\.
 
-1. Continue with the steps in [Enabling Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+If Security Hub is not available, Patch Manager retries sending the findings until they are received\.
 
-## Adding Patch Manager to Security Hub integration<a name="security-hub-integration-add"></a>
+### Updating existing findings in Security Hub<a name="securityhub-integration-finding-updates"></a>
 
-This procedure describes how to integrate Patch Manager and Security Hub when Security Hub is already active but Patch Manager integration is disabled\. You only need to complete this procedure if integration was manually disabled\.
+Patch Manager does not update a finding after it sends the finding to Security Hub\.
+
+Any additional patching operations on `AwsEc2Instance` resource types before the instance has been brought to compliance standards result in new findings being sent to Security Hub\.
+
+## Typical finding from Patch Manager<a name="securityhub-integration-finding-example"></a>
+
+Patch Manager sends findings to Security Hub using the [AWS Security Finding Format \(ASFF\)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html)\.
+
+Here is an example of a typical finding from Patch Manager\.
+
+```
+{
+  "SchemaVersion": "2018-10-08",
+  "Id": "arn:aws:patchmanager:us-east-1:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+  "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/ssm-patch-manager",
+  "GeneratorId": "d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+  "AwsAccountId": "111122223333",
+  "Types": [
+    "Software & Configuration Checks/Patch Management/Compliance"
+  ],
+  "CreatedAt": "2020-11-11T22:05:25Z",
+  "UpdatedAt": "2020-11-11T22:05:25Z",
+  "Severity": {
+    "Label": "INFORMATIONAL",
+    "Normalized": 0
+  },
+  "Title": "Systems Manager Patch Summary - Managed Instance Non-Compliant",
+  "Description": "This AWS control checks whether each instance that is managed by AWS Systems Manager is in compliance with the rules of the patch baseline that applies to that instance when a compliance Scan runs.",
+  "Remediation": {
+    "Recommendation": {
+      "Text": "For information about bringing instances into patch compliance, see 'Remediating out-of-compliance instances (Patch Manager)'.",
+      "Url": "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-compliance-remediation.html"
+    }
+  },
+  "SourceUrl": "https://us-east-1.console.aws.amazon.com/systems-manager/managed-instances/i-02573cafcfEXAMPLE/patch?region=us-east-1",
+  "ProductFields": {
+    "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/ssm-patch-manager/arn:aws:patchmanager:us-east-1:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+    "aws/securityhub/ProductName": "Systems Manager Patch Manager",
+    "aws/securityhub/CompanyName": "AWS"
+  },
+  "Resources": [
+    {
+      "Type": "AwsEc2Instance",
+      "Id": "i-02573cafcfEXAMPLE",
+      "Partition": "aws",
+      "Region": "us-east-1"
+    }
+  ],
+  "WorkflowState": "NEW",
+  "Workflow": {
+    "Status": "NEW"
+  },
+  "RecordState": "ACTIVE",
+  "PatchSummary": {
+    "Id": "pb-07e6d4e9bc703f2e3",
+    "InstalledCount": 45,
+    "MissingCount": 2,
+    "FailedCount": 0,
+    "InstalledOtherCount": 396,
+    "InstalledRejectedCount": 0,
+    "InstalledPendingReboot": 0,
+    "OperationStartTime": "2020-11-11T22:05:06Z",
+    "OperationEndTime": "2020-11-11T22:05:25Z",
+    "RebootOption": "NoReboot",
+    "Operation": "SCAN"
+  }
+}
+```
+
+## Enabling and configuring the integration<a name="securityhub-integration-enable"></a>
+
+To use the Patch Manager integration with Security Hub, you must enable Security Hub\. For information about how to enable Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+
+The following procedure describes how to integrate Patch Manager and Security Hub when Security Hub is already active but Patch Manager integration is disabled\. You only need to complete this procedure if integration was manually disabled\.
 
 **To add Patch Manager to Security Hub integration**
 
@@ -49,50 +130,10 @@ This procedure describes how to integrate Patch Manager and Security Hub when Se
 
 1. Under the **Export to Security Hub** section, to the right of **Patch compliance findings are not being exported to Security Hub**, choose **Enable**\.
 
-## Disabling Patch Manager from Security Hub integration<a name="security-hub-integration-disable"></a>
+## How to stop sending findings<a name="securityhub-integration-disable"></a>
 
-This procedure removes Patch Manager integration with Security Hub\. It doesn’t disable Security Hub itself\.
+To stop sending findings to Security Hub, you can use either the Security Hub console or the API\.
 
-**To disable Patch Manager from Security Hub integration**
-
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
-
-1. In the navigation pane, choose **Patch Manager**\.
-
-   \-or\-
-
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
-
-1. Choose the **Settings** tab\.
-
-1. Under the **Export to Security Hub** section, to the right of **Patch compliance findings are not being exported to Security Hub**, choose **Disable**\.
-
-## Reviewing Security Hub findings for patch compliance<a name="security-hub-integration-review"></a>
-
-This procedure describes how to view findings in Security Hub about managed instances in your fleet that are out of patch compliance\.
-
-**To review Security Hub findings for patch compliance**
-
-1. Sign in to the AWS Management Console and open the AWS Security Hub console at [https://console\.aws\.amazon\.com/securityhub/](https://console.aws.amazon.com/securityhub/)\.
-
-1. In the navigation pane, choose **Findings**\.
-
-1. Choose the **Add filters** \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)\) box\.
-
-1. In the menu, under **Filters**, choose **Product name**\.
-
-1. In the dialog box that opens, choose **is** in the first field and then enter **Systems Manager Patch Manager** in the second field\.
-
-1. Choose **Apply**\.
-
-1. Add any additional filters you want to help narrow down your results\.
-
-1. In the list of results, choose the title of a finding you want more information about\.
-
-   A pane opens on the right side of the screen with more details about the resource, the issue discovered, and a recommended remediation\.
-**Important**  
-At this time, Security Hub reports the resource type of all managed instances as `AwsEc2Instance`\. This includes on\-premises servers and virtual machines \(VMs\) that you have registered for use with Systems Manager\.
-
-**Related content**
-+ [Findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html) in the *AWS Security Hub User Guide*
-+ [Multi\-Account patch compliance with Patch Manager and Security Hub](http://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/) in the *AWS Management & Governance Blog*
+For more information, see the following topics in the *AWS Security Hub User Guide*:
++ [Disabling and enabling the flow of findings from an integration \(console\)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-console)
++ [Disabling the flow of findings from an integration \(Security Hub API, AWS CLI\)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-integrations-managing.html#securityhub-integration-findings-flow-disable-api)

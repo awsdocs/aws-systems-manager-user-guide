@@ -1,6 +1,6 @@
 # Setting up notifications or trigger actions based on Parameter Store events<a name="sysman-paramstore-cwe"></a>
 
-The topics in this section explain how to use Amazon EventBridge and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to Systems Manager parameters\. You can create an EventBridge rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
+The topics in this section explain how to use Amazon EventBridge and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to Systems Manager parameters\. You can create an EventBridge rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. Events are emitted on a best effort basis\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
 
 **Note**  
 Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.

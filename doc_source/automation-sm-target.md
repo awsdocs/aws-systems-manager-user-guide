@@ -333,6 +333,60 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
 ------
 
+   *Targeting multiple accounts and Regions*
+
+------
+#### [ Linux ]
+
+   ```
+   aws ssm create-association \
+       --association-name AssociationName \
+       --targets Key=ResourceGroup,Values=Resource_Group_name \
+       --name RunbookName \
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) \
+       --automation-target-parameter-name (parameter to target) \
+       --schedule "cron_or_rate_expression" \ 
+       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=us-east-1,us-east-2
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+       --association-name AssociationName ^
+       --targets Key=ResourceGroup,Values=Resource_Group_name ^
+       --name RunbookName ^
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM,(Additional parameters, if any) ^
+       --automation-target-parameter-name (parameter to target) ^
+       --schedule "cron_or_rate_expression" ^ 
+       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=us-east-1,us-east-2
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
+   $Targets.Key = "ResourceGroup"
+   $Targets.Values = "Resource_Group_Name"
+   
+   New-SSMAssociation `
+       -AssociationName "AssociationName" `
+       -Target $Targets `
+       -Name "RunbookName" `
+       -Parameters @{
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM;
+       (Additional parameters, if any)"} `
+       -AutomationTargetParameterName "parameter_to_target" `
+       -ScheduleExpression "cron_or_rate_expression" `
+       -TargetLocations @{
+           "Accounts"=["111122223333,444455556666,444455556666"],
+           "Regions"=["us-east-1,us-east-2"]
+   ```
+
+------
+
    The command returns details for the new association similar to the following\.
 
 ------

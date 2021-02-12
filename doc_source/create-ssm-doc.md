@@ -68,7 +68,7 @@ If you create an SSM document for State Manager, you must associate the document
 
 Keep in mind the following details when using SSM documents in State Manager associations\.
 + You can assign multiple documents to a target by creating different State Manager associations that use different documents\. 
-+ If you create a document with conflicting plugins \(e\.g\., domain join and remove from domain\), the last plugin run will be the final state\. State Manager does not validate the logical sequence or rationality of the commands or plugins in your document\.
++ If you create a document with conflicting plugins \(for example, domain join and remove from domain\), the last plugin run will be the final state\. State Manager does not validate the logical sequence or rationality of the commands or plugins in your document\.
 + When processing documents, instance associations are applied first, and next tagged group associations are applied\. If an instance is part of multiple tagged groups, then the documents that are part of the tagged group will not be run in any particular order\. If an instance is directly targeted through multiple documents by its instance ID, there is no particular order of execution\. 
 + If you change the default version of an SSM Policy document for State Manager, any association that uses the document will start using the new default version the next time Systems Manager applies the association to the instance\.
 + If you create an association using an SSM document that was shared with you, and then the owner stops sharing the document with you, your associations no longer have access to that document\. However, if the owner shares the same SSM document with you again later, your associations automatically remap to it\.

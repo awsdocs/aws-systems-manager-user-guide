@@ -1617,7 +1617,7 @@ Required: No
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
 ```
 
-Also note that an instance can have only have one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
+Also note that an instance can have only one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 

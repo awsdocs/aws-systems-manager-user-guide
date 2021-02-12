@@ -29,4 +29,4 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 + [Creating a patch group](sysman-patch-group-tagging.md)
 + [Patching instances on demand](patch-on-demand.md)
 + [Creating a maintenance window for patching](sysman-patch-mw-console.md)
-+ [Integrating Patch Manager with AWS Security Hub](security-hub-integration.md)
++ [Integration with AWS Security Hub](security-hub-integration.md)

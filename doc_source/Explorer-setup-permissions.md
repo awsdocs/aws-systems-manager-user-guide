@@ -69,7 +69,9 @@ The following procedure describes how to add a full\-access inline policy to an 
       "Action": [
         "ssm:GetOpsItem",
         "ssm:GetOpsSummary",
-        "ssm:DescribeOpsItems"
+        "ssm:DescribeOpsItems",
+        "ssm:GetServiceSetting",
+        "ssm:ListResourceDataSync"
       ],
       "Resource": "*"
     }

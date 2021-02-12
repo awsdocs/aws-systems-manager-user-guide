@@ -13,7 +13,9 @@ This information supplements the details in the topic [PutParameter](https://doc
 The requirements and constraints for parameter names include the following:
 + **Case sensitivity**: Parameter names are case sensitive\.
 + **Spaces**: Parameter names can't include spaces\.
-+ **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-/`
++ **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-`
+
+  In addition, the slash character \( / \) is used to delineate hierarchies in parameter names\. For example: `/Dev/Production/East/Project-ABC/MyParameter`
 + **Valid AMI format**: When you choose `aws:ec2:image` as the data type for a `String` parameter, the ID you enter must validate for the AMI ID format `ami-12345abcdeEXAMPLE`\.
 + **Fully qualified**: When you create or reference a parameter in a hierarchy, you must include a leading forward slash character \(/\) \. When you reference a parameter that is part of a hierarchy, you must specify the entire hierarchy path including the initial slash \(/\)\.
   + Fully qualified parameter names: `MyParameter1`, `/MyParameter2`, `/Dev/Production/East/Project-ABC/MyParameter`

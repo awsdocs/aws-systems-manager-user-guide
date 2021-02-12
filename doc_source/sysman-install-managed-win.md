@@ -1,6 +1,6 @@
 # Step 6: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
 
-This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the next step, [Step 5: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
+This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the previous step, [Step 5: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Windows Server, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
@@ -90,9 +90,24 @@ The command does the following:
 
 The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstancePatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatches.html)\.
 
-**Note**  
-You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:  
+## Deregister and reregister a managed instance<a name="systems-manager-install-managed-win-deregister-reregister"></a>
+
+You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
 
 ```
 aws ssm deregister-managed-instance --instance-id "mi-1234567890"
 ```
+
+You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance reappears in the list of managed instances\.
+
+**To reregister a managed instance on a Windows hybrid machine**
+
+1. Connect to your instance\.
+
+1. Search the `C:\ProgramData\Package Cache\` directory for `AmazonSSMAgentSetup.exe`\.
+
+1. Run the file\.
+
+1. Choose the option to uninstall SSM Agent\.
+
+1. Repeat the procedure in this topic to install SSM Agent\. 

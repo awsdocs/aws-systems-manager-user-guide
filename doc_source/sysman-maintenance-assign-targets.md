@@ -2,6 +2,9 @@
 
 In this procedure, you register a target with a maintenance window\. In other words, you specify which resources the maintenance window performs actions on\.
 
+**Note**  
+If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel\. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level\.
+
 **To assign targets to a maintenance window \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.

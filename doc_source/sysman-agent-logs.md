@@ -24,7 +24,7 @@ You can view SSM Agent logs on instances in the following locations\.
 
 ------
 
-For Linux instances, the SSM Agent `sterr` and `stdout` files are written to the following directory: /var/lib/amazon/ssm\.
+For Linux instances, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm`\.
 
 For information about enabling SSM Agent debug logging, see [Enabling SSM Agent debug logging](#ssm-agent-debug-log-files)\.
 

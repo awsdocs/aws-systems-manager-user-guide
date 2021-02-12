@@ -130,4 +130,4 @@ Type: String
 Required: NoOutput
 
 Payload  
-The JSON representation of the object returned by your function\.
+The JSON representation of the object returned by your function\. Up to 100KB is returned\.

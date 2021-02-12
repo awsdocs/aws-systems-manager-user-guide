@@ -6,6 +6,9 @@ In general, there are two methods for identifying the instances you want to use 
 
 You can also specify one or more resource groups as the target of a maintenance window\. A resource group can include instances and many other types of supported AWS resources\. Examples 4 and 5, next, demonstrate how to add resource groups to your maintenance window targets\.
 
+**Note**  
+If a single maintenance window task is registered with multiple targets, its task invocations occur sequentially and not in parallel\. If your task must run on multiple targets at the same time, register a task for each target individually and assign each task the same priority level\.
+
 For more information about creating and managing resource groups, see [What is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide* and [Resource Groups and Tagging for AWS](http://aws.amazon.com/blogs/aws/resource-groups-and-tagging/) in the *AWS News Blog*\.
 
 For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.

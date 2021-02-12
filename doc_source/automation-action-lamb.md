@@ -79,4 +79,4 @@ LogResult
 The base64\-encoded logs for the Lambda function invocation\. Logs are present only if the invocation type is `RequestResponse`, and the logs were requested\.
 
 Payload  
-The JSON representation of the object returned by the Lambda function\. Payload is present only if the invocation type is `RequestResponse`\.
+The JSON representation of the object returned by the Lambda function\. Payload is present only if the invocation type is `RequestResponse`\. Up to 200KB is returned

@@ -2,7 +2,7 @@
 
 When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
 
-When you create a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
+When you create an association or a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
 
 ```
 cron(30 23 ? * TUE#3 *)

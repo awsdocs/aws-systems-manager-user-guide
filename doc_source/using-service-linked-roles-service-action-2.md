@@ -27,9 +27,7 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 
 ## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-2"></a>
 
-You don't need to manually create a service\-linked role\. When you create a resource data sync by using Systems Manager Explorer in the AWS Management Console, the AWS CLI, or the AWS API, Systems Manager creates the service\-linked role for you\. 
-
-If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you create a resource data sync by using Systems Manager Explorer, Systems Manager creates the service\-linked role for you again\. 
+You must create a service\-linked role\. If you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API action\.
 
 ## Editing a service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-2"></a>
 

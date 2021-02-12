@@ -2,9 +2,11 @@
 
  **Description** 
 
-The AWSSupport\-TroubleshootSSH runbook installs the Amazon EC2Rescue tool for Linux, and then uses the EC2Rescue tool to check or attempt to fix common issues that prevent a remote connection to the Linux machine via SSH\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the runbook operates in read\-only mode\.
+The `AWSSupport-TroubleshootSSH` runbook installs the Amazon EC2Rescue tool for Linux, and then uses the EC2Rescue tool to check or attempt to fix common issues that prevent a remote connection to the Linux machine via SSH\. Optionally, changes can be applied offline by stopping and starting the instance, if the user explicitly allows for offline remediation\. By default, the runbook operates in read\-only mode\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootSSH)
+
+For information about working with the `AWSSupport-TroubleshootSSH` runbook, see this [AWSSupport\-TroubleshootSSH troubleshooting topic](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-ssh-errors-automation-workflow/) from AWS Premium Support\.
 
 **Document type**
 
@@ -66,7 +68,7 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 
-It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. For the online remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:StartAutomationExecution**, **ec2:DescribeInstances**, plus **ssm:GetAutomationExecution** to be able to read the automation output\. AWSSupport\-TroubleshootSSH calls AWSSupport\-ExecuteEC2Rescue to perform the offline remediation \- please review the permissions for AWSSupport\-ExecuteEC2Rescue to ensure you can run the automation successfully\.
+It is recommended that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. For the online remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. For the offline remediation, the user must have at least **ssm:DescribeInstanceInformation**, **ssm:StartAutomationExecution**, **ec2:DescribeInstances**, plus **ssm:GetAutomationExecution** to be able to read the automation output\. `AWSSupport-TroubleshootSSH` calls `AWSSupport-ExecuteEC2Rescue` to perform the offline remediation \- please review the permissions for `AWSSupport-ExecuteEC2Rescue` to ensure you can run the automation successfully\.
 
  **Document Steps** 
 

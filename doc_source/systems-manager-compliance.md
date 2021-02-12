@@ -2,7 +2,7 @@
 
 You can use AWS Systems Manager Compliance to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays current compliance data about Systems Manager Patch Manager patching and Systems Manager State Manager associations\. 
 
-Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [Integrating Patch Manager with AWS Security Hub](security-hub-integration.md)\. 
+Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [Integration with AWS Security Hub](security-hub-integration.md)\. 
 
 Systems Manager Compliance offers the following additional benefits and features: 
 + View compliance history and change tracking for Patch Manager patching data and State Manager associations by using AWS Config\.

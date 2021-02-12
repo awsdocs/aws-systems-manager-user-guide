@@ -578,7 +578,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Patching instances on demand](patch-on-demand.md)
          + [Creating a maintenance window for patching](sysman-patch-mw-console.md)
             + [About patching schedules using maintenance windows](sysman-patch-scheduletasks.md)
-         + [Integrating Patch Manager with AWS Security Hub](security-hub-integration.md)
+         + [Integration with AWS Security Hub](security-hub-integration.md)
       + [Working with Patch Manager (AWS CLI)](patch-manager-cli-commands.md)
       + [AWS Systems Manager Patch Manager walkthroughs](patch-walkthroughs.md)
          + [Walkthrough: Create a patch baseline for installing Windows Service Packs (console)](service-pack-patch-walkthrough.md)

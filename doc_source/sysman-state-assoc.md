@@ -166,7 +166,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ------
 #### [ Linux ]
@@ -310,7 +310,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates an association on instances in AWS Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example creates an association on instances in AWS Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux ]
@@ -362,56 +362,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates targets for association instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on all instances in the current account and Region\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 AM every Sunday\. This association doesn't run immediately when it is created\. It runs only at the specified Cron schedule\. It runs on the accounts, `111122223333`, `444455556666`, and `123456789012`, in two different regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The IAM role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\. 
-
-------
-#### [ Linux ]
-
-   ```
-   aws ssm create-association \
-     --association-name Update_SSM_Agent_Linux \
-     --name "AWS-UpdateSSMAgent" \
-     --targets "Key=instanceids,Values=*" \
-     --schedule "cron(0 2 ? * SUN *)" \
-     --apply-only-at-cron-interval \
-     --target-locations Accounts=111122223333,444455556666,123456789012,Regions=us-east-1,us-east-2,TargetLocationMaxConcurrency=10,TargetLocationMaxErrors=5,ExecutionRoleName=AWS-SystemsManager-AssociationRole
-   ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm create-association ^
-     --association-name Update_SSM_Agent_Linux ^
-     --name "AWS-UpdateSSMAgent" ^
-     --targets "Key=instanceids,Values=*" ^
-     --schedule "cron(0 2 ? * SUN *)" ^
-     --apply-only-at-cron-interval ^
-     --target-locations Accounts=111122223333,444455556666,123456789012,Regions=us-east-1,us-east-2,TargetLocationMaxConcurrency=10,TargetLocationMaxErrors=5,ExecutionRoleName=AWS-SystemsManager-AssociationRole
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   New-SSMAssociation `
-     -AssociationName Update_SSM_Agent_Linux `
-     -Name AWS-UpdateSSMAgent `
-     -Target @{
-         "Key"="InstanceIds"
-         "Values"="*"
-       } `
-     -ScheduleExpression "cron(0 2 ? * SUN *)" `
-     -ApplyOnlyAtCronInterval
-     -TargetLocations @{
-         "Accounts"=["111122223333,444455556666,123456789012"],
-         "Regions"=["us-east-1,us-east-2"],
-         "TargetLocationMaxConcurrency"="10",
-         "TargetLocationMaxErrors"="5",
-         "ExecutionRoleName"=AWS-SystemsManager-AssociationRole",
-   ```
-
-------
+   
 
 **Note**  
 If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the assocation and according to the interval specified\.
