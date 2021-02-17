@@ -1,0 +1,5 @@
+# Step 2: Verify or create an IAM instance profile with Distributor permissions<a name="distributor-getting-started-instance-profile"></a>
+
+By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an IAM instance profile\. An instance profile is a container that passes IAM role information to an EC2 instance at launch\. This requirement applies to permissions for all AWS Systems Manager capabilities, not just Distributor\.
+
+If you already use other Systems Manager capabilities, such as Run Command and State Manager, an instance profile with the required permissions for Distributor is already attached to your instances\. The simplest way to ensure that you have permissions to perform Distributor tasks is to attach the **AmazonSSMManagedInstanceCore** policy to your instance profile\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.

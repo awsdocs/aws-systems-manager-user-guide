@@ -1,0 +1,3 @@
+# Configuring CloudWatch Application Insights for \.NET and SQL Server to automatically create OpsItems<a name="OpsCenter-getting-started-user-CloudWatch-Application-Insights"></a>
+
+OpsCenter integrates with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\. For information about how to configure Application Insights to create OpsItems, see [Setting Up Your Application](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-setting-up.html) in the *Amazon CloudWatch User Guide*\.
