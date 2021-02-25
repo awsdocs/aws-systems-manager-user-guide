@@ -74,11 +74,9 @@ inputs:
  InputPayload: 
   "parameter1": "parameter_value1"
   "parameter2": "parameter_value2"
- Script: 
-  - 
-   "def script_handler(events, context):"
-  - 
-   "(script commands)"
+ Script: >
+   def script_handler(events, context):
+     (script commands)
  Attachment: "zip-file-name-1.zip"
 ```
 
