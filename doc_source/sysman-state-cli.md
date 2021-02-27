@@ -1,6 +1,6 @@
 # Walkthrough: Automatically update SSM Agent \(CLI\)<a name="sysman-state-cli"></a>
 
-The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface \(AWS CLI\)\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about the SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
+The following procedure walks you through the process of creating an AWS Systems Manager State Manager \(State Manager\) association using the AWS Command Line Interface \(AWS CLI\)\. The association automatically updates the AWS Systems Manager SSM Agent \(SSM Agent\) according to a schedule that you specify\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 
 **Note**  
 Note the following details about automatically updating SSM Agent:  
@@ -8,10 +8,10 @@ Beginning September 21, 2020, auto\-update installs SSM Agent version 3\.0\. For
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before you begin**  
-Before you complete the following procedure, verify that you have at least one running EC2 instance for Linux, macOS, or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux, macOS, or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **Note**  
-If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
+If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\), use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
 
 **To create an association for automatically updating SSM Agent**
 
@@ -19,7 +19,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create an association by targeting instances using Amazon EC2 tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
+1. Run the following command to create an association by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 
 ------
 #### [ Linux ]

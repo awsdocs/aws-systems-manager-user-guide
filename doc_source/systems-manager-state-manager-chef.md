@@ -1,14 +1,14 @@
 # Walkthrough: Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
 
-You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSMdocument\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
+You can create AWS Systems Manager State Manager \(State Manager\) associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSM document\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
 + Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
 + Automatically installs the Chef client software on target instances\.
-+ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3Amazon S3\) bucket\.
++ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
 + Runs multiple cookbooks and recipes in a single run of the document\.
 + Optionally runs recipes in `why-run` mode, to show which recipes will change on target instances without making changes\.
 + Optionally applies custom JSON attributes to `chef-client` runs\.
 
-You can use GitHub or S3 buckets as sources for Chef cookbooks and recipes that you specify in an `AWS-ApplyChefRecipes` document\.
+You can use GitHub or Amazon S3 buckets as sources for Chef cookbooks and recipes that you specify in an `AWS-ApplyChefRecipes` document\.
 
 **Note**  
 Associations that run Chef recipes are not currently supported on macOS\.
@@ -42,11 +42,11 @@ Systems Manager can deliver compliance reports to an S3 bucket, the Systems Mana
 
 ### Logging the document run<a name="state-manager-chef-logging"></a>
 
-When you run a Systems Manager document by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an S3 bucket or CloudWatch Logs\. For more information, see [Creating associations](sysman-state-assoc.md)\.
+When you run a Systems Manager document by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs \(CloudWatch Logs\)\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an Amazon S3 bucket or CloudWatch Logs\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 
 ## Use GitHub as a cookbook source<a name="state-manager-chef-github"></a>
 
-The `AWS-ApplyChefRecipes` document uses the [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent) plugin to download cookbooks\. To download content from GitHub, specify information about your GitHub repository to the document in JSON format\. The following is an example:
+The `AWS-ApplyChefRecipes` document uses the [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent) plugin to download cookbooks\. To download content from GitHub, specify information about your GitHub repository to the document in JSON format\. The following is an example\.
 
 ```
 {
@@ -60,7 +60,7 @@ The `AWS-ApplyChefRecipes` document uses the [`aws:downloadContent`](ssm-plugins
 
 ## Use Amazon S3 as a cookbook source<a name="state-manager-chef-s3"></a>
 
-You can also store and download Chef cookbooks in Amazon S3 as either a single `.zip` or `tar.gz` file or a directory structure\. To download content from Amazon S3, you must specify the path to the file\. Here are two examples:
+You can also store and download Chef cookbooks in Amazon S3 as either a single `.zip` or `tar.gz` file or a directory structure\. To download content from Amazon S3, you must specify the path to the file\. Here are two examples\.
 
 **Example 1: Download a specific cookbook**
 
@@ -105,7 +105,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. In **Source info**, enter cookbook source information in one of the following formats\.
 
-   1. If you chose **GitHub** in step 5, enter repository information in the following format:
+   1. If you chose **GitHub** in step 5, enter repository information in the following format\.
 
       ```
       {
@@ -117,7 +117,7 @@ The following procedure describes how to use the Systems Manager console to crea
       }
       ```
 
-   1. If you chose **S3** in step 5, enter path information in the following format:
+   1. If you chose **S3** in step 5, enter path information in the following format\.
 
       ```
       {
@@ -147,7 +147,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) Enable **Why\-run** to show changes that will be made to target instances if the recipes are run, without actually changing target instances\.
 
-1. For **Compliance severity**, choose the severity of Systems Manager Configuration Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Configuration Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 15\)\. For more information about Configuration Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
+1. For **Compliance severity**, choose the severity of Systems Manager Configuration Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Configuration Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 14\)\. For more information about Configuration Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
 
    Compliance scans measure drift between configuration that is specified in your Chef recipes and instance resources\. Valid values are `Critical`, `High`, `Medium`, `Low`, `Informational`, `Unspecified`, or `None`\. To skip compliance reporting, choose `None`\.
 
@@ -173,13 +173,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Create an association that runs Chef recipes \(CLI\)<a name="state-manager-chef-cli"></a>
 
-The following procedure describes how to use the AWS CLI to create a State Manager association that runs Chef cookbooks by using the `AWS-ApplyChefRecipes` document\.
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) to create a State Manager association that runs Chef cookbooks by using the `AWS-ApplyChefRecipes` document\.
 
 1. Install and configure the AWS CLI, if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Chef cookbooks by targeting instances using Amazon EC2 tags\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Chef cookbooks by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -205,7 +205,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
 ------
 
-   Here is an example:
+   Here is an example\.
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
@@ -238,7 +238,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
 ------
 
-   Here is an example:
+   Here is an example\.
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
@@ -259,7 +259,7 @@ State Manager associations do not support all cron and rate expressions\. For mo
 
 ## Viewing Chef resource compliance details<a name="state-manager-chef-compliance"></a>
 
-Systems Manager captures compliance information about Chef\-managed resources in the Amazon Simple Storage Service \(Amazon S3\) **Compliance report bucket** value that you specified when you ran the `AWS-ApplyChefRecipes` document\. Searching for information about Chef resource failures in an S3 bucket can be time consuming\. Instead, you can view this information on the Systems Manager **Compliance** page\.
+Systems Manager captures compliance information about Chef\-managed resources in the Amazon S3 **Compliance report bucket** value that you specified when you ran the `AWS-ApplyChefRecipes` document\. Searching for information about Chef resource failures in an S3 bucket can be time consuming\. Instead, you can view this information on the Systems Manager **Compliance** page\.
 
 A Systems Manager Compliance scan collects information about resources on your managed nodes that were created or checked in the most recent Chef run\. The resources can include files, directories, `systemd` services, `yum` packages, templated files, `gem` packages, and dependent cookbooks, among others\.
 
@@ -274,7 +274,7 @@ The **Details overview for resources** section shows information about the AWS r
 
 ![\[Viewing compliance details for a Chef managed resource failure\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-details.png)
 
-**View output** shows the last 4,000 characters of the detailed status\. Systems Manager starts with the exception as the first element, and then finds verbose messages and shows as many as it can until it reaches the 4000 character limit\. This process displays the log messages that were output before the exception was thrown, which are the most relevant messages for troubleshooting\.
+**View output** shows the last 4,000 characters of the detailed status\. Systems Manager starts with the exception as the first element, and then finds verbose messages and shows as many as it can until it reaches the 4,000 character limit\. This process displays the log messages that were output before the exception was thrown, which are the most relevant messages for troubleshooting\.
 
 For information about how to view compliance information, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 

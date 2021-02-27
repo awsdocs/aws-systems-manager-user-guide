@@ -76,7 +76,7 @@ inputs:
   "parameter2": "parameter_value2"
  Script: >
    def script_handler(events, context):
-     (script commands)
+   (script commands)
  Attachment: "zip-file-name-1.zip"
 ```
 

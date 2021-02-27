@@ -1,8 +1,8 @@
 # Editing and creating a new version of an association<a name="sysman-state-assoc-edit"></a>
 
-You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon S3 bucket\. After you edit an association, Systems Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
+You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, AWS Systems Manager State Manager \(State Manager\) creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
-The following procedures describe how to edit and create a new version of an association using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell\. 
+The following procedures describe how to edit and create a new version of an association using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\. 
 
 ## Edit an association \(console\)<a name="sysman-state-assoc-edit-console"></a>
 
@@ -23,7 +23,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. Choose the association you created in [Create an association \(command line\)](sysman-state-assoc.md#create-state-manager-association-commandline) and then choose **Edit**\.
 
-1. In the **Name** field, type a new name\. For example, type **TestHostnameAssociation2**\.
+1. In the **Name** field, enter a new name\. For example, enter **TestHostnameAssociation2**\.
 
 1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
 
@@ -146,7 +146,7 @@ To retain existing parameter values of your association, such as association nam
 
 ------
 
-   The following example updates an existing association to change the name to `MultiAccountRegionAssociation`\. The new association version is run by three different accounts, `111122223333`, `444455556666`, and `123456789012`, in two different regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The IAM role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\.
+   The following example updates an existing association to change the name to `MultiAccountRegionAssociation`\. The new association version is run by three different accounts, `111122223333`, `444455556666`, and `123456789012`, in two different Regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The AWS Identity and Access Management \(IAM\) role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\.
 
 ------
 #### [ Linux ]

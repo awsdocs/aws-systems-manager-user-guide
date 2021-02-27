@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run Ansible playbooks<a name="systems-manager-state-manager-ansible"></a>
 
-You can create State Manager associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. This document offers the following benefits for running playbooks:
+You can create AWS Systems Manager State Manager \(State Manager\) associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. This document offers the following benefits for running playbooks:
 + Support for running complex playbooks
 + Support for downloading playbooks from GitHub and Amazon Simple Storage Service \(Amazon S3\)
 + Support for compressed playbook structure
@@ -17,7 +17,7 @@ The `AWS-ApplyAnsiblePlaybooks` document supports bundled, complex playbooks bec
 
 **Support for downloading playbooks from GitHub**
 
-The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin to download playbook files\. Files can be stored in GitHub in a single file or as a combined set of playbook files\. To download content from GitHub, you must specify information about your GitHub repository in JSON format\. Here is an example:
+The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin to download playbook files\. Files can be stored in GitHub in a single file or as a combined set of playbook files\. To download content from GitHub, you must specify information about your GitHub repository in JSON format\. Here is an example\.
 
 ```
 {
@@ -31,7 +31,7 @@ The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin t
 
 **Support for downloading playbooks from Amazon S3**
 
-You can also store and download Ansible playbooks in Amazon S3 as either a single \.zip file or a directory structure\. To download content from Amazon S3, you must specify the path to the file\. Here are two examples:
+You can also store and download Ansible playbooks in Amazon S3 as either a single \.zip file or a directory structure\. To download content from Amazon S3, you must specify the path to the file\. Here are two examples\.
 
 **Example 1: Download a specific playbook file**
 
@@ -66,10 +66,12 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for speci
 
 ## Installed dependencies<a name="systems-manager-state-manager-ansible-depedencies"></a>
 
-If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that the following dependencies are installed on your instances\. If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
+If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that the following dependencies are installed on your instances:
 + **Ubuntu Server/Debian Server**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
 + **Amazon Linux**: Ansible
 + **RHEL**: Python 3, Ansible, Unzip
+
+If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
 
 ## Create an association that runs Ansible playbooks \(console\)<a name="systems-manager-state-manager-ansible-console"></a>
 
@@ -89,7 +91,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
    **GitHub**
 
-   If you choose **GitHub**, enter repository information in the following format:
+   If you choose **GitHub**, enter repository information in the following format\.
 
    ```
    {
@@ -103,7 +105,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
    **S3**
 
-   If you choose **S3**, enter path information in the following format:
+   If you choose **S3**, enter path information in the following format\.
 
    ```
    {
@@ -148,7 +150,7 @@ If you use tags to create an association on one or more target instances, and th
 
 ## Create an association that runs Ansible playbooks \(CLI\)<a name="systems-manager-state-manager-ansible-cli"></a>
 
-The following procedure describes how to use the AWS CLI to create a State Manager association that runs Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` document\. 
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) to create a State Manager association that runs Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` document\. 
 
 **To create an association that runs Ansible playbooks \(CLI\)**
 
@@ -156,7 +158,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Ansible playbooks by targeting instances using Amazon EC2 tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Ansible playbooks by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -182,7 +184,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
 ------
 
-   Here is an example:
+   Here is an example\.
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
@@ -215,7 +217,7 @@ The following procedure describes how to use the AWS CLI to create a State Manag
 
 ------
 
-   Here is an example:
+   Here is an example\.
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \

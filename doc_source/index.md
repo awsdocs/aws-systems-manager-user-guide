@@ -562,6 +562,7 @@ Amazon's trademarks and trade dress may not be used in
             + [About the AWS-RunPatchBaselineAssociation SSM document](patch-manager-about-aws-runpatchbaselineassociation.md)
             + [About the AWS-RunPatchBaselineWithHooks SSM document](patch-manager-about-aws-runpatchbaselinewithhooks.md)
             + [Sample scenario for using the InstallOverrideList parameter in AWS-RunPatchBaseline or AWS-RunPatchBaselineAssociation](override-list-scenario.md)
+            + [Using the BaselineOverride parameter](patch-manager-about-baselineoverride.md)
       + [About patch baselines](about-patch-baselines.md)
          + [About predefined and custom patch baselines](sysman-patch-baselines.md)
          + [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)

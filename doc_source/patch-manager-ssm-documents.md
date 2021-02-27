@@ -26,6 +26,7 @@ Refer to the following sections for more information about using these SSM docum
 + [About the AWS\-RunPatchBaselineAssociation SSM document](patch-manager-about-aws-runpatchbaselineassociation.md)
 + [About the AWS\-RunPatchBaselineWithHooks SSM document](patch-manager-about-aws-runpatchbaselinewithhooks.md)
 + [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation](override-list-scenario.md)
++ [Using the BaselineOverride parameter](patch-manager-about-baselineoverride.md)
 
 ## SSM documents recommended for patching instances<a name="patch-manager-ssm-documents-recommended"></a>
 

@@ -1,6 +1,6 @@
 # Viewing association histories<a name="sysman-state-assoc-history"></a>
 
-You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API action\. This action allows you to quickly see the status, detailed status, results, last execution time, and more information for a State Manager association\. This API action also includes filters to help you quickly locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view only those executions that were processed after the specified date and time\.
+You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API action\. This action allows you to quickly see the status, detailed status, results, last execution time, and more information for an AWS Systems Manager State Manager \(State Manager\) association\. This API action also includes filters to help you quickly locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view only those executions that were processed after the specified date and time\.
 
 If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API action\. This action shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then quickly see which resource or instance failed to run an association\. With the resource ID you can then view the command execution details to see exactly which step in a command failed\.
 
@@ -42,7 +42,7 @@ Use the search box filters to locate the resource for which you want to view det
 
 ## Viewing association histories \(command line\)<a name="sysman-state-assoc-history-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to view the execution history for a specific association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for PowerShell \(Tools for PowerShell\) to view the execution history for a specific association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
 
 **To view execution history for a specific association ID**
 

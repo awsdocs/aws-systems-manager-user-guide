@@ -1,11 +1,11 @@
 # Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server \(console\)<a name="sysman-state-pvdriver"></a>
 
-Amazon Windows AMIs contain a set of drivers to permit access to virtualized hardware\. These drivers are used by Amazon Elastic Compute Cloud \(Amazon EC2\) to map instance store and Amazon Elastic Block Store \(Amazon EBS\) volumes to their devices\. We recommend that you install the latest drivers to improve stability and performance of your EC2 instances for Windows Server\. For more information about PV drivers, see [AWS PV Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/xen-drivers-overview.html#xen-driver-awspv)\.
+Amazon Windows Amazon Machine Images \(AMIs\) contain a set of drivers to permit access to virtualized hardware\. These drivers are used by Amazon Elastic Compute Cloud \(Amazon EC2\) to map instance store and Amazon Elastic Block Store \(Amazon EBS\) volumes to their devices\. We recommend that you install the latest drivers to improve stability and performance of your EC2 instances for Windows Server\. For more information about PV drivers, see [AWS PV Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/xen-drivers-overview.html#xen-driver-awspv)\.
 
-The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\.
+The following walkthrough shows you how to configure an AWS Systems Manager State Manager \(State Manager\) association to automatically download and install new AWS PV drivers when the drivers become available\.
 
 **Before you begin**  
-Before you complete the following procedure, verify that you have at least one EC2 instance for Windows Server running that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one Amazon EC2 instance for Windows Server running that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **To create a State Manager association that automatically updates PV drivers**
 
@@ -51,6 +51,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Create association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. 
 
-   If you created the association on one or more EC2 instances for Windows Server, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
+   If you created the association on one or more Amazon EC2 instances for Windows Server, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
 
-   If the status is **Failed**, choose the association ID, choose the **Resources** tab, and then verify that the association was successfully created on your EC2 instances for Windows Server\. If EC2 instances for Windows Server show a status of **Failed**, verify that SSM Agent is running on the instance, and verify that the instance is configured with an IAM role for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+   If the status is **Failed**, choose the association ID, choose the **Resources** tab, and then verify that the association was successfully created on your EC2 instances for Windows Server\. If EC2 instances for Windows Server show a status of **Failed**, verify that AWS Systems Manager SSM Agent \(SSM Agent\) is running on the instance, and verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.

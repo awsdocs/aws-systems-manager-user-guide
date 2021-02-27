@@ -1,6 +1,8 @@
 # About the AWS\-RunPatchBaseline SSM document<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
-AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
+AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaseline`, which performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type if no patch group is specified\. Otherwise, it uses the patch baselines that is associated with the patch group\. For information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\. 
+
+You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
 This document supports Linux, macOS, and Windows Server instances\. The document will perform the appropriate actions for each platform\.
 
@@ -39,13 +41,14 @@ For information about viewing patch compliance data, see [About patch compliance
 
 ## AWS\-RunPatchBaseline parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
 
-**AWS\-RunPatchBaseline** supports four parameters\. The `Operation` parameter is required\. The `InstallOverrideList` and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a maintenance window, and let Patch Manager supply the value automatically when the document is run as part of a maintenance window operation\.
+**AWS\-RunPatchBaseline** supports five parameters\. The `Operation` parameter is required\. The `InstallOverrideList`, `BaselineOverride`, and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a maintenance window, and let Patch Manager supply the value automatically when the document is run as part of a maintenance window operation\.
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
 + [Parameter name: `Snapshot ID`](#patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id)
 + [Parameter name: `InstallOverrideList`](#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)
 + [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)
++ [Parameter name: `BaselineOverride`](#patch-manager-about-aws-runpatchbaseline-parameters-baselineoverride)
 
 ### Parameter name: `Operation`<a name="patch-manager-about-aws-runpatchbaseline-parameters-operation"></a>
 
@@ -347,3 +350,11 @@ This tracking file is stored in the following locations on your managed instance
 + Windows Server operating system:
   + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
   + `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchInventoryFromLastOperation.json`
+
+### Parameter name: `BaselineOverride`<a name="patch-manager-about-aws-runpatchbaseline-parameters-baselineoverride"></a>
+
+**Usage**: Optional\.
+
+You can define patching preferences at runtime using the `BaselineOverride` parameter\. This baseline override is maintained as a JSON object in an Amazon S3 bucket\. It ensures patching operations use the provided baselines that match the host operating system instead of applying the rules from the default patch baseline computed based on default patch baseline or patch groups\.
+
+For more information about how to use the `BaselineOverride` parameter, see [Using the BaselineOverride parameter](patch-manager-about-baselineoverride.md)\.

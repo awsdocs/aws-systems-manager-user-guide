@@ -8,7 +8,9 @@ AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBas
 + **No custom patch list support** – `AWS-RunPatchBaselineWithHooks` does not support the `InstallOverrideList` parameter\.
 + **SSM Agent support** – `AWS-RunPatchBaselineWithHooks` requires that SSM Agent 3\.0\.502 or later be installed on the instance to patch\.
 
-When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type\. You can use the document `AWS-RunPatchBaselineWithHooks` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
+When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type if no patch group is specified\. Otherwise, it uses the patch baselines that is associated with the patch group\. For information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\. 
+
+You can use the document `AWS-RunPatchBaselineWithHooks` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
 
 This document supports Linux, macOS, and Windows Server instances\. The document will perform the appropriate actions for each platform\.
 
@@ -96,7 +98,7 @@ The `RebootOption`, `PreInstallHookDocName`, `PostInstallHookDocName`, and `OnEx
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
-+ [Parameter name: `Snapshot ID`](#patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id)
++ [Parameter name: `Snapshot ID`](#patch-manager-about-aws-runpatchbaselinewithhook-parameters-snapshot-id)
 + [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaselinewithhooks-parameters-norebootoption)
 + [Parameter name: `PreInstallHookDocName`](#patch-manager-about-aws-runpatchbaselinewithhooks-parameters-preinstallhookdocname)
 + [Parameter name: `PostInstallHookDocName`](#patch-manager-about-aws-runpatchbaselinewithhooks-parameters-postinstallhookdocname)
@@ -115,7 +117,7 @@ Install
 When you choose the `Install` option, `AWS-RunPatchBaselineWithHooks` attempts to install the approved and applicable updates that are missing from the instance\. Patch compliance information generated as part of an `Install` operation does not list any missing updates, but might report updates that are in a failed state if the installation of the update did not succeed for any reason\. Whenever an update is installed on an instance, the instance is rebooted to ensure the update is both installed and active\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselineWithHooks` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaselinewithhooks-parameters-norebootoption)\.\)  
 If a patch specified by the baseline rules is installed *before* Patch Manager updates the instance, the system might not reboot as expected\. This can happen when a patch is installed manually by a user or installed automatically by another program, such as the `unattended-upgrades` package on Ubuntu Server\.
 
-### Parameter name: `Snapshot ID`<a name="patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id"></a>
+### Parameter name: `Snapshot ID`<a name="patch-manager-about-aws-runpatchbaselinewithhook-parameters-snapshot-id"></a>
 
 **Usage**: Optional\.
 
