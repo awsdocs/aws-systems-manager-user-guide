@@ -4,8 +4,9 @@ This section describes how to configure the options available in an OpsItem\. Fo
 
 **Topics**
 + [Working with related resources](#OpsCenter-working-with-OpsItems-related-resources)
++ [Viewing other OpsItems for a specific resource](#OpsCenter-working-other-OpsItems-for-a-resource)
 + [Editing OpsItem details](#OpsCenter-working-with-OpsItems-editing-details)
-+ [Working with related and similar OpsItems](#OpsCenter-working-with-OpsItems-similar)
++ [Working with similar and related OpsItems](#OpsCenter-working-with-OpsItems-similar)
 + [Working with operational data](#OpsCenter-working-operational-data)
 + [Reducing duplicate OpsItems](#OpsCenter-working-deduplication)
 
@@ -39,6 +40,22 @@ You can manually add the ARNs of additional related resources\. Each OpsItem can
 1. For **Resource type**, choose a resource from the list\.
 
 1. For **Resource ID**, enter either the ID or the Amazon Resource Name \(ARN\)\. The type of information you choose depends o the resource you chose in the previous step\.
+
+## Viewing other OpsItems for a specific resource<a name="OpsCenter-working-other-OpsItems-for-a-resource"></a>
+
+To help you investigate issues and provide context for a problem, you can view a list of OpsItems for a specific AWS resource\. The list displays the status, severity, and title of each OpsItem\. The list also includes deep links to each OpsItem so you can quickly open them to view more information\.
+
+**To view a list of OpsItems for a specific resource**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **OpsCenter**\.
+
+1. Choose an OpsItem ID to open the details page\.
+
+1. Choose the **Related resource details** tab\.
+
+1. Expand **Other OpsItems for this resource**\.
 
 ## Editing OpsItem details<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
 
@@ -85,17 +102,21 @@ The SNS topic must exist in the same AWS Region as the OpsItem\. If they are in 
 
 1. When you are finished, choose **Save**\.
 
-## Working with related and similar OpsItems<a name="OpsCenter-working-with-OpsItems-similar"></a>
+## Working with similar and related OpsItems<a name="OpsCenter-working-with-OpsItems-similar"></a>
 
-The Related and Similar OpsItem features are designed to help you investigate operations issues while providing context about the scope of an issue\. In the **Related OpsItems** section, you can specify a maximum of 10 IDs for other OpsItems that are related to the current OpsItem\. OpsItems can be related in different ways, including a parent\-child relationship between OpsItems, a root cause, or a duplicate\. 
-
-![\[Viewing related OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_4.png)
+The **Similar OpsItems** and **Related OpsItems** features are designed to help you investigate operations issues while providing context about the scope of an issue\.
 
 The **Similar OpsItems** feature is a system\-generated list of OpsItems that may be related or of interest to you\. To generate the list, the system scans the titles and descriptions of all OpsItems and returns OpsItems that use similar words\.
 
 ![\[Viewing similar OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_5.png)
 
-**To add a related OpsItem from similar OpsItems**
+In the **Related OpsItems** section, you can specify a maximum of 10 IDs for other OpsItems that are related to the current OpsItem\. OpsItems can be related in different ways, including a parent\-child relationship between OpsItems, a root cause, or a duplicate\. 
+
+![\[Viewing related OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_4.png)
+
+To help you organize OpsItems, you can associate one OpsItem with another so that it appears in the **Related OpsItems** section\.
+
+**To add a related OpsItem**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

@@ -4,7 +4,7 @@ In many cases, a managed instance must be rebooted after it has been patched wit
 
 This walkthrough demonstrates how to avoid problems like these by using the Systems Manager document `AWS-RunPatchBaselineWithHooks` to achieve a complex, multi\-step patching operation that accomplishes the following:
 
-1. Drain connections to the application
+1. Prevent new connections to the application
 
 1. Install operating system updates
 
@@ -32,12 +32,14 @@ The examples in this walkthrough are for demonstration purposes only and not mea
 
 1. Create a Systems Manager document \(SSM document\) for your preinstallation script with the following contents and name it `NodeJSAppPrePatch`\. Replace *your\_application* with the name of your application\.
 
+   This script immediately blocks new incoming requests and provides five seconds for already active ones to complete before beginning the patching operation\. For the `sleep` option, specify a number of seconds greater than it usually takes for incoming requests to complete\.
+
    ```
    # exit on error
    set -e
    # set up rule to block incoming traffic
    iptables -I INPUT -j DROP -p tcp --syn --destination-port 443 || exit 1
-   # wait for connection draining, tweak timeout depending on your application's latency
+   # wait for current connections to end. Set timeout appropriate to your application's latency
    sleep 5 
    # Stop your application
    pm2 stop your_application
@@ -50,7 +52,7 @@ The examples in this walkthrough are for demonstration purposes only and not mea
    ```
    cd /your/application/path
    npm update 
-   # you could also use npm-check-updates if you want to upgrade major versions
+   # you can use npm-check-updates if you want to upgrade major versions
    ```
 
 1. Create another SSM document with the following content for your `onExit` script to bring your application back up and perform a health check\. Name this SSM document `NodeJSAppOnExitPatch`\. Replace *your\_application* with the name of your application\.

@@ -31,7 +31,7 @@ Use the following procedure to create a custom patch baseline to be used exclusi
    If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
-   + **Product**: The operating system versions that the approval rule applies to, such as `WindowsServer2008`\. You can choose one, more than one, or all supported versions of Windows\. The default selection is `All`\.
+   + **Product**: The operating system versions that the approval rule applies to, such as `WindowsServer2012`\. You can choose one, more than one, or all supported versions of Windows\. The default selection is `All`\.
    + **Classification**: Choose `ServicePacks`\. 
    + **Severity**: The severity value of patches the rule is to apply to\. To ensure that all Service Packs are included by the rule, choose `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.

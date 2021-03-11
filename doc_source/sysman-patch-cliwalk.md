@@ -21,7 +21,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm create-patch-baseline \
        --name "Production-Baseline" \
-       --operating-system "WINDOWS" \
+       --operating-system "AMAZON_LINUX_2" \
        --tags "Key=Environment,Value=Production" \
        --approval-rules "PatchRules=[{PatchFilterGroup={PatchFilters=[{Key=MSRC_SEVERITY,Values=[Critical,Important]},{Key=CLASSIFICATION,Values=[SecurityUpdates,Updates,ServicePacks,UpdateRollups,CriticalUpdates]}]},ApproveAfterDays=7}]" \
        --description "Baseline containing all updates approved for production systems"

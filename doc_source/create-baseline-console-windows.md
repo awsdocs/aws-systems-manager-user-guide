@@ -29,7 +29,7 @@ For an example of creating a patch baseline that is limited to installing Window
    If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
-   + **Product**: The version of the operating systems the approval rule applies to, such as `WindowsServer2008`\. The default selection is `All`\.
+   + **Product**: The version of the operating systems the approval rule applies to, such as `WindowsServer2012`\. The default selection is `All`\.
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`, `Drivers`, and `Tools`\. The default selection is `All`\. 
 **Tip**  
 You can include Windows Service Pack installations in your approval rules by including `ServicePacks` or by choosing `All` in your **Classification** list\. For an example, see [Walkthrough: Create a patch baseline for installing Windows Service Packs \(console\)](service-pack-patch-walkthrough.md)\.

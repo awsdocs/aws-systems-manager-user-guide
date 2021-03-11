@@ -11,7 +11,7 @@ An *activation expiration* is a window of time when you can register on\-premise
 Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API action [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
 **About activation tags**  
-If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes tags\.
+If you create an activation by using either the AWS CLI or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes optional tags\.
 
 ```
 aws ssm create-activation \
@@ -82,6 +82,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 **Note**  
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 The role you specify for the *iam\-role* parameter must have a trust relationship policy that specifies `"Service": "ssm.amazonaws.com"`\. If your IAM role doesn't specify this principle in a trust relationship policy, you receive the following error: `An error occurred (ValidationException) when calling the CreateActivation operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole`\. For more information about creating this role, see [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
+For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-07T00:00:00"`, for when the activation code expires\. You can specify a date up to 30 days in advance\. If you don't provide an expiration date, the activation code expires in 24 hours\.
 
 ------
 #### [ Linux ]
@@ -92,7 +93,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      --iam-role iam-service-role-name \
      --registration-limit number-of-managed-instances \
      --region region \
-     --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
+     ---expiration-date "timestamp" \\  --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -103,6 +104,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      --default-instance-name name ^
      --iam-role iam-service-role-name ^
      --registration-limit number-of-managed-instances ^
+     ---expiration-date "timestamp" ^
      --region region ^
      --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
@@ -115,6 +117,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      -IamRole iam-service-role-name `
      -RegistrationLimit number-of-managed-instances `
      –Region region `
+     -ExpirationDate "timestamp" `
      -Tag @{"Key"="key-name-1";"Value"="key-value-1"},@{"Key"="key-name-2";"Value"="key-value-2"}
    ```
 
@@ -131,6 +134,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
      --registration-limit 10 \
      --region us-east-2 \
+     ---expiration-date "2021-07-07T00:00:00" \
      --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
@@ -143,6 +147,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
          --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
          --registration-limit 10 ^
          --region us-east-2 ^
+     ---expiration-date "2021-07-07T00:00:00" ^
          --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
@@ -154,6 +159,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      -IamRole service-role/AmazonEC2RunCommandRoleForManagedInstances `
      -RegistrationLimit 10 `
      –Region us-east-2 `
+     -ExpirationDate "2021-07-07T00:00:00" `
      -Tag @{"Key"="Environment";"Value"="Production"},@{"Key"="Department";"Value"="Finance"}
    ```
 

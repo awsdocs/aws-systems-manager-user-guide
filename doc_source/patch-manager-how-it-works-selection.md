@@ -11,12 +11,12 @@ Choose from the following tabs to learn how Patch Manager selects security patch
 #### [ Amazon Linux and Amazon Linux 2 ]
 
 On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service uses preconfigured repositories on the instance\. There are usually two preconfigured repositories \(repos\) on an instance:
-+ **Repo ID**: amzn\-main/latest
++ **Repo ID**: `amzn-main/latest`
 
-  **Repo name**: amzn\-main\-Base
-+ **Repo ID**: amzn\-updates/latest
+  **Repo name**: `amzn-main-Base`
++ **Repo ID**: `amzn-updates/latest`
 
-  **Repo name**: amzn\-updates\-Base
+  **Repo name**: `amzn-updates-Base`
 
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
@@ -30,18 +30,18 @@ If you select the **Approved patches include non\-security updates** check box i
 #### [ CentOS ]
 
 On CentOS, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. The following list provides examples for a fictitious CentOS 8\.2 Amazon Machine Image \(AMI\):
-+ **Repo ID**: example\-centos\-8\.2\-base
++ **Repo ID**: `example-centos-8.2-base`
 
-  **Repo name**: Example CentOS\-8\.2 \- Base
-+ **Repo ID**: example\-centos\-8\.2\-extras 
+  **Repo name**: `Example CentOS-8.2 - Base`
++ **Repo ID**: `example-centos-8.2-extras` 
 
-  **Repo name**: Example CentOS\-8\.2 \- Extras
-+ **Repo ID**: example\-centos\-8\.2\-updates
+  **Repo name**: `Example CentOS-8.2 - Extras`
++ **Repo ID**: `example-centos-8.2-updates`
 
-  **Repo name**: Example CentOS\-8\.2 \- Updates
-+ **Repo ID**: example\-centos\-8\.x\-examplerepo
+  **Repo name**: `Example CentOS-8.2 - Updates`
++ **Repo ID**: `example-centos-8.x-examplerepo`
 
-  **Repo name**: Example CentOS\-8\.x – Example Repo Packages
+  **Repo name**: `Example CentOS-8.x – Example Repo Packages`
 
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
@@ -66,13 +66,26 @@ On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an 
 ------
 #### [ Oracle Linux ]
 
-On Oracle Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually two preconfigured repos on an instance:
-+ **Repo ID**: ol7\_UEKR5/x86\_64
+On Oracle Linux, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. There are usually two preconfigured repos on an instance\.
 
-  **Repo name**: Latest Unbreakable Enterprise Kernel Release 5 for Oracle Linux 7Server \(x86\_64\)
-+ **Repo ID**: ol7\_latest/x86\_64
+**Oracle Linux 7**:
++ **Repo ID**: `ol7_UEKR5/x86_64`
 
-  **Repo name**: Oracle Linux 7Server Latest \(x86\_64\) 
+  **Repo name**: `Latest Unbreakable Enterprise Kernel Release 5 for Oracle Linux 7Server (x86_64)`
++ **Repo ID**: `ol7_latest/x86_64`
+
+  **Repo name**: `Oracle Linux 7Server Latest (x86_64)` 
+
+**Oracle Linux 8**:
++ **Repo ID**: `ol8_baseos_latest` 
+
+  **Repo name**: `Oracle Linux 8 BaseOS Latest (x86_64)`
++ **Repo ID**: `ol8_appstream`
+
+  **Repo name**: `Oracle Linux 8 Application Stream (x86_64)` 
++ **Repo ID**: `ol8_UEKR6`
+
+  **Repo name**: `Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 8 (x86_64)` 
 
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
@@ -98,26 +111,26 @@ Note that repo locations differ between RHEL 7 and RHEL 8:
 
 RHEL 7  
 The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 2019 and introduced a different naming scheme for Yum repository IDs\. Depending on the RHEL\-7 AMI you create your instances from, you might need to update your commands\. For more information, see [Repository IDs for RHEL 7 in AWS Have Changed](https://access.redhat.com/articles/4599971) on the *Red Hat Customer Portal*\.
-+ **Repo ID**: rhui\-REGION\-client\-config\-server\-7/x86\_64
++ **Repo ID**: `rhui-REGION-client-config-server-7/x86_64`
 
-  **Repo name**: Red Hat Update Infrastructure 2\.0 Client Configuration Server 7
-+ **Repo ID**: rhui\-REGION\-rhel\-server\-releases/7Server/x86\_64
+  **Repo name**: `Red Hat Update Infrastructure 2.0 Client Configuration Server 7`
++ **Repo ID**: `rhui-REGION-rhel-server-releases/7Server/x86_64`
 
-  **Repo name**: Red Hat Enterprise Linux Server 7 \(RPMs\)
-+ **Repo ID**: rhui\-REGION\-rhel\-server\-rh\-common/7Server/x86\_64
+  **Repo name**: `Red Hat Enterprise Linux Server 7 (RPMs)`
++ **Repo ID**: `rhui-REGION-rhel-server-rh-common/7Server/x86_64`
 
-  **Repo name**: Red Hat Enterprise Linux Server 7 RH Common \(RPMs\)
+  **Repo name**: `Red Hat Enterprise Linux Server 7 RH Common (RPMs)`
 
 RHEL 8  
-+ **Repo ID**: rhel\-8\-appstream\-rhui\-rpms
++ **Repo ID**: `rhel-8-appstream-rhui-rpms`
 
-  **Repo name**: Red Hat Enterprise Linux 8 for x86\_64 \- AppStream from RHUI \(RPMs\)
-+ **Repo ID**: rhel\-8\-baseos\-rhui\-rpms
+  **Repo name**: `Red Hat Enterprise Linux 8 for x86_64 - AppStream from RHUI (RPMs)`
++ **Repo ID**: `rhel-8-baseos-rhui-rpms`
 
-  **Repo name**: Red Hat Enterprise Linux 8 for x86\_64 \- BaseOS from RHUI \(RPMs\)
-+ **Repo ID**: rhui\-client\-config\-server\-8
+  **Repo name**: `Red Hat Enterprise Linux 8 for x86_64 - BaseOS from RHUI (RPMs)`
++ **Repo ID**: `rhui-client-config-server-8`
 
-  **Repo name**: Red Hat Update Infrastructure 3 Client Configuration Server 8
+  **Repo name**: `Red Hat Update Infrastructure 3 Client Configuration Server 8`
 
 ------
 #### [ SLES ]

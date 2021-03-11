@@ -13,6 +13,8 @@ The following procedures describe how to use the AWS Command Line Interface \(AW
 Change templates use a version of schema 0\.3 that does not include all the same support as for Automation documents\.
 
    The following is an example\.
+**Note**  
+This example demonstrates two levels of approvals\. You can specify up to five levels of approvals, but only one level is required\.
 
    ```
    {
@@ -51,7 +53,7 @@ Change templates use a version of schema 0\.3 that does not include all the same
       "emergencyChange": false,
       "mainSteps": [
          {
-            "name": "SimpleApproveAction",
+            "name": "ApproveAction1",
             "action": "aws:approve",
             "timeoutSeconds": 3600,
             "inputs": {
@@ -63,6 +65,25 @@ Change templates use a version of schema 0\.3 that does not include all the same
                         "approver": "{{ Approver }}",
                         "type": "{{ ApproverType }}",
                         "minRequiredApprovals": 1
+                     }
+                  ]
+               }
+            }
+         },
+           {
+            "name": "ApproveAction2",
+            "action": "aws:approve",
+            "timeoutSeconds": 3600,
+            "inputs": {
+               "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
+               "EnhancedApprovals": {
+                  "NotificationArn": "{{ ApproverSnsTopicArn }}",
+                  "Approvers": [
+                     {
+                        "approver": "{{ Approver }}",
+                        "type": "{{ ApproverType }}",
+                        "minRequiredApprovals": 1
+                     
                      }
                   ]
                }

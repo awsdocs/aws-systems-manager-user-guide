@@ -19,6 +19,8 @@ Use the steps in this topic to configure a change template by entering JSON or Y
 1. In the **Document editor** section, choose **Edit**, and then enter the JSON or YAML content for your change template\. 
 
    The following is an example\.
+**Note**  
+This example demonstrates two levels of approvals\. You can specify up to five levels of approvals, but only one level is required\.
 
 ------
 #### [ YAML ]
@@ -68,7 +70,20 @@ Use the steps in this topic to configure a change template by entering JSON or Y
        version: '1'
    emergencyChange: false
    mainSteps:
-     - name: SimpleApproveAction
+     - name: ApproveAction1
+       action: 'aws:approve'
+       timeoutSeconds: 3600
+       inputs:
+         Message: >-
+           A sample change request has been submitted for your review in Change
+           Manager. You can approve or reject this request.
+         EnhancedApprovals:
+           NotificationArn: '{{ ApproverSnsTopicArn }}'
+           Approvers:
+             - approver: '{{ Approver }}'
+               type: '{{ ApproverType }}'
+               minRequiredApprovals: 1
+     - name: ApproveAction2
        action: 'aws:approve'
        timeoutSeconds: 3600
        inputs:
@@ -123,7 +138,7 @@ Use the steps in this topic to configure a change template by entering JSON or Y
       "emergencyChange": false,
       "mainSteps": [
          {
-            "name": "SimpleApproveAction",
+            "name": "ApproveAction1",
             "action": "aws:approve",
             "timeoutSeconds": 3600,
             "inputs": {
@@ -135,6 +150,25 @@ Use the steps in this topic to configure a change template by entering JSON or Y
                         "approver": "{{ Approver }}",
                         "type": "{{ ApproverType }}",
                         "minRequiredApprovals": 1
+                     }
+                  ]
+               }
+            }
+         },
+           {
+            "name": "ApproveAction2",
+            "action": "aws:approve",
+            "timeoutSeconds": 3600,
+            "inputs": {
+               "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
+               "EnhancedApprovals": {
+                  "NotificationArn": "{{ ApproverSnsTopicArn }}",
+                  "Approvers": [
+                     {
+                        "approver": "{{ Approver }}",
+                        "type": "{{ ApproverType }}",
+                        "minRequiredApprovals": 1
+                     
                      }
                   ]
                }

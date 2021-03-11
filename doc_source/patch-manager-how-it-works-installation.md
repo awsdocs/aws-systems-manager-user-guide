@@ -161,7 +161,7 @@ On Oracle Linux instances, the patch installation workflow is as follows:
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches as follows:
+1. On version 7 instances, the YUM update API is applied to approved patches as follows:
    + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
 
      The equivalent yum command for this workflow is:
@@ -176,6 +176,22 @@ On Oracle Linux instances, the patch installation workflow is as follows:
      ```
      sudo yum update --security --bugfix -y
      ```
+
+     On version 8 instances, the Dnf update API is applied to approved patches as follows:
+     + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
+
+       The equivalent yum command for this workflow is:
+
+       ```
+       sudo dnf upgrade-minimal --security --sec-severity Moderate --sec-severity Important
+       ```
+     + For custom patch baselines where the **Approved patches include non\-security updates** check box *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
+
+       The equivalent yum command for this workflow is:
+
+       ```
+       sudo dnf upgrade --security --bugfix
+       ```
 
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 

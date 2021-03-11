@@ -651,6 +651,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Sending SSM Agent logs to CloudWatch Logs](monitoring-ssm-agent.md)
    + [Monitoring Run Command metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md)
    + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
+   + [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)
    + [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)
    + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
       + [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md)

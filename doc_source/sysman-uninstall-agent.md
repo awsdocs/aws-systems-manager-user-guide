@@ -2,10 +2,22 @@
 
 Use the following commands to uninstall SSM Agent\.
 
-**Amazon Linux, Amazon Linux 2, RHEL, and CentOS**
+**Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux**
 
 ```
 sudo yum erase amazon-ssm-agent –y
+```
+
+**Debian Server**
+
+```
+sudo dpkg -r amazon-ssm-agent
+```
+
+**SUSE Linux Enterprise Server \(SLES\)**
+
+```
+sudo rpm --erase amazon-ssm-agent
 ```
 
 **Ubuntu Server**
@@ -19,15 +31,3 @@ sudo yum erase amazon-ssm-agent –y
   ```
   sudo snap remove amazon-ssm-agent
   ```
-
-**Debian Server**
-
-```
-sudo dpkg -r amazon-ssm-agent
-```
-
-**SLES**
-
-```
-sudo rpm --erase amazon-ssm-agent
-```

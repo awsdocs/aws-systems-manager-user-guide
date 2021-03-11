@@ -38,7 +38,7 @@ Markdown is a markup language that allows you to add wiki\-style descriptions to
 **Tip**  
 Toggle between **Hide preview** and **Show preview** to see what your content looks like as you compose\.
 
-1. In the **Change request approvers** section, do the following:
+1. In the **Change request approvers** section, do the following to add mandatory first\-level approvers:
    + Choose **Add approver**, and then choose from the following:
      + **Template specified approvers** – Choose one or more users from your account to approve change requests created from this change template\. Any change requests that are created using this template must be reviewed and approved by each approver you specify\.
      + **Request specified approvers** – The user who makes the change request specifies reviewers at the time they make the request and can choose from a list of users in your account\. 
@@ -54,6 +54,12 @@ Toggle between **Hide preview** and **Show preview** to see what your content lo
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
      1. Choose **Add notification**\.
+
+1. \(Optional\) To add an additional level of approvers, choose **Add approval level** and choose between template\-specified approvers and request\-specified approvers for this level\. Then choose an SNS topic to notify this level of approvers\.
+
+   After all approvals have been received by first\-level approvers, second\-level approvers are notified, and so on\.
+
+   You can add a maximum of five levels of approvers in each template\. You might, for example, require approvals from users in technical roles for the first level, then managerial approval for the second level\.
 
 1. In the **Monitoring** section, for **CloudWatch alarm to monitor**, enter the name of an Amazon CloudWatch alarm in the current account to monitor the progress of runbook workflows that are based on this template\. 
 **Tip**  

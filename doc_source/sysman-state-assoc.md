@@ -57,6 +57,23 @@ The following procedure describes how to use the Systems Manager console to crea
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
+   Below are the minimal permissions required to enable Amazon S3 output for an association\. You may further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "s3:PutObject",
+               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET1/*"
+           }
+       ]
+   }
+   ```
+
+   For minimal permissions, the Amazon S3 bucket you export to must have the default settings defined by the Amazon S3 console\. For more information about creating Amazon S3 buckets, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*\. 
+
 1. Choose **Create Association**\.
 
 **Note**  

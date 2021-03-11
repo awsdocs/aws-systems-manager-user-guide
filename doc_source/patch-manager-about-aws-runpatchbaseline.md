@@ -41,7 +41,7 @@ For information about viewing patch compliance data, see [About patch compliance
 
 ## AWS\-RunPatchBaseline parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
 
-**AWS\-RunPatchBaseline** supports five parameters\. The `Operation` parameter is required\. The `InstallOverrideList`, `BaselineOverride`, and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a maintenance window, and let Patch Manager supply the value automatically when the document is run as part of a maintenance window operation\.
+**AWS\-RunPatchBaseline** supports five parameters\. The `Operation` parameter is required\. The `InstallOverrideList`, `BaselineOverride`, and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run **AWS\-RunPatchBaseline** outside of a maintenance window\. Patch Manager can supply the custom value automatically when the document is run as part of a maintenance window operation\.
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
@@ -355,6 +355,6 @@ This tracking file is stored in the following locations on your managed instance
 
 **Usage**: Optional\.
 
-You can define patching preferences at runtime using the `BaselineOverride` parameter\. This baseline override is maintained as a JSON object in an Amazon S3 bucket\. It ensures patching operations use the provided baselines that match the host operating system instead of applying the rules from the default patch baseline computed based on default patch baseline or patch groups\.
+You can define patching preferences at runtime using the `BaselineOverride` parameter\. This baseline override is maintained as a JSON object in an Amazon S3 bucket\. It ensures patching operations use the provided baselines that match the host operating system instead of applying the rules from the default patch baseline
 
 For more information about how to use the `BaselineOverride` parameter, see [Using the BaselineOverride parameter](patch-manager-about-baselineoverride.md)\.

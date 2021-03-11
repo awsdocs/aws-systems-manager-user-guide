@@ -52,4 +52,4 @@ aws ssm create-patch-baseline ^
 ------
 
 **Note**  
-If you receive an error message about a mismatched product and family pairing, see [Troubleshooting Mismatched Product Family/Product Pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch) for help resolving the issue\.
+If you receive an error message about a mismatched product and family pairing, see [Troubleshooting mismatched product family/product pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch) for help resolving the issue\.
