@@ -22,6 +22,8 @@ The role permissions policy allows Systems Manager to complete the following act
 + organizations:ListAWSServiceAccessForOrganization
 + organizations:ListChildren
 + organizations:ListParents
++ organizations:ListDelegatedServicesForAccount 
++ organizations:ListDelegatedAdministrators
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-Linked Role Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 

@@ -8,6 +8,9 @@ When you create a change request, the change template you select typically does 
 
 In some cases, a change template might be configured so you specify your own Automation runbook to use, and to specify who should review and approve the request\.
 
+**Important**  
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
+
 The following procedure describes how to create a change request by using the Systems Manager console\.
 
 **To create a change request**

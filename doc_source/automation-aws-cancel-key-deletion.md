@@ -1,8 +1,8 @@
-# AWSConfigRemediation\-EnableKeyRotation<a name="automation-aws-enable-key-rotation"></a>
+# AWSConfigRemediation\-CancelKeyDeletion<a name="automation-aws-cancel-key-deletion"></a>
 
 **Description**
 
-The AWSConfigRemediation\-EnableKeyRotation runbook enables automatic key rotation for the symmetric AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\.
+The AWSConfigRemediation\-CancelKeyDeletion runbook cancels deletion of the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) that you specify\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableKeyRotation)
 
@@ -28,16 +28,16 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Required\) The ID of the CMK you want to enable automatic key rotation on\.
+  Description: \(Required\) The ID of the CMK that you want to cancel deletion for\.
 
 **Required IAM permissions**
 
 The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
 + `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
-+ `kms:EnableKeyRotation`
-+ `kms:GetKeyRotationStatus`
++ `kms:CancelKeyDeletion`
++ `kms:DescribeKey`
 
 **Document Steps**
-+ aws:executeAwsApi \- Enables automatic key rotation on the CMK you specify in the `KeyId` parameter\.
-+ aws:assertAwsResourceProperty \- Confirms that automatic key rotation is enabled on your CMK\.
++ aws:executeAwsApi \- Cancels deletion for the CMK you specify in the `KeyId` parameter\.
++ aws:assertAwsResourceProperty \- Confirms key deletion is disabled on your CMK\.

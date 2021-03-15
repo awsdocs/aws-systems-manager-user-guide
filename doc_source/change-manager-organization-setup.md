@@ -68,7 +68,8 @@ Note that you repeat this task for each job function you want to create for your
    If you have previously specified a delegated administrator account for Systems Manager, its ID is already reported in this field\. 
 **Important**  
 The delegated administrator account must be the only member of the organizational unit \(OU\) to which it is assigned in Organizations\.  
-If the delegated administrator account you register is later deregistered from that role, AWS removes its permissions for managing Systems Manager operations at the same time\. Keep in mind that it will be necessary for you return to Quick Setup, designate a different delegated administrator account, and specify all job functions and permissions again\.
+If the delegated administrator account you register is later deregistered from that role, AWS removes its permissions for managing Systems Manager operations at the same time\. Keep in mind that it will be necessary for you return to Quick Setup, designate a different delegated administrator account, and specify all job functions and permissions again\.  
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
 
 1. In the **Permissions to request and make changes** section, do the following\.
 **Note**  

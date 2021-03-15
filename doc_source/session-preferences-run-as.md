@@ -1,9 +1,9 @@
 # Enable run as support for Linux and macOS instances<a name="session-preferences-run-as"></a>
 
-By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux and macOS machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system \(OS\) account\. Session Manager provides two methods for specifying the operating system account to use\.
+By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux and macOS machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system \(OS\) account\. OS level and directory policies, like log in restrictions, might not apply to the OS account since sessions are authenticated by AWS Identity and Access Management \(IAM\) and run within the context of the OS account that you specify\. Session Manager verifies the OS account that you specify exists before starting a session\. If you specify an OS account that does not exist, the session fails to start\. Session Manager provides two methods for specifying the operating system account to use\.
 
 **Method 1: Tag an IAM user or role \(recommended\)**  
-You can specify the operating system user account that is used to start sessions by tagging an AWS Identity and Access Management \(IAM\) user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.
+You can specify the operating system user account that is used to start sessions by tagging an IAM user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.
 
 Using this method, you could specify a different OS account name for each IAM user or role you tag, or use the same OS user name for them all\.
 

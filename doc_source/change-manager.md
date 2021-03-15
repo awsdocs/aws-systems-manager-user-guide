@@ -106,6 +106,9 @@ Change Manager components that you use to manage the change process in your orga
 
 If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account designated as the account for managing operations activities across Systems Manager, including Change Manager\. The delegated administrator account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. The delegated administrator account must be the only member of the organizational unit \(OU\) to which it is assigned\. The delegated administrator account is not required if you use Change Manager with a single account only\.
 
+**Important**  
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
+
 ### Change template<a name="change-manager-what-is-change-template"></a>
 
 A change template is a collection of configuration settings in Change Manager that define such things as required approvals, available runbooks, and notification options for change requests\.

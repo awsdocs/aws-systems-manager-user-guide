@@ -41,7 +41,9 @@ You can include Windows Service Pack installations in your approval rules by inc
 **Note**  
 If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
 
-1. In the **Approval rules for applications** section, use the fields to create one or more auto\-approval rules\.
+1. \(Optional\) In the **Approval rules for applications** section, use the fields to create one or more auto\-approval rules\.
+**Note**  
+Instead of specifying approval rules, you can specify lists of approved and rejected patches as patch exceptions\. See steps 10 and 11\. 
    + **Product family**: The general Microsoft product family for which you want to specify a rule, such as `Office` or `Exchange Server`\.
    + **Product**: The version of the application the approval rule applies to, such as `Office 2016` or `Active Directory Rights Management Services Client 2.0 2016`\. The default selection is `All`\.
    + **Classification**: The type of patches the approval rule applies to, such as `CriticalUpdates`\. The default selection is `All`\. 
@@ -53,7 +55,7 @@ If an approved patch is reported as missing, the option you choose in **Complian
 **Note**  
 If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
 
-1. If you want to explicitly approve any patches in addition to those meeting your approval rules, do the following in the **Patch exceptions** section:
+1. \(Optional\) If you want to explicitly approve any patches instead of letting patches be selected according to approval rules, do the following in the **Patch exceptions** section:
    + For **Approved patches**, enter a comma\-separated list of the patches you want to approve\.
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.

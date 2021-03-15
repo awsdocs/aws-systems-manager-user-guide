@@ -46,7 +46,7 @@ On CentOS, the Systems Manager patch baseline service uses preconfigured reposit
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-CentOS 6 and 7 instances use Yum as the package manager\. CentOS 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security packages by Patch Manager\.
+CentOS 6 and 7 instances use Yum as the package manager\. CentOS 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. 
 
 However, CentOS default repos aren't configured with an update notice\. This means that Patch Manager does not detect packages on a default CentOS repo\. To enable Patch Manager to process packages that aren't contained in an update notice, you must enable the `EnableNonSecurity` flag in the patch baseline rules\.
 
@@ -90,7 +90,7 @@ On Oracle Linux, the Systems Manager patch baseline service uses preconfigured r
 **Note**  
 All updates are downloaded from the remote repos configured on the instance\. Therefore, the instance must be able to connect to the repos so the patching can be performed\.
 
-Oracle Linux instances use Yum as the package manager, and Yum uses the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
+Oracle Linux instances use Yum as the package manager, and Yum uses the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages and installs packages based on the Classification filters specified in the patch baseline\.
 
 **Note**  
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that are not classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
@@ -105,7 +105,7 @@ All updates are downloaded from the remote repos configured on the instance\. Th
 **Note**  
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that are not classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
 
-Red Hat Enterprise Linux 7 instances use Yum as the package manager\. Red Hat Enterprise Linux 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
+Red Hat Enterprise Linux 7 instances use Yum as the package manager\. Red Hat Enterprise Linux 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages and installs packages based on the Classification filters specified in the patch baseline\.
 
 Note that repo locations differ between RHEL 7 and RHEL 8:
 

@@ -43,7 +43,7 @@ The formats you can specify for approved and rejected patches in your patch base
 **Approved patches** and **rejected patches**: For both approved and rejected patches, specify the following:
 + Package names, in the format `ExamplePkg33`
 **Note**  
-For Ubuntu Server lists, do not include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
+For Debian Server lists and Ubuntu Server lists, do not include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
 `ExamplePkg33.x86.1`
 `ExamplePkg33.x86.2`
 `ExamplePkg33.x64.1`

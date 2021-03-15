@@ -22,13 +22,15 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 
    ```
    {
-               "Version": "2012-10-17",
-               "Statement": {
-                   "Effect": "Allow",
-                   "Principal": {"Service": "ssm.amazonaws.com"},
-                   "Action": "sts:AssumeRole"
-               }
-               }
+       "Version": "2012-10-17",
+       "Statement": {
+           "Effect": "Allow",
+           "Principal": {
+               "Service": "ssm.amazonaws.com"
+           },
+           "Action": "sts:AssumeRole"
+       }
+   }
    ```
 
 1. Use the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
@@ -140,13 +142,15 @@ The policies you add for a service profile for managed instances in a hybrid env
 
    ```
    {
-               "Version": "2012-10-17",
-               "Statement": {
-                   "Effect": "Allow",
-                   "Principal": {"Service": "ssm.amazonaws.com"},
-                   "Action": "sts:AssumeRole"
-               }
-               }
+       "Version": "2012-10-17",
+       "Statement": {
+           "Effect": "Allow",
+           "Principal": {
+               "Service": "ssm.amazonaws.com"
+           },
+           "Action": "sts:AssumeRole"
+       }
+   }
    ```
 
 1. Use [New\-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.

@@ -9,6 +9,8 @@ Choose from the following tabs to learn how Patch Manager installs patches on an
 
 On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is as follows:
 
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
@@ -48,7 +50,9 @@ On Amazon Linux and Amazon Linux 2 instances, the patch installation workflow is
 
 On CentOS instances, the patch installation workflow is as follows:
 
-1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
+   Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
 
@@ -72,6 +76,8 @@ On CentOS instances, the patch installation workflow is as follows:
 #### [ Debian Server ]
 
 On Debian Server instances, the patch installation workflow is as follows:
+
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
 1. On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:
 
@@ -145,6 +151,8 @@ On macOS instances, the patch installation workflow is as follows:
 
 On Oracle Linux instances, the patch installation workflow is as follows:
 
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
@@ -200,6 +208,8 @@ On Oracle Linux instances, the patch installation workflow is as follows:
 
 On Red Hat Enterprise Linux instances, the patch installation workflow is as follows:
 
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
@@ -252,6 +262,8 @@ On Red Hat Enterprise Linux instances, the patch installation workflow is as fol
 
 On SUSE Linux Enterprise Server \(SLES\) instances, the patch installation workflow is as follows:
 
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
 1. Apply [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) as specified in the patch baseline\. Each approval rule can define a package as approved\.
@@ -276,6 +288,8 @@ On SUSE Linux Enterprise Server \(SLES\) instances, the patch installation workf
 #### [ Ubuntu Server ]
 
 On Ubuntu Server instances, the patch installation workflow is as follows:
+
+1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
