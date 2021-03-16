@@ -264,6 +264,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.54\.0 |  January 29, 2021  | Enhancement: Added support for running sessions in NonInteractiveCommands execution mode\. | 
 | 1\.2\.30\.0 |  November 24, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Improved overall performance\.  | 
 | 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 
 | 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 

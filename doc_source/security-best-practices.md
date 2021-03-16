@@ -13,7 +13,7 @@ The following best practices for Systems Manager can help prevent security incid
 **Implement least privilege access**  
 When granting permissions, you decide who is getting what permissions to which Systems Manager resources\. You enable specific actions that you want to allow on those resources\. Therefore you should grant only the permissions that are required to perform a task\. Implementing least privilege access is fundamental in reducing security risk and the impact that could result from errors or malicious intent\.   
 The following tools are available to implement least privilege access:  
-+ [IAM user policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) and [Permissions Boundaries for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
++ [IAM user policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) and [Permissions Boundaries for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)
 + [Service Control Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html)
 
 **Use SecureString parameters to encrypt and protect secret data**  

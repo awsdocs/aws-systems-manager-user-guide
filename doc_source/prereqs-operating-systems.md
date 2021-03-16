@@ -81,6 +81,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 8\.0 |  | ✓ | ✓ | 
 | 8\.1 |  | ✓ | ✓ | 
 | 8\.2 |  | ✓ | ✓ | 
+| 8\.3 |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  
