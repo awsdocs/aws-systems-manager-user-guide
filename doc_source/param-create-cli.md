@@ -313,7 +313,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run *one* of the following commands to create a parameter that uses the `SecureString` datatype\.
+1. Run **one** of the following commands to create a parameter that uses the `SecureString` datatype\.
 
 ------
 #### [ Linux ]
@@ -383,12 +383,12 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 
 ------
 
-   If you create a `SecureString` parameter by using the AWS\-managed AWS KMS key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
+   If you create a `SecureString` parameter by using the AWS\-managed AWS Key Management Service \(AWS KMS\) key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 **Note**  
-To use the AWS Key Management Service \(KMS\) customer master key \(CMK\) assigned to your account and region, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+To use the AWS KMS customer master key \(CMK\) assigned to your AWS account and Region, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
-   To use a customer managed CMK instead of the AWS\-managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
-   + Key ARN example:
+   To use a customer managed CMK instead of the AWS managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
+   + Key Amazon Resource Name \(ARN\) example:
 
       `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
    + Alias ARN example:
@@ -479,7 +479,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 
 ------
 
-1. Run the following command to change the parameter value if you are *not* using a customer managed customer master key \(CMK\)\.
+1. Run the following command to change the parameter value if you are **not** using a customer managed customer master key \(CMK\)\.
 
 ------
 #### [ Linux ]
@@ -507,7 +507,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 
    \-or\-
 
-   Run one the following commands to change the parameter value if you *are* using a customer managed customer master key \(CMK\)\.
+   Run one of the following commands to change the parameter value if you **are** using a customer managed customer master key \(CMK\)\.
 
 ------
 #### [ Linux ]
@@ -598,7 +598,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 **Note**  
 You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the `SecureString` parameter type\. If you do choose `SecureString`, your parameter will be doubly encrypted\.
 
-By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
+By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring AWS KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
 
 ## Create a multi\-line parameter \(AWS CLI\)<a name="param-create-cli-multiline"></a>
 

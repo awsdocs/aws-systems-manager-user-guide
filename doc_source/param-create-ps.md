@@ -1,6 +1,6 @@
 # Create a Systems Manager parameter \(Tools for Windows PowerShell\)<a name="param-create-ps"></a>
 
-You can use Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. 
+You can use AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\) to create `String`, `StringList`, and `SecureString` parameter types\. 
 
 **Note**  
 Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.  

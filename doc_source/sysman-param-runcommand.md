@@ -1,6 +1,6 @@
 # Working with parameters using Run Command commands<a name="sysman-param-runcommand"></a>
 
-You can work with parameters in Run Command\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+You can work with parameters in AWS Systems Manager Run Command \(Run Command\)\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Run a String parameter \(console\)<a name="param-test-console"></a>
 
@@ -48,9 +48,9 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of an instance where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as **This is my first parameter**\.
 
-## Run a parameter \(CLI\)<a name="param-test-cli"></a>
+## Run a parameter \(AWS CLI\)<a name="param-test-cli"></a>
 
-The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS CLI command to echo the parameter value\.
+The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS Command Line Interface \(AWS CLI\) command to echo the parameter value\.
 
 ------
 #### [ Linux ]
@@ -142,7 +142,7 @@ You can also reference Systems Manager parameters in the *Parameters* section of
 }
 ```
 
-Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with Parameter Store parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix\.
+Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with AWS Systems Manager Parameter Store \(Parameter Store\) parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix\.
 
 ```
 "runtimeConfig":{
@@ -156,7 +156,7 @@ Don't confuse the similar syntax for *local parameters* used in the `runtimeConf
 ```
 
 **Note**  
-SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples\.  
+SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, AWS Systems Manager Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples\.  
 
 ```
 value=$(aws ssm get-parameters --names parameter-name --with-decryption)

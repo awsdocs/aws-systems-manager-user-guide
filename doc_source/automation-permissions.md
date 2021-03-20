@@ -37,7 +37,7 @@ The AmazonSSMAutomationRole policy assigns the Automation role permission to a s
 `"arn:aws:lambda:*:*:function:Automation*"`  
 If you have existing Lambda functions whose ARNs do not use this format, then you must also attach an additional Lambda policy to your automation role, such as the **AWSLambdaRole** policy\. The additional policy or role must provide broader access to Lambda functions within the AWS account\.
 
-### \(Optional\) add an Automation inline policy to invoke other AWS services<a name="automation-role-add-inline-policy"></a>
+### \(Optional\) Add an Automation inline policy to invoke other AWS services<a name="automation-role-add-inline-policy"></a>
 
 If you run an automation that invokes other AWS services by using an IAM service role, the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(AWS\-\* runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:CreateStack`, or `aws:copyImage` actions, to name a few, then you must configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. 
 

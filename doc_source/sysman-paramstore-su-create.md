@@ -1,6 +1,6 @@
 # Creating Systems Manager parameters<a name="sysman-paramstore-su-create"></a>
 
-Use the information in the following topics to help you create Systems Manager parameters using the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
+Use the information in the following topics to help you create Systems Manager parameters using the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\)\.
 
 This section demonstrates how to create, store, and run parameters with Parameter Store in a test environment\. It also demonstrates how to use Parameter Store with other Systems Manager capabilities and AWS services\. For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter)
 
@@ -51,7 +51,7 @@ Valid: \{\{ssm:*parameter\-name*\}\} and \{\{ ssm:*parameter\-name* \}\}, such a
   + `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/a/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively for `/a` and view `/a/b`\.
+If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in AWS Identity and Access Management \(IAM\) for parameter `/a/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action recursively for `/a` and view `/a/b`\.
 
 **Topics**
 + [About requirements and constraints for parameter names](#sysman-parameter-name-constraints)

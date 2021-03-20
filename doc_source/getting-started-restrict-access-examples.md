@@ -166,7 +166,7 @@ With this tag key, you include the instance ID as the value in policy\. In the f
              "Action": [
                 "ssm:TerminateSession"
              ],
-             "Resource": "",
+             "Resource": "*",
              "Condition": {
                  "StringLike": {
                      "ssm:resourceTag/aws:ssmmessages:target-id": [
@@ -193,7 +193,7 @@ The following example demonstrates a policy for cases where the caller type is `
              "Action": [
                 "ssm:TerminateSession"
              ],
-             "Resource": "",
+             "Resource": "*",
              "Condition": {
                  "StringLike": {
                      "ssm:resourceTag/aws:ssmmessages:session-id": [
@@ -218,7 +218,7 @@ To retrieve the role ID for a role in your AWS account, use the `get-caller-iden
              "Action": [
                 "ssm:TerminateSession"
              ],
-             "Resource": "",
+             "Resource": "*",
              "Condition": {
                  "StringLike": {
                      "ssm:resourceTag/aws:ssmmessages:session-id": [

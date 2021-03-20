@@ -1,6 +1,6 @@
 # Restricting access to Systems Manager parameters using IAM policies<a name="sysman-paramstore-access"></a>
 
-You restrict access to Systems Manager parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
+You restrict access to AWS Systems Manager parameters by using AWS Identity and Access Management \(IAM\)\. More specifically, you create IAM policies that restrict access to the following API operations:
 + [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)
 + [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)
 + [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)
@@ -127,7 +127,7 @@ The parameter history includes all parameter versions, including the current one
 
 You can control access so that instances can run only parameters that you specify\.
 
-If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS Key Management Service \(AWS KMS\) to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
+If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
 
 You can view the AWS managed CMK by running the following command from the AWS CLI\.
 
@@ -168,7 +168,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 ## IAM permissions for using AWS default keys and customer managed keys<a name="ps-kms-permissions"></a>
 
-Parameter Store `SecureString` parameters are encrypted and decrypted using AWS Key Management Service \(AWS KMS\) keys\. You can choose to encrypt your `SecureString` parameters using either a customer master key \(CMK\) or the default KMS key provided by AWS\.
+AWS Systems Manager Parameter Store \(Parameter Store\) `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a customer master key \(CMK\) or the default KMS key provided by AWS\.
 
 When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and account\.
 
@@ -227,7 +227,7 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
 }
 ```
 
-If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed CMK to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail to monitor `SecureString` parameter activities\.
+If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed CMK to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail \(CloudTrail\) to monitor `SecureString` parameter activities\.
 
 For more information, see the following topics:
 + [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*

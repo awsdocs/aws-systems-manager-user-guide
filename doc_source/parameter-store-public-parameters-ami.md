@@ -1,14 +1,14 @@
 # Calling AMI public parameters<a name="parameter-store-public-parameters-ami"></a>
 
-Amazon EC2 AMI public parameters are available for Amazon Linux/Amazon Linux 2 and Windows Server from the following paths:
-+ Amazon Linux/Amazon Linux 2: `/aws/service/ami-amazon-linux-latest`
+Amazon Elastic Compute Cloud \(Amazon EC2\) Amazon Machine Image \(AMI\) public parameters are available for Amazon Linux, Amazon Linux 2, and Windows Server from the following paths:
++ Amazon Linux and Amazon Linux 2: `/aws/service/ami-amazon-linux-latest`
 + Windows Server: `/aws/service/ami-windows-latest`
 
 
 
 ## Calling AMI public parameters for Amazon Linux and Amazon Linux 2<a name="public-parameters-ami-linux"></a>
 
-You can view a list of all Amazon Linux and Amazon Linux 2 AMIs in the current AWS Region by using the following command in the AWS CLI\.
+You can view a list of all Amazon Linux and Amazon Linux 2 AMIs in the current AWS Region by using the following command in the AWS Command Line Interface \(AWS CLI\)\.
 
 ------
 #### [ Linux ]

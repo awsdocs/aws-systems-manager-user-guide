@@ -54,7 +54,7 @@ When you specify `aws:ec2:image` as the data type for a parameter, Systems Manag
 
 It is important to note that a parameter version number may be generated before the validation operation is complete\. That is, a parameter version number being generated alone isn't an indication that the operation has completed successfully\.
 
-To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. If an operation fails, the notification includes an error message that indicates the reason for the failure\. 
+To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge \(EventBridge\) to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. If an operation fails, the notification includes an error message that indicates the reason for the failure\. 
 
 ```
 {

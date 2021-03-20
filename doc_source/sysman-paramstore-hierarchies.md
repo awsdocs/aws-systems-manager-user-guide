@@ -49,7 +49,7 @@ You could then create a unique password for your production environment, as show
 
 `/prod/MyApp/database/my-password`
 
-You are not required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
+You are not required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in AWS Systems Manager Parameter Store \(Parameter Store\) before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
 
 `/parameter-name`
 
@@ -57,7 +57,7 @@ You are not required to specify a parameter hierarchy\. You can create parameter
 
 ## Querying parameters in a hierarchy<a name="ps-hierarchy-queries"></a>
 
-Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you run the following command from the AWS CLI, the system returns all parameters in the IIS level\.
+Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you run the following command from the AWS Command Line Interface \(AWS CLI\), the system returns all parameters in the IIS level\.
 
 ```
 aws ssm get-parameters-by-path --path /Dev/Web/IIS

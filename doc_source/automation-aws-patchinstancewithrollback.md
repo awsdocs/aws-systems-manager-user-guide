@@ -2,7 +2,7 @@
 
 **Description**
 
-Brings EC2 instance into compliance with standing baseline and rolls back root volume on failure\.
+Brings an EC2 instance into compliance with the applicable patch baseline\. Rolls back root volume on failure\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-PatchInstanceWithRollback)
 
@@ -55,8 +55,9 @@ Linux, macOS, Windows
 |  6  |  CheckCompliance  |  aws:invokeLambdaFunction  | 
 |  7  |  SaveComplianceReportToS3  |  aws:invokeLambdaFunction  | 
 |  8  |  ReportSuccessOrFailure  |  aws:invokeLambdaFunction  | 
-|  9  |  DeleteSnapshot  |  aws:invokeLambdaFunction  | 
-|  10  |  createDocumentStack  |  aws:deleteStack  | 
+|  9  |  RestoreFromSnapshot  |  aws:invokeLambdaFunction  | 
+| 10 | DeleteSnapshot |  aws:invokeLambdaFunction  | 
+|  11  |  deleteCloudFormationTemplate  |  aws:deleteStack  | 
 
 **Outputs**
 

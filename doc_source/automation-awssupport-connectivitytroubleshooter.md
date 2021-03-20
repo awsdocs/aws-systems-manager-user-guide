@@ -67,7 +67,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
 + `ec2:DescribeNatGateways`
 + `ec2:DescribeNetworkAcls`
 + `ec2:DescribeNetworkInterfaces`

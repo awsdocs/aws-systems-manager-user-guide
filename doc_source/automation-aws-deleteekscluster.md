@@ -73,7 +73,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
 + `sts:AssumeRole`
 + `eks:ListNodegroups`
 + `eks:DeleteNodegroup`

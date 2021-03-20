@@ -102,7 +102,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
 
 The `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` permissions are only required if you want the automation to send log data to CloudWatch Logs\.
 

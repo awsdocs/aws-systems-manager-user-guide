@@ -65,7 +65,7 @@ The subnet must be in the same Availability Zone as InstanceId, and it must allo
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
 
 The EC2 instance receiving the command must at minimum have an IAM role that includes permissions for **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output\. You can attach the `AmazonSSMManagedInstanceCore` Amazon managed policy to your IAM role to provide these permissions\. We recommend, however, using the Automation IAM role `AmazonSSMAutomationRole` for this purpose\. For more information, see [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
 

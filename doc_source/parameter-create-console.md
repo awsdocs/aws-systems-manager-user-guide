@@ -1,13 +1,13 @@
 # Create a Systems Manager parameter \(console\)<a name="parameter-create-console"></a>
 
-You can use the AWS Systems Manager console to create and run `String`, `StringList` and `SecureString` parameter types\.
+You can use the AWS Systems Manager console to create and run `String`, `StringList`, and `SecureString` parameter types\.
 
 **Note**  
 Parameters are only available in the AWS Region where they were created\.
 
 ## Create a parameter \(console\)<a name="param-create-console"></a>
 
-The following procedure walks you through the process of creating a parameter in the Parameter Store console\. You can create `String`, `StringList`, and `SecureString` parameter types in the console\.
+The following procedure walks you through the process of creating a parameter in the AWS Systems Manager Parameter Store \(Parameter Store\) console\. You can create `String`, `StringList`, and `SecureString` parameter types in the console\.
 
 **To create a parameter**
 
@@ -31,14 +31,14 @@ The following procedure walks you through the process of creating a parameter in
 
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
    + If you choose **String**, the **Data type** field appears\. If you are creating a parameter to hold the resource ID for an Amazon Machine Image \(AMI\), select `aws:ec2:image`\. Otherwise, leave the default `text` selected\.
-   + If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide a KMS customer master key \(CMK\) ID, a CMK ARN, an alias name, or an alias ARN, then the system uses `alias/aws/ssm`, which is the AWS managed CMK for Systems Manager\. If you don't want to use this key, then you can use a customer managed CMK\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
-   + When creating a `SecureString` parameter in the console by using the `key-id` parameter with either a customer managed CMK alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Here is an ARN example:
+   + If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide an AWS Key Management Service AWS KMS customer master key \(CMK\) ID, a CMK Amazon Resource Name \(ARN\), an alias name, or an alias ARN, then the system uses `alias/aws/ssm`, which is the AWS managed CMK for Systems Manager\. If you don't want to use this key, then you can use a customer managed CMK\. For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
+   + When creating a `SecureString` parameter in the console by using the `key-id` parameter with either a customer managed CMK alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Following is an ARN example\.
 
      ```
      arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
      ```
 
-     Here is an alias name example:
+     Following is an alias name example\.
 
      ```
      alias/MyAliasName

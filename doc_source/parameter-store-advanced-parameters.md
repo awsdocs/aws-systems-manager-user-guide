@@ -1,6 +1,6 @@
 # Managing parameter tiers<a name="parameter-store-advanced-parameters"></a>
 
-AWS Systems Manager Parameter Store includes *standard parameters * and *advanced parameters*\. You individually configure parameters to use either the standard\-parameter tier \(the default tier\) or the advanced\-parameter tier\. 
+AWS Systems Manager Parameter Store \(Parameter Store\) includes *standard parameters * and *advanced parameters*\. You individually configure parameters to use either the standard\-parameter tier \(the default tier\) or the advanced\-parameter tier\. 
 
 You can change a standard parameter to an advanced parameter at any time, but you can’t revert an advanced parameter to a standard parameter\. Reverting an advanced parameter to a standard parameter would result in data loss because the system would truncate the size of the parameter from 8 KB to 4 KB\. Reverting would also remove any policies attached to the parameter\. Also, advanced parameters use a different form of encryption than standard parameters\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
 
@@ -24,7 +24,7 @@ The following table describes the differences between the tiers\.
 
 ## Specifying a default parameter tier<a name="ps-default-tier"></a>
 
-In requests to create or update a parameter \(that is, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` action\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS CLI\.
+In requests to create or update a parameter \(that is, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` action\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS Command Line Interface \(AWS CLI\)\.
 
 ```
 aws ssm put-parameter \
@@ -50,7 +50,7 @@ The following are reasons you might choose Intelligent\-Tiering as the default t
 **Automatic upgrade to the advanced\-parameter tier** – When you make a change to your code that requires upgrading a standard parameter to an advanced parameter, Intelligent\-Tiering handles the conversion for you\. You do not need to change your code to handle the upgrade\.
 
 Here are some examples of automatic upgrade:
-+ Your AWS CloudFormation templates provision numerous parameters when they are run\. When this process causes you to reach the 10,000 parameter limit in the standard\-parameter tier, Intelligent\-Tiering automatically upgrades you to the advanced\-parameter tier, and your AWS CloudFormation processes are not interrupted\.
++ Your AWS CloudFormation \(CloudFormation\) templates provision numerous parameters when they are run\. When this process causes you to reach the 10,000 parameter limit in the standard\-parameter tier, Intelligent\-Tiering automatically upgrades you to the advanced\-parameter tier, and your AWS CloudFormation processes are not interrupted\.
 + You store a certificate value in a parameter, rotate the certificate value regularly, and the content is less than the 4 KB limit of the standard\-parameter tier\. If a replacement certificate value exceeds 4 KB, Intelligent\-Tiering automatically upgrades the parameter to the advanced\-parameter tier\.
 + You want to associate numerous existing standard parameters to a parameter policy, which requires the advanced\-parameter tier\. Instead of your having to include the option `--tier Advanced` in all of the calls to update the parameters, Intelligent\-Tiering automatically upgrades the parameters to the advanced\-parameter tier\. The Intelligent\-Tiering option upgrades parameters from standard to advanced whenever criteria for the advanced\-parameter tier are introduced\.
 
@@ -156,7 +156,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 The following procedure shows how to use the Systems Manager console to specify or change the default parameter tier for the current AWS account and Region\. 
 
 **Tip**  
-If you haven't created a parameter yet, you can use the AWS CLI or Tools for Windows PowerShell to change the default parameter tier\. For information, see [Specifying or changing the Parameter Store default tier \(AWS CLI\)](#parameter-store-tier-changing-cli) and [Specifying or changing the Parameter Store default tier \(PowerShell\)](#parameter-store-tier-changing-ps)\.
+If you haven't created a parameter yet, you can use the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\) to change the default parameter tier\. For information, see [Specifying or changing the Parameter Store default tier \(AWS CLI\)](#parameter-store-tier-changing-cli) and [Specifying or changing the Parameter Store default tier \(PowerShell\)](#parameter-store-tier-changing-ps)\.
 
 **To specify or change the Parameter Store default tier**
 
@@ -185,7 +185,7 @@ If you want to change the default tier setting later, repeat this procedure and 
 
 ### Specifying or changing the Parameter Store default tier \(AWS CLI\)<a name="parameter-store-tier-changing-cli"></a>
 
-The following procedure shows how to use the AWS Command Line Interface \(AWS CLI\) to change the default parameter tier setting for the current AWS account and Region\.
+The following procedure shows how to use the AWS CLI to change the default parameter tier setting for the current AWS account and Region\.
 
 **To specify or change the Parameter Store default tier using the AWS CLI**
 
@@ -207,7 +207,7 @@ The following procedure shows how to use the AWS Command Line Interface \(AWS CL
    aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier
    ```
 
-   The system returns information similar to the following:
+   The system returns information similar to the following\.
 
    ```
    {
@@ -226,11 +226,11 @@ If you want to change the default tier setting again, repeat this procedure and 
 
 ### Specifying or changing the Parameter Store default tier \(PowerShell\)<a name="parameter-store-tier-changing-ps"></a>
 
-The following procedure shows how to use the AWS Tools for Windows PowerShell to change the default parameter tier setting for a specific Region in an AWS account\.
+The following procedure shows how to use the Tools for Windows PowerShell to change the default parameter tier setting for a specific Region in an AWS account\.
 
 **To specify or change the Parameter Store default tier using PowerShell**
 
-1. Change the Parameter Store default tier in the current AWS account and Region using the AWS Tools for PowerShell\.
+1. Change the Parameter Store default tier in the current AWS account and Region using the AWS Tools for PowerShell \(Tools for PowerShell\)\.
 
    ```
    Update-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier" -SettingValue "tier-option" -Region region
@@ -250,7 +250,7 @@ The following procedure shows how to use the AWS Tools for Windows PowerShell to
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   The system returns information similar to the following:
+   The system returns information similar to the following\.
 
    ```
    ARN              : arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/default-parameter-tier

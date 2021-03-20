@@ -1,6 +1,6 @@
-# Calling public parameters for AWS services, Regions, endpoints, availability zones, local zones, and wavelength zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
+# Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones<a name="parameter-store-public-parameters-global-infrastructure"></a>
 
-You can call the AWS Region, service, endpoint, and Availability Zone of public parameters by using the following path\.
+You can call the AWS Region, service, endpoint, Availability, and Wavelength Zones of public parameters by using the following path\.
 
 `/aws/service/global-infrastructure`
 
@@ -114,7 +114,7 @@ The command returns information like the following\.
 ```
 
 **View supported Regions for an AWS service**  
-You can view a list of AWS Regions where a service is available\. This example uses Systems Manager \(ssm\)\.
+You can view a list of AWS Regions where a service is available\. This example uses AWS Systems Manager \(ssm\)\.
 
 ------
 #### [ Linux ]
@@ -167,8 +167,8 @@ The command returns information like the following\.
 ]
 ```
 
-**View the regional endpoint for a service**  
-You can view a regional endpoint for a service by using the following command\.
+**View the Regional endpoint for a service**  
+You can view a Regional endpoint for a service by using the following command\.
 
 ------
 #### [ Linux ]
@@ -424,8 +424,8 @@ The command returns information like the following\.
 }
 ```
 
-**View wavelength zone details**  
-You can view wavelength zones by using the following command\.
+**View Wavelength Zone details**  
+You can view Wavelength Zones by using the following command\.
 
 ------
 #### [ Linux ]

@@ -1,6 +1,6 @@
 # Assigning parameter policies<a name="parameter-store-policies"></a>
 
-Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in Parameter Store\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\.
+Parameter policies help you manage a growing set of parameters by enabling you to assign specific criteria to a parameter such as an expiration date or *time to live*\. Parameter policies are especially helpful in forcing you to update or delete passwords and configuration data stored in AWS Systems Manager Parameter Store \(Parameter Store\)\. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`\.
 
 **Note**  
 To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
@@ -16,7 +16,7 @@ A parameter policy is a JSON array, as shown in the following table\. You can as
 | Policy | Details | Examples | 
 | --- | --- | --- | 
 |  **Expiration**  |  This policy deletes the parameter\. You can specify a specific date and time by using either the `ISO_INSTANT` format or the `ISO_OFFSET_DATE_TIME` format\. To change when you want the parameter to be deleted, you must update the policy\. Updating a *parameter* does not affect the expiration date or time of the policy attached to it\. When the expiration date and time is reached, Parameter Store deletes the parameter\.  This example uses the `ISO_INSTANT` format\. You can also specify a date and time by using the `ISO_OFFSET_DATE_TIME` format\. Here is an example: `2019-11-01T22:13:48.87+10:30:00` \.   |  <pre>{<br />   "Type":"Expiration",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Timestamp":"2018-12-02T21:34:33.000Z"<br />   }<br />}</pre>  | 
-|  **ExpirationNotification**  |  This policy triggers an event in Amazon EventBridge that notifies you about the expiration\. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours\.  |  <pre>{<br />   "Type":"ExpirationNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Before":"15",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
+|  **ExpirationNotification**  |  This policy triggers an event in Amazon EventBridge \(EventBridge\) that notifies you about the expiration\. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours\.  |  <pre>{<br />   "Type":"ExpirationNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Before":"15",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
 |  **NoChangeNotification**  |  This policy triggers an event in EventBridge if a parameter has *not* been modified for a specified period of time\. This policy type is useful when, for example, a password needs to be changed within a period of time\. This policy determines when to send a notification by reading the `LastModifiedTime` attribute of the parameter\. If you change or edit a parameter, the system resets the notification time period based on the new value of `LastModifiedTime`\.  |  <pre>{<br />   "Type":"NoChangeNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "After":"20",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
 
 You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers an EventBridge event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
@@ -69,7 +69,7 @@ PutParameterRequest
 
 ## Adding policies to an existing parameter<a name="sysman-paramstore-su-policy-create"></a>
 
-This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS CLI, and AWS Tools for Windows PowerShell\. For information about how to create a new parameter that includes policies, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+This section includes information about how to add policies to an existing parameter by using the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), and AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\)\. For information about how to create a new parameter that includes policies, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 **Topics**
 + [Add policies to an existing parameter \(console\)](#sysman-paramstore-policy-create-console)
@@ -99,7 +99,7 @@ Use the following procedure to add policies to an existing parameter by using th
 1. Choose **Save changes**\.
 
 **Important**  
-Parameter Store preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies\. 
+AWS Systems Manager Parameter Store \(Parameter Store\) preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies\. 
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy by using brackets and curly braces, as follows: `[{}]`
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
 
@@ -216,7 +216,7 @@ Use the following procedure to add policies to an existing parameter by using To
 
 **To add policies to an existing parameter**
 
-1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon EC2, or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+1. Open Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator privileges in Amazon Elastic Compute Cloud \(Amazon EC2\), or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
    ```
    Set-AWSCredentials –AccessKey access-key-name –SecretKey secret-key-name
