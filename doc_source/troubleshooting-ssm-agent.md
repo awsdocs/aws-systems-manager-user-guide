@@ -51,3 +51,19 @@ If you specify date\-based log file rotation in the seelog\.xml file \(on Window
    </formats>
 </seelog>
 ```
+
+
+## SSM Agent needs accessibility to SSM endpoint <a name="ssm-accessibility-endpoints"></a>
+
+The SSM Agent needs to be able to connect to the following endpoints:
+
+- `ssm.<region>.amazonaws.com`
+- `ssmmessages.<region>.amazonaws.com`
+- `ec2messages.<region>.amazonaws.com`
+
+This means that the network configuration needs to have open Internet access or having configured custom VPC endpoints. It is important to remember that, even having AWS provided AMIs such as AmazonLinux v2 with ECS, the SSM system will not work if it cannot communicate to the AWS SSM endpoints.
+
+If you are not planning to create the custom VPC endpoints the easiest and most direct way to manage this case is to check your Internet Gateways or NAT gateways.
+
+You can find more information on how to manage the VPC endpoints at the
+[Step 6: (Optional) Create a Virtual Private Cloud endpoint](/systems-manager/latest/userguide/setup-create-vpc.html) documentation page.
