@@ -9,7 +9,7 @@ Use AWS Systems Manager Quick Setup to quickly configure required security roles
 + A scheduled, monthly update of the CloudWatch agent\.
 
 **Note**  
-If your **Organization** Quick Setup targets an account that has previously run a **Local** Quick Setup, the existing configurations are not changed\. A new set of State Manager associations are created when you run an **Organization** Quick Setup\. This means you could have associations whose configuration options and schedules overlap\.
+You can't create multiple Quick Setup Host Management configurations that target the same AWS Region\.
 
 **Organization** Quick Setup is available in the following AWS Regions:
 + US East \(N\. Virginia\)

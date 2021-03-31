@@ -8,7 +8,7 @@ To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Man
 ## How can Parameter Store benefit my organization?<a name="parameter-store-benefits"></a>
 
 Parameter Store offers these benefits:
-+ You can use a secure, scalable, hosted secrets management service with no servers to manage\.
++ Use a secure, scalable, hosted secrets management service with no servers to manage\.
 + Improve your security posture by separating your data from your code\.
 + Store configuration data and encrypted strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.

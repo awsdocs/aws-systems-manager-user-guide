@@ -23,7 +23,7 @@ Linux
 
   Type: String
 
-  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
 + ApproverIAM
 
   Type: StringList
@@ -66,15 +66,11 @@ Linux
 
   Default: t2\.2xlarge
 
-  Description: \(Optional\) The type of Amazon EC2 instance you want to launch in your VPC\. Only Xen\-based instance types, such as T2, M4 or C4, are supported\.
+  Description: \(Optional\) The type of Amazon EC2 instance you want to launch in your VPC\. Only T2 instances are supported\.
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
-+ `ssm:GetDocument`
-+ `ssm:ListDocumentVersions`
-+ `ssm:ListDocuments`
-+ `ssm:StartAutomationExecution`
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 + `sns:GetTopicAttributes`
 + `sns:ListSubscriptions`
 + `sns:ListTopics`
@@ -98,12 +94,11 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 + `ec2:DescribeSubnets`
 + `ec2:DescribeTags`
 + `ec2:DescribeVpcs`
-+ `ec2:DescribeInstanceTypes`
 + `ec2:DescribeImages`
 
 **Document Steps**
 + aws:executeAwsApi \- Gathers details about the Amazon EC2 instance you specify in the `InstanceId` parameter\.
-+ aws:assertAwsResourceProperty \- Confirms the instance type you specify in the `TargetInstanceType` parameter is Xen\-based\.
++ aws:branch \- Branches based on whether Amazon EC2 instance you specify in the `InstanceId` parameter is in EC2\-Classic\.
 + aws:assertAwsResourceProperty \- Confirms the Amazon EC2 instance you specify in the `InstanceId` parameter is of the HVM virtualization type\.
 + aws:assertAwsResourceProperty \- Confirms the Amazon EC2 instance you specify in the `InstanceId` parameter has an Amazon EBS root volume\.
 + aws:executeScript \- Creates a security group as needed depending on the value you specify for the `DestinationSecurityGroupId` parameter\.

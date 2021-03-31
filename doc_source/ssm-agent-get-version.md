@@ -16,9 +16,170 @@ The following procedures describe how to get the currently installed SSM Agent v
 
 1. Note the **Agent version**\.
 
-**To get the currently installed SSM Agent version from within the operating system**
+**To get the currently installed SSM Agent version from within the operating system**  
+Choose from the following tabs to get the currently installed SSM Agent version from within an operating system\.
 
-**Windows**
+------
+#### [ Amazon Linux and Amazon Linux 2 ]
+**Note**  
+This command varies depending on the package manager for your operating system\.
+
+1. Log in to your instance\.
+
+1. Run the following command\.
+
+   ```
+   yum info amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+   Installed Packages
+   Name        : amazon-ssm-agent
+   Arch        : x86_64
+   Version     : 3.0.655.0
+   ```
+
+------
+#### [ CentOS ]
+
+1. Log in to your instance\.
+
+1. Run the following command for CentOS 6 and 7\.
+
+   ```
+   yum info amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+   Installed Packages
+   Name        : amazon-ssm-agent
+   Arch        : x86_64
+   Version     : 3.0.655.0
+   ```
+
+------
+#### [ Debian Server ]
+
+1. Log in to your instance\.
+
+1. Run the following command\.
+
+   ```
+   apt list amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   apt list amazon-ssm-agent
+   Listing... Done
+   amazon-ssm-agent/now 3.0.655.0-1 amd64 [installed,local]
+   
+   3.0.655.0 is the version of SSM agent
+   ```
+
+------
+#### [ macOS ]
+
+1. Log in to your instance\.
+
+1. Run the following command\.
+
+   ```
+   pkgutil --pkg-info com.amazon.aws.ssm
+   ```
+
+------
+#### [ RHEL ]
+
+1. Log in to your instance\.
+
+1. Run the following command for RHEL 6 and 7\.
+
+   ```
+   yum info amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+   Installed Packages
+   Name        : amazon-ssm-agent
+   Arch        : x86_64
+   Version     : 3.0.655.0
+   ```
+
+------
+#### [ SLES ]
+
+1. Log in to your instance\.
+
+1. Run the following command for SLES 12 and 15\.
+
+   ```
+   zypper info amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   Loading repository data...
+   Reading installed packages...
+   Information for package amazon-ssm-agent:
+   -----------------------------------------
+   Repository : @System
+   Name : amazon-ssm-agent
+   Version : 3.0.655.0-1
+   ```
+
+------
+#### [ Ubuntu Server ]
+**Note**  
+To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [Manually install SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md)\.
+
+1. Log in to your instance\.
+
+1. Run the following command for Ubuntu Server 16\.04 and 14\.04 64\-bit \(with deb installer package\)\.
+
+   ```
+   apt list amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   apt list amazon-ssm-agent
+   Listing... Done
+   amazon-ssm-agent/now 3.0.655.0-1 amd64 [installed,local]
+   
+   3.0.655.0 is the version of SSM agent
+   ```
+
+   Run the following command for Ubuntu Server 20\.10 STR and 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances \(with Snap package\)\.
+
+   ```
+   sudo snap list amazon-ssm-agent
+   ```
+
+   This command returns output similar to the following\.
+
+   ```
+   snap list amazon-ssm-agent
+   Name Version Rev Tracking Publisher Notes
+   amazon-ssm-agent 3.0.529.0 3552 latest/stable/… aws✓ classic-
+   
+   3.0.529.0 is the version of SSM agent
+   ```
+
+------
+#### [ Windows ]
 
 1. Log in to your instance\.
 
@@ -28,26 +189,14 @@ The following procedures describe how to get the currently installed SSM Agent v
    Get-WmiObject Win32_Product | Where-Object {$_.Name -eq 'Amazon SSM Agent'} | Select-Object Name,Version
    ```
 
-**Linux**
-**Note**  
-This command varies depending on the package manager for your operating system\.
-
-1. Log in to your instance\.
-
-1. Run the following command for Amazon Linux and Amazon Linux 2\.
+   This command returns output similar to the following\.
 
    ```
-   yum info amazon-ssm-agent
+   Name             Version
+   ----             -------
+   Amazon SSM Agent 3.0.655.0
    ```
 
-**macOS**
-
-1. Log in to your instance\.
-
-1. Run the following command\.
-
-   ```
-   pkgutil --pkg-info com.amazon.aws.ssm
-   ```
+------
 
 We recommend using the latest version of the SSM Agent so you can benefit from new or updated capabilities\. To ensure your managed instances are always running the most up\-to\-date version of the SSM Agent, you can automate the process of updating the SSM Agent\. For more information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\.

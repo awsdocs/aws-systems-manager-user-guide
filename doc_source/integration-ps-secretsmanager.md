@@ -38,7 +38,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
 
    ```
    /**
-   * Initialize AWS System Manager Client with default credentials
+   * Initialize System Manager Client with default credentials
    */
    AWSSimpleSystemsManagement ssm = AWSSimpleSystemsManagementClientBuilder.defaultClient();
     
@@ -49,7 +49,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    * @return DynamoDB client
    */
    AmazonDynamoDB getDynamoDbClient() {
-       //Getting AWS credentials from Secrets manager using GetParameter
+       //Getting AWS  credentials from Secrets Manager using GetParameter
        BasicAWSCredentials differentAWSCreds = new BasicAWSCredentials(
                getParameter("/aws/reference/secretsmanager/access-key"),
                getParameter("/aws/reference/secretsmanager/secret-key"));

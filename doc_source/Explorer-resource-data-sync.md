@@ -1,6 +1,6 @@
 # Setting up Systems Manager Explorer to display data from multiple accounts and Regions<a name="Explorer-resource-data-sync"></a>
 
-Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer *and* Systems Manager OpsCenter\. After completing Integrated Setup, Explorer and OpsCenter automatically synchronize data\. More specifically, these capabilities synchronize OpsData and OpsItems for the AWS account and Region you used when you completed Integrated Setup\. If you want to aggregate OpsData and OpsItems from other accounts and Regions, you must create a resource data sync, as described in this topic\.
+Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer *and* Systems Manager OpsCenter\. After completing Integrated Setup, Explorer and OpsCenter automatically synchronize data\. More specifically, these capabilities synchronize OpsData and OpsItems for the AWS account and AWS Region you used when you completed Integrated Setup\. If you want to aggregate OpsData and OpsItems from other accounts and Regions, you must create a resource data sync, as described in this topic\.
 
 **Note**  
 For more information about Integrated Setup, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
@@ -14,12 +14,36 @@ The following diagram shows a resource data sync configured to work with AWS Org
 
 ![\[Resource data sync for Systems Manager Explorer\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ExplorerSyncFromSource.png)
 
-**Before You Begin**  
-Note the following important details about resource data sync for Explorer\.
+## About multiple account and Region resource data syncs<a name="Explorer-resouce-data-sync-multiple-accounts-and-regions"></a>
+
+This section describes important details about multiple account and multiple Region resource data syncs that use AWS Organizations\. Specifically, the information in this section applies if you choose one of the following options in the **Create resource data sync** page:
++ Include all accounts from my AWS Organizations configuration
++ Select organization units in AWS Organizations
+
+If you don't plan to use one of these options, you can skip this section\.
+
+![\[Multiple account and Region resource data sync options for Systems Manager Explorer.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Explorer-multi-overview.png)
+
+When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically enables all OpsData sources in the selected Regions for all AWS accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't enabled Explorer in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
+
+If you don't choose one of the AWS Organizations options for a resource data sync, then you must complete Integrated Setup in each account and Region where you want Explorer to access data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\.
+
+If you add a child account to your organization, Explorer automatically enables all OpsData sources for the account\. If, at a later time, you remove the child account from your organization, Explorer continues to collect OpsData from the account\. 
+
+If you update an existing resource data sync that uses one of the AWS Organizations options, the system prompts you to approve collection of all OpsData sources for all accounts and Regions affected by the change\.
+
+If you add a new service to your AWS account, and if Explorer collects OpsData for that service, Systems Manager automatically configures Explorer to collect that OpsData\. For example, if your organization did not use AWS Trusted Advisor when you previously created a resource data sync, but your organization signs up for this service, Explorer automatically updates your resource data syncs to collect this OpsData\.
+
+**Important**  
+Note the following important information about multiple account and Region resource data syncs:  
+Deleting a resource data sync does not disable an OpsData source in Explorer\. 
+To view OpsData and OpsItems from multiple accounts, you must have the AWS Organizations **All features** mode enabled and you must be signed into the AWS Organizations management account\.
+
+## Creating a resource data sync<a name="Explorer-resource-data-sync-configuring-multi"></a>
+
+Before you configure resource data sync for Explorer, note the following details\.
 + Explorer supports a maximum of five resource data syncs\.
-+ You must complete Integrated Setup in each account and Region where you want Explorer to access data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\.
-+ To view OpsData and OpsItems from multiple accounts, you must have the AWS Organizations **All features** mode enabled and you must be signed into the AWS Organizations management account\.
-+ After you create a resource data sync for a Region, you can't change the account options for that sync\. For example, if you create a sync in the us\-east\-2 \(Ohio\) Region and you choose the **Include only the current account** option, you can't edit that sync later and choose the **Include all accounts from my AWS Organizations configuration** option\. Instead, you must delete the first resource data sync, and create a new one\. For more information, see [Deleting a Systems Manager Explorer Resource Data Sync](Explorer-using-resource-data-sync-delete.md)
++ After you create a resource data sync for a Region, you can't change the *account options* for that sync\. For example, if you create a sync in the us\-east\-2 \(Ohio\) Region and you choose the **Include only the current account** option, you can't edit that sync later and choose the **Include all accounts from my AWS Organizations configuration** option\. Instead, you must delete the first resource data sync, and create a new one\. For more information, see [Deleting a Systems Manager Explorer Resource Data Sync](Explorer-using-resource-data-sync-delete.md)
 + OpsData viewed in Explorer is read\-only\.
 
 Use the following procedure to create a resource data sync for Explorer\.

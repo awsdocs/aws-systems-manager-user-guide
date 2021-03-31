@@ -6,6 +6,7 @@ The following information can help you troubleshoot problems that might occur wh
 + [Wrong package with the same name is installed](#distributor-tshoot-1)
 + [Error: Failed to retrieve manifest: Could not find latest version of package](#distributor-tshoot-2)
 + [Error: Failed to retrieve manifest: Validation exception](#distributor-tshoot-3)
++ [Package is not supported \(package is missing install action\)](#distributor-tshoot-4)
 
 ## Wrong package with the same name is installed<a name="distributor-tshoot-1"></a>
 
@@ -41,3 +42,15 @@ arn:aws:ssm:region-id:account-id:package/package-name
 **Cause:** You are using a version of SSM Agent with Systems Manager Distributor that is earlier than version 2\.3\.274\.0\.
 
 **Solution:** Update the version of SSM Agent to version 2\.3\.274\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample) or [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
+
+## Package is not supported \(package is missing install action\)<a name="distributor-tshoot-4"></a>
+
+**Problem:** You received an error like the following:
+
+```
+Package is not supported (package is missing install action)
+```
+
+**Cause:** The package directory structure is incorrect\.
+
+**Solution:** Do not zip a parent directory containing the software and required scripts\. Instead, create a `.zip` file of all the required contents directly in the absolute path\. To verify the `.zip` file was created correctly, unzip the target platform directory and review the directory structure\. For example, the install script absolute path should be `/ExamplePackage_targetPlatform/install.sh`\.

@@ -209,7 +209,7 @@ You can view details about these AMIs, including the AMI IDs and Amazon Resource
 
 ```
 aws ssm get-parameters-by-path \
-    --path "/aws/service//aws/service/ami-windows-latest" \
+    --path "/aws/service/aws/service/ami-windows-latest" \
     --region region
 ```
 
@@ -218,7 +218,7 @@ aws ssm get-parameters-by-path \
 
 ```
 aws ssm get-parameters-by-path ^
-    --path "/aws/service//aws/service/ami-windows-latest" ^
+    --path "/aws/service/aws/service/ami-windows-latest" ^
     --region region
 ```
 

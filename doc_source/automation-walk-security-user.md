@@ -12,13 +12,13 @@ The following procedure describes how to use the Systems Manager console to run 
 
 1. In the navigation pane, choose **Automation**, and then choose **Execute automation**\.
 
-1. In the **Automation document** list, choose a document\. Choose one or more options in the **Document categories** pane to filter SSM documents according to their purpose\. To view a document that you own, choose the **Owned by me** tab\. To view a document that is shared with your account, choose the **Shared with me** tab\. To view all documents, choose the **All documents** tab\.
+1. In the **Automation document** list, choose a runbook\. Choose one or more options in the **Document categories** pane to filter SSM documents according to their purpose\. To view a runbook that you own, choose the **Owned by me** tab\. To view a runbook that is shared with your account, choose the **Shared with me** tab\. To view all runbooks, choose the **All documents** tab\.
 **Note**  
-You can view information about a document by choosing the document name\.
+You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Document details** section, verify that **Document version** is set to the version that you want to run\. The system includes the following version options: 
-   + **Default version at runtime**: Choose this option if the Automation document is updated periodically and a new default version is assigned\.
-   + **Latest version at runtime**: Choose this option if the Automation document is updated periodically, and you want to run the version that was most recently updated\.
+   + **Default version at runtime**: Choose this option if the Automation runbook is updated periodically and a new default version is assigned\.
+   + **Latest version at runtime**: Choose this option if the Automation runbook is updated periodically, and you want to run the version that was most recently updated\.
    + **1 \(Default\)**: Choose this option to run the first version of the document, which is the default\.
 
 1. Choose **Next**\.

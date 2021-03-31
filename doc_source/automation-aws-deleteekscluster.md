@@ -54,7 +54,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Optional\) AWS Cloudformation stack name for VPC for the EKS cluster being deleted\. This deletes the AWS Cloudformation stack for VPC and any resources created by the stack\.
+  Description: \(Optional\) AWS CloudFormation stack name for VPC for the EKS cluster being deleted\. This deletes the AWS CloudFormation stack for VPC and any resources created by the stack\.
 + VPCCloudFormationStackRole
 
   Type: String
@@ -64,7 +64,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Optional\) Comma\-separated list of AWS Cloudformation stack names for self\-managed nodes, This will delete the AWS Cloudformation stacks for self\-managed nodes\.
+  Description: \(Optional\) Comma\-separated list of AWS CloudFormation stack names for self\-managed nodes, This will delete the AWS CloudFormation stacks for self\-managed nodes\.
 + SelfManagedNodeStacksRole
 
   Type: String
@@ -73,7 +73,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 + `sts:AssumeRole`
 + `eks:ListNodegroups`
 + `eks:DeleteNodegroup`

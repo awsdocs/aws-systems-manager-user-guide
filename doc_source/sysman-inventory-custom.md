@@ -576,7 +576,7 @@ Use the following procedure to create an EventBridge rule for custom inventory d
 
 1. Verify that **Any detail type** is selected\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select ** AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Target**, choose **SNS topic**, and then choose your topic from the **Topic** list\.
 

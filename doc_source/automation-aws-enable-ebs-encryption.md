@@ -27,7 +27,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 + `ec2:EnableEbsEncryptionByDefault`
 + `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`

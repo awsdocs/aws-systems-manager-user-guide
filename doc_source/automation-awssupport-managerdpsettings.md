@@ -69,7 +69,7 @@ Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 
 The EC2 instance receiving the command must have an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached\. The user must have at least **ssm:SendCommand** to send the command to the instance, plus **ssm:GetCommandInvocation** to be able to read the command output\.
 

@@ -1,6 +1,6 @@
 # Working with Fleet Manager<a name="fleet-working"></a>
 
-You can use Fleet Manager to perform various tasks on your instances from the console\. The following topics describe the features provided by Fleet Manager\.
+You can use AWS Systems Manager Fleet Manager \(Fleet Manager\) to perform various tasks on your instances from the console\. The following topics describe the features provided by Fleet Manager\.
 
 **Note**  
 The only supported feature for macOS instances is viewing the file system\.

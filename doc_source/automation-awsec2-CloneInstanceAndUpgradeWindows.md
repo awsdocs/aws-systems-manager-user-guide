@@ -30,6 +30,7 @@ Windows Server 2008 R2, 2012 R2 and 2016 Standard and Datacenter editions
 
 **Prerequisites**
 + Verify that SSM Agent is installed on your instance\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
++ Windows PowerShell 3\.0 or later must be installed on your instance\.
 + For instances that are joined to a Microsoft Active Directory domain, we recommend specifying a `SubnetId` that does not have connectivity to your domain controllers to help avoid hostname conflicts\.
 + The `SubnetId` specified must be a public subnet with the auto\-assign public IPv4 address set to true\. For more information, see [Modifying the Public IPv4 Addressing Attribute for Your Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip) in the *Amazon VPC User Guide*\.
 + This Automation works only with Windows Server 2008 R2, 2012 R2, and 2016 instances\.

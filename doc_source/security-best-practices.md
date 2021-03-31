@@ -24,6 +24,9 @@ For more information, see [Restricting access to Systems Manager parameters usin
 You can validate user input for SSM document parameters by defining `allowedValues` and `allowedPattern`\. For `allowedValues`, you define an array of values allowed for the parameter\. If a user inputs a value that is not allowed, the execution fails to start\. For `allowedPattern`, you define a regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.  
 For more information about `allowedValues` and `allowedPattern`, see [SSM document syntax](sysman-doc-syntax.md)\.
 
+**Block public sharing for documents**  
+Unless your use case requires public sharing to be enabled, we recommend turning on the block public sharing setting for your Systems Manager documents in the **Preferences** section of the Systems Manager Documents console\.
+
 **Use an Amazon Virtual Private Cloud \(Amazon VPC\) and VPC endpoints**  
 You can use Amazon VPC to launch AWS resources into a virtual network that you've defined\. This virtual network closely resembles a traditional network that you'd operate in your own data center, with the benefits of using the scalable infrastructure of AWS\.  
 By implementing a VPC endpoint, you can privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection\. Instances in your VPC do not require public IP addresses to communicate with resources in the service\. Traffic between your VPC and the other service does not leave the Amazon network\.  

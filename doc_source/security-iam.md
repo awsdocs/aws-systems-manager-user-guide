@@ -8,6 +8,7 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Managing access using policies](#security_iam_access-manage)
 + [How AWS Systems Manager works with IAM](security_iam_service-with-iam.md)
 + [AWS Systems Manager identity\-based policy examples](security_iam_id-based-policy-examples.md)
++ [AWS managed policies for AWS Systems Manager](security-iam-awsmanpol.md)
 + [Troubleshooting AWS Systems Manager identity and access](security_iam_troubleshoot.md)
 
 ## Audience<a name="security_iam_audience"></a>

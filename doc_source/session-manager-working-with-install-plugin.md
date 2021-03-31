@@ -24,7 +24,7 @@ You can install the Session Manager plugin on Microsoft Windows Vista or later u
 When updates are released, you must repeat the installation process to get the latest version of the Session Manager plugin\.
 
 **Note**  
-For best results, we recommend starting sessions on Windows clients using the Windows PowerShell application version 5 or later\. On Microsoft Windows 10, the Command Prompt also provides reliable support for Session Manager operations\.
+For best results, we recommend that you start sessions on Windows clients using Windows PowerShell, version 5 or later\. Alternatively, you can use the Command shell in Microsoft Windows 10\. The Session Manager plugin only supports PowerShell and the Command shell\. Third\-party command line tools might not be compatible with the plugin\.
 
 **To install the Session Manager plugin using the EXE installer**
 

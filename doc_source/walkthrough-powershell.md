@@ -226,7 +226,7 @@ Get-SSMCommandInvocation `
 
 ## Join an instance to a Domain using the AWS\-JoinDirectoryServiceDomain JSON document<a name="walkthrough-powershell-domain-join"></a>
 
-Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command you must [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
+Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command you must [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is ?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
 Currently you can only join an instance to a domain\. You cannot remove an instance from a domain\.
 

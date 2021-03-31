@@ -111,7 +111,7 @@ This automation does not support restoring to SQL Server running on EC2 instance
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 
 ```
 {

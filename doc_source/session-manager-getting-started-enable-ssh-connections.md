@@ -53,7 +53,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
      ```
    + Create or verify that you have a Privacy Enhanced Mail certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed instances\. This must be a key that is already associated with the instance\. For example, for an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, the key pair file you created or selected when you created the instance\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
 
-**To enable SSH connections through Session Manager**
+**IAM policies to enable SSH connections through Session Manager**
 + **Option 1**: Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role you want to allow to start SSH connections through Session Manager\. For example, prepare to modify the user quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy\.
 
   ```
@@ -78,7 +78,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
 
   For information, see [Adding and Removing IAM Identity Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*\.
 
-**To disable SSH connections through Session Manager**
+**IAM policies to disable SSH connections through Session Manager**
 + **Option 1**: Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role to block from starting Session Manager sessions\. For example, prepare to modify the user quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy, or replace any permissions that allow a user to start a session\.
 
   ```

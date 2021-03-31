@@ -238,11 +238,11 @@ If you want to give a user permission to use this document to send commands on a
             "Action": "ssm:StartAutomationExecution",
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ssm:::automation-definition/"
+                "arn:aws:ssm:us-east-2:aws-account-ID:automation-definition/"
             ]
         },
         {
-            "Action": "ssm:DescribeAutomationExecutions ",
+            "Action": "ssm:DescribeAutomationExecutions",
             "Effect": "Allow",
             "Resource": [
                 "*"
@@ -255,7 +255,7 @@ If you want to give a user permission to use this document to send commands on a
             ],
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ssm:::automation-execution/"
+                "arn:aws:ssm:us-east-2:aws-account-ID:automation-execution/"
             ]
         }
     ]

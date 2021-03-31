@@ -53,7 +53,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 
 You must have at least **ssm:StartAutomationExecution** and **ssm:GetAutomationExecution** to be able to read the automation output\. For more information about the required permissions see **AWSSupport\-StartEC2RescueWorkflow**
 

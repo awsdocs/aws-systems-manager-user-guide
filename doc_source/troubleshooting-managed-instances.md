@@ -1,11 +1,11 @@
 # Troubleshooting Amazon EC2 managed instance availability<a name="troubleshooting-managed-instances"></a>
 
-For several Systems Manager operations, you can choose to manually select the instances on which you will run the operation\. Examples include running a Run Command command, specifying maintenance window targets, installing Distributor packages, and connecting to the instance using Session Manager\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
+For several AWS Systems Manager operations, you can choose to manually select the instances on which you will run the operation\. Examples include running an AWS Systems Manager Run Command \(Run Command\) command, specifying maintenance window targets, installing AWS Systems Manager Distributor \(Distributor\) packages, and connecting to the instance using AWS Systems Manager Session Manager \(Session Manager\)\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
 
 This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* does not appear in your lists of managed instances in Systems Manager\. 
 
 In order for an EC2 instance to be managed by Systems Manager and available in lists of managed instances, it must meet three primary requirements:
-+ SSM Agent must be installed and running on an instance with a supported operating system\.
++ AWS Systems Manager SSM Agent \(SSM Agent\) must be installed and running on an instance with a supported operating system\.
 **Note**  
 Some Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\)   
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  

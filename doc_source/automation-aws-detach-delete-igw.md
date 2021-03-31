@@ -32,7 +32,7 @@ Linux, macOS, Windows
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to successfully run the Automation document\.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook\.
 + `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
 + `ec2:DeleteInternetGateway`
@@ -40,6 +40,15 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 + `ec2:DetachInternetGateway`
 
 **Document Steps**
-+ aws:executeAwsApi \- Gathers the VPC ID from the internet gateway ID\.
++ aws:waitForAwsResourceProperty \- Accepts the ID of the virtual private gateway and waits until the virtual private gateway's state property changes to `available` or times out\.
++ aws:executeAwsApi \- Retrieves a specified virtual private gateway configuration\.
++ aws:branch \- Branches based on the VpcAttachments\.state parameter value\.
++ aws:waitForAwsResourceProperty \- Accepts the ID of the virtual private gateway and waits until the virtual private gateway's VpcAttachments\.state's property changes to `attached` or times out\.
++ aws:executeAwsApi \- Accepts the ID of the virtual private gateway and the ID of the Amazon VPC as input, and detaches the virtual private gateway from the Amazon VPC\.
++ aws:waitForAwsResourceProperty \- Accepts the ID of the virtual private gateway and waits until the virtual private gateway's VpcAttachments\.state's property changes to `detached` or times out\.
++ aws:executeAwsApi \- Accepts the ID of the virtual private gateway as input and deletes it\.
++ aws:waitForAwsResourceProperty \- Accepts the ID of the virtual private gateway as input and verifies its deletion\.
+
+  aws:executeAwsApi \- Gathers the VPC ID from the internet gateway ID\.
 + aws:executeAwsApi \- Detaches the internet gateway ID from the VPC\.
 + aws:executeAwsApi \- Deletes the internet gateway\.
