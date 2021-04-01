@@ -6,7 +6,7 @@ AWS Systems Manager provides the following capabilities for managing your EC2 in
 + [AWS Systems Manager Fleet Manager](fleet.md)
 + [AWS Systems Manager Compliance](systems-manager-compliance.md)
 + [AWS Systems Manager Inventory](systems-manager-inventory.md)
-+ [AWS Systems Manager Managed Instances](managed_instances.md)
++ [AWS Systems Manager Managed Instances](managed_instances_old.md)
 + [AWS Systems Manager Hybrid Activations](activations.md)
 + [AWS Systems Manager Session Manager](session-manager.md)
 + [AWS Systems Manager Run Command](execute-remote-commands.md)

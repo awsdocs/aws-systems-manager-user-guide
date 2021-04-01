@@ -1,10 +1,5 @@
 # Resetting passwords on managed instances<a name="managed-instances-password-reset"></a>
 
-
-|  | 
-| --- |
-| Systems Manager Managed Instances is now part of Systems Manager Fleet Manager\. To learn more about Fleet Manager, see [AWS Systems Manager Fleet Manager](fleet.md)\. | 
-
 You can reset the password for any user on a managed instance\. This includes Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\) that are managed by AWS Systems Manager\. The password reset functionality is built on the AWS Systems Manager Session Manager \(Session Manager\) capability\. You can use this functionality to connect to instances without opening inbound ports, maintaining bastion hosts, or managing SSH keys\. 
 
 This makes the password reset option useful when a user has forgotten a password, or when you want to quickly update a password without making an RDP or SSH connection to the instance\. 

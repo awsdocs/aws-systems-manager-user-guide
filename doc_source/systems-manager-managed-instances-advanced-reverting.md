@@ -1,10 +1,5 @@
 # Reverting from the advanced\-instances tier to the standard\-instances tier<a name="systems-manager-managed-instances-advanced-reverting"></a>
 
-
-|  | 
-| --- |
-| Systems Manager Managed Instances is now part of Systems Manager Fleet Manager\. To learn more about Fleet Manager, see [AWS Systems Manager Fleet Manager](fleet.md)\. | 
-
 This section describes how to change hybrid instances currently running in the advanced\-instances tier back to the standard\-instances tier\. This configuration applies to all hybrid instances in an AWS account and a single AWS Region\.
 
 **Before you begin**  

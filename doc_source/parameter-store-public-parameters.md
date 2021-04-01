@@ -1,8 +1,8 @@
-# Calling public parameters<a name="parameter-store-public-parameters"></a>
+# Working with public parameters<a name="parameter-store-public-parameters"></a>
 
 Some AWS services publish information about common artifacts as AWS Systems Manager *public* parameters\. For example, the Amazon Elastic Compute Cloud \(Amazon EC2\) service publishes information about Amazon Machine Images \(AMIs\) as public parameters\.
 
-You can call this information from your scripts and code by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
+You can call this information from your scripts and code by using the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html), [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API actions\.
 
 **Related blog posts**
 + [Query for AWS Regions, Endpoints, and More Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/aws/new-query-for-aws-regions-endpoints-and-more-using-aws-systems-manager-parameter-store/)
@@ -10,6 +10,7 @@ You can call this information from your scripts and code by using the [GetParame
 + [Query for the Latest Windows AMI Using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)
 
 **Topics**
++ [Finding public parameters](parameter-store-finding-public-parameters.md)
 + [Calling AMI public parameters](parameter-store-public-parameters-ami.md)
 + [Calling the ECS optimized AMI public parameter](parameter-store-public-parameters-ecs.md)
 + [Calling the EKS optimized AMI public parameter](parameter-store-public-parameters-eks.md)

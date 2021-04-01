@@ -1,10 +1,5 @@
 # Enabling the advanced\-instances tier<a name="systems-manager-managedinstances-advanced"></a>
 
-
-|  | 
-| --- |
-| Systems Manager Managed Instances is now part of Systems Manager Fleet Manager\. To learn more about Fleet Manager, see [AWS Systems Manager Fleet Manager](fleet.md)\. | 
-
 AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and virtual machines \(VMs\) in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can activate as many managed instances in a hybrid environment as you like in the advanced\-instances tier\. However, all instances configured for Systems Manager using the managed\-instance activation process described earlier in [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md) are made available on a pay\-per\-use basis\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
 
 **Note**  
@@ -18,11 +13,6 @@ This section describes how to configure your hybrid environment to use the advan
 Review pricing details for advanced instances\. Advanced instances are an account\-level feature\. Advanced instances are available on a per\-use\-basis\. For more information see, [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. 
 
 ## Configuring permissions to enable the advanced\-instances tier<a name="systems-manager-managedinstances-advanced-permissions"></a>
-
-
-|  | 
-| --- |
-| Systems Manager Managed Instances is now part of Systems Manager Fleet Manager\. To learn more about Fleet Manager, see [AWS Systems Manager Fleet Manager](fleet.md)\. | 
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to change your environment from the standard\-instances tier to the advanced\-instances tier\. You must either have the AdministratorAccess policy attached to your IAM user, group, or role\. Or, you must have permission to change the Systems Manager activation\-tier service setting\. The activation\-tier setting uses the following API actions: 
 + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
