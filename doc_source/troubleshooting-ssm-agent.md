@@ -6,6 +6,7 @@ If you experience problems running operations on your managed instances, there m
 + [SSM Agent is out of date](#ssm-agent-out-of-date)
 + [View SSM Agent log files](#systems-manager-ssm-agent-log-files)
 + [Agent log files don't rotate \(Windows\)](#systems-manager-ssm-agent-troubleshooting-log-rotation)
++ [Unable to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access)
 
 ## SSM Agent is out of date<a name="ssm-agent-out-of-date"></a>
 
@@ -52,18 +53,11 @@ If you specify date\-based log file rotation in the seelog\.xml file \(on Window
 </seelog>
 ```
 
+## Unable to connect to SSM endpoints<a name="systems-manager-ssm-agent-troubleshooting-endpoint-access"></a>
 
-## SSM Agent needs accessibility to SSM endpoint <a name="ssm-accessibility-endpoints"></a>
+SSM Agent must be able to connect to the following endpoints:
++ `ssm.region.amazonaws.com`
++ `ssmmessages.region.amazonaws.com`
++ `ec2messages.region.amazonaws.com`
 
-The SSM Agent needs to be able to connect to the following endpoints:
-
-- `ssm.<region>.amazonaws.com`
-- `ssmmessages.<region>.amazonaws.com`
-- `ec2messages.<region>.amazonaws.com`
-
-This means that the network configuration needs to have open Internet access or having configured custom VPC endpoints. It is important to remember that, even having AWS provided AMIs such as AmazonLinux v2 with ECS, the SSM system will not work if it cannot communicate to the AWS SSM endpoints.
-
-If you are not planning to create the custom VPC endpoints the easiest and most direct way to manage this case is to check your Internet Gateways or NAT gateways.
-
-You can find more information on how to manage the VPC endpoints at the
-[Step 6: (Optional) Create a Virtual Private Cloud endpoint](/systems-manager/latest/userguide/setup-create-vpc.html) documentation page.
+SSM Agent won't work if it can't communicate with the above endpoints, even if you use AWS provided Amazon Machine Images \(AMIs\) such as Amazon Linux or Amazon Linux 2\. Your network configuration must have open internet access or you must have custom virtual private cloud \(VPC\) endpoints configured\. If you don't plan on creating a custom VPC endpoint, check your internet gateways or NAT gateways\. For more information about how to manage VPC endpoints, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
