@@ -146,7 +146,7 @@ For information about specifying preferences for storing session logs, see [Logg
                "Action": [
                    "s3:PutObject"
                ],
-               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/s3-bucket-prefix"
+               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/s3-bucket-prefix/*"
            },
            {
                "Effect": "Allow",
