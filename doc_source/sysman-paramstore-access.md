@@ -127,9 +127,9 @@ The parameter history includes all parameter versions, including the current one
 
 You can control access so that instances can run only parameters that you specify\.
 
-If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS managed customer master key \(CMK\) or a customer managed CMK\. For more information about AWS KMS and CMKs, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
+If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS managed key or a customer managed key\. For more information about AWS KMS and AWS KMS key, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
 
-You can view the AWS managed CMK by running the following command from the AWS CLI\.
+You can view the AWS managed key by running the following command from the AWS CLI\.
 
 ```
 aws kms describe-key --key-id alias/aws/ssm
@@ -159,7 +159,7 @@ Instance policies, like in the following example, are assigned to the instance r
             "kms:Decrypt"
          ],
          "Resource":[
-            "arn:aws:kms:region:account-id:key/CMK"
+            "arn:aws:kms:region:account-id:key/KMSkey"
          ]
       }
    ]
@@ -168,7 +168,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 ## IAM permissions for using AWS default keys and customer managed keys<a name="ps-kms-permissions"></a>
 
-AWS Systems Manager Parameter Store \(Parameter Store\) `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a customer master key \(CMK\) or the default KMS key provided by AWS\.
+AWS Systems Manager Parameter Store \(Parameter Store\) `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a AWS KMS key or the default KMS key provided by AWS\.
 
 When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and account\.
 
@@ -227,7 +227,7 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
 }
 ```
 
-If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed CMK to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail \(CloudTrail\) to monitor `SecureString` parameter activities\.
+If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed key to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail \(CloudTrail\) to monitor `SecureString` parameter activities\.
 
 For more information, see the following topics:
 + [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*

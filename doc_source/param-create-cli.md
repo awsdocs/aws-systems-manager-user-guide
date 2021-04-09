@@ -327,7 +327,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
        --type "SecureString"
    ```
 
-   **Create a `SecureString` parameter that uses a customer managed customer master key \(CMK\)**
+   **Create a `SecureString` parameter that uses a customer managed key**
 
    ```
    aws ssm put-parameter \
@@ -360,7 +360,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
        --type "SecureString"
    ```
 
-   **Create a `SecureString` parameter that uses a customer managed customer master key \(CMK\)**
+   **Create a `SecureString` parameter that uses a customer managed key**
 
    ```
    aws ssm put-parameter ^
@@ -385,9 +385,9 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 
    If you create a `SecureString` parameter by using the AWS\-managed AWS Key Management Service \(AWS KMS\) key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 **Note**  
-To use the AWS KMS customer master key \(CMK\) assigned to your AWS account and Region, remove the `key-id` parameter from the command\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+To use the AWS KMS key assigned to your AWS account and Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
-   To use a customer managed CMK instead of the AWS managed CMK assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
+   To use a customer managed key instead of the AWS managed key assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
    + Key Amazon Resource Name \(ARN\) example:
 
       `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
@@ -401,7 +401,7 @@ To use the AWS KMS customer master key \(CMK\) assigned to your AWS account and 
 
      `alias/MyAliasName`
 
-   You can create a customer managed CMK by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current Region of your AWS account\.
+   You can create a customer managed key by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current Region of your AWS account\.
 
    ```
    aws kms [create\-key](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
@@ -409,7 +409,7 @@ To use the AWS KMS customer master key \(CMK\) assigned to your AWS account and 
 
    Use a command in the following format to create a `SecureString` parameter using the key you just created\.
 
-   The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and a CMK\.
+   The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and a AWS KMS key\.
 
 ------
 #### [ Linux ]
@@ -479,7 +479,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 
 ------
 
-1. Run the following command to change the parameter value if you are **not** using a customer managed customer master key \(CMK\)\.
+1. Run the following command to change the parameter value if you are **not** using a customer managed AWS KMS key\.
 
 ------
 #### [ Linux ]
@@ -507,7 +507,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 
    \-or\-
 
-   Run one of the following commands to change the parameter value if you **are** using a customer managed customer master key \(CMK\)\.
+   Run one of the following commands to change the parameter value if you **are** using a customer managed AWS KMS key\.
 
 ------
 #### [ Linux ]
@@ -517,7 +517,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" \
        --value "a-new-parameter-value" \
        --type "SecureString" \
-       --key-id "the-CMK-ID" \
+       --key-id "the-KMSkey-ID" \
        --overwrite
    ```
 
@@ -526,7 +526,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" \
        --value "a-new-parameter-value" \
        --type "SecureString" \
-       --key-id "your-AWS-user-account-alias/the-CMK-ID" \
+       --key-id "your-AWS-user-account-alias/the-KMSkey-ID" \
        --overwrite
    ```
 
@@ -538,7 +538,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" ^
        --value "a-new-parameter-value" ^
        --type "SecureString" ^
-       --key-id "the-CMK-ID" ^
+       --key-id "the-KMSkey-ID" ^
        --overwrite
    ```
 
@@ -547,7 +547,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" ^
        --value "a-new-parameter-value" ^
        --type "SecureString" ^
-       --key-id "your-AWS-user-account-alias/the-CMK-ID" ^
+       --key-id "your-AWS-user-account-alias/the-KMSkey-ID" ^
        --overwrite
    ```
 

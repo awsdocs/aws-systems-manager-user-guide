@@ -41,23 +41,26 @@ Use the following procedure to enable SSM Agent debug logging on your managed in
 
 1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
-1. Locate the following file:
+1. Locate the **seelog\.xml\.template** file\.
 
-**Linux**  
-On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
+   **Linux**:
 
-   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`\.
+   On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
 
-**macOS**  
-`/opt/aws/ssm/seelog.xml.template`
+   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/seelog.xml.template`\. Copy this file from the `/snap/amazon-ssm-agent/current/` directory to the `/etc/amazon/ssm/` directory before making any changes\.
+
+   **macOS**: 
+
+   On macOS instance types, the file is located in the directory `/opt/aws/ssm/seelog.xml.template`\.
 
 1. Change the file name from `seelog.xml.template` to `seelog.xml`\.
 **Note**  
-On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following commands:  
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following commands\.   
 
    ```
    sudo mkdir -p /etc/amazon/ssm
    ```
+
    ```
    sudo cp -p /snap/amazon-ssm-agent/current/seelog.xml.template /etc/amazon/ssm/seelog.xml
    ```
@@ -66,7 +69,7 @@ On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.x
 
    `<seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">`
 
-1. Restart SSM Agent using the following command\.
+1. \(Optional\) Restart SSM Agent using the following command\.
 
    Linux:
 

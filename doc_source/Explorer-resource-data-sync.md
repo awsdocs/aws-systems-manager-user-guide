@@ -14,7 +14,7 @@ The following diagram shows a resource data sync configured to work with AWS Org
 
 ![\[Resource data sync for Systems Manager Explorer\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ExplorerSyncFromSource.png)
 
-## About multiple account and Region resource data syncs<a name="Explorer-resouce-data-sync-multiple-accounts-and-regions"></a>
+## About multiple account and Region resource data syncs<a name="Explorer-resource-data-sync-multiple-accounts-and-regions"></a>
 
 This section describes important details about multiple account and multiple Region resource data syncs that use AWS Organizations\. Specifically, the information in this section applies if you choose one of the following options in the **Create resource data sync** page:
 + Include all accounts from my AWS Organizations configuration

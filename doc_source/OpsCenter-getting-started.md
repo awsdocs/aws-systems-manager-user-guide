@@ -61,7 +61,7 @@ If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS 
 
 ### Task 3: Update the AWS KMS access policy \(optional\)<a name="OpsCenter-getting-started-sns-KMS-policy"></a>
 
-If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS customer master key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
+If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
 **Note**  
 OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.
@@ -72,7 +72,7 @@ OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured
 
 1. In the navigation pane, choose **Customer managed keys**\.
 
-1. Choose the ID of the customer master key you chose when you created the topic\.
+1. Choose the ID of the KMS key you chose when you created the topic\.
 
 1. In the **Key policy** section, choose **Switch to policy view**\.
 

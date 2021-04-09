@@ -7,7 +7,7 @@ The walkthrough in this section shows you how to create, store, and run paramete
 
 ## Create a SecureString parameter and join an instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows how to join a Windows Server instance to a domain using AWS Systems Manager `SecureString` parameters and AWS Systems Manager Run Command \(Run Command\)\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS\-managed customer master key \(CMK\) and passed as an encrypted string\. 
+This walkthrough shows how to join a Windows Server instance to a domain using AWS Systems Manager `SecureString` parameters and AWS Systems Manager Run Command \(Run Command\)\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed key and passed as an encrypted string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.

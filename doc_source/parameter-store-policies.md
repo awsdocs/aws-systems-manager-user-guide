@@ -141,7 +141,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 ------
 
-   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. For more information about CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+   Here is an example that includes an expiration policy that deletes the parameter after 15 days\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS Key Management Service AWS KMS key\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
 ------
 #### [ Linux ]
@@ -234,7 +234,7 @@ Use the following procedure to add policies to an existing parameter by using To
    Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{policies-enclosed-in-brackets-and-curly-braces}]" -Overwrite
    ```
 
-   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS managed key\.
 
    ```
    Write-SSMParameter -Name "/Finance/Payroll/3l3vat3131" -Value "P@sSwW)rd" -Type "SecureString" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite

@@ -68,7 +68,7 @@ Type: Boolean
 Required: No
 
 KmsKeyId  
-The full Amazon Resource Name \(ARN\) of the AWS Key Management Service CMK to use when encrypting the snapshots of an image during a copy operation\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
+The full Amazon Resource Name \(ARN\) of the AWS Key Management Service key to use when encrypting the snapshots of an image during a copy operation\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/api_copyimage.html)\.  
 Type: String  
 Required: No
 

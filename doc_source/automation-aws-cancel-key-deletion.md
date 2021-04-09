@@ -2,9 +2,9 @@
 
 **Description**
 
-The AWSConfigRemediation\-CancelKeyDeletion runbook cancels deletion of the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) that you specify\.
+The AWSConfigRemediation\-CancelKeyDeletion runbook cancels deletion of the AWS Key Management Service \(AWS KMS\) key that you specify\.
 
-[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableKeyRotation)
+[Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-CancelKeyDeletion)
 
 **Document type**
 
@@ -28,7 +28,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Required\) The ID of the CMK that you want to cancel deletion for\.
+  Description: \(Required\) The ID of the key that you want to cancel deletion for\.
 
 **Required IAM permissions**
 
@@ -39,5 +39,5 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 + `kms:DescribeKey`
 
 **Document Steps**
-+ aws:executeAwsApi \- Cancels deletion for the CMK you specify in the `KeyId` parameter\.
-+ aws:assertAwsResourceProperty \- Confirms key deletion is disabled on your CMK\.
++ aws:executeAwsApi \- Cancels deletion for the key you specify in the `KeyId` parameter\.
++ aws:assertAwsResourceProperty \- Confirms deletion is disabled on your key\.

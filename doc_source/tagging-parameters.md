@@ -179,7 +179,7 @@ You can use the Systems Manager console or the command line to remove tags from 
    aws ssm remove-tags-from-resource \
        --resource-type "Parameter" \
        --resource-id "parameter-name" \
-       --tagkey "tag-key"
+       --tag-key "tag-key"
    ```
 
 ------

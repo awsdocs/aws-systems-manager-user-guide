@@ -90,7 +90,7 @@ We recommend using `SecureString` parameters for the following scenarios:
 + You want to be able to audit when sensitive data is accessed \(CloudTrail\)\.
 + You want to encrypt your sensitive data, and you want to bring your own encryption keys to manage access\.
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
-The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using an AWS KMS key\. You can use either a default KMS key provided by AWS or create and use your own customer master key \(CMK\)\. \(Use your own CMK if you need to restrict user access to `SecureString` parameters\. For more information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions)\.\)  
+The `SecureString` parameter type can be used for textual data that you want to encrypt, such as passwords, application secrets, confidential configuration data, or any other types of data you need to protect\. `SecureString` data is encrypted and decrypted using an AWS KMS key\. You can use either a default KMS key provided by AWS or create and use your own AWS KMS key\. \(Use your own AWS KMS key if you need to restrict user access to `SecureString` parameters\. For more information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions)\.\)  
 You can also use `SecureString` parameters with other AWS services\. In the following example, the Lambda function retrieves a `SecureString` parameter by using the [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API\.  
 
 ```
@@ -115,8 +115,8 @@ Parameter Store is also integrated with Secrets Manager\. You can retrieve Secre
 **AWS KMS encryption and pricing**  
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\.
 There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS KMS encryption do apply\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing)\.  
-For more information about AWS managed and customer managed CMKs, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
-To view an AWS managed CMK, use the AWS KMS `DescribeKey` operation\. This AWS Command Line Interface \(AWS CLI\) example uses `DescribeKey` to view and AWS\-managed CMK\.  
+For more information about AWS managed and customer managed keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
+To view an AWS managed key, use the AWS KMS `DescribeKey` operation\. This AWS Command Line Interface \(AWS CLI\) example uses `DescribeKey` to view and AWS managed key\.  
 
 ```
 aws kms describe-key --key-id alias/aws/ssm

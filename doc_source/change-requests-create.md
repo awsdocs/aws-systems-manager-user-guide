@@ -40,7 +40,7 @@ If the option to select a runbook is not available, the change template author h
 Markdown is a markup language that allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
 1. In the **Workflow start time** section, choose one of the following:
-   + **Run the operation at a scheduled time** – For **Scheduled start time**, enter the date and time you propose for running the runbook workflow for this request\.
+   + **Run the operation at a scheduled time** – For **Requested start time**, enter the date and time you propose for running the runbook workflow for this request\. For **Estimated end time**, enter the date and time that you expect the runbook workflow to complete\. \(This time is an estimate only that you are providing for reviewers\.\)
 **Tip**  
 Choose **View Change Calendar** to check for any blocking events for the time you specify\.
    + **Run the operation as soon as possible after approval** – If the change request is approved, the runbook workflow runs as soon as there is a non\-restricted period when changes can be made\.

@@ -38,7 +38,7 @@ You create a custom service role in the following cases:
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
 +  [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
-+  [\(Optional\) Create a custom service role for Maintenance Windows \(Console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
++  [\(Optional\) Create a custom service role for Maintenance Windows \(console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
 
 ### Service role for Amazon Simple Notification Service notifications<a name="setup-service-role-create-sns"></a>
 

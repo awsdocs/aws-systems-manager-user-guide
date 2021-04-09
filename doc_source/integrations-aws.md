@@ -42,7 +42,7 @@ Systems Manager is integrated with the following AWS services\.
 
 |  |  | 
 | --- |--- |
-| AWS Key Management Service \(AWS KMS\) |  [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/) is a managed service that makes it easy for you to create and control customer master keys \(CMKs\), the encryption keys used to encrypt your data\. Systems Manager enables you to use AWS KMS to create `SecureString` parameters and encrypt Session Manager session data\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/integrations-aws.html)  | 
+| AWS Key Management Service \(AWS KMS\) |  [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/) is a managed service that makes it easy for you to create and control customer managed keys, the encryption keys used to encrypt your data\. Systems Manager enables you to use AWS KMS to create `SecureString` parameters and encrypt Session Manager session data\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/integrations-aws.html)  | 
 
 ## Management and Governance<a name="integrations-aws-management-governance"></a>
 

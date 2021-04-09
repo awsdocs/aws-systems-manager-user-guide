@@ -21,7 +21,7 @@ We strongly recommend that you never put sensitive identifying information, such
 **Parameter Store Parameters**  
 The types of parameters you can create in Parameter Store include `String`, `StringList`, and `SecureString`\.
 
-To encrypt `SecureString` parameter values, Parameter Store uses an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. AWS KMS uses either a customer managed CMK or an AWS managed CMK to encrypt the parameter value in an AWS managed database\.
+To encrypt `SecureString` parameter values, Parameter Store uses an AWS KMS key in AWS Key Management Service \(AWS KMS\)\. AWS KMS uses either a customer managed key or an AWS managed key to encrypt the parameter value in an AWS managed database\.
 
 **Important**  
 Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
@@ -71,7 +71,7 @@ Systems Manager API endpoints only support secure connections over HTTPS\. When 
 AWS provides secure and private connectivity between EC2 instances\. In addition, we automatically encrypt in\-transit traffic between supported instances in the same VPC or in peered VPCs, using AEAD algorithms with 256\-bit encryption\. This encryption feature uses the offload capabilities of the underlying hardware, and there is no impact on network performance\. The supported instances are: C5n, G4, I3en, M5dn, M5n, P3dn, R5dn, and R5n\.
 
 **Session Manager sessions**  
-By default, Session Manager uses TLS 1\.2 to encrypt session data transmitted between the local machines of users in your account and your EC2 instances\. You can also choose to further encrypt the data in transit using a customer master key \(CMK\) that has been created in AWS Key Management Service\. 
+By default, Session Manager uses TLS 1\.2 to encrypt session data transmitted between the local machines of users in your account and your EC2 instances\. You can also choose to further encrypt the data in transit using an AWS KMS key that has been created in AWS Key Management Service\. 
 
 **Run Command access**  
 By default, remote access to your instances using Run Command is encrypted using TLS 1\.2, and requests to create a connection are signed using SigV4\.

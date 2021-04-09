@@ -3,7 +3,7 @@
 Amazon Simple Notification Service \(Amazon SNS\) can notify you when new versions of SSM Agent are released\. Use the following procedure to subscribe to these notifications\.
 
 **Tip**  
-You can also subscribe to notifications by watching the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
+You can also subscribe to notifications by watching the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub\.
 
 **To subscribe to SSM Agent notifications**
 

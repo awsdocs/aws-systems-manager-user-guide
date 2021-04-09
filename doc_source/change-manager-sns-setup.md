@@ -51,7 +51,7 @@ If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS 
 
 ## Task 3: \(Optional\) Update the AWS KMS access policy<a name="change-manager-sns-setup-KMS-policy"></a>
 
-If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS customer master key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish Change Manager approval notifications to the Amazon SNS topic you created in Task 1\.
+If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish Change Manager approval notifications to the Amazon SNS topic you created in Task 1\.
 
 1. Open the AWS KMS console at [https://console\.aws\.amazon\.com/kms](https://console.aws.amazon.com/kms)\.
 
@@ -59,7 +59,7 @@ If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption fo
 
 1. In the navigation pane, choose **Customer managed keys**\.
 
-1. Choose the ID of the customer master key you chose when you created the topic\.
+1. Choose the ID of the customer managed key you chose when you created the topic\.
 
 1. In the **Key policy** section, choose **Switch to policy view**\.
 

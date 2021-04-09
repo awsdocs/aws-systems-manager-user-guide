@@ -172,7 +172,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
    An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}
    ```
 
-1. Run the following command to create a `SecureString` parameter that uses an AWS\-managed customer master key \(CMK\)\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
+1. Run the following command to create a `SecureString` parameter that uses an AWS managed key\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
 
 ------
 #### [ Linux ]

@@ -98,15 +98,15 @@ Before you create a `SecureString` parameter, read about the requirements for th
        -Name "parameter-name" `
        -Value "parameter-value" `
        -Type "SecureString"  `
-       -KeyId "a KMS CMK ID, a KMS CMK ARN, an alias name, or an alias ARN" `
+       -KeyId "a AWS KMS key ID, a AWS KMS key ARN, an alias name, or an alias ARN" `
        --tags "Key=tag-key,Value=tag-value"
    ```
 
    If successful, the command returns the version number of the parameter\.
 **Note**  
-To use the AWS\-managed customer master key \(CMK\) assigned to your account, remove the `-KeyId` parameter from the command\.
+To use the AWS\-managed AWS KMS key assigned to your account, remove the `-KeyId` parameter from the command\.
 
-   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS\-managed customer master key \(CMK\)\.
+   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS\-managed AWS KMS key\.
 
    ```
    Write-SSMParameter `

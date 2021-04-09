@@ -1,6 +1,6 @@
 # Viewing patch compliance results<a name="viewing-patch-compliance-results"></a>
 
-Use this procedure to view patch compliance information about your managed instances\.
+Use these procedures to view patch compliance information about your managed instances\.
 
 This procedure applies to patch operations that use the `AWS-RunPatchBaseline` document\. For information about viewing patch compliance information for patch operations that use the `AWS-RunPatchBaselineAssociation` document, see [Identifying out\-of\-compliance instances](patch-compliance-identify.md)\.
 
@@ -30,7 +30,7 @@ For information about working with approved and rejected patch lists, see the fo
 
 ## Viewing patching compliance results \(console\)<a name="viewing-patch-compliance-results-console"></a>
 
-Use the following procedure to view patch compliance results in the AWS Systems Manager console\.
+Use the following procedure to view patch compliance results in the AWS Systems Manager console\. 
 
 **To view patch compliance results**
 

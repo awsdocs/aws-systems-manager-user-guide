@@ -63,7 +63,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 1. In the **Monitoring** section, for **CloudWatch alarm to monitor**, enter the name of an Amazon CloudWatch alarm in the current account to monitor the progress of runbook workflows that are based on this template\. 
 **Tip**  
-To create a new alarm, or to review the settings of an alarm you want to specify, choose **Open the AWS CloudWatch console**\. For information about working with CloudWatch alarms, see [Using Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*\.
+To create a new alarm, or to review the settings of an alarm you want to specify, choose **Open the Amazon CloudWatch console**\. For information about working with CloudWatch alarms, see [Using Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*\.
 
 1. In the **Notifications** section, do the following:
 

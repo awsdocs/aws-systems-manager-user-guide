@@ -2,7 +2,7 @@
 
 **Description**
 
-Copies a point\-in\-time snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\. You can copy the snapshot within the same AWS Region or from one Region to another\. Copies of encrypted Amazon EBS snapshots remain encrypted\. Copies of unencrypted snapshots remain unencrypted\. To copy an encrypted snapshot that was shared from another account, you must have permissions for the AWS KMS customer master key \(CMK\) used to encrypt the snapshot\. Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose\.
+Copies a point\-in\-time snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume\. You can copy the snapshot within the same AWS Region or from one Region to another\. Copies of encrypted Amazon EBS snapshots remain encrypted\. Copies of unencrypted snapshots remain unencrypted\. To copy an encrypted snapshot that was shared from another account, you must have permissions for the AWS KMS key used to encrypt the snapshot\. Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot)
 

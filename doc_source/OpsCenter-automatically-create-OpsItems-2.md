@@ -37,34 +37,34 @@ We recommend that you choose **Input transformer**\. This option enables you to 
 
    ```
    {
-           "title": "EBS snapshot copy failed",
-           "description": "CloudWatch Event Rule SSMOpsItems-EBS-snapshot-copy-failed was triggered. Your EBS snapshot copy has failed. See below for more details.",
-           "category": "Availability",
-           "severity": "2",
-           "source": "EC2",
-           "resources": resources,
-           "operationalData": {
-               "/aws/dedup": {
-                   "type": "SearchableString",
-                   "value": "{\"dedupString\":\"SSMOpsItems-EBS-snapshot-copy-failed\"}"
-               },
-               "/aws/automations": {
-                   "value": "[ { \"automationType\": \"AWS:SSM:Automation\", \"automationId\": \"AWS-CopySnapshot\" } ]"
-               },
-               "failure-cause": {
-                   "value": failure-cause
-               },
-               "source": {
-                   "value": source
-               },
-               "start-time": {
-                   "value": start-time
-               },
-               "end-time": {
-                   "value": end-time
-               }
+       "title": "EBS snapshot copy failed",
+       "description": "CloudWatch Event Rule SSMOpsItems-EBS-snapshot-copy-failed was triggered. Your EBS snapshot copy has failed. See below for more details.",
+       "category": "Availability",
+       "severity": "2",
+       "source": "EC2",
+       "resources": "resources",
+       "operationalData": {
+           "/aws/dedup": {
+               "type": "SearchableString",
+               "value": "{\"dedupString\":\"SSMOpsItems-EBS-snapshot-copy-failed\"}"
+           },
+           "/aws/automations": {
+               "value": "[ { \"automationType\": \"AWS:SSM:Automation\", \"automationId\": \"AWS-CopySnapshot\" } ]"
+           },
+           "failure-cause": {
+               "value": "failure-cause"
+           },
+           "source": {
+               "value": "source"
+           },
+           "start-time": {
+               "value": "start-time"
+           },
+           "end-time": {
+               "value": "end-time"
            }
        }
+   }
    ```
 
    For more information about these fields, see [Transforming target input](https://docs.aws.amazon.com/eventbridge/latest/userguide/transform-input.html) in the *Amazon EventBridge User Guide*\.

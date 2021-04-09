@@ -74,7 +74,7 @@ The following procedure describes how to quickly update SSM Agent running on you
 **Note**  
 Note the following details about automatically updating SSM Agent:  
 Beginning September 21, 2020, auto\-update installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3](ssm-agent-v3.md)\.
-To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
+To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub\.
 
 **To update SSM Agent using Run Command**
 
@@ -92,9 +92,9 @@ To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Note
 
 1. In the **Command parameters** section, specify values for the following parameters, if you want:
 
-   1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
+   1. \(Optional\) For **Version**, type the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) of the agent\. If you do not specify a version, the service installs the latest version\.
 
-   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
+   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
