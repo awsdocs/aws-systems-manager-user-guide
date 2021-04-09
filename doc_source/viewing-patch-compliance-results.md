@@ -30,7 +30,7 @@ For information about working with approved and rejected patch lists, see the fo
 
 ## Viewing patching compliance results \(console\)<a name="viewing-patch-compliance-results-console"></a>
 
-Use the following procedure to view patch compliance results in the AWS Systems Manager console\. 
+Use the following procedure to view patch compliance results in the AWS Systems Manager console\. For information about generating patch compliance reports that are downloaded to an Amazon Simple Storage Service \(Amazon S3\) bucket, see [Generating \.csv patch compliance reports](patch-compliance-reports-to-s3.md)\.
 
 **To view patch compliance results**
 

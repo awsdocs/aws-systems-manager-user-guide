@@ -595,6 +595,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Working with Patch Manager (console)](sysman-patch-working.md)
          + [Viewing AWS predefined patch baselines](view-predefined-patch-baselines.md)
          + [Viewing patch compliance results](viewing-patch-compliance-results.md)
+         + [Generating .csv patch compliance reports](patch-compliance-reports-to-s3.md)
          + [Viewing available patches (console)](viewing-available-patches.md)
          + [Working with custom patch baselines](sysman-patch-baseline-console.md)
             + [Creating a custom patch baseline (Windows)](create-baseline-console-windows.md)

@@ -22,6 +22,7 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 **Topics**
 + [Viewing AWS predefined patch baselines](view-predefined-patch-baselines.md)
 + [Viewing patch compliance results](viewing-patch-compliance-results.md)
++ [Generating \.csv patch compliance reports](patch-compliance-reports-to-s3.md)
 + [Viewing available patches \(console\)](viewing-available-patches.md)
 + [Working with custom patch baselines](sysman-patch-baseline-console.md)
 + [Setting an existing patch baseline as the default](set-default-patch-baseline.md)
