@@ -19,8 +19,8 @@ State Manager integrates with AWS CloudTrail \(CloudTrail\) to provide a record 
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
 + [\(Optional\) Set Up integrations with other AWS services](setup-integrations.md)
 
-**Amazon EventBridge support**  
-This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+**EventBridge support**  
+This Systems Manager capability is supported as an *event* type in Amazon EventBridge \(EventBridge\) rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Getting started with State Manager**  
 Complete the following tasks to get started with State Manager\.

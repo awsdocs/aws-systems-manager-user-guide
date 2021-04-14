@@ -1,6 +1,6 @@
 # Creating change templates using Builder<a name="change-templates-custom-builder"></a>
 
-Using the Builder for change templates, you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that AWS Systems Manager can use to run runbook workflows\.
+Using the Builder for change templates in AWS Systems Manager Change Manager \(Change Manager\), you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that AWS Systems Manager can use to run runbook workflows\.
 
 **To create a change template using Builder**
 
@@ -20,7 +20,7 @@ Using the Builder for change templates, you can configure the runbook workflow d
    + For **Description**, provide a brief explanation of how and when the change template you are creating is to be used\. 
 
      This description helps users who create change requests determine whether they are using the correct change template\. It helps those who review change requests understand whether the request should be approved\.
-   + For **Change template type**, specify whether your are creating a standard change template or an emergency change template\.
+   + For **Change template type**, specify whether you are creating a standard change template or an emergency change template\.
 
      An emergency change template is used for situations when a change must be made even if changes are otherwise blocked by an event in the calendar in use by Change Calendar\. Change requests created from an emergency change template must still be approved by its designated approvers, but the requested changes can still run even when the calendar is blocked\.
    + For **Runbook options**, specify the runbooks that users can choose from when creating a change request\. You can add a single runbook or multiple runbooks\. Alternatively, you can allow requesters to specify which runbook to use\. In any of these cases, only one runbook can be included in the change request\.
@@ -91,4 +91,4 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
    If you are satisfied with the contents of the change template, choose **Submit for review**\. The users in your organization or account who have been specified as template reviewers on the **Settings** tab in Change Manager are notified that a new change template is pending their review\. 
 
-   If an Amazon Simple Notification Service \(Amazon SNS\) topic has been specified for change templates, notifications are sent when the change template is rejected or approved\. If you don't receive notifications related to this change template, you can return to Change Manager later to check on its status\.
+   If an Amazon SNS topic has been specified for change templates, notifications are sent when the change template is rejected or approved\. If you don't receive notifications related to this change template, you can return to Change Manager later to check on its status\.

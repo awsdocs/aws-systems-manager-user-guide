@@ -1,6 +1,10 @@
 # Update a Change Calendar event<a name="change-calendar-update-event"></a>
 
+Use the AWS Systems Manager console to update a Systems Manager Change Calendar \(Change Calendar\) event\.
+
 ## Update a Change Calendar event \(console\)<a name="change-calendar-update-event-console"></a>
+
+Use the following procedure to update a Change Calendar event in the Systems Manager console\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -10,7 +14,7 @@
 
 1. On the calendar entry's details page, choose **Events**\.
 
-1. In the calendar page, choose the event that you want to edit\. Use the buttons on the upper left to move back or forward one year, or back or forward one month\. Change the time zone, if required, by choosing the correct time zone from the drop\-down list\.
+1. In the calendar page, choose the event that you want to edit\. Use the buttons on the upper left to move back or forward one year, or back or forward one month\. Change the time zone, if required, by choosing the correct time zone from the dropdown list\.
 
 1. In **Event details**, you can change the **Description** text\. You cannot edit the name of the event\.
 
@@ -18,7 +22,7 @@
 
 1. To change the **Event end date** value, enter or choose a day in the format `MM/DD/YYYY` to end the event, and enter a time on the specified day in the format `hh:mm:ss` \(hours, minutes, and seconds\) to end the event\.
 
-1. To change the **Schedule time zone** value, choose a time zone that applies to the start and end times of the event\. You can enter part of a city name or time zone difference from Greenwich Mean Time \(GMT\) to find a time zone faster\. The default is Universal Coordinated Time \(UTC\)\.
+1. To change the **Schedule time zone** value, choose a time zone that applies to the start and end times of the event\. You can enter part of a city name or time zone difference from Greenwich Mean Time \(GMT\) to find a time zone faster\. The default is Coordinated Universal Time \(UTC\)\.
 
 1. To update an event to recur daily, weekly, or monthly, turn on **Recurrence**\.
 

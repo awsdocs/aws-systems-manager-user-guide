@@ -1,8 +1,8 @@
 # Get the state of the Change Calendar<a name="change-calendar-getstate"></a>
 
-You can get the overall state of the calendar or the state of the calendar at a specific time\. You can also show the next time that the calendar state changes from `OPEN` to `CLOSED`, or vice versa\.
+You can get the overall state of a calendar or the state of a calendar at a specific time in AWS Systems Manager Change Calendar \(Change Calendar\)\. You can also show the next time that the calendar state changes from `OPEN` to `CLOSED`, or vice versa\.
 
-You can do this task only by using the `GetCalendarState` API operation\. The procedure in this section uses the AWS CLI\.
+You can do this task only by using the `GetCalendarState` API operation\. The procedure in this section uses the AWS Command Line Interface \(AWS CLI\)\.
 + Run the following command to show the state of one or more calendar entries at a specific time\. The `--calendar-names` parameter is required, but `--at-time` is optional\.
 
 ------

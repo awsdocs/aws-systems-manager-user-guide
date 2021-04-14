@@ -1,6 +1,6 @@
 # Create a Change Calendar event<a name="change-calendar-create-event"></a>
 
-When you add an event to a Change Calendar entry, you are specifying a period of time during which the default action of the calendar entry is suspended\. For example, if the calendar entry type is closed by default, the calendar is open to changes during events\. In this release, you can only create a Change Calendar event by using the console\. Events are added to the Systems Manager Change Calendar document that you create when you create a Change Calendar entry\.
+When you add an event to an AWS Systems Manager Change Calendar \(Change Calendar\) entry, you are specifying a period of time during which the default action of the calendar entry is suspended\. For example, if the calendar entry type is closed by default, the calendar is open to changes during events\. In this release, you can only create a Change Calendar event by using the console\. Events are added to the Systems Manager Change Calendar document that you create when you create a Change Calendar entry\.
 
 ## Create a Change Calendar event \(console\)<a name="change-calendar-create-event-console"></a>
 
@@ -20,7 +20,7 @@ When you add an event to a Change Calendar entry, you are specifying a period of
 
 1. In **Event end date**, enter or choose a day in the format `MM/DD/YYYY` to end the event, and enter a time on the specified day in the format `hh:mm:ss` \(hours, minutes, and seconds\) to end the event\.
 
-1. In **Schedule time zone**, choose a time zone that applies to the start and end times of the event\. You can enter part of a city name or time zone difference from Greenwich Mean Time \(GMT\) to find a time zone faster\. The default is Universal Coordinated Time \(UTC\)\.
+1. In **Schedule time zone**, choose a time zone that applies to the start and end times of the event\. You can enter part of a city name or time zone difference from Greenwich Mean Time \(GMT\) to find a time zone faster\. The default is Coordinated Universal Time \(UTC\)\.
 
 1. To create an event that recurs daily, weekly, or monthly, turn on **Recurrence**\.
 

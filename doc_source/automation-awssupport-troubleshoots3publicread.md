@@ -28,7 +28,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this document\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) role that allows Systems Manager Automation to perform the actions on your behalf\. If no role is specified, Systems Manager Automation uses the permissions of the user that runs this runbook\.
 + CloudWatchLogGroupName
 
   Type: String
@@ -172,7 +172,7 @@ The `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` permi
   + Returns tags associated with the object\.
   + Uses the simulated IAM policy to confirm whether there is an explicit deny for this object in the S3 bucket policy for the `GetObject` API action\.
   + Returns the object's metadata to confirm that the storage class is supported\.
-  + Checks the object's server\-side encryption settings to confirm whether the object is encrypted using a AWS Key Management Service \(AWS KMS\) key\.
+  + Checks the object's server\-side encryption settings to confirm whether the object is encrypted using a AWS Key Management Service \(AWS KMS\) customer master key\.
 
  **Outputs** 
 

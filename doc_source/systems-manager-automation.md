@@ -63,8 +63,8 @@ Automation lets you share best practices with the rest of your organization\.
 
 You can create best practices for resource management in runbooks and easily share the runbooks across AWS Regions and groups\. You can also constrain the allowed values for the parameters the runbook accepts\.
 
-**Amazon EventBridge support**  
-This Systems Manager capability is supported as a *target* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+**EventBridge support**  
+This Systems Manager capability is supported as a *target* type in Amazon EventBridge \(EventBridge\) rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Automation use cases](#automation-use-cases)

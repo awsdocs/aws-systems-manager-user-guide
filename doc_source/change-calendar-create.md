@@ -1,6 +1,6 @@
 # Create a Change Calendar entry<a name="change-calendar-create"></a>
 
-When you create an AWS Systems ManagerChange Calendar entry, you are creating a Systems Manager document that uses the `text` format\.
+When you create an AWS Systems Manager Change Calendar \(Change Calendar\) entry, you are creating a Systems Manager document that uses the `text` format\.
 
 ## Create a Change Calendar entry \(console\)<a name="change-calendar-create-console"></a>
 

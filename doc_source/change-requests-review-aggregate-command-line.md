@@ -1,11 +1,11 @@
 # Viewing aggregated counts of change requests \(command line\)<a name="change-requests-review-aggregate-command-line"></a>
 
-You can view aggregated counts of change requests by using the [GetOpsSummary](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetOpsSummary.html) API action\. This API action can return counts for a single AWS account in a single Region or for multiple accounts and multiple Regions\.
+You can view aggregated counts of change requests in AWS Systems Manager Change Manager \(Change Manager\) by using the [GetOpsSummary](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetOpsSummary.html) API action\. This API action can return counts for a single AWS account in a single AWS Region or for multiple accounts and multiple Regions\.
 
 **Note**  
 If you want to view aggregated counts of change requests for multiple AWS accounts and multiple Regions, you must set up and configure a resource data sync\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) to view aggregated counts of change requests\. 
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) to view aggregated counts of change requests\. 
 
 **To view aggregated counts of change requests**
 

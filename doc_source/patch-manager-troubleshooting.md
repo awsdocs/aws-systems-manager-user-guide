@@ -2,6 +2,14 @@
 
 Use the following information to help you troubleshoot problems with Patch Manager\.
 
+**Topics**
++ [Troubleshooting mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch)
++ [Troubleshooting `AWS-RunPatchBaseline` output returns an `HRESULT`](#patch-manager-troubleshooting-hresult)
++ [Troubleshooting instance does not have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access)
++ [Troubleshooting PatchBaseline module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable)
++ [Troubleshooting missing patches](#patch-manager-troubleshooting-module-not-downloadable)
++ [Contacting AWS Support](#patch-manager-troubleshooting-contact-support)
+
 ## Troubleshooting mismatched product family/product pairs<a name="patch-manager-troubleshooting-product-family-mismatch"></a>
 
 **Problem**: When you create a patch baseline in the console, you specify a product family and a product\. For example, you might choose:

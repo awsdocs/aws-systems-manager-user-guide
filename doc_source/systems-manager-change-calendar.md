@@ -1,6 +1,6 @@
 # AWS Systems Manager Change Calendar<a name="systems-manager-change-calendar"></a>
 
-Systems Manager Change Calendar lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) documents\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+AWS Systems Manager Change Calendar \(Change Calendar\) lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 A Change Calendar entry can be one of two types:
 
@@ -11,8 +11,8 @@ When a calendar entry is open by default, actions can run by default, but are bl
 When a calendar entry is closed by default, actions that are tracking Change Calendar do not run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
 
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
-+ Any AWS customer who creates or runs Systems Manager Automation documents\.
-+ Administrators who are responsible for keeping the configurations of AWS Systems Manager managed instances consistent, stable, and functional\.
++ Any AWS customer who creates or runs Systems Manager Automation runbooks\.
++ Administrators who are responsible for keeping the configurations of Systems Manager managed instances consistent, stable, and functional\.
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>
 
@@ -28,8 +28,8 @@ The following are some benefits of Systems Manager Change Calendar\.
   You can run the Systems Manager `GetCalendarState` API operation to show you the current state of the calendar, the state at a specified time, or the next time that the calendar state is scheduled to change\.
 + 
 
-**Amazon EventBridge support**  
-This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+**EventBridge support**  
+This Systems Manager capability is supported as an *event* type in Amazon EventBridge \(EventBridge\) rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Who should use Change Calendar?](#systems-manager-change-calendar-who)

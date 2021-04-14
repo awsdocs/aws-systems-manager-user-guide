@@ -56,8 +56,6 @@ The following sections provide a sample AWS CLI command for registering a suppor
 
 The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI\.
 
-**AWS CLI command:**
-
 ------
 #### [ Linux ]
 

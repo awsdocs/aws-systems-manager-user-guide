@@ -1,6 +1,6 @@
 # Reviewing and approving or rejecting change requests<a name="change-requests-review"></a>
 
-If you are specified as a reviewer for a change request in Change Manager, you are notified through an Amazon Simple Notification Service topic when a new change request is awaiting your review\. 
+If you are specified as a reviewer for a change request in AWS Systems Manager Change Manager \(Change Manager\), you are notified through an Amazon Simple Notification Service \(Amazon SNS\) topic when a new change request is awaiting your review\. 
 
 **Note**  
 This functionality depends on whether an Amazon SNS was specified in the change template for sending review notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
@@ -8,7 +8,7 @@ This functionality depends on whether an Amazon SNS was specified in the change 
 To review the change request, you can follow the link in your notification, or sign in to the AWS Management Console directly and follow the steps in this procedure\.
 
 **Note**  
-If an Amazon Simple Notification Service \(Amazon SNS\) topic is assigned for reviewers in a change template, notifications are sent to the topic's subscribers when the change request changes status\.
+If an Amazon SNS topic is assigned for reviewers in a change template, notifications are sent to the topic's subscribers when the change request changes status\.
 
 ## Reviewing and approving or rejecting change requests \(console\)<a name="change-requests-review-console"></a>
 

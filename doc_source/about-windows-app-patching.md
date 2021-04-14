@@ -1,13 +1,41 @@
-# About patching applications on Windows Server<a name="about-windows-app-patching"></a>
+# About patching Microsoft applications on Windows Server<a name="about-windows-app-patching"></a>
 
+Use the information in this topic to help you prepare to patch applications on Windows Server\.
+
+**Microsoft application patching**  
+Patching support for applications on Windows Server managed instances is limited to applications released by Microsoft\.
+
+**Patch baselines for patch Microsoft applications**  
 For Windows Server, three predefined patch baselines are provided\. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself\. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The configuration settings in these two patch baselines are the same\. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server\. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\.
 
-**Note**  
-Microsoft application patching is only available on EC2 instances and in the advanced\-instances tier\. To patch Microsoft applications on on\-premises servers and VMs, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+You can also create a custom patch baseline to update Microsoft applications on Windows Server machines\.
 
-You can also create a custom patch baseline to update Microsoft applications on Windows Server machines\. 
+**Support for Amazon EC2 instances in the advanced\-instances tier**  
+Microsoft application patching is available for Amazon Elastic Compute Cloud \(Amazon EC2 instances, on\-premises instances, and virtual machines \(VMs\), but only in the advanced\-instances tier\. To patch Microsoft applications on any managed instance, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
-To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS CLI command demonstrates the minimal requirements to patch a product, such as Office 2016:
+**Windows update option for "other Microsoft products"**  
+In order for Patch Manager to be able to patch Microsoft applications on your Windows Server managed instances, the Windows update option **Give me updates for other Microsoft products when I update Windows** must be enabled on the instance\.
+
+For information about enabling this option on a single instance, see [Update Office with Microsoft Update](https://support.microsoft.com/en-us/office/update-office-with-microsoft-update-f59d3f9d-bd5d-4d3b-a08e-1dd659cf5282) on the Microsoft Support website\.
+
+For a fleet of instances running Windows Server 2016 and later, you can use a Group Policy Object \(GPO\) to enable the setting\. In the Group Policy Management Editor, go to **Computer Configuration**, **Administrative Templates**, **Windows Components**, **Windows Updates**, and choose **Install updates for other Microsoft products**\.
+
+For a fleet of instances running Windows Server 2012 or 2012 R2 , you can enable the option by using a script, as described in [Enabling and Disabling Microsoft Update in Windows 7 via Script](https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script) on the Microsoft Docs Blog website\. For example, you could do the following:
+
+1. Save the script from the blog post in a file\.
+
+1. Upload the file to an S3 bucket or other accessible location\.
+
+1. Use AWS Systems Manager Run Command to run the script on your instances using the Systems Manager document \(SSM document\) `AWS-RunPowerShellScript` with a command similar to the following:
+
+   ```
+   Invoke-WebRequest `
+       -Uri "http://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/script.vbs" `
+       -Outfile "C:\script.vbs" cscript c:\script.vbs
+   ```
+
+**Minimum parameter requirements**  
+To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS CLI command demonstrates the minimal requirements to patch a product, such as Office 2016\.
 
 ------
 #### [ Linux ]
@@ -29,7 +57,7 @@ aws ssm create-patch-baseline ^
 
 ------
 
-If you specify the Microsoft application product family, each product you specify must be a supported member of the selected product family\. For example, to patch the product "Active Directory Rights Management Services Client 2\.0," you must specify its product family as "Active Directory" and not, for example, "Office" or "SQL Server\." The following AWS CLI command demonstrates a matched pairing of product family and product:
+If you specify the Microsoft application product family, each product you specify must be a supported member of the selected product family\. For example, to patch the product "Active Directory Rights Management Services Client 2\.0," you must specify its product family as "Active Directory" and not, for example, "Office" or "SQL Server\." The following AWS CLI command demonstrates a matched pairing of product family and product\.
 
 ------
 #### [ Linux ]

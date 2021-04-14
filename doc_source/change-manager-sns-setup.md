@@ -1,11 +1,11 @@
 # Configuring Amazon SNS topics for Change Manager notifications<a name="change-manager-sns-setup"></a>
 
-You can configure Change Manager to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic for events related to change requests and change templates\. Complete the following tasks to receive notifications for the Change Manager events you add a topic to\.
+You can configure AWS Systems Manager Change Manager \(Change Manager\) to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic for events related to change requests and change templates\. Complete the following tasks to receive notifications for the Change Manager events you add a topic to\.
 
 **Topics**
 + [Task 1: Create and subscribe to an Amazon SNS topic](#change-manager-sns-setup-create-topic)
 + [Task 2: Update the Amazon SNS access policy](#change-manager-sns-setup-encryption-policy)
-+ [Task 3: \(Optional\) Update the AWS KMS access policy](#change-manager-sns-setup-KMS-policy)
++ [Task 3: \(Optional\) Update the AWS Key Management Service access policy](#change-manager-sns-setup-KMS-policy)
 
 ## Task 1: Create and subscribe to an Amazon SNS topic<a name="change-manager-sns-setup-create-topic"></a>
 
@@ -49,7 +49,7 @@ The system now sends notifications to the Amazon SNS topic when the event type y
 **Important**  
 If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS KMS\) server\-side encryption key, then you must complete Task 3\.
 
-## Task 3: \(Optional\) Update the AWS KMS access policy<a name="change-manager-sns-setup-KMS-policy"></a>
+## Task 3: \(Optional\) Update the AWS Key Management Service access policy<a name="change-manager-sns-setup-KMS-policy"></a>
 
 If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish Change Manager approval notifications to the Amazon SNS topic you created in Task 1\.
 

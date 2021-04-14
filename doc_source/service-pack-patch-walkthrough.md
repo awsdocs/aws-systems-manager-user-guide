@@ -35,7 +35,7 @@ Use the following procedure to create a custom patch baseline to be used exclusi
    + **Classification**: Choose `ServicePacks`\. 
    + **Severity**: The severity value of patches the rule is to apply to\. To ensure that all Service Packs are included by the rule, choose `All`\. 
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
-     + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 100\.
+     + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released before a patch is automatically approved\. You can enter any integer from zero \(0\) to 360\. For most scenarios, we recommend waiting no more than 100 days\.
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released on or before that date\. For example, if you specify July 7, 2020, no patches released on or after July 8, 2020, are installed automatically\.
    + \(Optional\) **Compliance reporting**: The severity level you want to assign to Service Packs approved by the baseline, such as `High`\.
 **Note**  

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EncryptSNSTopic runbook enables encryption on the Amazon Simple Notification Service \(Amazon SNS\) topic you specify using an AWS Key Management Service \(AWS KMS\) key\. This runbook should only be used as a baseline to ensure that your Amazon SNS topics are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple topics with different keys\.
+The AWSConfigRemediation\-EncryptSNSTopic runbook enables encryption on the Amazon Simple Notification Service \(Amazon SNS\) topic you specify using an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. This runbook should only be used as a baseline to ensure that your Amazon SNS topics are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple topics with different CMKs\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EncryptSNSTopic)
 
@@ -28,7 +28,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS key you want to use to encrypt the Amazon SNS topic\.
+  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS CMK you want to use to encrypt the Amazon SNS topic\.
 + TopicArn
 
   Type: String

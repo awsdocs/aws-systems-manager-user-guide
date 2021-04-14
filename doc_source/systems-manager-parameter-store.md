@@ -3,7 +3,7 @@
 AWS Systems Manager Parameter Store \(Parameter Store\) provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
 **Note**  
-To implement password rotation lifecycles, use AWS Secrets Manager\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
+To implement password rotation lifecycles, use AWS Secrets Manager \(Secrets Manager\)\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
 
 ## How can Parameter Store benefit my organization?<a name="parameter-store-benefits"></a>
 

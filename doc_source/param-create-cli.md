@@ -124,7 +124,7 @@ If successful, the command returns the version number of the parameter\. **Excep
 
    ```
    aws ssm put-parameter \
-       --name "\amis\linux\golden-ami" \
+       --name "/amis/linux/golden-ami" \
        --type "String" \
        --value "ami-12345abcdeEXAMPLE"
    ```
@@ -145,7 +145,7 @@ If successful, the command returns the version number of the parameter\. **Excep
 
    ```
    aws ssm put-parameter ^
-       --name "\amis\windows\golden-ami" ^
+       --name "/amis/windows/golden-ami" ^
        --type "String" ^
        --value "ami-12345abcdeEXAMPLE"
    ```

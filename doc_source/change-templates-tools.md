@@ -1,6 +1,6 @@
 # Creating change templates using command line tools<a name="change-templates-tools"></a>
 
-The following procedures describe how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for Windows PowerShell to create a change request\. 
+The following procedures describe how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for Windows PowerShell to create a change request in AWS Systems Manager Change Manager \(Change Manager\)\. 
 
 **To create a change template**
 

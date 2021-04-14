@@ -40,8 +40,8 @@ This means you can use maintenance windows to perform tasks like the following o
 + Run AWS Step Functions state machines to perform tasks such as removing an instance from an Elastic Load Balancing environment, patching the instance, and then adding the instance back to the Elastic Load Balancing environment\.
 + Target instances that are offline by specifying an AWS resource group as the target\.
 
-**Amazon EventBridge support**  
-This Systems Manager capability is supported as an *event* type in EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+**EventBridge support**  
+This Systems Manager capability is supported as an *event* type in Amazon EventBridge \(EventBridge\) rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Setting up Maintenance Windows](sysman-maintenance-permissions.md)

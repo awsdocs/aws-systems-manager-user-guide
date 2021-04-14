@@ -118,7 +118,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Targets** section, choose how you want to target the AWS Resources where you want to run the Automation\. These options are required\.
 
-   1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation document that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
+   1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
 
    1. Use the **Targets** list to choose how you want to target resources\.
 

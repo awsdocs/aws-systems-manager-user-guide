@@ -2,9 +2,9 @@
 
 ## Update a Change Calendar entry \(console\)<a name="change-calendar-update-console"></a>
 
-You can update a Change Calendar entry's description, but not its name\. Although you can change the default state of a calendar entry, be aware that this reverses the behavior of change actions during events that are associated with the calendar entry\. For example, if you change the state of a calendar from **Open by default** to **Closed by default**, unwanted changes might be made during event periods when the users who created the associated events are not expecting changes\.
+You can update an AWS Systems Manager Change Calendar \(Change Calendar\) entry's description, but not its name\. Although you can change the default state of a calendar entry, be aware that this reverses the behavior of change actions during events that are associated with the calendar entry\. For example, if you change the state of a calendar from **Open by default** to **Closed by default**, unwanted changes might be made during event periods when the users who created the associated events are not expecting changes\.
 
-When you update a Change Calendar entry, you are editing the Systems Manager Change Calendar document that you created when you created the Change Calendar entry\.
+When you update a Change Calendar entry, you are editing the Change Calendar document that you created when you created the Change Calendar entry\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
