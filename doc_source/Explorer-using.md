@@ -1,6 +1,6 @@
 # Using Systems Manager Explorer<a name="Explorer-using"></a>
 
-This section includes information about how to customize Systems Manager Explorer by changing the widget layout and by changing the data that displays in the dashboard\.
+This section includes information about how to customize AWS Systems Manager Explorer by changing the widget layout and by changing the data that displays in the dashboard\.
 
 **Topics**
 + [Editing default rules for OpsItems](Explorer-using-editing-default-rules.md)

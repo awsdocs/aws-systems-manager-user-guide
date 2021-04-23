@@ -1,6 +1,6 @@
 # Configuring Amazon SNS topics for Change Manager notifications<a name="change-manager-sns-setup"></a>
 
-You can configure AWS Systems Manager Change Manager \(Change Manager\) to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic for events related to change requests and change templates\. Complete the following tasks to receive notifications for the Change Manager events you add a topic to\.
+You can configure Change Manager, a capability of AWS Systems Manager, to send notifications to an Amazon Simple Notification Service \(Amazon SNS\) topic for events related to change requests and change templates\. Complete the following tasks to receive notifications for the Change Manager events you add a topic to\.
 
 **Topics**
 + [Task 1: Create and subscribe to an Amazon SNS topic](#change-manager-sns-setup-create-topic)

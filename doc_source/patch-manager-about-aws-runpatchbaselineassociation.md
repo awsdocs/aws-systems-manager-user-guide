@@ -115,7 +115,7 @@ You do not need to tag your instances with this key\-value pair\.
 `AssociationId` is the ID of an existingState Manager association \. It is used by Patch Manager to add compliance data to the specified Association\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances is not overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-association \

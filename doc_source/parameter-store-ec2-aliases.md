@@ -7,7 +7,7 @@ Support for AMI ID formats lets you avoid updating all your scripts and template
 For example, you can specify the parameter that contains your preferred AMI ID when you run the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances` command\.
 
 **Note**  
-The user who runs this command must have AWS Identity and Access Management \(IAM\) permissions that include the `ssm:GetParameters` API action in order for the parameter value to be validated\. Otherwise, the parameter creation process fails\.
+The user who runs this command must have AWS Identity and Access Management \(IAM\) permissions that include the `ssm:GetParameters` API operation in order for the parameter value to be validated\. Otherwise, the parameter creation process fails\.
 
 ```
 aws ec2 run-instances \
@@ -50,9 +50,9 @@ The following example policy grants users permission to call the `PutParameter` 
 
 ## How AMI format validation works<a name="parameter-ami-validation"></a>
 
-When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager does not create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
+When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
 
-It is important to note that a parameter version number may be generated before the validation operation is complete\. That is, a parameter version number being generated alone isn't an indication that the operation has completed successfully\.
+It's important to note that a parameter version number may be generated before the validation operation is complete\. That's, a parameter version number being generated alone isn't an indication that the operation has completed successfully\.
 
 To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge \(EventBridge\) to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. If an operation fails, the notification includes an error message that indicates the reason for the failure\. 
 

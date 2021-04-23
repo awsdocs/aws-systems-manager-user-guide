@@ -1,35 +1,35 @@
 # Configuring resource data sync for Inventory<a name="sysman-inventory-datasync"></a>
 
-This topic describes how to set up and configure resource data sync for Systems Manager Inventory\. For information about resource data sync for Systems Manager Explorer, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)\.
+This topic describes how to set up and configure resource data sync for AWS Systems Manager Inventory\. For information about resource data sync for Systems Manager Explorer, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)\.
 
 ## About resource data sync<a name="systems-manager-inventory-datasync-about"></a>
 
-You can use Systems Manager resource data sync to send inventory data collected from all of your managed instances to a single Amazon Simple Storage Service \(Amazon S3\) bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. With all inventory data stored in a target S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\.
+You can use Systems Manager resource data sync to send inventory data collected from all of your managed instances to a single Amazon Simple Storage Service \(Amazon S3\) bucket\. Resource data sync then automatically updates the centralized data when new inventory data is collected\. With all inventory data stored in a target Amazon S3 bucket, you can use services like Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\.
 
 For example, say that you've configured inventory to collect data about the operating system \(OS\) and applications running on a fleet of 150 managed instances\. Some of these instances are located in a hybrid data center, and others are running in Amazon Elastic Compute Cloud \(Amazon EC2\) across multiple AWS Regions\. If you have *not* configured resource data sync, you either need to manually gather the collected inventory data for each instance, or you have to create scripts to gather this information\. You would then need to port the data into an application so that you can run queries and analyze it\.
 
-With resource data sync, you perform a one\-time operation that synchronizes all inventory data from all of your managed instances\. After the sync is successfully created, Systems Manager creates a baseline of all inventory data and saves it in the target S3 bucket\. When new inventory data is collected, Systems Manager automatically updates the data in the S3 bucket\. You can then quickly and cost\-effectively port the data to Amazon Athena and Amazon QuickSight\.
+With resource data sync, you perform a one\-time operation that synchronizes all inventory data from all of your managed instances\. After the sync is successfully created, Systems Manager creates a baseline of all inventory data and saves it in the target Amazon S3 bucket\. When new inventory data is collected, Systems Manager automatically updates the data in the Amazon S3 bucket\. You can then quickly and cost\-effectively port the data to Amazon Athena and Amazon QuickSight\.
 
-Diagram 1 shows how resource data sync aggregates inventory data from managed instances in Amazon EC2 and a hybrid environment to a target S3 bucket\. This diagram also shows how resource data sync works with multiple AWS accounts and AWS Regions\.
+Diagram 1 shows how resource data sync aggregates inventory data from managed instances in Amazon EC2 and a hybrid environment to a target Amazon S3 bucket\. This diagram also shows how resource data sync works with multiple AWS accounts and AWS Regions\.
 
 **Diagram 1: Resource data sync with multiple AWS accounts and AWS Regions**
 
 ![\[Systems Manager resource data sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync.png)
 
-If you delete a managed instance, resource data sync preserves the inventory file for the deleted instance\. For running instances, however, resource data sync automatically overwrites old inventory files when new files are created and written to the S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:ManagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
+If you delete a managed instance, resource data sync preserves the inventory file for the deleted instance\. For running instances, however, resource data sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:ManagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
 
 Use the procedures in this section to create a resource data sync for Inventory by using the Amazon S3 and AWS Systems Manager consoles\. You can also use AWS CloudFormation to create or delete a resource data sync\. To use AWS CloudFormation, add the [AWS::SSM::ResourceDataSync](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html) resource to your AWS CloudFormation template\. For information, see one of the following documentation resources:
 + [AWS CloudFormation Resource for Resource Data Sync in AWS Systems Manager](http://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
 **Note**  
-You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the S3 bucket\. For an example of how to create an encrypted sync by using the AWS Command Line Interface \(AWS CLI\) and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)\. 
+You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in the Amazon S3 bucket\. For an example of how to create an encrypted sync by using the AWS Command Line Interface \(AWS CLI\) and how to work with the centralized data in Amazon Athena and Amazon QuickSight, see [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)\. 
 
 ## Before you begin<a name="sysman-inventory-datasync-before-you-begin"></a>
 
-Before you create a resource data sync, use the following procedure to create a central S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
+Before you create a resource data sync, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
 
-**To create and configure an S3 bucket for resource data sync**
+**To create and configure an Amazon S3 bucket for resource data sync**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -121,17 +121,17 @@ Use the following procedure to create a resource data sync for Systems Manager I
 
 1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created at the start of this procedure\.
 
-1. \(Optional\) In the **Bucket prefix** field, enter the name of an S3 bucket prefix \(subdirectory\)\.
+1. \(Optional\) In the **Bucket prefix** field, enter the name of an Amazon S3 bucket prefix \(subdirectory\)\.
 
-1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
+1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
 **Note**  
-If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. \(Optional\) In the **KMS Key ARN** field, type or paste a KMS Key ARN to encrypt inventory data in Amazon S3\.
 
 1. Choose **Create**\.
 
-To synchronize inventory data from multiple AWS Regions, you must create a resource data sync in *each* Region\. Repeat this procedure in each AWS Region where you want to collect inventory data and send it to the central S3 bucket\. When you create the sync in each Region, specify the central Amazon S3 bucket in the **Bucket name** field\. Then use the **Bucket region** option to choose the Region where you created the central Amazon S3 bucket, as shown in the following screen shot\. The next time the association runs to collect inventory data, Systems Manager stores the data in the central S3 bucket\. 
+To synchronize inventory data from multiple AWS Regions, you must create a resource data sync in *each* Region\. Repeat this procedure in each AWS Region where you want to collect inventory data and send it to the central Amazon S3 bucket\. When you create the sync in each Region, specify the central Amazon S3 bucket in the **Bucket name** field\. Then use the **Bucket region** option to choose the Region where you created the central Amazon S3 bucket, as shown in the following screen shot\. The next time the association runs to collect inventory data, Systems Manager stores the data in the central Amazon S3 bucket\. 
 
 ![\[Systems Manager resource data sync from multiple AWS Regions\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)
 
@@ -144,11 +144,11 @@ Before you begin, verify that you set up and configured AWS accounts in AWS Orga
 
 Also, be aware that you must create the organization\-based resource data sync for each AWS Region and account defined in AWS Organizations\. 
 
-### Creating a central S3 bucket<a name="sysman-inventory-datasync-before-you-begin"></a>
+### Creating a central Amazon S3 bucket<a name="sysman-inventory-datasync-before-you-begin"></a>
 
-Use the following procedure to create a central S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from your AWS Organizations account ID\. If you already have an S3 bucket that you want to use to aggregate inventory data for Resource Data Sync, then you must configure the bucket to use the policy in the following procedure\.
+Use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from your AWS Organizations account ID\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for Resource Data Sync, then you must configure the bucket to use the policy in the following procedure\.
 
-**To create and configure an S3 bucket for resource data sync for multiple accounts defined in AWS Organizations**
+**To create and configure an Amazon S3 bucket for resource data sync for multiple accounts defined in AWS Organizations**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 

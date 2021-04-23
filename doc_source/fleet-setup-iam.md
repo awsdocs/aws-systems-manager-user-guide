@@ -1,6 +1,6 @@
 # Step 1: Create an IAM policy with Fleet Manager permissions<a name="fleet-setup-iam"></a>
 
-To use AWS Systems Manager Fleet Manager \(Fleet Manager\), your AWS Identity and Access Management \(IAM\) user or role must have the required permissions\. You can create an IAM policy that provides access to all Fleet Manager features, or modify your policy to grant access to the features you choose\. The following policy samples provide the required permissions for all Fleet Manager features as well as the permissions needed for subsets of features\.
+To use Fleet Manager, a capability of AWS Systems Manager, your AWS Identity and Access Management \(IAM\) user or role must have the required permissions\. You can create an IAM policy that provides access to all Fleet Manager features, or modify your policy to grant access to the features you choose\. The following policy samples provide the required permissions for all Fleet Manager features and the permissions needed for subsets of features\.
 
 **Note**  
 In all the following policies, replace *key\-name* with the name of the AWS Key Management Service \(AWS KMS\) key you want to use to encrypt Session Manager session data\. Replace *region* and *account\-id* with your AWS Region and AWS account ID, such as `us-east-2` and `111122223333`\.

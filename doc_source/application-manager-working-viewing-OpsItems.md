@@ -1,6 +1,6 @@
 # Viewing OpsItems for an application<a name="application-manager-working-viewing-OpsItems"></a>
 
-The **OpsItems** tab displays operational work items \(OpsItems\) for resources in the selected application\. You can configure AWS Systems Manager OpsCenter to automatically create OpsItems from Amazon CloudWatch alarms and Amazon EventBridge events\. You can also manually create OpsItems\.
+The AWS Systems Manager Application Manager **OpsItems** tab displays operational work items \(OpsItems\) for resources in the selected application\. You can configure AWS Systems Manager OpsCenter to automatically create OpsItems from Amazon CloudWatch alarms and Amazon EventBridge events\. You can also manually create OpsItems\.
 
 **Actions you can perform on this tab**  
 You can perform the following actions on this page:

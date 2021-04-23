@@ -16,7 +16,7 @@ The following procedure describes how to patch a server environment by using a c
 The `OperatingSystem` parameter and `PatchFilters` vary depending on the operating system of the target instances the patch baseline applies to\. For more information, see [OperatingSystem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-OperatingSystem) and [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-patch-baseline \
@@ -52,7 +52,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 1. Run the following commands to register the "Production\-Baseline" patch baseline for two patch groups\. The groups are named "Database Servers" and "Front\-End Servers"\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-patch-baseline-for-patch-group \
@@ -81,7 +81,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-patch-baseline-for-patch-group \
@@ -112,7 +112,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 1. Run the following commands to create two maintenance windows for the production servers\. The first window runs every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the maintenance window is tagged to indicate that it is for a production environment\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-maintenance-window \
@@ -148,7 +148,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-maintenance-window \
@@ -186,7 +186,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 1. Run the following commands to register the `Database` and `Front-End` servers patch groups with their respective maintenance windows\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -218,7 +218,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -252,7 +252,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 1. Run the following commands to register a patch task that installs missing updates on the `Database` and `Front-End` servers during their respective maintenance windows\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -294,7 +294,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -340,7 +340,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 It is expected to see zeroes for the number of instances in the summary until the patch task runs during the first maintenance window\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-patch-group-state \
@@ -376,7 +376,7 @@ It is expected to see zeroes for the number of instances in the summary until th
 1. Run the following command to get patch summary states per\-instance for a patch group\. The per\-instance summary includes a number of patches in the respective patch states per instance for a patch group\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-instance-patch-states-for-patch-group \

@@ -21,7 +21,7 @@ To use the sample JSON file content we provide in the following examples, do the
 1. In the same directory where you stored the file, run the following command\. Substitute your file name for *MyFile\.json*\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -57,7 +57,7 @@ The following sections provide a sample AWS CLI command for registering a suppor
 The following examples demonstrate how to register Systems Manager Run Command tasks with a maintenance window using the AWS CLI\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-task-with-maintenance-window \
@@ -129,7 +129,7 @@ The following examples demonstrate how to register Systems Manager Automation ta
 **AWS CLI command:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 The following command restarts EC2 instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
 
@@ -190,7 +190,7 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 **AWS CLI command:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-task-with-maintenance-window \
@@ -259,7 +259,7 @@ The IAM policy for Maintenance Windows requires that you prefix Step Functions s
 **AWS CLI command:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-task-with-maintenance-window \

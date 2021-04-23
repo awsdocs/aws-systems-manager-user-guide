@@ -1,6 +1,6 @@
 # Working with OpsItems<a name="OpsCenter-working-with-OpsItems"></a>
 
-This section describes how to configure the options available in an OpsItem\. For information about creating OpsItems, see [Creating OpsItems](OpsCenter-creating-OpsItems.md)\. 
+This section describes how to configure the options available in an AWS Systems Manager OpsItem\. For information about creating OpsItems, see [Creating OpsItems](OpsCenter-creating-OpsItems.md)\. 
 
 **Topics**
 + [Working with related resources](#OpsCenter-working-with-OpsItems-related-resources)
@@ -12,7 +12,7 @@ This section describes how to configure the options available in an OpsItem\. Fo
 
 ## Working with related resources<a name="OpsCenter-working-with-OpsItems-related-resources"></a>
 
-A related resource is the impacted resource \(the resource that needs to be investigated or the resource that triggered the Amazon EventBridge event that created the OpsItem\)\. Each OpsItem has a **Related resources** section\. If EventBridge creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
+A *related resource* is the impacted AWS resource that needs to be investigated or that triggered an Amazon EventBridge event\. Each OpsItem has a **Related resources** section\. If EventBridge creates the OpsItem, then the system automatically populates the OpsItem with the Amazon Resource Name \(ARN\) of the resource\. You can also manually specify ARNs of related resources\. For some ARN types, AWS Systems Manager OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, you can specify the ARN of an Amazon EC2 instance\. In OpsCenter, you can then view all of the details that Amazon EC2 provides about that instance\. To view a list of resource types that automatically create deep links to related resource, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
 **Note**  
 You can manually add the ARNs of additional related resources\. Each OpsItem can list a maximum of 100 related resource ARNs\.
@@ -178,7 +178,7 @@ Note the following information about OpsCenter and deduplication:
 
 OpsCenter includes the following options for configuring deduplication strings\.
 + **Edit preconfigured deduplication strings**: Each of the OpsItem default EventBridge rules includes a preconfigured deduplication string\. You can edit these deduplication strings in EventBridge\.
-+ **Manually specify deduplication strings**: You can enter a deduplication string by using either the **Deduplication string** field in the console or the `OperationalData` parameter when you create a new OpsItem by using either the AWS CLI or AWS Tools for Windows PowerShell\. 
++ **Manually specify deduplication strings**: You can enter a deduplication string by using either the **Deduplication string** field in the console or the `OperationalData` parameter when you create a new OpsItem by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell\. 
 
 After the system creates an OpsItem, it populates the **Deduplication string** field, if a string was specified\. Here's an example\.
 
@@ -232,7 +232,7 @@ You can specify a deduplication string when you manually create a new OpsItem by
 Here is an example command that specifies a deduplication string of `disk full`\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-ops-item \

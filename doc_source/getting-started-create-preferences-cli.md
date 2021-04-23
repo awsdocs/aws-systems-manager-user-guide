@@ -75,7 +75,7 @@ You can use this procedure to create custom session documents for your Session M
    }
    ```
 
-1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and Amazon Elastic Compute Cloud \(Amazon EC2\) instances, provide the AWS KMS key to use for encryption\. The following is an example\.
+1. Specify where you want to send session data\. You can specify an S3 bucket name \(with an optional prefix\) or a CloudWatch Logs log group name\. If you want to further encrypt data between local client and Amazon Elastic Compute Cloud \(Amazon EC2\) instances, provide the KMS key to use for encryption\. The following is an example\.
 
    ```
    {
@@ -103,7 +103,7 @@ You can use this procedure to create custom session documents for your Session M
 **Note**  
 If you do not want to encrypt the session log data, change `true` to `false` for `s3EncryptionEnabled`\.  
 If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to enable Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the `inputs` section does not end with a comma\.  
-If you add an AWS KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the AWS KMS key with Session Manager through IAM policies\. For information, see the following topics:  
+If you add a KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the KMS key with Session Manager through IAM policies\. For information, see the following topics:  
 Add AWS KMS permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)
 Add AWS KMS permissions for instances in your account: [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 
@@ -112,7 +112,7 @@ Add AWS KMS permissions for instances in your account: [Step 2: Verify or create
 1. In the directory where you created the JSON file, run the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-document \

@@ -23,7 +23,7 @@ For use with the AWS CLI `[send\-command](https://docs.aws.amazon.com/cli/latest
 **Example 1: Targeting tags**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -52,7 +52,7 @@ You can specify a maximum of one resource group name per command\. When you crea
 In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \	
@@ -81,7 +81,7 @@ You can specify a maximum of five resource group types per command\. When you cr
 In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \	
@@ -105,7 +105,7 @@ aws ssm send-command ^
 **Example 4: Targeting instance IDs**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -129,7 +129,7 @@ aws ssm send-command ^
 If you tagged instances for different environments using a `Key` named `Environment` and `Values` of `Development`, `Test`, `Pre-production` and `Production`, then you could send a command to all of the instances in *one* of these environments by using the `targets` parameter with the following syntax:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -153,7 +153,7 @@ aws ssm send-command ^
 You could target additional instances in other environments by adding to the `Values` list\. Separate items using commas\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -179,7 +179,7 @@ aws ssm send-command ^
 You can refine the number of targets for your command by including multiple `Key` criteria\. If you include more than one `Key` criteria, the system targets instances that meet *all* of the criteria\. The following command targets all instances tagged for the Finance Department *and* tagged for the database server role\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -205,7 +205,7 @@ aws ssm send-command ^
 Expanding on the previous example, you can target multiple departments and multiple server roles by including additional items in the `Values` criteria\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -231,7 +231,7 @@ aws ssm send-command ^
 If you tagged instances for different environments using a `Key` named `Department` and `Values` of `Sales` and `Finance`, then you could send a command to all of the instances in these environments by using the `targets` parameter with the following syntax:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -260,7 +260,7 @@ If either a tag key \(the tag name\) or a tag value includes spaces, then you mu
 **Example**: Spaces in `Value` tag
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -284,7 +284,7 @@ aws ssm send-command ^
 **Example**: Spaces in `tag` key and `Value`
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -308,7 +308,7 @@ aws ssm send-command ^
 **Example**: Spaces in one item in a list of `Values`
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -342,7 +342,7 @@ You can control the rate at which commands are sent to instances in a group by u
 You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation is acknowledged before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -388,7 +388,7 @@ You can also control the execution of a command to hundreds or thousands of inst
 Invocations that are already running a command when `max-errors` is reached are allowed to complete, but some of these invocations may fail as well\. If you need to ensure that there won’t be more than `max-errors` failed invocations, set `max-concurrency` to **1** so the invocations proceed one at a time\. The default for max\-errors is 0\. The following examples show you how to specify values for the `max-errors` parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \

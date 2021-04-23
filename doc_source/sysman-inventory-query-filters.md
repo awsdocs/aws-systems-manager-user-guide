@@ -1,6 +1,6 @@
 # Querying an inventory collection by using filters<a name="sysman-inventory-query-filters"></a>
 
-After you collect inventory data, you can use the filter capabilities in Systems Manager to query a list of managed instances that meet certain filter criteria\. 
+After you collect inventory data, you can use the filter capabilities in AWS Systems Manager to query a list of managed instances that meet certain filter criteria\. 
 
 **To query instances based on inventory filters**
 

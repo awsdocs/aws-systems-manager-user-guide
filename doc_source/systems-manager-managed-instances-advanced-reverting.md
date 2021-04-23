@@ -6,9 +6,9 @@ This section describes how to change hybrid instances currently running in the a
 Review the following important details\.
 
 **Note**  
-You can't revert back to the standard\-instance tier if you are running more than 1,000 hybrid instances in the account and Region\. You must first deregister hybrid instances until you have 1,000 or fewer\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\. For more information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
-After you revert, you won't be able to use AWS Systems Manager Session Manager \(Session Manager\) to interactively access your hybrid instances\.
-After you revert, you won't be able to use AWS Systems Manager Patch Manager \(Patch Manager\) to patch Microsoft applications on hybrid servers and virtual machines \(VMs\)\.
+You can't revert back to the standard\-instance tier if you are running more than 1,000 hybrid instances in the account and Region\. You must first deregister hybrid instances until you have 1,000 or fewer\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\. For more information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
+After you revert, you won't be able to use Session Manager, a capability of AWS Systems Manager, to interactively access your hybrid instances\.
+After you revert, you won't be able to use Patch Manager, a capability of AWS Systems Manager, to patch Microsoft applications on hybrid servers and virtual machines \(VMs\)\.
 The process of reverting all hybrid instances back to the standard\-instance tier can take 30 minutes or more to complete\.
 
 This section describes how to revert all hybrid instances in an AWS account and Region from the advanced\-instances tier to the standard\-instances tier\.
@@ -35,14 +35,14 @@ The following procedure shows you how to use the Systems Manager console to chan
 
 ## Reverting to the standard\-instances tier \(AWS CLI\)<a name="systems-manager-managed-instances-advanced-reverting-cli"></a>
 
-The following procedure shows you how to use the AWS Command Line Interface \(AWS CLI\) to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified AWS account and Region\.
+The following procedure shows you how to use the AWS Command Line Interface to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified AWS account and Region\.
 
 **To revert to the standard\-instances tier using the AWS CLI**
 
 1. Open the AWS CLI and run the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-service-setting \
@@ -66,7 +66,7 @@ The following procedure shows you how to use the AWS Command Line Interface \(AW
 1. Run the following command 30 minutes later to view the settings for managed instances in the current AWS account and Region\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-service-setting \
@@ -74,7 +74,7 @@ The following procedure shows you how to use the AWS Command Line Interface \(AW
    ```
 
 ------
-#### [ Linux ]
+#### [ Windows ]
 
    ```
    aws ssm get-service-setting ^

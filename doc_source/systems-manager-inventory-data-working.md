@@ -1,6 +1,6 @@
 # Working with Systems Manager inventory data<a name="systems-manager-inventory-data-working"></a>
 
-This section includes topics that describe how to query and aggregate inventory data\. 
+This section includes topics that describe how to query and aggregate AWS Systems Manager Inventory data\. 
 
 **Topics**
 + [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md)

@@ -39,7 +39,7 @@ For more information about using the CLI for AWS Systems Manager tasks, see the 
 The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-patch-baseline \
@@ -156,7 +156,7 @@ The following command adds two patches as rejected and one patch as approved to 
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm update-patch-baseline \
@@ -234,7 +234,7 @@ The system returns information like the following\.
 ## Rename a patch baseline<a name="patch-manager-cli-commands-rename-patch-baseline"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm update-patch-baseline \
@@ -351,7 +351,7 @@ The system returns information like the following\.
 Here is another command that lists all patch baselines in a Region\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -394,7 +394,7 @@ The system returns information like the following\.
 ## List all AWS\-provided patch baselines<a name="patch-manager-cli-commands-describe-patch-baselines-aws"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -431,7 +431,7 @@ The system returns information like the following\.
 ## List my patch baselines<a name="patch-manager-cli-commands-describe-patch-baselines-custom"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-patch-baselines \
@@ -547,7 +547,7 @@ The system returns information like the following\.
 ## Set a custom patch baseline as the default<a name="patch-manager-cli-commands-register-default-patch-baseline"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-default-patch-baseline \
@@ -577,7 +577,7 @@ The system returns information like the following:
 ## Reset an AWS patch baseline as the default<a name="patch-manager-cli-commands-register-aws-patch-baseline"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-default-patch-baseline \
@@ -626,7 +626,7 @@ aws ec2 create-tags --resources "i-1234567890abcdef0" --tags "Key=Patch Group,Va
 Run the following command to add the `Patch Group` tag to a managed instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm add-tags-to-resource \
@@ -652,7 +652,7 @@ aws ssm add-tags-to-resource ^
 Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -683,7 +683,7 @@ The system returns information like the following:
 ## Tag a patch baseline<a name="patch-manager-cli-commands-add-tags-to-resource"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm add-tags-to-resource \
@@ -707,7 +707,7 @@ aws ssm add-tags-to-resource ^
 ## Register a patch group "web servers" with a patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -738,7 +738,7 @@ The system returns information like the following\.
 ## Register a patch group "Backend" with the AWS\-provided patch baseline<a name="patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
@@ -804,7 +804,7 @@ The system returns information like the following\.
 ## Deregister a patch group from a patch baseline<a name="patch-manager-cli-commands-deregister-patch-baseline-for-patch-group"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm deregister-patch-baseline-for-patch-group \
@@ -840,7 +840,7 @@ The system returns information like the following\.
 This command is supported for Windows Server patch baselines only\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-effective-patches-for-patch-baseline \
@@ -925,7 +925,7 @@ The system returns information like the following\.
 ## Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `CRITICAL`<a name="patch-manager-cli-commands-describe-available-patches-linux"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-available-patches \
@@ -971,7 +971,7 @@ The system returns information like the following\.
 ## Get all patches for Windows Server 2012 that have a MSRC severity of Critical<a name="patch-manager-cli-commands-describe-available-patches"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-available-patches \
@@ -1094,7 +1094,7 @@ The system returns information like the following\.
 ## List the tags for a patch baseline<a name="patch-manager-cli-commands-list-tags-for-resource"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-tags-for-resource \
@@ -1116,7 +1116,7 @@ aws ssm list-tags-for-resource ^
 ## Remove a tag from a patch baseline<a name="patch-manager-cli-commands-remove-tags-from-resource"></a>
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm remove-tags-from-resource \
@@ -1142,7 +1142,7 @@ aws ssm remove-tags-from-resource ^
 The per\-instance summary gives you a number of patches in the following states per instance: "NotApplicable", "Missing", "Failed", "InstalledOther" and "Installed"\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-instance-patch-states \

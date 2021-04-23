@@ -1,10 +1,10 @@
 # Viewing association histories<a name="sysman-state-assoc-history"></a>
 
-You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API action\. This action allows you to quickly see the status, detailed status, results, last execution time, and more information for an AWS Systems Manager State Manager \(State Manager\) association\. This API action also includes filters to help you quickly locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view only those executions that were processed after the specified date and time\.
+You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API operation\. This operation lets you to see the status, detailed status, results, last execution time, and more information for a State Manager association\. This API operation also includes filters to help you locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view executions processed after the specified date and time\.
 
-If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API action\. This action shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then quickly see which resource or instance failed to run an association\. With the resource ID you can then view the command execution details to see exactly which step in a command failed\.
+If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API operation\. This operation shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then see which resource or instance failed to run an association\. With the resource ID you can then view the command execution details to see which step in a command failed\.
 
-The examples in this section also include information about how to use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API action to run an association immediately and only one time\. You can use this API action when you investigate failed association executions\. If you see that an association failed, you can make a change on the resource, and then immediately run the association to see if the change on the resource allows the association to run successfully\.
+The examples in this section also include information about how to use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association once at the time of creation\. You can use this API operation when you investigate failed association executions\. If you see that an association failed, you can make a change on the resource, and then immediately run the association to see if the change on the resource allows the association to run successfully\.
 
 ## Viewing association histories \(console\)<a name="sysman-state-assoc-history-console"></a>
 
@@ -28,7 +28,7 @@ Use the search box filters to locate the execution for which you want to view de
 
 ![\[Filtering the list of State Manager association executions.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
 
-1. Choose an execution ID\. The **Association execution targets** page opens\. This page shows all of the resources that ran the association\.
+1. Choose an execution ID\. The **Association execution targets** page opens\. This page shows all the resources that ran the association\.
 
 1. Choose a resource ID to view specific information about that resource\.
 **Note**  
@@ -36,7 +36,7 @@ Use the search box filters to locate the resource for which you want to view det
 
 ![\[Filtering the list of State Manager association executions targets.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
 
-1. If you are investigating an association that failed to run, you can use the **Apply association now** button to run an association immediately and only one time\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.
+1. If you are investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.
 
 1. Choose the **Apply association now** button\. After the execution is complete, verify that the association execution succeeded\.
 
@@ -53,7 +53,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 1. Run the following command to view a list of executions for a specific association ID\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-executions \
@@ -90,10 +90,10 @@ This command includes a filter to limit the results to only those executions tha
 
 ------
 
-   The system returns information like the following\.
+   The system returns information like the following\.hr\-department
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -197,7 +197,7 @@ This command includes a filter to limit the results to only those executions tha
    You can limit the results by using one or more filters\. The following example returns all associations that were run before a specific date and time\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-executions \
@@ -228,7 +228,7 @@ This command includes a filter to limit the results to only those executions tha
    The following returns all associations that were *successfully* run after a specific date and time\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-executions \
@@ -268,7 +268,7 @@ This command includes a filter to limit the results to only those executions tha
 1. Run the following command to view all targets where the specific execution ran\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-execution-targets \
@@ -299,7 +299,7 @@ This command includes a filter to limit the results to only those executions tha
    You can limit the results by using one or more filters\. The following example returns information about all targets where the specific association failed to run\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-execution-targets \
@@ -336,7 +336,7 @@ This command includes a filter to limit the results to only those executions tha
    The following example returns information about a specific managed instance where an association failed to run\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association-execution-targets \
@@ -378,10 +378,10 @@ This command includes a filter to limit the results to only those executions tha
 
 ------
 
-1. If you are investigating an association that failed to run, you can use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API action to run an association immediately and only one time\. After you change the resource where the association failed to run, run the following command to run the association immediately and only one time\.
+1. If you are investigating an association that failed to run, you can use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association immediately and only one time\. After you change the resource where the association failed to run, run the following command to run the association immediately and only one time\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-associations-once \

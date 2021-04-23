@@ -47,7 +47,7 @@ If set to `true`, a continuous stream of session data logs are sent to the log g
 Type: Boolean  
 Required: Yes  
 [kmsKeyId](#kms)  
-The ID of the AWS Key Management Service \(AWS KMS\) key you want to use to further encrypt data between your local client machines and the Amazon Elastic Compute Cloud \(Amazon EC2\) instances you connect to\.  
+The ID of the AWS KMS key you want to use to further encrypt data between your local client machines and the Amazon Elastic Compute Cloud \(Amazon EC2\) instances you connect to\.  
 Type: String  
 Required: No  
 [runAsEnabled](#run)  

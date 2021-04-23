@@ -148,7 +148,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-targets \
@@ -200,7 +200,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-tasks \
@@ -276,7 +276,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-tasks \
@@ -330,7 +330,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-tasks \
@@ -404,7 +404,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-windows-for-target \
@@ -448,7 +448,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-executions \
@@ -502,7 +502,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-executions \
@@ -558,7 +558,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-schedule \
@@ -643,7 +643,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-schedule \
@@ -701,7 +701,7 @@ The system returns information like the following:
 Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-maintenance-window-schedule \

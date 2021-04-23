@@ -1,6 +1,6 @@
 # Setting up Change Manager for an organization \(management account\)<a name="change-manager-organization-setup"></a>
 
-The tasks in this topic apply if you are using AWS Systems Manager Change Manager \(Change Manager\) with an organization that is set up in AWS Organizations\. If you want to use Change Manager only with a single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
+The tasks in this topic apply if you are using Change Manager, a capability of AWS Systems Manager, with an organization that is set up in AWS Organizations\. If you want to use Change Manager only with a single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
 
 Perform the tasks in this section in an AWS account that is serving as the *management account* in Organizations\. For information about the management account and other Organizations concepts, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\.
 
@@ -14,7 +14,7 @@ Africa \(Cape Town\) \(af\-south\-1\)
 Asia Pacific \(Hong Kong\) \(ap\-east\-1\)
 Ensure that you are working in a different Region in your management account for this procedure\.
 
-During the setup procedure, you perform the following major tasks in AWS Systems Manager Quick Setup \(Quick Setup\)\.
+During the setup procedure, you perform the following major tasks in AWS Systems Manager Quick Setup\.
 + **Task 1: Register the delegated administrator account for your organization**
 
   The change\-related tasks that are performed using Change Manager are managed in one of your member accounts, which you specify to be the *delegated administrator account*\. The delegated administrator account you register for Change Manager becomes the delegated administrator account for all your Systems Manager operations\. \(You might have delegated administrator accounts for other AWS services\.\) Your delegated administrator account for Change Manager, which is not the same as your management account, manages change activities across your organization, including change templates, change requests, and approvals for each\. In the delegated administrator account, you also specify other configuration options for your Change Manager operations\. 

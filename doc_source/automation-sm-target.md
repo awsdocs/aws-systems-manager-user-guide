@@ -18,7 +18,7 @@ Be aware of the following important details before you run automation by using S
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
   ```
   aws iam create-service-linked-role \
@@ -117,7 +117,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to view a list of documents\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-documents
@@ -144,7 +144,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to view details about the runbook\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-document \
@@ -180,7 +180,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Targeting using tags*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -238,7 +238,7 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    *Targeting using parameter values*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -287,7 +287,7 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    *Targeting using AWS Resource Groups*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -336,7 +336,7 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    *Targeting multiple accounts and Regions*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -390,7 +390,7 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    The command returns details for the new association similar to the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

@@ -1,6 +1,6 @@
 # Increasing Parameter Store throughput<a name="parameter-store-throughput"></a>
 
-Increasing AWS Systems Manager Parameter Store \(Parameter Store\) throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store can process\. Increased throughput enables you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to a large number of parameters\. You can increase the limit up to the max throughput on the **Settings** tab\. For more information about max throughput, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store can process\. Increased throughput enables you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to multiple parameters\. You can increase the limit up to the max throughput on the **Settings** tab\. For more information about max throughput, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
 The Parameter Store throughput setting applies to all transactions created by all AWS Identity and Access Management \(IAM\) users in the current AWS account and Region\. The throughput setting applies to standard and advanced parameters\. 
@@ -14,8 +14,8 @@ The Parameter Store throughput setting applies to all transactions created by al
 ## Configuring permissions to increase Parameter Store throughput<a name="parameter-store-throughput-permissions"></a>
 
 Verify that you have permission in IAM to increase Parameter Store throughput by doing one of the following:
-+ Ensure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
-+ Ensure that you have permission to change the throughput service setting by using the following API actions:
++ Make sure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
++ Make sure that you have permission to change the throughput service setting by using the following API actions:
   + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)

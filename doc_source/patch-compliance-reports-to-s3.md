@@ -109,9 +109,11 @@ Use the following procedure to generate a patch summary report for a single inst
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Reporting** tab, and then choose the ID of the instance for which you want to generate a report\.
+1. Choose the **Reporting** tab\.
 
-1. Choose **Export to S3**\.
+1. Choose the button for the row of the instance for which you want to generate a report, and then choose **View detail**\.
+
+1. On the **Patch summary page**, choose **Export to S3**\.
 
 1. For **Report name**, enter a name to help you identify the report later\.
 
@@ -124,6 +126,8 @@ Use the following procedure to generate a patch summary report for a single inst
    For information about cron expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
 1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
+**Important**  
+If you are working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
@@ -161,7 +165,9 @@ Use the following procedure to generate a patch summary report for all instances
 
    For information about cron expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-1. For **Bucket name**, select the name of an S3 bucket where you want to store the \. report files\.
+1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
+**Important**  
+If you are working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when report the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 

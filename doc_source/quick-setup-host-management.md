@@ -41,8 +41,6 @@ You can edit Quick Setup configurations for your account any time\. To edit an *
 
 By default, Systems Manager doesn't have permission to communicate with or perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile and an IAM service role \(or *assume* role\)\. An instance profile is a container that passes IAM role information to an EC2 instance at launch\. A service role enables Systems Manager to run commands on your instances\. For more information about instance profiles, see [Using Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*\. For more information about service roles, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
 
-You can choose to have Quick Setup create and configure these roles for you by choosing **Use the default role**\. If you select an existing role, then that role must include IAM policies with, at minimum, the permissions described in this topic\. If you select existing roles and they don't have these permissions, then Quick Setup may fail to configure one or more selected components, or those components may fail to run correctly\.
-
 **Note**  
 Quick Setup doesn't override instance profiles that already exist on your instances\.
 

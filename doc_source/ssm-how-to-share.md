@@ -27,7 +27,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to specify your credentials\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws config
@@ -65,7 +65,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to list all of the SSM documents that are available for you\. The list includes documents that you created and documents that were shared with you\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-documents
@@ -90,7 +90,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to get a specific document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-document \
@@ -118,7 +118,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to get a description of the document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-document \
@@ -146,7 +146,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to view the permissions for the document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-document-permission \
@@ -177,7 +177,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. This command privately shares the document with a specific individual, based on that person's AWS account ID\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm modify-document-permission \
@@ -211,7 +211,7 @@ The following procedure requires that you specify an AWS Region for your command
 1. Use the following command to share a document publicly\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm modify-document-permission \

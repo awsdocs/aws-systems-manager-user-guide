@@ -5,7 +5,7 @@ You can use the document version parameter to specify which version of an System
 + $LATEST
 + Version number
 
-Use the following procedure to run a command using the document version parameter\. 
+Run the following procedure to run a command using the document version parameter\. 
 
 ------
 #### [ Linux ]
@@ -24,14 +24,14 @@ Use the following procedure to run a command using the document version paramete
    aws ssm list-documents
    ```
 
-1. Use the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\.
 
    ```
    aws ssm list-document-versions \
        --name "document-name"
    ```
 
-1. Use the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\.
 
    ```
    aws ssm send-command \
@@ -58,14 +58,14 @@ Use the following procedure to run a command using the document version paramete
    aws ssm list-documents
    ```
 
-1. Use the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\.
 
    ```
    aws ssm list-document-versions ^
        --name "document-name"
    ```
 
-1. Use the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\.
 
    ```
    aws ssm send-command ^
@@ -92,14 +92,14 @@ Use the following procedure to run a command using the document version paramete
    Get-SSMDocumentList
    ```
 
-1. Use the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\.
 
    ```
    Get-SSMDocumentVersionList `
        -Name "document-name"
    ```
 
-1. Use the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\.
 
    ```
    Send-SSMCommand `

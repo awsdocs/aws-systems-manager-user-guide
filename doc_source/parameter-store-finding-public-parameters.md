@@ -1,8 +1,8 @@
 # Finding public parameters<a name="parameter-store-finding-public-parameters"></a>
 
-You can search for public parameters using the AWS Systems Manager Parameter Store \(Parameter Store\) console or the AWS Command Line Interface \(AWS CLI\)\. A public parameter name begins with `aws/service/list`\. The next part of the name corresponds to the service that owns that parameter\. 
+You can search for public parameters using the Parameter Store console or the AWS Command Line Interface\. A public parameter name begins with `aws/service/list`\. The next part of the name corresponds to the service that owns that parameter\. 
 
-Below is a list of some of the services which provide public parameters:
+Below is a list of some services which provide public parameters:
 + ami\-al\-latest 
 + ami\-amazon\-linux\-latest
 + ami\-windows\-latest
@@ -18,19 +18,19 @@ Below is a list of some of the services which provide public parameters:
 + storagegateway
 + suse
 
-All public parameters are not published to all AWS Regions\.
+All public parameters aren't published to all AWS Regions\.
 
 ## Finding public parameters using the AWS CLI<a name="paramstore-discover-public-cli"></a>
 
 Use `describe-parameters` for discovery of public parameters\. Use `get-parameters-by-path` to get the actual path for a service listed under `/aws/service/list`\. To get the service's path, remove `/list` from the path\. For example, `/aws/service/list/ecs` becomes `/aws/service/ecs`\.
 
-To retrieve a list of services that own public parameters in Parameter Store, call `get-parameters-by-path`\. Then, filter all parameters whose names begin with `/aws/service/list`\. 
+To retrieve a list of public parameters owned by different services in Parameter Store, run the following command\.
 
 ```
-aws ssm get-parameters-by-path --parameter-filters "Key=Path, Option=Recursive, Values=/aws/service/list"
+aws ssm get-parameters-by-path --path /aws/service/list
 ```
 
-This returns a list of public parameters owned by different services\. The following example output has been truncated for space\.
+The following example output has been truncated for space\.
 
 ```
 {
@@ -75,7 +75,7 @@ This returns a list of public parameters owned by different services\. The follo
 }
 ```
 
-If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `describe-parameters` call and filter the parameters using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path filter may be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. The path filter is recursive by default\. Specify `Option:OneLevel` if you do not want it to be recursive\.
+If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `describe-parameters` call and filter the parameters using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path filter may be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. The path filter is recursive by default\. Specify `Option:OneLevel` if you don't want it to be recursive\.
 
 ```
 aws ssm describe-parameters --parameter-filters "Key=Path, Values=/aws/service/global-infrastructure"
@@ -154,6 +154,9 @@ The command returns information like the following example\. This example output
 The returned parameters might be different when you use `Option=BeginsWith` because it uses a different search pattern\.
 
 ## Finding public parameters using the Parameter Store console<a name="paramstore-discover-public-console"></a>
+
+**Note**  
+You must have at least one parameter in your AWS account and Region before you can search for public parameters using the console\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

@@ -1,6 +1,6 @@
 # Viewing log groups and log data<a name="application-manager-viewing-logs"></a>
 
-The **Logs** tab displays a list of log groups from Amazon CloudWatch Logs\.
+The AWS Systems Manager Application Manager **Logs** tab displays a list of log groups from Amazon CloudWatch Logs\.
 
 **Actions you can perform on this tab**  
 You can perform the following actions on this page:

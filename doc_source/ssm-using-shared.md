@@ -10,7 +10,7 @@ You are not required to specify ARNs for AWS public documents \(documents that b
  **To list all public SSM documents** 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-documents \
@@ -42,7 +42,7 @@ Get-SSMDocumentList `
  **To list private SSM documents that have been shared with you** 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-documents \
@@ -74,7 +74,7 @@ Get-SSMDocumentList `
  **To list all SSM documents available to you** 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-documents
@@ -99,7 +99,7 @@ Get-SSMDocumentList
  **To get information about an SSM document that has been shared with you** 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-document \
@@ -127,7 +127,7 @@ Get-SSMDocumentDescription `
  **To run a shared SSM document** 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \

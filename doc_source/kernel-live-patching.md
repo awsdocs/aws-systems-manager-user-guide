@@ -96,7 +96,7 @@ When you enable Kernel Live Patching, if the kernel already running on the insta
 + Run the following command on your local machine\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
   ```
   aws ssm send-command \
@@ -156,7 +156,7 @@ For information about applying kernel live patches by running `yum` commands dir
 1. To perform a `Scan` operation before checking your results in Systems Manager Compliance, run the following command from your local machine\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm send-command \
@@ -182,7 +182,7 @@ For information about applying kernel live patches by running `yum` commands dir
 1. To perform an `Install` operation after checking your results in Systems Manager Compliance, run the following command from your local machine\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm send-command \
@@ -245,7 +245,7 @@ When you disable Kernel Live Patching, the process uninstalls the Kernel Live Pa
 + Run a command similar to the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
   ```
   aws ssm send-command \

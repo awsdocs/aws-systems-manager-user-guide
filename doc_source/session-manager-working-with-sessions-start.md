@@ -123,7 +123,7 @@ Depending on your operating system and command line tool, the placement of quota
 To start a port forwarding session, run the following command from the CLI\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -163,7 +163,7 @@ Before you start a session, make sure that you have completed the setup steps fo
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \

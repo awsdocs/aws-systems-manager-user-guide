@@ -1,6 +1,6 @@
 # Searching for Systems Manager parameters<a name="parameter-search"></a>
 
-When you have a large number of parameters in your account, it can be difficult to find information about just one or a few parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), the AWS Tools for PowerShell \(Tools for PowerShell\), or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
+When you have a large number of parameters in your account, it can be difficult to find information about just one or a few parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
 
 **Topics**
 + [Search for a parameter \(console\)](#parameter-search-console)
@@ -16,7 +16,7 @@ When you have a large number of parameters in your account, it can be difficult 
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
 
-1. Click in the search box and choose how you want to search\. For example, Type or Name\.
+1. Select in the search box and choose how you want to search\. For example, Type or Name\.
 
 1. Provide information for the search type you selected\. For example:
    + If you are searching by Type, choose from String, StringList, or SecureString\.
@@ -41,7 +41,7 @@ The following examples demonstrate various options you can use to view informati
 1. Replace the sample values in the following commands with values reflecting parameters that have been created in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-parameters \

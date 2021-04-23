@@ -9,7 +9,7 @@ The following section describes how you can view Distributor packages using your
 This section contains information about how you can use your preferred command line tool to view Distributor packages using the provided commands\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 **To view packages using the AWS CLI on Linux**
 + To view all packages, excluding shared packages, run the following command\.

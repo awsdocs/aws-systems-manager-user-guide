@@ -1,6 +1,6 @@
 # Working with custom inventory<a name="sysman-inventory-custom"></a>
 
-You can assign any metadata you want to your instances by creating *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata\. You can then port all inventory metadata to a central Amazon S3 bucket by using [Resource Data Sync](sysman-inventory-resource-data-sync.html) and query the data\.
+You can assign any metadata you want to your instances by creating AWS Systems Manager Inventory *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata\. You can then port all inventory metadata to a central Amazon S3 bucket by using [Resource Data Sync](sysman-inventory-resource-data-sync.html) and query the data\.
 
 **Note**  
 Systems Manager supports a maximum of 20 custom inventory types per AWS account\.
@@ -78,7 +78,7 @@ For an example of how to use custom inventory, see [Get Disk Utilization of Your
 
 ## Deleting custom inventory<a name="sysman-inventory-delete"></a>
 
-You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS CLI to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
+You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS Command Line Interface \(AWS CLI\) to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
 
 **Note**  
 An inventory type is also called an inventory schema\.

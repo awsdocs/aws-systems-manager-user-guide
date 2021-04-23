@@ -85,7 +85,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
 For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-07T00:00:00"`, for when the activation code expires\. You can specify a date up to 30 days in advance\. If you don't provide an expiration date, the activation code expires in 24 hours\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-activation \
@@ -126,7 +126,7 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
    Here is an example\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-activation \

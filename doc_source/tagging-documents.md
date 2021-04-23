@@ -48,7 +48,7 @@ You can add tags to custom Systems Manager documents that you own by using the S
 1. Using your preferred command line tool, run the following command to view the list of documents that you can tag\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-documents
@@ -75,7 +75,7 @@ You can add tags to custom Systems Manager documents that you own by using the S
 1. Run the following command to tag a document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm add-tags-to-resource \
@@ -130,7 +130,7 @@ You can add tags to custom Systems Manager documents that you own by using the S
 1. Run the following command to verify the document tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \
@@ -189,7 +189,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Using your preferred command line tool, run the following command to list the documents in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-documents
@@ -216,7 +216,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to remove tags from a document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -257,7 +257,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to verify the document tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

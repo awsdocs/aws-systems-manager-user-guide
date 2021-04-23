@@ -1,6 +1,6 @@
 # Try out the AWS managed Hello World change template<a name="change-templates-aws-managed"></a>
 
-You can use the sample change template `AWS-HelloWorldChangeTemplate`, which uses the sample Automation runbook `AWS-HelloWorld`, to test the review and approval process after you have finished setting up AWS Systems Manager Change Manager \(Change Manager\)\. This template is designed for testing or verifying your configured permissions, approver assignments, and approval process\. Approval to use this change template in your organization or account has already been provided by AWS\. Any change request based on this change template, however, must still be approved by reviewers in your organization or account\.
+You can use the sample change template `AWS-HelloWorldChangeTemplate`, which uses the sample Automation runbook `AWS-HelloWorld`, to test the review and approval process after you have finished setting up Change Manager, a capability of AWS Systems Manager\. This template is designed for testing or verifying your configured permissions, approver assignments, and approval process\. Approval to use this change template in your organization or account has already been provided by AWS\. Any change request based on this change template, however, must still be approved by reviewers in your organization or account\.
 
 Rather than make changes to a resource, the result of the runbook workflow associated with this template is to print a message in the output of an Automation step\.
 

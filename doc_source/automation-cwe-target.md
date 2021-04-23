@@ -61,7 +61,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Triggers based on a schedule*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-rule \
@@ -92,7 +92,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The following example creates an EventBridge event rule that triggers every day at 9:00am \(UTC\)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-rule \
@@ -123,7 +123,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Triggers based on an event*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-rule \
@@ -154,7 +154,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The following example creates an EventBridge event rule that triggers when any EC2 instance in the Region changes state\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-rule \
@@ -185,7 +185,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The command returns details for the new EventBridge rule similar to the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -214,7 +214,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Create a command to specify a runbook as a target of the EventBridge event rule you created in step 2\. Here are some template commands to help\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-targets \
@@ -251,7 +251,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The following example creates an EventBridge event target that starts the specified instance ID using the runbook `AWS-StartEC2Instance`\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws events put-targets \
@@ -288,7 +288,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

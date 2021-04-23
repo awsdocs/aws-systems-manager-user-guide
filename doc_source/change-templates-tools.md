@@ -1,6 +1,6 @@
 # Creating change templates using command line tools<a name="change-templates-tools"></a>
 
-The following procedures describe how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for Windows PowerShell to create a change request in AWS Systems Manager Change Manager \(Change Manager\)\. 
+The following procedures describe how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux, macOS, or Windows\) or AWS Tools for Windows PowerShell to create a change request in Change Manager, a capability of AWS Systems Manager\. 
 
 **To create a change template**
 
@@ -10,7 +10,7 @@ The following procedures describe how to use the AWS Command Line Interface \(AW
 
 1. Create a JSON file on your local machine with a name such as `MyChangeTemplate.json`, and then paste the content for your change template into it\.
 **Note**  
-Change templates use a version of schema 0\.3 that does not include all the same support as for Automation documents\.
+Change templates use a version of schema 0\.3 that does not include all the same support as for Automation runbooks\.
 
    The following is an example\.
 **Note**  
@@ -96,7 +96,7 @@ This example demonstrates two levels of approvals\. You can specify up to five l
 1. Run the following command to create the change template\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-document \

@@ -28,7 +28,7 @@ You can add tags to OpsItems by using a command line tool\.
 1. Using your preferred command line tool, run the following command to view the list of OpsItem that you can tag\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-ops-items
@@ -55,7 +55,7 @@ You can add tags to OpsItems by using a command line tool\.
 1. Run the following command to tag an OpsItem\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm add-tags-to-resource \
@@ -110,7 +110,7 @@ You can add tags to OpsItems by using a command line tool\.
 1. Run the following command to verify the OpsItem tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \
@@ -150,7 +150,7 @@ You can use a command line tool to remove tags from Systems Manager OpsItems\.
 1. Using your preferred command line tool, run the following command to list the OpsItems in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-ops-items
@@ -177,7 +177,7 @@ You can use a command line tool to remove tags from Systems Manager OpsItems\.
 1. Run the following command to remove tags from an OpsItem\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -218,7 +218,7 @@ You can use a command line tool to remove tags from Systems Manager OpsItems\.
 1. Run the following command to verify the OpsItem tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

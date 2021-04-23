@@ -1,6 +1,6 @@
 # Create a Systems Manager parameter \(Tools for Windows PowerShell\)<a name="param-create-ps"></a>
 
-You can use AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\) to create `String`, `StringList`, and `SecureString` parameter types\. 
+You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. 
 
 **Note**  
 Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.  
@@ -41,14 +41,14 @@ Parameters are only available in the AWS Region where they were created\.
 
    The `-DataType` option must be specified only if you are creating a parameter that contains an AMI ID\. For all other parameters, the default data type is `text`\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 
-   Here is a String example that uses a parameter hierarchy\.
+   Here is an example that uses a parameter hierarchy\.
 
    ```
    Write-SSMParameter `
        -Name "/IAD/Web/SQL/IPaddress" `
        -Value "99.99.99.999" `
        -Type "String" `
-       Tags "Key=Region,Value=IAD"
+       -Tags "Key=Region,Value=IAD"
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -74,6 +74,15 @@ Parameters are only available in the AWS Region where they were created\.
    ```
 
    If successful, the command returns the version number of the parameter\.
+
+   Here is an example\.
+
+   ```
+   Write-SSMParameter `
+       -Name "stringlist-parameter" `
+       -Value "Milana,Mariana,Mark,Miguel" `
+       -Type "StringList"
+   ```
 **Note**  
 Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
 

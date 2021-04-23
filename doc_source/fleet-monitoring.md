@@ -1,6 +1,6 @@
 # Monitoring instance performance<a name="fleet-monitoring"></a>
 
-You can use AWS Systems Manager Fleet Manager \(Fleet Manager\) to view performance data about your instances in real\-time\. The performance data is retrieved from performance counters\.
+You can use Fleet Manager, a capability of AWS Systems Manager, to view performance data about your instances in real\-time\. The performance data is retrieved from performance counters\.
 
 The following performance counters are available in Fleet Manager:
 + CPU utilization
@@ -9,7 +9,7 @@ The following performance counters are available in Fleet Manager:
 + Memory usage
 
 **Note**  
-Fleet Manager uses AWS Systems Manager Session Manager \(Session Manager\) to retrieve performance data\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be enabled in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+Fleet Manager uses Session Manager, a capability of AWS Systems Manager, to retrieve performance data\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be enabled in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 **To view performance data with Fleet Manager**
 

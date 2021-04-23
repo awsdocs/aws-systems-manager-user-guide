@@ -1,6 +1,6 @@
 # Configuring Change Manager options and best practices<a name="change-manager-account-setup"></a>
 
-The tasks in this section must be performed whether you are using AWS Systems Manager Change Manager \(Change Manager\) across an organization or in a single account\.
+The tasks in this section must be performed whether you are using Change Manager, a capability of AWS Systems Manager, across an organization or in a single account\.
 
 If you are using Change Manager for an organization, you can perform the following tasks in either your delegated administrator account or any account in an organization unit that you have enabled for use with Change Manager\.
 
@@ -67,7 +67,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1), you can designate extra reviewers for change requests during *change freeze events* and specify which available best practices you want to enable for your Change Manager operations\.
 
-A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar \(Change Calendar\) is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they do not, the change will not be processed until the calendar state is again OPEN\.
+A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they do not, the change will not be processed until the calendar state is again OPEN\.
 
 **To configure Change Manager change freeze event approvers and best practices**
 

@@ -80,7 +80,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 1: Reference by using the name of the secret**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameter \
@@ -126,7 +126,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 2: Reference that includes the version ID**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameter \
@@ -173,7 +173,7 @@ Before you begin, verify that you have permission to reference Secrets Manager s
    **AWS CLI Example 3: Reference that includes the version stage**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameter \

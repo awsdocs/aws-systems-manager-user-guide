@@ -1,6 +1,6 @@
 # Creating change templates using Editor<a name="change-templates-custom-editor"></a>
 
-Use the steps in this topic to configure a change template in AWS Systems Manager Change Manager \(Change Manager\) by entering JSON or YAML instead of using the console controls\.
+Use the steps in this topic to configure a change template in Change Manager, a capability of AWS Systems Manager, by entering JSON or YAML instead of using the console controls\.
 
 **To create a change template using Editor**
 

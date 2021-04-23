@@ -57,7 +57,7 @@ You can add tags to maintenance windows that you own by using the Systems Manage
 1. Run the following command to tag a maintenance window\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm add-tags-to-resource \
@@ -89,7 +89,7 @@ You can add tags to maintenance windows that you own by using the Systems Manage
 1. Run the following command to verify the maintenance window tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \
@@ -180,7 +180,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Using your preferred command line tool, run the following command to list the maintenance windows in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-windows
@@ -207,7 +207,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to remove tags from a maintenance window\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -247,7 +247,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to verify the maintenance window tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

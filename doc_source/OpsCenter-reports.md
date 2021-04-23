@@ -1,6 +1,6 @@
 # Viewing OpsCenter summary reports<a name="OpsCenter-reports"></a>
 
-OpsCenter includes a summary page that automatically displays the following information:
+AWS Systems Manager OpsCenter includes a summary page that automatically displays the following information:
 + **OpsItem status summary**: a summary of OpsItems by status \(Open and In progress, Open, or In Progress\)\.
 + **Sources with most open OpsItems**: a breakdown of the top AWS services that have open OpsItems\.
 + **OpsItems by source and age**: a count of OpsItems, grouped by source and days since creation\.

@@ -10,7 +10,7 @@ Create an Amazon Machine Image \(AMI\) from a Windows Server 2008 R2, 2012 R2, o
 
 To upgrade your instance from Windows Server 2008 R2 to Windows Server 2016 or 2019, the runbook performs two steps\. The Windows Server 2008 R2 instance is upgraded to Windows Server 2012 R2\. Then the Windows Server 2012 R2 instance is upgraded to the target version \(Windows Server 2016 or 2019\)\.
 
-The upgrade operation is a multi\-step process that can take 2 hours to complete\. The automation creates an AMI from the instance and then launches a temporary instance from the newly created AMI in the `SubnetId` that you specify\. The security groups associated with your original instance are applied to the temporary instance\. The automation then performs an in\-place upgrade to the `TargetWindowsVersion` on the temporary instance\. To upgrade your Windows Server 2008 R2 instance to Windows Server 2016 or 2019, an in\-place upgrade is performed twice because directly upgrading Windows Server 2008 R2 to Windows Server 2016 or 2019 is not supported\. The automation also updates or installs the AWS drivers required by the temporary instance\. After the upgrade, the automation creates a new AMI from the temporary instance and then terminates the temporary instance\.
+The upgrade operation is a multi\-step process that can take 2 hours to complete\. We recommend performing an operating system upgrade on instances with at least 2 vCPUs and 4GB of RAM\. The automation creates an AMI from the instance and then launches a temporary instance from the newly created AMI in the `SubnetId` that you specify\. The security groups associated with your original instance are applied to the temporary instance\. The automation then performs an in\-place upgrade to the `TargetWindowsVersion` on the temporary instance\. To upgrade your Windows Server 2008 R2 instance to Windows Server 2016 or 2019, an in\-place upgrade is performed twice because directly upgrading Windows Server 2008 R2 to Windows Server 2016 or 2019 is not supported\. The automation also updates or installs the AWS drivers required by the temporary instance\. After the upgrade, the automation creates a new AMI from the temporary instance and then terminates the temporary instance\.
 
 You can test application functionality by launching a test instance from the upgraded AMI in your Amazon Virtual Private Cloud \(Amazon VPC\)\. After you finish testing, and before you perform another upgrade, schedule application downtime before completely switching over to the upgraded AMI\.
 
@@ -82,7 +82,7 @@ This Automation doesn't support upgrading Windows domain controllers, clusters, 
 
   Type: String
 
-  Description: \(Required\) Provide a subnet ID that is located in the same Amazon VPC as the instance you want to upgrade\. Verify that the subnet has outbound connectivity to AWS services, Amazon S3, and Microsoft \(to download patches\)\.
+  Description: \(Required\) This is the subnet for the upgrade process and where your source EC2 instance resides\. Verify that the subnet has outbound connectivity to AWS services, Amazon S3, and Microsoft \(to download patches\)\.
 + TargetWindowsVersion
 
   Type: String

@@ -1,9 +1,9 @@
 # AWS Systems Manager Parameter Store<a name="systems-manager-parameter-store"></a>
 
-AWS Systems Manager Parameter Store \(Parameter Store\) provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
+Parameter Store, a capability of AWS Systems Manager, provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
 **Note**  
-To implement password rotation lifecycles, use AWS Secrets Manager \(Secrets Manager\)\. Secrets Manager allows you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager Userguide*\.
+To implement password rotation lifecycles, use AWS Secrets Manager\. You can rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle using Secrets Manager\. For more information, see [What is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
 
 ## How can Parameter Store benefit my organization?<a name="parameter-store-benefits"></a>
 
@@ -15,44 +15,44 @@ Parameter Store offers these benefits:
 
 ## Who should use Parameter Store?<a name="parameter-store-who"></a>
 + Any AWS customer who wants to have a centralized way to manage configuration data\.
-+ Software developers who want to easily store different logins and reference streams\.
-+  Administrators who want to be notified when changes have or have not been made to secrets and passwords\.
++ Software developers who want to store different logins and reference streams\.
++ Administrators who want to receive notifications when their secrets and passwords are or aren't changed\.
 
 ## What are the features of Parameter Store?<a name="parameter-store-features"></a>
 + **Change notification**
 
-  You can configure change notifications and trigger automated actions for both parameters and parameter policies\. For more information, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
+  You can configure change notifications and invoke automated actions for both parameters and parameter policies\. For more information, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
 + **Organize and control access**
 
-  You can tag your parameters individually to help you quickly identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments, departments, users, groups, or periods\. You can also restrict access to parameters by creating an AWS Identity and Access Management \(IAM\) policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
+  You can tag your parameters individually to help you identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments, departments, users, groups, or periods\. You can also restrict access to parameters by creating an AWS Identity and Access Management \(IAM\) policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
 + **Label versions**
 
   You can associate an alias for versions of your parameter by creating labels\. Labels can help you remember the purpose of a parameter version when there are multiple versions\. 
 + **Data validation**
 
-  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store will validate these parameters to ensure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with aws:ec2:image data type, and Parameter Store performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\. 
+  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store validates these parameters to make sure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with aws:ec2:image data type, and Parameter Store performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\. 
 + **Reference secrets**
 
   Parameter Store is integrated with AWS Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. 
 + **Accessible from other AWS services**
 
-  You can use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. Parameters work with Systems Manager capabilities such as AWS Systems Manager Run Command \(Run Command\), AWS Systems Manager State Manager \(State Manager\), and AWS Systems Manager Automation \(Automation\)\. You can also reference parameters in a number of other AWS services, including the following:
+  You can use Parameter Store parameters with other Systems Manager capabilities and AWS services to retrieve secrets and configuration data from a central store\. Parameters work with Systems Manager capabilities such as Run Command, AWS Systems Manager Automation, and State Manager, capabilities of AWS Systems Manager\. You can also reference parameters in a number of other AWS services, including the following:
   + Amazon Elastic Compute Cloud \(Amazon EC2\)
   + Amazon Elastic Container Service \(Amazon ECS\)
-  + AWS Secrets Manager \(Secrets Manager\)
-  + AWS Lambda \(Lambda\)
-  + AWS CloudFormation \(CloudFormation\)
-  + AWS CodeBuild \(CodeBuild\)
-  + AWS CodePipeline \(CodePipeline\)
-  + AWS CodeDeploy \(CodeDeploy\)
+  + AWS Secrets Manager
+  + AWS Lambda
+  + AWS CloudFormation
+  + AWS CodeBuild
+  + AWS CodePipeline
+  + AWS CodeDeploy
 + **Integrate with other AWS services**
 
   Configure integration with the following AWS services for encryption, notification, monitoring, and auditing:
   + AWS Key Management Service \(AWS KMS\)
   + Amazon Simple Notification Service \(Amazon SNS\)
-  + Amazon CloudWatch \(CloudWatch\): For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)\. 
-  + Amazon EventBridge \(EventBridge\): For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\. 
-  + AWS CloudTrail \(CloudTrail\): For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
+  + Amazon CloudWatch: For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)\. 
+  + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\. 
+  + AWS CloudTrail: For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 
 ## What is a parameter?<a name="what-is-a-parameter"></a>
 

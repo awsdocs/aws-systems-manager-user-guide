@@ -146,7 +146,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Using your preferred command line tool, run the following command to list the parameters in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-parameters
@@ -173,7 +173,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to remove tags from a parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -213,7 +213,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to verify the document tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

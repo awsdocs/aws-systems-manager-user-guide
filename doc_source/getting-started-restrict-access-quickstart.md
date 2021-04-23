@@ -3,7 +3,7 @@
 Use the samples in this section to help you create AWS Identity and Access Management \(IAM\) policies that provide the most commonly needed permissions for Session Manager access\. 
 
 **Note**  
-You can also use an AWS Key Management Service \(AWS KMS\) key policy to control which IAM users, IAM roles, and AWS accounts are given access to your AWS KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+You can also use an AWS KMS key policy to control which IAM users, IAM roles, and AWS accounts are given access to your KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Topics**
 + [Quickstart end user policies for Session Manager](#restrict-access-quickstart-end-user)
@@ -178,7 +178,7 @@ Use this sample policy to provider users with the ability to start sessions from
 
 **2** If you specify the condition element, `ssm:SessionDocumentAccessCheck`, as `true`, the system checks that a user has explicit access to the defined session document, in this example `SSM-SessionManagerRunShell`, before a session is established\. For more information, see [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)\.
 
-**3** The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the AWS KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. If you won't use AWS KMS key encryption for your session data, remove the following content from the policy\.
+**3** The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. If you won't use KMS key encryption for your session data, remove the following content from the policy\.
 
 ```
 ,
@@ -191,7 +191,7 @@ Use this sample policy to provider users with the ability to start sessions from
         }
 ```
 
-For information about using AWS KMS for encrypting session data, see [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+For information about using AWS KMS for encrypting session data, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 **4** The permission for [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) is needed for cases where a user attempts to start a session from the Amazon EC2 console, but a command must be sent to update SSM Agent first\.
 

@@ -80,7 +80,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the runbook you choose\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -115,7 +115,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -145,7 +145,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 + Run the following command to approve an automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
   ```
   aws ssm send-automation-signal \
@@ -182,7 +182,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 + Run the following command to deny an automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
   ```
   aws ssm send-automation-signal \

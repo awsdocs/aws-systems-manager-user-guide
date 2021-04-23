@@ -3,7 +3,7 @@
 The Amazon Elastic Container Service \(Amazon ECS\) service publishes the name of the latest Amazon ECS optimized Amazon Machine Image \(AMI\) as a public parameter\. Users are encouraged to use this AMI when creating a new Amazon Elastic Compute Cloud \(Amazon EC2\) cluster for Amazon ECS because the optimized AMI includes bug fixes and feature updates\. Use the following command to view the name of the latest Amazon ECS optimized AMI\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \

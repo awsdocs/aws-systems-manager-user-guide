@@ -58,10 +58,19 @@ You can grant the required permissions with the following policy statement\.
             "Action": [
                 "ssm:*",
                 "ec2:describeInstances",
-                "iam:PassRole",
                 "iam:ListRoles"
             ],
             "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ssm.amazonaws.com"
+                }
+            }
         }
     ]
 }

@@ -17,7 +17,7 @@ For more information about working with the `--schedule` option, see [Reference:
    + Indicates through the use of custom tags that its creator intends to use it in a tutorial\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-maintenance-window \

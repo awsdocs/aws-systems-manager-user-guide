@@ -3,7 +3,7 @@
 The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell session settings](#walkthrough-powershell-settings)
@@ -20,7 +20,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 ## Configure AWS Tools for Windows PowerShell session settings<a name="walkthrough-powershell-settings"></a>
 
 **Specify your credentials**  
-Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 ```
 Set-AWSCredentials –AccessKey key-name –SecretKey key-name
@@ -228,7 +228,7 @@ Get-SSMCommandInvocation `
 
 Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command you must [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
-Currently you can only join an instance to a domain\. You cannot remove an instance from a domain\.
+Currently you can only join an instance to a domain\. You can't remove an instance from a domain\.
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.
@@ -279,7 +279,7 @@ Get-SSMCommandInvocation `
 
 ## Send Windows metrics to Amazon CloudWatch Logs using the AWS\-ConfigureCloudWatch document<a name="walkthrough-powershell-windows-metrics"></a>
 
-You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time are not included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
+You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time aren't included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
 
 If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the C:\\Program Files\\Amazon\\EC2ConfigService\\Settings\\AWS\.EC2\.Windows\.CloudWatch\.json file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
 
@@ -376,7 +376,7 @@ Get-SSMCommandInvocation `
 
 ### Update EC2Config to a specific version<a name="walkthrough-powershell-update-ec2config-specific-version"></a>
 
-The following command will downgrade EC2Config to an older version:
+The following command downgrades EC2Config to an older version:
 
 ```
 Send-SSMCommand `
@@ -425,7 +425,7 @@ Get-SSMCommandInvocation `
 
 ### Disable Windows automatic update<a name="walkthrough-powershell-enable-windows-update-disable"></a>
 
-The following command lowers the Windows Update notification level so the system checks for updates but does not automatically update the instance\.
+The following command lowers the Windows Update notification level so the system checks for updates but doesn't automatically update the instance\.
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `

@@ -24,7 +24,7 @@ Say that you use the AWS CLI to create a maintenance window with the following o
 For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-maintenance-window \
@@ -66,7 +66,7 @@ Suppose that next you create a maintenance window with these options:
 For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-maintenance-window \
@@ -107,7 +107,7 @@ Now you create a maintenance window with this option:
 For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-maintenance-window \
@@ -145,7 +145,7 @@ Now you create a maintenance window with this option:
 For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-maintenance-window \

@@ -36,7 +36,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 1. Use the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam create-role \
@@ -62,7 +62,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam attach-role-policy \
@@ -84,7 +84,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam attach-role-policy \
@@ -106,7 +106,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\. Your instance profile needs this policy only if you join your instances to a Microsoft AD directory\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam attach-role-policy \

@@ -1,8 +1,8 @@
 # Configuring inventory collection<a name="sysman-inventory-configuring"></a>
 
-This section describes how to configure inventory collection on one or more managed instances by using the Systems Manager console\. For an example of how to configure inventory collection by using the AWS CLI, see [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)\.
+This section describes how to configure AWS Systems Manager Inventory collection on one or more managed instances by using the Systems Manager console\. For an example of how to configure inventory collection by using the AWS Command Line Interface \(AWS CLI\), see [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)\.
 
-When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
+When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, AWS Systems Manager Run Command, the system returns the following error:
 
 ```
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
@@ -17,10 +17,10 @@ If an instance is assigned multiple inventory associations and each uses a tag k
 
 **Before You Begin**  
 Before you configure inventory collection, complete the following tasks\.
-+ Update SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
++ Update AWS Systems Manager SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 + For Microsoft Windows instances, verify that your instance is configured with Windows PowerShell 3\.0 \(or later\)\. SSM Agent uses the `ConvertTo-Json` cmdlet in PowerShell to convert Windows update inventory data to the required format\.
-+ \(Optional\) Create a resource data sync to centrally store inventory data in an S3 bucket\. Resource Data Sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
++ \(Optional\) Create a resource data sync to centrally store inventory data in an Amazon S3 bucket\. Resource Data Sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with custom inventory](sysman-inventory-custom.md)\.
 
 ## Inventory all managed instances in your AWS account<a name="inventory-management-inventory-all"></a>
@@ -123,11 +123,11 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 
    For more information about collecting File and Windows Registry inventory, see [Working with file and Windows registry inventory](sysman-inventory-file-and-registry.md)\.
 
-1. In the **Advanced** section, choose **Sync inventory execution logs to an S3 bucket** if you want to store the association execution status in an S3 bucket\.
+1. In the **Advanced** section, choose **Sync inventory execution logs to an Amazon S3 bucket** if you want to store the association execution status in an Amazon S3 bucket\.
 
 1. Choose **Setup Inventory**\. Systems Manager creates a State Manager association and immediately runs Inventory on the instances\.
 
-1. In the navigation pane, choose **State Manager**\. Verify that a new association was created that uses the **AWS\-GatherSoftwareInventory** document\. The association schedule uses a rate expression\. Also, verify that the **Status** field shows **Success**\. If you chose the option to **Sync inventory execution logs to an S3 bucket**, then you can view the log data in Amazon S3 after a few minutes\. If you want to view inventory data for a specific instance, then choose **Managed Instances** in the navigation pane\. 
+1. In the navigation pane, choose **State Manager**\. Verify that a new association was created that uses the **AWS\-GatherSoftwareInventory** document\. The association schedule uses a rate expression\. Also, verify that the **Status** field shows **Success**\. If you chose the option to **Sync inventory execution logs to an Amazon S3 bucket**, then you can view the log data in Amazon S3 after a few minutes\. If you want to view inventory data for a specific instance, then choose **Managed Instances** in the navigation pane\. 
 
 1. Choose an instance, and then choose **View details**\.
 

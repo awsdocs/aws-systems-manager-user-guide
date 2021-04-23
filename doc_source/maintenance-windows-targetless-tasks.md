@@ -19,7 +19,7 @@ For maintenance window tasks without a target specified, you cannot supply value
 The following example demonstrates omitting the `--targets`,`--max-errors`, and `--max-concurrency` options for a targetless maintenance window task\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-task-with-maintenance-window \

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableRedshiftClusterEncryption runbook enables encryption on the Amazon Redshift cluster you specify using an AWS Key Management Service \(AWS KMS\) customer master key \(CMK\)\. This runbook should only be used as a baseline to ensure that your Amazon Redshift clusters are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple clusters with different CMKs\. This runbook cannot change the AWS KMS CMK used on an already encrypted cluster\. To change the AWS KMS CMK used to encrypt a cluster, you must first disable encryption on the cluster\.
+The AWSConfigRemediation\-EnableRedshiftClusterEncryption runbook enables encryption on the Amazon Redshift cluster you specify using an AWS Key Management Service \(AWS KMS\) customer managed key\. This runbook should only be used as a baseline to ensure that your Amazon Redshift clusters are encrypted according to minimum recommended security best practices\. We recommend encrypting multiple clusters with different customer managed keys\. This runbook cannot change the AWS KMS customer managed key used on an already encrypted cluster\. To change the AWS KMS customer managed key used to encrypt a cluster, you must first disable encryption on the cluster\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterEncryption)
 
@@ -33,7 +33,7 @@ Databases
 
   Type: String
 
-  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS CMK you want to use to encrypt the cluster's data\.
+  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS customer managed key you want to use to encrypt the cluster's data\.
 
 **Required IAM permissions**
 

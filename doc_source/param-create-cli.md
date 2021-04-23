@@ -21,7 +21,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 1. Run the following command to create a `String`\-type parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -49,7 +49,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
    Run the following command to create a parameter that contains an Amazon Machine Image \(AMI\) ID as the parameter value\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -83,7 +83,7 @@ If successful, the command returns the version number of the parameter\. **Excep
    The following example adds two key\-value pair tags to a parameter\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -109,7 +109,7 @@ If successful, the command returns the version number of the parameter\. **Excep
    The following example uses a parameter hierarchy in the name to create a plaintext `String` parameter\. It returns the version number of the parameter\. For more information about parameter hierarchies, see [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    **Parameter not in a hierarchy**
 
@@ -243,7 +243,7 @@ The system returns information like the following\.
 1. Run the following command to create a parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -273,7 +273,7 @@ If successful, the command returns the version number of the parameter\.
    Here is a `StringList` example that uses a parameter hierarchy\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -316,7 +316,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 1. Run **one** of the following commands to create a parameter that uses the `SecureString` datatype\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    **Create a `SecureString` parameter using the default AWS managed key**
 
@@ -412,7 +412,7 @@ To use the AWS KMS key assigned to your AWS account and Region, remove the `key-
    The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and a AWS KMS key\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -438,7 +438,7 @@ To use the AWS KMS key assigned to your AWS account and Region, remove the `key-
 1. Run the following command to verify the details of the parameter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameters \
@@ -462,7 +462,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 1. Run the following command to view the parameter metadata\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-parameters \
@@ -482,7 +482,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 1. Run the following command to change the parameter value if you are **not** using a customer managed AWS KMS key\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -510,7 +510,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
    Run one of the following commands to change the parameter value if you **are** using a customer managed AWS KMS key\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -556,7 +556,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 1. Run the following command to view the latest parameter value\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameters \
@@ -578,7 +578,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 1. Run the following command to view the parameter value history\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameter-history \
@@ -596,9 +596,9 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 ------
 
 **Note**  
-You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the `SecureString` parameter type\. If you do choose `SecureString`, your parameter will be doubly encrypted\.
+You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the `SecureString` parameter type\. If you do choose `SecureString`, your parameter is doubly encrypted\.
 
-By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API action\. For information about configuring AWS KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
+By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API operation\. For information about configuring AWS KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
 
 ## Create a multi\-line parameter \(AWS CLI\)<a name="param-create-cli-multiline"></a>
 
@@ -611,7 +611,7 @@ You can use the AWS CLI to create a parameter with line breaks\. Adding line bre
 1. Run the following command to create a multi\-line parameter\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \

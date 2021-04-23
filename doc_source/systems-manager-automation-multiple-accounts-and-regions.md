@@ -165,7 +165,7 @@ Before you complete the following procedure, note the following information:
 1. Use the following format to create a command to run an automation in multiple Regions and accounts\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -215,7 +215,7 @@ Before you complete the following procedure, note the following information:
    **Example 1**: This example restarts EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `us-east-2` and `us-west-1` Regions\. The instances must be tagged with the tag key\-pair value `Env-PROD`\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -263,7 +263,7 @@ Before you complete the following procedure, note the following information:
    **Example 2**: This example restarts EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `eu-central-1` Region\. The instances must be members of the `prod-instances` AWS resource group\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -311,7 +311,7 @@ Before you complete the following procedure, note the following information:
    **Example 3**: This example restarts EC2 instances in the `ou-1a2b3c-4d5e6c` AWS organizational unit \(OU\)\. The instances are located in the `us-west-1` and `us-west-2` Regions\. The instances must be members of the `WebServices` AWS resource group\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -359,7 +359,7 @@ Before you complete the following procedure, note the following information:
    The system returns information similar to the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -388,7 +388,7 @@ Before you complete the following procedure, note the following information:
 1. Run the following command to view details for the automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
@@ -416,7 +416,7 @@ Before you complete the following procedure, note the following information:
 1. Run the following command to view details about the automation progress\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-automation-execution \

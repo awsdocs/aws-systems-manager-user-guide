@@ -5,7 +5,9 @@ AWS Systems Manager Automation provides predefined runbooks for AWS Identity and
 **Topics**
 + [AWS\-AttachIAMToInstance](automation-aws-attachiamtoinstance.md)
 + [AWSConfigRemediation\-DeleteIAMRole](automation-aws-delete-iam-role.md)
++ [AWSConfigRemediation\-DeleteIAMUser](automation-aws-delete-iam-user.md)
 + [AWSConfigRemediation\-DeleteUnusedIAMGroup](automation-aws-delete-iam-group.md)
++ [AWSConfigRemediation\-DeleteUnusedIAMPolicy](automation-aws-delete-iam-policy.md)
 + [AWSConfigRemediation\-DetachIAMPolicy](automation-aws-detach-iam-policy.md)
 + [AWSConfigRemediation\-EnableAccountAccessAnalyzer](automation-aws-enable-account-access-analyzer.md)
 + [AWSSupport\-GrantPermissionsToIAMUser](automation-awssupport-grantpermissionstoiamuser.md)

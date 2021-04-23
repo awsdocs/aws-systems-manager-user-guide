@@ -1,6 +1,6 @@
 # Working with parameters using Run Command commands<a name="sysman-param-runcommand"></a>
 
-You can work with parameters in AWS Systems Manager Run Command \(Run Command\)\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+You can work with parameters in Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Run a String parameter \(console\)<a name="param-test-console"></a>
 
@@ -38,7 +38,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
@@ -53,7 +53,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS Command Line Interface \(AWS CLI\) command to echo the parameter value\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -87,7 +87,7 @@ aws ssm send-command ^
 The next example command uses a `SecureString` parameter named **SecurePassword**\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -142,7 +142,7 @@ You can also reference Systems Manager parameters in the *Parameters* section of
 }
 ```
 
-Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with AWS Systems Manager Parameter Store \(Parameter Store\) parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix\.
+Don't confuse the similar syntax for *local parameters* used in the `runtimeConfig` section of SSM documents with Parameter Store parameters\. A local parameter isn't the same as a Systems Manager parameter\. You can distinguish local parameters from Systems Manager parameters by the absence of the `ssm:` prefix\.
 
 ```
 "runtimeConfig":{
@@ -156,7 +156,7 @@ Don't confuse the similar syntax for *local parameters* used in the `runtimeConf
 ```
 
 **Note**  
-SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, AWS Systems Manager Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples\.  
+SSM documents currently don't support references to `SecureString` parameters\. This means that to use `SecureString` parameters with, for example, Run Command, you have to retrieve the parameter value before passing it to Run Command, as shown in the following examples\.  
 
 ```
 value=$(aws ssm get-parameters --names parameter-name --with-decryption)

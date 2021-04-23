@@ -35,7 +35,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 1. Open the AWS CLI and run the following command in the directory where you placed `mw-role-trust-policy.json` in order to create a maintenance window role called `my-maintenance-window-role`\. The command assigns the policy you created in the previous step to this role\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam create-role \
@@ -85,7 +85,7 @@ Make a note of the `RoleName` and the `Arn` values\. You specify these when you 
 1. Run the following command to attach the `AmazonSSMMaintenanceWindowRole` managed policy to the role you created in step 2\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam attach-role-policy \
@@ -145,7 +145,7 @@ When you register a task with a maintenance window, you specify either a custom 
    + **For an IAM user:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
      ```
      aws iam put-user-policy \
@@ -184,7 +184,7 @@ To grant access for a user to register tasks for maintenance windows using the A
    + **For an IAM group:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
      ```
      aws iam put-group-policy \
@@ -224,7 +224,7 @@ To grant access for members of a group to register tasks for maintenance windows
 1. Run the following command to verify that the policy has been assigned to the group\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam list-group-policies \
@@ -264,7 +264,7 @@ To grant access for members of a group to register tasks for maintenance windows
    + **For an IAM user:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
      ```
      aws iam put-user-policy \
@@ -289,7 +289,7 @@ To grant access for members of a group to register tasks for maintenance windows
    + **For an IAM group:**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
      ```
      aws iam put-group-policy \
@@ -315,7 +315,7 @@ To grant access for members of a group to register tasks for maintenance windows
 1. Run the following command to verify that the policy has been assigned to the group\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws iam list-group-policies \

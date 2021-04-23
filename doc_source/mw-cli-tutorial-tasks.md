@@ -13,7 +13,7 @@ When you are ready to register other task types, or use more of the available Ru
 1. Run the following command on your local machine\. The version to run from a local Windows machine includes the escape characters \("/"\) that you need to run the command from your command line tool\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -53,7 +53,7 @@ When you are ready to register other task types, or use more of the available Ru
 1. Now run the following command to view details about the maintenance window task you created\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-tasks \
@@ -101,7 +101,7 @@ When you are ready to register other task types, or use more of the available Ru
 1. Wait until the task has had time to run, based on the schedule you specified in [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\. For example, if you specified **\-\-schedule "rate\(5 minutes\)"**, wait five minutes\. Then run the following command to view information about any executions that occurred for this task\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-executions \

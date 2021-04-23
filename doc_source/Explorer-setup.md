@@ -1,6 +1,6 @@
 # Getting started with Systems Manager Explorer and OpsCenter<a name="Explorer-setup"></a>
 
-Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer and Systems Manager OpsCenter\. In this documentation, Explorer and OpsCenter Setup is called *Integrated Setup*\. If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\.
+AWS Systems Manager uses an integrated setup experience to help you get started with AWS Systems Manager Explorer and AWS Systems Manager OpsCenter\. In this documentation, Explorer and OpsCenter Setup is called *Integrated Setup*\. If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\.
 
 **Note**  
 Integrated Setup is only available in the Systems Manager console\. You can't set up Explorer or OpsCenter programmatically\.
@@ -22,7 +22,7 @@ You can change setup configurations at any time on the **Settings** page\.
 
 ## Configuring OpsData sources<a name="Explorer-setup-data-sources"></a>
 
-Integrated Setup enables the following data sources that populate Systems Manager Explorer widgets\.
+Integrated Setup enables the following data sources that populate Explorer widgets\.
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager patch compliance

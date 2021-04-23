@@ -8,7 +8,7 @@ You can call the AWS Region, service, endpoint, Availability, and Wavelength Zon
 You can view a list of all active AWS Regions by using the following command in the AWS Command Line Interface \(AWS CLI\)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -63,7 +63,7 @@ The command returns information like the following\.
 You can view a complete list of all available AWS services and sort them into alphabetical order by using the following command\. This example output has been truncated for space\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -117,7 +117,7 @@ The command returns information like the following\.
 You can view a list of AWS Regions where a service is available\. This example uses AWS Systems Manager \(ssm\)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -171,7 +171,7 @@ The command returns information like the following\.
 You can view a Regional endpoint for a service by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameter \
@@ -200,7 +200,7 @@ The command returns information like the following\.
 You can view Availability Zones by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -252,7 +252,7 @@ The command returns information like the following\. This example has been trunc
 You can view the names of Availability Zones only by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -291,7 +291,7 @@ The command returns information like the following\. This example has been trunc
 You can view the names of the Availability Zones in one Region \(`us-east-1`, in this example\) using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -326,7 +326,7 @@ The command returns information like the following\. This example has been trunc
 You can view the Amazon Resource Names \(ARNs\) of Availability Zones only by using the following command\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -362,7 +362,7 @@ The command returns information like the following\.
 You can view local zones by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -428,7 +428,7 @@ The command returns information like the following\.
 You can view Wavelength Zones by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -557,7 +557,7 @@ The command returns information like the following\.
 You can view all parameter data for a local zone by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -650,7 +650,7 @@ The command returns information like the following\.
 You can view just the names of local zone parameters by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \

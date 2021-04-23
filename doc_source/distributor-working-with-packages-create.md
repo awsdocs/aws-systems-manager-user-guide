@@ -35,7 +35,7 @@ The `In-place` update option lets you add new or updated files to an existing pa
 
 1. For **Location**, choose a bucket by using the bucket name and prefix or by using the bucket URL\.
 
-1. For **Upload software**, choose **Add software**, and then browse for installable software files with `.rpm`, `.msi`, or `.deb` extensions\. You can upload more than one software file in a single action\.
+1. For **Upload software**, choose **Add software**, and then browse for installable software files with `.rpm`, `.msi`, or `.deb` extensions\. If the file name contains spaces, the upload fails\. You can upload more than one software file in a single action\.
 
 1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown is not correct, choose the correct operating system from the drop\-down list\.
 

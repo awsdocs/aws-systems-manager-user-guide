@@ -31,7 +31,7 @@ cd /usr
 Output a timestamp and welcome message at the start of a session\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 timestamp=$(date '+%Y-%m-%dT%H:%M:%SZ')
@@ -57,7 +57,7 @@ Write-Host "You have logged in to a production instance. Note that all session a
 View dynamic system activity at the start of a session\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 top

@@ -1,11 +1,11 @@
 # Troubleshooting Amazon EC2 managed instance availability<a name="troubleshooting-managed-instances"></a>
 
-For several AWS Systems Manager operations, you can choose to manually select the instances on which you will run the operation\. Examples include running an AWS Systems Manager Run Command \(Run Command\) command, specifying maintenance window targets, installing AWS Systems Manager Distributor \(Distributor\) packages, and connecting to the instance using AWS Systems Manager Session Manager \(Session Manager\)\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
+For several AWS Systems Manager operations, you can choose to manually select the instances on which you want to run the operation\. Examples include running an Run Command command, specifying maintenance window targets, installing Distributor packages, and connecting to the instance using Session Manager, a capability of AWS Systems Manager\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
 
 This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* does not appear in your lists of managed instances in Systems Manager\. 
 
 In order for an EC2 instance to be managed by Systems Manager and available in lists of managed instances, it must meet three primary requirements:
-+ AWS Systems Manager SSM Agent \(SSM Agent\) must be installed and running on an instance with a supported operating system\.
++ SSM Agent must be installed and running on an instance with a supported operating system\.
 **Note**  
 Some Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\)   
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
@@ -20,10 +20,10 @@ SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 + An AWS Identity and Access Management \(IAM\) instance profile that supplies the required permissions for the instance to communicate with the Systems Manager service must be attached to the instance\.
 + SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the instance must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
 
-After you verify that an EC2 instance is running, you can use the following command to check whether SSM Agent on one of these instance types has successfully registered itself with the Systems Manager service\. This command does not return results until a successful registration has taken place\.
+After you verify that an EC2 instance is running, you can use the following command to check whether SSM Agent on one of these instance types has successfully registered itself with the Systems Manager service\. This command doesn't return results until a successful registration has taken place\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-instance-associations-status \
@@ -75,7 +75,7 @@ If registration was successful and the instance is now available for Systems Man
 }
 ```
 
-If registration has not completed yet or was unsuccessful, the command returns results similar to the following:
+If registration hasn't completed yet or was unsuccessful, the command returns results similar to the following:
 
 ```
 {
@@ -83,7 +83,7 @@ If registration has not completed yet or was unsuccessful, the command returns r
 }
 ```
 
-If the command doesn't return results after five minutes or so, use the following information to help you troubleshoot problems with your managed instances\.
+If the command doesn't return results after 5 minutes or so, use the following information to help you troubleshoot problems with your managed instances\.
 
 **Topics**
 + [Solution 1: Verify that SSM Agent is installed and running on the instance](#instances-missing-solution-1)
@@ -97,7 +97,7 @@ If the command doesn't return results after five minutes or so, use the followin
 
 Make sure the latest version of SSM Agent is installed and running on the instance\.
 
-To check whether SSM Agent is installed and running on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
+To determine whether SSM Agent is installed and running on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
 
 To install or reinstall SSM Agent on an EC2 instance, see the following topics:
 + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
@@ -107,7 +107,7 @@ To install or reinstall SSM Agent on an EC2 instance, see the following topics:
 
 Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\.
 
-**To check whether an instance profile with the necessary permissions is attached to the instance**
+**To determine whether an instance profile with the necessary permissions is attached to the instance**
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
 
@@ -138,7 +138,7 @@ Verify that the instance is configured with an AWS Identity and Access Managemen
 
 Verify that the instance has connectivity to the Systems Manager service endpoints\. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS \(port 443\) outbound traffic to the service endpoints\. 
 
-In many cases, when you create an EC2 instance, the Systems Manager service endpoint for the AWS Region the instance is used to register the instance\. However, if you are using a Virtual Private Cloud \(VPC\) and the EC2 instance has been created in a private subnet, service endpoints are not provided automatically\. You must configure interface endpoints for your VPC instead\.
+Often, when you create an EC2 instance, the Systems Manager service endpoint for the AWS Region the instance is used to register the instance\. However, if you are using a Virtual Private Cloud \(VPC\) and the EC2 instance has been created in a private subnet, service endpoints aren't provided automatically\. You must configure interface endpoints for your VPC instead\.
 
 For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
 

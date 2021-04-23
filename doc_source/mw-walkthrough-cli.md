@@ -42,7 +42,7 @@ Use the following procedure to create a maintenance window and specify its basic
 1. Open the AWS CLI and run the following commands to create a maintenance window that runs weekly on Sundays at 02:00, in the United States Pacific time zone, with a one hour cutoff:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-maintenance-window \
@@ -115,7 +115,7 @@ Use the following procedure to register a target with your maintenance window cr
 1. Run the following command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -148,7 +148,7 @@ Use the following procedure to register a target with your maintenance window cr
 Use the following command to register multiple managed instances:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -172,7 +172,7 @@ Use the following command to register multiple managed instances:
    Use the following command to register instances by using Amazon EC2 tags\. For example:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -249,7 +249,7 @@ Use the following procedure to register a Run Command task for the maintenance w
 1. Run the following command to register a Run Command task for the maintenance window using the WindowTargetId value in Step 3\. The task updates SSM Agent by using the `AWS-UpdateSSMAgent` document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \

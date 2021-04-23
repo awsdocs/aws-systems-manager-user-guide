@@ -17,7 +17,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Open the AWS CLI and run the following command to update a target to include a name and a description:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-target \
@@ -62,7 +62,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update does not include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-target \
@@ -111,7 +111,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    Run the following command to specify a date and time range for regularly scheduled maintenance window executions:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window \
@@ -137,7 +137,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-task \
@@ -206,7 +206,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. Adapt and run the following command to update a Lambda task\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-task \
@@ -270,7 +270,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. If you are updating an AWS Step Functions task, adapt and run the following command to update its task\-invocation\-parameters:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-task \
@@ -336,7 +336,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. Run the following command to unregister a target from a maintenance window\. This example uses the `safe` parameter to determine if the target is referenced by any tasks and therefore safe to unregister:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm deregister-target-from-maintenance-window \
@@ -367,7 +367,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. Run the following command to unregister a target from a maintenance window even if the target is referenced by a task\. You can force the unregister operation by using the `no-safe` parameter:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm deregister-target-from-maintenance-window \
@@ -400,7 +400,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. Run the following command to update a Run Command task\. This example uses a Systems Manager Parameter Store parameter called `UpdateLevel`, which is formatted as follows: '`{{ssm:UpdateLevel}}`'
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-task \
@@ -459,7 +459,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 1. Run the following command to update an Automation task to specify WINDOW\_ID and WINDOW\_TASK\_ID parameters for the `task-invocation-parameters` parameter:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-maintenance-window-task \

@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run Ansible playbooks<a name="systems-manager-state-manager-ansible"></a>
 
-You can create AWS Systems Manager State Manager \(State Manager\) associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. This document offers the following benefits for running playbooks:
+You can create State Manager associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. This document offers the following benefits for running playbooks:
 + Support for running complex playbooks
 + Support for downloading playbooks from GitHub and Amazon Simple Storage Service \(Amazon S3\)
 + Support for compressed playbook structure
@@ -8,8 +8,8 @@ You can create AWS Systems Manager State Manager \(State Manager\) associations 
 + Ability to specify which playbook to run when playbooks are bundled
 
 **Note**  
-Systems Manager includes two SSM documents that enable you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.  
-Associations that run Ansible playbooks are not currently supported on macOS\.
+Systems Manager includes two SSM documents that allow you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.  
+Associations that run Ansible playbooks aren't currently supported on macOS\.
 
 **Support for running complex playbooks**
 
@@ -17,7 +17,7 @@ The `AWS-ApplyAnsiblePlaybooks` document supports bundled, complex playbooks bec
 
 **Support for downloading playbooks from GitHub**
 
-The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin to download playbook files\. Files can be stored in GitHub in a single file or as a combined set of playbook files\. To download content from GitHub, you must specify information about your GitHub repository in JSON format\. Here is an example\.
+The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin to download playbook files\. Files can be stored in GitHub in a single file or as a combined set of playbook files\. To download content from GitHub, specify information about your GitHub repository in JSON format\. Here is an example\.
 
 ```
 {
@@ -31,7 +31,7 @@ The `AWS-ApplyAnsiblePlaybooks` document uses the `aws:downloadContent` plugin t
 
 **Support for downloading playbooks from Amazon S3**
 
-You can also store and download Ansible playbooks in Amazon S3 as either a single \.zip file or a directory structure\. To download content from Amazon S3, you must specify the path to the file\. Here are two examples\.
+You can also store and download Ansible playbooks in Amazon S3 as either a single \.zip file or a directory structure\. To download content from Amazon S3, specify the path to the file\. Here are two examples\.
 
 **Example 1: Download a specific playbook file**
 
@@ -66,12 +66,12 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for speci
 
 ## Installed dependencies<a name="systems-manager-state-manager-ansible-depedencies"></a>
 
-If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that the following dependencies are installed on your instances:
+If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that your instances have the following dependencies installed:
 + **Ubuntu Server/Debian Server**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
 + **Amazon Linux**: Ansible
 + **RHEL**: Python 3, Ansible, Unzip
 
-If one or more of these dependencies are not found, then Systems Manager automatically installs them\.
+If one or more of these dependencies aren't found, then Systems Manager automatically installs them\.
 
 ## Create an association that runs Ansible playbooks \(console\)<a name="systems-manager-state-manager-ansible-console"></a>
 
@@ -115,7 +115,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. For **Install Dependencies**, choose an option\.
 
-1. \(Optional\) For **Playbook File**, enter a file name\. If the playbook is contained in a Zip file, then you must specify a relative path to the Zip file\.
+1. \(Optional\) For **Playbook File**, enter a file name\. If a Zip file contains the playbook, specify a relative path to the Zip file\.
 
 1. \(Optional\) For **Extra Variables**, enter variables that you want State Manager to send to Ansible at runtime\.
 
@@ -163,7 +163,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    **\(A\) GitHub source**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
@@ -196,7 +196,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    **\(B\) S3 source**
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
@@ -226,7 +226,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    --association-name "AnsibleAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 **Note**  
-State Manager associations do not support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
    The system attempts to create the association on the instances and immediately apply the state\. 
 

@@ -1,6 +1,6 @@
 # Getting started with Fleet Manager<a name="fleet-getting-started"></a>
 
-Before you can use AWS Systems Manager Fleet Manager \(Fleet Manager\) to monitor and manage your instances, complete the steps in the following topics\.
+Before you can use Fleet Manager, a capability of AWS Systems Manager, to monitor and manage your instances, complete the steps in the following topics\.
 
 **Topics**
 + [Step 1: Create an IAM policy with Fleet Manager permissions](fleet-setup-iam.md)

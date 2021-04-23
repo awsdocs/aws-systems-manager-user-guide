@@ -4,7 +4,7 @@ You can delete an event by using the AWS Management Console\.
 
 ## Delete a Change Calendar event \(console\)<a name="change-calendar-delete-event-console"></a>
 
-You can delete one AWS Systems Manager Change Calendar \(Change Calendar\) event at a time by using the AWS Management Console\.
+You can delete one AWS Systems Manager Change Calendar event at a time by using the AWS Management Console\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

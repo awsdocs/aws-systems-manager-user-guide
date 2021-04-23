@@ -1,10 +1,10 @@
 # Editing Systems Manager Explorer data sources<a name="Explorer-using-editing-data-sources"></a>
 
-Systems Manager Explorer displays data from the following sources: 
+AWS Systems Manager Explorer displays data from the following sources: 
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
-+ Systems Manager OpsCenter
-+ Systems Manager Patch Manager patch compliance
-+ Systems Manager State Manager association compliance
++ AWS Systems Manager OpsCenter
++ AWS Systems Manager Patch Manager patch compliance
++ AWS Systems Manager State Manager association compliance
 + AWS Trusted Advisor
 + AWS Compute Optimizer
 + AWS Support Center cases

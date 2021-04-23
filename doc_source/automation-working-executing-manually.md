@@ -53,7 +53,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to start a manual automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -87,7 +87,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -121,7 +121,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -150,7 +150,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm send-automation-signal \
@@ -186,7 +186,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to retrieve the status of each step execution in the automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-step-executions \
@@ -214,7 +214,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -342,7 +342,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to complete the automation after all steps specified within the chosen runbook have finished\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm stop-automation-execution \

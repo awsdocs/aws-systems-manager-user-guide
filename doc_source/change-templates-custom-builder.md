@@ -1,6 +1,6 @@
 # Creating change templates using Builder<a name="change-templates-custom-builder"></a>
 
-Using the Builder for change templates in AWS Systems Manager Change Manager \(Change Manager\), you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that AWS Systems Manager can use to run runbook workflows\.
+Using the Builder for change templates in Change Manager, a capability of AWS Systems Manager, you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that AWS Systems Manager can use to run runbook workflows\.
 
 **To create a change template using Builder**
 
@@ -22,7 +22,7 @@ Using the Builder for change templates in AWS Systems Manager Change Manager \(C
      This description helps users who create change requests determine whether they are using the correct change template\. It helps those who review change requests understand whether the request should be approved\.
    + For **Change template type**, specify whether you are creating a standard change template or an emergency change template\.
 
-     An emergency change template is used for situations when a change must be made even if changes are otherwise blocked by an event in the calendar in use by Change Calendar\. Change requests created from an emergency change template must still be approved by its designated approvers, but the requested changes can still run even when the calendar is blocked\.
+     An emergency change template is used for situations when a change must be made even if changes are otherwise blocked by an event in the calendar in use by AWS Systems Manager Change Calendar\. Change requests created from an emergency change template must still be approved by its designated approvers, but the requested changes can still run even when the calendar is blocked\.
    + For **Runbook options**, specify the runbooks that users can choose from when creating a change request\. You can add a single runbook or multiple runbooks\. Alternatively, you can allow requesters to specify which runbook to use\. In any of these cases, only one runbook can be included in the change request\.
    + For **Runbook**, select the names of the runbooks and the versions of those runbooks that users can choose from for their change requests\. Note that no matter how many runbooks you add to the change template, only one can be selected per change request\.
 

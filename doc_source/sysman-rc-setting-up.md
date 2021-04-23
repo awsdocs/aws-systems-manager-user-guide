@@ -1,8 +1,8 @@
 # Setting up Run Command<a name="sysman-rc-setting-up"></a>
 
-Before you can manage instances by using Run Command, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
+Before you can manage instances by using Run Command, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who runs commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
 
-You must also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
+You must also create an IAM instance profile role for any instance that processes commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
 
 We also strongly recommend completing the following optional setup tasks to help minimize the security posture and day\-to\-day management of your instances\.
 
@@ -17,7 +17,7 @@ You can restrict which of your managed instances commands can be run on by creat
 
 ## Restricting Run Command access based on instance tags<a name="sysman-rc-setting-up-cmdsec"></a>
 
-You can restrict command execution to specific instances by creating an IAM user policy that includes a condition that the user can only run commands on instances that are tagged with specific Amazon EC2 tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any instance \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that is not tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
+You can restrict command execution to specific instances by creating an IAM user policy that includes a condition that the user can only run commands on instances that are tagged with specific Amazon EC2 tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any instance \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that's not tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
 
 ```
 {
@@ -52,7 +52,7 @@ You can restrict command execution to specific instances by creating an IAM user
 }
 ```
 
-You can create IAM policies that enable a user to run commands on instances that are tagged with multiple tags\. The following policy enables the user to run commands on instances that have two tags\. If a user sends a command to an instance that is not tagged with both of these tags, the execution results show `AccessDenied`\.
+You can create IAM policies that enable a user to run commands on instances that are tagged with multiple tags\. The following policy enables the user to run commands on instances that have two tags\. If a user sends a command to an instance that's not tagged with both of these tags, the execution results show `AccessDenied`\.
 
 ```
 {
@@ -99,7 +99,7 @@ You can create IAM policies that enable a user to run commands on instances that
 }
 ```
 
-You can also create IAM policies that enable a user to run commands on multiple groups of tagged instances\. The following policy enables the user to run commands on either group of tagged instances, or both groups\.
+You can also create IAM policies that enables a user to run commands on multiple groups of tagged instances\. The following policy enables the user to run commands on either group of tagged instances, or both groups\.
 
 ```
 {

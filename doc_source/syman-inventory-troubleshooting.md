@@ -1,6 +1,6 @@
 # Troubleshooting problems with Systems Manager Inventory<a name="syman-inventory-troubleshooting"></a>
 
-This topic includes information about how to troubleshoot common errors or problems with Systems Manager Inventory\.
+This topic includes information about how to troubleshoot common errors or problems with AWS Systems Manager Inventory\.
 
 **Topics**
 + [Multiple apply all associations with document 'AWS\-GatherSoftwareInventory' are not supported](#systems-manager-inventory-troubleshooting-multiple)
@@ -65,7 +65,7 @@ The Inventory **Detailed View ** page is only available in AWS Regions that offe
 
 ## UnsupportedAgent<a name="sysman-inventory-troubleshooting-unsupported-agent"></a>
 
-If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of AWS Systems Manager SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Skipped<a name="sysman-inventory-troubleshooting-skipped"></a>
 
@@ -75,7 +75,7 @@ If you don't want the instance to be skipped by the global inventory association
 
 ## Failed<a name="sysman-inventory-troubleshooting-failed"></a>
 
-If the status of the inventory association for an instance shows **Failed**, this could mean that the instance has multiple inventory associations assigned to it\. An instance can only have one inventory association assigned at a time\. An inventory association uses the AWS\-GatherSoftwareInventory SSM document\. You can run the following command by using the AWS CLI to view a list of associations for an instance\.
+If the status of the inventory association for an instance shows **Failed**, this could mean that the instance has multiple inventory associations assigned to it\. An instance can only have one inventory association assigned at a time\. An inventory association uses the AWS\-GatherSoftwareInventory AWS Systems Manager document \(SSM document\)\. You can run the following command by using the AWS Command Line Interface \(AWS CLI\) to view a list of associations for an instance\.
 
 ```
 aws ssm describe-instance-associations-status --instance-id instance ID

@@ -74,7 +74,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to view a list of documents\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-documents
@@ -101,7 +101,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to view details about the runbook\. Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-document \
@@ -131,7 +131,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Targeting using tags*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -178,7 +178,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Targeting using parameter values*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -225,7 +225,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Targeting using AWS Resource Groups*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -272,7 +272,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    *Targeting all instances in the current AWS account and Region*
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -319,7 +319,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The command returns an execution ID\. Copy this ID to the clipboard\. You can use this ID to view the status of the automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -348,7 +348,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to view the automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
@@ -376,7 +376,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. To view details about the automation progress, run the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-automation-execution \
@@ -404,7 +404,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

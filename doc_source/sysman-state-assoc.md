@@ -1,6 +1,6 @@
 # Creating associations<a name="sysman-state-assoc"></a>
 
-The following procedures describe how to create an AWS Systems Manager State Manager \(State Manager\) association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\.
+The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface, and AWS Tools for PowerShell\.
 
 **Important**  
 The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an `Automation` document, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
@@ -31,7 +31,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. In the **Name** field, specify a name\. This is optional, but recommended\. A name helps you remember the purpose of the association\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
 
-1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies only to `Command` and `Policy` documents\. For information about creating an association that uses an `Automation` document, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an `Automation` document, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 
 1. For **Parameters**, specify the required input parameters\.
 
@@ -86,7 +86,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 **Before you begin**  
 The `targets` parameter is an array of search criteria that targets instances using a `Key`,`Value` combination that you specify\. If you plan to create an association on dozens or hundreds of instance by using the `targets` parameter, review the following targeting options before you begin the procedure\.
 
-Target a few instances by specifying IDs
+Target specific instances by specifying IDs
 
 ```
 --targets Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3
@@ -109,7 +109,7 @@ Target instances by using Amazon EC2 tags
 **Note**  
 When using Amazon EC2 tags, you can only use one tag key\. If you want to target your instances using more than one tag key, use the resource group option\.
 
-Target instances by using AWS Resource Groups \(Resource Groups\)
+Target instances by using AWS Resource Groups
 
 ```
 --targets Key=resource-groups:Name,Values=resource-group-name
@@ -126,7 +126,7 @@ Target all instances in the current AWS account and Region
 ```
 
 **Note**  
-When you create an association, you specify when the schedule runs\. You must specify the schedule by using a cron or rate expression\. For more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
+When you create an association, you specify when the schedule runs\. Specify the schedule by using a cron or rate expression\. For more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\.
 
 **To create an association**
 
@@ -137,7 +137,7 @@ When you create an association, you specify when the schedule runs\. You must sp
 1. Use the following format to create a command that creates a State Manager association\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -183,10 +183,10 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the AWS\-UpdateSSMAgent document to update AWS Systems Manager SSM Agent \(SSM Agent\) on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the AWS\-UpdateSSMAgent document to update the SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -235,7 +235,7 @@ When you create an association, you specify when the schedule runs\. You must sp
    The following commands creates an association that scans instances for missing patch updates by using the AWS\-RunPatchBaseline document\. This association targets all managed instances in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -275,10 +275,10 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -327,10 +327,10 @@ When you create an association, you specify when the schedule runs\. You must sp
 
 ------
 
-   The following example creates an association on instances in Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs only at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example creates an association on instances in Resource Groups\. The group is named "HR\-Department"\. The association uses the AWS\-UpdateSSMAgent document to update SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-association \
@@ -378,8 +378,6 @@ When you create an association, you specify when the schedule runs\. You must sp
    ```
 
 ------
-
-   
 
 **Note**  
 If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the association and according to the interval specified\.

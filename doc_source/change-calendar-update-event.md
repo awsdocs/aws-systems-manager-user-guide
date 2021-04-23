@@ -1,6 +1,6 @@
 # Update a Change Calendar event<a name="change-calendar-update-event"></a>
 
-Use the AWS Systems Manager console to update a Systems Manager Change Calendar \(Change Calendar\) event\.
+Use the AWS Systems Manager console to update a Systems Manager Change Calendar event\.
 
 ## Update a Change Calendar event \(console\)<a name="change-calendar-update-event-console"></a>
 

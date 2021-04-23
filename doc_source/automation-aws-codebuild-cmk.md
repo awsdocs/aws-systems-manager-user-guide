@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-ConfigureCodeBuildProjectWithKMSCMK runbook encrypts an AWS CodeBuild \(CodeBuild\) project's build artifacts using the AWS Key Management Service \(AWS KMS\) key you specify\. AWS Config must be enabled in the AWS Region where you run this automation\.
+The AWSConfigRemediation\-ConfigureCodeBuildProjectWithKMSCMK runbook encrypts an AWS CodeBuild \(CodeBuild\) project's build artifacts using the AWS Key Management Service \(AWS KMS\) customer managed key you specify\. AWS Config must be enabled in the AWS Region where you run this automation\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureCodeBuildProjectWithKMSCMK)
 
@@ -28,7 +28,7 @@ Linux, macOS, Windows
 
   Type: String
 
-  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS key you want to use to encrypt the CodeBuild project you specify in the `ProjectId` parameter\.
+  Description: \(Required\) The Amazon Resource Name \(ARN\) of the AWS KMS customer managed key you want to use to encrypt the CodeBuild project you specify in the `ProjectId` parameter\.
 + ProjectId
 
   Type: String

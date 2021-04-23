@@ -1,6 +1,6 @@
 # Configuring EventBridge to automatically create OpsItems for specific events<a name="OpsCenter-automatically-create-OpsItems-2"></a>
 
-Use the following procedure to configure **SSM OpsItems** as the target of an EventBridge event\. When EventBridge receives the event, it creates a new OpsItem in OpsCenter\. This procedure describes how to update an *existing* EventBridge event rule\. For information about how to create a new event rule, see [Creating a rule for an AWS service](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html) in the *Amazon EventBridge User Guide*\.
+Use the following procedure to configure **SSM OpsItems** as the target of an Amazon EventBridge event\. When EventBridge receives the event, it creates a new OpsItem in OpsCenter\. This procedure describes how to update an *existing* EventBridge event rule\. For information about how to create a new event rule, see [Creating a rule for an AWS service](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html) in the *Amazon EventBridge User Guide*\.
 
 **To configure OpsCenter as a target of an EventBridge event**
 

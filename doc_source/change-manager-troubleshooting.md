@@ -1,6 +1,6 @@
 # Troubleshooting Change Manager<a name="change-manager-troubleshooting"></a>
 
-Use the following information to help you troubleshoot problems with AWS Systems Manager Change Manager \(Change Manager\)\.
+Use the following information to help you troubleshoot problems with Change Manager, a capability of AWS Systems Manager\.
 
 **Topics**
 + [“Group *\{GUID\}* not found” error during change request approvals when using Active Directory \(groups](#change-manager-troubleshooting-sso)

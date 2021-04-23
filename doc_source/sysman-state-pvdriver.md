@@ -2,10 +2,10 @@
 
 Amazon Windows Amazon Machine Images \(AMIs\) contain a set of drivers to permit access to virtualized hardware\. These drivers are used by Amazon Elastic Compute Cloud \(Amazon EC2\) to map instance store and Amazon Elastic Block Store \(Amazon EBS\) volumes to their devices\. We recommend that you install the latest drivers to improve stability and performance of your EC2 instances for Windows Server\. For more information about PV drivers, see [AWS PV Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/xen-drivers-overview.html#xen-driver-awspv)\.
 
-The following walkthrough shows you how to configure an AWS Systems Manager State Manager \(State Manager\) association to automatically download and install new AWS PV drivers when the drivers become available\.
+The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\.
 
 **Before you begin**  
-Before you complete the following procedure, verify that you have at least one Amazon EC2 instance for Windows Server running that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one Amazon EC2 instance for Windows Server running that's configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **To create a State Manager association that automatically updates PV drivers**
 
@@ -26,16 +26,16 @@ Before you complete the following procedure, verify that you have at least one A
 1. In the **Parameters** section, choose **Install** from the **Action** list\.
 
 1. For **Installation type**, choose one of the following: 
-   + **Uninstall and reinstall**: The package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS\-published packages\.
+   + **Uninstall and reinstall**: Uninstall and then reinstall the package\. The application is unavailable until the reinstallation completes\.
+   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option isn't supported for AWS\-published packages\.
 
-1. In the **Name** field, enter **AWSPVDriver**\. You can leave the **Version** and **Additional Arguments** fields empty\.
+1. In the **Name** field, enter **AWSPVDriver**\. You can keep the **Version** and **Additional Arguments** fields empty\.
 
 1. In the **Targets** section, choose an option\.
 **Note**  
 If you choose to target instances by using tags, and you specify tags that map to Linux instances, the association succeeds on the Windows instance but fails on the Linux instances\. The overall status of the association shows **Failed**\.
 
-1. In the **Specify schedule** section, choose an option\. Updated PV drivers are only released a few times a year, so you can schedule the association to run once a month, if you want\.
+1. In the **Specify schedule** section, choose an option\. Updated PV drivers are released a several times a year, so you can schedule the association to run once a month, if you want\.
 
 1. In the **Advanced options** section, for **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
@@ -51,6 +51,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Create association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. 
 
-   If you created the association on one or more Amazon EC2 instances for Windows Server, the status changes to **Success**\. If your instances are not properly configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
+   If you created the association on one or more Amazon EC2 instances for Windows Server, the status changes to **Success**\. If your instances aren't configured for Systems Manager, or if you inadvertently targeted Linux instances, the status shows **Failed**\.
 
-   If the status is **Failed**, choose the association ID, choose the **Resources** tab, and then verify that the association was successfully created on your EC2 instances for Windows Server\. If EC2 instances for Windows Server show a status of **Failed**, verify that AWS Systems Manager SSM Agent \(SSM Agent\) is running on the instance, and verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+   If the status is **Failed**, choose the association ID, choose the **Resources** tab, and then verify that the association was successfully created on your EC2 instances for Windows Server\. If EC2 instances for Windows Server show a status of **Failed**, verify that the SSM Agent is running on the instance, and verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.

@@ -2,7 +2,7 @@
 
 **Description**
 
-The AWSConfigRemediation\-EnableEncryptionOnDynamoDBTable runbook encrypts an Amazon DynamoDB \(DynamoDB\) table using the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) you specify for the `KMSKeyId` parameter\.
+The AWSConfigRemediation\-EnableEncryptionOnDynamoDBTable runbook encrypts an Amazon DynamoDB \(DynamoDB\) table using the AWS Key Management Service \(AWS KMS\) customer managed key you specify for the `KMSKeyId` parameter\.
 
 [Run this Automation \(console\)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEncryptionOnDynamoDBTable)
 
@@ -28,7 +28,7 @@ Databases
 
   Type: String
 
-  Description: \(Required\) The ARN of the CMK you want to use to encrypt the DynamoDB table you specify in the `TableName` parameter\.
+  Description: \(Required\) The ARN of the customer managed key you want to use to encrypt the DynamoDB table you specify in the `TableName` parameter\.
 + TableName
 
   Type: String
@@ -46,4 +46,4 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 **Document Steps**
 + aws:executeAwsApi \- Encrypts the DynamoDB table you specify in the `TableName` parameter\.
 + aws:waitForAwsResourceProperty \- Verifies the `Enabled` property for the DynamoDB table's `SSESpecification` is set to `true`\.
-+ aws:assertAwsResourceProperty \- Verifies the DynamoDB table is encrypted with the CMK specified in the `KMSKeyId` parameter\.
++ aws:assertAwsResourceProperty \- Verifies the DynamoDB table is encrypted with the customer managed key specified in the `KMSKeyId` parameter\.

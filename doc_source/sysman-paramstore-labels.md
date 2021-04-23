@@ -8,7 +8,7 @@ You can move labels from one version of a parameter to another version\. For exa
 
 Parameter labels are a lightweight alternative to parameter tags\. Your organization might have strict guidelines for tags that must be applied to different AWS resources\. In contrast, a label is simply a text association for a specific version of a parameter\. 
 
-Similar to tags, you can query parameters by using labels\. You can view a list of specific parameter versions that all use the same label if you query your parameter set by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action, as described later in this section\.
+Similar to tags, you can query parameters by using labels\. You can view a list of specific parameter versions that all use the same label if you query your parameter set by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation, as described later in this section\.
 
 **Label requirements and restrictions**
 
@@ -20,7 +20,7 @@ Parameter labels have the following requirements and restrictions:
 + If you no longer want to use a parameter label, then you can move it to a different version of a parameter or delete it\.
 + A label can have a maximum of 100 characters\.
 + Labels can contain letters \(case sensitive\), numbers, periods \(\.\), hyphens \(\-\), or underscores \(\_\)\. 
-+ Labels can't begin with a number, "aws", or "ssm" \(not case sensitive\)\. If a label doesn't meet these requirements, then the label is not attached to the parameter version and the system displays it in the list of `InvalidLabels`\.
++ Labels can't begin with a number, "aws", or "ssm" \(not case sensitive\)\. If a label doesn't meet these requirements, then the label isn't attached to the parameter version and the system displays it in the list of `InvalidLabels`\.
 
 **Topics**
 + [Working with parameter labels \(console\)](#sysman-paramstore-labels-console)
@@ -187,7 +187,7 @@ Parameters are only available in the AWS Region where they were created\. If you
    aws ssm get-parameters --names "/Production/SQLConnectionString:3" 
    ```
 
-1. Run one of the following commands to attach a label to a version of a parameter\. If you attach multiple labels, then you must separate label names with a space\.
+1. Run one of the following commands to attach a label to a version of a parameter\. If you attach multiple labels, separate label names with a space\.
 
    **Attach a label to the latest version of a parameter**
 
@@ -211,7 +211,7 @@ Parameters are only available in the AWS Region where they were created\. If you
    aws ssm label-parameter-version --name /config/endpoint --parameter-version 3 --labels MySQL-test
    ```
 **Note**  
-If the output shows the label you created in the `InvalidLabels` list, then the label does not meet the requirements described earlier in this topic\. Review the requirements and try again\. If the `InvalidLabels` list is empty, then your label was successfully applied to the version of the parameter\.
+If the output shows the label you created in the `InvalidLabels` list, then the label doesn't meet the requirements described earlier in this topic\. Review the requirements and try again\. If the `InvalidLabels` list is empty, then your label was successfully applied to the version of the parameter\.
 
 1. You can view the details of the parameter by using either a version number or a label name\. Run the following command and specify the label you created in the previous step\.
 
@@ -237,9 +237,9 @@ If the output shows the label you created in the `InvalidLabels` list, then the 
 
 ### View labels for a parameter \(AWS CLI\)<a name="sysman-paramstore-labels-cli-view"></a>
 
-You can use the [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) API action to view the full history and all labels attached to a specified parameter\. Or, you can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters that are assigned a specific label\. 
+You can use the [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html) API operation to view the full history and all labels attached to a specified parameter\. Or, you can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation to view a list of all parameters that are assigned a specific label\. 
 
-**To view labels for a parameter by using the GetParameterHistory API action**
+**To view labels for a parameter by using the GetParameterHistory API operation**
 
 1. Run the following command to view a list of parameters for which you can view labels\.
 **Note**  
@@ -290,7 +290,7 @@ Parameters are only available in the Region where they were created\. If you don
 
 ### View a list of parameters that are assigned a label \(AWS CLI\)<a name="sysman-paramstore-labels-cli-view-param"></a>
 
-You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action to view a list of all parameters in a path that are assigned a specific label\. 
+You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation to view a list of all parameters in a path that are assigned a specific label\. 
 
 Run the following command to view a list of parameters in a path that are assigned a specific label\.
 

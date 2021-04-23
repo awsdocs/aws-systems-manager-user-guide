@@ -1,14 +1,14 @@
 # User management<a name="fleet-user-management"></a>
 
-You can use AWS Systems Manager Fleet Manager \(Fleet Manager\) to manage operating system \(OS\) user accounts on your instances\. For example, you can create and delete users and groups\. Additionally, you can view details like group membership, user roles, and status\.
+You can use Fleet Manager, a capability of AWS Systems Manager, to manage operating system \(OS\) user accounts on your instances\. For example, you can create and delete users and groups\. Additionally, you can view details like group membership, user roles, and status\.
 
 **Important**  
-Fleet Manager uses AWS Systems Manager Run Command \(Run Command\) and AWS Systems Manager Session Manager \(Session Manager\) for various user management operations\. As a result, a user could grant permissions to an operating system user account that they would otherwise be unable to\. This is because the AWS Systems Manager SSM Agent \(SSM Agent\) runs on Amazon Elastic Compute Cloud \(Amazon EC2\) instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. For more information about restricting access to root\-level commands through the SSM Agent, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)\. To restrict access to this feature, we recommend creating AWS Identity and Access Management \(IAM\) policies for your users that only allow access to the actions you define\. For more information about creating IAM policies for Fleet Manager, see [Step 1: Create an IAM policy with Fleet Manager permissions](fleet-setup-iam.md)\.
+Fleet Manager uses Run Command and Session Manager, capabilities of AWS Systems Manager, for various user management operations\. As a result, a user could grant permissions to an operating system user account that they would otherwise be unable to\. This is because the AWS Systems Manager SSM Agent runs on Amazon Elastic Compute Cloud \(Amazon EC2\) instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. For more information about restricting access to root\-level commands through the SSM Agent, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)\. To restrict access to this feature, we recommend creating AWS Identity and Access Management \(IAM\) policies for your users that only allow access to the actions you define\. For more information about creating IAM policies for Fleet Manager, see [Step 1: Create an IAM policy with Fleet Manager permissions](fleet-setup-iam.md)\.
 
 ## Create a user or group<a name="fleet-user-management-create"></a>
 
 **Note**  
-Fleet Manager uses Session Manager to set passwords for new users\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be enabled in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Enable AWS KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+Fleet Manager uses Session Manager to set passwords for new users\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be enabled in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 **To create an OS user account with Fleet Manager**
 
@@ -32,7 +32,7 @@ Fleet Manager uses Session Manager to set passwords for new users\. The instance
 
 1. \(Recommended\) Select the check box next to **Set password**\. You will be prompted to provide a password for the new user at the end of the procedure\.
 
-1. Select **Create user**\. If you selected the check box to create a password for the new user, you will be prompted to enter a value for the password and select **Done**\. If the password you specify does not meet the requirements specified by your instance's local or domain policies, an error is returned\.
+1. Select **Create user**\. If you selected the check box to create a password for the new user, you will be prompted to enter a value for the password and select **Done**\. If the password you specify doesn't meet the requirements specified by your instance's local or domain policies, an error is returned\.
 
 **To create an OS group with Fleet Manager**
 

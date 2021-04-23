@@ -18,7 +18,7 @@ For information about limits for the Maintenance Windows capability, in addition
 Run the following command on your local machine format to register multiple instances as targets using their instance IDs:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-target-with-maintenance-window \
@@ -48,7 +48,7 @@ aws ssm register-target-with-maintenance-window ^
 Run the following command on your local machine to register instances that are all already tagged with a key\-value pair you have assigned:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-target-with-maintenance-window \
@@ -81,7 +81,7 @@ You can tag a group of instances with the tag\-key **Patch Group** and assign th
 Run the following command on your local machine to register instances that all have one or more tag keys assigned to them, regardless of their key values\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-target-with-maintenance-window \
@@ -111,7 +111,7 @@ aws ssm register-target-with-maintenance-window ^
 Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window do not act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-target-with-maintenance-window \
@@ -141,7 +141,7 @@ aws ssm register-target-with-maintenance-window ^
 Run the following command on your local machine to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm register-target-with-maintenance-window \

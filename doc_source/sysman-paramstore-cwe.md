@@ -1,11 +1,11 @@
 # Setting up notifications or trigger actions based on Parameter Store events<a name="sysman-paramstore-cwe"></a>
 
-The topics in this section explain how to use Amazon EventBridge \(EventBridge\) and Amazon Simple Notification Service \(Amazon SNS\) to notify you about changes to AWS Systems Manager parameters\. You can create an EventBridge rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. Events are emitted on a best effort basis\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
+The topics in this section explain how to use Amazon EventBridge and Amazon Simple Notification Service to notify you about changes to AWS Systems Manager parameters\. You can create an EventBridge rule to notify you when a parameter or a parameter label version is created, updated, or deleted\. Events are emitted on a best effort basis\. You can be notified about changes or status related to parameter policies, such as when a parameter expires, is going to expire, or hasn't changed for a specified period of time\.
 
 **Note**  
 Parameter policies are available for parameters that use the advanced parameters tier\. Charges apply\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
-The topics below also explain how to trigger other actions on a target for specific parameter events\. For example, you can run an AWS Lambda \(Lambda\) function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. EventBridge also supports running AWS Systems Manager Run Command \(Run Command\) commands and AWS Systems Manager Automations \(Automation\) executions, and actions in many other AWS services\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*\.
+The topics below also explain how to trigger other actions on a target for specific parameter events\. For example, you can run an AWS Lambda function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to trigger a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. EventBridge also supports running Run Command commands and Automation executions, and actions in many other AWS services\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*\.
 
 **Before You Begin**  
 Create any resources you need to specify the target action for the rule you create\. For example, if the rule you create is for sending a notification, first create an Amazon SNS topic\. For more information, see [Getting Started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
@@ -62,7 +62,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
    }
    ```
 
-1. Modify the contents for the parameters and the operations you want to take action on\. 
+1. Modify the contents for the parameters and the operations you want to act on\. 
 
    For example, the following content means an action is taken when either of the parameters named /`Oncall` and `/Project/Teamlead` are updated:
 
@@ -145,7 +145,7 @@ This topic explains how to create EventBridge rules that invoke targets based on
    }
    ```
 
-1. Modify the contents for the parameters and the policy types you want to take action on\. For example, the following content means an action is taken whenever the parameter named /`OncallDuties` expires and is deleted:
+1. Modify the contents for the parameters and the policy types you want to act on\. For example, the following content means an action is taken whenever the parameter named /`OncallDuties` expires and is deleted:
 
    ```
    {

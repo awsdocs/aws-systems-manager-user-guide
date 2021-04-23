@@ -130,7 +130,7 @@ If you have not already, install and configure the AWS Command Line Interface \(
 1. Run the following commands to create an SSM document using your content that defines the command a user can run in a Session Manager session\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-document \
@@ -169,7 +169,7 @@ There are a variety of ways you can provide interactive command parameters when 
 Parameters stored in Parameter Store can be referenced in the AWS CLI for your command parameters as shown in the following example\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -193,7 +193,7 @@ aws ssm start-session ^
 The following example shows how you can use a shorthand syntax with the AWS CLI to pass parameters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -217,7 +217,7 @@ aws ssm start-session ^
 You can also provide parameters in JSON as shown in the following example\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -249,7 +249,7 @@ Parameters can also be stored in a JSON file and provided to the AWS CLI as show
 ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -285,7 +285,7 @@ You can also generate an AWS CLI skeleton from a JSON input file as shown in the
 ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \
@@ -305,7 +305,7 @@ aws ssm start-session ^
 To escape characters inside quotation marks, you must add additional backslashes to the escape characters as shown in the following example\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm start-session \

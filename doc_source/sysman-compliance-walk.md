@@ -1,6 +1,6 @@
 # Compliance walkthrough \(AWS CLI\)<a name="sysman-compliance-walk"></a>
 
-The following procedure walks you through the process of using the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to assign custom compliance metadata to a resource\. You can also use this API action to manually assign patch or association compliance metadata to an instance, as shown in the following walkthrough\. For more information about custom compliance, see [About custom compliance](sysman-compliance-about.md#sysman-compliance-custom)\.
+The following procedure walks you through the process of using the AWS Command Line Interface \(AWS CLI\) to call the AWS Systems Manager [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to assign custom compliance metadata to a resource\. You can also use this API action to manually assign patch or association compliance metadata to an instance, as shown in the following walkthrough\. For more information about custom compliance, see [About custom compliance](sysman-compliance-about.md#sysman-compliance-custom)\.
 
 **To assign custom compliance metadata to a managed instance \(AWS CLI\)**
 
@@ -11,7 +11,7 @@ The following procedure walks you through the process of using the [PutComplianc
 1. Run the following command to assign custom compliance metadata to an instance\. Currently the only supported resource type is `ManagedInstance`\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-compliance-items \
@@ -41,7 +41,7 @@ The following procedure walks you through the process of using the [PutComplianc
    Association compliance metadata
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-compliance-items \
@@ -69,7 +69,7 @@ The following procedure walks you through the process of using the [PutComplianc
    Patch compliance metadata
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-compliance-items \
@@ -97,7 +97,7 @@ The following procedure walks you through the process of using the [PutComplianc
 1. Run the following command to view a list of compliance items for a specific managed instance\. Use filters to drill down into specific compliance data\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-compliance-items \
@@ -121,7 +121,7 @@ The following procedure walks you through the process of using the [PutComplianc
    The following examples show you how to use this command with filters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-compliance-items \
@@ -143,7 +143,7 @@ The following procedure walks you through the process of using the [PutComplianc
 ------
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-resource-compliance-summaries \
@@ -161,7 +161,7 @@ The following procedure walks you through the process of using the [PutComplianc
 ------
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-resource-compliance-summaries \
@@ -187,7 +187,7 @@ The following procedure walks you through the process of using the [PutComplianc
    The following examples show you how to use this command with filters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-resource-compliance-summaries \
@@ -205,7 +205,7 @@ The following procedure walks you through the process of using the [PutComplianc
 ------
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-resource-compliance-summaries \
@@ -231,7 +231,7 @@ The following procedure walks you through the process of using the [PutComplianc
    The following examples show you how to use this command with filters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-compliance-summaries \
@@ -249,7 +249,7 @@ The following procedure walks you through the process of using the [PutComplianc
 ------
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-compliance-summaries \

@@ -1,6 +1,6 @@
 # Create a Change Calendar entry<a name="change-calendar-create"></a>
 
-When you create an AWS Systems Manager Change Calendar \(Change Calendar\) entry, you are creating a Systems Manager document that uses the `text` format\.
+When you create an AWS Systems Manager Change Calendar entry, you are creating a Systems Manager document that uses the `text` format\.
 
 ## Create a Change Calendar entry \(console\)<a name="change-calendar-create-console"></a>
 
@@ -15,8 +15,8 @@ When you create an AWS Systems Manager Change Calendar \(Change Calendar\) entry
 1. In **Description**, enter a description for your calendar entry\.
 
 1. In **Calendar type**, choose one of the following\.
-   + **Open by default** \- the calendar is open \(Automation actions can run until an event starts\), then closed for the duration of an associated event\.
-   + **Closed by default** \- the calendar is closed \(Automation actions cannot run until an event starts\) but open for the duration of an associated event\.
+   + **Open by default** \- The calendar is open \(Automation actions can run until an event starts\), then closed for the duration of an associated event\.
+   + **Closed by default** \- The calendar is closed \(Automation actions cannot run until an event starts\) but open for the duration of an associated event\.
 
 1. Choose **Create calendar**\.
 

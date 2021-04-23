@@ -52,7 +52,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 1. Using your preferred command line tool, run the following command to view the list of managed instances that you can tag\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-instance-information
@@ -81,7 +81,7 @@ Machines that have been registered for use with Systems Manager in a hybrid envi
 1. Run the following command to tag a managed instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm add-tags-to-resource \
@@ -136,7 +136,7 @@ Machines that have been registered for use with Systems Manager in a hybrid envi
 1. Run the following command to verify the managed instance tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \
@@ -193,7 +193,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Using your preferred command line tool, run the following command to list the managed instances in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-instance-information
@@ -220,7 +220,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to remove tags from a managed instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -261,7 +261,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to verify the managed instance tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

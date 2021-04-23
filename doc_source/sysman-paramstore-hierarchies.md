@@ -49,7 +49,7 @@ You could then create a unique password for your production environment, as show
 
 `/prod/MyApp/database/my-password`
 
-You are not required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in AWS Systems Manager Parameter Store \(Parameter Store\) before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
+You aren't required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
 
 `/parameter-name`
 
@@ -57,7 +57,7 @@ You are not required to specify a parameter hierarchy\. You can create parameter
 
 ## Querying parameters in a hierarchy<a name="ps-hierarchy-queries"></a>
 
-Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API action\. For example, if you run the following command from the AWS Command Line Interface \(AWS CLI\), the system returns all parameters in the IIS level\.
+Another benefit of using hierarchies is the ability to query for all parameters within a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation\. For example, if you run the following command from the AWS Command Line Interface \(AWS CLI\), the system returns all parameters in the IIS level\.
 
 ```
 aws ssm get-parameters-by-path --path /Dev/Web/IIS
@@ -73,7 +73,7 @@ aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 
 Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API actions and content\.
 
-In the following sample policy, users are first granted access to run the `PutParameter` API action on all parameters in the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. But then users are restricted from changing values of *existing* parameters because the `Overwrite` option is explicitly denied for the `PutParameter` action\. In other words, users who are assigned this policy can create parameters, but not make changes to existing parameters\.
+In the following sample policy, users are first granted access to run the `PutParameter` API operation on all parameters in the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. But then users are restricted from changing values of *existing* parameters because the `Overwrite` option is explicitly denied for the `PutParameter` operation\. In other words, users who are assigned this policy can create parameters, but not make changes to existing parameters\.
 
 ```
 {
@@ -117,7 +117,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to create a parameter that uses the `allowedPattern` parameter and the `String` parameter type\. The allowed pattern in this example means the value for the parameter must be between 1 and 4 digits long\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -143,7 +143,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to *attempt* to overwrite the parameter you just created with a new value\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -166,7 +166,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 
 ------
 
-   The system returns the following error because the new value does not meet the requirements of the allowed pattern you specified in the previous step\.
+   The system returns the following error because the new value doesn't meet the requirements of the allowed pattern you specified in the previous step\.
 
    ```
    An error occurred (ParameterPatternMismatchException) when calling the PutParameter operation: Parameter value, cannot be validated against allowedPattern: \d{1,4}
@@ -175,7 +175,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to create a `SecureString` parameter that uses an AWS managed key\. The allowed pattern in this example means the user can specify any character, and the value must be between 8 and 20 characters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -201,7 +201,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following commands to create more parameters that use the hierarchy structure from the previous step\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter \
@@ -253,7 +253,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to get the value of two parameters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameters \
@@ -273,7 +273,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to query for all parameters within a single level\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-parameters-by-path \
@@ -293,7 +293,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 1. Run the following command to delete two parameters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm delete-parameters \

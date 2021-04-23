@@ -1,6 +1,6 @@
 # Viewing inventory history and change tracking<a name="sysman-inventory-history"></a>
 
-You can view Systems Manager Inventory history and change tracking for all of your managed instances by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view inventory history and change tracking, you must enable the following resources in AWS Config\. 
+You can view AWS Systems Manager Inventory history and change tracking for all of your managed instances by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view inventory history and change tracking, you must enable the following resources in AWS Config\. 
 + SSM:ManagedInstanceInventory
 + SSM:PatchCompliance
 + SSM:AssociationCompliance
@@ -11,7 +11,7 @@ Note the following important details about Inventory history and change tracking
 If you use AWS Config to track changes in your system, you must configure Systems Manager Inventory to collect `AWS:File` metadata so that you can view file changes in AWS Config \(`SSM:FileData`\)\. If you don't, then AWS Config does not track file changes on your system\.
 By enabling SSM:PatchCompliance and SSM:AssociationCompliance, you can view Patch Manager patching and State Manager association compliance history and change tracking\. For more information about compliance management for these resources, see [Working with Compliance](sysman-compliance-about.md)\. 
 
-The following procedure describes how to enable inventory history and change\-track recording in AWS Config by using the AWS CLI\. For more information about how to choose and configure these resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\. For information about AWS Config pricing, see [Pricing](https://aws.amazon.com/config/pricing/)\.
+The following procedure describes how to enable inventory history and change\-track recording in AWS Config by using the AWS Command Line Interface \(AWS CLI\)\. For more information about how to choose and configure these resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\. For information about AWS Config pricing, see [Pricing](https://aws.amazon.com/config/pricing/)\.
 
 **Before You Begin**
 

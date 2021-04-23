@@ -11,7 +11,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to view a list of task executions for a specific maintenance window\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-executions \
@@ -62,7 +62,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to get information about a maintenance window task execution\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-maintenance-window-execution \
@@ -96,7 +96,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to list the tasks run as part of a maintenance window execution\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-execution-tasks \
@@ -134,7 +134,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to get the details of a task execution\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-maintenance-window-execution-task \
@@ -188,7 +188,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 1. Run the following command to get the specific task invocations performed for a task execution\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-execution-task-invocations \

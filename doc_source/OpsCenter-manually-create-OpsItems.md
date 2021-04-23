@@ -1,6 +1,6 @@
 # Creating OpsItems manually<a name="OpsCenter-manually-create-OpsItems"></a>
 
-This section includes procedures for manually create OpsItems for issues that aren't automatically created by Amazon EventBridge\.
+This section includes information about how to manually create OpsItems in AWS Systems Manager OpsCenter\.
 
 **Before You Begin**  
 If you manually create an OpsItem for an impacted AWS resource, then collect information about that resource so that you can create an Amazon Resource Name \(ARN\)\. If you specify an ARN when you create an OpsItem, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
@@ -46,7 +46,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
 
 **To manually create an OpsItem \(AWS CLI\)**
 
-1. Open the AWS CLI and run the following command to create an OpsItem\.
+1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command to create an OpsItem\.
 
    ```
    aws ssm create-ops-item --title "Descriptive_title" --description "Information_about_the_issue" --priority Number_between_1_and_5 --source Source_of_the_issue --operational-data Up_to_20_KB_of_data_or_path_to_JSON_file --notifications Arn="SNS_ARN_in_same_Region" --tags "Key=key_name,Value=a_value"

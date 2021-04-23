@@ -8,6 +8,7 @@ AWS Systems Manager Automation provides predefined runbooks for Amazon Virtual P
 + [AWSConfigRemediation\-DeleteUnusedENI](automation-aws-delete-eni.md)
 + [AWSConfigRemediation\-DeleteUnusedSecurityGroup](automation-aws-delete-ec2-security-group.md)
 + [AWSConfigRemediation\-DeleteUnusedVPCNetworkACL](automation-aws-delete-vpc-nacl.md)
++ [AWSConfigRemediation\-DeleteVPCFlowLog](automation-aws-delete-vpc-flow-log.md)
 + [AWSConfigRemediation\-DetachAndDeleteInternetGateway](automation-aws-detach-delete-igw.md)
 + [AWSConfigRemediation\-DetachAndDeleteVirtualPrivateGateway](automation-aws-detach-delete-vpg.md)
 + [AWS\-DisablePublicAccessForSecurityGroup](automation-aws-disablepublicaccessforsecuritygroup.md)

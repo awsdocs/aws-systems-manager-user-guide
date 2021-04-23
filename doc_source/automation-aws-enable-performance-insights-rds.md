@@ -35,7 +35,7 @@ Databases
 
   Default: alias/aws/rds
 
-  Description: \(Optional\) The Amazon Resource Name \(ARN\), key ID, or the key alias of the AWS Key Management Service \(AWS KMS\) customer master key \(CMK\) you want Performance Insights to use to encrypt all potentially sensitive data\. If you enter the key alias for this parameter, prefix the value with **alias/**\. If you do not specify a value for this parameter, the AWS managed CMK is used\.
+  Description: \(Optional\) The Amazon Resource Name \(ARN\), key ID, or the key alias of the AWS Key Management Service \(AWS KMS\) customer managed key you want Performance Insights to use to encrypt all potentially sensitive data\. If you enter the key alias for this parameter, prefix the value with **alias/**\. If you do not specify a value for this parameter, the AWS managed key is used\.
 + PerformanceInsightsRetentionPeriod
 
   Type: Integer
@@ -59,7 +59,7 @@ The `AutomationAssumeRole` parameter requires the following actions to successfu
 **Document Steps**
 + aws:executeAwsApi \- Gathers the DB instance identifier from the DB instance resource identifier\.
 + aws:assertAwsResourceProperty \- Confirms the DB instance status is `available`\.
-+ aws:executeAwsApi \- Gathers the ARN of the AWS KMS CMK specified in the `PerformanceInsightsKMSKeyId` parameter\.
++ aws:executeAwsApi \- Gathers the ARN of the AWS KMS customer managed key specified in the `PerformanceInsightsKMSKeyId` parameter\.
 + aws:branch \- Checks whether a value is already assigned to the `PerformanceInsightsKMSKeyId` property of the DB instance\.
 + aws:executeAwsApi \- Enables Performance Insights on the DB instance you specify in the `DbiResourceId` parameter\.
 + aws:assertAwsResourceProperty \- Confirms the value specified for the `PerformanceInsightsKMSKeyId` parameter was used to enable encryption for Performance Insights on the DB instance\.

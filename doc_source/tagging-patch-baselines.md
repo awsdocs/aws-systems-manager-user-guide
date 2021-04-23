@@ -58,7 +58,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 1. Run the following command to tag a patch baseline\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm add-tags-to-resource \
@@ -90,7 +90,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 1. Run the following command to verify the patch baseline tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \
@@ -182,7 +182,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Using your preferred command line tool, run the following command to list the patch baselines in your account\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-patch-baselines
@@ -209,7 +209,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to remove tags from a patch baseline\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm remove-tags-from-resource \
@@ -249,7 +249,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 1. Run the following command to verify the patch baseline tags\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm list-tags-for-resource \

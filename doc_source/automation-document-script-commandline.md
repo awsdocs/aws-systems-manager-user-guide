@@ -16,7 +16,7 @@ Before you begin, ensure you have the following resources prepared\.
 Run the following command to create a runbook using a script file stored in an S3 bucket\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-document \
@@ -65,7 +65,7 @@ New-SSMDocument `
 Run the following command to create a runbook using a script or multiple script files stored in an S3 bucket\. Note that a `Name` key for files is not specified\. The command attaches all supported files from the S3 bucket location\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-document \
@@ -115,7 +115,7 @@ The format of the key value in this command is *runbook\-name/runbook\-version\-
 ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-document \
@@ -165,7 +165,7 @@ The format of the key value in this command is *runbook\-arn/runbook\-version\-n
 ```
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm create-document \

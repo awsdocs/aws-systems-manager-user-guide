@@ -10,7 +10,7 @@ You can view inventory data on the **Inventory Detail View** page in all AWS Reg
 **Before you begin**  
 Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
-Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central S3 bucket used by resource data sync\. If you are not the owner of the central S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
+Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by resource data sync\. If you are not the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
 
 ## Configuring access<a name="systems-manager-inventory-query-iam"></a>
 
@@ -79,7 +79,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
    }
    ```
 **Note**  
-\(Optional\) If the Amazon Simple Storage Service \(Amazon S3\) bucket used to store inventory data is encrypted by using the AWS Key Management Service, then you must also add the following block to the policy\.  
+\(Optional\) If the Amazon S3 bucket used to store inventory data is encrypted by using the AWS Key Management Service \(AWS KMS\), then you must also add the following block to the policy\.  
 
    ```
    {
@@ -99,10 +99,10 @@ If you paste this block after the last block in the policy, be sure to separate 
 1. Choose **Create policy**\.
 
 **Important**  
-When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
+When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
 **AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
-If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
+If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ## Querying data on the inventory detailed view page<a name="systems-manager-inventory-query-detail-view"></a>
 
@@ -142,7 +142,7 @@ You can use the **Export to CSV** button to view the current query set in a spre
 
 ### Editing the AWS Glue crawler schedule<a name="systems-manager-inventory-glue-settings"></a>
 
-AWS Glue crawls the inventory data in the central S3 bucket twice daily, by default\. If you frequently change the types of data to collect on your instances then you might want to crawl the data more frequently, as described in the following procedure\.
+AWS Glue crawls the inventory data in the central Amazon S3 bucket twice daily, by default\. If you frequently change the types of data to collect on your instances then you might want to crawl the data more frequently, as described in the following procedure\.
 
 **Important**  
 AWS Glue charges your account based on an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. Before you change the crawler schedule, view the [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) page\.

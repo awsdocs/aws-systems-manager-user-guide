@@ -95,7 +95,7 @@ Before you complete the following procedure, you must create a maintenance windo
 1. Create a command to configure an automation as a registered task for a maintenance window\. Here are some template commands to help\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -165,7 +165,7 @@ For information about maintenance window tasks that do not require targets, see 
    The following example configures an automation as a registered task to a maintenance window with priority 1\. It also demonstrates omitting the `--targets`, `--max-errors`, and `--max-concurrency` options for a targetless maintenance window task\. The automation uses the `AWS-StartEC2Instance` runbook and the specified Automation assume role to start EC2 instances registered as targets to the maintenance window\. The maintenance window runs the automation simultaneously on 5 instances maximum at any given time\. Also, the registered task stops running on more instances for a particular interval if the error count exceeds 1\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
@@ -211,7 +211,7 @@ For information about maintenance window tasks that do not require targets, see 
    The command returns details for the new registered task similar to the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -240,7 +240,7 @@ For information about maintenance window tasks that do not require targets, see 
 1. To view the registered task, run the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-tasks \
@@ -268,7 +268,7 @@ For information about maintenance window tasks that do not require targets, see 
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

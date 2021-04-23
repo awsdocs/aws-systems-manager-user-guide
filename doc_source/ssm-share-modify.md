@@ -25,7 +25,7 @@ If you share a command, users can view and use that command until you either rem
 Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to stop sharing a command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm modify-document-permission \

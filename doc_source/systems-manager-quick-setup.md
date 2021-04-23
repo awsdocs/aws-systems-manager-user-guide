@@ -26,3 +26,4 @@ After setting up a configuration, you can view details about it and its deployme
 
 **Topics**
 + [Quick Setup Host Management](quick-setup-host-management.md)
++ [AWS Config recording](quick-setup-config.md)

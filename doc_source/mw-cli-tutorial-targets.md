@@ -12,7 +12,7 @@ You should already have created an EC2 instance to use in this step, as describe
 1. Run the following command on your local machine:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm register-target-with-maintenance-window \
@@ -44,7 +44,7 @@ You should already have created an EC2 instance to use in this step, as describe
 1. Now run the following command on your local machine to view details about your maintenance window target:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-targets \

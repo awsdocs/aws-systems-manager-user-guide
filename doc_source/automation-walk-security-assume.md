@@ -47,7 +47,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to start an automation that uses an IAM service role\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -80,7 +80,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance using the IAM service role `AmazonSSMAutomationRole`\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
@@ -113,7 +113,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {
@@ -142,7 +142,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Run the following command to retrieve the status of the automation\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
@@ -170,7 +170,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

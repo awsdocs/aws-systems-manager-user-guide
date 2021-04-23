@@ -3,7 +3,7 @@
 The following sample walkthrough shows you how to use the AWS CLI to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative privilege on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Step 1: Getting started](#walkthrough-cli-settings)
@@ -14,7 +14,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Step 1: Getting started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **To run commands using the AWS CLI**
 
@@ -35,7 +35,7 @@ You must either have administrator privileges on the instances you want to confi
    The output of the following command shows if instances are online\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-instance-information \
@@ -52,12 +52,12 @@ You must either have administrator privileges on the instances you want to confi
 
 ------
 
-1. Use the following command to view details about a particular instance\.
+1. Run the following command to view details about a particular instance\.
 **Note**  
-To run the commands in this walkthrough, you must replace the instance and command IDs\. The command ID is returned as a response to send\-command\. The instance ID is available from the Amazon EC2 console\.
+To run the commands in this walkthrough, replace the instance and command IDs\. The command ID is returned as a response to send\-command\. The instance ID is available from the Amazon EC2 console\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-instance-information \
@@ -80,10 +80,10 @@ Using Run Command and the AWS\-RunShellScript document, you can run any command 
 
 View the description and available parameters
 
-Use the following command to view a description of the Systems Manager JSON document\.
+Run the following command to view a description of the Systems Manager JSON document\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-document \
@@ -102,10 +102,10 @@ aws ssm describe-document ^
 
 ------
 
-Use the following command to view the available parameters and details about those parameters\.
+Run the following command to view the available parameters and details about those parameters\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm describe-document \
@@ -126,10 +126,10 @@ aws ssm describe-document ^
 
 ## Step 3: Send simple commands using the AWS\-RunShellScript document<a name="walkthrough-cli-example-1"></a>
 
-Use the following command to get IP information for an instance\.
+Run the following command to get IP information for an instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -164,7 +164,7 @@ If the operating system type of your target instance is Windows Server, change t
 The following command uses the Command ID that was returned from the previous command to get the details and response data of the command execution\. The system returns the response data if the command completed\. If the command execution shows `"Pending"` or `"InProgress"` you run this command again to see the response data\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-command-invocations \
@@ -188,7 +188,7 @@ aws ssm list-command-invocations ^
 The following command displays the default user account running the commands\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 sh_command_id=$(aws ssm send-command \
@@ -206,7 +206,7 @@ sh_command_id=$(aws ssm send-command \
 The following command uses the Command ID to get the status of the command execution on the instance\. This example uses the Command ID that was returned in the previous command\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-commands \
@@ -227,7 +227,7 @@ aws ssm list-commands ^
 The following command uses the Command ID from the previous command to get the status of the command execution on a per instance basis\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-command-invocations \
@@ -250,7 +250,7 @@ aws ssm list-command-invocations ^
 The following command returns the output of the original `aws ssm send-command` request for a specific instance\. 
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm list-command-invocations \
@@ -276,7 +276,7 @@ aws ssm list-command-invocations ^
 The following command returns the version of Python running on an instance\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 sh_command_id=$(aws ssm send-command \
@@ -297,7 +297,7 @@ sh_command_id=$(aws ssm send-command \
 The following command runs a simple Python "Hello World" script using Run Command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 sh_command_id=$(aws ssm send-command \
@@ -339,7 +339,7 @@ The script installs the CodeDeploy agent from an AWS managed Amazon S3 bucket in
 The following sample demonstrates how to include the bash script in a CLI command using the `--parameters` option\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \
@@ -357,7 +357,7 @@ In the following example, the content of the bash script is stored in a JSON fil
 The command:
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm send-command \

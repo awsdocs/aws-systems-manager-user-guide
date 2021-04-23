@@ -1,6 +1,6 @@
 # Auditing and logging Change Manager activity<a name="change-manager-auditing"></a>
 
-You can audit AWS Systems Manager Change Manager \(Change Manager\) activity by using Amazon CloudWatch and AWS CloudTrail alarms\.
+You can audit activity in Change Manager, a capability of AWS Systems Manager, by using Amazon CloudWatch and AWS CloudTrail alarms\.
 
 For more information about auditing and logging options for Systems Manager, see [Monitoring AWS Systems Manager](monitoring.md)\.
 

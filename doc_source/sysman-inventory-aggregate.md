@@ -4,7 +4,7 @@ After you configure your managed instances for AWS Systems Manager Inventory, yo
 
 You can also see specific inventory details by aggregating on a data type\. For example, the AWS:InstanceInformation inventory type collects operating system platform information with the `Platform` data type\. By aggregating data on the `Platform` data type, you can quickly see how many instances are running Windows, how many are running Linux, and how many are running macOS\. 
 
-The procedures in this section describe how to view aggregated counts of inventory data by using the AWS CLI\. You can also view pre\-configured aggregated counts in the AWS Systems Manager console on the **Inventory** page\. These pre\-configured dashboards are called *Inventory Insights* and they offer one\-click remediation of your inventory configuration issues\.
+The procedures in this section describe how to view aggregated counts of inventory data by using the AWS Command Line Interface \(AWS CLI\)\. You can also view pre\-configured aggregated counts in the AWS Systems Manager console on the **Inventory** page\. These pre\-configured dashboards are called *Inventory Insights* and they offer one\-click remediation of your inventory configuration issues\.
 
 Note the following important details about aggregation counts of inventory data:
 + Systems Manager Inventory stores inventory data for 30 days\. This means that aggregated counts of inventory include all data collected during the last 30 days\.
@@ -19,7 +19,7 @@ For information about how to quickly configure and collect inventory data from a
 
 ## Aggregating inventory data to see counts of instances that collect specific types of data<a name="sysman-inventory-aggregate-type"></a>
 
-You can use the [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more inventory types and data types\. For example, the AWS:InstanceInformation inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the AWS:InstanceInformation\.PlatformType data type\. Here is an example AWS CLI command and output:
+You can use the AWS Systems Manager [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more inventory types and data types\. For example, the AWS:InstanceInformation inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the AWS:InstanceInformation\.PlatformType data type\. Here is an example AWS CLI command and output:
 
 ```
 aws ssm get-inventory --aggregators "Expression=AWS:InstanceInformation.PlatformType"
@@ -290,7 +290,7 @@ The command returns information like the following:
 
 ## Aggregating inventory data with groups to see which instances are and aren't configured to collect an inventory type<a name="sysman-inventory-aggregate-groups"></a>
 
-Groups enable you to quickly see a count of which managed instances are and aren’t configured to collect one or more inventory types\. With groups, you specify one or more inventory types and a filter that uses the `exists` operator\.
+Groups in Systems Manager Inventory enable you to quickly see a count of which managed instances are and aren’t configured to collect one or more inventory types\. With groups, you specify one or more inventory types and a filter that uses the `exists` operator\.
 
 For example, say that you have four managed instances configured to collect the following inventory types:
 + Instance 1: AWS:Application

@@ -1,6 +1,6 @@
 # Walkthrough: Use Resource Data Sync to aggregate inventory data<a name="sysman-inventory-resource-data-sync"></a>
 
-The following walkthrough describes how to create a resource data sync configuration by using the AWS CLI\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
+The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS CLI\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using the Amazon EC2 console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {
@@ -102,7 +102,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 1. \(Optional\) If you want to encrypt the sync, run the following command to verify that the bucket policy is enforcing the KMS key requirement\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws s3 cp ./A_file_in_the_bucket s3://DOC-EXAMPLE-BUCKET/prefix/ \
@@ -123,12 +123,12 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 ------
 
-1. Run the following command to create a resource data sync configuration with the S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
+1. Run the following command to create a resource data sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
 **Note**  
-If the sync and the target S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-resource-data-sync \
@@ -147,10 +147,10 @@ If the sync and the target S3 bucket are located in different regions, you may b
 
 ------
 
-   You can use the `region` parameter to specify where the sync configuration should be created\. In the following example, inventory data from the us\-west\-1 Region, will be synchronized in the S3 bucket in the us\-west\-2 Region\.
+   You can use the `region` parameter to specify where the sync configuration should be created\. In the following example, inventory data from the us\-west\-1 Region, will be synchronized in the Amazon S3 bucket in the us\-west\-2 Region\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-resource-data-sync \
@@ -170,10 +170,10 @@ If the sync and the target S3 bucket are located in different regions, you may b
 
 ------
 
-   \(Optional\) If you want to encrypt the sync by using AWS KMS, run the following command to create the sync\. If you encrypt the sync, then the AWS KMS key and the S3 bucket must be in the same Region\.
+   \(Optional\) If you want to encrypt the sync by using AWS KMS, run the following command to create the sync\. If you encrypt the sync, then the AWS KMS key and the Amazon S3 bucket must be in the same Region\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm create-resource-data-sync \
@@ -253,7 +253,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system partitions the table\.
 **Note**  
-If you create resource data syncs from additional AWS Regions or accounts, then you must run this command again to update the partitions\. You may also need to update your S3 bucket policy\.
+If you create resource data syncs from additional AWS Regions or accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
 
 1. To preview your data, choose the view icon next to the AWS\_Application table\.  
 ![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)

@@ -1,6 +1,6 @@
 # Editing and creating a new version of an association<a name="sysman-state-assoc-edit"></a>
 
-You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, AWS Systems Manager State Manager \(State Manager\) creates a new version\. You can view different versions after editing, as described in the following procedures\. 
+You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, State Manager, a capability of AWS Systems Manager, creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
 The following procedures describe how to edit and create a new version of an association using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\. 
 
@@ -9,7 +9,7 @@ The following procedures describe how to edit and create a new version of an ass
 The following procedure describes how to use the Systems Manager console to edit and create a new version of an association\.
 
 **Note**  
-This procedure requires that you have write access to an existing S3 bucket\. If you have not used Amazon S3 before, be aware that you will incur charges for using Amazon S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
+This procedure requires that you have write access to an existing S3 bucket\. If you haven't used Amazon S3 before, be aware that you will incur charges for using Amazon S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
 **To edit a State Manager association**
 
@@ -33,7 +33,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Edit association**\. Configure the association to meet your current requirements\.
 
-1. In the **Associations** page, choose the name of the association you just edited, and then choose the **Versions** tab\. The system lists each version of the association you created and edited\.
+1. In the **Associations** page, choose the name of the association you edited, and then choose the **Versions** tab\. The system lists each version of the association you created and edited\.
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -56,7 +56,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 1. Use the following format to create a command to edit and create a new version of an existing State Manager association\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-association \
@@ -64,11 +64,11 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --association-name association_name \
      --parameters (if any) \
      --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' \
-     --scheduleexpression "cron_or_rate_expression"
+     --schedule-expression "cron_or_rate_expression"
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version won't have a schedule expression\.
 
 ------
 #### [ Windows ]
@@ -79,11 +79,11 @@ To retain existing parameter values of your association, such as association nam
      --association-name association_name ^
      --parameters (if any) ^
      --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' ^
-     --scheduleexpression "cron_or_rate_expression"
+     --schedule-expression "cron_or_rate_expression"
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses the default values \(none\)\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version won't have a schedule expression\.
 
 ------
 #### [ PowerShell ]
@@ -100,14 +100,14 @@ To retain existing parameter values of your association, such as association nam
    ```
 
 **Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, you must specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `-ScheduleExpression` when updating, the new association version will not have a schedule expression\.
+To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `-ScheduleExpression` when updating, the new association version won't have a schedule expression\.
 
 ------
 
    The following example updates an existing association to change the name to `TestHostnameAssociation2`\. The new association version runs every hour and writes the output of commands to the specified Amazon S3 bucket\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-association \
@@ -146,60 +146,10 @@ To retain existing parameter values of your association, such as association nam
 
 ------
 
-   The following example updates an existing association to change the name to `MultiAccountRegionAssociation`\. The new association version is run by three different accounts, `111122223333`, `444455556666`, and `123456789012`, in two different Regions, `us-east-1` and `us-east-2`\. The association will run on 10 targets in the `TargetLocation` at the same time\. The task stops if it fails on 5 targets in the `TargetLocation`\. The AWS Identity and Access Management \(IAM\) role provisioned in the remote accounts is `AWS-SystemsManager-AssociationRole`\.
-
-------
-#### [ Linux ]
-
-   ```
-   aws ssm update-association \
-     --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE \
-     --association-name MultiAccountRegionAssociation \
-     --parameters commands="echo Association" \
-     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' \
-     --schedule-expression "cron(0 */1 * * ? *)"
-     --target-locations Accounts=111122223333,444455556666,123456789012,Regions=us-east-1,us-east-2,TargetLocationMaxConcurrency=10,TargetLocationMaxErrors=5,ExecutionRoleName=AWS-SystemsManager-AssociationRole
-   ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm update-association ^
-     --association-id 8dfe3659-4309F-493a-8755-01234EXAMPLE ^
-     --association-name MultiAccountRegionAssociation ^
-     --parameters commands="echo Association" ^
-     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' ^
-     --schedule-expression "cron(0 */1 * * ? *)"
-     --target-locations Accounts=111122223333,444455556666,123456789012,Regions=us-east-1,us-east-2,TargetLocationMaxConcurrency=10,TargetLocationMaxErrors=5,ExecutionRoleName=AWS-SystemsManager-AssociationRole
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   Update-SSMAssociation `
-     -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
-     -AssociationName MultiAccountRegionAssociation `
-     -Parameter @{"commands"="echo Association"} `
-     -S3Location_OutputS3BucketName DOC-EXAMPLE-BUCKET `
-     -S3Location_OutputS3KeyPrefix logs `
-     -S3Location_OutputS3Region us-east-1 `
-     -ScheduleExpression "cron(0 */1 * * ? *)" `
-     -TargetLocations @{
-         "Accounts"=["111122223333,444455556666,123456789012"],
-         "Regions"=["us-east-1,us-east-2"],
-         "TargetLocationMaxConcurrency"="10",
-         "TargetLocationMaxErrors"="5",
-         "ExecutionRoleName"=AWS-SystemsManager-AssociationRole",
-   ```
-
-------
-
 1. To view the new version of the association, run the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-association \
@@ -227,7 +177,7 @@ To retain existing parameter values of your association, such as association nam
    The system returns information like the following\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    {

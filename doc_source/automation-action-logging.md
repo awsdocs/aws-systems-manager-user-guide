@@ -26,7 +26,7 @@ AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWat
 1. Open your preferred command line tool and run the following command to update the action output destination\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-service-setting \
@@ -59,7 +59,7 @@ AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWat
 1. Run the following command to specify the log group you want to send action output to\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm update-service-setting \
@@ -92,7 +92,7 @@ AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWat
 1. Run the following command to view the current service settings for Automation action logging preferences in the current AWS account and AWS Region\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm get-service-setting \

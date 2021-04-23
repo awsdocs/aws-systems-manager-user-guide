@@ -1,6 +1,6 @@
 # Creating change requests<a name="change-requests-create"></a>
 
-When you create a change request in AWS Systems Manager Change Manager \(Change Manager\), the change template you select typically does the following:
+When you create a change request in Change Manager, a capability of AWS Systems Manager, the change template you select typically does the following:
 + Designates approvers for the change request or specifies how many approvals are required
 + Specifies the Amazon Simple Notification Service \(Amazon SNS\) topic to use to notify approvers about your change request
 + Specifies an Amazon CloudWatch alarm to monitor the runbook workflow for the change request

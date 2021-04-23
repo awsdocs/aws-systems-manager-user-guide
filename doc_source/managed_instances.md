@@ -21,7 +21,7 @@ If you don't see your managed instances listed in the console, then do the follo
 1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
-Systems Manager requires accurate time references in order to perform its operations\. If your instance's date and time are not set correctly, they may not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
+Systems Manager requires accurate time references in order to perform its operations\. If your instance's date and time aren't set correctly, they may not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
 
 **Note**  
 When instance tags are created or edited, it takes up to an hour for the table filter to reflect those changes\.

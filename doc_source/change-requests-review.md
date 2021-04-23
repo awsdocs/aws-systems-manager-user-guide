@@ -1,6 +1,6 @@
 # Reviewing and approving or rejecting change requests<a name="change-requests-review"></a>
 
-If you are specified as a reviewer for a change request in AWS Systems Manager Change Manager \(Change Manager\), you are notified through an Amazon Simple Notification Service \(Amazon SNS\) topic when a new change request is awaiting your review\. 
+If you are specified as a reviewer for a change request in Change Manager, a capability of AWS Systems Manager, you are notified through an Amazon Simple Notification Service \(Amazon SNS\) topic when a new change request is awaiting your review\. 
 
 **Note**  
 This functionality depends on whether an Amazon SNS was specified in the change template for sending review notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
@@ -28,7 +28,7 @@ The following procedure describes how to use the Systems Manager console to revi
 
 ## Reviewing and approving or rejecting a change request \(command line\)<a name="change-requests-review-command-line"></a>
 
-The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) to review and approve or reject a change request\.
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux, macOS, or Windows\) to review and approve or reject a change request\.
 
 **To review and approve or reject a change request**
 
@@ -76,7 +76,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 1. Run the following command to view the maximum number of change requests you specified in the JSON file\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm describe-ops-item \
@@ -96,7 +96,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 1. Run the following command to approve or reject a change request\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
    ```
    aws ssm send-automation-signal \

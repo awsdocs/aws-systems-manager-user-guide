@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
 
-You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with AWS Systems Manager State Manager \(State Manager\) by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
+You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
 
 State Manager logs and reports the status of each MOF file execution during each association run\. State Manager also reports the output of each MOF file execution as a compliance event which you can view on the [AWS Systems Manager Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
@@ -17,17 +17,17 @@ MOF file execution is built on Windows PowerShell Desired State Configuration \(
 
 ## Using Amazon S3 to store artifacts<a name="systems-manager-state-manager-using-mof-file-S3-storage"></a>
 
-If you are using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent \(SSM Agent\) must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
-+ If the bucket is in a different AWS account, then you must create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
+If you are using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
++ If the bucket is in a different AWS account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
 + If you want to use custom DSC resources, you can download these resources from an Amazon S3 bucket\. You can also install them automatically from the PowerShell gallery\. 
-+ If you are using Amazon S3 as a module source, then you need to upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
-+ All files must be in the bucket root\. Folder structures are not supported\.
++ If you are using Amazon S3 as a module source, upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
++ All files must be in the bucket root\. Folder structures aren't supported\.
 
 ## Resolving credentials in MOF files<a name="systems-manager-state-manager-using-mof-file-credentials"></a>
 
 Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also enables DSC to automatically propagate credentials to your servers without redeploying MOFs\.
 
-To use an AWS Secrets Manager \(Secrets Manager\) secret in a configuration, create a PSCredential object where the Username is the SecretId or SecretARN of the secret containing the credential\. You can specify any value for the password\. The value is ignored\. Following is an example\.
+To use an AWS Secrets Manager secret in a configuration, create a PSCredential object where the Username is the SecretId or SecretARN of the secret containing the credential\. You can specify any value for the password\. The value is ignored\. Following is an example\.
 
 ```
 Configuration MyConfig
@@ -47,9 +47,9 @@ Configuration MyConfig
 }
 ```
 
-You must then compile your MOF using the PsAllowPlaintextPassword setting in configuration data\. This is OK because the credential only contains a label\. 
+Compile your MOF using the PsAllowPlaintextPassword setting in configuration data\. This is OK because the credential only contains a label\. 
 
-In Secrets Manager, ensure that the instance has GetSecretValue access in an IAM Managed Policy, and optionally in the Secret Resource Policy if one exists\. In order to work with DSC, the secret must be in the following format\.
+In Secrets Manager, ensure that the instance has GetSecretValue access in an IAM Managed Policy, and optionally in the Secret Resource Policy if one exists\. Toork with DSC, the secret must be in the following format\.
 
 ```
 { 'Username': 'a_name', 'Password': 'a_password' }
@@ -57,15 +57,15 @@ In Secrets Manager, ensure that the instance has GetSecretValue access in an IAM
 
 The secret can have other properties \(for example, properties used for rotation\), but it must at least have the username and password properties\.
 
-We recommended that you use a multi\-user rotation method, where you have two different usernames and passwords, and the rotation AWS Lambda \(Lambda\) function flips between them\. This method allows you to have multiple active accounts while eliminating the risk of locking out a user during rotation\.
+We recommended that you use a multi\-user rotation method, where you have two different usernames and passwords, and the rotation AWS Lambda function flips between them\. This method allows you to have multiple active accounts while eliminating the risk of locking out a user during rotation\.
 
 ## Using tokens in MOF files<a name="systems-manager-state-manager-using-mof-file-tokens"></a>
 
-Tokens give you the ability to modify resource property values *after* the MOF has been compiled\. This enables you to reuse common MOF files on multiple servers that require very similar configurations\.
+Tokens give you the ability to modify resource property values *after* the MOF has been compiled\. This allows you to reuse common MOF files on multiple servers that require similar configurations\.
 
-Token substitution only works for Resource Properties of type `String`\. However, if your resource has a nested CIM instance property, it will also resolve tokens from `String` properties in that CIM instance\. You can't use token substitution for numerals or arrays\.
+Token substitution only works for Resource Properties of type `String`\. However, if your resource has a nested CIM instance property, it also resolves tokens from `String` properties in that CIM instance\. You can't use token substitution for numerals or arrays\.
 
-For example, consider a scenario where you're using the xComputerManagement resource and you want to rename the computer using DSC\. Normally you would need a dedicated MOF file for that machine\. However, with token support, you can create a single MOF file and apply it to all of your instances\. In the `ComputerName` property, instead of hardcoding the computer name into the MOF, you can use an Instance Tag type token\. The value is resolved during MOF parsing\. See the following example\.
+For example, consider a scenario where you're using the xComputerManagement resource and you want to rename the computer using DSC\. Normally you would need a dedicated MOF file for that machine\. However, with token support, you can create a single MOF file and apply it to all your instances\. In the `ComputerName` property, instead of hardcoding the computer name into the MOF, you can use an Instance Tag type token\. The value is resolved during MOF parsing\. See the following example\.
 
 ```
 Configuration MyConfig
@@ -96,8 +96,8 @@ There are five different types of tokens you can use:
 + **tag**: Amazon EC2 or managed instance tags\.
 + **tagb64**: This is the same as tag, but the system use base64 to decode the value\. This allows you to use special characters in tag values\.
 + **env**: Resolves Environment variables\.
-+ **ssm**: AWS Systems Manager Parameter Store \(Parameter Store\) values\. Only String and Secure String types are supported\.
-+ **tagssm**: This is the same as tag, but if the tag is not set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
++ **ssm**: Parameter Store values\. Only String and Secure String types are supported\.
++ **tagssm**: This is the same as tag, but if the tag isn't set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
 
 Here is a Parameter Store example that uses the `ssm` token type\. 
 
@@ -171,7 +171,7 @@ Before you create an association that runs MOF files, verify that your managed i
 
    1. **Report Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write compliance data\. Reports are saved in this bucket in JSON format\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific Region that does not include us\-east\-1, then you must prefix the bucket name with a Region\. If the bucket name is not prefixed, it will automatically discover the bucket Region by using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region by using the us\-east\-1 endpoint\.
 
    1. **Mof Operation Mode**: Choose State Manager behavior when running the **AWS\-ApplyDSCMofs** association:
       + **Apply**: Correct instance configurations that aren't compliant\. 
@@ -179,41 +179,41 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
 
    1. **Status Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write MOF execution status information\. These status reports are singleton summaries of the most recent compliance run of an instance\. This means that the report is overwritten the next time the association runs MOF files\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that does not include us\-east\-1, then you must prefix the bucket name with a Region\. If the bucket name is not prefixed, it will automatically discover the bucket Region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
 
-   1. **Module Source Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket that contains PowerShell module files\. If you specify **None**, then you must choose **True** for the next option, **Allow PS Gallery Module Source**\.
+   1. **Module Source Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket that contains PowerShell module files\. If you specify **None**, choose **True** for the next option, **Allow PS Gallery Module Source**\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that does not include us\-east\-1, then you must prefix the bucket name with a Region\. If the bucket name is not prefixed, it will automatically discover the bucket Region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
 
-   1. **Allow PS Gallery Module Source**: \(Optional\) Choose **True** to download PowerShell modules from [https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\. If you choose **False**, then you must specify a source for the previous option, **ModuleSourceBucketName**\.
+   1. **Allow PS Gallery Module Source**: \(Optional\) Choose **True** to download PowerShell modules from [https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\. If you choose **False**, specify a source for the previous option, **ModuleSourceBucketName**\.
 
    1. **Proxy Uri**: \(Optional\) Use this option to download MOF files from a proxy server\.
 
    1. **Reboot Behavior**: \(Optional\) Specify one of the following reboot behaviors if your MOF file execution requires rebooting:
       + **AfterMof**: Reboots the instance after all MOF executions are complete\. Even if multiple MOF executions request reboots, the system waits until all MOF executions are complete to reboot\.
-      + **Immediately**: Reboots the instance whenever a MOF execution requests it\. If running multiple MOF files that request reboots, then the instance will be rebooted multiple times\.
-      + **Never**: Instances are not rebooted, even if the MOF execution explicitly requests a reboot\.
+      + **Immediately**: Reboots the instance whenever a MOF execution requests it\. If running multiple MOF files that request reboots, then the instance are rebooted multiple times\.
+      + **Never**: Instances aren't rebooted, even if the MOF execution explicitly requests a reboot\.
 
-   1. **Use Computer Name For Reporting**: \(Optional\) Enable this option to use the name of the computer when reporting compliance information\. The default value is **false**, which means that the system uses the instance ID when reporting compliance information\.
+   1. **Use Computer Name For Reporting**: \(Optional\) Turn on this option to use the name of the computer when reporting compliance information\. The default value is **false**, which means that the system uses the instance ID when reporting compliance information\.
 
-   1. **Enable Verbose Logging**: \(Optional\) We recommend that you enable verbose logging when deploying MOF files for the first time\.
+   1. **Turn on Verbose Logging**: \(Optional\) We recommend that you turn on verbose logging when deploying MOF files for the first time\.
 **Important**  
-When enabled, verbose logging writes more data to your Amazon S3 bucket than standard association execution logging\. This can result in slower performance and possibly higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you enable lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
+When enabled, verbose logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
-   1. **Enable Debug Logging**: \(Optional\) We recommend that you enable debug logging if you need to troubleshoot MOF failures\. We also recommend that you disable this option for normal use\.
+   1. **Turn on Debug Logging**: \(Optional\) We recommend that you turn on debug logging to troubleshoot MOF failures\. We also recommend that you deactivate this option for normal use\.
 **Important**  
-When enabled, debug logging writes more data to your Amazon S3 bucket than standard association execution logging\. This can result in slower performance and possibly higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you enable lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
+When enabled, debug logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
-   1. **Compliance Type**: \(Optional\) Specify the compliance type to use when reporting compliance information\. The default compliance type is **Custom:DSC**\. If you create multiple associations that run MOF files, then be sure to specify a different compliance type for each association\. If you don't, each additional association that uses **Custom:DSC** will overwrite the existing compliance data\.
+   1. **Compliance Type**: \(Optional\) Specify the compliance type to use when reporting compliance information\. The default compliance type is **Custom:DSC**\. If you create multiple associations that run MOF files, then be sure to specify a different compliance type for each association\. If you don't, each additional association that uses **Custom:DSC** overwrites the existing compliance data\.
 
-   1. **Pre Reboot Script**: \(Optional\) Specify a script to run if the configuration has indicated that a reboot is necessary\. The script runs before the reboot\. The script must be a single line\. If you need to add additional lines, separate lines by using semicolons\.
+   1. **Pre Reboot Script**: \(Optional\) Specify a script to run if the configuration has indicated that a reboot is necessary\. The script runs before the reboot\. The script must be a single line\. Separate additional lines by using semicolons\.
 
 1. In the **Targets** section, choose either **Specifying tags** or **Manually Selecting Instance**\. If you choose to target resources by using tags, then enter a tag key and a tag value in the fields provided\. For more information about using targets, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
 1. In the **Specify schedule** section, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, then use the buttons provided to create a cron or rate schedule for the association\. 
 
 1. In the **Advanced options** section:
-   + In **Compliance severity**, choose a severity level for the association\. Compliance reporting will indicate whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
+   + In **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
 1. In the **Rate control** section, configure options for running State Manager associations across of fleet of managed instances\. For more information about these options, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
@@ -232,23 +232,26 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose **Create Association**\. 
 
 State Manager creates and immediately runs the association on the specified instances or targets\. After the initial execution, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations are only run on instances that are online when the interval starts\. Offline instances are skipped\.
++ State Manager runs associations on instances that are online when the interval starts and skips offline instances\.
 + State Manager attempts to run the association on all configured instances during an interval\.
-+ If an association is not run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
++ If an association isn't run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
 **Note**  
-The AWS\-ApplyDSCMofs is a Systems Manager command document\. This means that you can also run this document by using AWS Systems Manager Run Command \(Run Command\)\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+The AWS\-ApplyDSCMofs is a Systems Manager command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Troubleshooting<a name="systems-manager-state-manager-using-mof-file-troubleshooting"></a>
 
 This section includes information to help you troubleshoot issues creating associations that run MOF files\.
 
 **Enable enhanced logging**  
-As a first step to troubleshooting, enable enhanced logging\. More specifically, do the following:
-+ Verify that the association is configured to write command output to either Amazon S3 or Amazon CloudWatch Logs \(CloudWatch\)\.
-+ Set the **Enable Verbose Logging** parameter to True\.
-+ Set the **Enable Debug Logging** parameter to True\.
+As a first step to troubleshooting, turn on enhanced logging\. More specifically, do the following:
+
+1. Verify that the association is configured to write command output to either Amazon S3 or Amazon CloudWatch Logs \(CloudWatch\)\.
+
+1. Set the **Enable Verbose Logging** parameter to True\.
+
+1. Set the **Enable Debug Logging** parameter to True\.
 
 With verbose and debug logging enabled, the **Stdout** output file includes details about the script execution\. This output file can help you identify where the script failed\. The **Stderr** output file contains errors that occurred during the script execution\. 
 
@@ -256,10 +259,10 @@ With verbose and debug logging enabled, the **Stdout** output file includes deta
 
 This section includes information about common problems that can occur when creating associations that run MOF files and steps to troubleshoot these issues\.
 
-**My MOF was not applied**  
+**My MOF wasn't applied**  
 If State Manager failed to apply the association to your instances, then start by reviewing the **Stderr** output file\. This file can help you understand the root cause of the issue\. Also, verify the following:
 + The instance has the required access permissions to all MOF\-related Amazon S3 buckets\. Specifically:
-  + **s3:GetObject permissions**: This is required for MOF files in private Amazon S3 buckets as well as custom modules in Amazon S3 buckets\.
+  + **s3:GetObject permissions**: This is required for MOF files in private Amazon S3 buckets and custom modules in Amazon S3 buckets\.
   + **s3:PutObject permission**: This is required to write compliance reports and compliance status to Amazon S3 buckets\.
 + If you are using tags, then ensure that the instance has the required IAM policy\. Using tags requires the instance IAM role to have a policy allowing the `ec2:DescribeInstances` and `ssm:ListTagsForResource` actions\.
 + Ensure that the instance has the expected tags or SSM parameters assigned\.
@@ -267,7 +270,7 @@ If State Manager failed to apply the association to your instances, then start b
 + Try applying the MOF locally on the instance to make sure there isn't an issue with the MOF file itself\.
 
 **My MOF seemed to fail, but the Systems Manager execution was successful**  
-If the AWS\-ApplyDSCMofs document successfully ran, then the Systems Manager execution status shows **Success**\. This status does not reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
+If the AWS\-ApplyDSCMofs document successfully ran, then the Systems Manager execution status shows **Success**\. This status doesn't reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
 
 **Stderr states: Name resolution failure attempting to reach service**  
 This error indicates that the script can't reach a remote service\. Most likely, the script can't reach Amazon S3\. This issue most often occurs when the script attempts to write compliance reports or compliance status to the Amazon S3 bucket supplied in the document parameters\. Typically, this error occurs when a computing environment uses a firewall or transparent proxy that includes an allow list\. To resolve this issue:
@@ -280,7 +283,7 @@ This error indicates that the script can't reach a remote service\. Most likely,
   The Report, Status, and Module Source bucket names should be formatted as follows\.
 
   *bucket\-region*:*bucket\-name*\. Here is an example: `us-west-1:doc-example-bucket`
-+ If Region\-specific syntax does not fix the problem, then make sure that the targeted instances can access Amazon S3 in the desired Region\. To verify this:
++ If Region\-specific syntax doesn't fix the problem, then make sure that the targeted instances can access Amazon S3 in the desired Region\. To verify this:
 
   1. Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region\. For information, see [Amazon S3 Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) in the *Amazon Web Services General Reference*\.
 
@@ -294,7 +297,7 @@ This error indicates that the script can't reach a remote service\. Most likely,
 
 ## Viewing DSC resource compliance details<a name="systems-manager-state-manager-viewing-mof-file-compliance"></a>
 
-Systems Manager captures compliance information about DSC resource failures in the Amazon S3 **Status Bucket** you specified when you ran the AWS\-ApplyDSCMofs document\. Searching for information about DSC resource failures in an Amazon S3 bucket can be time consuming\. Instead, you can quickly view this information in the Systems Manager **Compliance** page\. 
+Systems Manager captures compliance information about DSC resource failures in the Amazon S3 **Status Bucket** you specified when you ran the AWS\-ApplyDSCMofs document\. Searching for information about DSC resource failures in an Amazon S3 bucket can be time consuming\. Instead, you can view this information in the Systems Manager **Compliance** page\. 
 
 The **Compliance resources summary** section displays a count of resources that failed\. In the following example, the **ComplianceType** is **Custom:DSC** and one resource is noncompliant\.
 
@@ -307,7 +310,7 @@ The **Details overview for resources** section displays information about the AW
 
 ![\[Viewing compliance details for a MOF execution resource failure\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-1.png)
 
-The **View output** link displays the last 4,000 characters of the detailed status\. Systems Manager starts with the exception as the first element, and then scans back through the verbose messages and prepends as many as it can until it reaches the 4,000 character limit\. This process displays the log messages that were output prior to the exception being thrown, which are the most relevant messages for troubleshooting\.
+The **View output** link displays the last 4,000 characters of the detailed status\. Systems Manager starts with the exception as the first element, and then scans back through the verbose messages and prepends as many as it can until it reaches the 4,000 character quota\. This process displays the log messages that were output before the exception was thrown, which are the most relevant messages for troubleshooting\.
 
 ![\[Viewing detailed output for MOF resource compliance issue\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
 

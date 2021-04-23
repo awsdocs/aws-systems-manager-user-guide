@@ -1,6 +1,6 @@
 # AWS Systems Manager Change Calendar<a name="systems-manager-change-calendar"></a>
 
-AWS Systems Manager Change Calendar \(Change Calendar\) lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+AWS Systems Manager Change Calendar lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 A Change Calendar entry can be one of two types:
 
@@ -16,7 +16,7 @@ When a calendar entry is closed by default, actions that are tracking Change Cal
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>
 
-The following are some benefits of Systems Manager Change Calendar\.
+The following are some benefits of Change Calendar\.
 + **Review changes before they're applied**
 
   A Change Calendar entry can help ensure that potentially destructive Automation changes to your environment are reviewed before they're applied\.
@@ -29,11 +29,11 @@ The following are some benefits of Systems Manager Change Calendar\.
 + 
 
 **EventBridge support**  
-This Systems Manager capability is supported as an *event* type in Amazon EventBridge \(EventBridge\) rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
+This Systems Manager capability is supported as an *event* type in Amazon EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 **Topics**
 + [Who should use Change Calendar?](#systems-manager-change-calendar-who)
 + [Benefits of Change Calendar](#systems-manager-change-calendar-benefits)
 + [Setting up Change Calendar](systems-manager-change-calendar-prereqs.md)
 + [Working with Change Calendar](systems-manager-change-calendar-working.md)
-+ [Add Change Calendar dependencies to Automation documents](systems-manager-change-calendar-automations.md)
++ [Add Change Calendar dependencies to Automation runbooks](systems-manager-change-calendar-automations.md)

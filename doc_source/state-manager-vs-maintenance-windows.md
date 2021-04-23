@@ -1,6 +1,6 @@
 # Choosing between State Manager and Maintenance Windows<a name="state-manager-vs-maintenance-windows"></a>
 
-State Manager and Maintenance Windows can perform some similar types of updates on your managed instances\. Which one you choose depends on whether you need to automate system compliance or perform high\-priority, time\-sensitive tasks only during periods you specify\.
+State Manager and Maintenance Windows can perform some similar types of updates on your managed instances\. Which one you choose depends on whether you need to automate system compliance or perform high\-priority, time\-sensitive tasks during periods you specify\.
 
 ## State Manager and Maintenance Windows: Key use cases<a name="sm-mw-use-cases"></a>
 

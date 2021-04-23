@@ -1,6 +1,6 @@
 # Working with Change Manager<a name="working-with-change-manager"></a>
 
-With AWS Systems Manager Change Manager \(Change Manager\), users across your organization or in a single AWS account can perform change\-related tasks for which they have been granted the necessary permissions\. Change Manager tasks include the following:
+With Change Manager, a capability of AWS Systems Manager, users across your organization or in a single AWS account can perform change\-related tasks for which they have been granted the necessary permissions\. Change Manager tasks include the following:
 + Create, review, and approve or reject change templates\. 
 
   A change template is a collection of configuration settings in Change Manager that define such things as required approvals, available runbooks, and notification options for change requests\.

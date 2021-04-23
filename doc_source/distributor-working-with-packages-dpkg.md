@@ -37,7 +37,7 @@ You can use the AWS Systems Manager console to delete a package version from Dis
 You can use your preferred command line tool to delete a package from Distributor\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 **To delete a package \(AWS CLI\)**
 
@@ -129,7 +129,7 @@ You can use your preferred command line tool to delete a package from Distributo
 You can use your preferred command line tool to delete a package version from Distributor\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 **To delete a package version \(AWS CLI\)**
 

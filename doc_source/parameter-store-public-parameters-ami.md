@@ -11,7 +11,7 @@ Amazon Elastic Compute Cloud \(Amazon EC2\) Amazon Machine Image \(AMI\) public 
 You can view a list of all Amazon Linux and Amazon Linux 2 AMIs in the current AWS Region by using the following command in the AWS Command Line Interface \(AWS CLI\)\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -54,7 +54,7 @@ The command returns information like the following\.
 You can view details about these AMIs, including the AMI IDs and Amazon Resource Names \(ARNs\), by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -114,10 +114,10 @@ The command returns information like the following\. This example output has bee
         },
 ```
 
-You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API action with the full AMI name, including the path\. Here is an example command\.
+You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path\. Here is an example command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
@@ -159,7 +159,7 @@ The command returns the following information\.
 You can view a list of all Windows Server AMIs in the current AWS Region by using the following command in the AWS CLI\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -205,7 +205,7 @@ The command returns information like the following\. This example output has bee
 You can view details about these AMIs, including the AMI IDs and Amazon Resource Names \(ARNs\), by using the following command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters-by-path \
@@ -258,10 +258,10 @@ The command returns information like the following\. This example output has bee
         },
 ```
 
-You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API action with the full AMI name, including the path\. Here is an example command\.
+You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path\. Here is an example command\.
 
 ------
-#### [ Linux ]
+#### [ Linux & macOS ]
 
 ```
 aws ssm get-parameters \
