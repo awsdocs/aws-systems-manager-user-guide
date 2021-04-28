@@ -1,6 +1,6 @@
 # About pseudo parameters<a name="mw-cli-register-tasks-parameters"></a>
 
-When you register a task, you use the `--task-invocation-parameters` option to specify the parameters that are unique to each of the four task types\. You can also reference certain values using *pseudo parameter* syntax, such as `{{RESOURCE_ID}}`, `{{TARGET_TYPE}}`, and `{{WINDOW_TARGET_ID}}`\. When the maintenance window task runs, it passes the correct values instead of the pseudo parameter placeholders\. The full list of pseudo parameters you can use is provided in [Supported pseudo parameters](#pseudo-parameters)\.
+When you register a task in Maintenance Windows, a capability of AWS Systems Manager, you use the `--task-invocation-parameters` option to specify the parameters that are unique to each of the four task types\. You can also reference certain values using *pseudo parameter* syntax, such as `{{RESOURCE_ID}}`, `{{TARGET_TYPE}}`, and `{{WINDOW_TARGET_ID}}`\. When the maintenance window task runs, it passes the correct values instead of the pseudo parameter placeholders\. The full list of pseudo parameters you can use is provided in [Supported pseudo parameters](#pseudo-parameters)\.
 
 **Important**  
 For the target type `RESOURCE_GROUP`, depending on the ID format needed for the task, you can choose between using `{{TARGET_ID}}` and `{{RESOURCE_ID}}` to reference the resource when your task runs\. `{{TARGET_ID}}` returns the full ARN of the resource\. `{{RESOURCE_ID}}` returns only a shorter name or ID of the resource, as shown in these examples\.  
@@ -10,7 +10,7 @@ For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` param
 
 ## Pseudo parameter examples<a name="pseudo-parameter-examples"></a>
 
-Suppose that your payload for a Lambda task needs to reference an instance by its ID\.
+Suppose that your payload for an AWS Lambda task needs to reference an instance by its ID\.
 
 Whether you’re using an `INSTANCE` or a `RESOURCE_GROUP` maintenance window target, this can be achieved by using the `{{RESOURCE_ID}}` pseudo parameter:
 
@@ -26,7 +26,7 @@ Whether you’re using an `INSTANCE` or a `RESOURCE_GROUP` maintenance window ta
     }
 ```
 
-If your Lambda task is intended to run against another supported target type in addition to EC2 instances, such as a DynamoDB table, the same syntax can be used, and `{{RESOURCE_ID}}` yields the name of the table only\. However, if you require the full ARN of the table, use `{{TARGET_ID}}`, as shown in the following example\.
+If your Lambda task is intended to run against another supported target type in addition to Amazon Elastic Compute Cloud \(Amazon EC2\) instances, such as an Amazon DynamoDB table, the same syntax can be used, and `{{RESOURCE_ID}}` yields the name of the table only\. However, if you require the full ARN of the table, use `{{TARGET_ID}}`, as shown in the following example\.
 
 ```
 "TaskArn": "arn:aws:lambda:us-east-2:111122223333:function:SSMTestFunction",
@@ -45,7 +45,7 @@ The same syntax works for targeting instances or other resource types\. When mul
 **Important**  
 Not all resource types that might be included in a resource group yield a value for the `{{RESOURCE_ID}}` parameter\. For a list of supported resource types, see [Supported pseudo parameters](#pseudo-parameters)\.
 
-As another example, to run an Automation task that stops your EC2 instances, you specify the `AWS-StopEC2Instance` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter:
+As another example, to run an Automation task that stops your EC2 instances, you specify the `AWS-StopEC2Instance` Systems Manager document \(SSM document\) as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter:
 
 ```
 "TaskArn": "AWS-StopEC2Instance",
@@ -62,7 +62,7 @@ As another example, to run an Automation task that stops your EC2 instances, you
     }
 ```
 
-To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter:
+To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter\.
 
 ```
 "TaskArn": "AWS-CopySnapshot",

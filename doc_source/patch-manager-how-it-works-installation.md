@@ -1,6 +1,6 @@
 # How patches are installed<a name="patch-manager-how-it-works-installation"></a>
 
-Patch Manager uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows Server, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
+Patch Manager, a capability of AWS Systems Manager, uses the appropriate built\-in mechanism for an operating system type to install updates on an instance\. For example, on Windows Server, the Windows Update API is used, and on Amazon Linux the `yum` package manager is used\.
 
 Choose from the following tabs to learn how Patch Manager installs patches on an operating system\.
 

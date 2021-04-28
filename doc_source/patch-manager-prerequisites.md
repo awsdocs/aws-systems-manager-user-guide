@@ -1,6 +1,6 @@
 # Patch Manager prerequisites<a name="patch-manager-prerequisites"></a>
 
-Make sure that you have met the required prerequisites before using Patch Manager\. 
+Make sure that you have met the required prerequisites before using Patch Manager, a capability of AWS Systems Manager\. 
 
 **SSM Agent version**  
 Version 2\.0\.834\.0 or later of SSM Agent is running on the instances you want to manage with Patch Manager\.
@@ -14,10 +14,10 @@ If your instances don't have a direct connection to the Internet and you are usi
 Windows Server instances must be able to connect to the Windows Update Catalog or Windows Server Update Services \(WSUS\)\. Confirm that your instances have connectivity to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/home.aspx) through an internet gateway, NAT gateway, or NAT instance\. If you are using WSUS, confirm that the instance has connectivity to the WSUS server in your environment\. For more information, see [Troubleshooting instance does not have access to Windows Update Catalog or WSUS](patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access)\.
 
 **S3 endpoint access**  
-Whether your instances operate in a private or public network, without access to the required AWS managed S3 buckets, patching operations fail\. For information about the S3 buckets your managed instances must be able to access, see [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md) and [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
+Whether your instances operate in a private or public network, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, patching operations fail\. For information about the S3 buckets your managed instances must be able to access, see [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md) and [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
 
 **Supported operating systems**  
-The Patch Manager capability does not support all the same operating systems versions that are supported by other AWS Systems Manager capabilities\. For example, Patch Manager does not support CentOS 6\.3 or Raspbian Stretch\. \(For the full list of Systems Manager\-supported operating systems, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.\) Therefore, ensure that the instances you want to use with Patch Manager are running one of the operating systems listed in the following table\.
+The Patch Manager capability does not support all the same operating systems versions that are supported by other Systems Manager capabilities\. For example, Patch Manager does not support CentOS 6\.3 or Raspbian Stretch\. \(For the full list of Systems Manager\-supported operating systems, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.\) Therefore, ensure that the instances you want to use with Patch Manager are running one of the operating systems listed in the following table\.
 
 
 | Operating system | Details | 

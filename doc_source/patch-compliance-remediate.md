@@ -1,6 +1,6 @@
 # Patching out\-of\-compliance instances<a name="patch-compliance-remediate"></a>
 
-Many of the same Systems Manager tools and processes you can use to check instances for patch compliance can be used to bring instances into compliance with the patch rules that currently apply to them\. To bring instances into patch compliance, Patch Manager must run a `Scan and install` operation\. \(If your goal is only to identify out\-of\-compliance instances and not remediate them, run a `Scan` operation instead\. For more information, see [Identifying out\-of\-compliance instances](patch-compliance-identify.md)\.\)
+Many of the same AWS Systems Manager tools and processes you can use to check instances for patch compliance can be used to bring instances into compliance with the patch rules that currently apply to them\. To bring instances into patch compliance, Patch Manager, a capability of AWS Systems Manager, must run a `Scan and install` operation\. \(If your goal is only to identify out\-of\-compliance instances and not remediate them, run a `Scan` operation instead\. For more information, see [Identifying out\-of\-compliance instances](patch-compliance-identify.md)\.\)
 
 **Install patches using Systems Manager**  
 You can choose from several tools to run a `Scan and install` operation:

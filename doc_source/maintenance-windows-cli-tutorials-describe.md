@@ -4,7 +4,7 @@ This tutorial includes commands to help you update or get information about your
 
 As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 
-For information about setting up and configuring the CLI, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
+For information about setting up and configuring the AWS Command Line Interface \(AWS CLI\), see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
 
 **Topics**
 + [Examples for 'describe\-maintenance\-windows'](#mw-cli-tutorials-describe-maintenance-windows)
@@ -17,13 +17,13 @@ For information about setting up and configuring the CLI, see [Installing the AW
 ## Examples for 'describe\-maintenance\-windows'<a name="mw-cli-tutorials-describe-maintenance-windows"></a>
 
 **List all maintenance windows in your AWS account**  
-Run the following command:
+Run the following command\.
 
 ```
 aws ssm describe-maintenance-windows
 ```
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -49,13 +49,13 @@ The system returns information like the following:
 ```
 
 **List all enabled maintenance windows**  
-Run the following command:
+Run the following command\.
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=true"
 ```
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -81,13 +81,13 @@ The system returns information like the following:
 ```
 
 **List all disabled maintenance windows**  
-Run the following command:
+Run the following command\.
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Enabled,Values=false"
 ```
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -104,13 +104,13 @@ The system returns information like the following:
 ```
 
 **List all maintenance windows having names that start with a certain prefix**  
-Run the following command:
+Run the following command\.
 
 ```
 aws ssm describe-maintenance-windows --filters "Key=Name,Values=My"
 ```
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -145,7 +145,7 @@ The system returns information like the following:
 ## Examples for 'describe\-maintenance\-window\-targets'<a name="mw-cli-tutorials-describe-maintenance-window-targets"></a>
 
 **Display the targets for a maintenance window matching a specific owner information value**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -170,7 +170,7 @@ aws ssm describe-maintenance-window-targets ^
 **Note**  
 The supported filter keys are `Type`, `WindowTargetId` and `OwnerInformation`\.
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -196,8 +196,8 @@ The system returns information like the following:
 
 ## Examples for 'describe\-maintenance\-window\-tasks'<a name="mw-cli-tutorials-describe-maintenance-window-tasks"></a>
 
-**Show all registered tasks that invoke the AWS\-RunPowerShellScript Run Command**  
-Run the following command:
+**Show all registered tasks that invoke the AWS\-RunPowerShellScript SSM document**  
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -219,7 +219,7 @@ aws ssm describe-maintenance-window-tasks ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -273,7 +273,7 @@ The system returns information like the following:
 ```
 
 **Show all registered tasks that have a priority of "3"**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -295,7 +295,7 @@ aws ssm describe-maintenance-window-tasks ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -327,7 +327,7 @@ The system returns information like the following:
 ```
 
 **Show all registered tasks that have a priority of "1" and use Run Command**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -349,7 +349,7 @@ aws ssm describe-maintenance-window-tasks ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -401,7 +401,7 @@ The system returns information like the following:
 ## Examples for 'describe\-maintenance\-windows\-for\-target'<a name="mw-cli-tutorials-describe-maintenance-windows-for-target"></a>
 
 **List information about the maintenance window targets or tasks associated with a specific instance**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -425,7 +425,7 @@ aws ssm describe-maintenance-windows-for-target ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -445,7 +445,7 @@ The system returns information like the following:
 ## Examples for 'describe\-maintenance\-window\-executions'<a name="mw-cli-tutorials-describe-maintenance-window-executions"></a>
 
 **List all tasks run before a certain date**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -467,7 +467,7 @@ aws ssm describe-maintenance-window-executions ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -499,7 +499,7 @@ The system returns information like the following:
 ```
 
 **List all tasks run after a certain date**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -521,7 +521,7 @@ aws ssm describe-maintenance-window-executions ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -555,7 +555,7 @@ The system returns information like the following:
 ## Examples for 'describe\-maintenance\-window\-schedule'<a name="mw-cli-tutorials-describe-maintenance-window-schedule"></a>
 
 **Display the next ten scheduled maintenance window runs for a particular instance**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -579,7 +579,7 @@ aws ssm describe-maintenance-window-schedule ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -640,7 +640,7 @@ The system returns information like the following:
 ```
 
 **Display the maintenance window schedule for instances tagged with a certain key\-value pair**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -662,7 +662,7 @@ aws ssm describe-maintenance-window-schedule ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -698,7 +698,7 @@ The system returns information like the following:
 ```
 
 **Display start times for next four runs of a maintenance window**  
-Run the following command:
+Run the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -720,7 +720,7 @@ aws ssm describe-maintenance-window-schedule ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {

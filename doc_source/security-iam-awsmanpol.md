@@ -29,7 +29,7 @@ You can't attach `AmazonSSMServiceRolePolicy` to your IAM entities\. This policy
 Currently, three Systems Manager capabilities use the service\-linked role: 
 + Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
 + The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
-+ The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\.
++ The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
 
 
 
@@ -76,29 +76,35 @@ The `AWSServiceRoleForAmazonSSM` service\-linked role permissions policy allows 
 + `cloudformation:DescribeStackSetOperation` \[5\]
 + `cloudformation:DeleteStackSet` \[5\]
 + `cloudformation:DeleteStackInstances` \[6\]
++ `events:PutRule` \[7\]
++ `events:PutTargets` \[7\]
++ `events:RemoveTargets` \[8\]
++ `events:DeleteRule` \[8\]
++ `events:DescribeRule`
++ `securityhub:DescribeHub`
 
-\[1\] The `ssm:UpdateServiceSetting` and `ssm:GetServiceSetting` actions are allowed permissions for the following resources only:
+\[1\] The `ssm:UpdateServiceSetting` and `ssm:GetServiceSetting` actions are allowed permissions for the following resources only\.
 
 ```
 arn:aws:ssm:*:*:servicesetting/ssm/opsitem/*
 arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*
 ```
 
-\[2\] The `lambda:InvokeFunction` action is allowed permissions for the following resources only:
+\[2\] The `lambda:InvokeFunction` action is allowed permissions for the following resources only\.
 
 ```
 arn:aws:lambda:*:*:function:SSM*
 arn:aws:lambda:*:*:function:*:SSM*
 ```
 
-\[3\] The `states:` actions are allowed permissions on the following resources only:
+\[3\] The `states:` actions are allowed permissions on the following resources only\.
 
 ```
 arn:aws:states:*:*:stateMachine:SSM*
 arn:aws:states:*:*:execution:SSM*
 ```
 
- \[4\] The `iam:PassRole` action is allowed permissions by the following condition for the Systems Manager service only:
+ \[4\] The `iam:PassRole` action is allowed permissions by the following condition for the Systems Manager service only\.
 
 ```
 "Condition": {
@@ -110,18 +116,34 @@ arn:aws:states:*:*:execution:SSM*
 }
 ```
 
-\[5\] The `cloudformation:DeleteStackInstances` action is allowed permissions on the following resource only:
+\[5\] The `cloudformation:ListStackInstances`, `cloudformation:DescribeStackSetOperation`, and `cloudformation:DeleteStackSet` actions are allowed permissions on the following resource only\.
 
 ```
 arn:aws:cloudformation:*:*:stackset/AWS-QuickSetup-SSM*:*
 ```
 
-\[6\] The `cloudformation:ListStackInstances`, `cloudformation:DescribeStackSetOperation`, and `cloudformation:DeleteStackSet` actions are allowed permissions on the following resources only:
+\[6\] The `cloudformation:DeleteStackInstances` action is allowed permissions on the following resources only\.
 
 ```
 arn:aws:cloudformation:*:*:stackset/AWS-QuickSetup-SSM*:*
 arn:aws:cloudformation:*:*:stackset-target/AWS-QuickSetup-SSM*:*
 arn:aws:cloudformation:*:*:type/resource/*
+```
+
+\[7\] The `events:PutRule` and `events:PutTargets` actions are allowed permissions by the following condition for the Systems Manager service only\.
+
+```
+"Condition": {
+    "StringEquals": {
+        "events:ManagedBy": "ssm.amazonaws.com"
+    }
+}
+```
+
+\[8\] The `events:RemoveTargets` and `events:DeleteRule` actions are allowed permissions on the following resource only\.
+
+```
+arn:aws:events:*:*:rule/SSMExplorerManagedRule
 ```
 
 **Full AmazonSSMServiceRolePolicy policy**
@@ -305,6 +327,177 @@ arn:aws:cloudformation:*:*:type/resource/*
                 "arn:aws:cloudformation:*:*:stackset-target/AWS-QuickSetup-SSM*:*",
                 "arn:aws:cloudformation:*:*:type/resource/*"
             ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutRule",
+                "events:PutTargets"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "events:ManagedBy": "ssm.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:RemoveTargets",
+                "events:DeleteRule"
+            ],
+            "Resource": [
+                "arn:aws:events:*:*:rule/SSMExplorerManagedRule"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "events:DescribeRule",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "securityhub:DescribeHub",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+## AWS managed policy: AWSServiceRoleForSystemsManagerOpsDataSyncPolicy<a name="security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy"></a>
+
+You can't attach AWSServiceRoleForSystemsManagerOpsDataSyncPolicy to your IAM entities\. This policy is attached to a service\-linked role that allows Systems Manager to perform actions on your behalf\. For more information, see [Using roles to create OpsData and OpsItems for Systems Manager Explorer: AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md)\.
+
+ `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy` allows the [AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md) service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\. 
+
+**Permissions details**
+
+The `AWSServiceRoleForAmazonSSM` service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources \(`"Resource": "*"`\), except where indicated:
++ `ssm:GetOpsItem` \[1\]
++ `ssm:UpdateOpsItem` \[1\]
++ `ssm:CreateOpsItem`
++ `ssm:AddTagsToResource` \[2\]
++ `ssm:UpdateServiceSetting` \[3\]
++ `ssm:GetServiceSetting` \[3\]
++ `securityhub:GetFindings`
++ `securityhub:GetFindings`
++ `securityhub:BatchUpdateFindings` \[4\]
+
+\[1\] The `ssm:GetOpsItem` and `ssm:UpdateOpsItem` actions are allowed permissions by the following condition for the Systems Manager service only\.
+
+```
+"Condition": {
+    "StringEquals": {
+        "aws:ResourceTag/ExplorerSecurityHubOpsItem": "true"
+    }
+}
+```
+
+\[2\] The `ssm:AddTagsToResource` action is allowed permissions for the following resource only\.
+
+```
+arn:aws:ssm:*:*:opsitem/*
+```
+
+\[3\] The `ssm:UpdateServiceSetting` and `ssm:GetServiceSetting` actions are allowed permissions for the following resources only\.
+
+```
+arn:aws:ssm:*:*:servicesetting/ssm/opsitem/*
+arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*
+```
+
+\[4\] The `securityhub:BatchUpdateFindings` are denied permissions by the following condition for the Systems Manager service only\.
+
+```
+"Condition": {
+    "StringEquals": {
+        "securityhub:ASFFSyntaxPath/Workflow.Status": "SUPPRESSED"
+    },
+    "Null": {
+        "securityhub:ASFFSyntaxPath/Confidence": false,
+        "securityhub:ASFFSyntaxPath/Criticality": false,
+        "securityhub:ASFFSyntaxPath/Note": false,
+        "securityhub:ASFFSyntaxPath/RelatedFindings": false,
+        "securityhub:ASFFSyntaxPath/Types": false,
+        "securityhub:ASFFSyntaxPath/UserDefinedFields": false,
+        "securityhub:ASFFSyntaxPath/VerificationState": false
+    }
+}
+```
+
+**Full AWSServiceRoleForSystemsManagerOpsDataSyncPolicy policy**
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetOpsItem",
+                "ssm:UpdateOpsItem"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/ExplorerSecurityHubOpsItem": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:CreateOpsItem"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:AddTagsToResource"
+            ],
+            "Resource": "arn:aws:ssm:*:*:opsitem/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:UpdateServiceSetting",
+                "ssm:GetServiceSetting"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:servicesetting/ssm/opsitem/*",
+                "arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "securityhub:GetFindings",
+                "securityhub:BatchUpdateFindings"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Deny",
+            "Action": "securityhub:BatchUpdateFindings",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "securityhub:ASFFSyntaxPath/Workflow.Status": "SUPPRESSED"
+                },
+                "Null": {
+                    "securityhub:ASFFSyntaxPath/Confidence": false,
+                    "securityhub:ASFFSyntaxPath/Criticality": false,
+                    "securityhub:ASFFSyntaxPath/Note": false,
+                    "securityhub:ASFFSyntaxPath/RelatedFindings": false,
+                    "securityhub:ASFFSyntaxPath/Types": false,
+                    "securityhub:ASFFSyntaxPath/UserDefinedFields": false,
+                    "securityhub:ASFFSyntaxPath/VerificationState": false
+                }
+            }
         }
     ]
 }
@@ -325,5 +518,7 @@ View details about updates to AWS managed policies for Systems Manager since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and Regions in AWS Systems Manager Explorer\.  | March 24, 2021 | 
+|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you enable Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before enabling OpsData\.  | April 27, 2021 | 
+|  [AWSServiceRoleForSystemsManagerOpsDataSyncPolicy](#security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy) – New policy\.  |  Systems Manager added a new policy to create and update OpsItems and OpsData from Security Hub findings in Explorer and OpsCenter\.  | April 27, 2021 | 
+|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and Regions in Explorer\.  | March 24, 2021 | 
 |  Systems Manager started tracking changes  |  Systems Manager started tracking changes for its AWS managed policies\.  | March 12, 2021 | 

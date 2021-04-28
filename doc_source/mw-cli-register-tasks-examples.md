@@ -1,11 +1,11 @@
 # Examples: Register tasks with a maintenance window<a name="mw-cli-register-tasks-examples"></a>
 
-You can register a Systems Manager Run Command task with a maintenance window using the AWS CLI, as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
+You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
 
 **Note**  
 You must specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
-In this topic, we provide examples of using the `register-task-with-maintenance-window` CLI command to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
+In this topic, we provide examples of using the AWS Command Line Interface \(AWS CLI\) command `register-task-with-maintenance-window` to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
 
 **Using the \-\-cli\-input\-json option**  
 To better manage your task options, you can use the command option `--cli-input-json`, with option values referenced in a JSON file\. 
@@ -180,7 +180,7 @@ aws ssm register-task-with-maintenance-window ^
 
 ### Register an AWS Lambda task<a name="register-tasks-tutorial-lambda"></a>
 
-The following examples demonstrate how to register AWS Lambda function tasks with a maintenance window using the AWS CLI\. 
+The following examples demonstrate how to register Lambda function tasks with a maintenance window using the AWS CLI\. 
 
 For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `instanceId` and `targetType`\.
 
@@ -247,14 +247,14 @@ aws ssm register-task-with-maintenance-window ^
 }
 ```
 
-### Register an AWS Step Functions task<a name="register-tasks-tutorial-step-functions"></a>
+### Register a Step Functions task<a name="register-tasks-tutorial-step-functions"></a>
 
-The following examples demonstrate how to register AWS Step Functions state machine tasks with a maintenance window using the AWS CLI\.
+The following examples demonstrate how to register Step Functions state machine tasks with a maintenance window using the AWS CLI\.
 
 For these examples, the user who created the Step Functions state machine created a state machine named `SSMMyStateMachine` with a parameter called `instanceId`\.
 
 **Important**  
-The IAM policy for Maintenance Windows requires that you prefix Step Functions state machine names with `SSM`\. Before you proceed to register this type of task, you must update its name in AWS Step Functions to include `SSM`\. For example, if your state machine name is `MyStateMachine`, change it to `SSMMyStateMachine`\.
+The AWS Identity and Access Management \(IAM\) policy for Maintenance Windows requires that you prefix Step Functions state machine names with `SSM`\. Before you proceed to register this type of task, you must update its name in AWS Step Functions to include `SSM`\. For example, if your state machine name is `MyStateMachine`, change it to `SSMMyStateMachine`\.
 
 **AWS CLI command:**
 

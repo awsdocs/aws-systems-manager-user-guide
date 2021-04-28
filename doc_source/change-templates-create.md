@@ -2,7 +2,7 @@
 
 A change template is a collection of configuration settings in Change Manager that define such things as required approvals, available runbooks, and notification options for change requests\.
 
-You can create change templates for your operations inChange Manager, a capability of AWS Systems Manager, using the console, which includes Builder and Editor options, or command line tools\.
+You can create change templates for your operations in Change Manager, a capability of AWS Systems Manager, using the console, which includes Builder and Editor options, or command line tools\.
 
 **Topics**
 + [Creating change templates using Builder](change-templates-custom-builder.md)

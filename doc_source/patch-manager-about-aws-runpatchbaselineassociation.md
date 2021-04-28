@@ -5,10 +5,10 @@ Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` perf
 **Note**  
 `AWS-RunPatchBaselineAssociation` is not currently supported for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
 
-This document supports EC2 instances for Linux, macOS, and Windows Server \. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
+This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
 
 `AWS-RunPatchBaselineAssociation`, however, differs from `AWS-RunPatchBaseline` in the following ways: 
-+ When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your account shares these tags, Patch Manager uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
++ When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your account shares these tags, Patch Manager, a capability of AWS Systems Manager, uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
 
   Both of the following formats are valid for your `BaselineTags` parameter:
 
@@ -16,7 +16,7 @@ This document supports EC2 instances for Linux, macOS, and Windows Server \. The
 
   `Key=tag-key,Values=tag-value1,tag-value2,tag-value3`
 + When `AWS-RunPatchBaselineAssociation` runs, the patch compliance data it collects is recorded using the `PutComplianceItems` API command instead of the `PutInventory` command, which is used by `AWS-RunPatchBaseline`\. This difference means that the patch compliance information that is stored and reported per a specific *association*\. Patch compliance data generated outside of this association is not overwritten\.
-+ The patch compliance information reported after running `AWS-RunPatchBaselineAssociation` indicates whether or not an instance is in compliance\. It doesn't include patch\-level details, as demonstrated by the output of the following AWS CLI command\. Note that the command filters on `Association` as the compliance type:
++ The patch compliance information reported after running `AWS-RunPatchBaselineAssociation` indicates whether or not an instance is in compliance\. It doesn't include patch\-level details, as demonstrated by the output of the following AWS Command Line Interface \(AWS CLI\) command\. Note that the command filters on `Association` as the compliance type:
 
   ```
   aws ssm list-compliance-items \
@@ -71,7 +71,7 @@ For information about viewing patch compliance data, see [About patch compliance
 
 ## AWS\-RunPatchBaselineAssociation Parameters<a name="patch-manager-about-aws-runpatchbaselineassociation-parameters"></a>
 
-**AWS\-RunPatchBaselineAssociation** supports four parameters\. The `Operation` and `AssociationId` parameters are required\. The `InstallOverrideList`, `RebootOption`, and `BaselineTags` parameters are optional\. 
+`AWS-RunPatchBaselineAssociation` supports four parameters\. The `Operation` and `AssociationId` parameters are required\. The `InstallOverrideList`, `RebootOption`, and `BaselineTags` parameters are optional\. 
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-operation)
@@ -87,10 +87,10 @@ For information about viewing patch compliance data, see [About patch compliance
 **Options**: `Scan` \| `Install`\. 
 
 Scan  
-When you choose the `Scan` option, **AWS\-RunPatchBaselineAssociation** determines the patch compliance state of the instance and reports this information back to Patch Manager\. `Scan` does not prompt updates to be installed or instances to be rebooted\. Instead, the operation identifies where updates are missing that are approved and applicable to the instance\. 
+When you choose the `Scan` option, `AWS-RunPatchBaselineAssociation` determines the patch compliance state of the instance and reports this information back to Patch Manager\. `Scan` does not prompt updates to be installed or instances to be rebooted\. Instead, the operation identifies where updates are missing that are approved and applicable to the instance\. 
 
 Install  
-When you choose the `Install` option, **AWS\-RunPatchBaselineAssociation** attempts to install the approved and applicable updates that are missing from the instance\. Patch compliance information generated as part of an `Install` operation does not list any missing updates, but might report updates that are in a failed state if the installation of the update did not succeed for any reason\. Whenever an update is installed on an instance, the instance is rebooted to ensure the update is both installed and active\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselineAssociation` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-norebootoption)\.\)  
+When you choose the `Install` option, `AWS-RunPatchBaselineAssociation` attempts to install the approved and applicable updates that are missing from the instance\. Patch compliance information generated as part of an `Install` operation does not list any missing updates, but might report updates that are in a failed state if the installation of the update did not succeed for any reason\. Whenever an update is installed on an instance, the instance is rebooted to ensure the update is both installed and active\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselineAssociation` document, the instance is not rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-norebootoption)\.\)  
 If a patch specified by the baseline rules is installed *before* Patch Manager updates the instance, the system might not reboot as expected\. This can happen when a patch is installed manually by a user or installed automatically by another program, such as the `unattended-upgrades` package on Ubuntu Server\.
 
 ### Parameter name: `BaselineTags`<a name="patch-manager-about-aws-runpatchbaselineassociation-parameters-baselinetags"></a>
@@ -112,7 +112,7 @@ You do not need to tag your instances with this key\-value pair\.
 
 **Usage**: Required\.
 
-`AssociationId` is the ID of an existingState Manager association \. It is used by Patch Manager to add compliance data to the specified Association\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances is not overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
+`AssociationId` is the ID of an existing association in State Manager, a capability of AWS Systems Manager\. It is used by Patch Manager to add compliance data to the specified Association\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances is not overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
 
 ------
 #### [ Linux & macOS ]

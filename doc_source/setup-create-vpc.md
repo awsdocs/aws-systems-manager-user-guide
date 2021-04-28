@@ -91,7 +91,7 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
    + **com\.amazonaws\.*region*\.kms**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
 
 1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
-   + **com\.amazonaws\.*region*\.s3**: Systems Manager uses this endpoint to update SSM Agent and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
+   + **com\.amazonaws\.*region*\.s3**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
 
 ## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
 

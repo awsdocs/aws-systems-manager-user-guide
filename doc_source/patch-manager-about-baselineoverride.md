@@ -1,9 +1,9 @@
 # Using the BaselineOverride parameter<a name="patch-manager-about-baselineoverride"></a>
 
-You can define patching preferences at runtime using the baseline override feature\. Do this by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket containing a JSON object with a list of patch baselines\. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline\.
+You can define patching preferences at runtime using the baseline override feature in Patch Manager, a capability of AWS Systems Manager\. Do this by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket containing a JSON object with a list of patch baselines\. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline\.
 
 **Note**  
-Using the `BaselinOverride` parameter does not overwrite the patch compliance of the baseline provided in the parameter\. The output results are recorded in the Stdout logs from Run Command\. The results only print out packages that are marked as `NON_COMPLIANT`\. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`\.
+Using the `BaselinOverride` parameter does not overwrite the patch compliance of the baseline provided in the parameter\. The output results are recorded in the Stdout logs from Run Command, a capability of AWS Systems Manager\. The results only print out packages that are marked as `NON_COMPLIANT`\. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`\.
 
 ## Using the patch baseline override with Snapshot Id or Install Override List parameters<a name="patch-manager-about-baselineoverride-other-parameters"></a>
 

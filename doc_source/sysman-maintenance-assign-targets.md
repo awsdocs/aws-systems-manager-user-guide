@@ -19,7 +19,7 @@ If a single maintenance window task is registered with multiple targets, its tas
 
 1. \(Optional\) For **Description**, enter a description\.
 
-1. \(Optional\) For **Owner information**, specify information to include in any EventBridge event raised while running tasks for these targets in this maintenance window\.
+1. \(Optional\) For **Owner information**, specify information to include in any Amazon EventBridge event raised while running tasks for these targets in this maintenance window\.
 
    For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 

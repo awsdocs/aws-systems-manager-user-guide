@@ -1,6 +1,6 @@
 # Control access to maintenance windows \(AWS CLI\)<a name="sysman-maintenance-perm-cli"></a>
 
-The following procedures describe how to use the AWS CLI to create the required roles and permissions for Maintenance Windows\.
+The following procedures describe how to use the AWS Command Line Interface \(AWS CLI\) to create the required roles and permissions for Maintenance Windows, a capability of AWS Systems Manager\.
 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(AWS CLI\)](#sysman-maintenance-role-cli)
@@ -110,7 +110,7 @@ When you register a task with a maintenance window, you specify either a custom 
 
 **To configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)**
 
-1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
+1. Copy and paste the following AWS Identity and Access Management \(IAM\) policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
 
    ```
    {
@@ -135,7 +135,7 @@ When you register a task with a maintenance window, you specify either a custom 
    }
    ```
 
-   Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+   Replace *custom\-role\-arn* with the Amazon Resource Name \(ARN\) of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
 
    Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 
@@ -168,7 +168,7 @@ When you register a task with a maintenance window, you specify either a custom 
 
      For *user\-name*, specify the IAM user who assigns tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-To grant access for a user to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account \(or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\. Run the following command to assign the `AmazonSSMFullAccess` policy to your account\.  
+To grant access for a user to register tasks for maintenance windows using the Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user account \(or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\)\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\. Run the following command to assign the `AmazonSSMFullAccess` policy to your account\.  
 
      ```
      aws iam attach-user-policy \
@@ -207,7 +207,7 @@ To grant access for a user to register tasks for maintenance windows using the A
 
      For *group\-name*, specify the IAM group whose members assign tasks to maintenance windows\. For *policy\-name*, specify the name you want to use to identify the policy, such as **my\-iam\-passrole\-policy**\. For *path\-to\-document*, specify the path to the file you saved in step 1\. For example: `file://C:\Temp\mw-passrole-policy.json`
 **Note**  
-To grant access for members of a group to register tasks for maintenance windows using the AWS Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group\.  
+To grant access for members of a group to register tasks for maintenance windows using the Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group\. Run the following command to assign this policy to your group\.  
 
      ```
      aws iam attach-group-policy \

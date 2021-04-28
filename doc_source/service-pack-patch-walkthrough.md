@@ -2,7 +2,7 @@
 
 When you create a custom patch baseline, you can specify that all, some, or only one type of supported patch is installed\.
 
-In patch baselines for Windows, you can select `ServicePacks` as the only **Classification** option in order to limit patching updates to Service Packs only\. Service Packs can be installed automatically by Patch Manager provided that the update is available in Windows Update or Windows Server Update Services \(WSUS\)\.
+In patch baselines for Windows, you can select `ServicePacks` as the only **Classification** option in order to limit patching updates to Service Packs only\. Service Packs can be installed automatically by Patch Manager, a capability of AWS Systems Manager, provided that the update is available in Windows Update or Windows Server Update Services \(WSUS\)\.
 
 You can configure a patch baseline to control whether Service Packs for all Windows versions are installed, or just those for specific versions, such as Windows 7 or Windows Server 2016\. 
 

@@ -1,12 +1,12 @@
 # Step 3: Register a task with the maintenance window \(AWS CLI\)<a name="mw-cli-tutorial-tasks"></a>
 
-In this step of the tutorial, you register a Run Command task that runs the `df` command on your EC2 instance for Linux\. The results of this standard Linux command show how much space is free and how much is used on the disk file system of your instance\.
+In this step of the tutorial, you register an AWS Systems Manager Run Command task that runs the `df` command on your Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux\. The results of this standard Linux command show how much space is free and how much is used on the disk file system of your instance\.
 
 \-or\-
 
-If you are targeting an EC2 instance for Windows Server instead of Linux, replace df in the following command with ipconfig\. Output from this command lists details about the IP address, subnet mask, and default gateway for adapters on the target instance\.
+If you are targeting an Amazon EC2 instance for Windows Server instead of Linux, replace df in the following command with ipconfig\. Output from this command lists details about the IP address, subnet mask, and default gateway for adapters on the target instance\.
 
-When you are ready to register other task types, or use more of the available Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
+When you are ready to register other task types, or use more of the available Systems Manager Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
 
 **To register a task with a maintenance window**
 
@@ -70,7 +70,7 @@ When you are ready to register other task types, or use more of the available Ru
 
 ------
 
-1. The system returns information similar to the following:
+1. The system returns information similar to the following\.
 
    ```
    {
@@ -118,7 +118,7 @@ When you are ready to register other task types, or use more of the available Ru
 
 ------
 
-   The system returns information similar to the following:
+   The system returns information similar to the following\.
 
    ```
    {
@@ -135,7 +135,7 @@ When you are ready to register other task types, or use more of the available Ru
    ```
 
 **Tip**  
-After the task completes successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week:  
+After the task completes successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week\.  
 
 ```
 aws ssm update-maintenance-window \
@@ -149,14 +149,14 @@ aws ssm update-maintenance-window ^
     --schedule "rate(7 days)"
 ```
 For information about managing maintenance window schedules, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) and [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  
-For information about using the AWS CLI to modify a maintenance window, see [Tutorial: Update a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
+For information about using the AWS Command Line Interface \(AWS CLI\) to modify a maintenance window, see [Tutorial: Update a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\.
 
 For practice running AWS CLI commands to view more details about your maintenance window task and its executions, continue to [Tutorial: View information about tasks and task executions \(AWS CLI\)](mw-cli-tutorial-task-info.md)\.
 
 **About tutorial command output**  
 It's beyond the scope of this tutorial to use the AWS CLI to view the *output* of the Run Command command associated with your maintenance window task executions\.
 
-You could view this data, however, using the AWS CLI\. \(You could also view the output in the Systems Manager console or in a log file stored in an S3 bucket, if you had configured the maintenance window to store command output there\.\) You would find that the output of the df command on an EC2 instance for Linux is similar to the following:
+You could view this data, however, using the AWS CLI\. \(You could also view the output in the Systems Manager console or in a log file stored in an Amazon Simple Storage Service \(Amazon S3\( bucket, if you had configured the maintenance window to store command output there\.\) You would find that the output of the df command on an EC2 instance for Linux is similar to the following\.
 
 ```
 Filesystem 1K-blocks Used Available Use% Mounted on

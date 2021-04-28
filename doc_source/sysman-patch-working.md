@@ -1,6 +1,6 @@
 # Working with Patch Manager \(console\)<a name="sysman-patch-working"></a>
 
-To use Patch Manager, complete the following tasks\. These tasks are described in more detail in this section\.
+To use Patch Manager, a capability of AWS Systems Manager, complete the following tasks\. These tasks are described in more detail in this section\.
 
 1. Verify that the AWS predefined patch baseline for each operating system type that you use meets your needs\. If it does not, create a patch baseline that defines a standard set of patches for that instance type and set it as the default instead\.
 
@@ -15,7 +15,7 @@ To use Patch Manager, complete the following tasks\. These tasks are described i
 1. Monitor patching to verify compliance and investigate failures\.
 
 **Related content**
-+ To view an example of how to create a patch baseline, patch groups, and a maintenance window using the AWS CLI, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
++ To view an example of how to create a patch baseline, patch groups, and a maintenance window using the AWS Command Line Interface \(AWS CLI\), see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 + For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 + For information about monitoring patch compliance, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 

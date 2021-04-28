@@ -4,7 +4,7 @@
 
 AWS Systems Manager publishes metrics about the status of Run Command commands to CloudWatch, enabling you to set alarms based on those metrics\. These statistics are recorded for an extended period so you can access historical information and gain a better perspective on the success rate of commands run in your AWS account\. 
 
-The terminal status values for commands for which you can track metrics include `Success`, `Failed`, and `Delivery Timed Out`\. For example, for an SSM command document set to run every hour, you can configure an alarm to notify you when a status of `Success` is not reported for any of those hours\. For more information about command status values, see [Understanding command statuses](monitor-commands.md)\.
+The terminal status values for commands for which you can track metrics include `Success`, `Failed`, and `Delivery Timed Out`\. For example, for an SSM command document set to run every hour, you can configure an alarm to notify you when a status of `Success` isn't reported for any of those hours\. For more information about command status values, see [Understanding command statuses](monitor-commands.md)\.
 
 **To view metrics in the CloudWatch console**
 
@@ -34,7 +34,7 @@ Systems Manager sends Systems Manager Run Command command metrics to CloudWatch 
 Systems Manager sends the following command metrics to CloudWatch\.
 
 **Note**  
-All of these metrics use `Count` as the unit, so `Sum` and `SampleCount` are the most useful statistics\.
+These metrics use `Count` as the unit, so `Sum` and `SampleCount` are the most useful statistics\.
 
 
 | Metric | Description | 

@@ -1,6 +1,6 @@
 # Patching instances on demand<a name="patch-on-demand"></a>
 
-Using the **Patch now** option in AWS Systems Manager Patch Manager, you can run on\-demand patching operations from the Systems Manager console\. This means you don’t have to create a schedule in order to update the compliance status of your instances or to install patches on noncompliant instances\. You also don’t need to switch between the Patch Manager and Maintenance Windows areas of the Systems Manager console in order to set up or modify a scheduled patching window\.
+Using the **Patch now** option in Patch Manager, a capability of AWS Systems Manager, you can run on\-demand patching operations from the Systems Manager console\. This means you don’t have to create a schedule in order to update the compliance status of your instances or to install patches on noncompliant instances\. You also don’t need to switch the Systems Manager console between Patch Manager and Maintenance Windows, a capability of AWS Systems Manager, in order to set up or modify a scheduled patching window\.
 
 **Patch now** is especially useful when you must apply zero\-day updates or install other critical patches on your managed instances as soon as possible\.
 
@@ -64,7 +64,7 @@ Use the following procedure to patch your instances on demand\.
 If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.  
 If you choose to target a resource group, note that resource groups that are based on an AWS CloudFormation stack must still be tagged with the default `aws:cloudformation:stack-id` tag\. If it has been removed, Patch Manager might be unable to determine which instances belong to the resource group\.
 
-1. \(Optional\) For **Patching log storage**, if you want to create and save logs from this patching operation, select the Amazon S3 bucket for storing the logs\.
+1. \(Optional\) For **Patching log storage**, if you want to create and save logs from this patching operation, select the S3 bucket for storing the logs\.
 
 1. \(Optional\) If you want to run SSM documents as lifecycle hooks during specific points of the patching operation, do the following:
    + Choose **Use lifecycle hooks**\.
@@ -77,4 +77,4 @@ The default document, `AWS-Noop`, runs no operations\.
 
 1. Choose **Patch now**\.
 
-   The **Association execution summary** page opens\. \(Patch now uses State Manager associations for its operations\.\) In the **Operation summary** area, you can monitor the status of scanning or patching on the instances you specified\.
+   The **Association execution summary** page opens\. \(Patch now uses associations in State Manager, a capability of AWS Systems Manager, for its operations\.\) In the **Operation summary** area, you can monitor the status of scanning or patching on the instances you specified\.

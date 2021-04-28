@@ -1,6 +1,6 @@
 # Troubleshooting Patch Manager<a name="patch-manager-troubleshooting"></a>
 
-Use the following information to help you troubleshoot problems with Patch Manager\.
+Use the following information to help you troubleshoot problems with Patch Manager, a capability of AWS Systems Manager\.
 
 **Topics**
 + [Troubleshooting mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch)

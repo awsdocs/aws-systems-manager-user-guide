@@ -10,7 +10,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 **To create a maintenance window \(AWS CLI\)**
 
-1. Open the AWS CLI and run the following command on your local machine to create a maintenance window that does the following:
+1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command on your local machine to create a maintenance window that does the following:
    + Runs every five minutes for up to two hours \(as needed\)\.
    + Prevents new tasks from starting within one hour of the end of the maintenance window execution\.
    + Allows unassociated targets \(instances that you haven't registered with the maintenance window\)\.
@@ -44,7 +44,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -52,13 +52,13 @@ For more information about working with the `--schedule` option, see [Reference:
    }
    ```
 
-1. Now run this command to view details about this and any other maintenance windows already in your account:
+1. Now run the following command to view details about this and any other maintenance windows already in your account\.
 
    ```
    aws ssm describe-maintenance-windows
    ```
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {

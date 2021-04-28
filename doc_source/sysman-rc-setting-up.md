@@ -1,16 +1,16 @@
 # Setting up Run Command<a name="sysman-rc-setting-up"></a>
 
-Before you can manage instances by using Run Command, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who runs commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
+Before you can manage instances by using Run Command, a capability of AWS Systems Manager, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
 
-You must also create an IAM instance profile role for any instance that processes commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
+You must also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
 
 We also strongly recommend completing the following optional setup tasks to help minimize the security posture and day\-to\-day management of your instances\.
 
 Monitor command executions using Amazon EventBridge  
-You can use Amazon EventBridge to log command execution status changes\. You can create a rule that runs whenever there is a state transition, or when there is a transition to one or more states that are of interest\. You can also specify Run Command as a target action when an EventBridge event occurs\. For more information, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md)\.
+You can use EventBridge to log command execution status changes\. You can create a rule that runs whenever there is a state transition, or when there is a transition to one or more states that are of interest\. You can also specify Run Command as a target action when an EventBridge event occurs\. For more information, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md)\.
 
 Monitor command executions using Amazon CloudWatch Logs  
-You can configure Run Command to periodically send all command output and error logs to a CloudWatch Logs log group\. You can monitor these output logs in near real\-time, search for specific phrases, values, or patterns, and create alarms based on the search\. For more information, see [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)\.
+You can configure Run Command to periodically send all command output and error logs to an Amazon CloudWatch log group\. You can monitor these output logs in near real\-time, search for specific phrases, values, or patterns, and create alarms based on the search\. For more information, see [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)\.
 
 Restrict Run Command access to specific instances  
 You can restrict which of your managed instances commands can be run on by creating an IAM user policy that includes a condition that the user can only run commands on instances that are tagged with specific Amazon EC2 tags\. For more information, see the following topic, [Restricting Run Command access based on instance tags](#sysman-rc-setting-up-cmdsec)\.

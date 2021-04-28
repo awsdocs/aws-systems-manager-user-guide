@@ -1,6 +1,6 @@
 # Viewing available patches \(console\)<a name="viewing-available-patches"></a>
 
-Use this procedure to view all available patches for a specified operating system and, optionally, a specific operating system version\.
+With Patch Manager, a capability of AWS Systems Manager, you can view all available patches for a specified operating system and, optionally, a specific operating system version\.
 
 **Tip**  
 To generate a list of available patches and save them to a file, you can use the [describe\-available\-patches](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-available-patches.html) command and specify your preferred [output](https://docs.aws.amazon.com/cli/latest/reference/cli-usage-output.html)\.
@@ -17,7 +17,7 @@ To generate a list of available patches and save them to a file, you can use the
 
 1. Choose the **Patches** tab\.
 
-1. For **Operating system**, choose the operating system for which you want to view available patches, such as `Windows` or Amazon Linux\.
+1. For **Operating system**, choose the operating system for which you want to view available patches, such as `Windows` or `Amazon Linux`\.
 
 1. \(Optional\) For **Product**, choose an OS version, such as `WindowsServer2019` or `AmazonLinux2018.03`\.
 

@@ -1,6 +1,6 @@
 # About SSM documents for patching instances<a name="patch-manager-ssm-documents"></a>
 
-This topic describes the eight SSM documents currently available to help you keep your managed instances patched with the latest security\-related updates\. 
+This topic describes the eight Systems Manager documents \(SSM documents\) currently available to help you keep your managed instances patched with the latest security\-related updates\. 
 
 We currently recommend using just five of these documents in your patching operations\. Together, these five SSM documents provide you with a full range of patching options using AWS Systems Manager\. Four of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
 
@@ -43,7 +43,7 @@ The following five SSM documents are recommended for use in your managed instanc
 
 Supports configuring basic Windows Update functions and using them to install updates automatically \(or to disable automatic updates\)\. Available in all AWS Regions\.
 
-This SSM document prompts Windows Update to download and install the specified updates and reboot instances as needed\. Use this document with State Manager to ensure Windows Update maintains its configuration\. You can also run it manually using Run Command to change the Windows Update configuration\. 
+This SSM document prompts Windows Update to download and install the specified updates and reboot instances as needed\. Use this document with State Manager, a capability of AWS Systems Manager, to ensure Windows Update maintains its configuration\. You can also run it manually using Run Command, a capability of AWS Systems Manager, to change the Windows Update configuration\. 
 
 The available parameters in this document support specifying a category of updates to install \(or whether to disable automatic updates\), as well as specifying the day of the week and time of day to run patching operations\. This SSM document is most useful if you don't need strict control over Windows updates and don't need to collect compliance information\. 
 

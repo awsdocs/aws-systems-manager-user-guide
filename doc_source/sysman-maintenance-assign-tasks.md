@@ -28,7 +28,7 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the SSM command or Automation document that defines the tasks to run\.
+1. For **Document**, choose the Systems Manager command document \(SSM\) document or Automation runbook that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 
@@ -63,6 +63,6 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. In the **Input Parameters** section, specify parameters for the document\. For Automation documents, the system auto\-populates some of the values\. You can keep or replace these values\.
+1. In the **Input Parameters** section, specify parameters for the document\. For Automation runbooks, the system auto\-populates some of the values\. You can keep or replace these values\.
 
 1. Complete the wizard\.

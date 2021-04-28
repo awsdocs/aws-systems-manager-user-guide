@@ -1,6 +1,6 @@
 # Logging AWS Systems Manager API calls with AWS CloudTrail<a name="monitoring-cloudtrail-logs"></a>
 
-Systems Manager is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. CloudTrail captures all API calls for Systems Manager as events, including calls from the Systems Manager console and from code calls to the Systems Manager APIs\. If you create a trail, you can enable continuous delivery of CloudTrail events to an S3 bucket, including events for Systems Manager\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
+Systems Manager is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. CloudTrail captures all API calls for Systems Manager as events, including calls from the Systems Manager console and from code calls to the Systems Manager APIs\. If you create a trail, you can turn on continuous delivery of CloudTrail events to an S3 bucket, including events for Systems Manager\. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**\. Using the information collected by CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. 
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/)\.
 
@@ -25,7 +25,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 ## Understanding Systems Manager log file entries<a name="monitoring-cloudtrail-logs-log-entries-example"></a>
 
-A trail is a configuration that enables delivery of events as log files to an S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order\. 
+A trail is a configuration that enables delivery of events as log files to an S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\. 
 
 The following example shows a CloudTrail log entry that demonstrates the `DeleteDocuments` action on a document named `example-Document` in the US East \(Ohio\) Region \(us\-east\-2\)\.
 

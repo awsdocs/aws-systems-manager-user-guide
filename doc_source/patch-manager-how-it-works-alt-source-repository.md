@@ -1,6 +1,6 @@
 # How to specify an alternative patch source repository \(Linux\)<a name="patch-manager-how-it-works-alt-source-repository"></a>
 
-When you use the default repositories configured on an instance for patching operations, Patch Manager scans for or installs security\-related patches\. This is the default behavior for Patch Manager\. For complete information about how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
+When you use the default repositories configured on an instance for patching operations, Patch Manager, a capability of AWS Systems Manager, scans for or installs security\-related patches\. This is the default behavior for Patch Manager\. For complete information about how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
 
 On Linux systems, however, you can also use Patch Manager to install patches that are not related to security, or that are in a different source repository than the default one configured on the instance\. You can specify alternative patch source repositories when you create a custom patch baseline\. In each custom patch baseline, you can specify patch source configurations for up to 20 versions of a supported Linux operating system\. 
 
@@ -14,10 +14,10 @@ For a list of example scenarios for using this option, see [Sample uses for alte
 For information about default and custom patch baselines, see [About predefined and custom patch baselines](sysman-patch-baselines.md)\.
 
 **Example: Using the console**  
-To specify alternative patch source repositories when you are working in the AWS Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
+To specify alternative patch source repositories when you are working in the Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
 
 **Example: Using the AWS CLI**  
-For an example of using the `--sources` option with the CLI, see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)\.
+For an example of using the `--sources` option with the AWS Command Line Interface \(AWS CLI\), see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)\.
 
 **Topics**
 + [Important considerations for alternative repositories](#alt-source-repository-important)

@@ -1,6 +1,6 @@
 # About patch baselines<a name="about-patch-baselines"></a>
 
-The topics in this section provide information about how patch baselines work\.
+The topics in this section provide information about how patch baselines work in Patch Manager, a capability of AWS Systems Manager\.
 
 The information in the following topics applies both when you are patching instances on a schedule and patching instances on demand\.
 

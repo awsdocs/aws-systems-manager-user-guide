@@ -89,11 +89,12 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    aws ssm create-activation \
-     --default-instance-name name \
-     --iam-role iam-service-role-name \
-     --registration-limit number-of-managed-instances \
-     --region region \
-     ---expiration-date "timestamp" \\  --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
+       --default-instance-name name \
+       --iam-role iam-service-role-name \
+       --registration-limit number-of-managed-instances \
+       --region region \
+       --expiration-date "timestamp" \\  
+       --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -101,12 +102,12 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    aws ssm create-activation ^
-     --default-instance-name name ^
-     --iam-role iam-service-role-name ^
-     --registration-limit number-of-managed-instances ^
-     ---expiration-date "timestamp" ^
-     --region region ^
-     --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
+       --default-instance-name name ^
+       --iam-role iam-service-role-name ^
+       --registration-limit number-of-managed-instances ^
+       --region region ^
+       --expiration-date "timestamp" ^
+       --tags "Key=key-name-1,Value=key-value-1" "Key=key-name-2,Value=key-value-2"
    ```
 
 ------
@@ -114,11 +115,11 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    New-SSMActivation -DefaultInstanceName name `
-     -IamRole iam-service-role-name `
-     -RegistrationLimit number-of-managed-instances `
-     –Region region `
-     -ExpirationDate "timestamp" `
-     -Tag @{"Key"="key-name-1";"Value"="key-value-1"},@{"Key"="key-name-2";"Value"="key-value-2"}
+       -IamRole iam-service-role-name `
+       -RegistrationLimit number-of-managed-instances `
+       –Region region `
+       -ExpirationDate "timestamp" `
+       -Tag @{"Key"="key-name-1";"Value"="key-value-1"},@{"Key"="key-name-2";"Value"="key-value-2"}
    ```
 
 ------
@@ -130,12 +131,12 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    aws ssm create-activation \
-     --default-instance-name MyWebServers \
-     --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
-     --registration-limit 10 \
-     --region us-east-2 \
-     ---expiration-date "2021-07-07T00:00:00" \
-     --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
+       --default-instance-name MyWebServers \
+       --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances \
+       --registration-limit 10 \
+       --region us-east-2 \
+       --expiration-date "2021-07-07T00:00:00" \
+       --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
 ------
@@ -143,12 +144,12 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    aws ssm create-activation ^
-         --default-instance-name MyWebServers ^
-         --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
-         --registration-limit 10 ^
-         --region us-east-2 ^
-     ---expiration-date "2021-07-07T00:00:00" ^
-         --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
+       --default-instance-name MyWebServers ^
+       --iam-role service-role/AmazonEC2RunCommandRoleForManagedInstances ^
+       --registration-limit 10 ^
+       --region us-east-2 ^
+       --expiration-date "2021-07-07T00:00:00" ^
+       --tags "Key=Environment,Value=Production" "Key=Department,Value=Finance"
    ```
 
 ------
@@ -156,11 +157,11 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    ```
    New-SSMActivation -DefaultInstanceName MyWebServers `
-     -IamRole service-role/AmazonEC2RunCommandRoleForManagedInstances `
-     -RegistrationLimit 10 `
-     –Region us-east-2 `
-     -ExpirationDate "2021-07-07T00:00:00" `
-     -Tag @{"Key"="Environment";"Value"="Production"},@{"Key"="Department";"Value"="Finance"}
+       -IamRole service-role/AmazonEC2RunCommandRoleForManagedInstances `
+       -RegistrationLimit 10 `
+       –Region us-east-2 `
+       -ExpirationDate "2021-07-07T00:00:00" `
+       -Tag @{"Key"="Environment";"Value"="Production"},@{"Key"="Department";"Value"="Finance"}
    ```
 
 ------

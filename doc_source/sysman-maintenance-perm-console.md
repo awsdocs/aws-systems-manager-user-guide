@@ -9,7 +9,7 @@ The following procedures describe how to use the AWS Systems Manager console to 
 
 ## Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)<a name="sysman-maintenance-role"></a>
 
-Use the following procedure to create a custom service role for the Maintenance Windows capability so that Systems Manager can run tasks on your behalf\.
+Use the following procedure to create a custom service role for Maintenance Windows, a capability of Systems Manager, so that Systems Manager can run tasks on your behalf\.
 
 **Important**  
 A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
@@ -65,7 +65,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 1. Choose **Update Trust Policy**, and then copy or make a note of the role name and the **Role ARN** value on the **Summary** page\. You specify this information when you create your maintenance window\.
 
-1. \(Optional\) If you plan to configure a maintenance window to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\), when run through a Run Command command task, do the following:
+1. \(Optional\) If you plan to configure a maintenance window to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\), when run through a Systems Manager Run Command command task, do the following:
 
    1. Choose the **Permissions** tab\.
 
@@ -86,7 +86,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
       }
       ```
 
-      Replace *sns\-access\-role\-arn* with the ARN of the existing IAM role to use to send Amazon Simple Notification Service \(Amazon SNS\) notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::123456789012:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+      Replace *sns\-access\-role\-arn* with the Amazon Resource Name \(ARN\) of the existing AWS Identity and Access Management \(IAM\) role to use to send Amazon SNS notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::123456789012:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 **Note**  
 In the Systems Manager console, this ARN is selected in the ** IAM Role** list on the **Register run command task** page\. For information, see [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)\. In the Systems Manager API, this ARN is entered as the value of [ServiceRoleArn](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html#EC2-SendCommand-request-ServiceRoleArn) in the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) request\.
 
@@ -143,7 +143,7 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, enter a name in the **Name** box to identify this PassRole policy, such as **my\-iam\-passrole\-policy**, and then choose **Create policy**\.
+1. On the **Review policy** page, enter a name in the **Name** box to identify this `PassRole` policy, such as **my\-iam\-passrole\-policy**, and then choose **Create policy**\.
 
 **To configure permissions for groups that are allowed to register maintenance window tasks \(console\)**
 

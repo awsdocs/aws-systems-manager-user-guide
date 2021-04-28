@@ -1,20 +1,20 @@
 # About patch groups<a name="sysman-patch-patchgroups"></a>
 
-You can use a *patch group* to associate instances with a specific patch baseline\. Patch groups help ensure that you are deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
+You can use a *patch group* to associate instances with a specific patch baseline in Patch Manager, a capability of AWS Systems Manager\. Patch groups help ensure that you are deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
 **Note**  
 A patch group can be registered with only one patch baseline for each operating system type\.
 
 When you run `AWS-RunPatchBaseline`, you can target managed instances using their instance ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the instance\.
 
-You create a patch group by using Amazon EC2 tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. Note that the key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
+You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. Note that the key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
 
 **Note**  
 An instance can only be in one patch group\.
 
 After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Creating a patch group](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
-To view an example of creating a patch baseline and patch groups by using the AWS CLI, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
+To view an example of creating a patch baseline and patch groups by using the AWS Command Line Interface \(AWS CLI\), see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
 ## How it works<a name="how-it-works-patch-groups"></a>
 
@@ -33,7 +33,7 @@ In this example, we have three groups of EC2 instances for Windows Server with t
 |  Group 2  |  `key=OS,value=Windows`  | 
 |  Group 3  |  `key=OS,value=Windows` `key=Patch Group,value=QA`  | 
 
-For this example, we also have these two Windows patch baselines:
+For this example, we also have these two Windows Server patch baselines:
 
 
 ****  
@@ -43,13 +43,13 @@ For this example, we also have these two Windows patch baselines:
 |  `pb-0123456789abcdef0`  |  Yes  |  `Default`  | 
 |  `pb-9876543210abcdef0`  |  No  |  `DEV`  | 
 
-**Diagram 1: General Example of Patching Operations Process Flow**
+**Diagram 1: General example of patching operations process flow**
 
 ![\[Diagram showing how patch baselines are determined when performing patching operations.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/patch-groups-how-it-works.png)
 
-The general process to scan or install patches using Run Command and Patch Manager is as follows:
+The general process to scan or install patches using Run Command, a capability of AWS Systems Manager, and Patch Manager is as follows:
 
-1. **Send a command to patch**: Use the Systems Manager console, SDK, AWS CLI, or AWS Tools for Windows PowerShell to send a Run Command task using the document `AWS-RunPatchBaseline`\. The diagram shows a Run Command task to patch managed instances by targeting the tag `key=OS,value=Windows`\.
+1. **Send a command to patch**: Use the Systems Manager console, SDK, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell to send a Run Command task using the document `AWS-RunPatchBaseline`\. The diagram shows a Run Command task to patch managed instances by targeting the tag `key=OS,value=Windows`\.
 
 1. **Patch baseline determination**: SSM Agent verifies the patch group tags applied to the EC2 instance and queries Patch Manager for the corresponding patch baseline\.
    + **Matching patch group value associated with patch baseline:**

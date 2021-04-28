@@ -1,6 +1,6 @@
 # How security patches are selected<a name="patch-manager-how-it-works-selection"></a>
 
-The primary focus of Patch Manager is on installing operating systems security\-related updates on instances\. By default, Patch Manager doesn't install all available patches, but rather a smaller set of patches focused on security\.
+The primary focus of Patch Manager, a capability of AWS Systems Manager, is on installing operating systems security\-related updates on instances\. By default, Patch Manager doesn't install all available patches, but rather a smaller set of patches focused on security\.
 
 **Note**  
 On all Linux\-based systems supported by Patch Manager, you can choose a different source repository configured for the instance, typically to install nonsecurity updates\. For information, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.

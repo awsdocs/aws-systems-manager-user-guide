@@ -2,7 +2,7 @@
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products\. With Security Hub, you can check your environment against security industry standards and best practices\. Security Hub helps you to analyze your security trends and identify the highest priority security issues\.
 
-By using the AWS Systems Manager Patch Manager integration with Security Hub, you can send findings from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those findings in its analysis of your security posture\.
+By using the integration between Patch Manager, a capability of AWS Systems Manager, and Security Hub, you can send findings from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those findings in its analysis of your security posture\.
 
 **Contents**
 + [How Patch Manager sends findings to Security Hub](#securityhub-integration-sending-findings)
@@ -18,7 +18,7 @@ By using the AWS Systems Manager Patch Manager integration with Security Hub, yo
 
 In Security Hub, security issues are tracked as findings\. Some findings come from issues that are detected by other AWS services or by third\-party partners\. Security Hub also has a set of rules that it uses to detect security issues and generate findings\.
 
- Patch Manager is one of the AWS services that sends findings to Security Hub\. After you perform a patching operation by running a SSM document \(`AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, or `AWS-RunPatchBaselineWithHooks`\), the patching information is sent to Systems Manager Inventory, Systems Manager Compliance, or both\.After Inventory, Compliance, or both receive the data, Patch Manager receives a notification\. Then, Patch Manager evaluates the data for accuracy, formatting, and compliance\. If all conditions are met, Patch Manager forwards the data to Security Hub\.
+ Patch Manager is one of the Systems Manager capabilities that sends findings to Security Hub\. After you perform a patching operation by running a SSM document \(`AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, or `AWS-RunPatchBaselineWithHooks`\), the patching information is sent to Inventory or Compliance, capabilities of AWS Systems Manager, or both\. After Inventory, Compliance, or both receive the data, Patch Manager receives a notification\. Then, Patch Manager evaluates the data for accuracy, formatting, and compliance\. If all conditions are met, Patch Manager forwards the data to Security Hub\.
 
 Security Hub provides tools to manage findings from across all of these sources\. You can view and filter lists of findings and view details for a finding\. For more information, see [Viewing findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-viewing.html) in the *AWS Security Hub User Guide*\. You can also track the status of an investigation into a finding\. For more information, see [Taking action on findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-taking-action.html) in the *AWS Security Hub User Guide*\.
 
@@ -37,7 +37,7 @@ When Patch Manager creates a new finding, it is usually sent to Security Hub wit
 
 ### Retrying when Security Hub is not available<a name="securityhub-integration-retry-send"></a>
 
-If there is a service outage, a Lambda function is run to put the messages back into the main queue after the service is running again\. After the messages are in the main queue, the retry is automatic\.
+If there is a service outage, an AWS Lambda function is run to put the messages back into the main queue after the service is running again\. After the messages are in the main queue, the retry is automatic\.
 
 If Security Hub is not available, Patch Manager retries sending the findings until they are received\.
 

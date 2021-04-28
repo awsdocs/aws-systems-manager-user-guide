@@ -86,7 +86,7 @@ When you edit an OpsItem, you can choose a priority for that OpsItem by choosing
 When you edit an OpsItem, you can specify the ARN of an Amazon SNS topic in the **Notifications** field\. By specifying an ARN, you ensure that all stakeholders receive a notification when the OpsItem is edited, including a status change\. You may find it helpful to create different ARNs for notifications about different types of AWS resources or different environments\. The Amazon SNS topic must exist in the same AWS Region as the OpsItems\. If they are in different Regions, the system returns an error\. For more information, see the [https://docs.aws.amazon.com/sns/latest/dg/](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
 **Important**  
-The SNS topic must exist in the same AWS Region as the OpsItem\. If they are in different regions, the system returns an error\.
+The SNS topic must exist in the same AWS Region as the OpsItem\. If they are in different Regions, the system returns an error\.
 
 **To edit OpsItem details**
 
@@ -169,10 +169,10 @@ You can filter OpsItems by using the **Operational data** operator on the OpsIte
 OpsCenter uses a combination of built\-in logic and configurable deduplication strings to help avoid creating duplicate OpsItems\. Deduplication built\-in logic is applied anytime the [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) API action is called\. When creating the OpsItem, Systems Manager creates and stores a hash based on the deduplication string and the resource that initiated the OpsItem\. When a request is made to create a new OpsItem, the system checks the deduplication string of the new request\. If a matching hash exists for this deduplication string, then Systems Manager doesn't create a new OpsItem\. 
 
 Note the following information about OpsCenter and deduplication: 
-+ Deduplication strings are not case sensitive\. If the system finds a matching hash based on a deduplication string in an incoming OpsItem, regardless of the dedup string casing, the new OpsItem isn't created\.
++ Deduplication strings are not case sensitive\. If the system finds a matching hash based on a deduplication string in an incoming OpsItem, regardless of the deduplication string casing, the new OpsItem isn't created\.
 + If the system finds a matching deduplication string in an OpsItem, and that OpsItem has a status of `Open/InProgress`, then the new OpsItem isn't created\. If a matching deduplication string is found in an OpsItem that has a status of `Resolved`, then the system creates a new OpsItem\.
 + If the system finds a matching deduplication string in an OpsItem, but the resources are different, then the system creates the new OpsItem\.
-+ If no dedup string is specified for an an incoming OpsItem, then the OpsItem is always created\.
++ If no deduplication string is specified for an incoming OpsItem, then the OpsItem is always created\.
 
 ### Configuring deduplication strings<a name="OpsCenter-working-deduplication-configuring"></a>
 

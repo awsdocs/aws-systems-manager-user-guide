@@ -29,9 +29,9 @@ For information about monitoring Session Manager activity, see [Auditing session
 
 ## Migrate Windows Server instance log collection to the CloudWatch agent<a name="monitoring-cloudwatch-agent-migrate"></a>
 
-If you are currently using SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch agent as your log collection tool, as well as migrate your configuration settings\.
+If you are currently using SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch agent as your log collection tool, and migrate your configuration settings\.
 
-The CloudWatch agent is not supported on 32\-bit versions of Windows Server\.
+The CloudWatch agent isn't supported on 32\-bit versions of Windows Server\.
 
 For 64\-bit EC2 instances for Windows Server, you can perform the migration to the CloudWatch agent automatically or manually\. For on\-premises servers and virtual machines, the process must be performed manually\. 
 
@@ -66,7 +66,7 @@ For EC2 instances for Windows Server only, you can use the AWS Systems Manager c
 Currently, AWS Systems Manager supports migrating from SSM Agent to the CloudWatch agent for collecting logs and metrics on 64\-bit versions of Windows only\. For information about setting up the CloudWatch agent on other operating systems, and for complete information about using the CloudWatch agent, see [Collect metrics from Amazon Elastic Compute Cloud instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *[Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)*\.  
 You can use the CloudWatch agent on other supported operating systems, but you will not be able to use Systems Manager to perform a tool migration\. 
 
-After the migration succeeds, check your results in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
+After the migration succeeds, check your results in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration isn't successful or the results aren't as expected, you can [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
 
 **Note**  
 If you want to migrate a source configuration file that includes a `{hostname}` entry, then be aware that the `{hostname}` entry can change the value of the field after the migration is complete\. For example, say that the following `"LogStream": "{hostname}"` entry maps to a server named *MyLogServer001*\.  
@@ -84,7 +84,7 @@ If you want to migrate a source configuration file that includes a `{hostname}` 
      }
 }
 ```
-After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.production\.ExampleCompany\.com\. To retain the local hostname value, specify `{local_hostname}` instead of `{hostname}`\.
+After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.production\. ExampleCompany\.com\. To retain the local hostname value, specify `{local_hostname}` instead of `{hostname}`\.
 
 **To automatically migrate to the CloudWatch agent \(console\)**
 
@@ -143,7 +143,7 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. In **Name**, type **AmazonCloudWatchAgent**\.
 
-1. In **Version**, type latest if it is not already provided by default\.
+1. In **Version**, type latest if it's not already provided by default\.
 
 1. Choose **Run**\.
 
@@ -198,7 +198,7 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. Choose **Run**\.
 
-   After completing these steps, check your logs in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration is not successful or the results are not as expected, you can [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
+   After completing these steps, check your logs in CloudWatch to ensure you are receiving the metrics, logs, or Windows event logs you expect\. If you are satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config)\. If the migration isn't successful or the results aren't as expected, you can [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back)\.
 
 ## Store CloudWatch agent configuration settings in Parameter Store<a name="monitoring-cloudwatch-agent-store-config"></a>
 
@@ -206,7 +206,7 @@ You can store the contents of an Amazon CloudWatch agent configuration file in P
 
 When you run the CloudWatch agent configuration wizard, you can choose to let the wizard save your configuration settings as a new parameter in Parameter Store\. For information about running the CloudWatch agent configuration wizard, see [Create the CloudWatch agent configuration file with the wizard](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html)\.
 
-If you ran the wizard but did not choose the option to save the settings as a parameter, or you created the CloudWatch agent configuration file manually, you can retrieve the data to save as a parameter on your instance in the following file:
+If you ran the wizard but didn't choose the option to save the settings as a parameter, or you created the CloudWatch agent configuration file manually, you can retrieve the data to save as a parameter on your instance in the following file:
 
 ```
 ${Env:ProgramFiles}\Amazon\AmazonCloudWatchAgent\config.json

@@ -1,9 +1,9 @@
 # Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command<a name="walkthrough-powershell"></a>
 
-The following examples show how to use the Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined Systems Manager documents\.
+The following examples show how to use the AWS Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined AWS Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to AWS Systems Manager Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell session settings](#walkthrough-powershell-settings)
@@ -14,13 +14,13 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 + [Join an instance to a Domain using the AWS\-JoinDirectoryServiceDomain JSON document](#walkthrough-powershell-domain-join)
 + [Send Windows metrics to Amazon CloudWatch Logs using the AWS\-ConfigureCloudWatch document](#walkthrough-powershell-windows-metrics)
 + [Update EC2Config using the AWS\-UpdateEC2Config document](#walkthrough-powershell-update-ec2config)
-+ [Enable/Disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
++ [Enable or disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document](#walkthrough-powershell-enable-windows-update)
 + [Manage Windows updates using Run Command](#walkthough-powershell-windows-updates)
 
 ## Configure AWS Tools for Windows PowerShell session settings<a name="walkthrough-powershell-settings"></a>
 
 **Specify your credentials**  
-Open **AWS Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in IAM\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+Open **Tools for Windows PowerShell** on your local computer and run the following command to specify your credentials\. You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 ```
 Set-AWSCredentials –AccessKey key-name –SecretKey key-name
@@ -36,7 +36,7 @@ Set-DefaultAWSRegion `
 
 ## List all available documents<a name="walkthrough-powershell-all-documents"></a>
 
-This command lists all of the documents available for your account:
+This command lists all documents available for your account\.
 
 ```
 Get-SSMDocumentList
@@ -44,7 +44,7 @@ Get-SSMDocumentList
 
 ## Run PowerShell commands or scripts<a name="walkthrough-powershell-run-script"></a>
 
-Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on an EC2 instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to run the command\. 
+Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to run the command\. 
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.
@@ -178,7 +178,7 @@ Get-SSMCommandInvocation `
 
 ## Install a PowerShell module using the AWS\-InstallPowerShellModule JSON document<a name="walkthrough-powershell-install-module"></a>
 
-You can use Run Command to install PowerShell modules on an EC2 instance\. For more information about PowerShell modules, see [Windows PowerShell Modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6)\.
+You can use Run Command to install PowerShell modules on an Amazon EC2 instance\. For more information about PowerShell modules, see [Windows PowerShell Modules](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-6)\.
 
 **View the description and available parameters**
 
@@ -281,7 +281,7 @@ Get-SSMCommandInvocation `
 
 You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time aren't included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
 
-If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the C:\\Program Files\\Amazon\\EC2ConfigService\\Settings\\AWS\.EC2\.Windows\.CloudWatch\.json file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
+If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
 
 **View the description and available parameters**
 
@@ -365,7 +365,7 @@ $ec2ConfigCommand = Send-SSMCommand `
 ```
 
 **Get command information with response data for the instance**  
-This command returns the output of the specified command from the previous `Send-SSMCommand`:
+This command returns the output of the specified command from the previous `Send-SSMCommand`\.
 
 ```
 Get-SSMCommandInvocation `
@@ -376,7 +376,7 @@ Get-SSMCommandInvocation `
 
 ### Update EC2Config to a specific version<a name="walkthrough-powershell-update-ec2config-specific-version"></a>
 
-The following command downgrades EC2Config to an older version:
+The following command downgrades EC2Config to an older version\.
 
 ```
 Send-SSMCommand `
@@ -385,9 +385,9 @@ Send-SSMCommand `
 	-Parameter @{'version'='4.9.3519'; 'allowDowngrade'='true'}
 ```
 
-## Enable/Disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document<a name="walkthrough-powershell-enable-windows-update"></a>
+## Enable or disable Windows automatic update using the AWS\-ConfigureWindowsUpdate document<a name="walkthrough-powershell-enable-windows-update"></a>
 
-Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can enable or disable automatic Windows updates on your Windows Server instances\. This command configures the Windows update agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
+Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can enable or disable automatic Windows updates on your Windows Server instances\. This command configures the Windows Update Agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows Update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
 
 **View the description and available parameters**
 
@@ -405,7 +405,7 @@ Get-SSMDocumentDescription `
 
 ### Enable Windows automatic update<a name="walkthrough-powershell-enable-windows-update-automatic"></a>
 
-The following command configures Windows Update to automatically download and install updates daily at 10:00 pm\. 
+The following command configures Windows Update to automatically download and install updates daily at 10:00 PM\. 
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `
@@ -415,7 +415,7 @@ $configureWindowsUpdateCommand = Send-SSMCommand `
 ```
 
 **View command status for enabling Windows automatic update**  
-The following command uses the `CommandId` to get the status of the command execution for enabling Windows Automatic Update\.
+The following command uses the `CommandId` to get the status of the command execution for enabling Windows automatic update\.
 
 ```
 Get-SSMCommandInvocation `
@@ -445,7 +445,7 @@ Get-SSMCommandInvocation `
 
 ## Manage Windows updates using Run Command<a name="walkthough-powershell-windows-updates"></a>
 
-Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for EC2 instances for Windows Server\. This command scans for or installs missing updates on your EC2 instances for Windows Server and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
+Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Windows Server\. This command scans for or installs missing updates on your Amazon EC2 instances for Windows Server and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.

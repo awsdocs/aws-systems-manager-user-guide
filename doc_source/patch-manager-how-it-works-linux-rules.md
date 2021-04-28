@@ -1,6 +1,6 @@
 # How patch baseline rules work on Linux\-based systems<a name="patch-manager-how-it-works-linux-rules"></a>
 
-The rules in a patch baseline for Linux distributions operate differently based on the distribution type\. Unlike patch updates on Windows Server instances, rules are evaluated on each instance to take the configured repos on the instance into consideration\. Patch Manager uses the native package manager to drive the installation of patches approved by the patch baseline\.
+The rules in a patch baseline for Linux distributions operate differently based on the distribution type\. Unlike patch updates on Windows Server instances, rules are evaluated on each instance to take the configured repos on the instance into consideration\. Patch Manager, a capability of AWS Systems Manager, uses the native package manager to drive the installation of patches approved by the patch baseline\.
 
 **Topics**
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
@@ -138,7 +138,7 @@ For information about patch compliance status values, see [Understanding patch c
 
 ## How patch baseline rules work on RHEL<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
-On Red Hat Enterprise Linux, the patch selection process is as follows:
+On Red Hat Enterprise Linux \(RHEL\), the patch selection process is as follows:
 
 1. On the instance, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  

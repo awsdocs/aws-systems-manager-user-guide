@@ -1,8 +1,8 @@
-# Share a Change Calendar entry<a name="change-calendar-share"></a>
+# Sharing a Change Calendar entry<a name="change-calendar-share"></a>
 
-You can share an AWS Systems Manager Change Calendar entry with other AWS accounts by using the AWS Systems Manager console\. When you share a calendar, the calendar is read\-only to users in the shared account\.
+You can share an entry in Change Calendar, a capability of AWS Systems Manager, with other AWS accounts by using the AWS Systems Manager console\. When you share a calendar, the calendar is read\-only to users in the shared account\.
 
-## Share a Change Calendar entry \(console\)<a name="change-calendar-share-entry-console"></a>
+**To share a Change Calendar entry**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

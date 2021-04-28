@@ -1,10 +1,10 @@
 # Use Run Command to send a command that returns status notifications<a name="monitoring-sns-rc-send"></a>
 
-The following procedures show how to use the AWS Command Line Interface \(AWS CLI\) or AWS Systems Manager console to send a command through Run Command that is configured to return status notifications\.
+The following procedures show how to use the AWS Command Line Interface \(AWS CLI\) or AWS Systems Manager console to send a command through Run Command that's configured to return status notifications\.
 
 ## Sending a Run Command that returns notifications \(console\)<a name="monitoring-sns-rc-send-console"></a>
 
-Use the following procedure to send a command through Run Command that is configured to return status notifications using the Systems Manager console\.
+Use the following procedure to send a command through Run Command that's configured to return status notifications using the Systems Manager console\.
 
 **To send a command that returns notifications \(console\)**
 
@@ -56,7 +56,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Sending a Run Command that returns notifications \(CLI\)<a name="monitoring-sns-rc-send-cli"></a>
 
-Use the following procedure to send a command through Run Command that is configured to return status notifications using the AWS CLI\.
+Use the following procedure to send a command through Run Command that's configured to return status notifications using the AWS CLI\.
 
 **To send a command that returns notifications \(CLI\)**
 

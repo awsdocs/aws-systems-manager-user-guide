@@ -1,6 +1,6 @@
 # Control access to maintenance windows \(Tools for Windows PowerShell\)<a name="sysman-maintenance-perm-ps"></a>
 
-The following procedures describe how to use the Tools for Windows PowerShell to create the required roles and permissions for Maintenance Windows\.
+The following procedures describe how to use the AWS Tools for Windows PowerShell to create the required roles and permissions for Maintenance Windows, a capability of AWS Systems Manager\.
 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)](#sysman-maintenance-role-ps)
@@ -64,7 +64,7 @@ A custom service role is not required if you choose to use a Systems Manager ser
 
 When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, you must assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
-1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
+1. Copy and paste the following AWS Identity and Access Management \(IAM\) policy into a text editor and save it with the following name and file extension: `mw-passrole-policy.json`\.
 
    ```
    {
@@ -89,7 +89,7 @@ When you register a task with a maintenance window, you specify either a custom 
    }
    ```
 
-   Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+   Replace *custom\-role\-arn* with the Amazon Resource Name \(ARN\) of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
 
    Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 

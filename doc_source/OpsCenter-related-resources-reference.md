@@ -14,12 +14,12 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  Amazon CloudWatch alarm  |  <pre>arn:aws:cloudwatch:region:account-id:alarm:alarm-name</pre>  | 
 |  AWS CloudTrail trail  |  <pre>arn:aws:cloudtrail:region:account-id:trail/trailname</pre>  | 
 |  AWS CodeBuild project  |  <pre>arn:aws:codebuild:region:account-id:resourcetype/resource</pre>  | 
-|  AWS CodePipeline <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre> |   | 
-|  DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre> | 
+|  AWS CodePipeline <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre>  |   | 
+|  DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre>  | 
 |  Amazon DynamoDB table  |  <pre>arn:aws:dynamodb:region:account-id:table/tablename</pre>  | 
 |  Amazon EC2 customer gateway  |  <pre>arn:aws:ec2:region:account-id:customer-gateway/cgw-id</pre>  | 
 |  Amazon EC2 elastic IP  |  <pre>arn:aws:ec2:region:account-id:eip/eipalloc-id</pre>  | 
-|  Amazon EC2 dedicated host  |  <pre>arn:aws:ec2:region:account-id:dedicated-host/host-id</pre>  | 
+|  Amazon EC2 Dedicated Host  |  <pre>arn:aws:ec2:region:account-id:dedicated-host/host-id</pre>  | 
 |  Amazon EC2 instance  |  <pre>arn:aws:ec2:region:account-id:instance/instance-id</pre>  | 
 |  Amazon EC2 internet gateway  |  <pre>arn:aws:ec2:region:account-id:internet-gateway/igw-id</pre>  | 
 |  Amazon EC2 network access control list \(ACL\)  |  <pre>arn:aws:ec2:region:account-id:network-acl/nacl-id</pre>  | 
@@ -32,9 +32,9 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  Amazon EC2 VPN connection  |  <pre>arn:aws:ec2:region:account-id:vpn-connection/vpn-id</pre>  | 
 |  Amazon EC2 VPN gateway  |  <pre>arn:aws:ec2:region:account-id:vpn-gateway/vgw-id</pre>  | 
 |  AWS Elastic Beanstalk application  |  <pre>arn:aws:elasticbeanstalk:region:account-id:application/applicationname</pre>  | 
-|  Elastic Load Balancing \(classic load balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/name</pre>  | 
-|  Elastic Load Balancing \(application load balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/app/load-balancer-name/load-balancer-id</pre>  | 
-|  Elastic Load Balancing \(network load balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/net/load-balancer-name/load-balancer-id</pre>  | 
+|  Elastic Load Balancing \(Classic Load Balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/name</pre>  | 
+|  Elastic Load Balancing \(Application Load Balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/app/load-balancer-name/load-balancer-id</pre>  | 
+|  Elastic Load Balancing \(Network Load Balancer\)  |  <pre>arn:aws:elasticloadbalancing:region:account-id:loadbalancer/net/load-balancer-name/load-balancer-id</pre>  | 
 |  AWS Identity and Access Management \(IAM\) group  |  <pre>arn:aws:iam::account-id:group/group-name</pre>  | 
 |  IAM policy  |  <pre>arn:aws:iam::account-id:policy/policy-name</pre>  | 
 |  IAM role  |  <pre>arn:aws:iam::account-id:role/role-name</pre>  | 

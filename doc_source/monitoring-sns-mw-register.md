@@ -9,7 +9,7 @@ To receive notifications from the Amazon SNS service, you must attach an `iam:Pa
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(console\)<a name="monitoring-sns-mw-register-console"></a>
 
-Use the following procedure to register a Run Command task that is configured to return status notifications to your maintenance window using the Systems Manager console\.
+Use the following procedure to register a Run Command task that's configured to return status notifications to your maintenance window using the Systems Manager console\.
 
 **To register a Run Command task with your maintenance window that returns notifications \(console\)**
 
@@ -69,7 +69,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(CLI\)<a name="monitoring-sns-mw-register-cli"></a>
 
-Use the following procedure to register a Run Command task that is configured to return status notifications to your maintenance window using the AWS CLI\.
+Use the following procedure to register a Run Command task that's configured to return status notifications to your maintenance window using the AWS CLI\.
 
 **To register a Run Command task with your maintenance window that returns notifications \(CLI\)**
 **Note**  
@@ -117,7 +117,7 @@ To better manage your task options, this procedure uses the command option `--cl
 
 1. Replace the example values with information about your own resources\. 
 
-   You can also restore options we have omitted from this example if you want to use them\. For example, you can save command output to an S3 bucket\. 
+   You can also restore options we've omitted from this example if you want to use them\. For example, you can save command output to an S3 bucket\. 
 
    For more information, see For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html)\.
 
@@ -127,7 +127,7 @@ To better manage your task options, this procedure uses the command option `--cl
 
    `aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json`
 **Important**  
-Be sure to include `file://` before the file name\. It is required in this command\.
+Be sure to include `file://` before the file name\. It's required in this command\.
 
    If successful, the command returns information similar to the following:
 

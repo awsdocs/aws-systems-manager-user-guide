@@ -1,6 +1,6 @@
 # Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation<a name="override-list-scenario"></a>
 
-You can use the `InstallOverrideList` parameter when you want to override the patches specified by the current default patch baseline\. This topic provides examples that show how to use this parameter to achieve the following:
+You can use the `InstallOverrideList` parameter when you want to override the patches specified by the current default patch baseline in Patch Manager, a capability of AWS Systems Manager\. This topic provides examples that show how to use this parameter to achieve the following:
 + Apply different sets of patches to a target group of instances\.
 + Apply these patch sets on different frequencies\.
 + Use the same patch baseline for both operations\.

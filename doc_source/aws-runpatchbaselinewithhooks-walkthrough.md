@@ -2,7 +2,7 @@
 
 In many cases, a managed instance must be rebooted after it has been patched with the latest software update\. However, rebooting an instance in production without safeguards in place can cause several problems, such as triggering alarms, recording incorrect metric data, and interrupting data synchronizations\.
 
-This walkthrough demonstrates how to avoid problems like these by using the Systems Manager document `AWS-RunPatchBaselineWithHooks` to achieve a complex, multi\-step patching operation that accomplishes the following:
+This walkthrough demonstrates how to avoid problems like these by using the AWS Systems Manager document \(SSM document\) `AWS-RunPatchBaselineWithHooks` to achieve a complex, multi\-step patching operation that accomplishes the following:
 
 1. Prevent new connections to the application
 
@@ -23,14 +23,14 @@ For this example, we have set up our infrastructure this way:
 + The application already has a specified health check endpoint\.
 + The application’s health check endpoint requires no end user authentication\. The endpoint allows for a health check that meets the organization’s requirements in establishing availability\. \(In your environments, it may be enough to simply ascertain that the `nodeJS` application is running and able to listen for requests\. In other cases, you might want to also verify that a connection to the caching layer or database layer has already been established\.\)
 
-The examples in this walkthrough are for demonstration purposes only and not meant to be implemented as\-is into production environments\. Also, keep in mind that the lifecycle hooks feature of Patch Manager with the `AWS-RunPatchBaselineWithHooks` document can support numerous other scenarios\. Here are a few examples:
+The examples in this walkthrough are for demonstration purposes only and not meant to be implemented as\-is into production environments\. Also, keep in mind that the lifecycle hooks feature of Patch Manager, a capability of Systems Manager, with the `AWS-RunPatchBaselineWithHooks` document can support numerous other scenarios\. Here are a few examples:
 + Stop a metrics reporting agent before patching and restarting it after the instance reboots\.
 + Detach the instance from a CRM or PCS cluster before patching and reattach after the instance reboots\.
 + Update third\-party software \(for example, Java, Tomcat, Adobe applications, and so on\) on Windows Server machines after operating system \(OS\) updates are applied, but before the instance reboots\.
 
 **To update application dependencies, patch an instance, and perform an application\-specific health check**
 
-1. Create a Systems Manager document \(SSM document\) for your preinstallation script with the following contents and name it `NodeJSAppPrePatch`\. Replace *your\_application* with the name of your application\.
+1. Create an SSM document for your preinstallation script with the following contents and name it `NodeJSAppPrePatch`\. Replace *your\_application* with the name of your application\.
 
    This script immediately blocks new incoming requests and provides five seconds for already active ones to complete before beginning the patching operation\. For the `sleep` option, specify a number of seconds greater than it usually takes for incoming requests to complete\.
 
@@ -72,7 +72,7 @@ The examples in this walkthrough are for demonstration purposes only and not mea
    /usr/bin/curl -m 10 -vk -A "" http://localhost:443/health-check || exit 1
    ```
 
-1. Create a State Manager association to issue the operation by performing the following steps:
+1. Create an association in State Manager, a capability of AWS Systems Manager, to issue the operation by performing the following steps:
 
    1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

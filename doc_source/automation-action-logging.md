@@ -1,6 +1,6 @@
 # Logging Automation action output with CloudWatch Logs<a name="automation-action-logging"></a>
 
-AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWatch Logs\)\. As a result, you can send the output from `aws:executeScript` actions in your runbooks to the log group you specify\. You can use the action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes\. If you choose a log group that is encrypted, the action output is also encrypted\. Logging output from `aws:executeScript` actions is an account\-level setting\.
+AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWatch Logs\)\. As a result, you can send the output from `aws:executeScript` actions in your runbooks to the log group you specify\. You can use the action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes\. If you choose a log group that's encrypted, the action output is also encrypted\. Logging output from `aws:executeScript` actions is an account\-level setting\.
 
 **To send action output to CloudWatch Logs \(console\)**
 
@@ -12,7 +12,7 @@ AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWat
 
 1. Select the check box next to **Send output to CloudWatch Logs**\.
 
-1. \(Recommended\) Select the check box next to **Encrypt log data**\. With this option enabled, log data is encrypted using the server\-side encryption key specified for the log group\. If you do not want to encrypt the log data that is sent to CloudWatch Logs, clear the check box\. You must also clear the check box if encryption is not enabled on the log group\.
+1. \(Recommended\) Select the check box next to **Encrypt log data**\. With this option enabled, log data is encrypted using the server\-side encryption key specified for the log group\. If you don't want to encrypt the log data that's sent to CloudWatch Logs, clear the check box\. You must also clear the check box if encryption isn't enabled on the log group\.
 
 1. For **CloudWatch Logs log group**, to specify the existing CloudWatch Logs log group in your AWS account that you want to send action output to, select one of the following:
    + **Send output to the default log group** – If the default log group doesn't exist \(/aws/ssm/automation/executeScript\), Automation creates it for you\.

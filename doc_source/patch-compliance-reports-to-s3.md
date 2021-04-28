@@ -10,7 +10,7 @@ After a report is generated, you can use a tool like Amazon QuickSight to import
 You can also specify an Amazon Simple Notification Service \(Amazon SNS\) topic to use for sending notifications when a report is generated\.
 
 **Service roles for generating patch compliance reports**  
-The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` lets Amazon EventBridge \(EventBridge\) start an automation using the runbook [AWS\-ExportPatchReportToS3](automation-aws-exportpatchreporttos3.md)\.
+The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` lets Amazon EventBridge start an automation using the runbook [AWS\-ExportPatchReportToS3](automation-aws-exportpatchreporttos3.md)\.
 
 We recommend against attempting to modify these policies and roles\. Doing so could cause patch compliance report generation to fail\. For more information, see [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting)\.
 
@@ -215,7 +215,7 @@ Use the information in this topic to help you view details about the patch compl
 
 ## Troubleshooting patch compliance report generation<a name="patch-compliance-reports-troubleshooting"></a>
 
-Use the following information to help you troubleshoot problems with generating patch compliance report generation\.
+Use the following information to help you troubleshoot problems with generating patch compliance report generation in Patch Manager, a capability of AWS Systems Manager\.
 
 **Topics**
 + [A message reports that the AWS\-SystemsManager\-PatchSummaryExportRolePolicy policy is corrupted](#patch-compliance-reports-troubleshooting-1)
@@ -245,7 +245,7 @@ you have deleted.
 
 ### After deleting patch compliance policies or roles, scheduled reports are not generated successfully<a name="patch-compliance-reports-troubleshooting-2"></a>
 
-**Problem**: The first time you generate a report, Systems Manager creates a service role and a policy to use for the export process \(`AWS-SystemsManager-PatchSummaryExportRole` and `AWS-SystemsManager-PatchSummaryExportRolePolicy`\)\. The first time you generate a report on a schedule, Systems Manager creates another service role and a policy \(`AWS-EventBridge-Start-SSMAutomationRole` and `AWS-EventBridge-Start-SSMAutomationRolePolicy`\)\. These let Amazon EventBridge \(EventBridge\) start an automation using the runbook [AWS\-ExportPatchReportToS3](automation-aws-exportpatchreporttos3.md)\.
+**Problem**: The first time you generate a report, Systems Manager creates a service role and a policy to use for the export process \(`AWS-SystemsManager-PatchSummaryExportRole` and `AWS-SystemsManager-PatchSummaryExportRolePolicy`\)\. The first time you generate a report on a schedule, Systems Manager creates another service role and a policy \(`AWS-EventBridge-Start-SSMAutomationRole` and `AWS-EventBridge-Start-SSMAutomationRolePolicy`\)\. These let Amazon EventBridge start an automation using the runbook [AWS\-ExportPatchReportToS3](automation-aws-exportpatchreporttos3.md)\.
 
-If you delete any of these policies or roles, the connections between your schedule and your specified S3 bucket and SNS topic might be lost\. 
+If you delete any of these policies or roles, the connections between your schedule and your specified S3 bucket and Amazon SNS topic might be lost\. 
 + **Solution**: To work around this problem, we recommend deleting the previous schedule and creating a new schedule to replace the one that was experiencing issues\.

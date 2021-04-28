@@ -1,11 +1,11 @@
 # Using targets and rate controls to send commands to a fleet<a name="send-commands-multiple"></a>
 
-You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Specify instance tags** option in the **Run a command** page in the console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon EC2 tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows Server and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
+You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Specify instance tags** option in the **Run a command** page in the console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon Elastic Compute Cloud \(Amazon EC2\) tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows Server and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
 
 **Note**  
 You can also use the `targets` parameter to target a list of specific instance IDs, as described in the next section\.
 
-To control command execution across hundreds or thousands of instances, Run Command also includes parameters for restricting how many instances can simultaneously process a request and how many errors can be thrown by a command before the command is terminated\.
+To control how commands run across hundreds or thousands of instances, Run Command, a capability of AWS Systems Manager, also includes parameters for restricting how many instances can simultaneously process a request and how many errors can be thrown by a command before the command is canceled\.
 
 **Topics**
 + [Targeting multiple instances](#send-commands-targeting)
@@ -18,7 +18,7 @@ You can run a command and target instances by specifying tags applied to managed
 **Note**  
 Sample commands in this section are truncated using `[...]`\. 
 
-For use with the AWS CLI `[send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html)` command, the `targets` parameter supports the syntax demonstrated in the following examples:
+For use with the AWS Command Line Interface \(AWS CLI \) `[send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html)` command, the `targets` parameter supports the syntax demonstrated in the following examples\.
 
 **Example 1: Targeting tags**
 
@@ -49,7 +49,7 @@ aws ssm send-command ^
 You can specify a maximum of one resource group name per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\. 
 
 **Note**  
-In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
+In order to send commands that target a resource group, you must have been granted AWS Identity and Access Management \(IAM\) permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
 
 ------
 #### [ Linux & macOS ]
@@ -126,7 +126,7 @@ aws ssm send-command ^
 
 ------
 
-If you tagged instances for different environments using a `Key` named `Environment` and `Values` of `Development`, `Test`, `Pre-production` and `Production`, then you could send a command to all of the instances in *one* of these environments by using the `targets` parameter with the following syntax:
+If you tagged instances for different environments using a `Key` named `Environment` and `Values` of `Development`, `Test`, `Pre-production` and `Production`, then you could send a command to all instances in *one* of these environments by using the `targets` parameter with the following syntax\.
 
 ------
 #### [ Linux & macOS ]
@@ -228,7 +228,7 @@ aws ssm send-command ^
 
 **Variation**: Targeting tagged instances using multiple `Values` criteria
 
-If you tagged instances for different environments using a `Key` named `Department` and `Values` of `Sales` and `Finance`, then you could send a command to all of the instances in these environments by using the `targets` parameter with the following syntax:
+If you tagged instances for different environments using a `Key` named `Department` and `Values` of `Sales` and `Finance`, then you could send a command to all of the instances in these environments by using the `targets` parameter with the following syntax\.
 
 ------
 #### [ Linux & macOS ]
@@ -255,7 +255,7 @@ aws ssm send-command ^
 **Note**  
 You can specify a maximum of five keys, and five values for each key\.
 
-If either a tag key \(the tag name\) or a tag value includes spaces, then you must enclose the tag key or the value in quotation marks, as show in the following examples\.
+If either a tag key \(the tag name\) or a tag value includes spaces, enclose the tag key or the value in quotation marks, as shown in the following examples\.
 
 **Example**: Spaces in `Value` tag
 
@@ -339,7 +339,7 @@ You can control the rate at which commands are sent to instances in a group by u
 
 ### Using concurrency controls<a name="send-commands-velocity"></a>
 
-You can control how many servers run the command at the same time by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example 10, or a percentage of the target set, for example 10%\. The queueing system delivers the command to a single instance and waits until the initial invocation is acknowledged before sending the command to two more instances\. The system exponentially sends commands to more instances until the value of `max-concurrency` is met\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
+You can control the number of servers that run the command simultaneously by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of instances, for example **10**, or a percentage of the target set, for example **10%**\. The queueing system delivers the command to a single instance and waits until the system acknowledges the initial invocation before sending the command to two more instances\. The system exponentially sends commands to more instances until the system meets the value of `max-concurrency`\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
 
 ------
 #### [ Linux & macOS ]

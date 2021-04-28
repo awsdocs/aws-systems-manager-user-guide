@@ -1,6 +1,6 @@
 # About patching Microsoft applications on Windows Server<a name="about-windows-app-patching"></a>
 
-Use the information in this topic to help you prepare to patch applications on Windows Server\.
+Use the information in this topic to help you prepare to patch applications on Windows Server using Patch Manager, a capability of AWS Systems Manager\.
 
 **Microsoft application patching**  
 Patching support for applications on Windows Server managed instances is limited to applications released by Microsoft\.
@@ -11,10 +11,10 @@ For Windows Server, three predefined patch baselines are provided\. The patch ba
 You can also create a custom patch baseline to update Microsoft applications on Windows Server machines\.
 
 **Support for Amazon EC2 instances in the advanced\-instances tier**  
-Microsoft application patching is available for Amazon Elastic Compute Cloud \(Amazon EC2 instances, on\-premises instances, and virtual machines \(VMs\), but only in the advanced\-instances tier\. To patch Microsoft applications on any managed instance, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+Microsoft application patching is available for Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\), but only in the advanced\-instances tier\. To patch Microsoft applications on any managed instance, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 **Windows update option for "other Microsoft products"**  
-In order for Patch Manager to be able to patch Microsoft applications on your Windows Server managed instances, the Windows update option **Give me updates for other Microsoft products when I update Windows** must be enabled on the instance\.
+In order for Patch Manager to be able to patch Microsoft applications on your Windows Server managed instances, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be enabled on the instance\.
 
 For information about enabling this option on a single instance, see [Update Office with Microsoft Update](https://support.microsoft.com/en-us/office/update-office-with-microsoft-update-f59d3f9d-bd5d-4d3b-a08e-1dd659cf5282) on the Microsoft Support website\.
 
@@ -24,9 +24,9 @@ For a fleet of instances running Windows Server 2012 or 2012 R2 , you can enable
 
 1. Save the script from the blog post in a file\.
 
-1. Upload the file to an S3 bucket or other accessible location\.
+1. Upload the file to an Amazon Simple Storage Service \(Amazon S3\) bucket or other accessible location\.
 
-1. Use AWS Systems Manager Run Command to run the script on your instances using the Systems Manager document \(SSM document\) `AWS-RunPowerShellScript` with a command similar to the following:
+1. Use Run Command, a capability of AWS Systems Manager, to run the script on your instances using the Systems Manager document \(SSM document\) `AWS-RunPowerShellScript` with a command similar to the following\.
 
    ```
    Invoke-WebRequest `
@@ -35,7 +35,7 @@ For a fleet of instances running Windows Server 2012 or 2012 R2 , you can enable
    ```
 
 **Minimum parameter requirements**  
-To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS CLI command demonstrates the minimal requirements to patch a product, such as Office 2016\.
+To include Microsoft applications in your custom patch baseline, you must, at a minimum, specify the product that you want to patch\. The following AWS Command Line Interface \(AWS CLI\) command demonstrates the minimal requirements to patch a product, such as Microsoft Office 2016\.
 
 ------
 #### [ Linux & macOS ]

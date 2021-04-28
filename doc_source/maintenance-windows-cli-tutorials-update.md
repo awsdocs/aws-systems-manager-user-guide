@@ -1,8 +1,8 @@
 # Tutorial: Update a maintenance window \(AWS CLI\)<a name="maintenance-windows-cli-tutorials-update"></a>
 
-This tutorial demonstrates how to use the AWS CLI to update a maintenance window\. It also shows you how to update different task types, including those for Systems Manager Run Command, Systems Manager Automation, AWS Lambda, and AWS Step Functions\. 
+This tutorial demonstrates how to use the AWS Command Line Interface \(AWS CLI\) to update a maintenance window\. It also shows you how to update different task types, including those for AWS Systems Manager Run Command, Systems Manager Automation, AWS Lambda, and AWS Step Functions\. 
 
-The examples in this section use the following Systems Manager actions for updating a maintenance window\.
+The examples in this section use the following Systems Manager actions for updating a maintenance window:
 + [UpdateMaintenanceWindow](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindow.html)
 + [UpdateMaintenanceWindowTarget](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindowTarget.html)
 + [UpdateMaintenanceWindowTask](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateMaintenanceWindowTask.html)
@@ -14,7 +14,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 **To update a maintenance window \(AWS CLI\)**
 
-1. Open the AWS CLI and run the following command to update a target to include a name and a description:
+1. Open the AWS CLI and run the following command to update a target to include a name and a description\.
 
 ------
 #### [ Linux & macOS ]
@@ -40,7 +40,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -59,7 +59,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    }
    ```
 
-1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update does not include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager:
+1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update does not include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager\.
 
 ------
 #### [ Linux & macOS ]
@@ -87,7 +87,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -108,7 +108,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 1. The `start-date` option allows you to delay activation of a maintenance window until a specified future date\. The `end-date` option allows you to set a date and time in the future after which the maintenance window no longer runs\. Specify the options in ISO\-8601 Extended format\.
 
-   Run the following command to specify a date and time range for regularly scheduled maintenance window executions:
+   Run the following command to specify a date and time range for regularly scheduled maintenance window executions\.
 
 ------
 #### [ Linux & macOS ]
@@ -134,7 +134,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 1. Run the following command to update a Run Command task\.
 **Tip**  
-If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
+If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Windows Server, change `df` to `ipconfig`, and `AWS-RunShellScript` to `AWS-RunPowerShellScript` in the following command\.
 
 ------
 #### [ Linux & macOS ]
@@ -239,7 +239,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -267,7 +267,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
    }
    ```
 
-1. If you are updating an AWS Step Functions task, adapt and run the following command to update its task\-invocation\-parameters:
+1. If you are updating a Step Functions task, adapt and run the following command to update its task\-invocation\-parameters\.
 
 ------
 #### [ Linux & macOS ]
@@ -303,7 +303,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -333,7 +333,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
    }
    ```
 
-1. Run the following command to unregister a target from a maintenance window\. This example uses the `safe` parameter to determine if the target is referenced by any tasks and therefore safe to unregister:
+1. Run the following command to unregister a target from a maintenance window\. This example uses the `safe` parameter to determine if the target is referenced by any tasks and therefore safe to unregister\.
 
 ------
 #### [ Linux & macOS ]
@@ -364,7 +364,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
    This Target cannot be deregistered because it is still referenced in Task: 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
    ```
 
-1. Run the following command to unregister a target from a maintenance window even if the target is referenced by a task\. You can force the unregister operation by using the `no-safe` parameter:
+1. Run the following command to unregister a target from a maintenance window even if the target is referenced by a task\. You can force the unregister operation by using the `no-safe` parameter\.
 
 ------
 #### [ Linux & macOS ]
@@ -388,7 +388,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -423,7 +423,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -456,7 +456,7 @@ If your target is an EC2 instance for Windows Server, change `df` to `ipconfig`,
    }
    ```
 
-1. Run the following command to update an Automation task to specify WINDOW\_ID and WINDOW\_TASK\_ID parameters for the `task-invocation-parameters` parameter:
+1. Run the following command to update an Automation task to specify `WINDOW_ID` and `WINDOW_TASK_ID` parameters for the `task-invocation-parameters` parameter:
 
 ------
 #### [ Linux & macOS ]

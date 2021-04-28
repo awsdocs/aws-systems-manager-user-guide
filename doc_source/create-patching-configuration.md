@@ -7,7 +7,7 @@ Many patching use cases benefit from patching instances on a schedule with a mai
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-If you plan to add the patching configuration to a maintenance window, you must first configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
+If you plan to add the patching configuration to a maintenance window, you must first configure roles and permissions for Maintenance Windows, a capability of AWS Systems Manager, before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To create a patching configuration \(console\)**
 
@@ -25,8 +25,8 @@ If you plan to add the patching configuration to a maintenance window, you must 
    + **Enter instance tags**: Enter a tag key and optional tag value to specify the tagged instance to patch\. Click **Add** to include additional tagged instances\.
    + **Select a patch group**: Choose the name of an existing patch group that includes the instances you want to patch\.
 **Note**  
-The **Select a patch group** list displays only those patch groups that are attached to, or registered with, a patch baseline\. You can register a patch group with a patch baseline in one of two ways\. You can use the [register\-patch\-baseline\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-patch-baseline-for-patch-group.html) CLI command, or you can view a patch baseline in the Systems Manager console and select **Modify patch groups** from the **Actions** menu\.  
-Alternatively, to specify an existing patch group that is not registered with the patch baseline, choose **Enter instance tag**, type `Patch Group` as the tag key and the patch group's name as the tag value\.
+The **Select a patch group** list displays only those patch groups that are attached to, or registered with, a patch baseline\. You can register a patch group with a patch baseline in one of two ways\. You can use the [register\-patch\-baseline\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-patch-baseline-for-patch-group.html) AWS Command Line Interface \(AWS CLI\) command, or you can view a patch baseline in the Systems Manager console and select **Modify patch groups** from the **Actions** menu\.  
+Alternatively, to specify an existing patch group that is not registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 **Note**  
 If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.

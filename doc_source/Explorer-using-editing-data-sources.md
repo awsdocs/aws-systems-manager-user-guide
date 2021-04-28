@@ -9,6 +9,7 @@ AWS Systems Manager Explorer displays data from the following sources:
 + AWS Compute Optimizer
 + AWS Support Center cases
 + AWS Config rule and resource compliance
++ AWS Security Hub findings
 
 **Note**  
 To view AWS Support Center cases in Explorer, you must have either an Enterprise or Business account set up with AWS Support\.

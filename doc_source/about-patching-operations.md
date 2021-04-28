@@ -1,6 +1,6 @@
 # About patching operations<a name="about-patching-operations"></a>
 
-The topics in this section provide information to help you understand how the Patch Manager service works\.
+The topics in this section provide information to help you understand how Patch Manager, a capability of AWS Systems Manager, works\.
 
 The information in the following topics applies both when you are patching instances on a schedule and patching instances on demand\.
 

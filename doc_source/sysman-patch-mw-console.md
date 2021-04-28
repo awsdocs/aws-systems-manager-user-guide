@@ -5,7 +5,7 @@ You can continue to use this legacy topic to create a maintenance window for pat
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
-You must configure roles and permissions for Maintenance Windows before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
+You must configure roles and permissions for Maintenance Windows, a capability of AWS Systems Manager, before beginning this procedure\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\. 
 
 **To create a maintenance window for patching**
 
@@ -94,7 +94,7 @@ If a service\-linked role has already been created for your account, choose **Us
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-   To stream the output to a CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
+   To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 

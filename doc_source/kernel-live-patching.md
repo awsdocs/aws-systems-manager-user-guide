@@ -4,7 +4,7 @@ Kernel Live Patching for Amazon Linux 2 enables you to apply security vulnerabil
 
 For general information about Kernel Live Patching, see [Kernel Live Patching on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
-After you enable Kernel Live Patching on an Amazon Linux 2 instance, you can use Patch Manager to apply kernel live patches to the instance\. Using Patch Manager is an alternative to using existing yum workflows on the instance to apply the updates\.
+After you enable Kernel Live Patching on an Amazon Linux 2 instance, you can use Patch Manager, a capability of AWS Systems Manager, to apply kernel live patches to the instance\. Using Patch Manager is an alternative to using existing yum workflows on the instance to apply the updates\.
 
 **Before you begin**  
 To use Patch Manager to apply kernel live patches to your Amazon Linux 2 instances, ensure your instances are based on the correct architecture and kernel version\. For information, see [Supported configurations and prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-prereq) in the *Amazon EC2 User Guide for Linux Instances*\.
@@ -51,9 +51,9 @@ We recommend the following strategy to patch your instances with kernel live upd
 
 1. Enable Kernel Live Patching on your Amazon Linux 2 instances\.
 
-1. Use Run Command to run a `Scan` operation on your instances using the predefined `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch baseline that also targets only `Security` updates with severity classified as `Critical` and `Important`, and the `Bugfix` severity of `All`\. 
+1. Use Run Command, a capability of AWS Systems Manager, to run a `Scan` operation on your instances using the predefined `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch baseline that also targets only `Security` updates with severity classified as `Critical` and `Important`, and the `Bugfix` severity of `All`\. 
 
-1. Open Systems Manager Compliance at [https://console\.aws\.amazon\.com/systems\-manager/compliance](https://console.aws.amazon.com/systems-manager/compliance) and review whether non\-compliance for patching is reported for any of the instances that were scanned\. If so, view the instance compliance details to determine whether any kernel live patches are missing from the instance\.
+1. Open Compliance, a capability of AWS Systems Manager, at [https://console\.aws\.amazon\.com/systems\-manager/compliance](https://console.aws.amazon.com/systems-manager/compliance) and review whether non\-compliance for patching is reported for any of the instances that were scanned\. If so, view the instance compliance details to determine whether any kernel live patches are missing from the instance\.
 
 1. To install missing kernel live patches, use Run Command with the same patch baseline you specified before, but this time run an `Install` operation instead of a `Scan` operation\.
 
@@ -61,11 +61,11 @@ We recommend the following strategy to patch your instances with kernel live upd
 **Note**  
 You can still reboot the instance if required for other types of patches installed on the instance, or if you want to update to a newer kernel\. In these cases, choose the `RebootIfNeeded` reboot option instead\.
 
-1. Return to Systems Manager Compliance to verify that the kernel live patches were installed\.
+1. Return to Compliance to verify that the kernel live patches were installed\.
 
 ## Enabling Kernel Live Patching using Run Command<a name="enable-klp"></a>
 
-To enable Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and a custom Systems Manager document that you create\.
+To enable Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and a custom Systems Manager document \(SSM document\) that you create\.
 
 For information about enabling Kernel Live Patching by running `yum` commands directly on the instance, see [Enabling Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
 
@@ -84,7 +84,7 @@ When you enable Kernel Live Patching, if the kernel already running on the insta
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose the custom Systems Manager document `AWS-ConfigureKernelLivePatching`\.
+1. In the **Command document** list, choose the custom SSM document `AWS-ConfigureKernelLivePatching`\.
 
 1. In the **Command parameters** section, specify whether you want instances to reboot as part of this operation\.
 
@@ -125,7 +125,7 @@ When you enable Kernel Live Patching, if the kernel already running on the insta
 
 ## Applying kernel live patches using Run Command<a name="install-klp"></a>
 
-To apply kernel live patches, you can either run `yum` commands on your instances or use Run Command and the Systems Manager document `AWS-RunPatchBaseline`\. 
+To apply kernel live patches, you can either run `yum` commands on your instances or use Run Command and the SSM document `AWS-RunPatchBaseline`\. 
 
 For information about applying kernel live patches by running `yum` commands directly on the instance, see [Applying kernel live patches](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-apply) in the *Amazon EC2 User Guide for Linux Instances*\.
 
@@ -141,10 +141,10 @@ For information about applying kernel live patches by running `yum` commands dir
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose the Systems Manager document `AWS-RunPatchBaseline`\.
+1. In the **Command document** list, choose the SSM document `AWS-RunPatchBaseline`\.
 
 1. In the **Command parameters** section, do one of the following:
-   + If you are checking whether new kernel live patches are available, for **Operation**, choose `Scan`\. For **Reboot Option**, if do not want your instances to reboot after this operation, choose `NoReboot`\. After the operation completes, you can check for new patches and compliance status in Systems Manager Compliance\.
+   + If you are checking whether new kernel live patches are available, for **Operation**, choose `Scan`\. For **Reboot Option**, if do not want your instances to reboot after this operation, choose `NoReboot`\. After the operation completes, you can check for new patches and compliance status in Compliance\.
    + If you checked patch compliance already and are ready to apply available kernel live patches, for **Operation**, choose `Install`\. For **Reboot Option**, if you do not want your instances to reboot after this operation, choose `NoReboot`\.
 
 1. For information about working with the remaining controls on this page, see [Running commands from the console](rc-console.md)\.
@@ -153,7 +153,7 @@ For information about applying kernel live patches by running `yum` commands dir
 
 **To apply kernel live patches using Run Command \(AWS CLI\)**
 
-1. To perform a `Scan` operation before checking your results in Systems Manager Compliance, run the following command from your local machine\.
+1. To perform a `Scan` operation before checking your results in Compliance, run the following command from your local machine\.
 
 ------
 #### [ Linux & macOS ]
@@ -179,7 +179,7 @@ For information about applying kernel live patches by running `yum` commands dir
 
    For information about other options you can use in the command, see [send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS CLI Command Reference*\.
 
-1. To perform an `Install` operation after checking your results in Systems Manager Compliance, run the following command from your local machine\.
+1. To perform an `Install` operation after checking your results in Compliance, run the following command from your local machine\.
 
 ------
 #### [ Linux & macOS ]
@@ -211,7 +211,7 @@ For information about other options you can use in these commands, see [send\-co
 
 ## Disabling Kernel Live Patching using Run Command<a name="disable-klp"></a>
 
-To disable Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and the custom Systems Manager document `AWS-ConfigureKernelLivePatching`\.
+To disable Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and the custom SSM document `AWS-ConfigureKernelLivePatching`\.
 
 **Note**  
 If you no longer need to use Kernel Live Patching, you can disable it at any time\. In most cases, disabling the feature is not necessary\.
@@ -233,7 +233,7 @@ When you disable Kernel Live Patching, the process uninstalls the Kernel Live Pa
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose the Systems Manager document `AWS-ConfigureKernelLivePatching`\.
+1. In the **Command document** list, choose the SSM document `AWS-ConfigureKernelLivePatching`\.
 
 1. In the **Command parameters** section, specify values for required parameters\.
 
@@ -241,7 +241,7 @@ When you disable Kernel Live Patching, the process uninstalls the Kernel Live Pa
 
 1. Choose **Run**\.
 
-**To disable kernel live patching \(AWS CLI\)**
+**To disable Kernel Live Patching \(AWS CLI\)**
 + Run a command similar to the following\.
 
 ------

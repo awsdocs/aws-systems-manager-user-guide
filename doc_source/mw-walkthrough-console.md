@@ -1,9 +1,9 @@
 # Walkthrough: Create a maintenance window to update SSM Agent \(console\)<a name="mw-walkthrough-console"></a>
 
-The following walkthrough shows you how to use the AWS Systems Manager console to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Run Command task to update SSM Agent\.
+The following walkthrough shows you how to use the AWS Systems Manager console to create a maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Systems Manager Run Command task to update SSM Agent\.
 
 **Before you begin**  
-Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running EC2 instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **Topics**
 + [Step 1: Create the maintenance window \(console\)](#mw-walkthrough-console-create)
@@ -121,9 +121,9 @@ If a service\-linked role has already been created for your account, choose **Us
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-   To stream the output to a CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
+   To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
 
-1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon SNS\. If you choose to enable this option, you need to specify the following:
+1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\)\. If you choose to enable this option, you need to specify the following:
 
    1. The IAM role to trigger Amazon SNS notifications\.
 

@@ -11,11 +11,11 @@ If a single maintenance window task is registered with multiple targets, its tas
 
 For more information about creating and managing resource groups, see [What is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide* and [Resource Groups and Tagging for AWS](http://aws.amazon.com/blogs/aws/resource-groups-and-tagging/) in the *AWS News Blog*\.
 
-For information about limits for the Maintenance Windows capability, in addition to those specified in the following examples, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+For information about quotas for Maintenance Windows, a capability of AWS Systems Manager, in addition to those specified in the following examples, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
 ## Example 1: Register multiple targets using instance IDs<a name="mw-target-example-1"></a>
 
-Run the following command on your local machine format to register multiple instances as targets using their instance IDs:
+Run the following command on your local machine format to register multiple instances as targets using their instance IDs\.
 
 ------
 #### [ Linux & macOS ]
@@ -45,7 +45,7 @@ aws ssm register-target-with-maintenance-window ^
 
 ## Example 2: Register targets using resource tags applied to instances<a name="mw-target-example-2"></a>
 
-Run the following command on your local machine to register instances that are all already tagged with a key\-value pair you have assigned:
+Run the following command on your local machine to register instances that are all already tagged with a key\-value pair you have assigned\.
 
 ------
 #### [ Linux & macOS ]
@@ -74,7 +74,7 @@ aws ssm register-target-with-maintenance-window ^
 **Quotas:** You can specify up to five key\-value pairs total for each target\.  If you specify more than one key\-value pair, an instance must be tagged with *all* the tag keys and values you specify to be included in the target group\.
 
 **Note**  
-You can tag a group of instances with the tag\-key **Patch Group** and assign the instances a common key value, such as `my-patch-group`\. Patch Manager evaluates the **Patch Group** key on instances to help determine which patch baseline applies to them\. If your task will run the `AWS-RunPatchBaseline` SSM document \(or the legacy `AWS-ApplyPatchBaseline` SSM document\), you can specify the same **Patch Group** key\-value pair when you register targets with a maintenance window\. For example: `--target "Key=tag:Patch Group,Values=my-patch-group`\. Doing so enables you to easily use a maintenance window to update patches on a group of instances that are already associated with the same patch baseline\. For more information, see [About patch groups](sysman-patch-patchgroups.md)\.
+You can tag a group of instances with the tag\-key **Patch Group** and assign the instances a common key value, such as `my-patch-group`\. Patch Manager, a capability of Systems Manager, evaluates the **Patch Group** key on instances to help determine which patch baseline applies to them\. If your task will run the `AWS-RunPatchBaseline` SSM document \(or the legacy `AWS-ApplyPatchBaseline` SSM document\), you can specify the same **Patch Group** key\-value pair when you register targets with a maintenance window\. For example: `--target "Key=tag:Patch Group,Values=my-patch-group`\. Doing so enables you to easily use a maintenance window to update patches on a group of instances that are already associated with the same patch baseline\. For more information, see [About patch groups](sysman-patch-patchgroups.md)\.
 
 ## Example 3: Register targets using a group of tag keys \(without tag values\)<a name="mw-target-example-3"></a>
 

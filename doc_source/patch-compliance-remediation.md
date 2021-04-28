@@ -1,4 +1,4 @@
-# Remediating out\-of\-compliance instances \(Patch Manager\)<a name="patch-compliance-remediation"></a>
+# Remediating out\-of\-compliance instances with Patch Manager<a name="patch-compliance-remediation"></a>
 
 The topics in this section provide overviews of how to identify managed instances that are out of patch compliance and how to bring instances into compliance\.
 

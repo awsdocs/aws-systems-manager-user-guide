@@ -29,11 +29,11 @@ The following list describes some of the features available to help you run Auto
 
 ## Using a runbook to remediate an OpsItem issue<a name="OpsCenter-remediating-how-to"></a>
 
-When you run a Systems Manager Automation document \(runbook\) from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** opens the runbook in Systems Manager Automation, which provides several options for executing the runbook\.
+When you run a Systems Manager Automation document \(runbook\) from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** opens the runbook in Systems Manager Automation, which provides several options for running the runbook\.
 
 ![\[An OpsCenter runbook that uses the Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
 
-The following procedure describes how to run a simple version of a runbook\. For information about executing an **Advanced configuration** runbook, see [Working with automations](automation-working.md)\.
+The following procedure describes how to run a simple version of a runbook\. For information about running an **Advanced configuration** runbook, see [Working with automations](automation-working.md)\.
 
 **Before You Begin**  
 Before you run an automation document \(runbook\) to remediate an OpsItem issue, do the following:

@@ -1,6 +1,6 @@
-# Create a custom patch baseline \(macOS\)<a name="create-baseline-console-macos"></a>
+# Creating a custom patch baseline \(macOS\)<a name="create-baseline-console-macos"></a>
 
-Use the following procedure to create a custom patch baseline for macOS instances\. 
+Use the following procedure to create a custom patch baseline for macOS instances in Patch Manager, a capability of AWS Systems Manager\. 
 
 For information about creating a patch baseline for Windows Server instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\. For information about creating a patch baseline for Linux instances, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\. 
 

@@ -1,8 +1,8 @@
 # Running commands from the console<a name="rc-console"></a>
 
-You can use Run Command from the console to configure instances without having to login to each instance\. This topic includes an example that shows how to [update SSM Agent](#rc-console-agentexample) on an instance by using Run Command\.
+You can use Run Command, a capability of AWS Systems Manager, from the console to configure instances without having to log in to each instance\. This topic includes an example that shows how to [update SSM Agent](#rc-console-agentexample) on an instance by using Run Command\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you send a command using Run Command, verify that your instances meet Systems Manager [requirements](systems-manager-prereqs.md)\.
 
 **To send a command using Run Command**
@@ -49,7 +49,7 @@ For information about canceling a command, see [Canceling a command](rc-cancel.m
 
 ## Rerunning commands<a name="run-command-rerun"></a>
 
-Systems Manager includes two options to help you rerun a command from the **Run Command** page in the AWS Systems Manager console\. 
+Systems Manager includes two options to help you rerun a command from the **Run Command** page in the Systems Manager console\. 
 + **Rerun**: This button enables you to run the same command without making changes to it\.
 + **Copy to new**: This button copies the settings of one command to a new command and gives you the option to edit those settings before you run it\.
 
@@ -69,7 +69,7 @@ Systems Manager includes two options to help you rerun a command from the **Run 
 
 ## Update SSM Agent by using Run Command<a name="rc-console-agentexample"></a>
 
-The following procedure describes how to quickly update SSM Agent running on your Windows Server, and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
+The following procedure describes how to quickly update the SSM Agent running on your Windows Server, and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
 
 **Note**  
 Note the following details about automatically updating SSM Agent:  

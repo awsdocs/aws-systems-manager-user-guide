@@ -1,8 +1,8 @@
 # AWS Systems Manager Run Command<a name="execute-remote-commands"></a>
 
-AWS Systems Manager Run Command lets you remotely and securely manage the configuration of your managed instances\. A *managed instance* is any EC2 instance or on\-premises machine in your hybrid environment that has been configured for Systems Manager\. Run Command enables you to automate common administrative tasks and perform one\-time configuration changes at scale\. You can use Run Command from the AWS Management Console, the AWS Command Line Interface, AWS Tools for Windows PowerShell, or the AWS SDKs\. Run Command is offered at no additional cost\.
+Run Command, a capability of AWS Systems Manager, lets you remotely and securely manage the configuration of your managed instances\. A *managed instance* is any Amazon Elastic Compute Cloud \(Amazon EC2\) instance or on\-premises machine in your hybrid environment that has been configured for Systems Manager\. Run Command enables you to automate common administrative tasks and perform one\-time configuration changes at scale\. You can use Run Command from the AWS Management Console, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. Run Command is offered at no additional cost\.
 
-Administrators use Run Command to perform the following types of tasks on their managed instances: install or bootstrap applications, build a deployment pipeline, capture log files when an instance is terminated from an Auto Scaling group, and join instances to a Windows domain\.
+Administrators use Run Command to perform the following types of tasks on their managed instances: install or bootstrap applications, build a deployment pipeline, capture log files when an instance is removed from an Auto Scaling group, and join instances to a Windows domain\.
 
 **Getting Started**  
 The following table includes information to help you get started with Run Command\.
@@ -12,10 +12,10 @@ The following table includes information to help you get started with Run Comman
 
 | Topic | Details | 
 | --- | --- | 
-|  [Systems Manager prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install SSM Agent\.  | 
+|  [Systems Manager prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your instances meet the minimum requirements for Run Command, configure required roles, and install the SSM Agent\.  | 
 |  [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so that you can manage them using Run Command\.  | 
-|  [Running commands using Systems Manager Run Command](run-command.md)  |  Learn how to run a command from the EC2 console and how to run commands to a fleet of managed instances\.  | 
-|  [Run Command walkthroughs](run-command-walkthroughs.md)  |  Learn how to run commands using either AWS Tools for Windows PowerShell or the AWS CLI\.  | 
+|  [Running commands using Systems Manager Run Command](run-command.md)  |  Learn how to run a command from the Amazon EC2 console and how to run commands to a fleet of managed instances\.  | 
+|  [Run Command walkthroughs](run-command-walkthroughs.md)  |  Learn how to run commands using either Tools for Windows PowerShell or the AWS CLI\.  | 
 
 **EventBridge support**  
 This Systems Manager capability is supported as both an *event* type and a *target* type in Amazon EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.

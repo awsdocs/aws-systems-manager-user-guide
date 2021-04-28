@@ -1,6 +1,6 @@
 # About the AWS\-RunPatchBaselineWithHooks SSM document<a name="patch-manager-about-aws-runpatchbaselinewithhooks"></a>
 
-AWS Systems Manager supports an SSM document for Patch Manager, `AWS-RunPatchBaselineWithHooks`, which performs patching operations on instances for both security related and other types of updates\. 
+AWS Systems Manager supports `AWS-RunPatchBaselineWithHooks`, a Systems Manager document \(SSM document\) for Patch Manager, a capability of AWS Systems Manager\. This SSM document performs patching operations on instances for both security related and other types of updates\. 
 
 `AWS-RunPatchBaselineWithHooks` differs from `AWS-RunPatchBaseline` in the following ways:
 + **A wrapper document** – `AWS-RunPatchBaselineWithHooks` is a wrapper for `AWS-RunPatchBaseline` and relies on `AWS-RunPatchBaseline` for some of its operations\.
@@ -88,7 +88,7 @@ For a `Scan` operation, if Step 1 fails, the process of running the document sto
 
 ## AWS\-RunPatchBaselineWithHooks parameters<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters"></a>
 
-**AWS\-RunPatchBaselineWithHooks** supports six parameters\. 
+`AWS-RunPatchBaselineWithHooks` supports six parameters\. 
 
 The `Operation` parameter is required\. 
 
@@ -129,7 +129,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 | Mode | Best practice | Details | 
 | --- | --- | --- | 
 | Running AWS\-RunPatchBaselineWithHooks inside a maintenance window | Do not supply a Snapshot ID\. Patch Manager will supply it for you\. |  If you use a maintenance window to run `AWS-RunPatchBaselineWithHooks`, you should not provide your own generated Snapshot ID\. In this scenario, Systems Manager provides a GUID value based on the maintenance window execution ID\. This ensures that a correct ID is used for all the invocations of `AWS-RunPatchBaselineWithHooks` in that maintenance window\.  If you do specify a value in this scenario, note that the snapshot of the patch baseline might not remain in place for more than three days\. After that, a new snapshot will be generated even if you specify the same ID after the snapshot expires\.   | 
-| Running AWS\-RunPatchBaselineWithHooks outside of a maintenance window | Generate and specify a custom GUID value for the Snapshot ID\.¹ |  When you are not using a maintenance window to run `AWS-RunPatchBaselineWithHooks`, we recommend that you generate and specify a unique Snapshot ID for each patch baseline, particularly if you are running the `AWS-RunPatchBaselineWithHooks` document on multiple instances in the same operation\. If you do not specify an ID in this scenario, Systems Manager generates a different Snapshot ID for each instance the command is sent to\. This might result in varying sets of patches being specified among the instances\. For instance, say that you are running the `AWS-RunPatchBaselineWithHooks` document directly via Run Command and targeting a group of 50 instances\. Specifying a custom Snapshot ID results in the generation of a single baseline snapshot that is used to evaluate and patch all the instances, ensuring that they end up in a consistent state\.   | 
+| Running AWS\-RunPatchBaselineWithHooks outside of a maintenance window | Generate and specify a custom GUID value for the Snapshot ID\.¹ |  When you are not using a maintenance window to run `AWS-RunPatchBaselineWithHooks`, we recommend that you generate and specify a unique Snapshot ID for each patch baseline, particularly if you are running the `AWS-RunPatchBaselineWithHooks` document on multiple instances in the same operation\. If you do not specify an ID in this scenario, Systems Manager generates a different Snapshot ID for each instance the command is sent to\. This might result in varying sets of patches being specified among the instances\. For instance, say that you are running the `AWS-RunPatchBaselineWithHooks` document directly via Run Command, a capability ofAWS Systems Manager, and targeting a group of 50 instances\. Specifying a custom Snapshot ID results in the generation of a single baseline snapshot that is used to evaluate and patch all the instances, ensuring that they end up in a consistent state\.   | 
 |  ¹ You can use any tool capable of generating a GUID to generate a value for the Snapshot ID parameter\. For example, in PowerShell, you can use the `New-Guid` cmdlet to generate a GUID in the format of `12345699-9405-4f69-bc5e-9315aEXAMPLE`\.  | 
 
 ### Parameter name: `RebootOption`<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters-norebootoption"></a>
@@ -165,9 +165,9 @@ This tracking file is stored in the following locations on your managed instance
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `PreInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of a Systems Manager Command document \(SSM document\) of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `PreInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run before the `Install` operation and performs any actions supported by Systems Manager agent, such as a shell script to check application health check before patching is performed on the instance\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
+The SSM document you specify is run before the `Install` operation and performs any actions supported by SSM Agent, such as a shell script to check application health check before patching is performed on the instance\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
 For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 
 
@@ -177,9 +177,9 @@ For information about creating a custom SSM document, see [Creating Systems Mana
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `PostInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of a Systems Manager Command document \(SSM document\) of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `PostInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by Systems Manager agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
+The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by SSM Agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
 For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 
 
@@ -189,8 +189,8 @@ For information about creating a custom SSM document, see [Creating Systems Mana
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of a Systems Manager Command document \(SSM document\) of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run after the instance reboot operation and performs any actions supported by Systems Manager agent, such as a shell script to verify instance health after the patching operation completes\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
+The SSM document you specify is run after the instance reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify instance health after the patching operation completes\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
 For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 

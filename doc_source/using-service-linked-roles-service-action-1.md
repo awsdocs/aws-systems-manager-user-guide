@@ -12,12 +12,12 @@ Systems Manager uses the service\-linked role named **`AWSServiceRoleForAmazonSS
 
 The `AWSServiceRoleForAmazonSSM` service\-linked role trusts only `ssm.amazonaws.com` to assume this role\. 
 
-Currently, three Systems Manager capabilities use the service\-linked role: 
-+ Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
-+ The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
-+ The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\.
+Currently, three Systems Manager capabilities use the service\-linked role:
++ Systems Manager Inventory requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
++ Systems Manager Maintenance Windows can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
++ Systems Manager Explorer requires a service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
 
-The managed policy that is used to provide permissions for the `AWSServiceRoleForAmazonSSM` role is `AmazonSSMServiceRolePolicy`\. For details about the permissions it grants, see [AWS managed policy: AmazonSSMServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMServiceRolePolicy)\. 
+The managed policy that is used to provide permissions for the `AWSServiceRoleForAmazonSSM` role is `AmazonSSMServiceRolePolicy`\. For details about the permissions it grants, see [AWS managed policy: AmazonSSMServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMServiceRolePolicy)\.
 
 ## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
 

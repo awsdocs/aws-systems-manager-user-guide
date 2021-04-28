@@ -1,10 +1,10 @@
 # Working with Patch Manager \(AWS CLI\)<a name="patch-manager-cli-commands"></a>
 
-The section includes examples of CLI commands that you can use to perform Patch Manager configuration tasks\.
+The section includes examples of AWS Command Line Interface \(AWS CLI\) commands that you can use to perform configuration tasks for Patch Manager, a capability of AWS Systems Manager\.
 
 For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
 
-For more information about using the CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
+For more information about using the AWS CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. 
 
 **Topics**
 + [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline)
@@ -78,12 +78,12 @@ The system returns information like the following\.
 
 ## Create a patch baseline with custom repositories for different OS versions<a name="patch-manager-cli-commands-create-patch-baseline-mult-sources"></a>
 
-Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but could be adapted to a different source repository that you have configured for an instance\.
+Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but it could be adapted to a different source repository that you have configured for an instance\.
 
 **Note**  
 To better demonstrate this more complex command, we are using the `--cli-input-json` option with additional options stored an external JSON file\.
 
-1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it:
+1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it\.
 
    ```
    {
@@ -134,13 +134,13 @@ To better demonstrate this more complex command, we are using the `--cli-input-j
    }
    ```
 
-1. In the directory where you saved the file, run the following command:
+1. In the directory where you saved the file, run the following command\.
 
    ```
    aws ssm create-patch-baseline --cli-input-json file://my-patch-repository.json
    ```
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -348,7 +348,7 @@ The system returns information like the following\.
 }
 ```
 
-Here is another command that lists all patch baselines in a Region\.
+Here is another command that lists all patch baselines in an AWS Region\.
 
 ------
 #### [ Linux & macOS ]
@@ -472,7 +472,7 @@ aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
 ```
 
 **Note**  
-For custom patch baselines, you can specify either the patch baseline ID or the full ARN\. For AWS\-provided patch baseline, you must specify the full ARN\. For example, `arn:aws:ssm:us-east-1:075727635805:patchbaseline/pb-03e3f588eec25344c`\.
+For custom patch baselines, you can specify either the patch baseline ID or the full Amazon Resource Name \(ARN\)\. For an AWS\-provided patch baseline, you must specify the full ARN\. For example, `arn:aws:ssm:us-east-1:075727635805:patchbaseline/pb-03e3f588eec25344c`\.
 
 The system returns information like the following\.
 
@@ -566,7 +566,7 @@ aws ssm register-default-patch-baseline ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -596,7 +596,7 @@ aws ssm register-default-patch-baseline ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -610,10 +610,10 @@ To help you organize your patching efforts, we recommend that you add instances 
 
 After you group your instances using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\.
 
-### Task 1:Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
+### Task 1: Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
 
 **Note**  
-When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` tag, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+When using the Amazon Elastic Compute Cloud \(Amazon EC2\) console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` tag, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 Run the following command to add the `Patch Group` tag to an EC2 instance\.
 
@@ -671,7 +671,7 @@ aws ssm register-patch-baseline-for-patch-group ^
 
 ------
 
-The system returns information like the following:
+The system returns information like the following\.
 
 ```
 {
@@ -930,7 +930,7 @@ The system returns information like the following\.
 ```
 aws ssm describe-available-patches \
     --region us-east-2 \
-    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITCAL
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITICAL
 ```
 
 ------
@@ -939,7 +939,7 @@ aws ssm describe-available-patches \
 ```
 aws ssm describe-available-patches ^
     --region us-east-2 ^
-    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITCAL
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITICAL
 ```
 
 ------
@@ -1139,7 +1139,7 @@ aws ssm remove-tags-from-resource ^
 
 ## Get patch summary states per\-instance<a name="patch-manager-cli-commands-describe-instance-patch-states"></a>
 
-The per\-instance summary gives you a number of patches in the following states per instance: "NotApplicable", "Missing", "Failed", "InstalledOther" and "Installed"\. 
+The per\-instance summary gives you the number of patches in the following states per instance: "NotApplicable", "Missing", "Failed", "InstalledOther" and "Installed"\. 
 
 ------
 #### [ Linux & macOS ]

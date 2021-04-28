@@ -3,7 +3,7 @@
 The information about patches for an instance include a report of the state, or status, of each individual patch\.
 
 **Note**  
-If you want to assign a specific patch compliance state to an instance, you can use the [put\-compliance\-items](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) CLI command or the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance state is not supported in the console\.
+If you want to assign a specific patch compliance state to an instance, you can use the [put\-compliance\-items](https://docs.aws.amazon.com/cli/latest/reference/ssm/put-compliance-items.html) AWS Command Line Interface \(AWS CLI\) command or the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\. Assigning compliance state is not supported in the console\.
 
 Use the information in the following tables to help you identify why an instance might be out of patch compliance\.
 

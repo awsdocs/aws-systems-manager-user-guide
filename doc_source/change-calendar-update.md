@@ -1,10 +1,10 @@
-# Update a Change Calendar entry<a name="change-calendar-update"></a>
+# Updating a Change Calendar entry<a name="change-calendar-update"></a>
 
-## Update a Change Calendar entry \(console\)<a name="change-calendar-update-console"></a>
+You can update the description of an entry in Change Calendar, a capability in AWS Systems Manager, but not its name\. Although you can change the default state of a calendar entry, be aware that this reverses the behavior of change actions during events that are associated with the calendar entry\. For example, if you change the state of a calendar from **Open by default** to **Closed by default**, unwanted changes might be made during event periods when the users who created the associated events are not expecting changes\.
 
-You can update an AWS Systems Manager Change Calendar entry's description, but not its name\. Although you can change the default state of a calendar entry, be aware that this reverses the behavior of change actions during events that are associated with the calendar entry\. For example, if you change the state of a calendar from **Open by default** to **Closed by default**, unwanted changes might be made during event periods when the users who created the associated events are not expecting changes\.
+When you update a Change Calendar entry, you are editing the Change Calendar document that you created when you created the entry\.
 
-When you update a Change Calendar entry, you are editing the Change Calendar document that you created when you created the Change Calendar entry\.
+**To update a Change Calendar entry**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -22,4 +22,4 @@ When you update a Change Calendar entry, you are editing the Change Calendar doc
 
 1. Choose **Save**\.
 
-   Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Create a Change Calendar event](change-calendar-create-event.md)\.
+   Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Creating a Change Calendar event](change-calendar-create-event.md)\.

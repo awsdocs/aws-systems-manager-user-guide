@@ -5,7 +5,7 @@ Use these procedures to view patch compliance information about your managed ins
 This procedure applies to patch operations that use the `AWS-RunPatchBaseline` document\. For information about viewing patch compliance information for patch operations that use the `AWS-RunPatchBaselineAssociation` document, see [Identifying out\-of\-compliance instances](patch-compliance-identify.md)\.
 
 **Note**  
-The AWS Systems Manager Quick Setup and AWS Systems Manager Explorer patch scan processes use the `AWS-RunPatchBaselineAssociation` document\.
+The patch scan processes for Quick Setup and Explorer, AWS Systems Manager capabilities, use the `AWS-RunPatchBaselineAssociation` document\.
 
 **Identify the patch solution for a specific CVE issue \(Linux\)**  
 For many Linux\-based operating systems, patch compliance results indicate which Common Vulnerabilities and Exposure \(CVE\) bulletin issues are resolved by which patches\. This information can help you determine how urgently you need to install a missing or failed patch\.
@@ -46,11 +46,11 @@ Use the following procedure to view patch compliance results in the AWS Systems 
    + In the **Resource** list, choose the ID of the instance for which you want to review patch compliance results\.
 
    **Option 2** – Navigate from **Managed Instances**\.
-   + In the navigation pane, choose **Managed Instances**\.
+   + In the navigation pane, choose **Fleet Manager**\.
 
      \-or\-
 
-     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Managed Instances**\.
+     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
    + On the **Managed Instances** tab, choose the ID of the instance for which you want to review patch compliance results\.
 
 1. Choose the **Patch** tab\.
@@ -73,7 +73,7 @@ Use the following procedure to view patch compliance results in the AWS Systems 
 
 **To view patch compliance results for a single instance**
 
-Run the following command in the AWS CLI to view patch compliance results for a single instance\.
+Run the following command in the AWS Command Line Interface \(AWS CLI\) to view patch compliance results for a single instance\.
 
 ```
 aws ssm describe-instance-patch-states --instance-id instance-id

@@ -5,7 +5,7 @@ AWS Systems Manager uses an integrated setup experience to help you get started 
 **Note**  
 Integrated Setup is only available in the Systems Manager console\. You can't set up Explorer or OpsCenter programmatically\.
 
-Integrated Setup performs the following tasks\.
+Integrated Setup performs the following tasks:
 
 1. [Configures roles and permissions](Explorer-setup-permissions.md): Integrated Setup creates an AWS Identity and Access Management \(IAM\) role that enables Amazon EventBridge to automatically create OpsItems based on default rules\. After setting up, you must configure IAM user, group, or role permissions for OpsCenter, as described in this section\. 
 
@@ -23,9 +23,13 @@ You can change setup configurations at any time on the **Settings** page\.
 ## Configuring OpsData sources<a name="Explorer-setup-data-sources"></a>
 
 Integrated Setup enables the following data sources that populate Explorer widgets\.
-+ Amazon Elastic Compute Cloud \(Amazon EC2\)
++ Support Center \(You must have either a Business or Enterprise Support plan to enable this source\.\)
++ AWS Compute Optimizer \(You must have either a Business or Enterprise Support plan to enable this source\.\)
++ Systems Manager State Manager association compliance
++ AWS Config Compliance
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager patch compliance
-+ Systems Manager State Manager association compliance
-+ AWS Trusted Advisor
-+ AWS Compute Optimizer
++ Amazon Elastic Compute Cloud \(Amazon EC2\)
++ Systems Manager Inventory
++ AWS Trusted Advisor \(You must have either a Business or Enterprise Support plan to enable this source\.\)
++ AWS Security Hub

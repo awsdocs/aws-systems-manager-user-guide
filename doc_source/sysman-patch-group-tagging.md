@@ -11,7 +11,7 @@ After you group your instances using tags, you add the patch group value to a pa
 
 ## Task 1: Add EC2 instances to a patch group using tags<a name="sysman-patch-group-tagging-ec2"></a>
 
-For EC2 instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS CLI command `create-tags`, or the API action `CreateTags`\.
+For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS Command Line Interface \(AWS CLI\) command `create-tags`, or the API action `CreateTags`\.
 
 **To add EC2 instances to a patch group \(AWS Systems Manager console\)**
 
@@ -54,9 +54,9 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 
 ## Task 2: Add managed instances to a patch group using tags<a name="sysman-patch-group-tagging-managed"></a>
 
-For hybrid managed instances \(mi\-\*\), you can add tags by using the AWS Systems Manager console, the AWS CLI command `add-tags-to-resource`, or the API action `AddTagsToResource`\. You cannot add tags for hybrid managed instances using the Amazon EC2 console\.
+For hybrid managed instances \(mi\-\*\), you can add tags by using the Systems Manager console, the AWS CLI command `add-tags-to-resource`, or the API action `AddTagsToResource`\. You cannot add tags for hybrid managed instances using the Amazon EC2 console\.
 
-**To add managed instances to a patch group \(AWS Systems Manager console\)**
+**To add managed instances to a patch group \(Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

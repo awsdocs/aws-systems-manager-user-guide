@@ -1,6 +1,6 @@
 # AWS Systems Manager Change Calendar<a name="systems-manager-change-calendar"></a>
 
-AWS Systems Manager Change Calendar lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+Change Calendar, a capability of AWS Systems Manager, lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 A Change Calendar entry can be one of two types:
 
@@ -11,7 +11,7 @@ When a calendar entry is open by default, actions can run by default, but are bl
 When a calendar entry is closed by default, actions that are tracking Change Calendar do not run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
 
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
-+ Any AWS customer who creates or runs Systems Manager Automation runbooks\.
++ Any AWS customer who creates or runs Automation runbooks or creates change requests in Change Manager\. \(Automation and Change Managerare both capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these two action types depending on the current state of the change calendar you associate with each one\.
 + Administrators who are responsible for keeping the configurations of Systems Manager managed instances consistent, stable, and functional\.
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>
@@ -36,4 +36,4 @@ This Systems Manager capability is supported as an *event* type in Amazon EventB
 + [Benefits of Change Calendar](#systems-manager-change-calendar-benefits)
 + [Setting up Change Calendar](systems-manager-change-calendar-prereqs.md)
 + [Working with Change Calendar](systems-manager-change-calendar-working.md)
-+ [Add Change Calendar dependencies to Automation runbooks](systems-manager-change-calendar-automations.md)
++ [Adding Change Calendar dependencies to Automation runbooks](systems-manager-change-calendar-automations.md)

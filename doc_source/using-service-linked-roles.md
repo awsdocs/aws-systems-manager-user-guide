@@ -4,4 +4,5 @@ AWS Systems Manager uses AWS Identity and Access Management \(IAM\)[service\-lin
 
 **Topics**
 + [Using roles to collect inventory, run maintenance window tasks, and view OpsData: AWSServiceRoleForAmazonSSM](using-service-linked-roles-service-action-1.md)
-+ [Using roles to collect AWS account information for Systems Manager Explorer](using-service-linked-roles-service-action-2.md)
++ [Using roles to collect AWS account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery](using-service-linked-roles-service-action-2.md)
++ [Using roles to create OpsData and OpsItems for Systems Manager Explorer: AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md)

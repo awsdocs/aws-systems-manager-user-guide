@@ -156,7 +156,7 @@ Amazon EventBridge populates the **Title**, **Source**, and **Description** fiel
 |  **Priority**  |  \(Optional\) Guidelines should include determining the highest and lowest priority for your organization, and any service\-level agreements based on priority\. You can specify priority from 1 to 5\.  | 
 |  **Severity**  |  \(Optional\) Guidelines should include determining the highest and lowest severity for your organization, and any service\-level agreements based on severity\. You can specify severity from 1 to 4\.  | 
 |  **Category**  |  \(Optional\) Guidelines should include a list of categories to specify when creating or editing OpsItems\.  | 
-|  **Deduplication strings**  |  \(Optional\) Guidelines should specify the length and standards for creating a effective deduplication strings\.  | 
+|  **Deduplication strings**  |  \(Optional\) Guidelines should specify the length and standards for creating effective deduplication strings\.  | 
 |  **Description**  |  Guidelines should suggest how much detail about the issue to include and any steps \(if applicable\) for reproducing the issue\.   | 
 |  **Notifications**  |  Guidelines should suggest which Amazon Simple Notification Service \(SNS\) topic Amazon Resource Name \(ARN\) to specify when creating or editing OpsItems\. Be aware that SNS notifications are region\-specific\. This means you must specify an ARN that is in the same AWS Region as the OpsItem\.  | 
 |  **Related Resources**  |  Guidelines can include details about which Resources should or shouldn't have an ARN specified\. For supported AWS resource types, the ARN creates a deep link to details about the Resource\.   | 

@@ -1,6 +1,6 @@
 # Running commands using the document version parameter<a name="run-command-version"></a>
 
-You can use the document version parameter to specify which version of an Systems Manager document to use when the command runs\. You can specify one of the following options for this parameter:
+You can use the document version parameter to specify which version of an AWS Systems Manager document to use when the command runs\. You can specify one of the following options for this parameter:
 + $DEFAULT
 + $LATEST
 + Version number
@@ -18,7 +18,7 @@ Run the following procedure to run a command using the document version paramete
 
 1. List all available documents
 
-   This command lists all of the documents available for your account based on IAM permissions\.
+   This command lists all of the documents available for your account based on AWS Identity and Access Management \(IAM\) permissions\.
 
    ```
    aws ssm list-documents
@@ -52,7 +52,7 @@ Run the following procedure to run a command using the document version paramete
 
 1. List all available documents
 
-   This command lists all of the documents available for your account based on IAM permissions\.
+   This command lists all of the documents available for your account based on AWS Identity and Access Management \(IAM\) permissions\.
 
    ```
    aws ssm list-documents
@@ -86,7 +86,7 @@ Run the following procedure to run a command using the document version paramete
 
 1. List all available documents
 
-   This command lists all of the documents available for your account based on IAM permissions\.
+   This command lists all of the documents available for your account based on AWS Identity and Access Management \(IAM\) permissions\.
 
    ```
    Get-SSMDocumentList

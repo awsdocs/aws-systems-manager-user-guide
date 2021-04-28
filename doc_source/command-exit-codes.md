@@ -1,6 +1,6 @@
 # Managing exit codes in Run Command commands<a name="command-exit-codes"></a>
 
-Run Command lets you define how exit codes are handled in your scripts\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. For example, you have a script that contains three commands\. The first one fails but the following ones succeed\. Because the final command succeeded, the status of the execution is reported as `succeeded`\.
+Run Command, a capability of AWS Systems Manager, lets you define how exit codes are handled in your scripts\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. For example, you have a script that contains three commands\. The first one fails but the following ones succeed\. Because the final command succeeded, the status of the execution is reported as `succeeded`\.
 
 **Shell scripts**  
 To fail the entire command at the first failure, you can include a shell conditional statement to exit the script if any command before the final one fails\. Use the following approach\.

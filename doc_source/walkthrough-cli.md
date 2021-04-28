@@ -1,9 +1,9 @@
 # Walkthrough: Use the AWS CLI with Run Command<a name="walkthrough-cli"></a>
 
-The following sample walkthrough shows you how to use the AWS CLI to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
+The following sample walkthrough shows you how to use the AWS Command Line Interface \(AWS CLI\) to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use AWS Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permissions on your instances\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, a capability of AWS Systems Manager, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Step 1: Getting started](#walkthrough-cli-settings)
@@ -14,7 +14,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 
 ## Step 1: Getting started<a name="walkthrough-cli-settings"></a>
 
-You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in IAM\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+You must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\. Also note, this example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **To run commands using the AWS CLI**
 
@@ -54,7 +54,7 @@ You must either have administrator permissions on the instances you want to conf
 
 1. Run the following command to view details about a particular instance\.
 **Note**  
-To run the commands in this walkthrough, replace the instance and command IDs\. The command ID is returned as a response to send\-command\. The instance ID is available from the Amazon EC2 console\.
+To run the commands in this walkthrough, replace the instance and command IDs\. The command ID is returned as a response to send\-command\. The instance ID is available from the Amazon Elastic Compute Cloud \(Amazon EC2\) console\.
 
 ------
 #### [ Linux & macOS ]
@@ -76,7 +76,7 @@ To run the commands in this walkthrough, replace the instance and command IDs\. 
 
 ## Step 2: Run shell scripts to view resource details<a name="walkthrough-cli-run-scripts"></a>
 
-Using Run Command and the AWS\-RunShellScript document, you can run any command or script on an EC2 instance as if you were logged on locally\.
+Using Run Command and the `AWS-RunShellScript` document, you can run any command or script on an Amazon EC2 instance as if you were logged on locally\.
 
 View the description and available parameters
 
@@ -332,7 +332,7 @@ chmod +x ./install
 
 This script installs the AWS CodeDeploy agent on Amazon Linux and Red Hat Enterprise Linux \(RHEL\) instances, as described in [Create an Amazon EC2 instance for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create.html) in the *AWS CodeDeploy User Guide*\.
 
-The script installs the CodeDeploy agent from an AWS managed Amazon S3 bucket in the US East \(Ohio\) Region \(us\-east\-2\), `aws-codedeploy-us-east-2`\.
+The script installs the CodeDeploy agent from an AWS managed Amazon S3 bucket in thee US East \(Ohio\) Region \(us\-east\-2\), `aws-codedeploy-us-east-2`\.
 
 **Run a bash script in an AWS CLI command**
 
@@ -353,8 +353,6 @@ aws ssm send-command \
 **Run a bash script in a JSON file**
 
 In the following example, the content of the bash script is stored in a JSON file, and the file is included in the command using the `--cli-input-json` option\.
-
-The command:
 
 ------
 #### [ Linux & macOS ]
@@ -378,7 +376,7 @@ aws ssm send-command ^
 
 ------
 
-The contents of the referenced `installCodeDeployAgent.json` file:
+The contents of the referenced `installCodeDeployAgent.json` file is shown in the following example\.
 
 ```
 {

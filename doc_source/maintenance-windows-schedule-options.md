@@ -2,7 +2,7 @@
 
 When you create a maintenance window, you must specify how often the maintenance window runs by using a [Cron or rate expression](reference-cron-and-rate-expressions.md)\. Optionally, you can specify a date range during which the maintenance window can run on its regular schedule, as well as a time zone on which to base that regular schedule\. 
 
-Be aware, however, that the time zone option and the start date/end date options do not influence each other\. Any start date and end date times that you specify \(with or without an offset for your time zone\) determine only the *valid period* during which the maintenance window can run on its schedule\. A time zone option determines the international time zone that the maintenance window schedule is based on *during* its valid period\.
+Be aware, however, that the time zone option and the start date and end date options do not influence each other\. Any start date and end date times that you specify \(with or without an offset for your time zone\) determine only the *valid period* during which the maintenance window can run on its schedule\. A time zone option determines the international time zone that the maintenance window schedule is based on *during* its valid period\.
 
 **Note**  
 You specify start and end dates in ISO\-8601 timestamp format\. For example: `2021-04-07T14:29:00-08:00`  
@@ -16,7 +16,7 @@ You specify time zones in Internet Assigned Numbers Authority \(IANA\) format\. 
 
 ## Example 1: Specify a maintenance window start date<a name="schedule-example-start-date"></a>
 
-Say that you use the AWS CLI to create a maintenance window with the following options:
+Say that you use the AWS Command Line Interface \(AWS CLI\) to create a maintenance window with the following options:
 + `--start-date 2021-01-01T00:00:00-08:00`
 + `--schedule-timezone "America/Los_Angeles"`
 + `--schedule "cron(0 09 ? * WED *)"`

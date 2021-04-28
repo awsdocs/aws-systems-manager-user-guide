@@ -1,6 +1,6 @@
 # Run Command walkthroughs<a name="run-command-walkthroughs"></a>
 
-The walkthroughs in this section show you how to run commands with Run Command using either the AWS Command Line Interface or AWS Tools for Windows PowerShell\.
+The walkthroughs in this section show you how to run commands with Run Command, a capability of AWS Systems Manager, using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell\.
 
 **Topics**
 + [Walkthrough: Use the AWS CLI with Run Command](walkthrough-cli.md)

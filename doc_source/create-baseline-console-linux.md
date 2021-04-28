@@ -1,8 +1,8 @@
 # Creating a custom patch baseline \(Linux\)<a name="create-baseline-console-linux"></a>
 
-Use the following procedure to create a custom patch baseline for Linux instances\. 
+Use the following procedure to create a custom patch baseline for Linux instances in Patch Manager, a capability of AWS Systems Manager\. 
 
-For information about creating a patch baseline for macOS instances, see [Create a custom patch baseline \(macOS\)](create-baseline-console-macos.md)\. For information about creating a patch baseline for Windows instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
+For information about creating a patch baseline for macOS instances, see [Creating a custom patch baseline \(macOS\)](create-baseline-console-macos.md)\. For information about creating a patch baseline for Windows instances, see [Creating a custom patch baseline \(Windows\)](create-baseline-console-windows.md)\.
 
 **To create a custom patch baseline for Linux instances**
 

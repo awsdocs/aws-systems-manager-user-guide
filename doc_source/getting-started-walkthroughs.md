@@ -58,8 +58,8 @@ The [AWS Systems Manager Automation](systems-manager-automation.md) capability a
 
 **Change Calendar**  
 [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md) lets you set up date and time ranges when actions you specify are or not permitted to occur in your AWS account\. 
-+ [Create a Change Calendar entry](change-calendar-create.md)
-+ [Create a Change Calendar event](change-calendar-create-event.md)
++ [Creating a Change Calendar entry](change-calendar-create.md)
++ [Creating a Change Calendar event](change-calendar-create-event.md)
 
 **Maintenance Windows**  
 The [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md) capability lets you define a schedule for performing potentially disruptive actions on your managed instances, such as patching an operating system, updating drivers, or installing software or patches\.

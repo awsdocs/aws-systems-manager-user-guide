@@ -1,8 +1,8 @@
-# Create a Change Calendar entry<a name="change-calendar-create"></a>
+# Creating a Change Calendar entry<a name="change-calendar-create"></a>
 
-When you create an AWS Systems Manager Change Calendar entry, you are creating a Systems Manager document that uses the `text` format\.
+When you create an entry in Change Calendar, a capability of AWS Systems Manager, you are creating a Systems Manager document \(SSM document\) that uses the `text` format\.
 
-## Create a Change Calendar entry \(console\)<a name="change-calendar-create-console"></a>
+**To create a Change Calendar entry**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -20,4 +20,4 @@ When you create an AWS Systems Manager Change Calendar entry, you are creating a
 
 1. Choose **Create calendar**\.
 
-   After the calendar entry is created, Systems Manager displays your calendar entry in the **Change Calendar** list\. The columns show the calendar version, and the calendar owner's AWS account number\. Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Create a Change Calendar event](change-calendar-create-event.md)\.
+   After the calendar entry is created, Systems Manager displays your calendar entry in the **Change Calendar** list\. The columns show the calendar version, and the calendar owner's AWS account number\. Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Creating a Change Calendar event](change-calendar-create-event.md)\.

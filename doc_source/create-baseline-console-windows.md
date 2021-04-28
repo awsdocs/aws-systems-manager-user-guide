@@ -1,8 +1,8 @@
 # Creating a custom patch baseline \(Windows\)<a name="create-baseline-console-windows"></a>
 
-Use the following procedure to create a custom patch baseline for Windows instances\. 
+Use the following procedure to create a custom patch baseline for Windows instances in Patch Manager, a capability of AWS Systems Manager\. 
 
-For information about creating a patch baseline for Linux instances, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\. For information about creating a patch baseline for macOS instances, see [Create a custom patch baseline \(macOS\)](create-baseline-console-macos.md)\.
+For information about creating a patch baseline for Linux instances, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\. For information about creating a patch baseline for macOS instances, see [Creating a custom patch baseline \(macOS\)](create-baseline-console-macos.md)\.
 
 For an example of creating a patch baseline that is limited to installing Windows Service Packs only, see [Walkthrough: Create a patch baseline for installing Windows Service Packs \(console\)](service-pack-patch-walkthrough.md)\.
 

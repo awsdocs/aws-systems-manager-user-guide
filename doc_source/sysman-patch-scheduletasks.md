@@ -4,11 +4,11 @@ After you configure a patch baseline \(and optionally a patch group\), you can a
 
 1. Create a maintenance window with a schedule for your patching operations\.
 
-1. Choose the targets for the maintenance window by specifying the **Patch Group** tag for the tag name, and any value for which you have defined Amazon EC2 tags, for example, "production servers"\.
+1. Choose the targets for the maintenance window by specifying the **Patch Group** tag for the tag name, and any value for which you have defined Amazon Elastic Compute Cloud \(Amazon EC2\) tags, for example, "production servers"\.
 
 1. Create a new maintenance window task, and specify the **AWS\-RunPatchBaseline** document\. 
 
-When you configure the task, you can choose to either scan instances or scan and install patches on the instances\. If you choose to scan instances, Patch Manager scans each instance and generates a list of missing patches for you to review\.
+When you configure the task, you can choose to either scan instances or scan and install patches on the instances\. If you choose to scan instances, Patch Manager, a capability of AWS Systems Manager, scans each instance and generates a list of missing patches for you to review\.
 
 If you choose to scan and install patches, Patch Manager scans each instance and compares the list of installed patches against the list of approved patches in the baseline\. Patch Manager identifies missing patches, and then downloads and installs all missing and approved patches\.
 
