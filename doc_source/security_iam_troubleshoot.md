@@ -1,15 +1,15 @@
 # Troubleshooting AWS Systems Manager identity and access<a name="security_iam_troubleshoot"></a>
 
-Use the following information to help you diagnose and fix common issues that you might encounter when working with Systems Manager and IAM\.
+Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Systems Manager and AWS Identity and Access Management \(IAM\)\.
 
 **Topics**
-+ [I Am not authorized to perform an action in Systems Manager](#security_iam_troubleshoot-no-permissions)
-+ [I Am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
++ [I am not authorized to perform an action in Systems Manager](#security_iam_troubleshoot-no-permissions)
++ [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
 + [I want to view my access keys](#security_iam_troubleshoot-access-keys)
 + [I'm an administrator and want to allow others to access Systems Manager](#security_iam_troubleshoot-admin-delegate)
 + [I want to allow people outside of my AWS account to access my Systems Manager resources](#security_iam_troubleshoot-cross-account-access)
 
-## I Am not authorized to perform an action in Systems Manager<a name="security_iam_troubleshoot-no-permissions"></a>
+## I am not authorized to perform an action in Systems Manager<a name="security_iam_troubleshoot-no-permissions"></a>
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\.
 
@@ -21,7 +21,7 @@ User: arn:aws:ssm::123456789012:user/mateojackson is not authorized to perform: 
 
 In this case, Mateo asks his administrator to update his policies to allow him to access the `MyExampleDocument` resource using the `ssm:GetDocument` action\.
 
-## I Am not authorized to perform iam:PassRole<a name="security_iam_troubleshoot-passrole"></a>
+## I am not authorized to perform iam:PassRole<a name="security_iam_troubleshoot-passrole"></a>
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\. Ask that person to update your policies to allow you to pass a role to Systems Manager\.
 

@@ -1,6 +1,6 @@
 # Manually install SSM Agent on CentOS instances<a name="agent-install-centos"></a>
 
-Connect to your CentOS instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your CentOS instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **Note**  
 If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.

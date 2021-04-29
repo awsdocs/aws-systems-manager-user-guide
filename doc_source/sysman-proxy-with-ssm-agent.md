@@ -1,6 +1,6 @@
 # Configure SSM Agent to use a proxy \(Linux\)<a name="sysman-proxy-with-ssm-agent"></a>
 
-You can configure SSM Agent to communicate through an HTTP proxy by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for creating an override file in both *upstart* and *systemd* environments\. 
+You can configure AWS Systems Manager Agent \(SSM Agent\) to communicate through an HTTP proxy by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for creating an override file in both *upstart* and *systemd* environments\. 
 
 **Note**  
 Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
@@ -16,7 +16,7 @@ Use the following procedure to create an override configuration file for an `ups
 
 **To configure SSM Agent to use a proxy \(upstart\)**
 
-1. Connect to the instance where you installed SSM Agent\.
+1. Connect to the managed instance where you installed SSM Agent\.
 
 1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, add one of the following configurations\.
 
@@ -40,7 +40,7 @@ You must add the `no_proxy` setting to the file and specify the IP address liste
 
 1. Save the file with the name `amazon-ssm-agent.override` in the following location: `/etc/init/`
 
-1. Stop and restart SSM Agent using the following commands:
+1. Stop and restart SSM Agent using the following commands\.
 
    ```
    sudo stop amazon-ssm-agent

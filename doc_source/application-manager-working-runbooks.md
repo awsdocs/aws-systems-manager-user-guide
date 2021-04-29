@@ -1,6 +1,6 @@
-# Working with runbooks<a name="application-manager-working-runbooks"></a>
+# Working with runbooks for applications<a name="application-manager-working-runbooks"></a>
 
-You can remediate issues with AWS resources from Application Manager, a capability of AWS Systems Manager, by using Systems Manager Automation runbooks\. When you choose **Start runbook** from an Application Manager application, the system displays a filtered list of runbooks based on the type of resources in your application\. When you choose the runbook you want to start, Systems Manager opens the **Execute automation document** page\. 
+You can remediate issues with AWS resources from Application Manager, a capability of AWS Systems Manager, by using Systems Manager Automation runbooks\. When you choose **Start runbook** from an Application Manager application or cluster, the system displays a filtered list of runbooks based on the type of resources in your application or cluster\. When you choose the runbook you want to start, Systems Manager opens the **Execute automation document** page\. 
 
 **Before you begin**  
 Before you start a runbook from Application Manager, do the following:

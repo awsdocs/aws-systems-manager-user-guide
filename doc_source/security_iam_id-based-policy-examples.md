@@ -1,8 +1,8 @@
 # AWS Systems Manager identity\-based policy examples<a name="security_iam_id-based-policy-examples"></a>
 
-By default, IAM users and roles don't have permission to create or modify Systems Manager resources\. They also can't perform tasks using the AWS Systems Manager console, AWS CLI, or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
+By default, AWS Identity and Access Management \(IAM\) users and roles don't have permission to create or modify AWS Systems Manager resources\. They also can't perform tasks using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
 
-The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the **us\-west\-2** Region\.
+The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the **us\-west\-2** AWS Region\.
 
 ```
 {
@@ -40,7 +40,7 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 
 ## Using the Systems Manager console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the AWS Systems Manager console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Systems Manager resources and other resources in your AWS account\. 
+To access the Systems Manager console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Systems Manager resources and other resources in your AWS account\. 
 
 To fully use Systems Manager in the Systems Manager console, you must have permissions from the following services:
 + AWS Systems Manager
@@ -123,7 +123,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
-The following examples of user policies grant permissions for various AWS Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
+The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID should not be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with AWS\-\*\)\.
@@ -134,7 +134,7 @@ All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain ficti
 
 ### Example 1: Allow a user to perform Systems Manager operations in a single Region<a name="identity-based-policies-example-1"></a>
 
-The following example grants permissions to perform AWS Systems Manager operations only in the **us\-west\-2** Region:
+The following example grants permissions to perform Systems Manager operations only in the **us\-west\-2** Region\.
 
 ```
 {
@@ -155,7 +155,7 @@ The following example grants permissions to perform AWS Systems Manager operatio
 
 ### Example 2: Allow a user to list documents for a single Region<a name="identity-based-policies-example-2"></a>
 
-The following example grants permissions to list all document names that begin with **Update** in the **us\-west\-2** Region:
+The following example grants permissions to list all document names that begin with **Update** in the **us\-west\-2** Region\.
 
 ```
 {
@@ -176,15 +176,15 @@ The following example grants permissions to list all document names that begin w
 
 ### Example 3: Allow a user to use a specific SSM document to run commands on specific instances<a name="identity-based-policies-example-3"></a>
 
-The following example IAM policy allows a user to do the following\.
-+ List Systems Manager documents and document versions\.
+The following example IAM policy allows a user to do the following:
++ List Systems Manager documents \(SSM documents\) and document versions\.
 + View details about documents\.
-+ Send a command using the document specified in the policy\. The name of the document is determined by this entry:
++ Send a command using the document specified in the policy\. The name of the document is determined by the following entry\.
 
   ```
   arn:aws:ssm:us-east-2:aws-account-ID:document/Systems-Manager-document-name
   ```
-+ Send a command to three instances\. The instances are determined by the following entries in the second `Resource` section:
++ Send a command to three instances\. The instances are determined by the following entries in the second `Resource` section\.
 
   ```
   "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
@@ -192,8 +192,8 @@ The following example IAM policy allows a user to do the following\.
   "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
   ```
 + View details about a command after it has been sent\.
-+ Start and stop Automation executions\.
-+ Get information about Automation executions\.
++ Start and stop workflows in Automation, a capability of AWS Systems Manager\.
++ Get information about Automation workflows\.
 
 If you want to give a user permission to use this document to send commands on any instance for which the user currently has access \(as determined by their AWS user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
 

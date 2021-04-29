@@ -10,4 +10,5 @@ AWS Systems Manager Automation provides predefined runbooks for Amazon Simple St
 + [AWS\-DisableS3BucketPublicReadWrite](automation-aws-disables3bucketpublicreadwrite.md)
 + [AWS\-EnableS3BucketEncryption](automation-aws-enableS3bucketencryption.md)
 + [AWSConfigRemediation\-RemovePrincipalStarFromS3BucketPolicy](automation-aws-remove-s3-wildcard.md)
++ [AWSConfigRemediation\-RestrictBucketSSLRequestsOnly](automation-aws-s3-deny-http.md)
 + [AWSSupport\-TroubleshootS3PublicRead](automation-awssupport-troubleshoots3publicread.md)

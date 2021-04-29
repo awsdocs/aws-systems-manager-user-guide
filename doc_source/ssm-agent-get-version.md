@@ -1,6 +1,6 @@
 # Checking the SSM Agent version number<a name="ssm-agent-get-version"></a>
 
-Certain Systems Manager functionalities have prerequisites that include a minimum SSM Agent version be installed on your managed instances\. You can get the currently installed SSM Agent version on your managed instances using the AWS Systems Manager console, or by logging in to your instances\.
+Certain AWS Systems Manager functionalities have prerequisites that include a minimum Systems Manager Agent \(SSM Agent\) version be installed on your managed instances\. You can get the currently installed SSM Agent version on your managed instances using the Systems Manager console, or by logging in to your instances\.
 
 The following procedures describe how to get the currently installed SSM Agent version on your managed instances\.
 

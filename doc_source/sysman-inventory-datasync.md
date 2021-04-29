@@ -222,7 +222,7 @@ The following procedure describes how to use the AWS CLI to create a resource da
 
 **To create a resource data sync for an account defined in AWS Organizations \(AWS CLI\)**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

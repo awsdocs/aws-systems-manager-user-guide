@@ -6,6 +6,7 @@ AWS Systems Manager Automation provides predefined runbooks for Amazon Relationa
 + [AWS\-CreateRdsSnapshot](automation-aws-createrdssnapshot.md)
 + [AWSConfigRemediation\-DeleteRDSCluster](automation-aws-delete-rds-cluster.md)
 + [AWSConfigRemediation\-DeleteRDSClusterSnapshot](automation-aws-delete-rds-cluster-snap.md)
++ [AWSConfigRemediation\-DeleteRDSInstance](automation-aws-delete-rds-instance.md)
 + [AWSConfigRemediation\-DeleteRDSInstanceSnapshot](automation-aws-delete-rds-snapshot.md)
 + [AWSConfigRemediation\-DisablePublicAccessToRDSInstance](automation-aws-disable-rds-instance-public-access.md)
 + [AWSConfigRemediation\-EnableCopyTagsToSnapshotOnRDSCluster](automation-aws-enable-tags-snapshot-rds-cluster.md)

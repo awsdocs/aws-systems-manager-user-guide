@@ -4,7 +4,7 @@ The following procedure walks you through the process of creating a State Manage
 
 **Note**  
 Note the following details about automatically updating SSM Agent:  
-Beginning September 21, 2020, autoupdate installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3](ssm-agent-v3.md)\.
+Beginning September 21, 2020, autoupdate installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3\.0](ssm-agent-v3.md)\.
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before you begin**  
@@ -15,7 +15,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
 **To create an association for automatically updating SSM Agent**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

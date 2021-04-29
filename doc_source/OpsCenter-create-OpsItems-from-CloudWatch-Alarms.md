@@ -100,7 +100,7 @@ Use the following command to configure an existing alarm to create OpsItems by u
 
 **To configure an existing alarm to create OpsItems**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

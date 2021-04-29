@@ -10,8 +10,8 @@ For Windows Server, three predefined patch baselines are provided\. The patch ba
 
 You can also create a custom patch baseline to update Microsoft applications on Windows Server machines\.
 
-**Support for Amazon EC2 instances in the advanced\-instances tier**  
-Microsoft application patching is available for Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\), but only in the advanced\-instances tier\. To patch Microsoft applications on any managed instance, you must enable the advanced\-instances tier\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+**Support for patching Microsoft applications on on\-premises instances and virtual machines \(VMs\)**  
+To patch Microsoft applications on on\-premises instances and virtual machines \(VMs\), you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch Microsoft applications on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 **Windows update option for "other Microsoft products"**  
 In order for Patch Manager to be able to patch Microsoft applications on your Windows Server managed instances, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be enabled on the instance\.

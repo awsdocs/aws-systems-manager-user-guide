@@ -5,7 +5,7 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 **Note**  
 Advanced instances also use Session Manager to connect to your hybrid machines\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
 The standard\-instances limit also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
-Microsoft application patching is available for Amazon EC2 instances, on\-premises instances, and virtual machines \(VMs\), but only in the advanced\-instances tier\. To patch Microsoft applications on any managed instance, you must enable the advanced\-instances tier\. For more information, see [About patching Microsoft applications on Windows Server](about-windows-app-patching.md)\.
+To patch Microsoft applications on on\-premises instances and virtual machines \(VMs\), you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch Microsoft applications on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching Microsoft applications on Windows Server](about-windows-app-patching.md)\.
 
 This section describes how to configure your hybrid environment to use the advanced\-instances tier\.
 

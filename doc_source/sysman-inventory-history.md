@@ -19,7 +19,7 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
 
 **To enable inventory history and change\-track recording in AWS Config**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

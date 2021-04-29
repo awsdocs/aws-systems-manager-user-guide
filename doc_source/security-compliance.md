@@ -1,8 +1,8 @@
 # Compliance validation for AWS Systems Manager<a name="security-compliance"></a>
 
-*This topic addresses AWS Systems Manager compliance with third\-party assurance programs\. For information about viewing compliance data for your managed instances, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.*
+This topic addresses AWS Systems Manager compliance with third\-party assurance programs\. For information about viewing compliance data for your managed instances, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 
-Third\-party auditors assess the security and compliance of AWS Systems Manager as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
+Third\-party auditors assess the security and compliance of Systems Manager as part of multiple AWS compliance programs\. These include SOC, PCI, FedRAMP, HIPAA, and others\.
 
 For a list of AWS services in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/)\. For general information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 

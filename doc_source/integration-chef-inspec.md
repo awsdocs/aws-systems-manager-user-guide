@@ -1,12 +1,12 @@
 # Using Chef InSpec profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
-Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Systems Manager Compliance:
+AWS Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Compliance, a capability of AWS Systems Manager:
 + Check if specific ports are open or closed\.
 + Check if specific applications are running\.
 + Check if certain packages are installed\.
 + Check Windows Registry keys for specific properties\.
 
-You can create InSpec profiles for EC2 instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks if port 22 is open\.
+You can create InSpec profiles for Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers or virtual machines \(VMs\) that you manage with Systems Manager\. The following sample Chef InSpec profile checks if port 22 is open\.
 
 ```
 control 'Scan Port' do
@@ -20,30 +20,30 @@ end
 end
 ```
 
-InSpec includes a collection of resources that help you quickly write checks and auditing controls\. InSpec uses the [InSpec Domain\-specific Language \(DSL\)](https://www.inspec.io/docs/reference/dsl_inspec/) for writing these controls in Ruby\. You can also use profiles created by a large community of InSpec users\. For example, the [DevSec chef\-os\-hardening](https://github.com/dev-sec/chef-os-hardening) project on GitHub includes dozens of profiles to help you secure your instances and servers\. You can author and store profiles in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. 
+InSpec includes a collection of resources that help you quickly write checks and auditing controls\. InSpec uses the [InSpec Domain\-specific Language \(DSL\)](https://www.inspec.io/docs/reference/dsl_inspec/) for writing these controls in Ruby\. You can also use profiles created by a large community of InSpec users\. For example, the [DevSec chef\-os\-hardening](https://github.com/dev-sec/chef-os-hardening) project on GitHub includes dozens of profiles to help you secure your instances and servers\. You can author and store profiles in GitHub or Amazon S3\. 
 
 ## How it works<a name="integration-chef-inspec-how"></a>
 
-Here is how the process of using InSpec profiles with Systems Manager Compliance works\.
+Here is how the process of using InSpec profiles with Compliance works:
 
 1. Either identify predefined InSpec profiles that you want to use, or create your own\. You can use [predefined profiles](https://github.com/search?p=1&q=topic%3Ainspec+org%3Adev-sec&type=Repositories) on GitHub to get started\. For information about how to create your own InSpec profiles, see [Chef InSpec Profiles](https://www.inspec.io/docs/reference/profiles/)\.
 
 1. Store profiles in either a public or private GitHub repository, or in an S3 bucket\.
 
-1. Run Compliance with your InSpec profiles by using the AWS\-RunInspecChecks SSM document\. You can begin a Compliance scan by using Run Command \(for on\-demand scans\), or you can schedule regular Compliance scans by using State Manager\.
+1. Run Compliance with your InSpec profiles by using the Systems Manager document \(SSM document\) `AWS-RunInspecChecks`\. You can begin a Compliance scan by using Run Command, a capability of AWS Systems Manager, for on\-demand scans, or you can schedule regular Compliance scans by using State Manager, a capability of AWS Systems Manager\.
 
-1. Identify noncompliant instances by using the Compliance API or the Systems Manager Compliance console\.
+1. Identify noncompliant instances by using the Compliance API or the Compliance console\.
 
 **Note**  
 Note the following information\.  
-Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager runs the AWS\-RunInspecChecks SSM document, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
-Running the AWS\-RunInspecChecks document, as described in this topic, assigns a compliance entry of type `Custom:Inspec` to each targeted instance\. To assign this compliance type, the document calls the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\.
+Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager runs the SSM document `AWS-RunInspecChecks`, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
+Running the SSM document `AWS-RunInspecChecks`, as described in this topic, assigns a compliance entry of type `Custom:Inspec` to each targeted instance\. To assign this compliance type, the document calls the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\.
 
 ## Running an InSpec compliance scan<a name="integration-chef-inspec-running"></a>
 
-This section includes information about how to run an InSpec compliance scan by using the Systems Manager console and the AWS CLI\. The console procedure shows how to configure State Manager to run the scan\. The AWS CLI procedure shows how to configure Run Command to run the scan\.
+This section includes information about how to run an InSpec compliance scan by using the Systems Manager console and the AWS Command Line Interface \(AWS CLI\)\. The console procedure shows how to configure State Manager to run the scan\. The AWS CLI procedure shows how to configure Run Command to run the scan\.
 
-### Running an InSpec compliance scan with State Manager by using the console<a name="integration-chef-inspec-running-console"></a>
+### Running an InSpec compliance scan with State Manager \(console\)<a name="integration-chef-inspec-running-console"></a>
 
 **To run an InSpec compliance scan with State Manager by using the AWS Systems Manager console**
 
@@ -99,9 +99,9 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose an instance ID to view the details of noncompliant statuses\.
 
-### Running an InSpec compliance scan with Run Command by using the AWS CLI<a name="integration-chef-inspec-running-cli"></a>
+### Running an InSpec compliance scan with Run Command \(AWS CLI\)<a name="integration-chef-inspec-running-cli"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

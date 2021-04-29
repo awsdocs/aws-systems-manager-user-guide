@@ -1,15 +1,15 @@
 # Tagging Systems Manager documents<a name="tagging-documents"></a>
 
-The topics in this section describe how to work with tags on Systems Manager documents\.
+The topics in this section describe how to work with tags on Systems Manager documents \(SSM documents\)\.
 
 **Topics**
 + [Creating documents with tags](#tagging-documents-new)
 + [Adding tags to existing documents](#tagging-documents-update)
-+ [Removing tags from Systems Manager documents](#tagging-documents-remove)
++ [Removing tags from SSM documents](#tagging-documents-remove)
 
 ## Creating documents with tags<a name="tagging-documents-new"></a>
 
-You can add tags to custom Systems Manager documents at the time you create them\.
+You can add tags to custom SSM documents at the time you create them\.
 
 For information, see the following topics:
 + [Create an SSM document \(console\)](create-ssm-console.md)
@@ -17,7 +17,7 @@ For information, see the following topics:
 
 ## Adding tags to existing documents<a name="tagging-documents-update"></a>
 
-You can add tags to custom Systems Manager documents that you own by using the Systems Manager console or the command line\.
+You can add tags to custom SSM documents that you own by using the Systems Manager console or the command line\.
 
 **Topics**
 + [Adding tags to an existing SSM document \(console\)](#tagging-documents-update-console)
@@ -43,7 +43,7 @@ You can add tags to custom Systems Manager documents that you own by using the S
 
 ### Adding tags to an existing SSM document \(command line\)<a name="tagging-documents-update-command-line"></a>
 
-**To add tags to an existing document \(command line\)**
+**To add tags to an existing SSM document \(command line\)**
 
 1. Using your preferred command line tool, run the following command to view the list of documents that you can tag\.
 
@@ -158,15 +158,15 @@ You can add tags to custom Systems Manager documents that you own by using the S
 
 ------
 
-## Removing tags from Systems Manager documents<a name="tagging-documents-remove"></a>
+## Removing tags from SSM documents<a name="tagging-documents-remove"></a>
 
-You can use the Systems Manager console or the command line to remove tags from Systems Manager documents\.
+You can use the Systems Manager console or the command line to remove tags from SSM documents\.
 
 **Topics**
-+ [Removing tags from Systems Manager documents \(console\)](#tagging-documents-remove-console)
-+ [Removing tags from Systems Manager documents \(command line\)](#tagging-documents-remove-command-line)
++ [Removing tags from SSM documents \(console\)](#tagging-documents-remove-console)
++ [Removing tags from SSM documents \(command line\)](#tagging-documents-remove-command-line)
 
-### Removing tags from Systems Manager documents \(console\)<a name="tagging-documents-remove-console"></a>
+### Removing tags from SSM documents \(console\)<a name="tagging-documents-remove-console"></a>
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -184,7 +184,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
 1. Choose **Save**\.
 
-### Removing tags from Systems Manager documents \(command line\)<a name="tagging-documents-remove-command-line"></a>
+### Removing tags from SSM documents \(command line\)<a name="tagging-documents-remove-command-line"></a>
 
 1. Using your preferred command line tool, run the following command to list the documents in your account\.
 

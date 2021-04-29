@@ -18,7 +18,7 @@ The following table lists the API actions that Systems Manager uses to make chan
 
 | Application actions and details | 
 | --- | 
-|  <pre>cloudformation:DescribeStacks <br />cloudwatch:DescribeAlarms<br />cloudwatch:DescribeInsightRules <br />cloudwatch:ListMetrics<br />cloudwatch:ListTagsForResource<br />config:DescribeComplianceByResource<br />config:DescribeRemediationConfigurations<br />config:GetComplianceDetailsByResource<br />config:GetResourceConfigHistory<br />config:StartConfigRulesEvaluation <br />ec2:DescribeInstances<br />eks:DescribeCluster <br />eks:ListClusters <br />eks:ListFargateProfiles<br />eks:ListNodegroups <br />eks:TagResource <br />resource-groups:CreateGroup<br />resource-groups:DeleteGroup <br />resource-groups:GetGroup<br />resource-groups:GetGroupQuery <br />resource-groups:GetTags<br />resource-groups:ListGroupResources <br />resource-groups:ListGroups<br />resource-groups:Tag <br />resource-groups:Untag <br />ssm:CreateOpsMetadata<br />ssm:DeleteOpsMetadata <br />ssm:GetOpsSummary<br />ssm:GetOpsMetadata<br />ssm:UpdateServiceSetting<br />ssm:GetServiceSetting<br />ssm:ListOpsMetadata<br />ssm:UpdateOpsItem <br />tag:GetTagKeys <br />tag:GetTagValues</pre>  | 
+|  <pre>cloudformation:DescribeStacks <br />cloudwatch:DescribeAlarms<br />cloudwatch:DescribeInsightRules <br />cloudwatch:ListMetrics<br />cloudwatch:ListTagsForResource<br />config:DescribeComplianceByResource<br />config:DescribeRemediationConfigurations<br />config:GetComplianceDetailsByResource<br />config:GetResourceConfigHistory<br />config:StartConfigRulesEvaluation <br />ec2:DescribeInstances<br />eks:DescribeCluster <br />eks:ListClusters <br />eks:ListFargateProfiles<br />eks:ListNodegroups <br />eks:TagResource<br />ecs:ListClusters<br />ecs:DescribeClusters<br />ecs:ListContainerInstances<br />ecs:DescribeContainerInstances<br />ecs:DescribeCapacityProviders<br />ecs:TagResource <br />resource-groups:CreateGroup<br />resource-groups:DeleteGroup <br />resource-groups:GetGroup<br />resource-groups:GetGroupQuery <br />resource-groups:GetTags<br />resource-groups:ListGroupResources <br />resource-groups:ListGroups<br />resource-groups:Tag <br />resource-groups:Untag <br />ssm:CreateOpsMetadata<br />ssm:DeleteOpsMetadata <br />ssm:GetOpsSummary<br />ssm:GetOpsMetadata<br />ssm:UpdateServiceSetting<br />ssm:GetServiceSetting<br />ssm:ListOpsMetadata<br />ssm:UpdateOpsItem <br />tag:GetTagKeys <br />tag:GetTagValues</pre>  | 
 
 ## Configuring permissions<a name="application-manager-getting-started-user-permissions"></a>
 
@@ -57,6 +57,12 @@ To configure Application Manager permissions for an IAM user, group, or role, cr
                 "ec2:DescribeVpcs",
                 "ec2:DescribeVpnConnections",
                 "ec2:DescribeVpnGateways",
+                "ecs:ListClusters",
+                "ecs:DescribeClusters",
+                "ecs:ListContainerInstances",
+                "ecs:DescribeContainerInstances",
+                "ecs:DescribeCapacityProviders",
+                "ecs:TagResource",
                 "elasticbeanstalk:DescribeApplications",
                 "elasticbeanstalk:ListTagsForResource",
                 "elasticloadbalancing:DescribeInstanceHealth",
@@ -129,11 +135,11 @@ You can restrict a user's ability to make changes to applications and resources 
 ```
 eks:TagResource
 resource-groups:CreateGroup
-resource-groups:DeleteGroup 
-resource-groups:Tag 
-resource-groups:Untag 
+resource-groups:DeleteGroup
+resource-groups:Tag
+resource-groups:Untag
 ssm:CreateOpsMetadata
-ssm:DeleteOpsMetadata 
+ssm:DeleteOpsMetadata
 ssm:UpdateOpsItem
 ```
 

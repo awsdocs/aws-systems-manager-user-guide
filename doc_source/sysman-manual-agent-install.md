@@ -1,6 +1,6 @@
 # Manually install SSM Agent on EC2 instances for Linux<a name="sysman-manual-agent-install"></a>
 
-Before you manually install SSM Agent on an Amazon EC2 Linux operating system, review the following information\.
+Before you manually install AWS Systems Manager Agent \(SSM Agent\) on an Amazon Elastic Compute Cloud \(Amazon EC2\) Linux operating system, review the following information\.
 + SSM Agent is installed, by default, on the following EC2 instances and Amazon Machine Images \(AMIs\):
   + Amazon Linux
   + Amazon Linux 2

@@ -175,7 +175,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) to create a State Manager association that runs Chef cookbooks by using the `AWS-ApplyChefRecipes` document\.
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

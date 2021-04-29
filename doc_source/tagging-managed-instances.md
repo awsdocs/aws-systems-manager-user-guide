@@ -2,7 +2,7 @@
 
 The topics in this section describe how to work with tags on managed instances\.
 
-A managed instance is any machine configured for AWS Systems Manager\. This includes EC2 instances, as well as on\-premises servers or virtual machines \(VMs\) that you have configured to manage using Systems Manager in a hybrid environment\.
+A managed instance is any machine configured for AWS Systems Manager\. This includes Amazon Elastic Compute Cloud \(Amazon EC2\) instances, as well as on\-premises servers or virtual machines \(VMs\) that you have configured to manage using Systems Manager in a hybrid environment\.
 
 The instructions in this topic are applicable to any machine that is being managed using Systems Manager\.
 

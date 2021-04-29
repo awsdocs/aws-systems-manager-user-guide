@@ -1,6 +1,6 @@
 # Subscribing to SSM Agent notifications<a name="ssm-agent-subscribe-notifications"></a>
 
-Amazon Simple Notification Service \(Amazon SNS\) can notify you when new versions of SSM Agent are released\. Use the following procedure to subscribe to these notifications\.
+Amazon Simple Notification Service \(Amazon SNS\) can notify you when new versions of AWS Systems Manager Agent \(SSM Agent\) are released\. Use the following procedure to subscribe to these notifications\.
 
 **Tip**  
 You can also subscribe to notifications by watching the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub\.
@@ -9,7 +9,7 @@ You can also subscribe to notifications by watching the [SSM Agent Release Notes
 
 1. Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.
 
-1. From the Region selector in the navigation bar, choose **US East \(N\. Virginia\)**, if it is not selected already\. You must select this AWS Region because the SNS notifications for SSM Agent that you are subscribing to are generated from this Region only\.
+1. From the Region selector in the navigation bar, choose **US East \(N\. Virginia\)**, if it is not selected already\. You must select this AWS Region because the Amazon SNS notifications for SSM Agent that you are subscribing to are generated from this Region only\.
 
 1. In the navigation pane, choose **Subscriptions**\.
 

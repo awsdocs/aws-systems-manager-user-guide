@@ -14,7 +14,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 
 ## Create a `String` parameter \(AWS CLI\)<a name="param-create-cli-string"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -236,7 +236,7 @@ The system returns information like the following\.
 
 ## Create a `StringList` parameter \(AWS CLI\)<a name="param-create-cli-stringlist"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -309,7 +309,7 @@ Use the following procedure to create a `SecureString` parameter\.
 **Important**  
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -604,7 +604,7 @@ By default, all `SecureString` values are displayed as cipher\-text\. To decrypt
 
 You can use the AWS CLI to create a parameter with line breaks\. Adding line breaks lets you break up the text in longer parameter values for better legibility or, for example, more easily update multi\-paragraph parameter content for a web page\. You can include the content in a JSON file and use the `--cli-input-json` option, using line break characters like `/n`, as shown in the following example\.
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -1,10 +1,10 @@
 # Manually install SSM Agent on Ubuntu Server instances<a name="agent-install-ubuntu"></a>
 
-Connect to your Ubuntu Server instance and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Ubuntu Server instance and perform the following steps to install the AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 ## About SSM Agent installations on 64\-bit Ubuntu Server 16\.04 instances<a name="agent-install-ubuntu-about-v16"></a>
 
-Beginning with instances created from Ubuntu Server 16\.04 AMIs identified with `20180627`, SSM Agent is pre\-installed using Snap packages\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\. On instances created from earlier AMIs, you should continue using deb installer packages\. 
+Beginning with instances created from Ubuntu Server 16\.04 Amazon Machine Images \(AMIs\) identified with `20180627`, SSM Agent is pre\-installed using Snap packages\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\. On instances created from earlier AMIs, you should continue using deb installer packages\. 
 
 For instances created from a 64\-bit Ubuntu Server 16\.04 AMI, be sure to follow the correct procedure for your SSM Agent installation type:
 + **Instances created from AMIs with identifier `20180627` or later**: [Install SSM Agent on Ubuntu Server instances](#agent-install-ubuntu-tabs)
@@ -219,7 +219,7 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
-1. Run the following command to determine if SSM Agent is running:
+1. Run the following command to determine if SSM Agent is running\.
 
    ```
    sudo status amazon-ssm-agent
@@ -227,13 +227,13 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
 
 1. Run the following commands if the previous command returned amazon\-ssm\-agent is stopped, inactive, or disabled\.
 
-   1. Start the agent:
+   1. Start the agent\.
 
       ```
       sudo start amazon-ssm-agent
       ```
 
-   1. Check the status of the agent:
+   1. Check the status of the agent\.
 
       ```
       sudo status amazon-ssm-agent

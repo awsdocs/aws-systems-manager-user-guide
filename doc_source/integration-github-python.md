@@ -1,6 +1,6 @@
 # Run Python scripts from GitHub<a name="integration-github-python"></a>
 
-This section includes procedures to help you run Python scripts from GitHub by using either the Systems Manager console or the AWS CLI\. 
+This section includes procedures to help you run Python scripts from GitHub by using either the AWS Systems Manager console or the AWS Command Line Interface \(AWS CLI\)\. 
 
 ## Run a Python script from GitHub \(console\)<a name="integration-github-python-console"></a>
 
@@ -20,7 +20,7 @@ This section includes procedures to help you run Python scripts from GitHub by u
 
 1. For **Command parameters**, do the following:
    + In **Source Type**, select **GitHub**\. 
-   + In the **Source Info** box, type the required information to access the source in the following format:
+   + In the **Source Info** box, enter the required information to access the source in the following format:
 
      ```
      {
@@ -47,14 +47,14 @@ This section includes procedures to help you run Python scripts from GitHub by u
 `"branch"` is required only if your scripts are stored in a branch other than `master`\.  
 To use the version of your scripts that are in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
 `"getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",`
-   + For **Command Line**, type parameters for the script execution\. Here is an example\.
+   + For **Command Line**, enter parameters for the script execution\. Here is an example\.
 
      ```
      mainFile.py argument-1 argument-2
      ```
 
      This example runs `mainFile.py`, which can then run other scripts in the `complex-script` directory\.
-   + \(Optional\) For **Working Directory**, type the name of a directory on the instance where you want to download and run the script\.
+   + \(Optional\) For **Working Directory**, enter the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) For **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
@@ -83,7 +83,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Run a Python script from GitHub by using the AWS CLI<a name="integration-github-python-cli"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -95,7 +95,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
    }
    ```
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

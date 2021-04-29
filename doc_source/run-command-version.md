@@ -12,7 +12,7 @@ Run the following procedure to run a command using the document version paramete
 
 **To run commands using the AWS CLI on local Linux machines**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -46,7 +46,7 @@ Run the following procedure to run a command using the document version paramete
 
 **To run commands using the AWS CLI on local Windows machines**
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

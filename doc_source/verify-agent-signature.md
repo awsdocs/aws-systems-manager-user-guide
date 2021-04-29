@@ -84,7 +84,7 @@ To find the correct signature file for your instance's architecture and operatin
    uid                  SSM Agent <ssm-agent-signer@amazon.com>
    ```
 
-   The fingerprint should match the following:
+   The fingerprint should match the following\.
 
    `8108 A07A 9EBE 248E 3F1C 63F2 54F4 F56E 693E CA21`
 

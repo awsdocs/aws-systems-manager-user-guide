@@ -41,6 +41,7 @@ You can view the content for runbooks in the Systems Manager console\.
 + [DynamoDB](automation-ref-ddb.md)
 + [Amazon EBS](automation-ref-ebs.md)
 + [Amazon EC2](automation-ref-ec2.md)
++ [Amazon ECS](automation-ref-ecs.md)
 + [Amazon EFS](automation-ref-efs.md)
 + [Amazon EKS](automation-ref-eks.md)
 + [Elastic Beanstalk](automation-ref-aeb.md)

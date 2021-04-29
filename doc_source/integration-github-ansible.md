@@ -1,9 +1,9 @@
 # Run Ansible Playbooks from GitHub<a name="integration-github-ansible"></a>
 
-This section includes procedures to help you run Ansible Playbooks from GitHub by using either the console or the AWS CLI\.
+This section includes procedures to help you run Ansible Playbooks from GitHub by using either the console or the AWS Command Line Interface \(AWS CLI\)\.
 
 **Before you begin**  
-If you plan to run a script that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+If you plan to run a script that is stored in a private GitHub repository, then you must create an AWS Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Run an Ansible Playbook from GitHub \(console\)<a name="integration-github-ansible-console"></a>
 
@@ -23,7 +23,7 @@ If you plan to run a script that is stored in a private GitHub repository, then 
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select **GitHub**\. 
-   + In the **Source Info** box, type the required information to access the source in the following format:
+   + In the **Source Info** box, enter the required information to access the source in the following format\.
 
      ```
      {
@@ -50,10 +50,10 @@ If you plan to run a script that is stored in a private GitHub repository, then 
 `"branch"` is required only if your SSM document is stored in a branch other than `master`\.  
 To use the version of your scripts that are in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`\. For example:  
 `"getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",`
-   + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
+   + In the **Command Line** field, enter parameters for the script execution\. Here is an example\.
 
      **ansible\-playbook \-i “localhost,” \-\-check \-c local webserver\.yml**
-   + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
+   + \(Optional\) In the **Working Directory** field, enter the name of a directory on the instance where you want to download and run the script\.
    + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
@@ -82,7 +82,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Run an Ansible Playbook from GitHub by using the AWS CLI<a name="integration-github-ansible-cli"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

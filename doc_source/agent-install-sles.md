@@ -1,6 +1,6 @@
 # Manually install SSM Agent on SUSE Linux Enterprise Server 12 instances<a name="agent-install-sles"></a>
 
-Connect to your SLES instance and perform the following steps to install the SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your SLES instance and perform the following steps to install the AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on SUSE Linux Enterprise Server**
 

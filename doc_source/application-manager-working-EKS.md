@@ -21,6 +21,6 @@ You can perform the following actions on this page:
 
 1. In the navigation pane, choose **Application Manager**\.
 
-1. In the **Applications** section, choose **EKS clusters**\.
+1. In the **Container clusters** section, choose **EKS clusters**\.
 
-1. Choose an application in the list\. Application Manager opens the **Overview** tab\.
+1. Choose a cluster in the list\. Application Manager opens the **Overview** tab\.

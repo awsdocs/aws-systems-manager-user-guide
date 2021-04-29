@@ -1,6 +1,6 @@
 # Run a PowerShell script from Amazon S3<a name="integration-S3-PowerShell"></a>
 
-This section includes procedures to help you run PowerShell scripts from Amazon S3 by using either the AWS Systems Manager console or the AWS CLI\.
+This section includes procedures to help you run PowerShell scripts from Amazon Simple Storage Service \(Amazon S3\) by using either the AWS Systems Manager console or the AWS Command Line Interface \(AWS CLI\)\.
 
 ## Run a PowerShell script from Amazon S3 \(console\)<a name="integration-S3-PowerShell-console"></a>
 
@@ -16,28 +16,28 @@ This section includes procedures to help you run PowerShell scripts from Amazon 
 
 1. Choose **Run command**\.
 
-1. In the **Command document** list, choose **AWS\-RunRemoteScript**\.
+1. In the **Command document** list, choose `AWS-RunRemoteScript`\.
 
 1. In **Command parameters**, do the following:
    + In **Source Type**, select **S3**\. 
-   + In the **Source Info** text box, type the required information to access the source in the following format:
+   + In the **Source Info** text box, enter the required information to access the source in the following format:
 
      ```
      {"path": "https://s3.amazonaws.com/path_to_script"}
      ```
 
-     For example:
+     Following is an example\.
 
      ```
-     {"path": "https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/powershell/helloPowershell.ps1"}
+     {"path": "https://s3.amazonaws.com/doc-example-bucket/powershell/helloPowershell.ps1"}
      ```
-   + In the **Command Line** field, type parameters for the script execution\. Here is an example\.
+   + In the **Command Line** field, enter parameters for the script execution\. Here is an example\.
 
      ```
      helloPowershell.ps1 argument-1 argument-2
      ```
-   + \(Optional\) In the **Working Directory** field, type the name of a directory on the instance where you want to download and run the script\.
-   + \(Optional\) In **Execution Timeout**, specify the number of seconds for the system to wait before failing the script command execution\. 
+   + \(Optional\) In the **Working Directory** field, enter the name of a directory on the instance where you want to download and run the script\.
+   + \(Optional\) In **Execution Timeout**, enter the number of seconds for the system to wait before failing the script command execution\. 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
@@ -65,7 +65,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Run a PowerShell script from Amazon S3 by using the AWS CLI<a name="integration-s3-powershell-cli"></a>
 
-1. Install and configure the AWS CLI, if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

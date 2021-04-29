@@ -14,22 +14,22 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
 
-When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux\) or `%USERPROFILE%\.aws\credentials` \(Windows\)\. The needed permissions are added to this file during the hybrid activation process\.
+When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
 
 In rare cases, however, an instance might end up with permissions added to more than one of the locations where SSM Agent checks for permissions to run its tasks\. 
 
-As one example, you might configure an instance to be managed by Systems Manager\. For an EC2 instance, that configuration includes attaching an instance profile\. For an on\-premises server or virtual machine \(VM\), that means credentials are provided through the hybrid activation process\. But, then you decide to also use that instance for developer or end\-user tasks and install the AWS CLI on it\. This installation results in additional permissions being added to a credentials file on the instance\.
+As one example, you might configure an instance to be managed by Systems Manager\. For an EC2 instance, that configuration includes attaching an instance profile\. For an on\-premises server or virtual machine \(VM\), that means credentials are provided through the hybrid activation process\. But, then you decide to also use that instance for developer or end\-user tasks and install the AWS Command Line Interface \(AWS CLI\) on it\. This installation results in additional permissions being added to a credentials file on the instance\.
 
 When you run a Systems Manager command on the instance, SSM Agent might try to use credentials different from the ones you expect it to use, such as from a credentials file instead of an instance profile\. This is because SSM Agent looks for credentials in the order prescribed for the *default credential provider chain*\.
 
 **Note**  
-On Linux, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent does not look at the environment variables or credentials file of any other user accounts on the instance during the search for credentials\.
+On Linux and macOS, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent does not look at the environment variables or credentials file of any other user accounts on the instance during the search for credentials\.
 
 The default provider chain looks for credentials in the following order:
 
 1. Environment variables, if configured \(`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`\)\.
 
-1. Shared credentials file \(`$HOME/.aws/credentials` for Linux or `%USERPROFILE%\.aws\credentials` for Windows\) with permissions provided by, for example, a hybrid activation or an AWS CLI installation\.
+1. Shared credentials file \(`$HOME/.aws/credentials` for Linux and macOS or `%USERPROFILE%\.aws\credentials` for Windows Server\) with permissions provided by, for example, a hybrid activation or an AWS CLI installation\.
 
 1. An AWS Identity and Access Management \(IAM\) role for tasks if an application is present that uses an Amazon Elastic Container Service \(Amazon ECS\) task definition or RunTask API operation\.
 
@@ -45,7 +45,7 @@ This topic in the *AWS SDK for Go Developer Guide* describes the default provide
 
 ## About the local ssm\-user account<a name="ssm-user-account"></a>
 
-Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to the `/etc/sudoers.d` directory \(Linux and macOS\) or to the Administrators group \(Windows\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a Session Manager session is started\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to the `/etc/sudoers.d` directory \(Linux and macOS\) or to the Administrators group \(Windows Server\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a session starts in Session Manager, a capability of AWS Systems Manager\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
 
 On Windows Server, SSM Agent handles setting a new password for the `ssm-user` account when each session starts\. No passwords are set for `ssm-user` on Linux managed instances\.
 

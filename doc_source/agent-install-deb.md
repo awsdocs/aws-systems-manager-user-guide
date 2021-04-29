@@ -1,6 +1,6 @@
 # Manually install SSM Agent on Debian Server instances<a name="agent-install-deb"></a>
 
-Connect to your Debian Server instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Debian Server instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 ## Install SSM Agent on Debian Server instances<a name="agent-install-debian"></a>
 

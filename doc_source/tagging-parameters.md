@@ -1,15 +1,15 @@
 # Tagging Systems Manager parameters<a name="tagging-parameters"></a>
 
-The topics in this section describe how to work with tags on Systems Manager parameters\.
+The topics in this section describe how to work with tags on AWS Systems Manager parameters \(SSM parameters\)\.
 
 **Topics**
 + [Creating parameters with tags](#tagging-parameters-new)
 + [Adding tags to existing parameters](#tagging-parameters-update)
-+ [Removing tags from Systems Manager parameters](#tagging-parameters-remove)
++ [Removing tags from SSM parameters](#tagging-parameters-remove)
 
 ## Creating parameters with tags<a name="tagging-parameters-new"></a>
 
-You can add tags to Systems Manager parameters at the time you create them\.
+You can add tags to SSM parameters at the time you create them\.
 
 For information, see the following topics:
 + [Create a parameter \(console\)](parameter-create-console.md#param-create-console)
@@ -18,7 +18,7 @@ For information, see the following topics:
 
 ## Adding tags to existing parameters<a name="tagging-parameters-update"></a>
 
-You can add tags to custom Systems Manager parameters that you own by using the Systems Manager console or the command line\.
+You can add tags to custom SSM parameters that you own by using the Systems Manager console or the command line\.
 
 **Topics**
 + [Adding tags to an existing parameter \(console\)](#tagging-parameters-update-console)
@@ -117,15 +117,15 @@ You can add tags to custom Systems Manager parameters that you own by using the 
        -ResourceId "parameter-name"
    ```
 
-## Removing tags from Systems Manager parameters<a name="tagging-parameters-remove"></a>
+## Removing tags from SSM parameters<a name="tagging-parameters-remove"></a>
 
-You can use the Systems Manager console or the command line to remove tags from Systems Manager parameters\.
+You can use the Systems Manager console or the command line to remove tags from SSM parameters\.
 
 **Topics**
-+ [Removing tags from Systems Manager parameters \(console\)](#tagging-parameters-remove-console)
-+ [Removing tags from Systems Manager parameters \(command line\)](#tagging-parameters-remove-command-line)
++ [Removing tags from SSM parameters \(console\)](#tagging-parameters-remove-console)
++ [Removing tags from SSM parameters \(command line\)](#tagging-parameters-remove-command-line)
 
-### Removing tags from Systems Manager parameters \(console\)<a name="tagging-parameters-remove-console"></a>
+### Removing tags from SSM parameters \(console\)<a name="tagging-parameters-remove-console"></a>
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -141,7 +141,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
 1. Choose **Save**\.
 
-### Removing tags from Systems Manager parameters \(command line\)<a name="tagging-parameters-remove-command-line"></a>
+### Removing tags from SSM parameters \(command line\)<a name="tagging-parameters-remove-command-line"></a>
 
 1. Using your preferred command line tool, run the following command to list the parameters in your account\.
 

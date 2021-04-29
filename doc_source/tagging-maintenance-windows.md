@@ -13,11 +13,11 @@ You can add tags to maintenance windows at the time you create them\.
 
 For information, see the following topics:
 + [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)
-+ [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)Create and configure a maintenance window \(AWS CLI\)
++ [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)
 
 ## Adding tags to existing maintenance windows<a name="tagging-maintenance-windows-update"></a>
 
-You can add tags to maintenance windows that you own by using the Systems Manager console or the command line\.
+You can add tags to maintenance windows that you own by using the AWS Systems Manager console or the command line\.
 
 **Topics**
 + [Adding tags to an existing maintenance window \(console\)](#tagging-maintenance-windows-update-console)

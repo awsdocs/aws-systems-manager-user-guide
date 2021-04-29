@@ -6,6 +6,9 @@ By default, the configuration recorder records all supported resources in the AW
 
 You are charged service usage fees when AWS Config starts recording configurations\. For pricing information, see [AWS Config pricing](https://aws.amazon.com/config/pricing/)\.
 
+**Note**  
+Deleting the Quick Setup **Config recording** configuration type does not stop the configuration recorder\. Changes continue to be recorded, and service usage fees apply until you stop the configuration recorder\. To learn more about managing the configuration recorder, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *AWS Config Developer Guide*\.
+
 To set up AWS Config recording, perform the following tasks in the AWS Systems Manager Quick Setup console\.
 
 **To set up AWS Config recording with Quick Setup**

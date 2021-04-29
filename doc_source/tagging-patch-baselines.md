@@ -9,7 +9,7 @@ The topics in this section describe how to work with tags on patch baselines\.
 
 ## Creating patch baselines with tags<a name="tagging-patch-baselines-new"></a>
 
-You can add tags to Systems Manager parameters at the time you create them\.
+You can add tags to AWS Systems Manager patch baselines at the time you create them\.
 
 For information, see the following topics:
 + [Working with custom patch baselines](sysman-patch-baseline-console.md)
@@ -22,7 +22,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 
 **Topics**
 + [Adding tags to an existing patch baseline \(console\)](#tagging-patch-baselines-update-console)
-+ [Adding tags to an existing parameter \(AWS CLI\)](#tagging-patch-baselines-update-command-line)
++ [Adding tags to an existing patch baseline \(AWS CLI\)](#tagging-patch-baselines-update-command-line)
 + [Tag a patch baseline \(AWS Tools for PowerShell\)](#tagging-patch-baselines-update-ps)
 
 ### Adding tags to an existing patch baseline \(console\)<a name="tagging-patch-baselines-update-console"></a>
@@ -45,12 +45,12 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 
 1. Choose **Save changes**\.
 
-### Adding tags to an existing parameter \(AWS CLI\)<a name="tagging-patch-baselines-update-command-line"></a>
+### Adding tags to an existing patch baseline \(AWS CLI\)<a name="tagging-patch-baselines-update-command-line"></a>
 
-1. Using your preferred command line tool, run the following command to view the list of parameters that you can tag\.
+1. Using your preferred command line tool, run the following command to view the list of patch baselines that you can tag\.
 
    ```
-   aws ssm describe-patch-baselines
+   aws ssm describe-patch-baselines --filters "Key=OWNER,Values=[Self]"
    ```
 
    Note the ID of a patch baseline that you want to tag\.
@@ -139,7 +139,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
        -Force
    ```
 
-   *patch\-baseline\-name* the name of the SSM parameter you want to tag\.
+   *patch\-baseline\-name* the name of the patch baseline you want to tag\.
 
    *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
 
@@ -155,7 +155,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 
 ## Removing tags from patch baselines<a name="tagging-patch-baselines-remove"></a>
 
-You can use the Systems Manager console or the command line to remove tags from patch baseline\.
+You can use the Systems Manager console or the command line to remove tags from a patch baseline\.
 
 **Topics**
 + [Removing tags from patch baseline \(console\)](#tagging-patch-baselines-remove-console)

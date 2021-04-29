@@ -1,6 +1,6 @@
 # Troubleshooting SSM Agent<a name="troubleshooting-ssm-agent"></a>
 
-If you experience problems running operations on your managed instances, there might be a problem with SSM Agent\. Use the following information to help you view SSM Agent log files and troubleshoot the agent\. 
+If you experience problems running operations on your managed instances, there might be a problem with AWS Systems Manager Agent \(SSM Agent\)\. Use the following information to help you view SSM Agent log files and troubleshoot the agent\. 
 
 **Topics**
 + [SSM Agent is out of date](#ssm-agent-out-of-date)

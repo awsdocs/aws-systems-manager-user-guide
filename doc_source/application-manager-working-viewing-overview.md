@@ -1,6 +1,6 @@
 # Viewing overview information about an application<a name="application-manager-working-viewing-overview"></a>
 
-The AWS Systems Manager Application Manager **Overview** tab displays a summary of Amazon CloudWatch alarms, operational work items \(OpsItems\), and runbook history\. If your application includes subcomponents, you can choose a subcomponent in the **Components** tree to view its summary of alarms, OpsItems, and runbook history\. Choose **View all** for any card to open the corresponding tab where you can view all alarms, OpsItems, or runbook history\.
+The **Overview** tab displays a summary of Amazon CloudWatch alarms, operational work items \(OpsItems\), and runbook history\. If your application includes subcomponents, you can choose a subcomponent in the **Components** tree to view its summary of alarms, OpsItems, and runbook history\. Choose **View all** for any card to open the corresponding tab where you can view all alarms, OpsItems, or runbook history\.
 
 **Actions you can perform on this page**  
 You can perform the following actions on this page:

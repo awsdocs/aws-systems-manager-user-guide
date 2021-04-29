@@ -1,6 +1,6 @@
 # Manually install SSM Agent on EC2 instances for macOS<a name="sysman-manual-agent-install-macos2"></a>
 
-Connect to your macOS instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your macOS instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **To install SSM Agent on macOS**
 

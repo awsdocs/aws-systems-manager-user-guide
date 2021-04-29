@@ -1,6 +1,6 @@
 # Integration examples from the community<a name="integrations-community"></a>
 
-The following sections provide links to blog posts, articles, and community\-provided examples\.
+The following sections provide links to blog posts, articles, and community\-provided examples related to AWS Systems Manager integration with AWS and other products and services\.
 
 **Note**  
 These links are provided for informational purposes only, and should not be considered either a comprehensive list or an endorsement of the content of the examples\. AWS is not responsible for the content or accuracy of this content\. 
@@ -10,7 +10,7 @@ These links are provided for informational purposes only, and should not be cons
 **Application Management**
 + [A complete guide to using the AWS Systems Manager Parameter Store](https://seanjziegler.com/a-complete-guide-to-using-the-aws-systems-manager-parameter-store/)
 
-  Sean Ziegler offers a concise overview of Parameter Store functionality and provides a Boto3 example for interacting with Parameter Store\.
+  Sean Ziegler offers a concise overview of Parameter Store functionality and provides a Boto3 example for interacting with Parameter Store, a capability of Systems Manager\.
 
   *Published May 2020*
 + [Keep Your Secrets Safe with AWS Systems Manager Parameter Store and Node](https://www.codebyamir.com/blog/keep-your-secrets-safe-with-aws-systems-manager-parameter-store-and-nodejs)
@@ -50,7 +50,7 @@ These links are provided for informational purposes only, and should not be cons
   *Published August 2017*
 + [Join a Microsoft Active Directory Domain with Parameter Store and Amazon EC2 Systems Manager Documents](http://aws.amazon.com/blogs/mt/join-a-microsoft-active-directory-domain-with-parameter-store-and-amazon-ec2-systems-manager-documents/)
 
-  Read about a scenario for centralized configuration management, with an example of joining EC2 instances to a Microsoft Active Directory\. This post shows you how to launch an EC2 instance that consumes and uses configuration values stored as Parameter Store parameters to join your Active Directory domain\.
+  Read about a scenario for centralized configuration management, with an example of joining Amazon Elastic Compute Cloud \(Amazon EC2\) instances to a Microsoft Active Directory\. This post shows you how to launch an EC2 instance that consumes and uses configuration values stored as Parameter Store parameters to join your Active Directory domain\.
 
   *Published June 2017*
 +  [Use Parameter Store to securely access secrets and config data in AWS CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/) 
@@ -70,14 +70,14 @@ These links are provided for informational purposes only, and should not be cons
   *Published March 2017*
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 
-  By using Parameter Store and task IAM roles, you can create a central secret management store and a well integrated access layer that allows applications to access only the keys they need, to restrict access on a container basis, and to further encrypt secrets with custom KMS keys\.
+  By using Parameter Store and task AWS Identity and Access Management \(IAM\) roles, you can create a central secret management store and a well integrated access layer that allows applications to access only the keys they need, to restrict access on a container basis, and to further encrypt secrets with custom KMS keys\.
 
   *Published January 2017*
 
-**Actions & Change**
+**Actions and Change**
 +  [Providing temporary instance permissions with AWS Systems Manager Automations](http://aws.amazon.com/blogs/mt/providing-temporary-instance-permissions-with-aws-systems-manager-automations/) 
 
-  Learn how to provide temporary permissions to Amazon EC2 instances within your Automation documents\. This helps you to avoid modifying instance profiles that are attached to instances long term and only contain the core permissions required for Systems Manager functionality\.
+  Learn how to provide temporary permissions to Amazon EC2 instances within your Automation runbooks\. This helps you to avoid modifying instance profiles that are attached to instances long term and only contain the core permissions required for Systems Manager functionality\.
 
   *Published December 2019*
 + [Automating the Cloud: AWS Security Done Efficiently](https://blog.rapid7.com/2019/08/19/automating-the-cloud-aws-security-done-efficiently/)
@@ -96,7 +96,7 @@ These links are provided for informational purposes only, and should not be cons
 
   *Published August 2018*
 
-**Instances & Nodes**
+**Instances and Nodes**
 +  [How to patch Amazon EC2 Windows instances in private subnets using AWS Systems Manager](http://aws.amazon.com/blogs/mt/how-to-patch-windows-ec2-instances-in-private-subnets-using-aws-systems-manager/) 
 
   Learn how to patch Amazon EC2 Windows instances in private subnets without internet connectivity\.

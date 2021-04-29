@@ -1,9 +1,9 @@
 # Installing and configuring SSM Agent on EC2 instances for macOS<a name="install-ssm-agent-macos"></a>
 
-SSM Agent processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent for macOS\.
+AWS Systems Manager \(SSM Agent\) processes Systems Manager requests and configures your machine as specified in the request\. Use the following procedures to install, configure, or uninstall SSM Agent for macOS\.
 
 **Note**  
-SSM Agent is preinstalled, by default, on Amazon Machine Images AMIs for macOS\. You do not need to install SSM Agent on EC2 instance for macOS unless you have uninstalled it\.
+SSM Agent is preinstalled, by default, on Amazon Machine Images \(AMIs\) for macOS\. You do not need to install SSM Agent on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for macOS unless you have uninstalled it\.
 
 The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, AWS does not currently provide support for running modified copies of this software\.
 

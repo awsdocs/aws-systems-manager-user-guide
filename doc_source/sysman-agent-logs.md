@@ -1,6 +1,6 @@
 # Viewing SSM Agent logs<a name="sysman-agent-logs"></a>
 
-SSM Agent writes information about executions, commands, scheduled actions, errors, and health statuses to log files on each instance\. You can view log files by manually connecting to an instance, or you can automatically send logs to Amazon CloudWatch Logs\. For more information about sending logs to CloudWatch, see [Monitoring AWS Systems Manager](monitoring.md)\.
+AWS Systems Manager Agent \(SSM Agent\) writes information about executions, commands, scheduled actions, errors, and health statuses to log files on each instance\. You can view log files by manually connecting to an instance, or you can automatically send logs to Amazon CloudWatch Logs\. For more information about sending logs to CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
 
 You can view SSM Agent logs on instances in the following locations\.
 
@@ -39,7 +39,7 @@ Use the following procedure to enable SSM Agent debug logging on your managed in
 
 **To enable SSM Agent debug logging on Linux and macOS instances**
 
-1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager, a capability of AWS Systems Manager, to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Locate the **seelog\.xml\.template** file\.
 
@@ -88,7 +88,7 @@ On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.x
 
 **To enable SSM Agent debug logging on Windows Server instances**
 
-1. Either use Systems Manager Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 
@@ -98,23 +98,23 @@ On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.x
 
    `<seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">`
 
-1. Locate the following entry:
+1. Locate the following entry\.
 
    `filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\amazon-ssm-agent.log"`
 
-   Change this entry to use the following path:
+   Change this entry to use the following path\.
 
    `filename="C:\ProgramData\Amazon\SSM\Logs\amazon-ssm-agent.log"`
 
-1. Locate the following entry:
+1. Locate the following entry\.
 
    `filename="{{LOCALAPPDATA}}\Amazon\SSM\Logs\errors.log"`
 
-   Change this entry to use the following path:
+   Change this entry to use the following path\.
 
    `filename="C:\ProgramData\Amazon\SSM\Logs\errors.log"`
 
-1. Restart SSM Agent using the following PowerShell command in Administrator mode:
+1. Restart SSM Agent using the following PowerShell command in Administrator mode\.
 
    ```
    Restart-Service AmazonSSMAgent

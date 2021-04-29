@@ -14,6 +14,7 @@ AWS Systems Manager Automation provides predefined runbooks for Amazon Virtual P
 + [AWS\-DisablePublicAccessForSecurityGroup](automation-aws-disablepublicaccessforsecuritygroup.md)
 + [AWSConfigRemediation\-DisableSubnetAutoAssignPublicIP](automation-aws-disable-subnet-auto-public-ip.md)
 + [AWS\-ReleaseElasticIP](automation-aws-releaseelasticip.md)
++ [AWSConfigRemediation\-RemoveUnrestrictedSourceIngressRules](automation-aws-remove-unrestricted-source-ingress.md)
 + [AWSConfigRemediation\-RemoveVPCDefaultSecurityGroupRules](automation-aws-remove-default-secg-rules.md)
 + [AWSSupport\-SetupIPMonitoringFromVPC](automation-awssupport-setupipmonitoringfromvpc.md)
 + [AWSSupport\-TerminateIPMonitoringFromVPC](automation-awssupport-terminateipmonitoringfromvpc.md)

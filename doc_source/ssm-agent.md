@@ -6,7 +6,7 @@ If you monitor traffic, you will see your Amazon Elastic Compute Cloud \(Amazon 
 
 **Topics**
 + [SSM Agent technical reference](ssm-agent-technical-details.md)
-+ [SSM Agent version 3](ssm-agent-v3.md)
++ [SSM Agent version 3\.0](ssm-agent-v3.md)
 + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 + [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)
 + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)

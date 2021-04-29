@@ -1,13 +1,13 @@
 # Manually install SSM Agent on Amazon Linux 2 instances<a name="agent-install-al2"></a>
 
-Connect to your Amazon Linux 2 instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your Amazon Linux 2 instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
 
 **Important**  
 This topic provides commands for working with SSM Agent on Amazon Linux 2 instances\. Some of these commands are not supported on Amazon Linux instances\. Before continuing, ensure you are viewing the correct topic for your instance type\. For commands to run on Amazon Linux instances, see [Manually install SSM Agent on Amazon Linux instances](agent-install-al.md)\.
 
 **Before you begin**  
 Before you install SSM Agent on an Amazon Linux 2 instance, note the following:
-+ SSM Agent is installed, by default, on Amazon Linux *base* AMIs dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
++ SSM Agent is installed, by default, on Amazon Linux *base* Amazon Machine Images \(AMIs\) dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
 + If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 **To install SSM Agent on Amazon Linux 2**  
@@ -46,7 +46,7 @@ After installing the agent, run the following command to determine if the SSM Ag
 sudo systemctl status amazon-ssm-agent
 ```
 
-If the previous command returns the message amazon\-ssm\-agent is stopped, run the following commands:
+If the previous command returns the message amazon\-ssm\-agent is stopped, run the following commands\.
 
 ```
 sudo systemctl enable amazon-ssm-agent
