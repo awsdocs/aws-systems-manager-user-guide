@@ -4,9 +4,6 @@ Secrets Manager helps you organize and manage important configuration data such 
 
 For more information about Secrets Manager, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
 
-**Important**  
-Parameter Store functions as a pass\-through service for references to Secrets Manager secrets\. Parameter Store doesn't retain data or metadata about secrets\. The reference is stateless\.
-
 ## Restrictions<a name="integration-ps-secretsmanager-restrictions"></a>
 
 Note the following restrictions when using Parameter Store to reference Secrets Manager secrets:
@@ -25,6 +22,9 @@ The following procedure describes how to reference a Secrets Manager secret by u
 
 **Note**  
 Before you begin, verify that you have permission to reference Secrets Manager secrets in Parameter Store parameters\. If you have administrator privileges in Secrets Manager and Systems Manager, then you can reference or retrieve secrets by using Parameter Store APIs\. If you reference a Secrets Manager secret in a Parameter Store parameter, and you don't have permission to access that secret, then the reference fails\. For more information, see [Authentication and access control for AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html) in the *AWS Secrets Manager User Guide*\.
+
+**Important**  
+Parameter Store functions as a pass\-through service for references to Secrets Manager secrets\. Parameter Store doesn't retain data or metadata about secrets\. The reference is stateless\.
 
 **To reference a Secrets Manager secret by using Parameter Store**
 
