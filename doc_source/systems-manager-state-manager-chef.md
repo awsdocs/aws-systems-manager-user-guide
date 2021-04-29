@@ -207,12 +207,27 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    Here is an example\.
 
+------
+#### [ Linux & macOS ]
+
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
    --targets Key=tag:OS,Values=Linux \
    --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
    --association-name "MyChefAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
    ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association --name "AWS-ApplyChefRecipes" ^
+   --targets Key=tag:OS,Values=Linux ^
+   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
+   --association-name "MyChefAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
+   ```
+
+------
 
    **\(B\) S3 source**
 
@@ -240,12 +255,27 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    Here is an example\.
 
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm create-association --name "AWS-ApplyChefRecipes" \
+   --targets "Key=tag:OS,Values= Linux" \
+   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
+   --association-name "name" --schedule-expression "cron(0 2 ? * SUN *)"
+   ```
+
+------
+#### [ Windows ]
+
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
-   --targets "Key=tag:OS,Values= Windows" ^
+   --targets "Key=tag:OS,Values= Linux" ^
    --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
    --association-name "name" --schedule-expression "cron(0 2 ? * SUN *)"
    ```
+
+------
 **Note**  
 State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 

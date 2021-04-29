@@ -9,7 +9,7 @@ For more information about Secrets Manager, see [What Is AWS Secrets Manager?](h
 Note the following restrictions when using Parameter Store to reference Secrets Manager secrets:
 + You can only retrieve Secrets Manager secrets by using the [GetParameter](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameter.html) and [GetParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParameters.html) API actions\. Modification operations and advance querying API actions, such as [DescribeParameters](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetParametersByPath.html), are not supported for Secrets Manager\. 
 + You can use the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, and the SDKs to retrieve a secret by using Parameter Store\.
-+ When you retrieve a Secrets Manager secret from Parameter Store, the parameter name must begin with the following reserved path: /aws/reference/secretsmanager/*secret\_ID\_in\_Secrets\_Manager*\.
++ When you retrieve a Secrets Manager secret from Parameter Store, the name must begin with the following reserved path: /aws/reference/secretsmanager/*secret\_ID\_in\_Secrets\_Manager*\.
 
   Here is an example: `/aws/reference/secretsmanager/CFCreds1`
 + Parameter Store honors AWS Identity and Access Management \(IAM\) policies attached to Secrets Manager secrets\. For example, if User 1 doesn't have access to Secret A, then User 1 can't retrieve Secret A by using Parameter Store\.
@@ -30,7 +30,7 @@ Parameter Store functions as a pass\-through service for references to Secrets M
 
 1. Create a secret in Secrets Manager\. For more information, see [Creating and Managing Secrets with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html)\.
 
-1. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK\. When you reference a Secrets Manager secret, the parameter name must begin with the following reserved path: `/aws/reference/secretsmanager/`\. By specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager instead of Parameter Store\. Here are some example parameters that correctly reference Secrets Manager secrets:
+1. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK\. When you reference a Secrets Manager secret, the name must begin with the following reserved path: `/aws/reference/secretsmanager/`\. By specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager instead of Parameter Store\. Here are some example names that correctly reference Secrets Manager secrets using Parameter Store:
    + `/aws/reference/secretsmanager/CFCreds1`
    + `/aws/reference/secretsmanager/DBPass`
 
