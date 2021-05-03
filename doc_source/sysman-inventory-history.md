@@ -50,8 +50,4 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
    aws configservice start-configuration-recorder --configuration-recorder-name myRecorder
    ```
 
-After you configure history and change tracking, you can drill down into the history for a specific managed instance by choosing the **AWS Config** button in the Systems Manager console\.
-
-![\[A button in Systems Manager that opens the AWS Config console.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-awsconfig-button.png)
-
-You can access the **AWS Config** button from either the **Managed Instances** page or the **Inventory** page\. Depending on your monitor size, you might need to scroll to the right side of the page to see the button\.
+After you configure history and change tracking, you can drill down into the history for a specific managed instance by choosing the **AWS Config** button in the Systems Manager console\. You can access the **AWS Config** button from either the **Managed Instances** page or the **Inventory** page\. Depending on your monitor size, you might need to scroll to the right side of the page to see the button\.

@@ -4,3 +4,4 @@ AWS Systems Manager Automation provides predefined runbooks for AWS Elastic Bean
 
 **Topics**
 + [AWSConfigRemediation\-EnableElasticBeanstalkEnvironmentLogStreaming](automation-aws-enable-eb-logging.md)
++ [AWSConfigRemediation\-EnableBeanstalkEnvironmentNotifications](automation-aws-enable-eb-notifications.md)

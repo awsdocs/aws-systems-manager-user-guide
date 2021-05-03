@@ -22,8 +22,6 @@ This section describes important details about multiple account and multiple Reg
 
 If you don't plan to use one of these options, you can skip this section\.
 
-![\[Multiple account and Region resource data sync options for Systems Manager Explorer.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Explorer-multi-overview.png)
-
 When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically enables all OpsData sources in the selected Regions for all AWS accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't enabled Explorer in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
 
 If you don't choose one of the AWS Organizations options for a resource data sync, then you must complete Integrated Setup in each account and Region where you want Explorer to access data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\.

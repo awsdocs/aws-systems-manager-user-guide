@@ -37,6 +37,7 @@ You can view the content for runbooks in the Systems Manager console\.
 + [CloudTrail](automation-ref-ct.md)
 + [CloudWatch](automation-ref-cw.md)
 + [CodeBuild](automation-ref-acb.md)
++ [AWS Config](automation-ref-cc.md)
 + [AWS Directory Service](automation-ref-ads.md)
 + [DynamoDB](automation-ref-ddb.md)
 + [Amazon EBS](automation-ref-ebs.md)

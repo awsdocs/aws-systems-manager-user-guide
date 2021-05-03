@@ -135,9 +135,6 @@ The Inventory **Detailed View** page is only available in AWS Regions that offer
 1. To filter the data, choose the Filter bar, and then choose a filter option\.  
 ![\[Filtering inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-filter.png)
 
-   The following example shows AWSComponent inventory data filtered on the us\-east\-2 Region\.  
-![\[Filtering inventory data in the AWS Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-with-data.png)
-
 You can use the **Export to CSV** button to view the current query set in a spreadsheet application such as Microsoft Excel\. You can also use the **Query History** and **Run Advanced Queries** buttons to view history details and interact with your data in Amazon Athena\.
 
 ### Editing the AWS Glue crawler schedule<a name="systems-manager-inventory-glue-settings"></a>

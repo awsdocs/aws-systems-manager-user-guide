@@ -7,7 +7,7 @@ You can also see specific inventory details by aggregating on a data type\. For 
 The procedures in this section describe how to view aggregated counts of inventory data by using the AWS Command Line Interface \(AWS CLI\)\. You can also view pre\-configured aggregated counts in the AWS Systems Manager console on the **Inventory** page\. These pre\-configured dashboards are called *Inventory Insights* and they offer one\-click remediation of your inventory configuration issues\.
 
 Note the following important details about aggregation counts of inventory data:
-+ Systems Manager Inventory stores inventory data for 30 days\. This means that aggregated counts of inventory include all data collected during the last 30 days\.
++ If you terminate an instance, Systems Manager Inventory deletes inventory data for that instance immediately\. For running instances, the systems deletes inventory data that is older than 30 days\. If you need to store inventory data longer than 30 days, you can use AWS Config to record history or periodically query and upload the data to an Amazon Simple Storage Service \(Amazon S3\) bucket\.
 + Inventory shows data that has been sent by an instance over the course of its lifetime\. If an instance was previously configured to report a specific inventory data type, for example AWS:Network, and later you change the configuration to stop collecting that type, aggregation counts still show AWS:Network data until the instance has been terminated\.
 + If an instance was previously configured to collect inventory data, and you terminate that instance, inventory counts still show data for the deleted instance for 30 days\.
 

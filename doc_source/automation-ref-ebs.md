@@ -11,3 +11,4 @@ AWS Systems Manager Automation provides predefined runbooks for Amazon Elastic B
 + [AWSConfigRemediation\-DeleteUnusedEBSVolume](automation-aws-delete-ebs-volume.md)
 + [AWS\-DetachEBSVolume](automation-aws-detachebsvolume.md)
 + [AWSConfigRemediation\-EnableEbsEncryptionByDefault](automation-aws-enable-ebs-encryption.md)
++ [AWSConfigRemediation\-ModifyEBSVolumeType](automation-aws-modify-ebs-type.md)
