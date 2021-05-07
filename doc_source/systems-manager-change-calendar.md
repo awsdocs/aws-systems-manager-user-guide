@@ -11,7 +11,7 @@ When a calendar entry is open by default, actions can run by default, but are bl
 When a calendar entry is closed by default, actions that are tracking Change Calendar do not run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
 
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
-+ Any AWS customer who creates or runs Automation runbooks or creates change requests in Change Manager\. \(Automation and Change Managerare both capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these two action types depending on the current state of the change calendar you associate with each one\.
++ Any AWS customer who creates or runs Automation runbooks, creates change requests in Change Manager, or creates associations in State Manager\. \(Automation, Change Manager, and State Manager are all capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these three action types depending on the current state of the change calendar you associate with each one\.
 + Administrators who are responsible for keeping the configurations of Systems Manager managed instances consistent, stable, and functional\.
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>
@@ -19,7 +19,7 @@ When a calendar entry is closed by default, actions that are tracking Change Cal
 The following are some benefits of Change Calendar\.
 + **Review changes before they're applied**
 
-  A Change Calendar entry can help ensure that potentially destructive Automation changes to your environment are reviewed before they're applied\.
+  A Change Calendar entry can help ensure that potentially destructive changes to your environment are reviewed before they're applied\.
 + **Apply changes only during appropriate times**
 
   Change Calendar entries help keep your environment stable during event times\. For example, you can create a Change Calendar entry to block changes when you expect high demand on your resources, such as during a conference or public marketing promotion\. A calendar entry can also block changes when you expect limited administrator support, such as during vacations or holidays\. You can use a calendar entry to allow changes except for certain times of the day or week when there is limited administrator support to troubleshoot failed actions or deployments\.

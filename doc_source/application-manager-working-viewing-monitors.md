@@ -1,6 +1,6 @@
 # Viewing monitoring information<a name="application-manager-working-viewing-monitors"></a>
 
-The **Monitoring** tab displays Amazon CloudWatch alarm status for resources in an application\.
+In Application Manager, a component of AWS Systems Manager, the **Monitoring** tab displays Amazon CloudWatch alarm status for resources in an application\.
 
 **Actions you can perform on this page**  
 You can perform the following actions on this page:

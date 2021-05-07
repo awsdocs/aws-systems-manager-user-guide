@@ -695,7 +695,7 @@ Amazon's trademarks and trade dress may not be used in
       + [SSM document syntax](sysman-doc-syntax.md)
       + [Systems Manager Command document plugin reference](ssm-plugins.md)
       + [Viewing SSM command document content](viewing-ssm-document-content.md)
-      + [Creating Systems Manager documents](create-ssm-doc.md)
+      + [Creating SSM documents](create-ssm-doc.md)
          + [Create an SSM document (console)](create-ssm-console.md)
          + [Create an SSM document (command line)](create-ssm-document-cli.md)
          + [Create an SSM document (API)](create-ssm-document-api.md)

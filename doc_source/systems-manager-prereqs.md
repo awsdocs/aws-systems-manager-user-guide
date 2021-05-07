@@ -14,28 +14,28 @@ This topic provides an overview of these prerequisites\.
 
 1. Verify that your instances run a supported [operating system](https://docs.aws.amazon.com/systems-manager/latest/userguide/prereqs-operating-systems.html)\.
 
-1. For EC2 instances, create an IAM instance profile and attach it to your machines\.
+1. For Amazon EC2 instances, create an IAM instance profile and attach it to your machines\.
 
 1. For on\-premises servers and VMs, create an IAM service role for a hybrid environment\.
 
-1. \(Recommended\) Create a VPC endpoint in Amazon Virtual Private Cloud to use with Systems Manager\. 
+1. \(Recommended\) Create a VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\) to use with Systems Manager\. 
 
    If you don't use a VPC endpoint, you must configure your managed instances to allow `HTTPS` \(port 443\) outbound traffic to the Systems Manager endpoints\. For information, see [\(Optional\) Create a Virtual Private Cloud endpoint\.](setup-create-vpc.md)
 
-1. On on\-premises servers, VMs, and EC2 instances created from AMIs that are not supplied by AWS, ensure that a Transport Layer Security \(TLS\) certificate is installed\.
+1. On on\-premises servers, VMs, and Amazon EC2 instances created from Amazon Machine Images \(AMIs\) that aren't supplied by AWS, ensure that a Transport Layer Security \(TLS\) certificate is installed\.
 
 1. For on\-premises servers and VMs, register the machines with Systems Manager through the managed instance activation process\.
 
-1. Install or verify installation of SSM Agent on each of your managed instances\.
+1. Install or verify installation of the SSM Agent on each of your managed instances\.
 
 **Note**  
-SSM Agent initiates all connections to the Systems Manager service in the cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.
+SSM Agent initiates all connections to the Systems Manager service in cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.
 
 **Integration with IAM and Amazon EC2**  
-User access to Systems Manager, its capabilities, and its resources are controlled through policies that you use or create in **AWS Identity and Access Management \(IAM\)**\. If you plan to use computing resources provided by AWS, and not only on\-premises servers and virtual machines \(VMs\), you also need to understand **Amazon Elastic Compute Cloud \(Amazon EC2\)** before you set up Systems Manager for your organization\. Understanding how these services work is essential to successfully set up Systems Manager\.
+User access to Systems Manager, its capabilities, and its resources are controlled through policies that you use or create in AWS Identity and Access Management\. If you plan to use computing resources provided by AWS, and not only on\-premises servers and virtual machines \(VMs\), you also need to understand Amazon Elastic Compute Cloud before you set up Systems Manager for your organization\. Understanding how these services work is essential to successfully set up Systems Manager\.
 
 For more information about Amazon EC2, see the following:
-+ [Amazon Elastic Compute Cloud \(Amazon EC2\)](https://aws.amazon.com/ec2/)
++ [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/)
 + [Getting Started with Amazon EC2 Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
 + [Getting Started with Amazon EC2 Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html)
 +  [What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) \(Linux\)

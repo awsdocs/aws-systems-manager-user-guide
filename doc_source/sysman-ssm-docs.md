@@ -25,7 +25,7 @@ You can create and save different versions of documents\. You can then specify a
 To identify the required and optional parameters for an SSM document, as well as the actions it runs, you can view the content of the document in the Systems Manager console\. For information, see [Viewing SSM command document content](viewing-ssm-document-content.md)\.
 
 **Customizing a document**  
-If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your AWS account\. For more information about how to create an SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\.
+If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your AWS account\. For more information about how to create an SSM document, see [Creating SSM documents](create-ssm-doc.md)\.
 
 **Tagging a document**  
 You can tag your documents to help you quickly identify one or more documents based on the tags you've assigned to them\. For example, you can tag documents for specific environments, departments, users, groups, or periods\. You can also restrict access to documents by creating an AWS Identity and Access Management \(IAM\) policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager documents](tagging-documents.md)\.
@@ -41,7 +41,7 @@ For information about SSM document quotas, see [Systems Manager service quotas](
 + [SSM document syntax](sysman-doc-syntax.md)
 + [Systems Manager Command document plugin reference](ssm-plugins.md)
 + [Viewing SSM command document content](viewing-ssm-document-content.md)
-+ [Creating Systems Manager documents](create-ssm-doc.md)
++ [Creating SSM documents](create-ssm-doc.md)
 + [Comparing SSM document versions](ssm-comparing.md)
 + [Sharing SSM documents](ssm-sharing.md)
 + [Searching for SSM documents](ssm-documents-searching.md)

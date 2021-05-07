@@ -1,6 +1,6 @@
 # Working with Amazon ECS in Application Manager<a name="application-manager-working-ECS"></a>
 
-With Application Manager, a capability of AWS Systems Manager, you can view and manage your Amazon Elastic Container Service \(Amazon ECS\) clusters' infrastructure and the component runtime view of networking in the cluster and storage resources of the cluster\.
+With Application Manager, a capability of AWS Systems Manager, you can view and manage your Amazon Elastic Container Service \(Amazon ECS\) cluster infrastructure and the component runtime view of networking in the cluster and storage resources of the cluster\.
 
 **Actions you can perform on this page**  
 You can perform the following actions on this page:

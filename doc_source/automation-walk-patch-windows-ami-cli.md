@@ -6,7 +6,7 @@ The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tas
 + Customize an AMI using your scripts\.
 
 **Before You Begin**  
-Before you begin working with runbooks, configure roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+Before you begin working with runbooks, [ configure roles for automation](automation-permissions.md) to add an iam:PassRole policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 Updates to SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.

@@ -1,6 +1,6 @@
 # Working with Compliance<a name="sysman-compliance-about"></a>
 
-AWS Systems Manager Compliance collects and reports data about the status of AWS Systems Manager Patch Manager patching, AWS Systems Manager State Manager associations, and custom compliance types\. This section includes details about each of these compliance types and how to view Systems Manager compliance data\. This section also includes information about how to view compliance history and change tracking\.
+AWS Systems Manager Compliance collects and reports data about the status of Systems Manager Patch Manager patching, Systems Manager State Manager associations, and custom compliance types\. This section includes details about each of these compliance types and how to view Systems Manager compliance data\. This section also includes information about how to view compliance history and change tracking\.
 
 **Note**  
 Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)\.

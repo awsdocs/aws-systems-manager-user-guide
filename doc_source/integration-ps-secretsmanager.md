@@ -105,11 +105,9 @@ Parameter Store functions as a pass\-through service for references to Secrets M
    {
        "Parameter": {
            "Name": "/aws/reference/secretsmanager/s1-secret",
-           "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
-           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-                  E18LRP",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
            "SourceResult": 
                  "{
                       \"CreatedDate\": 1526334434.743,
@@ -119,6 +117,9 @@ Parameter Store functions as a pass\-through service for references to Secrets M
                       \"VersionStages\": [\"AWSCURRENT\"],
                       \"ARN\": \"arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-E18LRP\"
                   }"
+           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                  E18LRP",
          }
    }
    ```
@@ -151,11 +152,9 @@ Parameter Store functions as a pass\-through service for references to Secrets M
    {
        "Parameter": {
            "Name": "/aws/reference/secretsmanager/s1-secret",
-           "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
-           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-                  E18LRP",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
            "SourceResult": 
                  "{
                       \"CreatedDate\": 1526334434.743,
@@ -167,6 +166,9 @@ Parameter Store functions as a pass\-through service for references to Secrets M
                   }"
            "Selector": ":11111-aaa-bbb-ccc-123456789"
          }
+           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                  E18LRP",
    }
    ```
 
@@ -198,11 +200,9 @@ Parameter Store functions as a pass\-through service for references to Secrets M
    {
        "Parameter": {
            "Name": "/aws/reference/secretsmanager/s1-secret",
-           "Value": "Fl*MEishm!al875",
            "Type": "SecureString",
-           "LastModifiedDate": 2018-05-14T21:47:14.743Z,
-           "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
-                   E18LRP",
+           "Value": "Fl*MEishm!al875",
+           "Version": 0,
            "SourceResult": 
                  "{
                       \"CreatedDate\": 1526334434.743,
@@ -214,5 +214,8 @@ Parameter Store functions as a pass\-through service for references to Secrets M
                   }"
            "Selector": ":AWSCURRENT"
          }
+         "LastModifiedDate": 2018-05-14T21:47:14.743Z,
+         "ARN": "arn:aws:secretsmanager:us-east-2:123456789012:secret:s1-secret-
+                   E18LRP",
    }
    ```

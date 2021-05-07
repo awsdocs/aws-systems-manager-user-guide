@@ -21,7 +21,7 @@ Connect to your macOS instance and perform the following steps to install AWS Sy
    Intel \(x86\_64\) 64\-bit instances:
 
    ```
-   sudo installer -pkg amazon-ssm-agent.pkg -target 
+   sudo installer -pkg amazon-ssm-agent.pkg -target /
    ```
 
 1. Check the status of the agent\.

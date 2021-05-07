@@ -32,8 +32,7 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
 
 1. Choose the topic you created in task 1, and then choose **Edit**\.
 
-1. Expand **Access policy**\.  
-![\[Viewing the Access Policy of an Amazon SNS topic\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_access_policy.png)
+1. Expand **Access policy**\.
 
 1. Add the following Sid block to the existing policy\.
 
@@ -49,8 +48,7 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
        }
    ```
 
-   Enter this block after the existing Sid block\. In the following example, the new block is entered at line 29\.  
-![\[Editing the Access Policy of an Amazon SNS topic\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_access_policy_2.png)
+   Enter this block after the existing Sid block\.
 
 1. Choose **Save changes**\.
 
@@ -61,7 +59,7 @@ If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS 
 
 ### Task 3: Update the AWS KMS access policy \(optional\)<a name="OpsCenter-getting-started-sns-KMS-policy"></a>
 
-If you enabled AWS Key Management Service \(AWS KMS\) server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
+If you enabled AWS KMS server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
 **Note**  
 OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.

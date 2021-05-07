@@ -1,6 +1,6 @@
-# Creating Systems Manager documents<a name="create-ssm-doc"></a>
+# Creating SSM documents<a name="create-ssm-doc"></a>
 
-If the Systems Manager public documents don't perform all the actions you want to perform on your AWS resources, you can create your own SSM documents\. When you create a new `Command` or `Policy` document, we recommend that you use schema version 2\.2 or later so you can take advantage of the latest features, such as document editing, automatic versioning, sequencing, and more\.
+If the AWS Systems Manager public documents don't perform all the actions you want to perform on your AWS resources, you can create your own SSM documents\. You can also clone SSM documents using the console\. Cloning documents copies content from an existing document to a new document that you can modify\. When you create a new `Command` or `Policy` document, we recommend that you use schema version 2\.2 or later so you can take advantage of the latest features, such as document editing, automatic versioning, sequencing, and more\.
 
 ## Writing SSM document content<a name="writing-ssm-doc-content"></a>
 
@@ -62,6 +62,26 @@ Update-SSMDocumentDefaultVersion `
     -DocumentVersion $latestDocVersion
 ```
 
+## Cloning an SSM document<a name="cloning-ssm-document"></a>
+
+You can clone AWS Systems Manager documents using the Systems Manager Documents console to create SSM documents\. Cloning SSM documents copies content from an existing document to a new document that you can modify\.
+
+**To clone an SSM document**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Documents**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+
+1. In the search box, enter the name of the document you want to clone\.
+
+1. Choose the name of the document you want to clone, and then choose **Clone document** in the **Actions** dropdown\. 
+
+1. Modify the document as you prefer, and then choose **Create document** to save the document\. 
+
 ## Using SSM documents in State Manager Associations<a name="ssm-docs-assoc"></a>
 
 If you create an SSM document for State Manager, you must associate the document with your managed instances after you add the document to the system\. For more information, see [Creating associations](sysman-state-assoc.md)\.
@@ -77,6 +97,7 @@ After writing your SSM document content, you can use your content to create an S
 
 **Topics**
 + [Writing SSM document content](#writing-ssm-doc-content)
++ [Cloning an SSM document](#cloning-ssm-document)
 + [Using SSM documents in State Manager Associations](#ssm-docs-assoc)
 + [Create an SSM document \(console\)](create-ssm-console.md)
 + [Create an SSM document \(command line\)](create-ssm-document-cli.md)

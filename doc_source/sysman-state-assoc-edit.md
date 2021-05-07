@@ -64,7 +64,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
      --association-name association_name \
      --parameters (if any) \
      --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' \
-     --schedule-expression "cron_or_rate_expression"
+     --scheduleexpression "cron_or_rate_expression" \
+     --calendar-names calendar_names
    ```
 
 **Important**  
@@ -79,7 +80,8 @@ To retain existing parameter values of your association, such as association nam
      --association-name association_name ^
      --parameters (if any) ^
      --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' ^
-     --schedule-expression "cron_or_rate_expression"
+     --scheduleexpression "cron_or_rate_expression" ^
+     --calendar-names calendar_names
    ```
 
 **Important**  
@@ -96,7 +98,8 @@ To retain existing parameter values of your association, such as association nam
      -S3Location_OutputS3BucketName DOC-EXAMPLE-BUCKET `
      -S3Location_OutputS3KeyPrefix key_prefix `
      -S3Location_OutputS3Region region `
-     -ScheduleExpression "cron_or_rate_expression"
+     -ScheduleExpression "cron_or_rate_expression" `
+     -CalendarNames calendar_names
    ```
 
 **Important**  
@@ -142,6 +145,87 @@ To retain existing parameter values of your association, such as association nam
      -S3Location_OutputS3KeyPrefix logs `
      -S3Location_OutputS3Region us-east-1 `
      -ScheduleExpression "cron(0 */1 * * ? *)"
+   ```
+
+------
+
+   The following example updates an existing association to change the name to `CalendarAssociation`\. The new association runs when the calendar is open and writes command output to the specified Amazon S3 bucket\. 
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm update-association \
+     --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE \
+     --association-name CalendarAssociation \
+     --parameters commands="echo Association" \
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' \
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar2"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-association ^
+     --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE ^
+     --association-name CalendarAssociation ^
+     --parameters commands="echo Association" ^
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' ^
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar2"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Update-SSMAssociation `
+     -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
+     -AssociationName CalendarAssociation `
+     -AssociationName OneTimeAssociation `
+     -Parameter @{"commands"="echo Association"} `
+     -S3Location_OutputS3BucketName DOC-EXAMPLE-BUCKET `
+     -CalendarNames "arn:aws:ssm:us-east-1:123456789012:document/testCalendar2"
+   ```
+
+------
+
+   The following example updates an existing association to change the name to `MultiCalendarAssociation`\. The new association runs when the calendars are open and writes command output to the specified Amazon S3 bucket\. 
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm update-association \
+     --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE \
+     --association-name MultiCalendarAssociation \
+     --parameters commands="echo Association" \
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' \
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm update-association ^
+     --association-id 8dfe3659-4309-493a-8755-01234EXAMPLE ^
+     --association-name MultiCalendarAssociation ^
+     --parameters commands="echo Association" ^
+     --output-location S3Location='{OutputS3Region=us-east-1,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=logs}' ^
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   Update-SSMAssociation `
+     -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
+     -AssociationName MultiCalendarAssociation `
+     -Parameter @{"commands"="echo Association"} `
+     -S3Location_OutputS3BucketName DOC-EXAMPLE-BUCKET `
+     -CalendarNames "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2"
    ```
 
 ------

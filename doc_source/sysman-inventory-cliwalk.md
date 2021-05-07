@@ -1,6 +1,6 @@
 # Walkthrough: Configure your managed instances for Inventory by using the CLI<a name="sysman-inventory-cliwalk"></a>
 
-The following procedures walk you through the process of configuring AWS Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Run Command, the system returns the following error:
+The following procedures walk you through the process of configuring AWS Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Systems Manager Run Command, the system returns the following error:
 
 `The aws:softwareInventory plugin can only be invoked via ssm-associate`\.
 

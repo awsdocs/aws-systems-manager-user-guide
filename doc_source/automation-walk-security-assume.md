@@ -1,6 +1,6 @@
 # Running an automation by using an IAM service role<a name="automation-walk-security-assume"></a>
 
-The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation using an AWS Identity and Access Management \(IAM\) service role \(or *assume role*\)\. The service role gives the automation permission to perform actions on your behalf\. Configuring a service role is useful when you want to restrict permissions and run actions with least privilege\. This is useful, for example, when you want to restrict a user's privileges on a resource, such as an EC2 instance, but you want to allow the user to run an automation that performs a specific set of actions\. In this scenario, you can create a service role with elevated privileges and allow the user to run the automation\.
+The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation using an AWS Identity and Access Management \(IAM\) service role that is known in this case as an *assume role*\. The service role gives the automation permission to perform actions on your behalf\. Configuring a service role is useful when you want to restrict permissions and run actions with least privilege\. This is useful, for example, when you want to restrict a user's privileges on a resource, such as an EC2 instance, but you want to allow the user to run an automation that performs a specific set of actions\. In this scenario, you can create a service role with elevated privileges and allow the user to run the automation\.
 
 **Before You Begin**  
 Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation\. For more information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
@@ -30,13 +30,15 @@ You can view information about a runbook by choosing the runbook name\.
 **Note**  
 This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control**, **Multi\-account and Region**, or **Manual execution** and run the automation using a service role\.
 
-1. In the **Input parameters** section, specify the required inputs\. In the **Automation Assume Role** box, paste the ARN of the IAM service role\.
+1. In the **Input parameters** section, specify the required inputs\. For **AutomationAssumeRole**, enter the name of the IAM service role that functions as an assume role\.
+**Tip**  
+You can select a role from the list, or begin typing the name of a role and select it from the filtered results\.
 
 1. Choose **Execute**\. The console displays the status of the automation\.
 
 ## Running an automation by using an IAM service role \(command line\)<a name="automation-walk-security-assume-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation that uses an IAM service role \(or *assume role*\)\.
+The following procedure describes how to use the AWS CLI \(on Linux, macOS, or Windows\) or AWS Tools for PowerShell to run an automation that uses an IAM service role that functions in this case as an *assume role*\.
 
 **To run an automation using a service role**
 

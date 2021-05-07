@@ -546,9 +546,9 @@ Required: Yes
 
 \(Schema version 2\.0 or later\) Install or uninstall a Distributor package\. You can install the latest version, default version, or a version of the package you specify\. Packages provided by AWS are also supported\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
 
-Available AWS packages for Windows Server include the following: AWSPVDriver, AWSNVMe, AwsEnaNetworkDriver, AwsVssComponents, AmazonCloudWatchAgent, and AWSSupport\-EC2Rescue\.
+Available AWS packages for Windows Server include the following: `AWSPVDriver`, `AWSNVMe`, `AwsEnaNetworkDriver`, `AwsVssComponents`, `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue.`
 
-Available AWS packages for Linux operating systems include the following: AmazonCloudWatchAgent and AWSSupport\-EC2Rescue\.
+Available AWS packages for Linux operating systems include the following: `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue`\.
 
 For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 

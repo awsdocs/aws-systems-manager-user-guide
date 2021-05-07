@@ -20,7 +20,7 @@ After import completes, you can view operations information about your resources
 
 After you [set up](https://docs.aws.amazon.com/systems-manager/latest/userguide/application-manager-getting-started-related-services.html) and configure AWS services and Systems Manager capabilities, Application Manager displays the following types of information about your resources:
 + Alarms provided by Amazon CloudWatch
-+ Compliance information provided by AWS Config and Systems Manager State Manager
++ Compliance information provided by AWS Config and State Manager \(a component of Systems Manager\)
 + Kubernetes cluster information provided by Amazon EKS
 + Log data provided by AWS CloudTrail and Amazon CloudWatch Logs
 + OpsItems provided by Systems Manager OpsCenter

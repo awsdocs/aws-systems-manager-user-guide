@@ -45,7 +45,7 @@ The examples in this walkthrough are for demonstration purposes only and not mea
    pm2 stop your_application
    ```
 
-   For information about creating SSM documents, see [Creating Systems Manager documents](create-ssm-doc.md)\.
+   For information about creating SSM documents, see [Creating SSM documents](create-ssm-doc.md)\.
 
 1. Create another SSM document with the following content for your postinstall script to update your application dependencies and name it `NodeJSAppPostPatch`\. Replace */your/application/path* with the path to your application\.
 

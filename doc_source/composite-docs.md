@@ -77,6 +77,6 @@ To create a composite document, add the [aws:runDocument](ssm-plugins.md#aws-run
 
 ### Related topics<a name="composite-docs-related"></a>
 + For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.
-+ For more information about creating an SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\.
++ For more information about creating an SSM document, see [Creating SSM documents](create-ssm-doc.md)\.
 + For more information about the plugins you can add to a custom SSM document, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
 + If you simply want to run a document from a remote location \(without creating a composite document\), see [Running Systems Manager command documents from remote locations](run-remote-documents.md)\.

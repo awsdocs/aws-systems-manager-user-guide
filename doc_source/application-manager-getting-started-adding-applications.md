@@ -1,6 +1,6 @@
 # Adding applications and clusters to Application Manager<a name="application-manager-getting-started-adding-applications"></a>
 
-In AWS Systems Manager Application Manager, an *application* is a logical group of AWS resources that you want to operate as a unit\. This logical group can represent different versions of an application, ownership boundaries for operators, or developer environments, to name a few\.
+Application Manager is a component of AWS Systems Manager\. In Application Manager, an *application* is a logical group of AWS resources that you want to operate as a unit\. This logical group can represent different versions of an application, ownership boundaries for operators, or developer environments, to name a few\.
 
 When you choose **Get started** on the Application Manager home page, Application Manager automatically imports metadata about your resources that were created in other AWS services or Systems Manager capabilities\. For applications, Application Manager imports metadata about all of your AWS resources organized into resource groups\. Each resource group is listed in the **Custom applications** category as a unique application\. Application Manager also automatically imports metadata about resources that were created by AWS CloudFormation, AWS Launch Wizard, Amazon Elastic Container Service \(Amazon ECS\), and Amazon Elastic Kubernetes Service \(Amazon EKS\)\. Application Manager then displays those resources in predefined categories\.
 

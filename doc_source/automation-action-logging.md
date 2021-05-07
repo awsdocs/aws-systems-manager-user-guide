@@ -1,6 +1,9 @@
 # Logging Automation action output with CloudWatch Logs<a name="automation-action-logging"></a>
 
-AWS Systems Manager Automation integrates with Amazon CloudWatch Logs \(CloudWatch Logs\)\. As a result, you can send the output from `aws:executeScript` actions in your runbooks to the log group you specify\. You can use the action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes\. If you choose a log group that's encrypted, the action output is also encrypted\. Logging output from `aws:executeScript` actions is an account\-level setting\.
+Automation, a capability of AWS Systems Manager, integrates with Amazon CloudWatch Logs\. You can send the output from `aws:executeScript` actions in your runbooks to the log group you specify\. You can use the `aws:executeScript` action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes\. If you choose a log group that is encrypted, the `aws:executeScript` action output is also encrypted\. Logging output from `aws:executeScript` actions is an account\-level setting\.
+
+**Note**  
+Systems Manager doesn't create a log group or any log streams for documents that don't use `aws:executeScript` actions\. If the document does use `aws:executeScript`, the output sent to CloudWatch Logs only pertains to those actions\.
 
 **To send action output to CloudWatch Logs \(console\)**
 

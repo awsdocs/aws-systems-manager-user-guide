@@ -119,7 +119,7 @@ Use the following procedure to create a resource data sync for Systems Manager I
 
 1. In the **Sync name** field, enter a name for the sync configuration\.
 
-1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created at the start of this procedure\.
+1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created using the **To create and configure an Amazon S3 bucket for resource data sync** procedure\.
 
 1. \(Optional\) In the **Bucket prefix** field, enter the name of an Amazon S3 bucket prefix \(subdirectory\)\.
 

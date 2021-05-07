@@ -117,7 +117,7 @@ US East \(Ohio\) \(us\-east\-2\)
 US West \(Oregon\) \(us\-west\-2\)
 Europe \(Ireland\) \(eu\-west\-1\)
 Asia Pacific \(Singapore\) \(ap\-southeast\-1\)
-For more information about Amazon EC2 support for macOS, see see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
+For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
 
 ## Raspbian<a name="prereqs-os-raspbian"></a>
 
@@ -131,7 +131,7 @@ For more information about Amazon EC2 support for macOS, see see [Amazon EC2 Mac
 
 ## Windows Server<a name="prereqs-os-windows-server"></a>
 
-Note that SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM Documents on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
+Note that SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems Manager documents \(SSM documents\) on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
 
 
 ****  
@@ -143,5 +143,8 @@ Note that SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM
 | 2012 and 2012 R2 |  | ✓ |  | 
 | 2016 |  | ✓ |  | 
 | 2019 |  | ✓ |  | 
+
+**Important**  
+The SSM Agent requires Windows PowerShell 3\.0 or later to run certain SSM documents on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
 
 **¹** As of January 14, 2020, Windows Server 2008 is [no longer supported](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008) for feature or security updates from Microsoft\. Legacy Amazon Machine Images \(AMIs\) for Windows Server 2008 and 2008 R2 still include version 2 of SSM Agent preinstalled, but Systems Manager no longer officially supports 2008 versions and no longer updates the agent for these versions of Windows Server\. In addition, [SSM Agent version 3\.0](ssm-agent-v3.md) may not be compatible with all operations on Windows Server 2008 and 2008 R2\. The final officially supported version of SSM Agent for Windows Server 2008 versions is 2\.3\.1644\.0\.

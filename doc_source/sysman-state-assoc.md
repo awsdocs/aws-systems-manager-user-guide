@@ -232,7 +232,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following commands creates an association that scans instances for missing patch updates by using the AWS\-RunPatchBaseline document\. This association targets all managed instances in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
+   The following example creates an association that scans instances for missing patch updates by using the AWS\-RunPatchBaseline document\. This association targets all managed instances in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
 
 ------
 #### [ Linux & macOS ]
@@ -379,5 +379,95 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
+   The following example creates an association that runs on instances tagged with a specific instance id\. The association uses the SSM Agent document to update SSM Agent on the targeted instances once when the change calendar is open\. The association checks the calendar state when it runs\. If the calendar is closed at launch time and the association is only run once, it won't run again because the association run window has passed\. If the calendar is open, the association runs accordingly\.
 **Note**  
-If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the association and according to the interval specified\.
+If you add new instances to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those instances once the change calendar opens\.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm create-association \
+     --association-name CalendarAssociation \
+     --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" \
+     --name AWS-UpdateSSMAgent  \
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" \
+     --schedule "rate(1day)"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name CalendarAssociation ^
+     --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" ^
+     --name AWS-UpdateSSMAgent  ^
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" ^
+     --schedule "rate(1day)"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMAssociation `
+     -AssociationName CalendarAssociation `
+     -Target @{
+         "Key"="tag:instanceids"
+         "Values"="i-0cb2b964d3e14fd9f"
+       } `
+     -Name AWS-UpdateSSMAgent `
+     -CalendarNames "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" `
+     -ScheduleExpression "rate(1day)"
+   ```
+
+------
+
+   The following example creates an association that runs on instances tagged with a specific instance id\. The association uses the SSM Agent document to update SSM Agent on the targeted instances on the targeted instances at 2:00 AM every Sunday\. This association runs only at the specified Cron schedule when the change calendar is open\. When the association is created, it checks the calendar state\. If the calendar is closed, the association isn't applied\. When the interval to apply the association starts at 2:00 AM on Sunday, the association checks to see if the calendar is open\. If the calendar is open, the association runs accordingly\.
+**Note**  
+If you add new instances to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those instances once the change calendar opens\.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm create-association \
+     --association-name MultiCalendarAssociation \
+     --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" \
+     --name AWS-UpdateSSMAgent  \
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2" \
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+     --association-name MultiCalendarAssociation ^
+     --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" ^
+     --name AWS-UpdateSSMAgent  ^
+     --calendar-names "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2" ^
+     --schedule "cron(0 2 ? * SUN *)"
+   ```
+
+------
+#### [ PowerShell ]
+
+   ```
+   New-SSMAssociation `
+     -AssociationName MultiCalendarAssociation `
+     -Name AWS-UpdateSSMAgent `
+     -Target @{
+         "Key"="tag:instanceids"
+         "Values"="i-0cb2b964d3e14fd9f"
+       } `
+     -CalendarNames "arn:aws:ssm:us-east-1:123456789012:document/testCalendar1" "arn:aws:ssm:us-east-2:123456789012:document/testCalendar2" `
+     -ScheduleExpression "cron(0 2 ? * SUN *)"
+   ```
+
+------
+
+**Note**  
+If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the assocation and according to the interval specified\.

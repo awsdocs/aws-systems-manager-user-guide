@@ -2,7 +2,7 @@
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
 
-The AWS Systems Manager Explorer \(Explorer\) integration with Security Hub enables you to receive findings from Security Hub in Explorer\. Security Hub findings provide security information that you can use in Explorer to aggregate and take action on your security, performance, and operational issues in Systems Manager\. You can view a widget that provides summary of all Security Hub findings based on severity\. 
+AWS Systems Manager Explorer integration with Security Hub enables you to receive findings from Security Hub in Explorer\. Security Hub findings provide security information that you can use in Explorer to aggregate and take action on your security, performance, and operational issues in Systems Manager\. You can view a widget that provides summary of all Security Hub findings based on severity\. 
 
 Turning on Security Hub integration accrues a cost\. Explorer integrates with Systems Manager OpsCenter \(OpsCenter\) to provide Security Hub findings\. There is a cost to use Explorer with OpsCenter\. For more information, see [Receiving findings from AWS Security Hub in OpsCenter](opscenter-securityhub-integration.md) and [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 

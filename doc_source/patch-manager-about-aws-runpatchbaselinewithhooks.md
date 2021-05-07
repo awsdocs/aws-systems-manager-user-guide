@@ -169,7 +169,7 @@ The value to provide for the `PreInstallHookDocName` parameter is the name or Am
 
 The SSM document you specify is run before the `Install` operation and performs any actions supported by SSM Agent, such as a shell script to check application health check before patching is performed on the instance\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
-For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 
 
 ### Parameter name: `PostInstallHookDocName`<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters-postinstallhookdocname"></a>
 
@@ -181,7 +181,7 @@ The value to provide for the `PostInstallHookDocName` parameter is the name or A
 
 The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by SSM Agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
-For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 
 
 ### Parameter name: `OnExitHookDocName`<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters-onexithookdocname"></a>
 
@@ -193,4 +193,4 @@ The value to provide for the `OnExitHookDocName` parameter is the name or Amazon
 
 The SSM document you specify is run after the instance reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify instance health after the patching operation completes\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
-For information about creating a custom SSM document, see [Creating Systems Manager documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 

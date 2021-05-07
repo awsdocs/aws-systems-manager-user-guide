@@ -12,8 +12,7 @@ Use the following procedure to configure **SSM OpsItems** as the target of an Am
 
 1. On the **Rules** page, choose an existing rule and then choose **Edit**\. 
 
-1. In the **Select event bus** section, verify that **AWS default event bus** is selected and **Enable the rule on the selected event bus** option is toggled on\.  
-![\[The details of the select event bus rule section.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsCenter-EV-edit-rule-1.png)
+1. In the **Select event bus** section, verify that **AWS default event bus** is selected and **Enable the rule on the selected event bus** option is toggled on\.
 
 1. In the **Select targets** section, use the **Target** list to choose **SSM OpsItem**\. 
 
