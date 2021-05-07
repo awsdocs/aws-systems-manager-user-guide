@@ -29,7 +29,8 @@ This topic provides an overview of these prerequisites\.
 1. Install or verify installation of the SSM Agent on each of your managed instances\.
 
 **Note**  
-SSM Agent initiates all connections to the Systems Manager service in cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.
+SSM Agent initiates all connections to the Systems Manager service in cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.  
+If EC2 instances you have created aren't displaying in Systems Manager after you've follow these steps, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md)\.
 
 **Integration with IAM and Amazon EC2**  
 User access to Systems Manager, its capabilities, and its resources are controlled through policies that you use or create in AWS Identity and Access Management\. If you plan to use computing resources provided by AWS, and not only on\-premises servers and virtual machines \(VMs\), you also need to understand Amazon Elastic Compute Cloud before you set up Systems Manager for your organization\. Understanding how these services work is essential to successfully set up Systems Manager\.
