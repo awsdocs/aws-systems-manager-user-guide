@@ -16,7 +16,7 @@ Required: No
 The type of session the Session document is used to establish\.  
 Type: String  
 Required: Yes  
-Valid values: `InteractiveCommands` \| `Port` \| `Standard_Stream`
+Valid values: `InteractiveCommands` \| `NonInteractiveCommands` \| `Port` \| `Standard_Stream`
 
 [inputs](#in)  
 The session preferences to use for sessions established using this Session document\. This element is required for Session documents that are used to create `Standard_Stream` sessions\.  

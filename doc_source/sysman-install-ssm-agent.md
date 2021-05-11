@@ -6,7 +6,7 @@ AWS Systems Manager Agent \(SSM Agent\) processes Systems Manager requests and c
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
 Amazon Linux
 Amazon Linux 2
-Amazon Linux 2 ECS\-Optimized AMIs
+Amazon Linux 2 ECS\-Optimized Base AMIs
 Ubuntu Server 16\.04, 18\.04, and 20\.04  
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. 

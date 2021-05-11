@@ -6,26 +6,23 @@ OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch\. This mea
 
 To help you diagnose issues, each OpsItem includes contextually relevant information such as the name and ID of the AWS resource that generated the OpsItem, alarm or event details, alarm history, and an alarm timeline graph\.
 
-For the AWS resource, OpsCenter aggregates information from AWS Config, AWS CloudTrail logs, and Amazon CloudWatch Events, so you don't have to navigate across multiple console pages during your investigation\.
-
-The following list includes types of AWS resources and metrics for which customers configure CloudWatch alarms that create OpsItems\.
-+ Amazon DynamoDB: database read and write actions reach a threshold
-+ Amazon Elastic Compute Cloud \(Amazon EC2\): CPU utilization reaches a threshold
-+ AWS billing: estimated charges reach a threshold
-+ Amazon EC2: an instance fails a status check
-+ Amazon Elastic Block Store \(EBS\): disk space utilization reaches a threshold
-
-The following list includes types of EventBridge rules customer configure to create OpsItems\.
-+ AWS Security Hub: security alert issued
-+ DynamoDB: a throttling event
-+ Amazon EC2 Auto Scaling: failure to launch an instance
-+ Systems Manager: failure to run an automation
-+ AWS Health: an alert for scheduled maintenance
-+ Amazon EC2: instance state change from `Running` to `Stopped`
-
-OpsCenter is also integrated with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\. You can also integrate OpsCenter with AWS Security Hub to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
-
 Operations engineers and IT professionals can create, view, and edit OpsItems by using the OpsCenter page in the AWS Systems Manager console, public API actions, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. OpsCenter public API actions also enable you to integrate OpsCenter with your case management systems and health dashboards\. 
+
+## OpsCenter integration<a name="OpsCenter-integration"></a>
+
+The following table describes how OpsCenter integrates with other AWS services and Systems Manager capabilities\. When it's integrated with these services and capabilities, OpsCenter helps you to quickly diagnose and remediate issues with AWS resources from a single console\. 
+
+
+****  
+
+| Service or capability | Details | For more information | 
+| --- | --- | --- | 
+|  EventBridge  |  You can configure Amazon EventBridge to automatically create an OpsItem in OpsCenter when the system processes an event from any AWS service that publishes events\. The following list includes types of EventBridge rules that you can configure to create OpsItems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html) To help you diagnose issues, each OpsItem includes contextually relevant information about the event, such as the name and ID of the AWS resource that generated the OpsItem and details about the event\.  | [Configuring EventBridge to automatically create OpsItems for specific events](OpsCenter-automatically-create-OpsItems-2.md) | 
+|  CloudWatch  |  You can configure Amazon CloudWatch to automatically create an OpsItem in OpsCenter when a CloudWatch alarm enters the `ALARM` state\. The following list includes types of AWS resources and metrics for which you can configure CloudWatch alarms to create OpsItems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html) To help you diagnose issues, each OpsItem includes contextually relevant information about the alarm, such as the name and ID of the AWS resource that generated the OpsItem, alarm details, alarm history, and an alarm timeline graph\.  | [Configuring CloudWatch to create OpsItems from alarms](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md) | 
+|  Incident Manager  |  AWS Incident Manager, a capability of Systems Manager, provides an incident management console that helps you mitigate and recover from incidents affecting your AWS hosted applications\. An *incident* is any unplanned interruption or reduction in quality of services\. After you set up and configure Incident Manager, the system automatically creates OpsItems in OpsCenter when incidents are created in Incident Manager\. You can also manually add incidents to an OpsItem\. After an incident is resolved, post incident analysis guides you through identifying improvements to your incident response and recommending action items to address the findings\. With high severity operational issues such as incidents, creating an OpsItem in OpsCenter provides operators with a complete view of the incident, analysis, and action items\. This comprehensive view improves time\-to\-resolution and helps mitigate similar issues in the future\.  |  [Working with Incident Manager incidents in OpsCenter](OpsCenter-create-OpsItems-for-Incident-Manager.md) [AWS Systems Manager Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide)  | 
+|  CloudWatch Application Insights for \.NET and SQL Server\.  |  OpsCenter is also integrated with CloudWatch Application Insights for \.NET and SQL Server\. CloudWatch Application Insights helps you monitor your applications that use Amazon EC2 instances along with other application resources\. This capability identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. This capability also creates automated dashboards for detected problems\. Dashboards include correlated metric anomalies, log errors, and other information to help you determine the root cause of the errors\. When you configure application resources in CloudWatch Application Insights, you can choose to have the system create OpsItems in OpsCenter when problems are detected\.  |  [Setting Up Your Application](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-setting-up.html) in the *Amazon CloudWatch User Guide*  | 
+
+For each AWS resource that automatically generates an OpsItem, OpsCenter aggregates information from AWS Config, AWS CloudTrail logs, and Amazon CloudWatch Events\. As a result, you don't have to navigate across multiple console pages during your investigation\.
 
 ## How can OpsCenter benefit my organization?<a name="OpsCenter-learn-more-benefits"></a>
 
@@ -102,34 +99,23 @@ Yes\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon
 
 Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed instances that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
-## What are the resource limits for OpsCenter?<a name="OpsCenter-learn-more-limits"></a>
+## What are the quotas for OpsCenter?<a name="OpsCenter-learn-more-limits"></a>
 
-
-****  
-
-| Resource | Default limit | 
-| --- | --- | 
-|  Total number of OpsItems allowed per account per AWS Region \(including Open *and* Resolved OpsItems; OpsItems created from Security Hub findings don't count towards this limit\)  |  500,000  | 
-|  Maximum number of OpsItems per account per month  |  10,000  | 
-|  Maximum operational data value size  |  20 KB  | 
-|  Maximum number of associated Automation runbooks per OpsItem  |  10  | 
-|  Maximum number of Automation runbook executions stored in operational data under a single associated runbook  |  10  | 
-|  Maximum number of related resources you can specify per OpsItem  |  100  | 
-|  Maximum number of related OpsItems you can specify per OpsItem  |  10  | 
-|  Maximum length of a deduplication string  |  64 characters  | 
-|  Duration before an OpsItem is automatically archived by the system \(regardless of status\)  |  36 months  | 
+You can view quotas for all Systems Manager capabilities in the [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. Unless otherwise noted, each quota is Region\-specific\.
 
 **Topics**
++ [OpsCenter integration](#OpsCenter-integration)
 + [How can OpsCenter benefit my organization?](#OpsCenter-learn-more-benefits)
 + [What are the features of OpsCenter?](#OpsCenter-learn-more-features)
 + [How does OpsCenter work with Amazon EventBridge? Which service should I use?](#OpsCenter-learn-more-compare-CWE)
 + [Does OpsCenter integrate with my existing case management system?](#OpsCenter-learn-more-case-management)
 + [Is there a charge to use OpsCenter?](#OpsCenter-learn-more-cost)
 + [Does OpsCenter work with my on\-premises and hybrid managed instances?](#OpsCenter-learn-more-hybrid)
-+ [What are the resource limits for OpsCenter?](#OpsCenter-learn-more-limits)
++ [What are the quotas for OpsCenter?](#OpsCenter-learn-more-limits)
 + [Getting started with OpsCenter](OpsCenter-getting-started.md)
 + [Creating OpsItems](OpsCenter-creating-OpsItems.md)
 + [Working with OpsItems](OpsCenter-working-with-OpsItems.md)
++ [Working with Incident Manager incidents in OpsCenter](OpsCenter-create-OpsItems-for-Incident-Manager.md)
 + [Remediating OpsItem issues using Systems Manager Automation](OpsCenter-remediating.md)
 + [Viewing OpsCenter summary reports](OpsCenter-reports.md)
 + [Supported resources reference](OpsCenter-related-resources-reference.md)

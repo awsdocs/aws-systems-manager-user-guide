@@ -10,7 +10,7 @@ If the Amazon Machine Image \(AMI\) type you choose in the first procedure doesn
 SSM Agent is installed by default on the following AMIs:
 + Amazon Linux
 + Amazon Linux 2
-+ Amazon Linux 2 ECS\-Optimized AMIs
++ Amazon Linux 2 ECS\-Optimized Base AMIs
 + macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later

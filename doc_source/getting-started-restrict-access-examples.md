@@ -30,7 +30,8 @@ You can restrict access to specific instances by creating an IAM user policy tha
         {
             "Effect": "Allow",
             "Action": [
-                "ssm:TerminateSession"
+                "ssm:TerminateSession",
+                "ssm:ResumeSession"
             ],
             "Resource": [
                 "arn:aws:ssm:*:*:session/${aws:username}-*"
@@ -42,7 +43,7 @@ You can restrict access to specific instances by creating an IAM user policy tha
 
 ## Example 2: Restrict access based on instance tags<a name="restrict-access-example-instance-tags"></a>
 
-You can restrict access to instances based on specific Amazon EC2 tags\. In the following example, the user is allowed to start sessions \(`Effect: Allow, Action: ssm:StartSession`\) on any instance \(`Resource: arn:aws:ec2:region:987654321098:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that is not tagged or that has any tag other than `Finance: WebServer`, the command result will include `AccessDenied`\.
+You can restrict access to instances based on specific Amazon EC2 tags\. In the following example, the user is allowed to start and resume sessions \(`Effect: Allow, Action: ssm:StartSession, ssm:ResumeSession`\) on any instance \(`Resource: arn:aws:ec2:region:987654321098:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that is not tagged or that has any tag other than `Finance: WebServer`, the command result will include `AccessDenied`\.
 
 ```
 {
@@ -67,7 +68,8 @@ You can restrict access to instances based on specific Amazon EC2 tags\. In the 
         {
             "Effect": "Allow",
             "Action": [
-                "ssm:TerminateSession"
+                "ssm:TerminateSession",
+                "ssm:ResumeSession"
             ],
             "Resource": [
                 "arn:aws:ssm:*:*:session/${aws:username}-*"

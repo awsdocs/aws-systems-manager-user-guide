@@ -116,6 +116,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Configuring CloudWatch Application Insights for .NET and SQL Server to automatically create OpsItems](OpsCenter-getting-started-user-CloudWatch-Application-Insights.md)
          + [Creating OpsItems manually](OpsCenter-manually-create-OpsItems.md)
       + [Working with OpsItems](OpsCenter-working-with-OpsItems.md)
+      + [Working with Incident Manager incidents in OpsCenter](OpsCenter-create-OpsItems-for-Incident-Manager.md)
       + [Remediating OpsItem issues using Systems Manager Automation](OpsCenter-remediating.md)
       + [Viewing OpsCenter summary reports](OpsCenter-reports.md)
       + [Supported resources reference](OpsCenter-related-resources-reference.md)

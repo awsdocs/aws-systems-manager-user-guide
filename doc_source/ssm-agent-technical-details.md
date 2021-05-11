@@ -128,7 +128,7 @@ If one of the components used to calculate the fingerprint changes, this can cau
 SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
 + Amazon Linux
 + Amazon Linux 2
-+ Amazon Linux 2 ECS\-Optimized AMIs
++ Amazon Linux 2 ECS\-Optimized Base AMIs
 + macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later

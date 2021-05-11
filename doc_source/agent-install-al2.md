@@ -7,7 +7,7 @@ This topic provides commands for working with SSM Agent on Amazon Linux 2 instan
 
 **Before you begin**  
 Before you install SSM Agent on an Amazon Linux 2 instance, note the following:
-+ SSM Agent is installed, by default, on Amazon Linux *base* Amazon Machine Images \(AMIs\) dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs\. You must manually install SSM Agent on other versions of Linux\.
++ SSM Agent is installed, by default, on Amazon Linux *Base* Amazon Machine Images \(AMIs\) dated 2017\.09 and later\. SSM Agent is also installed, by default, on Amazon Linux 2 AMIs and Amazon Linux 2 ECS\-Optimized Base AMIs\. You must manually install SSM Agent on other versions of Linux\.
 + If you use a `yum` command to update SSM Agent on a managed instance after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 **To install SSM Agent on Amazon Linux 2**  
