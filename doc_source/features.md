@@ -19,6 +19,13 @@ Use [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems M
 Operations Management is a suite of capabilities that help you manage your AWS resources\. Choose the tabs to learn more\.
 
 ------
+#### [ Incident Manager ]
+
+[Incident Manager](incident-manager.md) is an incident management console that helps users mitigate and recover from incidents affecting their AWS hosted applications\.
+
+Incident Manager increases incident resolution by notifying responders of impact, highlighting relevant troubleshooting data, and providing collaboration tools to get services back up and running\. Incident Manager also automates response plans and enables responder team escalation\. 
+
+------
 #### [ Explorer ]
 
 [Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter, a capability of AWS Systems Manager, to run Automation runbooks and resolve those issues\. 

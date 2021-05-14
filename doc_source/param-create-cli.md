@@ -309,6 +309,9 @@ Use the following procedure to create a `SecureString` parameter\.
 **Important**  
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
 
+**Important**  
+Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You cannot use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.

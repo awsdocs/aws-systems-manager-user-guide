@@ -2,7 +2,7 @@
 
 You can restrict the commands a user can run in a Session Manager session by creating a custom `Session` type SSM document\. In the document content, you define which command is run when the user starts a session and what parameters they can provide to the command\. These are also referred to as interactive commands\. The `Session` document `schemaVersion` must be 1\.0, and the `sessionType` of the document must be `InteractiveCommands`\. You can then create AWS Identity and Access Management \(IAM\) policies that allow users to access only the `Session` documents you define\. For more information about using IAM policies to restrict access to commands in a session, see [IAM policy examples for interactive commands](#interactive-command-policy-examples)\.
 
-The user specifies the allowed document in the `--document-name` option for the `start-session` command and provides any necessary parameter values for the command in the `--parameters` option\. For more information about running interactive commands, see [Starting a session \(interactive commands\)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands)\.
+The user specifies the allowed document in the `--document-name` option for the `start-session` command and provides any necessary parameter values for the command in the `--parameters` option\. For more information about running interactive commands, see [Starting a session \(interactive and noninteractive commands\)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands)\.
 
 The following procedure describes how to create a custom `Session` type SSM document that defines the command a user is allowed to run\.
 

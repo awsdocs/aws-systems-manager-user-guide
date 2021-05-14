@@ -1,7 +1,7 @@
 # AWS Systems Manager User Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -92,6 +92,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)
    + [Integration examples from the community](integrations-community.md)
 + [Operations Management](systems-manager-ops-center.md)
+   + [AWS Systems Manager Incident Manager](incident-manager.md)
    + [AWS Systems Manager Explorer](Explorer.md)
       + [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)
          + [Setting up related services](Explorer-setup-related-services.md)

@@ -1,0 +1,3 @@
+# AWS Systems Manager Incident Manager<a name="incident-manager"></a>
+
+Use Incident Manager, a capability of AWS Systems Manager, to manage incidents occurring in your AWS hosted applications\. Incident Manager combines user engagements, escalation, runbooks, response plans, chat channels, and post\-incident analysis to help your team triage incidents faster and return your applications to normal\. To learn more about Incident Manager, see the [Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/what-is-incident-manager.html)\. 

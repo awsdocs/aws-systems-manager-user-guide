@@ -20,7 +20,7 @@ To receive the findings from Security Hub, OpsCenter takes advantage of the Secu
 
 ### Types of findings that OpsCenter receives<a name="opscenter-securityhub-integration-finding-types-received"></a>
 
- OpsItems are automatically created for Critical and High severity findings\. You can configure OpsCenter to display Medium and Low severity findings as described later in [Enabling and configuring the integration](#opscenter-securityhub-integration-receive-enable)\. You can configure OpsCenter and Explorer to create OpsItems for all findings except Informational severity findings\. For more information about the severity of Security Hub findings, see [Severity](https://docs.aws.amazon.com/userguide/securityhub-cwe-integration-types.html#securityhub-cwe-integration-types-all-findings) in the *AWS Security Hub User Guide*\.
+ OpsItems are automatically created for Critical and High severity findings\. You can configure OpsCenter to display Medium and Low severity findings as described later in [Enabling and configuring the integration](#opscenter-securityhub-integration-receive-enable)\. You can configure OpsCenter and Explorer to create OpsItems for all findings except Informational severity findings\. For more information about the severity of Security Hub findings, see [Severity](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-integration-types.html#securityhub-cwe-integration-types-all-findings) in the *AWS Security Hub User Guide*\.
 
 ### How long does it take to receive findings from Security Hub?<a name="opscenter-securityhub-integration-receive-finding-latency"></a>
 

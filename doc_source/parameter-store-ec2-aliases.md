@@ -1,8 +1,8 @@
 # Native parameter support for Amazon Machine Image IDs<a name="parameter-store-ec2-aliases"></a>
 
-When you create a String parameter, you can specify the *data type* as `aws:ec2:image` to ensure that the parameter value you enter is a valid Amazon Machine Image \(AMI\) ID format\. 
+When you create a `String` parameter, you can specify the *data type* as `aws:ec2:image` to ensure that the parameter value you enter is a valid Amazon Machine Image \(AMI\) ID format\. 
 
-Support for AMI ID formats lets you avoid updating all your scripts and templates with a new ID each time the AMI that you want to use in your processes changes\. You can create a parameter with the data type `aws:ec2:image`, and for its value, enter the ID of an AMI\. This is the AMI from which you currently want new instances to be created\. You then reference this parameter in your templates, commands, and scripts\. 
+Support for AMI ID formats lets you avoid updating all your scripts and templates with a new ID each time the AMI that you want to use in your processes changes\. You can create a parameter with the data type `aws:ec2:image`, and for its value, enter the ID of an AMI\. This is the AMI you want to create new instances from\. You then reference this parameter in your templates, commands, and scripts\. 
 
 For example, you can specify the parameter that contains your preferred AMI ID when you run the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances` command\.
 
@@ -52,7 +52,7 @@ The following example policy grants users permission to call the `PutParameter` 
 
 When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
 
-It's important to note that a parameter version number may be generated before the validation operation is complete\. That's, a parameter version number being generated alone isn't an indication that the operation has completed successfully\.
+A parameter version number might be generated before the validation operation is complete\. The operation may not be complete even if a parameter version number is generated\. 
 
 To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge \(EventBridge\) to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. If an operation fails, the notification includes an error message that indicates the reason for the failure\. 
 

@@ -57,7 +57,7 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
    }
    ```
 
-1. Copy and paste the following json sample into a simple text editor and save the file as `JoinInstanceToDomain.json` in the following location: `c:\temp\JoinInstanceToDomain.json`\.
+1. Copy and paste the following json text into a text editor and save the file as `JoinInstanceToDomain.json` in the following location: `c:\temp\JoinInstanceToDomain.json`\.
 
    ```
    {

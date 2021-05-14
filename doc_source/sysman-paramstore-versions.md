@@ -4,13 +4,13 @@ Each time you edit the value of a parameter, Parameter Store creates a new *vers
 
 You can also specify the version of a parameter to use in API commands and SSM documents; for example: `ssm:MyParameter:3`\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\. 
 
-You can use parameter versions to see how many times a parameter changed over a period of time\. Parameter versions also provide a layer of protection if a parameter value is accidentally changed\. 
+You can use parameter versions to see the number of times a parameter changed over a period of time\. Parameter versions also provide a layer of protection if a parameter value is accidentally changed\. 
 
 You can create and maintain up to 100 versions of a parameter\. After you have created 100 versions of a parameter, each time you create a new version, the oldest version of the parameter is removed from history to make room for the new version\. 
 
 An exception to this is when there are already 100 parameter versions in history, and a parameter label is assigned to the oldest version of a parameter\. In this case, that version isn't removed from history, and the request to create a new parameter version fails\. This safeguard is to prevent parameter versions with mission critical labels assigned to them from being deleted\. To continue creating new parameters, first move the label from the oldest version of the parameter to a newer one for use in your operations\. For information about moving parameter labels, see [Move a parameter label \(console\)](sysman-paramstore-labels.md#sysman-paramstore-labels-console-move) and [Move a parameter label \(AWS CLI\)](sysman-paramstore-labels.md#sysman-paramstore-labels-cli-move)\.
 
-The following procedures show you how to edit a parameter and then verify that a new version was created\.
+The following procedures show you how to edit a parameter and then verify that you created a new version\. You can use the `get-parameter` and `get-parameters` commands to view parameter versions\. For examples on using these commands, see [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html#API_GetParameter_Examples) and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html#API_GetParameters_Examples) in the *AWS Systems Manager API Reference* 
 
 **Topics**
 + [Create a new version of a parameter \(console\)](#sysman-paramstore-version-console)
@@ -44,7 +44,7 @@ You can use the Systems Manager console to create a new version of a parameter a
 
 You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: ssm: `parameter-name:version-number`\. 
 
-In the following example, version 3 of the parameter `golden-ami` is used in the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances command`\. 
+In the following example, the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances command` uses version 3 of the parameter `golden-ami`\. 
 
 ```
 aws ec2 run-instances \
@@ -56,7 +56,7 @@ aws ec2 run-instances \
 ```
 
 **Note**  
-Currently, using `resolve` and a parameter value works only with the `--image-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
+Using `resolve` and a parameter value only works with the `--image-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 
 Here is an example for specifying version 2 of a parameter named `MyRunCommandParameter` in an SSM document\.
 

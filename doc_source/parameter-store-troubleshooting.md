@@ -11,7 +11,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 **Problem**: You ran a command to create an `aws:ec2:image` parameter, but parameter creation failed\. You receive a notification from Amazon EventBridge that reports the exception "Unable to Describe Resource"\. 
 
 **Solution**: This message can indicate the following: 
-+ You haven't been granted the AWS Identity and Access Management \(IAM\) permission for the `ec2:DescribeImages` API operation, or you lack permission to access the specific image referenced in the parameter\. Contact an IAM user with administrator permissions in your organization to request the necessary permissions\.
++ You don't have the AWS Identity and Access Management \(IAM\) permission for the `ec2:DescribeImages` API operation, or you lack permission to access the specific image referenced in the parameter\. Contact an IAM user with administrator permissions in your organization to request the necessary permissions\.
 + The Amazon Machine Image \(AMI\) ID you entered as a parameter value isn't valid\. Make sure you are entering the ID of an AMI that's available in the current AWS Region and account you are working in\.
 
 ### New `aws:ec2:image` parameter isn't available<a name="ps-ec2-aliases-2"></a>
@@ -28,4 +28,4 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
     For a new parameter, a `ParameterNotFound` message is returned until the parameter is validated\. For an existing parameter that you are updating, information about the new version isn't included until the parameter is validated\.
 
-  If you attempt to create or update the parameter again before the validation process completes, the system reports that validation is still in process\. If the parameter isn't created or updated successfully, you can try again after 5 minutes have passed from the original attempt\. 
+  If you attempt to create or update the parameter again before the validation process completes, the system reports that validation is still in process\. If the parameter isn't created or updated, you can try again after 5 minutes have passed from the original attempt\. 

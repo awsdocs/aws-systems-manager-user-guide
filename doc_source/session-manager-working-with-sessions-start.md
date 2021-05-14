@@ -8,7 +8,7 @@ You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(
 + [Starting a session \(AWS CLI\)](#sessions-start-cli)
 + [Starting a session \(SSH\)](#sessions-start-ssh)
 + [Starting a session \(port forwarding\)](#sessions-start-port-forwarding)
-+ [Starting a session \(interactive commands\)](#sessions-start-interactive-commands)
++ [Starting a session \(interactive and noninteractive commands\)](#sessions-start-interactive-commands)
 
 ## Starting a session \(Systems Manager console\)<a name="start-sys-console"></a>
 
@@ -154,7 +154,7 @@ For information about other options you can use with the start\-session command,
 
 For more information about port forwarding sessions, see [Port Forwarding Using AWS Systems Manager Session Manager](http://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/) in the *AWS News Blog*\.
 
-## Starting a session \(interactive commands\)<a name="sessions-start-interactive-commands"></a>
+## Starting a session \(interactive and noninteractive commands\)<a name="sessions-start-interactive-commands"></a>
 
 To start an interactive command session, run the following command:
 
