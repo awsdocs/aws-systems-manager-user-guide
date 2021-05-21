@@ -81,11 +81,17 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **State Manager**, and then choose **Create association**\.
+1. In the navigation pane, choose **State Manager**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
+
+1. Choose **State Manager**, and then choose **Create association**\.
 
 1. For **Name**, specify a name that helps you remember the purpose of the association\.
 
-1. In the **Document** list, choose **AWS\-ApplyAnsiblePlaybooks**\.
+1. In the **Document** list, choose **`AWS-ApplyAnsiblePlaybooks`**\.
 
 1. In the **Parameters** section, for **Source Type**, choose either **GitHub** or **S3**\.
 
@@ -141,7 +147,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Create Association**\.
 

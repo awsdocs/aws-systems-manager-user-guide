@@ -78,7 +78,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 
    The `--data-type` option must be specified only if you are creating a parameter that contains an AMI ID\. It validates that the parameter value you enter is a properly formatted Amazon Elastic Compute Cloud \(Amazon EC2\) AMI ID\. For all other parameters, the default data type is `text` and it's optional to specify a value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 **Important**  
-If successful, the command returns the version number of the parameter\. **Exception**: If you have specified `aws:ec2:image` as the data type, a new version number in the response does not mean that the parameter value has been validated yet\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
+If successful, the command returns the version number of the parameter\. **Exception**: If you have specified `aws:ec2:image` as the data type, a new version number in the response doesn't mean that the parameter value has been validated yet\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
 
    The following example adds two key\-value pair tags to a parameter\. 
 
@@ -347,7 +347,7 @@ Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/k
        --name "parameter-name" \
        --value "a-parameter-value, for example P@ssW%rd#1" \
        --type "SecureString" \
-       --key-id "your-AWS-user-account-ID/the-custom-AWS KMS-key" \
+       --key-id "your-account-ID/the-custom-AWS KMS-key" \
        --tags "Key=tag-key,Value=tag-value"
    ```
 
@@ -381,14 +381,14 @@ Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/k
        --value "a-parameter-value, for example P@ssW%rd#1" ^
        --type "SecureString" ^
        --key-id " ^
-       --tags "Key=tag-key,Value=tag-value"your-AWS-user-account-ID/the-custom-AWS KMS-key"
+       --tags "Key=tag-key,Value=tag-value"account-ID/the-custom-AWS KMS-key"
    ```
 
 ------
 
    If you create a `SecureString` parameter by using the AWS\-managed AWS Key Management Service \(AWS KMS\) key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 **Note**  
-To use the AWS KMS key assigned to your AWS account and Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+To use the AWS KMS key assigned to your Amazon Web Services account and AWS Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
    To use a customer managed key instead of the AWS managed key assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
    + Key Amazon Resource Name \(ARN\) example:
@@ -404,7 +404,7 @@ To use the AWS KMS key assigned to your AWS account and Region, remove the `key-
 
      `alias/MyAliasName`
 
-   You can create a customer managed key by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current Region of your AWS account\.
+   You can create a customer managed key by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current AWS Region of your Amazon Web Services account\.
 
    ```
    aws kms [create\-key](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
@@ -529,7 +529,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" \
        --value "a-new-parameter-value" \
        --type "SecureString" \
-       --key-id "your-AWS-user-account-alias/the-KMSkey-ID" \
+       --key-id "account-alias/the-KMSkey-ID" \
        --overwrite
    ```
 
@@ -550,7 +550,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
        --name "the-name-that-you-specified" ^
        --value "a-new-parameter-value" ^
        --type "SecureString" ^
-       --key-id "your-AWS-user-account-alias/the-KMSkey-ID" ^
+       --key-id "account-alias/the-KMSkey-ID" ^
        --overwrite
    ```
 

@@ -683,7 +683,7 @@ The following example shows the AWS\-RunShellScript SSM document\. The **runtime
 ## Schema version 0\.3<a name="automation-doc-syntax-examples"></a>
 
 **Top\-level elements**  
-The following example shows the top\-level elements of a schema version 0\.3 Automation document in JSON format\.
+The following example shows the top\-level elements of a schema version 0\.3 Automation runbook in JSON format\.
 
 ```
 {
@@ -731,8 +731,8 @@ The following example shows the top\-level elements of a schema version 0\.3 Aut
 }
 ```
 
-**YAML Automation document example**  
-The following sample shows the contents of an Automation document, in YAML format\. This working example of version 0\.3 of the document schema also demonstrates the use of Markdown to format document descriptions\.
+**YAML Automation runbook example**  
+The following sample shows the contents of an Automation runbook, in YAML format\. This working example of version 0\.3 of the document schema also demonstrates the use of Markdown to format document descriptions\.
 
 ```
 description: >-
@@ -740,7 +740,7 @@ description: >-
 
   -----
 
-  **Purpose**: This Automation document first launches an EC2 instance
+  **Purpose**: This Automation runbook first launches an EC2 instance
   using the AMI ID provided in the parameter ```imageId```. The second step of
   this document continuously checks the instance status check value for the
   launched instance until the status ```ok``` is returned.

@@ -3,7 +3,7 @@
 The following sections provide links to blog posts, articles, and community\-provided examples related to AWS Systems Manager integration with AWS and other products and services\.
 
 **Note**  
-These links are provided for informational purposes only, and should not be considered either a comprehensive list or an endorsement of the content of the examples\. AWS is not responsible for the content or accuracy of this content\. 
+These links are provided for informational purposes only, and shouldn't be considered either a comprehensive list or an endorsement of the content of the examples\. AWS isn't responsible for the content or accuracy of this content\. 
 
 ## Blog posts<a name="integrations-community-blogposts"></a>
 
@@ -70,7 +70,7 @@ These links are provided for informational purposes only, and should not be cons
   *Published March 2017*
 + [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 
-  By using Parameter Store and task AWS Identity and Access Management \(IAM\) roles, you can create a central secret management store and a well integrated access layer that allows applications to access only the keys they need, to restrict access on a container basis, and to further encrypt secrets with custom KMS keys\.
+  By using Parameter Store and task AWS Identity and Access Management \(IAM\) roles, you can create a central secret management store and a well integrated access layer that allows applications to access only the keys they need, to restrict access on a container basis, and to further encrypt secrets with custom AWS Key Management Service \(AWS KMS\) keys\.
 
   *Published January 2017*
 
@@ -87,12 +87,12 @@ These links are provided for informational purposes only, and should not be cons
   *Published August 2019*
 +  [Managing AWS resources across multiple accounts and Regions using AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/managing-aws-resources-across-multiple-accounts-and-regions-using-aws-systems-manager-automation/) 
 
-  Learn how to manage your resources across multiple AWS accounts and Regions using Systems Manager Automation\.
+  Learn how to manage your resources across multiple Amazon Web Services accounts and AWS Regions using Systems Manager Automation\.
 
   *Published January 2019*
 + [Onica Demonstrates Uses for New AWS Systems Manager Automation Actions](https://onica.com/blog/devops/aws-blog-on-demonstrating-uses-for-new-aws-systems-manager-automation-by-onica/)
 
-  Onica uses real world examples representing some of the problems they see in the field while assisting AWS customers to demonstrate how Automation actions can be used to solve these problems\.
+  Onica uses real world examples representing some problems they see in the field while assisting AWS customers to show how Automation actions can be used to solve these problems\.
 
   *Published August 2018*
 
@@ -104,7 +104,7 @@ These links are provided for informational purposes only, and should not be cons
   *Published December 2018*
 +  [Centralized multi\-account and multi\-Region patching with AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/centralized-multi-account-and-multi-region-patching-with-aws-systems-manager-automation/) 
 
-  Learn how to use Systems Manager Automation to patch your managed instances across multiple AWS accounts and Regions\.
+  Learn how to use Systems Manager Automation to patch your managed instances across multiple Amazon Web Services accounts and AWS Regions\.
 
   *Published November 2018*
 +  [Scalable cross\-platform patching with AWS Systems Manager](http://aws.amazon.com/blogs/mt/scalable-cross-platform-patching-with-aws-systems-manager/) 

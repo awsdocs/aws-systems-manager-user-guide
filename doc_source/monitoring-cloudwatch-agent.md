@@ -135,15 +135,15 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
 
-1. In the **Command document** list, choose AWS\-ConfigureAWSPackage\.
+1. In the **Command document** list, choose `AWS-ConfigureAWSPackage`\.
 
 1. In the **Targets** section, choose an option and select the instances to update\.
 
-1. In the **Action** list, choose Install\.
+1. In the **Action** list, choose `Install`\.
 
 1. In **Name**, type **AmazonCloudWatchAgent**\.
 
-1. In **Version**, type latest if it's not already provided by default\.
+1. In **Version**, type **latest** if it's not already provided by default\.
 
 1. Choose **Run**\.
 
@@ -166,7 +166,7 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
 
-1. In the **Command document** list, choose AWS\-RunPowerShellScript\.
+1. In the **Command document** list, choose `AWS-RunPowerShellScript`\.
 
 1. In the **Targets** section, choose an option and select the instances to update\.
 
@@ -190,11 +190,11 @@ After the migration, this entry will map to a domain, such as ip\-11\-1\-1\-11\.
 
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
 
-1. In the **Command document** list, choose AWS\-ConfigurecloudWatch\.
+1. In the **Command document** list, choose `AWS-ConfigurecloudWatch`\.
 
 1. In the **Targets** section, choose an option and select the instances to update\.
 
-1. In the **Status** list, choose Disabled\.
+1. In the **Status** list, choose `Disabled`\.
 
 1. Choose **Run**\.
 
@@ -244,7 +244,7 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
 
-1. In the **Command document** list, choose AWS\-ConfigureAWSPackage\.
+1. In the **Command document** list, choose `AWS-ConfigureAWSPackage`\.
 
 1. In the **Targets** section, choose an option and select the instances to update\.
 
@@ -260,11 +260,11 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 1. In the navigation pane, choose **Run Command**, and then choose **Run command**\. 
 
-1. In the **Command document** list, choose AWS\-ConfigureCloudWatch\.
+1. In the **Command document** list, choose `AWS-ConfigureCloudWatch`\.
 
 1. In the **Targets** section, choose an option and select the instances to update\.
 
-1. In the **Status** list, choose Enabled\.
+1. In the **Status** list, choose `Enabled`\.
 
 1. In the **Properties** box, paste the contents of the old config data you saved to the text file\.
 

@@ -49,7 +49,7 @@ inputs:
 ------
 
 DocumentName  
-The name of the secondary runbook to run during the step\. For runbooks in the same AWS account, specify the runbook name\. For runbooks shared from a different AWS account, specify the Amazon Resource Name \(ARN\) of the runbook\. For information about using shared runbooks, see [Using shared SSM documents](ssm-using-shared.md)\.  
+The name of the secondary runbook to run during the step\. For runbooks in the same Amazon Web Services account, specify the runbook name\. For runbooks shared from a different Amazon Web Services account, specify the Amazon Resource Name \(ARN\) of the runbook\. For information about using shared runbooks, see [Using shared SSM documents](ssm-using-shared.md)\.  
 Type: String  
 Required: Yes
 

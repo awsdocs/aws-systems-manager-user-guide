@@ -18,7 +18,7 @@ If you share a command, users can view and use that command until you either rem
 
 1. Choose **Edit**\.
 
-1. Choose **X** to delete the AWS account ID that should no longer have access to the command, and then choose **Save**\. 
+1. Choose **X** to delete the Amazon Web Services account ID that should no longer have access to the command, and then choose **Save**\. 
 
 ## Stop sharing a document \(command line\)<a name="unshare-using-cli"></a>
 
@@ -31,7 +31,7 @@ Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and 
 aws ssm modify-document-permission \
     --name document name \
     --permission-type Share \
-    --account-ids-to-remove 'AWS account ID'
+    --account-ids-to-remove 'Amazon Web Services account ID'
 ```
 
 ------
@@ -41,7 +41,7 @@ aws ssm modify-document-permission \
 aws ssm modify-document-permission ^
     --name document name ^
     --permission-type Share ^
-    --account-ids-to-remove "AWS account ID"
+    --account-ids-to-remove "Amazon Web Services account ID"
 ```
 
 ------
@@ -51,7 +51,7 @@ aws ssm modify-document-permission ^
 Edit-SSMDocumentPermission `
     -Name document name `
     -PermissionType Share `
-    –AccountIdsToRemove AWS account ID
+    –AccountIdsToRemove Amazon Web Services account ID
 ```
 
 ------

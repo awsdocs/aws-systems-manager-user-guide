@@ -18,7 +18,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 ## Operations management<a name="getting-started-walkthroughs-operations-management"></a>
 
 **Explorer**  
-[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. 
+[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your Amazon Web Services accounts and across AWS Regions\. 
 + [Customizing the display and using filters](Explorer-using-filters.md)
 
 **OpsCenter**  
@@ -57,7 +57,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + Advanced: [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)
 
 **Change Calendar**  
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or not permitted to occur in your AWS account\. 
+[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or not permitted to occur in your Amazon Web Services account\. 
 + [Creating a Change Calendar entry](change-calendar-create.md)
 + [Creating a Change Calendar event](change-calendar-create-event.md)
 
@@ -82,7 +82,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 [Inventory](systems-manager-inventory.md), a capability of AWS Systems Manager, collects information about your instances and the software installed on them, helping you to understand your system configurations and installed applications\.
 + Advanced: [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)
 + Advanced: [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)
-+ Advanced: [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)
++ Advanced: [Walkthrough: Use resource data sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)
 
 **Session Manager**  
 [Session Manager](session-manager.md), a capability of AWS Systems Manager, helps you manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\.

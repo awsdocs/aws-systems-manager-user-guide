@@ -1,6 +1,6 @@
 # Creating change templates using Builder<a name="change-templates-custom-builder"></a>
 
-Using the Builder for change templates in Change Manager, a capability of AWS Systems Manager, you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that AWS Systems Manager can use to run runbook workflows\.
+Using the Builder for change templates in Change Manager, a capability of AWS Systems Manager, you can configure the runbook workflow defined in your change template without having to use JSON or YAML syntax\. After you specify your options, the system converts your input into the YAML format that Systems Manager can use to run runbook workflows\.
 
 **To create a change template using Builder**
 
@@ -30,7 +30,7 @@ Using the Builder for change templates in Change Manager, a capability of AWS Sy
 **Tip**  
 Select a runbook and runbook version, and then choose **View** to examine the contents of the runbook in the Systems Manager Documents interface\.
 
-1. In the **Template information** section, use Markdown to enter information for users who create change requests from this change template\. AWS has provided a set of questions that you can include for users who create change requests, or you can add other information and questions instead\. 
+1. In the **Template information** section, use Markdown to enter information for users who create change requests from this change template\. We have provided a set of questions that you can include for users who create change requests, or you can add other information and questions instead\. 
 **Note**  
 Markdown is a markup language that allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
@@ -69,7 +69,7 @@ To create a new alarm, or to review the settings of an alarm you want to specify
 
    1. Choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications about change requests that are created using this change template: 
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current account and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current Amazon Web Servicesaccount and AWS Region\.\)
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 

@@ -8,7 +8,7 @@ Only trusted administrators should be allowed to use AWS Systems Manager pre\-co
 **Topics**
 + [Step 1: Getting started](#walkthrough-cli-settings)
 + [Step 2: Run shell scripts to view resource details](#walkthrough-cli-run-scripts)
-+ [Step 3: Send simple commands using the AWS\-RunShellScript document](#walkthrough-cli-example-1)
++ [Step 3: Send simple commands using the `AWS-RunShellScript` document](#walkthrough-cli-example-1)
 + [Step 4: Run a simple Python script using Run Command](#walkthrough-cli-example-2)
 + [Step 5: Run a Bash script using Run Command](#walkthrough-cli-example-3)
 
@@ -124,7 +124,7 @@ aws ssm describe-document ^
 
 ------
 
-## Step 3: Send simple commands using the AWS\-RunShellScript document<a name="walkthrough-cli-example-1"></a>
+## Step 3: Send simple commands using the `AWS-RunShellScript` document<a name="walkthrough-cli-example-1"></a>
 
 Run the following command to get IP information for an instance\.
 

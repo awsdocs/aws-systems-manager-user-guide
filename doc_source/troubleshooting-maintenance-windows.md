@@ -34,7 +34,7 @@ You can wait for the next scheduled maintenance window time to run tasks on the 
 + **Solution 1**: If your task is targeting a single resource, such as a single instance or single snapshot, enter its ID in the input parameters for the task\.
 + **Solution 2**: If your task is targeting multiple resources, such as creating images from multiple instances when you use the runbook `AWS-CreateImage`, you can use one of the pseudo parameters supported for maintenance window tasks in the input parameters to represent instance IDs in the command\. 
 
-  The following commands register a Systems Manager Automation task with a maintenance window using the AWS CLI\. Note that the `--targets` value indicates a maintenance window target ID\. Also, even though the `--targets` parameter specifies a window target ID, parameters of the Automation document require that an instance ID be provided\. In this case, the command uses the pseudo parameter `{{RESOURCE_ID}}` as the `InstanceId` value\.
+  The following commands register a Systems Manager Automation task with a maintenance window using the AWS CLI\. Note that the `--targets` value indicates a maintenance window target ID\. Also, even though the `--targets` parameter specifies a window target ID, parameters of the Automation runbook require that an instance ID be provided\. In this case, the command uses the pseudo parameter `{{RESOURCE_ID}}` as the `InstanceId` value\.
 
   **AWS CLI command:**
 
@@ -78,6 +78,6 @@ You can wait for the next scheduled maintenance window time to run tasks on the 
 
 **Problem:** When you register a Run Command\-type task, you must specify at least one target for the task to run on\. For other task types \(Automation, AWS Lambda, and AWS Step Functions\), depending on the nature of the task, targets are optional\. The options `MaxConcurrency` \(the number of resources to run a task on at the same time\) and `MaxErrors` \(the number of failures to run the task on target resources before the task fails\) are not required or supported for maintenance window tasks that do not specify targets\. The system generates these error messages if values are specified for either of these options when no task target is specified\.
 
-**Solution**: If you receive either of these errors, remove the values for concurrency and error threshhold before continuing to register or update the maintenance window task\.
+**Solution**: If you receive either of these errors, remove the values for concurrency and error threshold before continuing to register or update the maintenance window task\.
 
 For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md) in the *AWS Systems Manager User Guide*\.

@@ -1,9 +1,9 @@
 # Working with custom inventory<a name="sysman-inventory-custom"></a>
 
-You can assign any metadata you want to your instances by creating AWS Systems Manager Inventory *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata\. You can then port all inventory metadata to a central Amazon S3 bucket by using [Resource Data Sync](sysman-inventory-resource-data-sync.html) and query the data\.
+You can assign any metadata you want to your instances by creating AWS Systems Manager Inventory *custom inventory*\. For example, let's say you manage a large number of servers in racks in your data center, and these servers have been configured as Systems Manager managed instances\. Currently, you store information about server rack location in a spreadsheet\. With custom inventory, you can specify the rack location of each instance as metadata on the instance\. When you collect inventory by using Systems Manager, the metadata is collected with other inventory metadata\. You can then port all inventory metadata to a central Amazon S3 bucket by using [resource data sync](sysman-inventory-resource-data-sync.html) and query the data\.
 
 **Note**  
-Systems Manager supports a maximum of 20 custom inventory types per AWS account\.
+Systems Manager supports a maximum of 20 custom inventory types per Amazon Web Services account\.
 
 To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
 
@@ -576,7 +576,7 @@ Use the following procedure to create an EventBridge rule for custom inventory d
 
 1. Verify that **Any detail type** is selected\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own Amazon Web Services account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Target**, choose **SNS topic**, and then choose your topic from the **Topic** list\.
 

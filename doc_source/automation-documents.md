@@ -13,7 +13,7 @@ Action types supported for runbooks let you automate a wide variety of operation
 
 For a list of all 20 supported action types for Automation, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-AWS Systems Manager Automation provides several runbooks with pre\-defined steps that you can use to perform common tasks like restarting one or more EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own runbooks and share them with other AWS accounts, or make them public for all Automation users\.
+AWS Systems Manager Automation provides several runbooks with pre\-defined steps that you can use to perform common tasks like restarting one or more EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own runbooks and share them with other Amazon Web Services accounts, or make them public for all Automation users\.
 
 Runbooks are written using JavaScript Object Notation \(JSON\) or YAML\. Using the **Document Builder** in the Systems Manager Automation console, however, you can create a runbook without having to author in native JSON or YAML\.
 

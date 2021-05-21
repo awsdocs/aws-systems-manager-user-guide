@@ -17,7 +17,7 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  AWS CodePipeline <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre>  |   | 
 |  DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre>  | 
 |  Amazon DynamoDB table  |  <pre>arn:aws:dynamodb:region:account-id:table/tablename</pre>  | 
-|  Amazon EC2 customer gateway  |  <pre>arn:aws:ec2:region:account-id:customer-gateway/cgw-id</pre>  | 
+|  Amazon Elastic Compute Cloud \(Amazon EC2\) customer gateway  |  <pre>arn:aws:ec2:region:account-id:customer-gateway/cgw-id</pre>  | 
 |  Amazon EC2 elastic IP  |  <pre>arn:aws:ec2:region:account-id:eip/eipalloc-id</pre>  | 
 |  Amazon EC2 Dedicated Host  |  <pre>arn:aws:ec2:region:account-id:dedicated-host/host-id</pre>  | 
 |  Amazon EC2 instance  |  <pre>arn:aws:ec2:region:account-id:instance/instance-id</pre>  | 

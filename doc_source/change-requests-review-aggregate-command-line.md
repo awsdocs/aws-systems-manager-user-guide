@@ -1,9 +1,9 @@
 # Viewing aggregated counts of change requests \(command line\)<a name="change-requests-review-aggregate-command-line"></a>
 
-You can view aggregated counts of change requests in Change Manager, a capability of AWS Systems Manager, by using the [GetOpsSummary](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetOpsSummary.html) API action\. This API action can return counts for a single AWS account in a single AWS Region or for multiple accounts and multiple Regions\.
+You can view aggregated counts of change requests in Change Manager, a capability of AWS Systems Manager, by using the [GetOpsSummary](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetOpsSummary.html) API action\. This API action can return counts for a single Amazon Web Services account in a single AWS Region or for multiple accounts and multiple Regions\.
 
 **Note**  
-If you want to view aggregated counts of change requests for multiple AWS accounts and multiple Regions, you must set up and configure a resource data sync\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
+If you want to view aggregated counts of change requests for multiple Amazon Web Services accounts and multiple AWS Regions, you must set up and configure a resource data sync\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
 The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux, macOS, or Windows\) to view aggregated counts of change requests\. 
 
@@ -17,7 +17,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Single account and Region**
 
-   This command returns a count of all change requests for the AWS account and Region for which your AWS CLI session is currently configured\.
+   This command returns a count of all change requests for the Amazon Web Services account and AWS Region for which your AWS CLI session is currently configured\.
 
 ------
 #### [ Linux & macOS ]
@@ -62,7 +62,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Multiple accounts and/or Regions**
 
-   This command returns a count of all change requests for the AWS accounts and Regions specified in the resource data sync\.
+   This command returns a count of all change requests for the Amazon Web Services accounts and AWS Regions specified in the resource data sync\.
 
 ------
 #### [ Linux & macOS ]
@@ -113,7 +113,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Multiple accounts and a specific Region**
 
-   This command returns a count of all change requests for the AWS accounts specified in the resource data sync\. However, it only returns data from the Region specified in the command\.
+   This command returns a count of all change requests for the Amazon Web Services accounts specified in the resource data sync\. However, it only returns data from the Region specified in the command\.
 
 ------
 #### [ Linux & macOS ]
@@ -139,7 +139,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Multiple accounts and Regions with output grouped by Region**
 
-   This command returns a count of all change requests for the AWS accounts and Regions specified in the resource data sync\. The output displays count information per Region\.
+   This command returns a count of all change requests for the Amazon Web Services accounts and AWS Regions specified in the resource data sync\. The output displays count information per Region\.
 
 ------
 #### [ Linux & macOS ]
@@ -202,7 +202,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Multiple accounts and Regions with output grouped by accounts and Regions**
 
-   This command returns a count of all change requests for the AWS accounts and Regions specified in the resource data sync\. The output groups the count information by accounts and Regions\.
+   This command returns a count of all change requests for the Amazon Web Services accounts and AWS Regions specified in the resource data sync\. The output groups the count information by accounts and Regions\.
 
 ------
 #### [ Linux & macOS ]

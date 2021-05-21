@@ -36,7 +36,7 @@ You can't edit the **Source** field after you create the OpsItem\.
 
 1. For **Deduplication string**, enter words the system should use to check for duplicate OpsItems\. For more information about deduplication strings, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
 
-1. \(Optional\) For **Notifications**, specify the SNS topic ARN where you want notifications sent when this OpsItem is updated\. You must specify an Amazon SNS ARN that is in the same AWS Region as the OpsItem\.
+1. \(Optional\) For **Notifications**, specify the Amazon SNS topic ARN where you want notifications sent when this OpsItem is updated\. You must specify an Amazon SNS ARN that is in the same AWS Region as the OpsItem\.
 
 1. \(Optional\) Under **Related resources**, choose **Add** to specify the ID or an Amazon Resource Name \(ARN\) of the impacted resource and any related resources\.
 
@@ -66,7 +66,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"/aws/resources":{"Value":"[{\"arn\": \"arn:aws:dynamodb:us-west-2:12345678:table/OpsItems\"}]","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
    ```
 
-   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS\-ASGEnterStandby document as an associated automation runbook\.
+   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the `AWS-ASGEnterStandby` document as an associated Automation runbook\.
 
    ```
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"/aws/automations":{"Value":"[{\"automationId\": \"AWS-ASGEnterStandby\", \"automationType\": \"AWS::SSM::Automation\"}]","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
@@ -84,7 +84,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/resources\":{\"Value\":\"[{\\"""arn\\""":\\"""arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\\"""}]\",\"Type\":\"SearchableString\"}}
    ```
 
-   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS\-RestartEC2Instance document as an associated automation runbook\.
+   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS`-RestartEC2Instance` document as an associated Automation runbook\.
 
    ```
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/automations\":{\"Value\":\"[{\\"""automationId\\""":\\"""AWS-RestartEC2Instance\\”"",\\"""automationType\\""":\\"""AWS::SSM::Automation\\"""}]\",\"Type\":\"SearchableString\"}}

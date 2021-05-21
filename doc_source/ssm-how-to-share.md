@@ -1,6 +1,6 @@
 # Share an SSM document<a name="ssm-how-to-share"></a>
 
-You can share SSM documents by using the AWS Systems Manager console\. You can also share SSM documents programmatically by calling the `ModifyDocumentPermission` API action using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the AWS account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
+You can share SSM documents by using the AWS Systems Manager console\. You can also share SSM documents programmatically by calling the `ModifyDocumentPermission` API action using the AWS CLI, AWS Tools for Windows PowerShell, or the AWS SDK\. Before you share a document, get the Amazon Web Services account IDs of the people with whom you want to share\. You will specify these account IDs when you share the document\.
 
 ## Share a document \(console\)<a name="share-using-console"></a>
 
@@ -18,7 +18,7 @@ You can share SSM documents by using the AWS Systems Manager console\. You can a
 
 1. Choose **Edit**\.
 
-1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the AWS account ID, choose **Add permission**, and then choose **Save**\. 
+1. To share the command publicly, choose **Public** and then choose **Save**\. To share the command privately, choose **Private**, enter the Amazon Web Services account ID, choose **Add permission**, and then choose **Save**\. 
 
 ## Share a document \(command line\)<a name="share-using-cli"></a>
 
@@ -174,7 +174,7 @@ The following procedure requires that you specify an AWS Region for your command
 
 ------
 
-1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. This command privately shares the document with a specific individual, based on that person's AWS account ID\.
+1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. This command privately shares the document with a specific individual, based on that person's Amazon Web Services account ID\.
 
 ------
 #### [ Linux & macOS ]
@@ -183,7 +183,7 @@ The following procedure requires that you specify an AWS Region for your command
    aws ssm modify-document-permission \
        --name document name \
        --permission-type Share \
-       --account-ids-to-add AWS account ID
+       --account-ids-to-add Amazon Web Services account ID
    ```
 
 ------
@@ -193,7 +193,7 @@ The following procedure requires that you specify an AWS Region for your command
    aws ssm modify-document-permission ^
        --name document name ^
        --permission-type Share ^
-       --account-ids-to-add AWS account ID
+       --account-ids-to-add Amazon Web Services account ID
    ```
 
 ------
@@ -203,7 +203,7 @@ The following procedure requires that you specify an AWS Region for your command
    Edit-SSMDocumentPermission `
        –Name document name `
        -PermissionType Share `
-       -AccountIdsToAdd AWS account ID
+       -AccountIdsToAdd Amazon Web Services account ID
    ```
 
 ------

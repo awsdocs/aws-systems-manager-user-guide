@@ -8,7 +8,7 @@ Monitoring is an important part of maintaining the reliability, availability, an
 + Who will perform the monitoring tasks?
 + Who should be notified when something goes wrong?
 
-After you have defined your monitoring goals and have created your monitoring plan, the next step is to establish a baseline for normal Systems Manager performance in your environment\. You should measure Systems Manager performance at various times and under different load conditions\. As you monitor Systems Manager, you should store a history of monitoring data that you've collected\. You can compare current Systems Manager performance to this historical data to help you to identify normal performance patterns and performance anomalies, and devise methods to address them\.
+After you have defined your monitoring goals and have created your monitoring plan, the next step is to establish a baseline for normal Systems Manager performance in your environment\. You should measure Systems Manager performance at various times and under different load conditions\. As you monitor Systems Manager, you should store a history of monitoring data that you've collected\. You can compare current Systems Manager performance to this historical data to help you to identify normal performance patterns and performance anomalies, and create methods to address them\.
 
 For example, you can monitor the success or failure of operations such as Automation workflows, the application of patch baselines, maintenance window events, and configuration compliance\.
 

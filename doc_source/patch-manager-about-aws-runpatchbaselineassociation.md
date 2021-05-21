@@ -1,4 +1,4 @@
-# About the AWS\-RunPatchBaselineAssociation SSM document<a name="patch-manager-about-aws-runpatchbaselineassociation"></a>
+# About the `AWS-RunPatchBaselineAssociation` SSM document<a name="patch-manager-about-aws-runpatchbaselineassociation"></a>
 
 Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
 
@@ -8,7 +8,12 @@ Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` perf
 This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
 
 `AWS-RunPatchBaselineAssociation`, however, differs from `AWS-RunPatchBaseline` in the following ways: 
++ `AWS-RunPatchBaselineAssociation` is intended for use primarily with associations created using [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager\. \(When using the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.\)
+
+  In most cases, however, when setting up your own patching operations, you should choose [`AWS-RunPatchBaseline`](patch-manager-about-aws-runpatchbaseline.md) or [`AWS-RunPatchBaselineWithHooks`](patch-manager-about-aws-runpatchbaselinewithhooks.md) instead of `AWS-RunPatchBaselineAssociation`\.
 + When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your account shares these tags, Patch Manager, a capability of AWS Systems Manager, uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
+**Important**  
+If you choose to use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use its optional `BaselineTags` parameter, you must provide some additional permissions to the [instance profile](setup-instance-profile.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Parameter name: `BaselineTags`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-baselinetags)\.
 
   Both of the following formats are valid for your `BaselineTags` parameter:
 
@@ -69,7 +74,7 @@ If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselin
 
 For information about viewing patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
 
-## AWS\-RunPatchBaselineAssociation Parameters<a name="patch-manager-about-aws-runpatchbaselineassociation-parameters"></a>
+## `AWS-RunPatchBaselineAssociation` parameters<a name="patch-manager-about-aws-runpatchbaselineassociation-parameters"></a>
 
 `AWS-RunPatchBaselineAssociation` supports four parameters\. The `Operation` and `AssociationId` parameters are required\. The `InstallOverrideList`, `RebootOption`, and `BaselineTags` parameters are optional\. 
 
@@ -105,8 +110,32 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 The `BaselineTags` value is used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. When the patching operation runs, Patch Manager checks to see if a patch baseline for the operating system type is tagged with the same key\-value pair you specify for `BaselineTags`\. If there is a match, this custom patch baseline is used\. If there is not a match, a patch baseline is identified according to any patch group specified for the patching operating\. If there is none, the AWS managed predefined patch baseline for that operating system is used\. 
 
+**Additional permission requirements**  
+If you use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use the optional `BaselineTags` parameter, you must add the following permissions to the [instance profile](setup-instance-profile.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.
+
 **Note**  
-You do not need to tag your instances with this key\-value pair\.
+Quick Setup and `AWS-RunPatchBaselineAssociation` do not support on\-premises servers and virtual machines \(VMs\)\.
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "ssm:DescribePatchBaselines",
+        "tag:GetResources"
+    ],
+    "Resource": "*"
+},
+{
+    "Effect": "Allow",
+    "Action": [
+        "ssm:GetPatchBaseline",
+        "ssm:DescribeEffectivePatchesForPatchBaseline"
+    ],
+    "Resource": "patch-baseline-arn"
+}
+```
+
+Replace *patch\-baseline\-arn* with the Amazon Resource Name \(ARN\) of the patch baseline to which you want to provide access, in the format `arn:aws:ssm:us-east-2:123456789012:patchbaseline/pb-0c10e65780EXAMPLE`\.
 
 ### Parameter name: `AssociationId`<a name="patch-manager-about-aws-runpatchbaselineassociation-parameters-association-id"></a>
 
@@ -153,6 +182,9 @@ aws ssm create-association ^
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 
 **Valid URL formats**
+
+**Note**  
+If your file is stored in a publicly available bucket, you can specify either an https URL format or an Amazon S3 path\-style URL\. If your file is stored in a private bucket, you must specify an Amazon S3 path\-style URL\.
 + **https URL format**:
 
   ```

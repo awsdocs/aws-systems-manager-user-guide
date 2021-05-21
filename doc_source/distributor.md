@@ -1,6 +1,6 @@
 # AWS Systems Manager Distributor<a name="distributor"></a>
 
-AWS Systems Manager Distributor lets you package your own software—and find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**, or third\-party packages such as **Trend Micro**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\. Publishing a package advertises specific versions of the package's document—a Systems Manager [document](sysman-ssm-docs.md) that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, AWS account IDs, tags, or an AWS Region\.
+AWS Systems Manager Distributor lets you package your own software—and find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**, or third\-party packages such as **Trend Micro**—to install on AWS Systems Manager managed instances\. Distributor publishes resources, such as software packages, to AWS Systems Manager managed instances\. Publishing a package advertises specific versions of the package's document—a Systems Manager [document](sysman-ssm-docs.md) that you create when you add the package in Distributor—to managed instances that you identify by managed instance IDs, Amazon Web Services account IDs, tags, or an AWS Region\.
 
 After you create a package in Distributor, which creates an AWS Systems Manager document, you can install the package in one of the following ways:
 + One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)
@@ -17,7 +17,7 @@ Distributor offers these benefits:
   One document can have attached \.zip files that are installed on different operating systems \(such as Windows, Ubuntu Server, Debian Server, or Red Hat Enterprise Linux\)\. For more information about supported platforms, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
 +  **Control package access across groups of managed instances** 
 
-  You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, AWS account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
+  You can use Run Command or State Manager to control which of your managed instances get a package and which version of that package\. Managed instances can be grouped by instance IDs, Amazon Web Services account numbers, tags, or AWS Regions\. You can use State Manager associations to deliver different versions of a package to different groups of instances\.
 +  **Many AWS agent packages included and ready to use** 
 
   Distributor includes many AWS agent packages that are ready for you to deploy to managed instances\. Look for packages in the Distributor **Packages** list page that are published by **Amazon**\. Examples include **AmazonCloudWatchAgent** and **AWSPVDriver**\.
@@ -50,7 +50,7 @@ Distributor is not currently supported on the macOS operating system\.
   By using IAM policies, you can control which members of your organization can create, update, deploy, or delete packages or package versions\. For example, you might want to give an administrator permissions to deploy packages, but not to change packages or create new package versions\.
 +  **Logging and auditing capability support** 
 
-  You can audit and log Distributor user actions in your AWS account through integration with other AWS services\. For more information, see [Auditing and logging Distributor activity](distributor-logging-auditing.md)\.
+  You can audit and log Distributor user actions in your Amazon Web Services account through integration with other AWS services\. For more information, see [Auditing and logging Distributor activity](distributor-logging-auditing.md)\.
 
 ## What is a package?<a name="what-is-a-package"></a>
 

@@ -1,4 +1,4 @@
-# Walkthrough: Use Resource Data Sync to aggregate inventory data<a name="sysman-inventory-resource-data-sync"></a>
+# Walkthrough: Use resource data sync to aggregate inventory data<a name="sysman-inventory-resource-data-sync"></a>
 
 The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface \(AWS CLI\)\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
@@ -30,7 +30,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 }
 ```
 
-**To create a Resource Data Sync for Inventory**
+**To create a resource data sync for Inventory**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid Amazon Web Services account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {
@@ -253,7 +253,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system partitions the table\.
 **Note**  
-If you create resource data syncs from additional AWS Regions or accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
+If you create resource data syncs from additional AWS Regions or Amazon Web Services accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
 
 1. To preview your data, choose the view icon next to the AWS\_Application table\.  
 ![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)

@@ -2,7 +2,7 @@
 
 You can use the AWS Systems Manager console to generate patch compliance reports that are saved as a \.csv file to an Amazon Simple Storage Service \(Amazon S3\) bucket of your choice\. You can generate a single on\-demand report or specify a schedule for generating the reports automatically\. 
 
-Reports can be generated for a single instance or for all instances in your AWS account\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
+Reports can be generated for a single instance or for all instances in your Amazon Web Services account\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
 
 **Note**  
 After a report is generated, you can use a tool like Amazon QuickSight to import and analyze the data\. Amazon QuickSight is a business intelligence \(BI\) service you can use to explore and interpret information in an interactive visual environment\. For more information, see the *[Amazon QuickSight User Guide](https://docs.aws.amazon.com/quicksight/latest/user/)*\.
@@ -218,10 +218,10 @@ Use the information in this topic to help you view details about the patch compl
 Use the following information to help you troubleshoot problems with generating patch compliance report generation in Patch Manager, a capability of AWS Systems Manager\.
 
 **Topics**
-+ [A message reports that the AWS\-SystemsManager\-PatchSummaryExportRolePolicy policy is corrupted](#patch-compliance-reports-troubleshooting-1)
++ [A message reports that the `AWS-SystemsManager-PatchSummaryExportRolePolicy` policy is corrupted](#patch-compliance-reports-troubleshooting-1)
 + [After deleting patch compliance policies or roles, scheduled reports are not generated successfully](#patch-compliance-reports-troubleshooting-2)
 
-### A message reports that the AWS\-SystemsManager\-PatchSummaryExportRolePolicy policy is corrupted<a name="patch-compliance-reports-troubleshooting-1"></a>
+### A message reports that the `AWS-SystemsManager-PatchSummaryExportRolePolicy` policy is corrupted<a name="patch-compliance-reports-troubleshooting-1"></a>
 
 **Problem**: You receive an error message similar to the following, indicating the `AWS-SystemsManager-PatchSummaryExportRolePolicy` is corrupted:
 
@@ -237,7 +237,7 @@ you have deleted.
 
   1. Do one of the following:
 
-     **On\-demand reports** – If the problem occurred while generating a one\-time on\-demand report, in the left navigation, choose **Policies**, search for **AWS\-SystemsManager\-PatchSummaryExportRolePolicy**, then delete the policy\. Next, choose **Roles**, search for **AWS\-SystemsManager\-PatchSummaryExportRole**, then delete the role\.
+     **On\-demand reports** – If the problem occurred while generating a one\-time on\-demand report, in the left navigation, choose **Policies**, search for `AWS-SystemsManager-PatchSummaryExportRolePolicy`, then delete the policy\. Next, choose **Roles**, search for `AWS-SystemsManager-PatchSummaryExportRole`, then delete the role\.
 
      **Scheduled reports** – If the report occurred while generating a report on a schedule, in the left navigation, choose **Policies**, search one at a time for `AWS-EventBridge-Start-SSMAutomationRolePolicy` and `AWS-SystemsManager-PatchSummaryExportRolePolicy`, and delete each policy\. Next, choose **Roles**, search one at a time for `AWS-EventBridge-Start-SSMAutomationRole` and `AWS-SystemsManager-PatchSummaryExportRole`, and delete each role\.
 

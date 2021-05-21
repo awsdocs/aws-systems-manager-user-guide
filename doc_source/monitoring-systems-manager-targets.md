@@ -8,9 +8,9 @@ The following are just a few examples of ways you can use these capabilities as 
 
 **Automation examples**  
 You can configure an EventBridge rule to start Automation workflows when events such as the following occur:
-+ When an Amazon CloudWatch alarm reports that a managed instance has failed a status check \(`StatusCheckFailed_Instance=1`\), run the `AWSSupport-ExecuteEC2Rescue` Automation document on the instance\.
-+ When an `EC2 Instance State-change Notification` event occurs because a new Amazon Elastic Compute Cloud \(Amazon EC2\) instance is running, run the `AWS-AttachEBSVolume` Automation document on the instance\.
-+ When an Amazon Elastic Block Store \(Amazon EBS\) volume is created and available, run the `AWS-CreateSnapshot` Automation document on the volume\.
++ When an Amazon CloudWatch alarm reports that a managed instance has failed a status check \(`StatusCheckFailed_Instance=1`\), run the `AWSSupport-ExecuteEC2Rescue` Automation runbook on the instance\.
++ When an `EC2 Instance State-change Notification` event occurs because a new Amazon Elastic Compute Cloud \(Amazon EC2\) instance is running, run the `AWS-AttachEBSVolume` Automation runbook on the instance\.
++ When an Amazon Elastic Block Store \(Amazon EBS\) volume is created and available, run the `AWS-CreateSnapshot` Automation runbook on the volume\.
 
 **OpsCenter examples**  
 You can configure an EventBridge rule to create a new OpsItem when incidents such as the following occur:

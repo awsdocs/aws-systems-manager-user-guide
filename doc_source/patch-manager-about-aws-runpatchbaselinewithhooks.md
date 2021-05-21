@@ -1,4 +1,4 @@
-# About the AWS\-RunPatchBaselineWithHooks SSM document<a name="patch-manager-about-aws-runpatchbaselinewithhooks"></a>
+# About the `AWS-RunPatchBaselineWithHooks` SSM document<a name="patch-manager-about-aws-runpatchbaselinewithhooks"></a>
 
 AWS Systems Manager supports `AWS-RunPatchBaselineWithHooks`, a Systems Manager document \(SSM document\) for Patch Manager, a capability of AWS Systems Manager\. This SSM document performs patching operations on instances for both security related and other types of updates\. 
 
@@ -35,7 +35,7 @@ On Windows Server instances, the `AWS-RunPatchBaselineWithHooks` document downlo
 
 ------
 
-Each snapshot is specific to an AWS account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
+Each snapshot is specific to an Amazon Web Services account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. 
 
@@ -44,7 +44,7 @@ If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselin
 
 For information about viewing patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
-## AWS\-RunPatchBaselineWithHooks operational steps<a name="patch-manager-about-aws-runpatchbaselinewithhooks-steps"></a>
+## `AWS-RunPatchBaselineWithHooks` operational steps<a name="patch-manager-about-aws-runpatchbaselinewithhooks-steps"></a>
 
 When the `AWS-RunPatchBaselineWithHooks` runs, the following steps are performed:
 
@@ -86,7 +86,7 @@ For a `Scan` operation, if Step 1 fails, the process of running the document sto
 
  For an `Install` operation, if any of the `aws:runDocument` steps fail during the operation, those steps are reported as failed, and the operation proceeds directly to the final step \(Step 8\), which includes a hook you have provided\. Any steps in between are skipped\. This step is reported as failed, the last step reports the status of its operation result, and all steps in between are reported as successful\.
 
-## AWS\-RunPatchBaselineWithHooks parameters<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters"></a>
+## `AWS-RunPatchBaselineWithHooks` parameters<a name="patch-manager-about-aws-runpatchbaselinewithhooks-parameters"></a>
 
 `AWS-RunPatchBaselineWithHooks` supports six parameters\. 
 
@@ -124,7 +124,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 `Snapshot ID` is a unique ID \(GUID\) used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. Although the parameter is defined as optional, our best practice recommendation depends on whether or not you are running `AWS-RunPatchBaselineWithHooks` in a maintenance window, as described in the following table\.
 
 
-**AWS\-RunPatchBaselineWithHooks best practices**  
+**`AWS-RunPatchBaselineWithHooks` best practices**  
 
 | Mode | Best practice | Details | 
 | --- | --- | --- | 

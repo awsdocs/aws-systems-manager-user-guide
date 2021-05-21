@@ -29,7 +29,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Execution Mode** section, choose **Rate Control**\. You must use this mode or **Multi\-account and Region** if you want to use targets and rate controls\.
 
-1. In the **Targets** section, choose how you want to target the AWS Resources where you want to run the Automation\. These options are required\.
+1. In the **Targets** section, choose how you want to target the AWS resources where you want to run the Automation\. These options are required\.
 
    1. Use the **Parameter** list to choose a parameter\. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure\. By choosing a parameter you define the type of resource on which the Automation workflow runs\. 
 
@@ -41,11 +41,11 @@ You can view information about a runbook by choosing the runbook name\.
 
       1. If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
 
-      1. If you want to run an Automation playbook on all instances in the current AWS account and Region, then choose **All instances**\.
+      1. If you want to run an Automation runbook on all instances in the current Amazon Web Services account and AWS Region, then choose **All instances**\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
-You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources by using tags or a resource group\. For example, if you chose the AWS\-RestartEC2Instance runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags or Resource Group you specified\. 
+You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources by using tags or a resource group\. For example, if you chose the `AWS-RestartEC2Instance` runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags or resource group you specified\. 
 
 1. Use the options in the **Rate control** section to restrict the number of AWS resources that can run the Automation within each account\-Region pair\. 
 
@@ -269,7 +269,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   *Targeting all instances in the current AWS account and Region*
+   *Targeting all instances in the current Amazon Web Services account and AWS Region*
 
 ------
 #### [ Linux & macOS ]

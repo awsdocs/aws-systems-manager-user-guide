@@ -11,9 +11,9 @@ cron(30 23 ? * TUE#3 *)
 If the schedule offset is `2`, the maintenance window won't run until 11:30 PM two days later\.
 
 **Note**  
-If you create a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the maintenance window will not run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window will not run tomorrow\. 
+If you create a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the maintenance window won't run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window won't run tomorrow\. 
 
-When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), you must specify a schedule parameter with a valid cron or rate expression \(or timestamp for maintenance windows\) in the correct format\.
+When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), specify a schedule parameter with a valid cron or rate expression \(or timestamp for maintenance windows\) in the correct format\.
 
 When you use the AWS Systems Manager console to create a maintenance window or association, you can specify a schedule using a valid cron or rate expression\. You can also use tools in the user interface that simplify the process of creating your schedule\. 
 
@@ -91,7 +91,7 @@ aws ssm create-association \
 ```
 
 **Note**  
-By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified\. Specify `--apply-only-at-cron-interval` so that the association doesn't run immediately after you create it\. This parameter is not supported for rate expressions\.
+By default, when you create a new association, the system runs it immediately after it's created and then according to the schedule you specified\. Specify `--apply-only-at-cron-interval` so that the association doesn't run immediately after you create it\. This parameter isn't supported for rate expressions\.
 
 **Topics**
 + [General information about cron and rate expressions](#reference-cron-and-rate-expressions-intro)
@@ -119,7 +119,7 @@ Cron expressions for Systems Manager have six required fields\. A seventh field,
 The following table shows supported values for required cron entries\.
 
 **Note**  
-Cron expressions for associations do not support all these values\. For information, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association)\.
+Cron expressions for associations don't support all these values\. For information, see [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association)\.
 
 
 **Supported values for cron expressions**  
@@ -134,7 +134,7 @@ Cron expressions for associations do not support all these values\. For informat
 | Year | 1970\-2199 | , \- \* / | 
 
 **Note**  
-You cannot specify a value in the Day\-of\-month and in the Day\-of\-week fields in the same cron expression\. If you specify a value in one of the fields, you must use a ? \(question mark\) in the other field\.
+You can't specify a value in the Day\-of\-month and in the Day\-of\-week fields in the same cron expression\. If you specify a value in one of the fields, use a ? \(question mark\) in the other field\.
 
 **Wildcards**  
 The following table shows the wildcard values that cron expressions support\.
@@ -153,7 +153,7 @@ The following table shows the wildcard values that cron expressions support\.
 | W | The W wildcard in the Day\-of\-month field specifies a weekday\. In the Day\-of\-month field, 3W specifies the day closest to the third weekday of the month\. | 
 
 **Note**  
-Cron expressions that lead to rates faster than five \(5\) minute are not supported\. Support for specifying both a day\-of\-week and a day\-of\-month value is not complete\. You must currently use the question mark \(?\) character in one of these fields\. 
+Cron expressions that lead to rates faster than five \(5\) minute aren't supported\. Support for specifying both a day\-of\-week and a day\-of\-month value isn't complete\. You must use the question mark \(?\) character in one of these fields\. 
 
 For more information about cron expressions, see [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) at the *Wikipedia website*\.
 
@@ -168,14 +168,14 @@ Rate expressions have the following two required fields\. Fields are separated b
 |  Value  |  positive number, such as `1` or `15`  | 
 |  Unit  |  `minute` `minutes` `hour` `hours` `day` `days`  | 
 
-If the value is equal to `1`, then the unit must be singular\. Similarly, for values greater than `1`, the unit must be plural\. For example, `rate(1 hours)` and `rate(5 hour)` are not valid, but `rate(1 hour)` and `rate(5 hours)` are valid\.
+If the value is equal to `1`, then the unit must be singular\. Similarly, for values greater than `1`, the unit must be plural\. For example, `rate(1 hours)` and `rate(5 hour)` aren't valid, but `rate(1 hour)` and `rate(5 hours)` are valid\.
 
 ## Cron and rate expressions for associations<a name="reference-cron-and-rate-expressions-association"></a>
 
 This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following restrictions:
-+ Associations only support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day or every week at a specific time\.
-+ Associations only support the following rate expressions: intervals of 30 minutes or greater and less than 31 days\.
-+ If you specify the optional `Seconds` field, its value can only be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`
++ Associations support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day or every week at a specific time\.
++ Associations support the following rate expressions: intervals of 30 minutes or greater and less than 31 days\.
++ If you specify the optional `Seconds` field, its value can be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`
 
 **Note**  
 For an association that collects metadata for Systems Manager Inventory, we recommend using a rate expression\.
@@ -212,7 +212,7 @@ Here are some rate examples for associations\.
 
 This section includes examples of cron and rate expressions for maintenance windows\.
 
-Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Note: Zero \(0\) is not supported in the seconds field\.\)
+Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Note: Zero \(0\) isn't supported in the seconds field\.\)
 
 For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day:
 

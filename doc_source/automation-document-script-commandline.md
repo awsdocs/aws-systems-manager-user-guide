@@ -105,7 +105,7 @@ New-SSMDocument `
 
 ------
 
-**Attach files from another runbook in your AWS account**  
+**Attach files from another runbook in your Amazon Web Services account**  
 Run the following command to create a runbook using a script that is already attached to another runbook in your account\.
 
 The format of the key value in this command is *runbook\-name/runbook\-version\-number/file\-name*\. For example:
@@ -155,8 +155,8 @@ New-SSMDocument `
 
 ------
 
-**Attach files from an runbook in another AWS account**  
-Run the following command to create a runbook using a script that is already attached to a runbook that has been shared with you from another AWS account\.
+**Attach files from an runbook in another Amazon Web Services account**  
+Run the following command to create a runbook using a script that is already attached to a runbook that has been shared with you from another Amazon Web Services account\.
 
 The format of the key value in this command is *runbook\-arn/runbook\-version\-number/file\-name*\. For example:
 

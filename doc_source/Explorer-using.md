@@ -6,5 +6,5 @@ This section includes information about how to customize AWS Systems Manager Exp
 + [Editing default rules for OpsItems](Explorer-using-editing-default-rules.md)
 + [Editing Systems Manager Explorer data sources](Explorer-using-editing-data-sources.md)
 + [Customizing the display and using filters](Explorer-using-filters.md)
-+ [Deleting a Systems Manager Explorer Resource Data Sync](Explorer-using-resource-data-sync-delete.md)
++ [Deleting a Systems Manager Explorer resource data sync](Explorer-using-resource-data-sync-delete.md)
 + [Receiving findings from AWS Security Hub in Explorer](explorer-securityhub-integration.md)

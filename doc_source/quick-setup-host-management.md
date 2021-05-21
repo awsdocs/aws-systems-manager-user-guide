@@ -205,6 +205,9 @@ A *global* Inventory configuration is created from the one\-click configuration 
 
 If you enable this option in Quick Setup, then Systems Manager uses Patch Manager to scan your instances each day and generate a simple report in the **Compliance** page\. The report shows how many instances are patch\-compliant according to the *default patch baseline*\. The report includes a list of each instance and its compliance status\. You can navigate this list to see details about noncompliant instances\. For more information about patching operations and patch baselines, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\. To view compliance information, see the Systems Manager [Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
+**Note**  
+When the system runs the `Scan` operation, it uses the Systems Manager document \(SSM document\) `AWS-RunPatchBaselineAssociation`\. For more information, see [About the `AWS-RunPatchBaselineAssociation` SSM document ](patch-manager-about-aws-runpatchbaselineassociation.md)\.
+
 ## Install and configure the CloudWatch agent<a name="quick-setup-cloudwatch"></a>
 
 Amazon CloudWatch provides data and actionable insights to monitor your applications, understand and respond to system\-wide performance changes, optimize resource utilization, and get a unified view of operational health\. The CloudWatch agent collects metrics and log files from your instances and consolidates this information so that you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.

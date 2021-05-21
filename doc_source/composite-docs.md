@@ -1,6 +1,6 @@
 # Creating composite documents<a name="composite-docs"></a>
 
-A *composite* SSM document is a custom document that performs a series of actions by running one or more secondary SSM documents\. Composite documents promote *infrastructure as code* by enabling you to create a standard set of SSM documents for common tasks such as boot\-strapping software or domain\-joining instances\. You can then share these documents across AWS accounts in the same AWS Region to reduce SSM document maintenance and ensure consistency\.
+A *composite* SSM document is a custom document that performs a series of actions by running one or more secondary SSM documents\. Composite documents promote *infrastructure as code* by enabling you to create a standard set of SSM documents for common tasks such as boot\-strapping software or domain\-joining instances\. You can then share these documents across Amazon Web Services accounts in the same AWS Region to reduce SSM document maintenance and ensure consistency\.
 
 For example, you can create a composite document that performs the following actions:
 

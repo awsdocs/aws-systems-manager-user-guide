@@ -12,7 +12,7 @@ To create your own SSM document content, it's important to understand the differ
 +  [Systems Manager Automation actions reference](automation-actions.md) 
 +  [Automation system variables](automation-variables.md) 
 +  [Sample scenarios and custom runbook solutions](automation-document-samples.md) 
-+  [Working with Systems Manager Automation documents](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) using the AWS Toolkit for Visual Studio Code 
++  [Working with Systems Manager Automation runbooks](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) using the AWS Toolkit for Visual Studio Code 
 +  [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) 
 +  [Creating runbooks that run scripts](automation-document-script.md) 
 

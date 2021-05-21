@@ -1,6 +1,6 @@
 # Searching for Systems Manager parameters<a name="parameter-search"></a>
 
-When you have a large number of parameters in your account, it can be difficult to find information about just one or a few parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
+When you have a lot of parameters in your account, it can be difficult to find information about a single or several parameters at a time\. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify\. You can use the AWS Systems Manager console, the AWS Command Line Interface \(AWS CLI\), the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters\.
 
 **Topics**
 + [Search for a parameter \(console\)](#parameter-search-console)
@@ -32,7 +32,7 @@ The list of parameters is updated with the results of your search\.
 
 Use the `describe-parameters` command to view information about one or more parameters in the AWS CLI\. 
 
-The following examples demonstrate various options you can use to view information about the parameters in your AWS account\. For more information about these options, see [describe\-parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-parameters.html) in the *AWS Command Line Interface User Guide*\.
+The following examples demonstrate various options you can use to view information about the parameters in your Amazon Web Services account\. For more information about these options, see [describe\-parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-parameters.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 

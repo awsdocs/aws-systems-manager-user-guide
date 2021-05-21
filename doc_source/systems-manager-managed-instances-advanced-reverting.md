@@ -1,6 +1,6 @@
 # Reverting from the advanced\-instances tier to the standard\-instances tier<a name="systems-manager-managed-instances-advanced-reverting"></a>
 
-This section describes how to change hybrid instances currently running in the advanced\-instances tier back to the standard\-instances tier\. This configuration applies to all hybrid instances in an AWS account and a single AWS Region\.
+This section describes how to change hybrid instances currently running in the advanced\-instances tier back to the standard\-instances tier\. This configuration applies to all hybrid instances in an Amazon Web Services account and a single AWS Region\.
 
 **Before you begin**  
 Review the following important details\.
@@ -11,11 +11,11 @@ After you revert, you won't be able to use Session Manager, a capability of AWS 
 After you revert, you won't be able to use Patch Manager, a capability of AWS Systems Manager, to patch Microsoft applications on hybrid servers and virtual machines \(VMs\)\.
 The process of reverting all hybrid instances back to the standard\-instance tier can take 30 minutes or more to complete\.
 
-This section describes how to revert all hybrid instances in an AWS account and Region from the advanced\-instances tier to the standard\-instances tier\.
+This section describes how to revert all hybrid instances in an Amazon Web Services account and AWS Region from the advanced\-instances tier to the standard\-instances tier\.
 
 ## Reverting to the standard\-instances tier \(console\)<a name="systems-manager-managed-instances-advanced-reverting-console"></a>
 
-The following procedure shows you how to use the Systems Manager console to change all on\-premises servers and virtual machines \(VMs\) in your hybrid environment to use the standard\-instances tier in the specified AWS account and Region\.
+The following procedure shows you how to use the Systems Manager console to change all on\-premises servers and virtual machines \(VMs\) in your hybrid environment to use the standard\-instances tier in the specified Amazon Web Services account and AWS Region\.
 
 **To revert to the standard\-instances tier \(console\)**
 
@@ -35,7 +35,7 @@ The following procedure shows you how to use the Systems Manager console to chan
 
 ## Reverting to the standard\-instances tier \(AWS CLI\)<a name="systems-manager-managed-instances-advanced-reverting-cli"></a>
 
-The following procedure shows you how to use the AWS Command Line Interface to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified AWS account and Region\.
+The following procedure shows you how to use the AWS Command Line Interface to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified Amazon Web Services account and AWS Region\.
 
 **To revert to the standard\-instances tier using the AWS CLI**
 
@@ -63,7 +63,7 @@ The following procedure shows you how to use the AWS Command Line Interface to c
 
    There is no output if the command succeeds\.
 
-1. Run the following command 30 minutes later to view the settings for managed instances in the current AWS account and Region\.
+1. Run the following command 30 minutes later to view the settings for managed instances in the current Amazon Web Services account and AWS Region\.
 
 ------
 #### [ Linux & macOS ]
@@ -102,7 +102,7 @@ The following procedure shows you how to use the AWS Command Line Interface to c
 
 ## Reverting to the standard\-instances tier \(PowerShell\)<a name="systems-manager-managed-instances-advanced-reverting-ps"></a>
 
-The following procedure shows you how to use AWS Tools for Windows PowerShell to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified AWS account and Region\.
+The following procedure shows you how to use AWS Tools for Windows PowerShell to change all on\-premises servers and VMs in your hybrid environment to use the standard\-instances tier in the specified Amazon Web Services account and AWS Region\.
 
 **To revert to the standard\-instances tier using PowerShell**
 
@@ -116,7 +116,7 @@ The following procedure shows you how to use AWS Tools for Windows PowerShell to
 
    There is no output if the command succeeds\.
 
-1. Run the following command 30 minutes later to view the settings for managed instances in the current AWS account and Region\.
+1. Run the following command 30 minutes later to view the settings for managed instances in the current Amazon Web Services account and AWS Region\.
 
    ```
    Get-SSMServiceSetting `

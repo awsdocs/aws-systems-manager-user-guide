@@ -7,7 +7,7 @@
 
 Using Amazon EventBridge \(EventBridge\), you can create *rules* that match incoming *events* and route them to *targets* for processing\. 
 
-An event indicates a change in an environment in your own applications, software\-as\-a\-service \(SaaS\) applications, or an AWS service\. Events are produced on a best effort basis\. After an event type that is specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
+An event indicates a change in an environment in your own applications, software\-as\-a\-service \(SaaS\) applications, or an AWS service\. Events are produced on a best effort basis\. After an event type that's specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
 
 For information about creating EventBridge rules, see the following topics:
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
@@ -35,7 +35,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
-| Calendar State Change | The state of a Change Calendar changes\. You can add one or both of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) State changes for calendars shared from other AWS accounts are not currently supported\.  | 
+| Calendar State Change | The state of a Change Calendar changes\. You can add one or both of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) State changes for calendars shared from other AWS accounts aren't supported\.  | 
 
 ## Event type: Configuration Compliance<a name="event-type-configuration-compliance"></a>
 
@@ -63,7 +63,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
 | EC2 State Manager Association State Change | The overall state of an Association changes as it's being applied\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
-| EC2 State Manager Instance Association State Change | The state of a single managed instance that is targeted by an Association changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| EC2 State Manager Instance Association State Change | The state of a single managed instance that's targeted by an Association changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 
 ## Event type: Maintenance Window<a name="event-type-maintenance-window"></a>
 
@@ -74,8 +74,8 @@ The remainder of this topic describes the types of Systems Manager events that y
 | --- | --- | 
 | Maintenance Window Status\-change Notification | The overall status of one or more maintenance windows changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | Maintenance Window Target Registration Notification | The status of one or more maintenance window targets changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
-| Maintenance Window Execution State\-change Notification | The overall status of a maintenance window changes while it is running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
-| Maintenance Window Task Execution State\-change Notification | The state of a task in a maintenance window changes while it is running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| Maintenance Window Execution State\-change Notification | The overall status of a maintenance window changes while it's running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| Maintenance Window Task Execution State\-change Notification | The state of a task in a maintenance window changes while it's running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | Maintenance Window Task Target Invocation State\-change Notification | The state of a maintenance window task on a specific target changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | Maintenance Window Task Registration Notification | The state of one or more maintenance window tasks changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 

@@ -16,7 +16,7 @@ For information about setting up and configuring the AWS Command Line Interface 
 
 ## Examples for 'describe\-maintenance\-windows'<a name="mw-cli-tutorials-describe-maintenance-windows"></a>
 
-**List all maintenance windows in your AWS account**  
+**List all maintenance windows in your Amazon Web Services account**  
 Run the following command\.
 
 ```
@@ -196,7 +196,7 @@ The system returns information like the following\.
 
 ## Examples for 'describe\-maintenance\-window\-tasks'<a name="mw-cli-tutorials-describe-maintenance-window-tasks"></a>
 
-**Show all registered tasks that invoke the AWS\-RunPowerShellScript SSM document**  
+**Show all registered tasks that invoke the `AWS-RunPowerShellScript` SSM document**  
 Run the following command\.
 
 ------

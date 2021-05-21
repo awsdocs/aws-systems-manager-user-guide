@@ -1,4 +1,4 @@
-# Using roles to collect AWS account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery<a name="using-service-linked-roles-service-action-2"></a>
+# Using roles to collect Amazon Web Services account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery<a name="using-service-linked-roles-service-action-2"></a>
 
 AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [ service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
@@ -10,7 +10,7 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for Systems Manager<a name="service-linked-role-permissions-service-action-2"></a>
 
-Systems Manager uses the service\-linked role named **AWSServiceRoleForAmazonSSM\_AccountDiscovery**\. AWS Systems Manager uses this IAM service role to call other AWS services to discover AWS account information\.
+Systems Manager uses the service\-linked role named **AWSServiceRoleForAmazonSSM\_AccountDiscovery**\. AWS Systems Manager uses this IAM service role to call other AWS services to discover Amazon Web Services account information\.
 
 The AWSServiceRoleForAmazonSSM\_AccountDiscovery service\-linked role trusts the following services to assume the role:
 + `accountdiscovery.ssm.amazonaws.com`
@@ -41,7 +41,7 @@ If you no longer need to use a feature or service that requires a service\-linke
 
 ### Cleaning up a service\-linked role<a name="service-linked-role-review-before-delete-service-action-2"></a>
 
-Before you can use IAM to delete a service\-linked role, you must first delete all Explorer resource data syncs\. For more information, see [Deleting a Systems Manager Explorer Resource Data Sync](Explorer-using-resource-data-sync-delete.md)\.
+Before you can use IAM to delete a service\-linked role, you must first delete all Explorer resource data syncs\. For more information, see [Deleting a Systems Manager Explorer resource data sync](Explorer-using-resource-data-sync-delete.md)\.
 
 **Note**  
 If the Systems Manager service is using the role when you try to delete the resources, then the deletion might fail\. If that happens, wait for a few minutes and try the operation again\.

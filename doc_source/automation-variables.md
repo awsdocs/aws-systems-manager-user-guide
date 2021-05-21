@@ -20,7 +20,7 @@ Automation runbooks currently support the following system variables\.
 
 | Variable | Details | 
 | --- | --- | 
-|  `global:ACCOUNT_ID`  |  The AWS account ID of the AWS Identity and Access Management \(IAM\) user or role in which Automation runs\.  | 
+|  `global:ACCOUNT_ID`  |  The Amazon Web Services account ID of the AWS Identity and Access Management \(IAM\) user or role in which Automation runs\.  | 
 |  `global:DATE`  |  The date \(at run time\) in the format yyyy\-MM\-dd\.  | 
 |  `global:DATE_TIME`  |  The date and time \(at run time\) in the format yyyy\-MM\-dd\_HH\.mm\.ss\.  | 
 |  `global:AWS_PARTITION`  |  The partition that the resource is in\. For standard AWS Regions, the partition is `aws`\. For resources in other partitions, the partition is `aws-partitionname`\. For example, the partition for resources in the AWS GovCloud \(US\-West\) Region is `aws-us-gov`\.  | 

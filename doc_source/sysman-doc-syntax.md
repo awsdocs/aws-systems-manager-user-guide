@@ -1,6 +1,6 @@
 # SSM document syntax<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for command documents\. Automation documents use schema version 0\.3\. Additionally, Automation documents support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
+The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for command documents\. Automation runbooks use schema version 0\.3\. Additionally, Automation runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
 The top\-level elements provide the structure of the SSM document\. The information in this topic pertains to `Command` and `Automation` SSM documents\.
 
@@ -115,8 +115,8 @@ Required: No
 
 **files**  
 \(Schema version 0\.3 only\) The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
-For script runtime support, Automation documents currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation documents, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
-When you create an Automation document, or playbook, you specify attachment files using the `--attachments` option \(for AWS CLI\) or `Attachments` \(for API and SDK\)\. You can specify the file location for both local files and files stored in Amazon S3 buckets\.  
+For script runtime support, Automation runbooks currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation runbooks, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
+When you create an Automation runbook you specify attachment files using the `--attachments` option \(for AWS CLI\) or `Attachments` \(for API and SDK\)\. You can specify the file location for both local files and files stored in Amazon S3 buckets\.  
 
 ```
 ---

@@ -1,9 +1,9 @@
 # Working with Compliance<a name="sysman-compliance-about"></a>
 
-AWS Systems Manager Compliance collects and reports data about the status of Systems Manager Patch Manager patching, Systems Manager State Manager associations, and custom compliance types\. This section includes details about each of these compliance types and how to view Systems Manager compliance data\. This section also includes information about how to view compliance history and change tracking\.
+Compliance, a capability of AWS Systems Manager, collects and reports data about the status of patching in Patch Manager patching and associations in State Manager\. \(Patch Manager and State Manager are also both capabilities of AWS Systems Manager\.\) Compliance also reports on custom compliance types you have specified for your instances\. This section includes details about each of these compliance types and how to view Systems Manager compliance data\. This section also includes information about how to view compliance history and change tracking\.
 
 **Note**  
-Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon S3\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
+Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source, runtime framework that enables you to create human\-readable profiles on GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md)\.
 
 ## About patch compliance<a name="sysman-compliance-monitor-patch"></a>
 
@@ -51,7 +51,7 @@ For an example of how to create a custom compliance type and view compliance dat
 
 ## Viewing current compliance data<a name="compliance-view-results"></a>
 
-This section describes how to view compliance data in the AWS Systems Manager console and by using the AWS CLI\. For information about how to view patch and association compliance history and change tracking, see [Viewing compliance configuration history and change tracking](#sysman-compliance-history)\.
+This section describes how to view compliance data in the Systems Manager console and by using the AWS CLI\. For information about how to view patch and association compliance history and change tracking, see [Viewing compliance configuration history and change tracking](#sysman-compliance-history)\.
 
 **Topics**
 + [Viewing current compliance data \(console\)](#compliance-view-results-console)
@@ -101,9 +101,9 @@ For an illustration of how to configure patching and view patch compliance detai
 
 ## Viewing compliance configuration history and change tracking<a name="sysman-compliance-history"></a>
 
-Systems Manager Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
-+ SSM:PatchCompliance
-+ SSM:AssociationCompliance
+Systems Manager Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your Amazon Web Services account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
++ `SSM:PatchCompliance`
++ `SSM:AssociationCompliance`
 
 For information about how to choose and configure these specific resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
 

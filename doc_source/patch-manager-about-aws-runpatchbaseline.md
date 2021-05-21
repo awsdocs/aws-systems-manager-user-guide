@@ -1,4 +1,4 @@
-# About the AWS\-RunPatchBaseline SSM document<a name="patch-manager-about-aws-runpatchbaseline"></a>
+# About the `AWS-RunPatchBaseline` SSM document<a name="patch-manager-about-aws-runpatchbaseline"></a>
 
 AWS Systems Manager supports `AWS-RunPatchBaseline`, a Systems Manager document \(SSM document\) for Patch Manager, a capability of AWS Systems Manager\. This SSM document performs patching operations on instances for both security related and other types of updates\. When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type if no patch group is specified\. Otherwise, it uses the patch baseline that is associated with the patch group\. For information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\. 
 
@@ -7,17 +7,17 @@ You can use the document `AWS-RunPatchBaseline` to apply patches for both operat
 This document supports Linux, macOS, and Windows Server instances\. The document will perform the appropriate actions for each platform\.
 
 **Note**  
-Patch Manager also supports the legacy SSM document **AWS\-ApplyPatchBaseline**\. However, this document supports patching on Windows instances only\. We encourage you to use **AWS\-RunPatchBaseline** instead because it supports patching on Linux, macOS, and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the **AWS\-RunPatchBaseline** document\.
+Patch Manager also supports the legacy SSM document `AWS-ApplyPatchBaseline`\. However, this document supports patching on Windows instances only\. We encourage you to use `AWS-RunPatchBaseline` instead because it supports patching on Linux, macOS, and Windows Server instances\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the `AWS-RunPatchBaseline` document\.
 
 ------
 #### [ Windows ]
 
-On Windows Server instances, the **AWS\-RunPatchBaseline** document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot contains a list of approved patches that is compiled by querying the patch baseline against a Windows Server Update Services \(WSUS\) server\. This list is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\. 
+On Windows Server instances, the `AWS-RunPatchBaseline` document downloads and invokes a PowerShell module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot contains a list of approved patches that is compiled by querying the patch baseline against a Windows Server Update Services \(WSUS\) server\. This list is passed to the Windows Update API, which controls downloading and installing the approved patches as appropriate\. 
 
 ------
 #### [ Linux ]
 
-On Linux instances, the **AWS\-RunPatchBaseline** document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
+On Linux instances, the `AWS-RunPatchBaseline` document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
 + Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or later\. 
 + RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires `Python 2` or `Python 3`\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
 + Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\. 
@@ -30,7 +30,7 @@ On macOS instances, the `AWS-RunPatchBaseline` document invokes a Python module,
 
 ------
 
-Each snapshot is specific to an AWS account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
+Each snapshot is specific to an Amazon Web Services account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. 
 
@@ -39,9 +39,9 @@ If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselin
 
 For information about viewing patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\. 
 
-## AWS\-RunPatchBaseline parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
+## `AWS-RunPatchBaseline` parameters<a name="patch-manager-about-aws-runpatchbaseline-parameters"></a>
 
-**AWS\-RunPatchBaseline** supports five parameters\. The `Operation` parameter is required\. The `InstallOverrideList`, `BaselineOverride`, and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run `AWS-RunPatchBaseline` outside of a maintenance window\. Patch Manager can supply the custom value automatically when the document is run as part of a maintenance window operation\.
+`AWS-RunPatchBaseline` supports five parameters\. The `Operation` parameter is required\. The `InstallOverrideList`, `BaselineOverride`, and `RebootOption` parameters are optional\. `Snapshot-ID` is technically optional, but we recommend that you supply a custom value for it when you run `AWS-RunPatchBaseline` outside of a maintenance window\. Patch Manager can supply the custom value automatically when the document is run as part of a maintenance window operation\.
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
@@ -67,10 +67,10 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 **Usage**: Optional\.
 
-`Snapshot ID` is a unique ID \(GUID\) used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. Although the parameter is defined as optional, our best practice recommendation depends on whether or not you are running **AWS\-RunPatchBaseline** in a maintenance window, as described in the following table\.
+`Snapshot ID` is a unique ID \(GUID\) used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. Although the parameter is defined as optional, our best practice recommendation depends on whether or not you are running `AWS-RunPatchBaseline` in a maintenance window, as described in the following table\.
 
 
-**AWS\-RunPatchBaseline best practices**  
+**`AWS-RunPatchBaseline` best practices**  
 
 | Mode | Best practice | Details | 
 | --- | --- | --- | 
@@ -86,9 +86,12 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 
-For a description of how you might use the `InstallOverrideList` parameter to apply different types of patches to a target group, on different maintenance window schedules, while still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in AWS\-RunPatchBaseline or AWS\-RunPatchBaselineAssociation](override-list-scenario.md)\.
+For a description of how you might use the `InstallOverrideList` parameter to apply different types of patches to a target group, on different maintenance window schedules, while still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation`](override-list-scenario.md)\.
 
 **Valid URL formats**
+
+**Note**  
+If your file is stored in a publicly available bucket, you can specify either an https URL format or an Amazon S3 path\-style URL\. If your file is stored in a private bucket, you must specify an Amazon S3 path\-style URL\.
 + **https URL format**:
 
   ```

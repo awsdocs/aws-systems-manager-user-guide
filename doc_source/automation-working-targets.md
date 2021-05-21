@@ -215,7 +215,7 @@ aws ssm start-automation-execution \
 
 ## Targeting all instances<a name="automation-working-targets-all-instances"></a>
 
-You can run an automation on all managed instances in the current AWS account and Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your AWS account and the current Region, you can choose the **AWS\-RestartEC2Instance** runbook and then choose **All instances** from the **Targets** list\.
+You can run an automation on all managed instances in the current Amazon Web Services account and AWS Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your Amazon Web Services account and the current AWS Region, you can choose the **AWS\-RestartEC2Instance** runbook and then choose **All instances** from the **Targets** list\.
 
 ![\[Targeting all instances for a runbook\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-target-all-instances.png)
 

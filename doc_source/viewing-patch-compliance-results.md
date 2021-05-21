@@ -30,13 +30,26 @@ For information about working with approved and rejected patch lists, see the fo
 
 ## Viewing patching compliance results \(console\)<a name="viewing-patch-compliance-results-console"></a>
 
-Use the following procedure to view patch compliance results in the AWS Systems Manager console\. For information about generating patch compliance reports that are downloaded to an Amazon Simple Storage Service \(Amazon S3\) bucket, see [Generating \.csv patch compliance reports](patch-compliance-reports-to-s3.md)\.
+Use the following procedures to view patch compliance results in the AWS Systems Manager console\. 
+
+**Note**  
+For information about generating patch compliance reports that are downloaded to an Amazon Simple Storage Service \(Amazon S3\) bucket, see [Generating \.csv patch compliance reports](patch-compliance-reports-to-s3.md)\.
 
 **To view patch compliance results**
 
 1. Do one of the following\.
 
-   **Option 1** – Navigate from **Compliance**:
+   **Option 1** \(recommended\) – Navigate from Patch Manager, a capability of AWS Systems Manager:
+   + In the navigation pane, choose **Patch Manager**\.
+
+     \-or\-
+
+     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
+   + Choose the **Reporting** tab\.
+   + For **Instance patching summary**, choose the ID of the instance for which you want to review patch compliance results\.
+   + Choose **View details**\.
+
+   **Option 2** – Navigate from Compliance, a capability of AWS Systems Manager:
    + In the navigation pane, choose **Compliance**\.
 
      \-or\-
@@ -45,23 +58,31 @@ Use the following procedure to view patch compliance results in the AWS Systems 
    + For **Compliance resources summary**, choose a number in the column for the types of patch resources you want to review, such as **Non\-Compliant resources**\.
    + In the **Resource** list, choose the ID of the instance for which you want to review patch compliance results\.
 
-   **Option 2** – Navigate from **Managed Instances**\.
+   **Option 3** – Navigate from Fleet Manager, a capability of AWS Systems Manager\.
    + In the navigation pane, choose **Fleet Manager**\.
 
      \-or\-
 
      If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
-   + On the **Managed Instances** tab, choose the ID of the instance for which you want to review patch compliance results\.
+   + On the **Managed instances** tab, choose the ID of the instance for which you want to review patch compliance results\.
 
 1. Choose the **Patch** tab\.
 
-1. \(Optional\) In the Search box \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)\), choose from the following filters:
-   + Classification
-   + KB
-   + Severity
-   + State
+1. \(Optional\) In the Search box \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)\), choose from the available filters\.
 
-1. Choose one of the available values for the filter type you chose\. For example, if you chose **State**, now choose a compliance state such as **Failed** or **Missing**\.
+   For example, for Red Hat Enterprise Linux \(RHEL\), choose from the following:
+   + Name
+   + Classification
+   + State
+   + Severity
+
+    For Windows Server, choose from the following:
+   + KB
+   + Classification
+   + State
+   + Severity
+
+1. Choose one of the available values for the filter type you chose\. For example, if you chose **State**, now choose a compliance state such as **InstalledPendingReboot**, **Failed** or **Missing**\.
 
 1. Depending on the compliance state of the instance, you can choose what action to take to remedy any noncompliant instances\.
 
@@ -87,23 +108,26 @@ The systems returns information like the following\.
 {
     "InstancePatchStates": [
         {
-            "UnreportedNotApplicableCount": 0,
-            "OperationStartTime": 1614103280.047,
-            "BaselineId": "pb-020d361a05EXAMPLE",
+            "InstanceId": "i-02573cafcfEXAMPLE",
+            "PatchGroup": "mypatchgroup",
+            "BaselineId": "pb-0c10e65780EXAMPLE",            
+            "SnapshotId": "a3f5ff34-9bc4-4d2c-a665-4d1c1EXAMPLE",
+            "CriticalNonCompliantCount": 2,
+            "SecurityNonCompliantCount": 2,
+            "OtherNonCompliantCount": 1,
+            "InstalledCount": 123,
+            "InstalledOtherCount": 334,
             "InstalledPendingRebootCount": 0,
-            "FailedCount": 1,
-            "InstanceId": "mi-0282f7c436EXAMPLE",
-            "OwnerInformation": "",
-            "NotApplicableCount": 1913,
-            "RebootOption": "RebootIfNeeded",
-            "OperationEndTime": 1614103633.089,
-            "PatchGroup": "",
             "InstalledRejectedCount": 0,
-            "InstalledOtherCount": 4,
-            "MissingCount": 0,
-            "SnapshotId": "dc42fa2f-8490-4854-ad54-8fc61EXAMPLE",
+            "MissingCount": 1,
+            "FailedCount": 2,
+            "UnreportedNotApplicableCount": 11,
+            "NotApplicableCount": 2063,
+            "OperationStartTime": "2021-05-03T11:00:56-07:00",
+            "OperationEndTime": "2021-05-03T11:01:09-07:00",
             "Operation": "Scan",
-            "InstalledCount": 17
+            "LastNoRebootInstallOperationTime": "2020-06-14T12:17:41-07:00",
+            "RebootOption": "RebootIfNeeded"
         }
     ]
 }
@@ -146,6 +170,9 @@ The system returns information like the following\.
 ```
 
 In addition to `InstalledPendingRebootCount`, the list of count types you can search for include the following:
++ `CriticalNonCompliantCount`
++ `SecurityNonCompliantCount`
++ `OtherNonCompliantCount`
 + `UnreportedNotApplicableCount `
 + `InstalledPendingRebootCount`
 + `FailedCount`

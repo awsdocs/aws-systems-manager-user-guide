@@ -9,7 +9,7 @@ An instance can have only one inventory association configured at a time\. If yo
 
 ## Quickly configure all of your managed instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
 
-You can quickly configure all managed instances in your AWS account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
+You can quickly configure all managed instances in your Amazon Web Services account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
 
 **To configure inventory for all managed instances in your AWS account and in the current Region \(CLI\)**
 

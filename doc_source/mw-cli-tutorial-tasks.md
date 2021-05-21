@@ -156,7 +156,7 @@ For practice running AWS CLI commands to view more details about your maintenanc
 **About tutorial command output**  
 It's beyond the scope of this tutorial to use the AWS CLI to view the *output* of the Run Command command associated with your maintenance window task executions\.
 
-You could view this data, however, using the AWS CLI\. \(You could also view the output in the Systems Manager console or in a log file stored in an Amazon Simple Storage Service \(Amazon S3\( bucket, if you had configured the maintenance window to store command output there\.\) You would find that the output of the df command on an EC2 instance for Linux is similar to the following\.
+You could view this data, however, using the AWS CLI\. \(You could also view the output in the Systems Manager console or in a log file stored in an Amazon Simple Storage Service \(Amazon S3\) bucket, if you had configured the maintenance window to store command output there\.\) You would find that the output of the df command on an EC2 instance for Linux is similar to the following\.
 
 ```
 Filesystem 1K-blocks Used Available Use% Mounted on

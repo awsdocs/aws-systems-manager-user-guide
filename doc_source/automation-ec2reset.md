@@ -36,12 +36,12 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** 
 
 Before you run the following Automation, do the following:
 + Copy the instance ID of the instance on which you want to reset the Administrator password\. You will specify this ID in the procedure\.
-+ Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information about Amazon VPC quotas, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-vpcs-subnets) in the *Amazon VPC User Guide*\.
++ Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your Amazon Web Services account\. Verify that your Amazon Web Services account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information about Amazon VPC quotas, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-vpcs-subnets) in the *Amazon VPC User Guide*\.
 + Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue permissions to perform actions on your instances<a name="automation-ec2reset-access"></a>
 
-EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
+EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your Amazon Web Services account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting permissions by using IAM policies](#automation-ec2reset-access-iam)
 + [Granting permissions by using an AWS CloudFormation template](#automation-ec2reset-access-cfn)
 
@@ -138,7 +138,7 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 1. Download [samples/AWSSupport-EC2RescueRole.zip](samples/AWSSupport-EC2RescueRole.zip) and extract the `AWSSupport-EC2RescueRole.json` file to a directory on your local machine\.
 
-1. If your AWS account is in a special partition, edit the template to change the ARN values to those for your partition\.
+1. If your Amazon Web Services account is in a special partition, edit the template to change the ARN values to those for your partition\.
 
    For example, for the China Regions, change all cases of `arn:aws` to `arn:aws-cn`\.
 

@@ -21,13 +21,11 @@ Before you complete the following procedure, verify that you have at least one A
 
 1. In the **Name** field, enter a descriptive name\.
 
-1. In the **Document** list, choose **AWS\-ConfigureAWSPackage**\.
+1. In the **Document** list, choose **`AWS-ConfigureAWSPackage`**\.
 
 1. In the **Parameters** section, choose **Install** from the **Action** list\.
 
-1. For **Installation type**, choose one of the following: 
-   + **Uninstall and reinstall**: Uninstall and then reinstall the package\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option isn't supported for AWS\-published packages\.
+1. For **Installation type**, choose **Uninstall and reinstall**\.
 
 1. In the **Name** field, enter **AWSPVDriver**\. You can keep the **Version** and **Additional Arguments** fields empty\.
 
@@ -47,7 +45,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Create association**, and then choose **Close**\. The system attempts to create the association on the instances and immediately apply the state\. 
 

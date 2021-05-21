@@ -86,7 +86,7 @@ When you edit an OpsItem, you can choose a priority for that OpsItem by choosing
 When you edit an OpsItem, you can specify the ARN of an Amazon SNS topic in the **Notifications** field\. By specifying an ARN, you ensure that all stakeholders receive a notification when the OpsItem is edited, including a status change\. You may find it helpful to create different ARNs for notifications about different types of AWS resources or different environments\. The Amazon SNS topic must exist in the same AWS Region as the OpsItems\. If they are in different Regions, the system returns an error\. For more information, see the [https://docs.aws.amazon.com/sns/latest/dg/](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
 **Important**  
-The SNS topic must exist in the same AWS Region as the OpsItem\. If they are in different Regions, the system returns an error\.
+The Amazon SNS topic must exist in the same AWS Region as the OpsItem\. If they are in different Regions, the system returns an error\.
 
 **To edit OpsItem details**
 
@@ -135,7 +135,7 @@ To help you organize OpsItems, you can associate one OpsItem with another so tha
 Operational data is custom data that provides useful reference details about the OpsItem\. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data\. You enter operational data as key\-value pairs\. The key has a maximum length of 128 characters\. The value has a maximum size of 20 KB\. You can enter multiple key\-value pairs of operational data\.
 
 **Important**  
-Operational data keys *can't* begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm\.
+Operational data keys *can't* begin with the following: `amazon`, `aws`, `amzn`, `ssm`, `/amazon`, `/aws`, `/amzn`, `/ssm`\.
 
 ![\[Viewing operational data for an OpsItem.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_7.png)
 
@@ -153,7 +153,7 @@ You can choose to make the data searchable by other users in the account or you 
 
 1. If no operational data exists for the OpsItem, then choose **Add**\. If operational data already exists for the OpsItem, choose **Manage**\.
 
-1. For **Key**, specify a word or words to help users understand the purpose of the data\. The key can't begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm\.
+1. For **Key**, specify a word or words to help users understand the purpose of the data\. The key can't begin with the following: `amazon`, `aws`, `amzn`, `ssm`, `/amazon`, `/aws`, `/amzn`, `/ssm`\.
 
 1. For **Value**, specify the data\.
 

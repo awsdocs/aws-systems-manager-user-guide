@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
 
-You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the AWS\-ApplyDSCMofs SSM document\. The AWS\-ApplyDSCMofs document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The AWS\-ApplyDSCMofs document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
+You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the `AWS-ApplyDSCMofs` SSM document\. The `AWS-ApplyDSCMofs` document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The `AWS-ApplyDSCMofs` document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
 
 State Manager logs and reports the status of each MOF file execution during each association run\. State Manager also reports the output of each MOF file execution as a compliance event which you can view on the [AWS Systems Manager Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
@@ -124,11 +124,17 @@ Before you create an association that runs MOF files, verify that your managed i
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **State Manager**, and then choose **Create association**\.
+1. In the navigation pane, choose **State Manager**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
+
+1. Choose **State Manager**, and then choose **Create association**\.
 
 1. In the **Name** field, specify a name\. This is optional, but recommended\. A name can help you understand the purpose of the association when you created it\. Spaces aren't allowed in the name\.
 
-1. In the **Document** list, choose **AWS\-ApplyDSCMofs**\.
+1. In the **Document** list, choose **`AWS-ApplyDSCMofs`**\.
 
 1. In the **Parameters** section, specify your choices for the required and optional input parameters\.
 
@@ -173,7 +179,7 @@ Before you create an association that runs MOF files, verify that your managed i
 **Note**  
 You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region by using the us\-east\-1 endpoint\.
 
-   1. **Mof Operation Mode**: Choose State Manager behavior when running the **AWS\-ApplyDSCMofs** association:
+   1. **Mof Operation Mode**: Choose State Manager behavior when running the **`AWS-ApplyDSCMofs`** association:
       + **Apply**: Correct instance configurations that aren't compliant\. 
       + **ReportOnly**: Don't correct instance configurations, but instead log all compliance data and report instances that aren't compliant\.
 
@@ -227,7 +233,7 @@ When enabled, debug logging writes more data to your Amazon S3 bucket than stand
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Create Association**\. 
 
@@ -238,7 +244,7 @@ State Manager creates and immediately runs the association on the specified inst
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
 **Note**  
-The AWS\-ApplyDSCMofs is a Systems Manager command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+The `AWS-ApplyDSCMofs` is a Systems Manager command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Troubleshooting<a name="systems-manager-state-manager-using-mof-file-troubleshooting"></a>
 
@@ -270,7 +276,7 @@ If State Manager failed to apply the association to your instances, then start b
 + Try applying the MOF locally on the instance to make sure there isn't an issue with the MOF file itself\.
 
 **My MOF seemed to fail, but the Systems Manager execution was successful**  
-If the AWS\-ApplyDSCMofs document successfully ran, then the Systems Manager execution status shows **Success**\. This status doesn't reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
+If the `AWS-ApplyDSCMofs` document successfully ran, then the Systems Manager execution status shows **Success**\. This status doesn't reflect the compliance status of your instance against the configuration requirements in the MOF file\. To view the compliance status of your instances, view the compliance reports\. You can view a JSON report in the Amazon S3 Report Bucket\. This applies to Run Command and State Manager executions\. Also, for State Manager, you can view compliance details on the Systems Manager Compliance page\.
 
 **Stderr states: Name resolution failure attempting to reach service**  
 This error indicates that the script can't reach a remote service\. Most likely, the script can't reach Amazon S3\. This issue most often occurs when the script attempts to write compliance reports or compliance status to the Amazon S3 bucket supplied in the document parameters\. Typically, this error occurs when a computing environment uses a firewall or transparent proxy that includes an allow list\. To resolve this issue:
@@ -297,12 +303,12 @@ This error indicates that the script can't reach a remote service\. Most likely,
 
 ## Viewing DSC resource compliance details<a name="systems-manager-state-manager-viewing-mof-file-compliance"></a>
 
-Systems Manager captures compliance information about DSC resource failures in the Amazon S3 **Status Bucket** you specified when you ran the AWS\-ApplyDSCMofs document\. Searching for information about DSC resource failures in an Amazon S3 bucket can be time consuming\. Instead, you can view this information in the Systems Manager **Compliance** page\. 
+Systems Manager captures compliance information about DSC resource failures in the Amazon S3 **Status Bucket** you specified when you ran the `AWS-ApplyDSCMofs` document\. Searching for information about DSC resource failures in an Amazon S3 bucket can be time consuming\. Instead, you can view this information in the Systems Manager **Compliance** page\. 
 
 The **Compliance resources summary** section displays a count of resources that failed\. In the following example, the **ComplianceType** is **Custom:DSC** and one resource is noncompliant\.
 
 **Note**  
-Custom:DSC is the default **ComplianceType** value in the AWS\-ApplyDSCMofs document\. This value is customizable\.
+Custom:DSC is the default **ComplianceType** value in the `AWS-ApplyDSCMofs` document\. This value is customizable\.
 
 ![\[Viewing counts in the Compliance resources summary section of the Compliance page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-3.png)
 
@@ -320,4 +326,4 @@ For information about how to view compliance information, see [AWS Systems Manag
 
 If the State Manager association fails, then no compliance data is reported\. More specifically, if a MOF fails to process, then Systems Manager doesn’t report any compliance items because the associations fails\. For example, if Systems Manager attempts to download a MOF from an Amazon S3 bucket that the instance doesn't have permission to access, then the association fails and no compliance data is reported\.
 
-If a resource in a second MOF fails, then Systems Manager *does* report compliance data\. For example, if a MOF tries to create a file on a drive that doesn’t exist, then Systems Manager reports compliance because the AWS\-ApplyDSCMofs document is able to process completely, which means the association successfully runs\. 
+If a resource in a second MOF fails, then Systems Manager *does* report compliance data\. For example, if a MOF tries to create a file on a drive that doesn’t exist, then Systems Manager reports compliance because the `AWS-ApplyDSCMofs` document is able to process completely, which means the association successfully runs\. 

@@ -42,7 +42,7 @@ Use the search box filters to locate the resource for which you want to view det
 
 ## Viewing association histories \(command line\)<a name="sysman-state-assoc-history-commandline"></a>
 
-The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for PowerShell \(Tools for PowerShell\) to view the execution history for a specific association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
+The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) \(on Linux or Windows\) or AWS Tools for PowerShell to view the execution history for a specific association ID\. Following this, the procedure describes how to view execution details for one or more resources\.
 
 **To view execution history for a specific association ID**
 

@@ -498,7 +498,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
 1. Save the file as sample\.yaml\.
 
-1. Run the following command in the AWS CLI to add the runbook to your AWS account\.
+1. Run the following command in the AWS CLI to add the runbook to your Amazon Web Services account\.
 
    ```
    aws ssm create-document --name sampleRunbook --document-type Automation --document-format YAML --content file://sample.yaml

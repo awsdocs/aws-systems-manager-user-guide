@@ -17,7 +17,11 @@ For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you can add tags by u
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **Managed Instances**\.
+1. In the navigation pane, choose **Fleet Manager**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
 
 1. In the **Managed instances** list, choose the ID of a managed EC2 instance that you want to configure for patching\.
 **Note**  
@@ -60,7 +64,11 @@ For hybrid managed instances \(mi\-\*\), you can add tags by using the Systems M
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
-1. In the navigation pane, choose **Managed Instances**\.
+1. In the navigation pane, choose **Fleet Manager**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
 
 1. In the **Managed instances** list, choose a managed instance that you want to configure for patching\.
 **Note**  

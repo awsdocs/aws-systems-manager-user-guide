@@ -20,11 +20,11 @@ This example demonstrates two levels of approvals\. You can specify up to five l
    {
       "description": "This change template demonstrates the feature set available for creating
      change templates for Change Manager. This template starts a Runbook workflow
-     for the Automation document called AWS-HelloWorld",
+     for the Automation runbook called AWS-HelloWorld",
       "templateInformation": "### Document Name: HelloWorldChangeTemplate\n\n
        ## What does this document do?\n
        This change template demonstrates the feature set available for creating change templates for Change Manager. 
-       This template starts a Runbook workflow for the Automation document called AWS-HelloWorld.\n\n
+       This template starts a Runbook workflow for the Automation runbook called AWS-HelloWorld.\n\n
        ## Input Parameters\n* ApproverSnsTopicArn: (Required) Amazon Simple Notification Service ARN for approvers.\n
        * Approver: (Required) The name of the approver to send this request to.\n
        * ApproverType: (Required) The type of reviewer.  * Allowed Values: IamUser, IamGroup, IamRole, SSOGroup, SSOUser\n\n

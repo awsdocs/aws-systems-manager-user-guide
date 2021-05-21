@@ -3,7 +3,7 @@
 This section includes procedures to help you run Ansible Playbooks from GitHub by using either the console or the AWS Command Line Interface \(AWS CLI\)\.
 
 **Before you begin**  
-If you plan to run a script that is stored in a private GitHub repository, then you must create an AWS Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+If you plan to run a script stored in a private GitHub repository, create an AWS Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a script in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Run an Ansible Playbook from GitHub \(console\)<a name="integration-github-ansible-console"></a>
 
@@ -27,11 +27,11 @@ If you plan to run a script that is stored in a private GitHub repository, then 
 
      ```
      {
-         "owner": "owner_name",
-         "repository": "repository_name",
-         "branch": "branch_name",
-         "path": "path_to_scripts_or_directory",
-         "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}"
+       "owner": "owner_name",
+       "repository": "repository_name", 
+       "getOptions": "branch:branch_name",
+       "path": "path_to_scripts_or_directory",
+       "tokenInfo": "{{ssm-secure:SecureString_parameter_name}}" 
      }
      ```
 
@@ -41,7 +41,7 @@ If you plan to run a script that is stored in a private GitHub repository, then 
      {
          "owner": "TestUser1",
          "repository": "GitHubPrivateTest",
-         "branch": "myBranch",
+         "getOptions": "branch:myBranch",
          "path": "scripts/webserver.yml",
          "tokenInfo": "{{ssm-secure:mySecureStringParameter}}"
      }
@@ -72,7 +72,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
@@ -92,7 +92,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command \
        --document-name "AWS-RunRemoteScript" \
        --instance-ids "instance-IDs"\
-        --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"repository_name\", \"path\": \"path_to_file_or_directory\", \"tokenInfo\":\"{{ssm-secure:name_of_your_SecureString_parameter}}\" }"],"commandLine":["commands_to_run"]}'
+       --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"repository_name\", \"path\": \"path_to_file_or_directory\", \"tokenInfo\":\"{{ssm-secure:name_of_your_SecureString_parameter}}\" }"],"commandLine":["commands_to_run"]}'
    ```
 
    Here is an example command to run on a local Linux machine\.

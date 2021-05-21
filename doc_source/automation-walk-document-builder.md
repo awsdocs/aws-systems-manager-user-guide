@@ -9,7 +9,7 @@ Before you begin this walkthrough, do the following:
 + Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 
   For information, see [ Verifying user access for runbooks](automation-setup.md#automation-setup-user-access)\.
-+ Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your AWS account\. The role is required because this walkthrough uses the **aws:executeScript** action\. 
++ Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your Amazon Web Services account\. The role is required because this walkthrough uses the **aws:executeScript** action\. 
 
   For information about creating this role, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\. 
 
@@ -58,7 +58,7 @@ If you copy and paste values from this walkthrough into Document Builder, such a
    imageId  | String | (Optional) The AMI ID to use for launching the instance. The default value uses the latest Amazon Linux AMI ID available. | {{ ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2 }}
    ```
 
-1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your AWS account ID for 111122223333\.
+1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your Amazon Web Services account ID for 111122223333\.
 
    The role you specify is used to provide the permissions needed to start the automation\.
 **Important**  

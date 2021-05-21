@@ -38,7 +38,7 @@ If you configure Explorer to display data from multiple accounts and Regions by 
 }
 ```
 
-For more information about the AWSServiceRoleForAmazonSSM\_AccountDiscovery role, see [Using roles to collect AWS account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery](using-service-linked-roles-service-action-2.md)\.
+For more information about the AWSServiceRoleForAmazonSSM\_AccountDiscovery role, see [Using roles to collect Amazon Web Services account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery](using-service-linked-roles-service-action-2.md)\.
 
 ## Configuring permissions for Systems Manager OpsCenter<a name="Explorer-getting-started-user-permissions"></a>
 

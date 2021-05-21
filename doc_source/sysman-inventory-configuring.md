@@ -20,14 +20,14 @@ Before you configure inventory collection, complete the following tasks\.
 + Update AWS Systems Manager SSM Agent on the instances you want to inventory\. By running the latest version of SSM Agent, you ensure that you can collect metadata for all supported inventory types\. For information about how to update SSM Agent by using State Manager, see [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 + Verify that your instances meet Systems Manager prerequisites\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 + For Microsoft Windows instances, verify that your instance is configured with Windows PowerShell 3\.0 \(or later\)\. SSM Agent uses the `ConvertTo-Json` cmdlet in PowerShell to convert Windows update inventory data to the required format\.
-+ \(Optional\) Create a resource data sync to centrally store inventory data in an Amazon S3 bucket\. Resource Data Sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
++ \(Optional\) Create a resource data sync to centrally store inventory data in an Amazon S3 bucket\. resource data sync then automatically updates the centralized data when new inventory data is collected\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 + \(Optional\) Create a JSON file to collect custom inventory\. For more information, see [Working with custom inventory](sysman-inventory-custom.md)\.
 
-## Inventory all managed instances in your AWS account<a name="inventory-management-inventory-all"></a>
+## Inventory all managed instances in your Amazon Web Services account<a name="inventory-management-inventory-all"></a>
 
-You can easily inventory all managed instances in your AWS account by creating a global inventory association\. A global inventory association performs the following actions:
-+ Automatically applies the global inventory configuration \(association\) to all existing managed instances in your AWS account\. Instances that already have an inventory association are skipped when the global inventory association is applied and runs\. When an instance is skipped, the detailed status message states `Overridden By Explicit Inventory Association`\. Those instances are skipped by the global association, but they will still report inventory when they run their assigned inventory association\.
-+ Automatically adds new instances created in your AWS account to the global inventory association\.
+You can easily inventory all managed instances in your Amazon Web Services account by creating a global inventory association\. A global inventory association performs the following actions:
++ Automatically applies the global inventory configuration \(association\) to all existing managed instances in your Amazon Web Services account\. Instances that already have an inventory association are skipped when the global inventory association is applied and runs\. When an instance is skipped, the detailed status message states `Overridden By Explicit Inventory Association`\. Those instances are skipped by the global association, but they will still report inventory when they run their assigned inventory association\.
++ Automatically adds new instances created in your Amazon Web Services account to the global inventory association\.
 
 **Note**  
 If an instance is configured for the global inventory association, and you assign a specific association to that instance, then Systems Manager Inventory deprioritizes the global association and applies the specific association\.
@@ -35,7 +35,7 @@ Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or
 
 ### Configuring inventory collection with one click \(console\)<a name="sysman-inventory-config-collection-one-click"></a>
 
-Use the following procedure to configure Systems Manager Inventory for all managed instances in your AWS account and in a single AWS Region\. 
+Use the following procedure to configure Systems Manager Inventory for all managed instances in your Amazon Web Services account and in a single AWS Region\. 
 
 **To configure all of your managed instances in the current Region for Systems Manager inventory**
 
@@ -48,16 +48,16 @@ Use the following procedure to configure Systems Manager Inventory for all manag
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
 
 1. In the **Managed instances with inventory enabled** card, choose **Click here to enable inventory on all instances**\.  
-![\[Enabling Systems Manager Inventory on all instances in the current AWS account and Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
+![\[Enabling Systems Manager Inventory on all instances in the current Amazon Web Services account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
 
    If successful, the console displays the following message\.  
-![\[Enabling Systems Manager Inventory on all instances in the current AWS account and Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
+![\[Enabling Systems Manager Inventory on all instances in the current Amazon Web Services account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
 
    Depending on the number of managed instances in your account, it can take several minutes for the global inventory association to be applied\. Wait a few minutes and then refresh the page\. Verify that the graphic changes to reflect that inventory is configured on all of your managed instances\.
 
 ### Configuring collection by using the console<a name="sysman-inventory-config-collection"></a>
 
-This section includes information about how to configure Systems Manager Inventory to collect metadata from your managed instances by using the Systems Manager console\. You can quickly collect metadata from all instances in a specific AWS account \(and any future instances that might be created in that account\) or you can selectively collect inventory data by using tags or instance IDs\.
+This section includes information about how to configure Systems Manager Inventory to collect metadata from your managed instances by using the Systems Manager console\. You can quickly collect metadata from all instances in a specific Amazon Web Services account \(and any future instances that might be created in that account\) or you can selectively collect inventory data by using tags or instance IDs\.
 
 **To configure inventory collection**
 
@@ -72,7 +72,7 @@ This section includes information about how to configure Systems Manager Invento
 1. Choose **Setup Inventory**\.
 
 1. In the **Targets** section, identify the instances where you want to run this operation by choosing one of the following\.
-   + **Selecting all managed instances in this account** \- This option selects all managed instances for which there is no existing inventory association\. If you choose this option, instances that already had inventory associations are skipped during inventory collection, and shown with a status of **Skipped** in inventory results\. For more information, see [Inventory all managed instances in your AWS account](#inventory-management-inventory-all)\. 
+   + **Selecting all managed instances in this account** \- This option selects all managed instances for which there is no existing inventory association\. If you choose this option, instances that already had inventory associations are skipped during inventory collection, and shown with a status of **Skipped** in inventory results\. For more information, see [Inventory all managed instances in your Amazon Web Services account](#inventory-management-inventory-all)\. 
    + **Specifying a tag** \- This option lets you specify a single tag to identify instances in your account from which you want to collect inventory\. If you use a tag, any instances created in the future with the same tag will also report inventory\. If there is an existing inventory association with all instances, using a tag to select specific instances as a target for a different inventory overrides instance membership in the **All managed instances** target group\. Instances with the specified tag are skipped on future inventory collection from **All managed instances**\.
    + **Manually selecting instances** \- This option lets you choose specific managed instances in your account\. Explicitly choosing specific instances by using this option overrides inventory associations on the **All managed instances** target\. The instance is skipped on future inventory collection from **All managed instances**\.
 **Note**  

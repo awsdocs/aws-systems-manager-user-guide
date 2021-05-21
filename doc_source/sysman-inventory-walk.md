@@ -11,4 +11,4 @@ Before you start these walkthroughs, complete the following tasks\.
 **Topics**
 + [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)
 + [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)
-+ [Walkthrough: Use Resource Data Sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)
++ [Walkthrough: Use resource data sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)

@@ -50,7 +50,7 @@ The following example policy grants users permission to call the `PutParameter` 
 
 ## How AMI format validation works<a name="parameter-ami-validation"></a>
 
-When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
+When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your Amazon Web Services account\.
 
 A parameter version number might be generated before the validation operation is complete\. The operation may not be complete even if a parameter version number is generated\. 
 

@@ -29,7 +29,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. On the service home page, do one of the following:
    + If you are using Change Manager with AWS Organizations , choose **Set up delegated account**\.
-   + If you are using Change Manager with a single AWS account, choose **Set up Change Manager**\.
+   + If you are using Change Manager with a single Amazon Web Services account, choose **Set up Change Manager**\.
 
 1. For **User identity management**, choose one of the following\.
    + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts and groups\.

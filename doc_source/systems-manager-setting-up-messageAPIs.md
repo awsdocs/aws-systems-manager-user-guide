@@ -25,7 +25,7 @@ Calls to `ec2messages:*` APIs are calls to the Amazon Message Delivery Service e
 Systems Manager uses the `ssmmessages` endpoint to make calls from SSM Agent to the Session Manager service in the cloud\. This endpoint is required to create and delete session channels with the Session Manager service in the cloud\. For more information, see [Actions, resources, and condition keys for Amazon Session Manager Message Gateway Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonsessionmanagermessagegatewayservice.html)\.
 
 **Instance\-related API calls**  
-`UpdateInstanceInformation`: SSM Agent calls the Systems Manager service in the cloud every five minutes to provide heartbeat information\. This call is necessary to maintain a heartbeat with the agent so that the service knows the agent is functioning as expected\. 
+`UpdateInstanceInformation`: SSM Agent calls the Systems Manager service in the cloud every 5 minutes to provide heartbeat information\. This call is necessary to maintain a heartbeat with the agent so that the service knows the agent is functioning as expected\. 
 
 `ListInstanceAssociations`: The agent calls this API to see if a new Systems Manager State Manager association is available\. This API is required for State Manager to function\.
 

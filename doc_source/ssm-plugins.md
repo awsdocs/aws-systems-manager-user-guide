@@ -1,6 +1,6 @@
 # Systems Manager Command document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins cannot be used in SSM Automation documents, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
+This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins cannot be used in SSM Automation runbooks, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
@@ -872,7 +872,7 @@ Required: Yes
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
-+ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\.
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\. If your repository was created after October 1st, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
 
   This parameter uses the following format:
   + branch:*branch\_name*
