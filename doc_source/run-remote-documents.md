@@ -1,4 +1,4 @@
-# Running Systems Manager command documents from remote locations<a name="run-remote-documents"></a>
+# Running Systems Manager Command documents from remote locations<a name="run-remote-documents"></a>
 
 You can run Systems Manager documents \(SSM documents\) from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports running SSM documents stored in the following locations:
 + GitHub repositories \(public and private\)
@@ -12,7 +12,7 @@ While you can also run remote documents by using State Manager or Automation, th
 
 **Before you begin**  
 Before you run a remote document, you must complete the following tasks\.
-+ Create an SSM command document and save it in a remote location\. For more information, see [Creating SSM documents](create-ssm-doc.md)
++ Create an SSM Command document and save it in a remote location\. For more information, see [Creating SSM documents](create-ssm-doc.md)
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
 ## Run a remote document \(console\)<a name="run-remote-documents-console"></a>

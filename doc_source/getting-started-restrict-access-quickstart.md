@@ -3,7 +3,7 @@
 Use the samples in this section to help you create AWS Identity and Access Management \(IAM\) policies that provide the most commonly needed permissions for Session Manager access\. 
 
 **Note**  
-You can also use an AWS KMS key policy to control which IAM users, IAM roles, and AWS accounts are given access to your KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+You can also use an AWS KMS key policy to control which IAM users, IAM roles, and Amazon Web Services accounts are given access to your KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Topics**
 + [Quickstart end user policies for Session Manager](#restrict-access-quickstart-end-user)
@@ -18,7 +18,7 @@ You can create a policy that allows users to start sessions from only the Sessio
 These policies provide end users the ability to start a session to a particular instance and the ability to end only their own sessions\. Refer to [Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
 
 **Note**  
-In all the following sample policies, replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\. 
+In all the following sample policies, replace *instance\-id* with the ID of the instance you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and Amazon Web Services Account ID, such as `us-east-2` and `111122223333`\. 
 
 Choose from the following tabs to view the sample policy for the range of session access you want to provide\.
 
@@ -177,9 +177,9 @@ Use this sample policy to provider users with the ability to start and resume se
 
 ------
 
-**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom session document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom Session document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
-**2** If you specify the condition element, `ssm:SessionDocumentAccessCheck`, as `true`, the system checks that a user has explicit access to the defined session document, in this example `SSM-SessionManagerRunShell`, before a session is established\. For more information, see [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)\.
+**2** If you specify the condition element, `ssm:SessionDocumentAccessCheck`, as `true`, the system checks that a user has explicit access to the defined Session document, in this example `SSM-SessionManagerRunShell`, before a session is established\. For more information, see [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)\.
 
 **3** The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. If you won't use KMS key encryption for your session data, remove the following content from the policy\.
 
@@ -207,7 +207,7 @@ These policies provide administrators the ability to start a session to instance
 You can create a policy that allows administrators to perform these tasks from only the Session Manager console and AWS CLI, from only the Amazon EC2 console, or from all three\.
 
 **Note**  
-Replace *region* and *account\-id* with your AWS Region and AWS Account ID, such as `us-east-2` and `111122223333`\.
+Replace *region* and *account\-id* with your AWS Region and Amazon Web Services account ID, such as `us-east-2` and `111122223333`\.
 
 Choose from the following tabs to view the sample policy for the access scenario you want to support\.
 

@@ -14,6 +14,8 @@ For information about creating a patch baseline for macOS instances, see [Creati
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
+1. Choose the **Patch baselines** tab\.
+
 1. Choose **Create patch baseline**\.
 
 1. For **Name**, enter a name for your new patch baseline, for example, **MyRHELPatchBaseline**\.
@@ -24,7 +26,7 @@ For information about creating a patch baseline for macOS instances, see [Creati
 
 1. If you want to begin using this patch baseline as the default for the selected operating system as soon as you create it, check the box next to **Set this patch baseline as the default patch baseline for *operating system name* instances**\.
 
-   For information about setting an existing patch baseline as the default, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
+   For information about setting an existing patch baseline as the default, see [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating\-systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `RedhatEnterpriseLinux7.4`\. The default selection is `All`\.

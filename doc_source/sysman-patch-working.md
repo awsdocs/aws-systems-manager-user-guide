@@ -20,14 +20,13 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 + For information about monitoring patch compliance, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 **Topics**
-+ [Viewing AWS predefined patch baselines](view-predefined-patch-baselines.md)
-+ [Viewing patch compliance results](viewing-patch-compliance-results.md)
-+ [Generating \.csv patch compliance reports](patch-compliance-reports-to-s3.md)
++ [Viewing AWS predefined patch baselines \(console\)](view-predefined-patch-baselines.md)
++ [Viewing patch compliance results \(console\)](viewing-patch-compliance-results.md)
++ [Generating \.csv patch compliance reports \(console\)](patch-compliance-reports-to-s3.md)
 + [Viewing available patches \(console\)](viewing-available-patches.md)
-+ [Working with custom patch baselines](sysman-patch-baseline-console.md)
-+ [Setting an existing patch baseline as the default](set-default-patch-baseline.md)
++ [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
++ [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)
 + [Creating a patching configuration \(console\)](create-patching-configuration.md)
-+ [Creating a patch group](sysman-patch-group-tagging.md)
-+ [Patching instances on demand](patch-on-demand.md)
-+ [Creating a maintenance window for patching](sysman-patch-mw-console.md)
-+ [Integration with AWS Security Hub](security-hub-integration.md)
++ [Creating a patch group \(console\)](sysman-patch-group-tagging.md)
++ [Patching instances on demand \(console\)](patch-on-demand.md)
++ [Creating a maintenance window for patching \(console\)](sysman-patch-mw-console.md)

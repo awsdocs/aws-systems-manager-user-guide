@@ -1,9 +1,9 @@
 # Logging session activity<a name="session-manager-logging"></a>
 
-In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with options for logging session activity in your AWS account\. This allows you to do the following:
+In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with options for logging session activity in your Amazon Web Services account\. This allows you to do the following:
 + Create and store session logs for archival purposes\.
 + Generate a report showing details of every connection made to your instances using Session Manager over the past 30 days\.
-+ Generate notifications of session activity in your AWS account, such as Amazon Simple Notification Service \(Amazon SNS\) notifications\.
++ Generate notifications of session activity in your Amazon Web Services account, such as Amazon Simple Notification Service \(Amazon SNS\) notifications\.
 + Automatically initiate another action on an AWS resource as the result of session activity, such as running an AWS Lambda function, starting an AWS CodePipeline pipeline, or running an AWS Systems Manager Run Command document\.
 
 **Important**  
@@ -54,7 +54,7 @@ If you have the **PowerShell Transcription** policy setting configured on your W
 
 1. \(Recommended\) Select the check box next to **Allow only encrypted CloudWatch log groups**\. With this option enabled, log data is encrypted using the server\-side encryption key specified for the log group\. If you do not want to encrypt the log data that is sent to CloudWatch Logs, clear the check box\. You must also clear the check box if encryption is not enabled on the log group\.
 
-1. For **CloudWatch logs**, to specify the existing CloudWatch Logs log group in your AWS account to upload session logs to, select one of the following:
+1. For **CloudWatch logs**, to specify the existing CloudWatch Logs log group in your Amazon Web Services account to upload session logs to, select one of the following:
    + Enter the name of a log group in the text box that has already been created in your account to store session log data\.
    + **Browse log groups**: Select a log group that has already been created in your account to store session log data\.
 
@@ -71,7 +71,7 @@ When you use virtual hosted–style buckets with Secure Sockets Layer \(SSL\), t
 In order to send logs to your S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
 **Customer\-managed key**  
-If you are using a KMS key that you manage yourself to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the key\. If you use an AWS\-managed key, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the key, see [Allows Key Users to Use the key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
+If you are using a KMS key that you manage yourself to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the key\. If you use an AWS managed key, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the key, see [Allows Key Users to Use the key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
 
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 
@@ -125,7 +125,7 @@ You can also use the AWS CLI to specify or change the CloudWatch Logs log group 
 
 1. \(Recommended\) Select the check box next to **Allow only encrypted CloudWatch log groups**\. With this option enabled, log data is encrypted using the server\-side encryption key specified for the log group\. If you do not want to encrypt the log data that is sent to CloudWatch Logs, clear the check box\. You must also clear the check box if encryption is not enabled on the log group\.
 
-1. For **CloudWatch logs**, to specify the existing CloudWatch Logs log group in your AWS account to upload session logs to, select one of the following:
+1. For **CloudWatch logs**, to specify the existing CloudWatch Logs log group in your Amazon Web Services account to upload session logs to, select one of the following:
    + **Choose a log group from the list**: Select a log group that has already been created in your account to store session log data\.
    + **Enter a log group name in the text box**: Enter the name of a log group that has already been created in your account to store session log data\.
 

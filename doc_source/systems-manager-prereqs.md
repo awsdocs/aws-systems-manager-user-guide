@@ -8,7 +8,7 @@ This topic provides an overview of these prerequisites\.
 
 **To complete prerequisites for using Systems Manager**
 
-1. Create an AWS account and configure the required AWS Identity and Access Management \(IAM\) roles\.
+1. Create an Amazon Web Services account and configure the required AWS Identity and Access Management \(IAM\) roles\.
 
 1. Verify that Systems Manager is supported in the AWS Regions where you want to use the service\.
 
@@ -20,7 +20,7 @@ This topic provides an overview of these prerequisites\.
 
 1. \(Recommended\) Create a VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\) to use with Systems Manager\. 
 
-   If you don't use a VPC endpoint, you must configure your managed instances to allow `HTTPS` \(port 443\) outbound traffic to the Systems Manager endpoints\. For information, see [\(Optional\) Create a Virtual Private Cloud endpoint\.](setup-create-vpc.md)
+   If you don't use a VPC endpoint, configure your managed instances to allow `HTTPS` \(port 443\) outbound traffic to the Systems Manager endpoints\. For information, see [\(Optional\) Create a Virtual Private Cloud endpoint\.](setup-create-vpc.md)
 
 1. On on\-premises servers, VMs, and Amazon EC2 instances created from Amazon Machine Images \(AMIs\) that aren't supplied by AWS, ensure that a Transport Layer Security \(TLS\) certificate is installed\.
 
@@ -33,7 +33,7 @@ SSM Agent initiates all connections to the Systems Manager service in cloud\. Fo
 If EC2 instances you have created aren't displaying in Systems Manager after you've follow these steps, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md)\.
 
 **Integration with IAM and Amazon EC2**  
-User access to Systems Manager, its capabilities, and its resources are controlled through policies that you use or create in AWS Identity and Access Management\. If you plan to use computing resources provided by AWS, and not only on\-premises servers and virtual machines \(VMs\), you also need to understand Amazon Elastic Compute Cloud before you set up Systems Manager for your organization\. Understanding how these services work is essential to successfully set up Systems Manager\.
+User access to Systems Manager, its capabilities, and its resources are controlled through policies that you use or create in AWS Identity and Access Management\. If you plan to use computing resources provided by AWS and on\-premises servers and virtual machines \(VMs\), you also need to understand Amazon Elastic Compute Cloud before you set up Systems Manager for your organization\. Understanding how these services work is essential to successfully set up Systems Manager\.
 
 For more information about Amazon EC2, see the following:
 + [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/)

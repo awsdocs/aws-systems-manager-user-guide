@@ -28,7 +28,7 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 
 1. For **Description**, enter a description\.
 
-1. For **Document**, choose the Systems Manager command document \(SSM\) document or Automation runbook that defines the tasks to run\.
+1. For **Document**, choose the Systems Manager Command document \(SSM document\) or Automation runbook that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 

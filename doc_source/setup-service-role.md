@@ -34,7 +34,7 @@ To run tasks on your managed instances, the Maintenance Windows service must hav
 
 You create a custom service role in the following cases: 
 + If you want to use a more restrictive set of permissions than those provided by the service\-linked role\.
-+ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation documents require permissions for actions in other AWS services\.
++ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation runbooks require permissions for actions in other AWS services\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
 +  [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 

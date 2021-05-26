@@ -1,6 +1,6 @@
 # Step 2: Create an IAM service role for a hybrid environment<a name="sysman-service-role"></a>
 
-Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create the service role for a hybrid environment once for each AWS account\.
+Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create the service role for a hybrid environment once for each Amazon Web Services account\.
 
 **Note**  
 Users in your company or organization who will use Systems Manager on your hybrid machines must be granted permission in IAM to call the Systems Manager API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
@@ -81,7 +81,7 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-   If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
+   If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your Amazon Web Services account ID and your bucket name\. 
 
 ------
 #### [ Linux & macOS ]
@@ -173,7 +173,7 @@ The policies you add for a service profile for managed instances in a hybrid env
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
    ```
 
-   If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
+   If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your Amazon Web Services account ID and your bucket name\. 
 
    ```
    Register-IAMRolePolicy `

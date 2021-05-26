@@ -21,7 +21,7 @@ The role for AWS Systems Manager to assume when running the maintenance window t
 
 Specifying a service role ARN is optional\. If you do not specify a service role ARN, Systems Manager creates a service\-linked role or uses your account's service\-linked role\. 
 
-Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
+The service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 
 **About the `--task-invocation-parameters` option**  
 The `--task-invocation-parameters` option is used to specify the parameters that are unique to each of the four task types\. The supported parameters for each of the four task types are described in the following table\.

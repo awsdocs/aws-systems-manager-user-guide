@@ -11,7 +11,7 @@ An instance can have only one inventory association configured at a time\. If yo
 
 You can quickly configure all managed instances in your Amazon Web Services account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
 
-**To configure inventory for all managed instances in your AWS account and in the current Region \(CLI\)**
+**To configure inventory for all managed instances in your Amazon Web Services account and in the current Region \(CLI\)**
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 

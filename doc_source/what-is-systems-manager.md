@@ -6,14 +6,14 @@ A managed instance is a machine configured for use with Systems Manager\. System
 
 Using Systems Manager, you can associate AWS resources together by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
 
-For example, you can assign a resource tag of "`Operation=North Region OS Patching`" to the following resources:
+For example, you can assign a resource tag of "`Operation=Standard OS Patching`" to the following resources:
 + A group of Amazon EC2 instances
 + A group of on\-premises servers in your own facility
 + A Systems Manager patch baseline that specifies which patches to apply to your managed instances
 + An Amazon Simple Storage Service \(Amazon S3\) bucket to store patching operation log output
 + A Systems Manager *maintenance window* that specifies the schedule for the patching operation
 
-After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in your North region\. If a problem arises with any of these resources, you can take corrective action immediately\. 
+After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in `Standard OS Patching` operation\. If a problem arises with any of these resources, you can take corrective action immediately\. 
 
 **Capabilities in Systems Manager**  
 Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into five categories: *Operations Management*, *Application Management*, *Change Management*, *Node Management*, and *Shared Resources*\.
@@ -28,7 +28,7 @@ This collection of capabilities is a powerful set of tools and features that you
 + Securely connect to a managed instance without having to open an inbound port or manage SSH keys\.
 + Separate your secrets and configuration data from your code by using *parameters*, with or without encryption, and then reference those parameters from other AWS services\.
 + Perform automated inventory by collecting metadata about your Amazon EC2 and on\-premises managed instances\. Metadata can include information about applications, network configurations, and more\.
-+ View consolidated inventory data from multiple AWS Regions and accounts that you manage\.
++ View consolidated inventory data from multiple AWS Regions and Amazon Web Services accounts that you manage\.
 + See which resources in your account are out of compliance and take corrective action from a centralized dashboard\.
 + View active summaries of metrics and alarms for your AWS resources\.
 
@@ -42,10 +42,10 @@ View a video introduction to Systems Manager \(Duration: 1:42\)
 
 [![AWS Videos](http://img.youtube.com/vi/MK4ZoCs-muo/0.jpg)](http://www.youtube.com/watch?v=MK4ZoCs-muo)
 
-View more AWS videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices)\.
+View more Amazon Web Services videos on the [Amazon Web Services YouTube Channel](https://www.youtube.com/user/AmazonWebServices)\.
 
 **Systems Manager supported AWS Regions**  
-Systems Manager is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you ensure the service is available in each of the AWS Regions you want to use it in\.   
+Systems Manager is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. Before starting your Systems Manager configuration process, we recommend that you verify the service is available in each of the AWS Regions you want to use it in\.   
 For on\-premises servers and VMs in your hybrid environment, we recommend that you choose the Region closest to your data center or computing environment\.
 
 **Systems Manager pricing**  
@@ -72,8 +72,8 @@ Systems Manager was formerly known as "Amazon Simple Systems Manager \(SSM\)" an
   + **[Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
   + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
   + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
-  + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
-  + **[AWS Systems Manager Service Level Agreement](https://aws.amazon.com/systems-manager/sla/)** – The Systems Manager Service Level Agreement \(SLA\) is a policy governing the use of Systems Manager and applies separately to each AWS account using Systems Manager\.
+  + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an Amazon Web Services account\. Unless otherwise noted, each quota is Region\-specific\.
+  + **[AWS Systems Manager Service Level Agreement](https://aws.amazon.com/systems-manager/sla/)** – The Systems Manager Service Level Agreement \(SLA\) is a policy governing the use of Systems Manager and applies separately to each Amazon Web Services account using Systems Manager\.
 
   The following related resources can help you as you work with this service\.
   + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.

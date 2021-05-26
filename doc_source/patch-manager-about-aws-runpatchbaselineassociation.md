@@ -21,7 +21,7 @@ If you choose to use `AWS-RunPatchBaselineAssociation` in patching operations ot
 
   `Key=tag-key,Values=tag-value1,tag-value2,tag-value3`
 + When `AWS-RunPatchBaselineAssociation` runs, the patch compliance data it collects is recorded using the `PutComplianceItems` API command instead of the `PutInventory` command, which is used by `AWS-RunPatchBaseline`\. This difference means that the patch compliance information that is stored and reported per a specific *association*\. Patch compliance data generated outside of this association is not overwritten\.
-+ The patch compliance information reported after running `AWS-RunPatchBaselineAssociation` indicates whether or not an instance is in compliance\. It doesn't include patch\-level details, as demonstrated by the output of the following AWS Command Line Interface \(AWS CLI\) command\. Note that the command filters on `Association` as the compliance type:
++ The patch compliance information reported after running `AWS-RunPatchBaselineAssociation` indicates whether or not an instance is in compliance\. It doesn't include patch\-level details, as demonstrated by the output of the following AWS Command Line Interface \(AWS CLI\) command\. The command filters on `Association` as the compliance type:
 
   ```
   aws ssm list-compliance-items \

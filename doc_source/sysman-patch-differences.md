@@ -23,4 +23,4 @@ The primary focus of Patch Manager is applying patches to operating systems\. Ho
 **Linux**  
 On Linux operating systems, Patch Manager uses the configured repositories for updates, and does not differentiate between operating systems and application patches\. You can use Patch Manager to define which repositories to fetch updates from\. For more information, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 **Windows**  
-On Windows Server instances, you can apply approval rules, as well as *Approved* and *Rejected* patch exceptions, for applications released by Microsoft, such as Microsoft Word 2016 and Microsoft Exchange Server 2016\. For more information, see [Working with custom patch baselines](sysman-patch-baseline-console.md)\.
+On Windows Server instances, you can apply approval rules, as well as *Approved* and *Rejected* patch exceptions, for applications released by Microsoft, such as Microsoft Word 2016 and Microsoft Exchange Server 2016\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.

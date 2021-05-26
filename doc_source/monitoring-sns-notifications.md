@@ -6,7 +6,7 @@ Amazon SNS can deliver notifications as HTTP or HTTPS POST, email \(SMTP, either
 
 ## Configure Amazon SNS notifications for AWS Systems Manager<a name="monitoring-sns-configure"></a>
 
-Run Command and Run Command tasks that are registered to a maintenance window can send Amazon SNS notifications for command tasks that enter the following statuses\. For information about the conditions that cause a command to enter one of these statuses, see [Understanding command statuses](monitor-commands.md)\.
+Run Command and Maintenance Windows tasks that are registered to a maintenance window can send Amazon SNS notifications for command tasks that enter the following statuses\. For information about the conditions that cause a command to enter one of these statuses, see [Understanding command statuses](monitor-commands.md)\.
 + In Progress
 + Success
 + Failed
@@ -107,7 +107,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
    }
    ```
 
-   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon Simple Notification Service notifications, in the format of `arn:aws:sns::account-id:sns-topic-name.` For example: `arn:aws:sns::123456789012:my-sns-topic`\.
+   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon SNS notifications, in the format of `arn:aws:sns::account-id:sns-topic-name.` For example: `arn:aws:sns::123456789012:my-sns-topic`\.
 
 1. Choose **Review policy**\.
 
@@ -149,7 +149,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 ### Task 4: Configure user access<a name="monitoring-sns-passpolicy"></a>
 
-If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Run Command and Maintenance Windows\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
+If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Run Command and Maintenance Windows\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
 
 Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your Amazon Web Services account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 

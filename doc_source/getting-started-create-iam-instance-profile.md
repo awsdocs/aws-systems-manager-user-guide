@@ -164,7 +164,7 @@ For information about specifying preferences for storing session logs, see [Logg
    }
    ```
 **Important**  
-To output session logs to an S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
+To output session logs to an S3 bucket owned by a different Amazon Web Services account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
 
 1. Choose **Review policy**\.
 

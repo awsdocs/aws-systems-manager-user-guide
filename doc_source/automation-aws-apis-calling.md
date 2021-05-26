@@ -167,7 +167,7 @@ In the `aws:waitForAwsResourceProperty` step `waitUntilInstanceStateRunning`, th
 
 A JSONPath expression is a string beginning with "$\." that is used to select one of more components within a JSON element\. The following list includes information about JSONPath operators that are supported by Systems Manager Automation:
 + **Dot\-notated child \(\.\)**: Use with a JSON object\. This operator selects the value of a specific key\.
-+ **Deep\-scan \(\.\.\)**: Use with a JSON element\. This operator scans the JSON element level by level and selects a list of values with the specific key\. Note that the return type of this operator is always a JSON array\. In the context of an automation action output type, the operator can be either StringList or MapList\.
++ **Deep\-scan \(\.\.\)**: Use with a JSON element\. This operator scans the JSON element level by level and selects a list of values with the specific key\. The return type of this operator is always a JSON array\. In the context of an automation action output type, the operator can be either StringList or MapList\.
 + **Array\-Index \(\[ \]\)**: Use with a JSON array\. This operator gets the value of a specific index\.
 
 To better understand JSONPath operators, review the following JSON response from the ec2 `DescribeInstances` API action\. Below this response are several examples that show different results by applying different JSONPath expressions to the response from the `DescribeInstances` API action\.

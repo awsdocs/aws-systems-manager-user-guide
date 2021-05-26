@@ -196,7 +196,7 @@ The system returns information like the following\.
 
 ## Examples for 'describe\-maintenance\-window\-tasks'<a name="mw-cli-tutorials-describe-maintenance-window-tasks"></a>
 
-**Show all registered tasks that invoke the `AWS-RunPowerShellScript` SSM document**  
+**Show all registered tasks that invoke the SSM command document `AWS-RunPowerShellScript`**  
 Run the following command\.
 
 ------

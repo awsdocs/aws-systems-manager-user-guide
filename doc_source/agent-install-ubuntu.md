@@ -11,9 +11,9 @@ For instances created from a 64\-bit Ubuntu Server 16\.04 AMI, be sure to follow
 + **Instances created from AMIs earlier than `20180627`**: [Install SSM Agent on Ubuntu Server instances](#agent-install-ubuntu-tabs)
 
 **Important**  
-Be aware that if an instance has more than one installation of the SSM Agent \(for example, one installed using a Snap and one installed using a deb installer\), your agent operations will not work correctly\.
+Be aware that if an instance has more than one installation of the SSM Agent \(for example, one installed using a Snap and one installed using a deb installer\), your agent operations won't work correctly\.
 
-You can verify the source AMI ID creation date for an instance using either of the following methods\. Note that these procedures apply only to AWS managed AMIs\.
+You can verify the source AMI ID creation date for an instance using either of the following methods\. These procedures apply only to AWS managed AMIs\.
 
 **Verify a source AMI ID creation date \(console\)**
 
@@ -242,7 +242,7 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
 ------
 
 **Note**  
-If you're unable to download the agent from the Region you specify, use one of the global URLs below\. Note that even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+If you are unable to download the agent from the Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
 Intel 64\-bit \(x86\_64\)  
 
   ```

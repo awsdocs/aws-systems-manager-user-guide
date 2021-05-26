@@ -14,6 +14,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install Session Manager plugin on Linux](#install-plugin-linux)
 + [Install the Session Manager plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager plugin installation](#install-plugin-verify)
++ [Session Manager plugin on GitHub](#plugin-github)
 + [\(Optional\) Enable Session Manager plugin logging](#install-plugin-configure-logs)
 + [Session Manager plugin latest version and release history](#plugin-version-history)
 
@@ -179,6 +180,10 @@ This command will work only if your Session Manager administrator has granted yo
 ```
 aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 ```
+
+## Session Manager plugin on GitHub<a name="plugin-github"></a>
+
+The source code for Session Manager plugin is available on [GitHub](https://github.com/aws/session-manager-plugin) so that you can adapt the plugin to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/session-manager-plugin/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
 
 ## \(Optional\) Enable Session Manager plugin logging<a name="install-plugin-configure-logs"></a>
 

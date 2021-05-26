@@ -6,7 +6,7 @@ Diagram 1 below shows a general example of the different processes that AWS Syst
 
 1. **Verification and processing** – Systems Manager verifies the configurations, including permissions, and sends requests to the AWS Systems Manager SSM Agent running on your instances or servers in your hybrid environment\. SSM Agent performs the specified configuration changes\.
 
-1. **Reporting** – SSM Agent reports the status of the configuration changes and actions to Systems Manager in the AWS Cloud\. Systems Manager then sends the status to the user and various AWS services, if configured\.
+1. **Reporting** – SSM Agent reports the status of the configuration changes and actions to Systems Manager in the Amazon Web Services Cloud\. Systems Manager then sends the status to the user and various AWS services, if configured\.
 
 **Diagram 1: General example of Systems Manager process flow**
 

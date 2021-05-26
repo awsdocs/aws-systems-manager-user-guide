@@ -45,7 +45,7 @@ AWS releases two types of kernel live patches for Amazon Linux 2: security updat
 You can create a custom patch baseline that targets only these patches, or use the predefined `AWS-AmazonLinux2DefaultPatchBaseline` patch baseline\. In other words, you can use `AWS-AmazonLinux2DefaultPatchBaseline` with Amazon Linux 2 instances on which Kernel Live Patching is enabled, and kernel live updates will be applied\.
 
 **Note**  
-The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it is installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines](sysman-patch-baseline-console.md)\.
+The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it is installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
 
 We recommend the following strategy to patch your instances with kernel live updates:
 
@@ -160,9 +160,9 @@ For information about applying kernel live patches by running `yum` commands dir
 
    ```
    aws ssm send-command \
-   	--document-name "AWS-RunPatchBaseline" \
-   	--targets "Key=InstanceIds,Values=instance-id" \
-   	--parameters '{"Operation":["Scan"],"RebootOption":["RebootIfNeeded"]}'
+       --document-name "AWS-RunPatchBaseline" \
+       --targets "Key=InstanceIds,Values=instance-id" \
+       --parameters '{"Operation":["Scan"],"RebootOption":["RebootIfNeeded"]}'
    ```
 
 ------
@@ -170,9 +170,9 @@ For information about applying kernel live patches by running `yum` commands dir
 
    ```
    aws ssm send-command ^
-   	--document-name "AWS-RunPatchBaseline" ^
-   	--targets "Key=InstanceIds,Values=instance-id" ^
-   	--parameters {\"Operation\":[\"Scan\"],\"RebootOption\":[\"RebootIfNeeded\"]}
+       --document-name "AWS-RunPatchBaseline" ^
+       --targets "Key=InstanceIds,Values=instance-id" ^
+       --parameters {\"Operation\":[\"Scan\"],\"RebootOption\":[\"RebootIfNeeded\"]}
    ```
 
 ------
@@ -186,9 +186,9 @@ For information about applying kernel live patches by running `yum` commands dir
 
    ```
    aws ssm send-command \
-   	--document-name "AWS-RunPatchBaseline" \
-   	--targets "Key=InstanceIds,Values=instance-id" \
-   	--parameters '{"Operation":["Install"],"RebootOption":["NoReboot"]}'
+       --document-name "AWS-RunPatchBaseline" \
+       --targets "Key=InstanceIds,Values=instance-id" \
+       --parameters '{"Operation":["Install"],"RebootOption":["NoReboot"]}'
    ```
 
 ------
@@ -196,9 +196,9 @@ For information about applying kernel live patches by running `yum` commands dir
 
    ```
    aws ssm send-command ^
-   	--document-name "AWS-RunPatchBaseline" ^
-   	--targets "Key=InstanceIds,Values=instance-id" ^
-   	--parameters {\"Operation\":[\"Install\"],\"RebootOption\":[\"NoReboot\"]}
+       --document-name "AWS-RunPatchBaseline" ^
+       --targets "Key=InstanceIds,Values=instance-id" ^
+       --parameters {\"Operation\":[\"Install\"],\"RebootOption\":[\"NoReboot\"]}
    ```
 
 ------

@@ -16,6 +16,8 @@ For an example of creating a patch baseline that is limited to installing Window
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
+1. Choose the **Patch baselines** tab\.
+
 1. Choose **Create patch baseline**\. 
 
 1. For **Name**, enter a name for your new patch baseline, for example, **MyWindowsPatchBaseline**\.
@@ -26,7 +28,7 @@ For an example of creating a patch baseline that is limited to installing Window
 
 1. If you want to begin using this patch baseline as the default for Windows as soon as you create it, select **Set this patch baseline as the default patch baseline for Windows Server instances** \.
 
-   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
+   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The version of the operating systems the approval rule applies to, such as `WindowsServer2012`\. The default selection is `All`\.

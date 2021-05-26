@@ -34,7 +34,7 @@ You can wait for the next scheduled maintenance window time to run tasks on the 
 + **Solution 1**: If your task is targeting a single resource, such as a single instance or single snapshot, enter its ID in the input parameters for the task\.
 + **Solution 2**: If your task is targeting multiple resources, such as creating images from multiple instances when you use the runbook `AWS-CreateImage`, you can use one of the pseudo parameters supported for maintenance window tasks in the input parameters to represent instance IDs in the command\. 
 
-  The following commands register a Systems Manager Automation task with a maintenance window using the AWS CLI\. Note that the `--targets` value indicates a maintenance window target ID\. Also, even though the `--targets` parameter specifies a window target ID, parameters of the Automation runbook require that an instance ID be provided\. In this case, the command uses the pseudo parameter `{{RESOURCE_ID}}` as the `InstanceId` value\.
+  The following commands register a Systems Manager Automation task with a maintenance window using the AWS CLI\. The `--targets` value indicates a maintenance window target ID\. Also, even though the `--targets` parameter specifies a window target ID, parameters of the Automation runbook require that an instance ID be provided\. In this case, the command uses the pseudo parameter `{{RESOURCE_ID}}` as the `InstanceId` value\.
 
   **AWS CLI command:**
 

@@ -35,7 +35,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
-| Calendar State Change | The state of a Change Calendar changes\. You can add one or both of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) State changes for calendars shared from other AWS accounts aren't supported\.  | 
+| Calendar State Change | The state of a Change Calendar changes\. You can add one or both of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) State changes for calendars shared from other Amazon Web Services accounts aren't supported\.  | 
 
 ## Event type: Configuration Compliance<a name="event-type-configuration-compliance"></a>
 

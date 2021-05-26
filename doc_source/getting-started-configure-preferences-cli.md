@@ -1,6 +1,6 @@
 # Update Session Manager preferences \(command line\)<a name="getting-started-configure-preferences-cli"></a>
 
-The following procedure describes how to use your preferred command line tool to make changes to the Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to make changes to the Session Manager preferences for your Amazon Web Services account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
 **To update Session Manager preferences \(command line\)**
 

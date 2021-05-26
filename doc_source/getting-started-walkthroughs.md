@@ -101,8 +101,8 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Patch Manager**  
 [Patch Manager](systems-manager-patch.md), a capability of AWS Systems Manager, helps you select and deploy operating system and software patches automatically across large groups of EC2 instances or on\-premises servers and VMs\.
-+ [Working with custom patch baselines](sysman-patch-baseline-console.md)
-+ [Creating a patch group](sysman-patch-group-tagging.md)
++ [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
++ [Creating a patch group \(console\)](sysman-patch-group-tagging.md)
 + [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 
 **Distributor**  

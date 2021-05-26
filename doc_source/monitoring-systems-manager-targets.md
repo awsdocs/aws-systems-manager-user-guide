@@ -4,7 +4,7 @@ When you specify the target to invoke in an Amazon EventBridge rule, you can cho
 
 Of the various targets, you can choose from three AWS Systems Manager capabilities as target actions when an EventBridge event occurs\. These capabilities include Automation, OpsCenter, and Run Command\.
 
-The following are just a few examples of ways you can use these capabilities as the target of an EventBridge rule\.
+The following are several examples of ways you can use these capabilities as the target of an EventBridge rule\.
 
 **Automation examples**  
 You can configure an EventBridge rule to start Automation workflows when events such as the following occur:

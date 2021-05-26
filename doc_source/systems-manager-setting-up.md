@@ -7,7 +7,7 @@ If you plan to use Systems Manager to manage and configure your own on\-premises
 If you already use other AWS services, you have completed some of these steps\. However, other steps are specific to Systems Manager\. Therefore, we recommend reviewing this entire section to ensure that you are ready to use all Systems Manager capabilities\. 
 
 **Note**  
-You can use Systems Manager Quick Setup to quickly configure an AWS Identity and Access Management \(IAM\) instance profile on all instances in your AWS account\. Quick Setup can also create an assume role, which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip step 4 and 5 in this section\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
+You can use Systems Manager Quick Setup to quickly configure an AWS Identity and Access Management \(IAM\) instance profile on all instances in your Amazon Web Services account\. Quick Setup can also create an assume role, which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip step 4 and 5 in this section\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
 
 **Topics**
 + [Step 1: Sign up for AWS](setup-sign-up.md)

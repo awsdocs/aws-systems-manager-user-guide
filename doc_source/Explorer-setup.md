@@ -11,7 +11,7 @@ Integrated Setup performs the following tasks:
 + [Enables OpsData sources](#Explorer-setup-data-sources): Integrated Setup enables data sources that populate Explorer widgets\.
 + [Enables you to specify reporting tag keys](Explorer-setup-tag-keys.md): Integrated Setup enables you to specify up to five reporting tag keys to automatically assign to new OpsItems that meet specific criteria\. 
 
-After you complete Integrated Setup, we recommend that you [Set up Explorer to display data from multiple Regions and accounts](Explorer-resource-data-sync.md)\. Explorer and OpsCenter automatically synchronize OpsData and OpsItems for the AWS account and Region you used when you completed Integrated Setup\. You can aggregate OpsData and OpsItems from other accounts and Regions by creating a resource data sync\.
+After you complete Integrated Setup, we recommend that you [Set up Explorer to display data from multiple Regions and accounts](Explorer-resource-data-sync.md)\. Explorer and OpsCenter automatically synchronize OpsData and OpsItems for the Amazon Web Services account and AWS Region you used when you completed Integrated Setup\. You can aggregate OpsData and OpsItems from other accounts and Regions by creating a resource data sync\.
 
 **Note**  
 You can change setup configurations at any time on the **Settings** page\.

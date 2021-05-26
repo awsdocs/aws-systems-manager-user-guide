@@ -1,4 +1,4 @@
-# Working with custom patch baselines<a name="sysman-patch-baseline-console"></a>
+# Working with custom patch baselines \(console\)<a name="sysman-patch-baseline-console"></a>
 
 Patch Manager, a capability of AWS Systems Manager, includes a predefined patch baseline for each operating system supported by Patch Manager\. You can use these patch baselines \(you can't customize them\), or you can create your own\. 
 

@@ -55,7 +55,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 1. Choose the **JSON** tab\.
 
-1. Enter a JSON policy document for the AWS services you want to invoke\. Here are two example JSON policy documents\.
+1. Enter a JSON Policy document for the AWS services you want to invoke\. Here are two example JSON Policy documents\.
 
    **Amazon S3 PutObject and GetObject Example**
 

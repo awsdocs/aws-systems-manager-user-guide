@@ -1,6 +1,6 @@
 # Step 8: \(Optional\) Enable SSH connections through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
 
-You can enable users in your AWS account to use the AWS Command Line Interface \(AWS CLI\) to establish Secure Shell \(SSH\) connections to instances using Session Manager\. Users who connect using SSH can also copy files between their local machines and managed instances using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to instances without opening inbound ports or maintaining bastion hosts\. You can also choose to explicitly disable SSH connections to your instances through Session Manager\.
+You can enable users in your Amazon Web Services account to use the AWS Command Line Interface \(AWS CLI\) to establish Secure Shell \(SSH\) connections to instances using Session Manager\. Users who connect using SSH can also copy files between their local machines and managed instances using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to instances without opening inbound ports or maintaining bastion hosts\. You can also choose to explicitly disable SSH connections to your instances through Session Manager\.
 
 **Note**  
 Logging is not available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.

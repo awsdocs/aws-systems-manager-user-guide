@@ -11,7 +11,7 @@ Ubuntu Server 16\.04, 18\.04, and 20\.04
 SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. 
 
-The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, AWS does not currently provide support for running modified copies of this software\.
+The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, AWS doesn't currently provide support for running modified copies of this software\.
 
 **Note**  
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md)\.

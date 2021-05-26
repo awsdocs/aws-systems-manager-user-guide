@@ -1,6 +1,6 @@
 # Supported operating systems<a name="prereqs-operating-systems"></a>
 
-Your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\) must be running one of the following operating systems in order to be used with AWS Systems Manager\.
+Your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\) must be running one of the following operating systems to use them with AWS Systems Manager\.
 
 **Topics**
 + [Linux](#prereqs-os-linux)
@@ -18,7 +18,7 @@ Your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers
 | 2012\.03 – 2018\.03 | ✓ | ✓ |  | 
 
 **Note**  
-Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86\_64\) versions only\.
+Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86\_64\) versions\.
 
 
 **Amazon Linux 2**  
@@ -111,7 +111,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 10\.15\.x \(Catalina\) |  | ✓ |  | 
 
 **Note**  
-macOS support is currently limited to the following AWS Regions:  
+macOS support is limited to the following AWS Regions:  
 US East \(N\. Virginia\) \(us\-east\-1\)
 US East \(Ohio\) \(us\-east\-2\)
 US West \(Oregon\) \(us\-west\-2\)
@@ -131,7 +131,7 @@ For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac ins
 
 ## Windows Server<a name="prereqs-os-windows-server"></a>
 
-Note that SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems Manager documents \(SSM documents\) on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
+SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems Manager documents \(SSM documents\) on Windows Server instances \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. This framework includes Windows PowerShell\. For more information, see [https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True](https://www.microsoft.com/en-us/download/details.aspx?id=34595&751be11f-ede8-5a0c-058c-2ee190a24fa6=True)\.
 
 
 ****  

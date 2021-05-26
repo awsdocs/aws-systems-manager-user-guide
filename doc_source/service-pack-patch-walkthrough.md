@@ -28,7 +28,7 @@ Use the following procedure to create a custom patch baseline to be used exclusi
 
 1. If you want to begin using this patch baseline as the default for Windows as soon as you create it, select **Set this patch baseline as the default patch baseline for Windows Server instances** \.
 
-   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default](set-default-patch-baseline.md)\.
+   If you choose not to set this patch baseline for use now, you can do so later\. For information, see [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)\.
 
 1. In the **Approval rules for operating systems** section, use the fields to create one or more auto\-approval rules\.
    + **Product**: The operating system versions that the approval rule applies to, such as `WindowsServer2012`\. You can choose one, more than one, or all supported versions of Windows\. The default selection is `All`\.

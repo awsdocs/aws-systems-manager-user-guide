@@ -17,7 +17,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. Sign in to the AWS Management Console\.
 
-   If you are using Change Manager for an organization, sign in using your credentials for your delegated administrator account\. Note that the user account you use must have the necessary AWS Identity and Access Management \(IAM\) permissions for making updates to your Change Manager settings\.
+   If you are using Change Manager for an organization, sign in using your credentials for your delegated administrator account\. The user account you use must have the necessary AWS Identity and Access Management \(IAM\) permissions for making updates to your Change Manager settings\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

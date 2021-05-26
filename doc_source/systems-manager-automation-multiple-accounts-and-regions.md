@@ -210,7 +210,7 @@ Before you complete the following procedure, note the following information:
 
 ------
 
-   Here are a few examples\.
+   Here are several examples\.
 
    **Example 1**: This example restarts EC2 instances in the `123456789012` and `987654321098` accounts, which are located in the `us-east-2` and `us-west-1` Regions\. The instances must be tagged with the tag key\-pair value `Env-PROD`\.
 

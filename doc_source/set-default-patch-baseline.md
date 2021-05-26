@@ -1,6 +1,6 @@
-# Setting an existing patch baseline as the default<a name="set-default-patch-baseline"></a>
+# Setting an existing patch baseline as the default \(console\)<a name="set-default-patch-baseline"></a>
 
-When you create a custom patch baseline in Patch Manager, a capability of AWS Systems Manager, you can set the baseline as the default for the associated operating system type as soon as you create it\. For information, see [Working with custom patch baselines](sysman-patch-baseline-console.md)\.
+When you create a custom patch baseline in Patch Manager, a capability of AWS Systems Manager, you can set the baseline as the default for the associated operating system type as soon as you create it\. For information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
 
 You can also set an existing patch baseline as the default for an operating system type\.
 

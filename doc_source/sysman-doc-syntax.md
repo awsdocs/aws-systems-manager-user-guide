@@ -1,6 +1,6 @@
 # SSM document syntax<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for command documents\. Automation runbooks use schema version 0\.3\. Additionally, Automation runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
+The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for Command documents\. Automation runbooks use schema version 0\.3\. Additionally, Automation runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
 The top\-level elements provide the structure of the SSM document\. The information in this topic pertains to `Command` and `Automation` SSM documents\.
 
@@ -17,7 +17,7 @@ Type: String
 Required: No
 
 **parameters**  
-A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format:  
+A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Parameter Store, a capability of AWS Systems Manager, and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format:  
 
 ```
 {{ssm:parameter-name}}

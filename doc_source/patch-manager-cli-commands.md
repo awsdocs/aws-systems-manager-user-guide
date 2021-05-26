@@ -33,6 +33,7 @@ For more information about using the AWS CLI for AWS Systems Manager tasks, see 
 + [Remove a tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource)
 + [Get patch summary states per\-instance](#patch-manager-cli-commands-describe-instance-patch-states)
 + [Get patch compliance details for an instance](#patch-manager-cli-commands-describe-instance-patches)
++ [View patching compliance results \(AWS CLI\)](#viewing-patch-compliance-results-cli)
 
 ## Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
@@ -1241,3 +1242,95 @@ The system returns information like the following\.
         },
     ---output truncated---
 ```
+
+## View patching compliance results \(AWS CLI\)<a name="viewing-patch-compliance-results-cli"></a>
+
+**To view patch compliance results for a single instance**
+
+Run the following command in the AWS Command Line Interface \(AWS CLI\) to view patch compliance results for a single instance\.
+
+```
+aws ssm describe-instance-patch-states --instance-id instance-id
+```
+
+Replace *instance\-id* with the ID of the managed instance for which you want to view results, in the format **i\-02573cafcfEXAMPLE** or **mi\-0282f7c436EXAMPLE**\.
+
+The systems returns information like the following\.
+
+```
+{
+    "InstancePatchStates": [
+        {
+            "InstanceId": "i-02573cafcfEXAMPLE",
+            "PatchGroup": "mypatchgroup",
+            "BaselineId": "pb-0c10e65780EXAMPLE",            
+            "SnapshotId": "a3f5ff34-9bc4-4d2c-a665-4d1c1EXAMPLE",
+            "CriticalNonCompliantCount": 2,
+            "SecurityNonCompliantCount": 2,
+            "OtherNonCompliantCount": 1,
+            "InstalledCount": 123,
+            "InstalledOtherCount": 334,
+            "InstalledPendingRebootCount": 0,
+            "InstalledRejectedCount": 0,
+            "MissingCount": 1,
+            "FailedCount": 2,
+            "UnreportedNotApplicableCount": 11,
+            "NotApplicableCount": 2063,
+            "OperationStartTime": "2021-05-03T11:00:56-07:00",
+            "OperationEndTime": "2021-05-03T11:01:09-07:00",
+            "Operation": "Scan",
+            "LastNoRebootInstallOperationTime": "2020-06-14T12:17:41-07:00",
+            "RebootOption": "RebootIfNeeded"
+        }
+    ]
+}
+```
+
+**To view a patch count summary for all EC2 instances in a Region**
+
+The `describe-instance-patch-states` supports retrieving results for just one managed instance at a time\. However, using a custom script with the `describe-instance-patch-states` command, you can generate a more granular report\.
+
+For example, if the [jq filter tool](https://stedolan.github.io/jq/download/) is installed on you local machine, you could run the following command to identify which of your EC2 instances in a particular AWS Region have a status of `InstalledPendingReboot`\.
+
+```
+aws ssm describe-instance-patch-states \
+    --instance-ids $(aws ec2 describe-instances --region region | jq '.Reservations[].Instances[] | .InstanceId' | tr '\n|"' ' ') \
+    --output text --query 'InstancePatchStates[*].{Instance:InstanceId, InstalledPendingRebootCount:InstalledPendingRebootCount}'
+```
+
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
+For example:
+
+```
+aws ssm describe-instance-patch-states \
+    --instance-ids $(aws ec2 describe-instances --region us-east-2 | jq '.Reservations[].Instances[] | .InstanceId' | tr '\n|"' ' ') \
+    --output text --query 'InstancePatchStates[*].{Instance:InstanceId, InstalledPendingRebootCount:InstalledPendingRebootCount}'
+```
+
+The system returns information like the following\.
+
+```
+1       i-02573cafcfEXAMPLE
+0       i-0471e04240EXAMPLE
+3       i-07782c72faEXAMPLE
+6       i-083b678d37EXAMPLE
+0       i-03a530a2d4EXAMPLE
+1       i-01f68df0d0EXAMPLE
+0       i-0a39c0f214EXAMPLE
+7       i-0903a5101eEXAMPLE
+7       i-03823c2fedEXAMPLE
+```
+
+In addition to `InstalledPendingRebootCount`, the list of count types you can search for include the following:
++ `CriticalNonCompliantCount`
++ `SecurityNonCompliantCount`
++ `OtherNonCompliantCount`
++ `UnreportedNotApplicableCount `
++ `InstalledPendingRebootCount`
++ `FailedCount`
++ `NotApplicableCount`
++ `InstalledRejectedCount`
++ `InstalledOtherCount`
++ `MissingCount`
++ `InstalledCount`

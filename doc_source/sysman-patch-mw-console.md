@@ -1,7 +1,7 @@
-# Creating a maintenance window for patching<a name="sysman-patch-mw-console"></a>
+# Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching instances on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand](patch-on-demand.md)\.
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching instances on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand \(console\)](patch-on-demand.md)\.
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
@@ -110,7 +110,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Register run command task**\.
 
-After the maintenance window task completes, you can view patch compliance details in the Systems Manager console on the **Managed Instances** page\. In the filter bar, use the **AWS:PatchSummary** and **AWS:PatchCompliance** filters\. 
+After the maintenance window task completes, you can view patch compliance details in the Systems Manager console on the **Managed Instances** page\. In the filter bar, use the `AWS:PatchSummary` and `AWS:PatchCompliance` filters\. 
 
 **Note**  
 You can save your query by bookmarking the URL after you specify the filters\.

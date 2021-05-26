@@ -95,7 +95,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 1. In the **Cloud** section, select **Add a new cloud**, and then choose **Amazon EC2**\.
 
-1. Enter your information in the remaining fields\. Note that you must enter your AWS credentials in the **Add Credentials** field\.
+1. Enter your information in the remaining fields\. You must enter your AWS credentials in the **Add Credentials** field\.
 
 Use the following procedure to configure your Jenkins project to invoke Automation\.
 

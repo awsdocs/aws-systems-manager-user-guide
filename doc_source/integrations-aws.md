@@ -85,7 +85,7 @@ Systems Manager is integrated with the following AWS services\.
 
 |  |  | 
 | --- |--- |
-| AWS Resource Groups |  [Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/) organize your AWS resources\. Resource groups make it easier to manage, monitor, and automate tasks on large numbers of resources at one time\. Systems Manager resource types like managed instances, SSM documents, maintenance windows, Parameter Store parameters, and patch baselines can be added to resource groups\.  Learn more [Resource Groups in AWS Systems Manager](systems-manager-resource-groups.md)   | 
+| AWS Resource Groups |  [Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/) organize your AWS resources\. Resource groups make it easier to manage, monitor, and automate tasks on large numbers of resources at one time\. Systems Manager resource types like managed instances, SSM documents, maintenance windows, Parameter Store parameters, and patch baselines can be added to resource groups\.  Learn more [What are AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)   | 
 
 **Topics**
 + [Compute](#integrations-aws-compute)

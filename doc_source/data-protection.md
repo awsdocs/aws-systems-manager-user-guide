@@ -44,7 +44,7 @@ The following are types of data you can upload or have stored in S3 buckets as p
 + Reports from Explorer, , a capability of AWS Systems Manager
 + OpsData from OpsCenter, a capability of AWS Systems Manager
 + AWS CloudFormation templates for use with Automation workflows
-+ Compliance data from a Resource Data Sync scan
++ Compliance data from a resource data sync scan
 + Output of requests to create or edit association in State Manager, a capability of AWS Systems Manager, on managed instances
 + Custom Systems Manager documents \(SSM documents\) that you can run using the AWS managed SSM document `AWS-RunDocument`
 

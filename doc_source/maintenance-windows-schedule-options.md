@@ -53,7 +53,7 @@ aws ssm create-maintenance-window ^
 
 ------
 
-This means that the first run of the maintenance window won't occur until *after* its specified start date and time, which is at 12:00 AM US Pacific Time on Friday, January 1, 2021\. \(This time zone is eight hours behind UTC time\.\) Note that in this case, the start date and time of the window period don't represent when the maintenance windows first runs\. Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Wednesday, January 4, 2021, at 9 AM US Pacific Time\.
+This means that the first run of the maintenance window won't occur until *after* its specified start date and time, which is at 12:00 AM US Pacific Time on Friday, January 1, 2021\. \(This time zone is eight hours behind UTC time\.\) In this case, the start date and time of the window period don't represent when the maintenance windows first runs\. Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Wednesday, January 4, 2021, at 9 AM US Pacific Time\.
 
 ## Example 2: Specify a maintenance window start date and end date<a name="schedule-example-start-end-date"></a>
 

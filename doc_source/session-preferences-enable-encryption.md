@@ -1,11 +1,11 @@
 # Enable KMS key encryption of session data \(console\)<a name="session-preferences-enable-encryption"></a>
 
-Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and the local machines of users in your AWS account is encrypted using KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) KMS key encryption for sessions is accomplished using a key that is created in AWS KMS\. To use the option to encrypt session data using a key created in AWS KMS, version 2\.3\.539\.0 or later of SSM Agent must be installed on the managed instance\. 
+Use AWS Key Management Service \(AWS KMS\) to create and manage keys\. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications\. You can specify that session data transmitted between your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and the local machines of users in your Amazon Web Services account is encrypted using KMS key encryption\. \(This is in addition to the TLS 1\.2 encryption that AWS already provides by default\.\) KMS key encryption for sessions is accomplished using a key that is created in AWS KMS\. To use the option to encrypt session data using a key created in AWS KMS, version 2\.3\.539\.0 or later of SSM Agent must be installed on the managed instance\. 
 
 **Note**  
 You must enable AWS KMS encryption in order to reset passwords on your managed instances from the Systems Manager console\. For more information, see [Reset a password on a managed instance](managed-instances-password-reset.md#managed-instance-reset-a-password)\.
 
-You can use a key that you created in your AWS account\. You can also use a key that was created in a different AWS account\. The creator of the key in a different AWS account must provide you with the permissions needed to use the key\.
+You can use a key that you created in your Amazon Web Services account\. You can also use a key that was created in a different Amazon Web Services account\. The creator of the key in a different Amazon Web Services account must provide you with the permissions needed to use the key\.
 
 After you enable KMS key encryption for your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the KMS key with Session Manager through IAM policies\. For information, see the following topics:
 + Add AWS KMS permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
@@ -41,6 +41,6 @@ There is a charge to use KMS keys\. For information, see [AWS Key Management Ser
 
      Choose **Create new key** to create a new KMS key in your account\. After you create the new key, return to the **Preferences** tab and select the key for encrypting session data in your account\.
 
-   For more information about sharing keys, see [Allowing External AWS Accounts to Access a key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS Key Management Service Developer Guide*\.
+   For more information about sharing keys, see [Allowing External Amazon Web Services Accounts to Access a key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts) in the *AWS Key Management Service Developer Guide*\.
 
 1. Choose **Save**\.

@@ -69,9 +69,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary \
-   --sync-name resource_data_sync_name \
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+       --sync-name resource_data_sync_name \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
    ```
 
 ------
@@ -79,9 +79,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary ^
-   --sync-name resource_data_sync_name ^
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+       --sync-name resource_data_sync_name ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
    ```
 
 ------
@@ -120,9 +120,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary \
-   --sync-name resource_data_sync_name \
-   --filters Key=AWS:OpsItem.SourceRegion,Values='Region',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+       --sync-name resource_data_sync_name \
+       --filters Key=AWS:OpsItem.SourceRegion,Values='Region',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
    ```
 
 ------
@@ -130,9 +130,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary ^
-   --sync-name resource_data_sync_name ^
-   --filters Key=AWS:OpsItem.SourceRegion,Values='Region',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-   --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
+       --sync-name resource_data_sync_name ^
+       --filters Key=AWS:OpsItem.SourceRegion,Values='Region',Type=Equal Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators AggregatorType=count,AttributeName=Status,TypeName=AWS:OpsItem
    ```
 
 ------
@@ -146,9 +146,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary \
-   --sync-name resource_data_sync_name \
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-   --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
+       --sync-name resource_data_sync_name \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
    ```
 
 ------
@@ -156,9 +156,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary ^
-   --sync-name resource_data_sync_name ^
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-   --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
+       --sync-name resource_data_sync_name ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]'
    ```
 
 ------
@@ -209,9 +209,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary \
-   --sync-name resource_data_sync_name \
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
-   --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
+       --sync-name resource_data_sync_name \
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal \
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
    ```
 
 ------
@@ -219,9 +219,9 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm get-ops-summary ^
-   --sync-name resource_data_sync_name ^
-   --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
-   --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
+       --sync-name resource_data_sync_name ^
+       --filters Key=AWS:OpsItem.OpsItemType,Values="/aws/changerequests",Type=Equal ^
+       --aggregators '[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"Status","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceAccountId","Aggregators":[{"AggregatorType":"count","TypeName":"AWS:OpsItem","AttributeName":"SourceRegion"}]}]}]'
    ```
 
 ------

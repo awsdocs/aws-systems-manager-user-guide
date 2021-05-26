@@ -186,7 +186,7 @@ To view an example identity\-based policy for limiting access to a resource base
 
 ## Systems Manager IAM roles<a name="security_iam_service-with-iam-roles"></a>
 
-An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your AWS account that has specific permissions\.
+An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your Amazon Web Services account that has specific permissions\.
 
 ### Using temporary credentials with Systems Manager<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
@@ -210,9 +210,9 @@ Systems Manager supports service roles\.
 
 For Systems Manager to interact with your managed instances, you must choose a role to allow Systems Manager to access instances on your behalf\. If you have previously created a service role or service\-linked role, then Systems Manager provides you with a list of roles to choose from\. It's important to choose a role that allows access to start and stop managed instances\. 
 
-To access EC2 instances, the role your AWS account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+To access EC2 instances, the role your Amazon Web Services account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
-To access on\-premises instances or virtual machines \(VMs\), the role your AWS account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
+To access on\-premises instances or virtual machines \(VMs\), the role your Amazon Web Services account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
 An Automation workflow can be initiated under the context of a service role \(or assume role\)\. This allows the service to perform actions on your behalf\. If you do not specify an assume role, Automation uses the context of the user who invoked the execution\. However, certain situations require that you specify a service role for Automation\. For more information, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\.
 

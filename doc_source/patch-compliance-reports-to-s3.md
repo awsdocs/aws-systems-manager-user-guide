@@ -1,4 +1,4 @@
-# Generating \.csv patch compliance reports<a name="patch-compliance-reports-to-s3"></a>
+# Generating \.csv patch compliance reports \(console\)<a name="patch-compliance-reports-to-s3"></a>
 
 You can use the AWS Systems Manager console to generate patch compliance reports that are saved as a \.csv file to an Amazon Simple Storage Service \(Amazon S3\) bucket of your choice\. You can generate a single on\-demand report or specify a schedule for generating the reports automatically\. 
 

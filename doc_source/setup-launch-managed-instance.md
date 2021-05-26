@@ -17,12 +17,12 @@ SSM Agent is installed by default on the following AMIs:
 + Windows Server 2016 and 2019
 
 **Note**  
-SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
+SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent isn't preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
-A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any Amazon Machine Image \(AMI\)\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on and VMs on\-premises servers](hybrid-tls-certificate.md)\.
 
 **Topics**
 + [Launch an instance that uses the Systems Manager instance profile \(console\)](#setup-launch-managed-instance-new)

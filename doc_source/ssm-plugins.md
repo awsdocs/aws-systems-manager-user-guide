@@ -328,7 +328,7 @@ Required: Yes
 **CultureName**  
 The locale where the timestamp is logged\. If **CultureName** is blank, it defaults to the same locale currently used by your Windows Server instance\.  
 Type: String  
-Valid values: For a list of supported values, see [National Language Support \(NLS\)](https://msdn.microsoft.com/en-us/library/cc233982.aspx) on the Microsoft website\. Note that the **div**, **div\-MV**, **hu**, and **hu\-HU** values are not supported\.  
+Valid values: For a list of supported values, see [National Language Support \(NLS\)](https://msdn.microsoft.com/en-us/library/cc233982.aspx) on the Microsoft website\. The **div**, **div\-MV**, **hu**, and **hu\-HU** values are not supported\.  
 Required: No
 
 **DimensionName**  
@@ -382,7 +382,7 @@ Valid values:
 + **1** \- Only error messages uploaded\.
 + **2** \- Only warning messages uploaded\.
 + **4** \- Only information messages uploaded\.
-Note that you can add values together to include more than one type of message\. For example, **3** means that error messages \(**1**\) and warning messages \(**2**\) are included\. A value of **7** means that error messages \(**1**\), warning messages \(**2**\), and informational messages \(**4**\) are included\.  
+You can add values together to include more than one type of message\. For example, **3** means that error messages \(**1**\) and warning messages \(**2**\) are included\. A value of **7** means that error messages \(**1**\), warning messages \(**2**\), and informational messages \(**4**\) are included\.  
 Required: Yes  
 Windows Security Logs should set Levels to 7\.
 
@@ -964,11 +964,11 @@ Additionally, you can specify the following optional parameters:
   Type: Boolean
 + authMethod
 
-  Determines whether a username and password are used for authentication when connecting to the `url` you specify\. If you specify `Basic`, you must provide values for the `username` and `password` parameters\.
+  Determines whether a username and password are used for authentication when connecting to the `url` you specify\. If you specify `Basic` or `Digest`, you must provide values for the `username` and `password` parameters\. To use the `Digest` method, SSM Agent version 3\.0\.1181\.0 or later must be installed on your instance\. The `Digest` method supports MD5 and SHA256 encryption\.
 
   Type: String
 
-  Valid values: `None` \| `Basic`
+  Valid values: `None` \| `Basic` \| `Digest`
 + username
 
   The username to use when connecting to the `url` you specify using `Basic` authentication\. You can use the following format to reference a `SecureString` parameter for the value of your username: `{{ssm-secure:your-secure-string-parameter}}`\.
@@ -1617,7 +1617,7 @@ Required: No
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
 ```
 
-Also note that an instance can have only one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
+An instance can have only one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 

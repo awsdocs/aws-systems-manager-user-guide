@@ -14,7 +14,7 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
 
-When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
+When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that's attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
 
 In rare cases, however, an instance might end up with permissions added to more than one of the locations where SSM Agent checks for permissions to run its tasks\. 
 
@@ -23,7 +23,7 @@ As one example, you might configure an instance to be managed by Systems Manager
 When you run a Systems Manager command on the instance, SSM Agent might try to use credentials different from the ones you expect it to use, such as from a credentials file instead of an instance profile\. This is because SSM Agent looks for credentials in the order prescribed for the *default credential provider chain*\.
 
 **Note**  
-On Linux and macOS, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent does not look at the environment variables or credentials file of any other user accounts on the instance during the search for credentials\.
+On Linux and macOS, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent doesn't look at the environment variables or credentials file of any other user accounts on the instance during the search for credentials\.
 
 The default provider chain looks for credentials in the following order:
 
@@ -45,11 +45,11 @@ This topic in the *AWS SDK for Go Developer Guide* describes the default provide
 
 ## About the local ssm\-user account<a name="ssm-user-account"></a>
 
-Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to the `/etc/sudoers.d` directory \(Linux and macOS\) or to the Administrators group \(Windows Server\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a session starts in Session Manager, a capability of AWS Systems Manager\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account is not removed from the system when SSM Agent is uninstalled\.
+Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user account called `ssm-user` and adds it to the `/etc/sudoers.d` directory \(Linux and macOS\) or to the Administrators group \(Windows Server\)\. On agent versions before 2\.3\.612\.0, the account is created the first time SSM Agent starts or restarts after installation\. On version 2\.3\.612\.0 and later, the `ssm-user` account is created the first time a session is started on an instance\. This `ssm-user` is the default OS user when a session starts in Session Manager, a capability of AWS Systems Manager\. You can change the permissions by moving `ssm-user` to a less\-privileged group or by changing the `sudoers` file\. The `ssm-user` account isn't removed from the system when SSM Agent is uninstalled\.
 
 On Windows Server, SSM Agent handles setting a new password for the `ssm-user` account when each session starts\. No passwords are set for `ssm-user` on Linux managed instances\.
 
-Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account is not created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, you must create the `ssm-user` account manually if it isn't already present\.
+Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, you must create the `ssm-user` account manually if it isn't already present\.
 
 **Important**  
 In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
@@ -94,7 +94,7 @@ The agent computes the hardware hash and fingerprint when the on\-premises serve
 
 Later, when sending a `RequestManagedInstanceRoleToken` command, the agent checks the fingerprint and hardware hash in the Vault to make sure that the current machine attributes match with the stored hardware hash\. If the current machine attributes do match the hardware hash stored in the Vault, the agent passes in the fingerprint from the Vault to `RegisterManagedInstance`, resulting in a successful call\. 
 
-If the current machine attributes do not match the stored hardware hash, SSM Agent computes a new fingerprint, stores the new hardware hash and fingerprint in the Vault, and passes the new fingerprint to `RequestManagedInstanceRoleToken`\.* This causes `RequestManagedInstanceRoleToken` to fail, and the agent will not be able to obtain a role token to connect to the Systems Manager service\.*
+If the current machine attributes don't match the stored hardware hash, SSM Agent computes a new fingerprint, stores the new hardware hash and fingerprint in the Vault, and passes the new fingerprint to `RequestManagedInstanceRoleToken`\.* This causes `RequestManagedInstanceRoleToken` to fail, and the agent won't be able to obtain a role token to connect to the Systems Manager service\.*
 
 This failure is by design and is used as a verification step to prevent multiple on\-premises servers and VMs from communicating with the Systems Manager service as the same managed instance\.
 
@@ -135,13 +135,13 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 + Windows Server 2016 and 2019
 
 **Note**  
-SSM Agent is not installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent is not preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
+SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent isn't preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
 
-You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on on\-premises servers or VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on VMs in your hybrid environment or on\-premises servers\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
-SSM Agent might be pre\-installed on Community AMIs that support other operating systems\. AWS does not support these Community AMIs\.
+SSM Agent might be pre\-installed on Community AMIs that support other operating systems\. AWS doesn't support these Community AMIs\.
 
 ## SSM Agent on GitHub<a name="github"></a>
 
-The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
+The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services doesn't currently provide support for running modified copies of this software\.

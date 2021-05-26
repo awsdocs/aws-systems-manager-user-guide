@@ -110,7 +110,7 @@ For more information about creating IAM user policies, see [Managed Policies and
 
 ## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 
-Session Manager provides two methods to control which sessions a user in your AWS account is allowed to end\.
+Session Manager provides two methods to control which sessions a user in your Amazon Web Services account is allowed to end\.
 + Use the variable `{aws:username}` in an AWS Identity and Access Management \(IAM\) permissions policy\. Users can end only sessions they started\. This method does not work for accounts that use federated IDs to grant access to AWS\. Federated IDs use the variable `{aws:userid}` instead of `{aws:username}`\.
 + Use tags supplied by AWS tags in an IAM permissions policy\. In the policy, you include a condition that allows users to end only sessions that are tagged with specific tags that have been provided by AWS\. This method works for all accounts, including those that use federated IDs to grant access to AWS\.
 
@@ -151,7 +151,7 @@ This method does not work for accounts that grant access to AWS using federated 
 
 You can control which sessions a user can end by using a condition with specific tag key variables in an IAM user policy\. The condition specifies that the user can only end sessions that are tagged with one or both of these specific tag key variables and a specified value\.
 
-When a user in your AWS account starts a session, Session Manager applies two resource tags to the session\. The first resource tag is `aws:ssmmessages:target-id`, with which you specify the ID of the target the user is allowed to end\. The other resource tag is `aws:ssmmessages:session-id`, with a value in the format of `role-id:caller-specified-role-name`\.
+When a user in your Amazon Web Services account starts a session, Session Manager applies two resource tags to the session\. The first resource tag is `aws:ssmmessages:target-id`, with which you specify the ID of the target the user is allowed to end\. The other resource tag is `aws:ssmmessages:session-id`, with a value in the format of `role-id:caller-specified-role-name`\.
 
 **Note**  
 Session Manager doesn’t support custom tags for this IAM access control policy\. You must use the resource tags supplied by AWS, described below\. 
@@ -184,7 +184,7 @@ If the user tries to end a session for which they haven’t been granted this `T
 
  **aws:ssmmessages:session\-id**   
 This tag key includes a variable for the session ID as the value in the request to start a session\.  
-The following example demonstrates a policy for cases where the caller type is `User`\. The value you supply for `aws:ssmmessages:session-id` is the ID of the user\. In this example, `AIDIODR4TAW7CSEXAMPLE` represents the ID of a user in your AWS account\. To retrieve the ID for a user in your AWS account, use the IAM command, `get-user`\. For information, see [get\-user](https://docs.aws.amazon.com/IAM/latest/UserGuide/get-user.html) in the AWS Identity and Access Management section of the *IAM User Guide*\.   
+The following example demonstrates a policy for cases where the caller type is `User`\. The value you supply for `aws:ssmmessages:session-id` is the ID of the user\. In this example, `AIDIODR4TAW7CSEXAMPLE` represents the ID of a user in your Amazon Web Services account\. To retrieve the ID for a user in your Amazon Web Services account, use the IAM command, `get-user`\. For information, see [get\-user](https://docs.aws.amazon.com/IAM/latest/UserGuide/get-user.html) in the AWS Identity and Access Management section of the *IAM User Guide*\.   
 
 ```
 {
@@ -209,7 +209,7 @@ The following example demonstrates a policy for cases where the caller type is `
 ```
 The following example demonstrates a policy for cases where the caller type is `AssumedRole`\. You can use the `{aws:userid}` variable for the value you supply for `aws:ssmmessages:session-id`\. Alternatively, you can hardcode a role ID for the value you supply for `aws:ssmmessages:session-id`\. If you hardcode a role ID, you must provide the value in the format `role-id:caller-specified-role-name`\. For example, `AIDIODR4TAW7CSEXAMPLE:MyRole`\.  
 In order for system tags to be applied, the role ID you supply can contain the following characters only: Unicode letters, 0\-9, space, `_`, `.`, `:`, `/`, `=`, `+`, `-`, `@`, and `\`\.
-To retrieve the role ID for a role in your AWS account, use the `get-caller-identity` command\. For information, see [get\-caller\-identity](https://docs.aws.amazon.com/cli/latest/reference//sts/get-caller-identity.html) in the AWS CLI Command Reference\.   
+To retrieve the role ID for a role in your Amazon Web Services account, use the `get-caller-identity` command\. For information, see [get\-caller\-identity](https://docs.aws.amazon.com/cli/latest/reference//sts/get-caller-identity.html) in the AWS CLI Command Reference\.   
 
 ```
 {

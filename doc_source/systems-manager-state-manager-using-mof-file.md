@@ -18,7 +18,7 @@ MOF file execution is built on Windows PowerShell Desired State Configuration \(
 ## Using Amazon S3 to store artifacts<a name="systems-manager-state-manager-using-mof-file-S3-storage"></a>
 
 If you are using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
-+ If the bucket is in a different AWS account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
++ If the bucket is in a different Amazon Web Services account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
 + If you want to use custom DSC resources, you can download these resources from an Amazon S3 bucket\. You can also install them automatically from the PowerShell gallery\. 
 + If you are using Amazon S3 as a module source, upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
 + All files must be in the bucket root\. Folder structures aren't supported\.
@@ -97,7 +97,7 @@ There are five different types of tokens you can use:
 + **tagb64**: This is the same as tag, but the system use base64 to decode the value\. This allows you to use special characters in tag values\.
 + **env**: Resolves Environment variables\.
 + **ssm**: Parameter Store values\. Only String and Secure String types are supported\.
-+ **tagssm**: This is the same as tag, but if the tag isn't set on the instance, the system tries to resolve the value from an SSM Parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
++ **tagssm**: This is the same as tag, but if the tag isn't set on the instance, the system tries to resolve the value from a Systems Manager parameter with the same name\. This is useful in situations when you want a 'default global value' but you want to be able to override it on a single instance \(for example, one\-box deployments\)\.
 
 Here is a Parameter Store example that uses the `ssm` token type\. 
 
@@ -244,7 +244,7 @@ State Manager creates and immediately runs the association on the specified inst
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
 **Note**  
-The `AWS-ApplyDSCMofs` is a Systems Manager command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+The `AWS-ApplyDSCMofs` is a Systems Manager Command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
 
 ## Troubleshooting<a name="systems-manager-state-manager-using-mof-file-troubleshooting"></a>
 

@@ -66,8 +66,8 @@ If you programmatically edit an existing alarm or create a new alarm that create
 | Parameter | Details | 
 | --- | --- | 
 |  Region \(required\)  |  The AWS Region where the alarm exists\. For example: us\-west\-2\. For information about AWS Regions where you can use OpsCenter, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.  | 
-|  Amazon Web Services account ID \(required\)  |  The same Amazon Web Services account ID used to create the alarm\. For example: 123456789012\. Note that the account ID must be followed by a colon \(:\) and the parameter `opsitem` as shown in the examples below\.  | 
-|  Severity \(required\)  |  A user\-defined severity level for OpsItems created from the alarm\. Valid values: 1,2,3,4 Note that because this is a user\-defined value, you or your organization determine what each severity value means and any service\-level agreement associated with each severity\.   | 
+|  Amazon Web Services account ID \(required\)  |  The same Amazon Web Services account ID used to create the alarm\. For example: 123456789012\. The account ID must be followed by a colon \(:\) and the parameter `opsitem` as shown in the examples below\.  | 
+|  Severity \(required\)  |  A user\-defined severity level for OpsItems created from the alarm\. Valid values: 1,2,3,4 Because this is a user\-defined value, you or your organization determine what each severity value means and any service\-level agreement associated with each severity\.   | 
 |  Category \(optional\)  |  A category for OpsItems created from the alarm\. Valid values: Availability, Cost, Performance, Recovery, Security\.  | 
 
 Create the ARN by using the following syntax\. This ARN doesn't include the optional `Category` parameter\.

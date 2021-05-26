@@ -24,7 +24,7 @@ Using the Builder for change templates in Change Manager, a capability of AWS Sy
 
      An emergency change template is used for situations when a change must be made even if changes are otherwise blocked by an event in the calendar in use by AWS Systems Manager Change Calendar\. Change requests created from an emergency change template must still be approved by its designated approvers, but the requested changes can still run even when the calendar is blocked\.
    + For **Runbook options**, specify the runbooks that users can choose from when creating a change request\. You can add a single runbook or multiple runbooks\. Alternatively, you can allow requesters to specify which runbook to use\. In any of these cases, only one runbook can be included in the change request\.
-   + For **Runbook**, select the names of the runbooks and the versions of those runbooks that users can choose from for their change requests\. Note that no matter how many runbooks you add to the change template, only one can be selected per change request\.
+   + For **Runbook**, select the names of the runbooks and the versions of those runbooks that users can choose from for their change requests\. No matter how many runbooks you add to the change template, only one can be selected per change request\.
 
      You do not specify a runbook if you chose **Any runbook can be used **above\.
 **Tip**  

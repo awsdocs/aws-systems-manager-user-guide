@@ -7,12 +7,12 @@ A patch group can be registered with only one patch baseline for each operating 
 
 When you run `AWS-RunPatchBaseline`, you can target managed instances using their instance ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the instance\.
 
-You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. Note that the key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
+You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. The key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
 
 **Note**  
 An instance can only be in one patch group\.
 
-After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Creating a patch group](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
+After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Creating a patch group \(console\)](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
 To view an example of creating a patch baseline and patch groups by using the AWS Command Line Interface \(AWS CLI\), see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 

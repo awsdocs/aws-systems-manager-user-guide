@@ -58,15 +58,15 @@ Create resource groups for your Systems Manager resources\. For more information
 **Implement monitoring using Amazon CloudWatch monitoring tools**  
 Monitoring is an important part of maintaining the reliability, security, availability, and performance of Systems Manager and your AWS solutions\. Amazon CloudWatch provides several tools and services to help you monitor Systems Manager and your other AWS services\. For more information, see [Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md) and [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
-**Use AWS CloudTrail**  
+**Use CloudTrail**  
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. Using the information collected by CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 
 **Enable AWS Config**  
 AWS Config enables you to assess, audit, and evaluate the configurations of your AWS resources\. AWS Config monitors resource configurations, allowing you to evaluate the recorded configurations against the desired secure configurations\. Using AWS Config, you can review changes in configurations and relationships between AWS resources, investigate detailed resource configuration histories, and determine your overall compliance against the configurations specified in your internal guidelines\. This can help you simplify compliance auditing, security analysis, change management, and operational troubleshooting\. For more information, see [Setting Up AWS Config with the Console](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html) in the *AWS Config Developer Guide*\. When specifying the resource types to record, ensure that you include Systems Manager resources\. 
 
 **Monitor AWS security advisories**  
-You should regularly check security advisories posted in Trusted Advisor for your AWS account\. You can do this programmatically using [describe\-trusted\-advisor\-checks](https://docs.aws.amazon.com/cli/latest/reference/support/describe-trusted-advisor-checks.html)\.  
-Further, actively monitor the primary email address registered to each of your AWS accounts\. AWS will contact you, using this email address, about emerging security issues that might affect you\.  
+You should regularly check security advisories posted in Trusted Advisor for your Amazon Web Services account\. You can do this programmatically using [describe\-trusted\-advisor\-checks](https://docs.aws.amazon.com/cli/latest/reference/support/describe-trusted-advisor-checks.html)\.  
+Further, actively monitor the primary email address registered to each of your Amazon Web Services accounts\. AWS will contact you, using this email address, about emerging security issues that might affect you\.  
 AWS operational issues with broad impact are posted on the [AWS Service Health Dashboard](https://status.aws.amazon.com/)\. Operational issues are also posted to individual accounts via the Personal Health Dashboard\. For more information, see the [AWS Health Documentation](https://docs.aws.amazon.com/health/)\.
 
 **Related content**

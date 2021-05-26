@@ -3,7 +3,7 @@
 A patching configuration defines a unique patching operation\. The configuration specifies the instances for patching, which patch baseline is to be applied, the schedule for patching, and the maintenance window that the configuration is to be associated with\. 
 
 **Note**  
-Many patching use cases benefit from patching instances on a schedule with a maintenance window, but you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand](patch-on-demand.md)\.
+Many patching use cases benefit from patching instances on a schedule with a maintenance window, but you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand \(console\)](patch-on-demand.md)\.
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 

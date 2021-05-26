@@ -3,7 +3,7 @@
 Connect to your Amazon Linux instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\. 
 
 **Important**  
-This topic provides commands for working with SSM Agent on Amazon Linux instances\. Some of these commands are not supported on Amazon Linux 2 instances\. Before continuing, ensure you are viewing the correct topic for your instance type\. For commands to run on Amazon Linux 2 instances, see [Manually install SSM Agent on Amazon Linux 2 instances](agent-install-al2.md)\.
+This topic provides commands for working with SSM Agent on Amazon Linux instances\. Some of these commands aren't supported on Amazon Linux 2 instances\. Before continuing, verify you are viewing the correct topic for your instance type\. For commands to run on Amazon Linux 2 instances, see [Manually install SSM Agent on Amazon Linux 2 instances](agent-install-al2.md)\.
 
 **Before you begin**  
 Before you install SSM Agent on an Amazon Linux instance, note the following:
@@ -35,7 +35,7 @@ sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/lin
 ```
 
 **Note**  
-If you're unable to download the agent from the Region you specify, use one of the global URLs below\. Note that even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+If you are unable to download the agent from the Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
 Intel 64\-bit \(x86\_64\)  
 
   ```

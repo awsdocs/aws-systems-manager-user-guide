@@ -1,6 +1,6 @@
 # Auditing session activity<a name="session-manager-auditing"></a>
 
-In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with the ability to audit session activity in your AWS account using AWS CloudTrail\.
+In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with the ability to audit session activity in your Amazon Web Services account using AWS CloudTrail\.
 
 CloudTrail captures session API calls through the Systems Manager console, the AWS Command Line Interface \(AWS CLI\), and the Systems Manager SDK\. You can view the information on the CloudTrail console or store it in a specified Amazon Simple Storage Service \(Amazon S3\) bucket\. One S3 bucket is used for all CloudTrail logs for your account\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 

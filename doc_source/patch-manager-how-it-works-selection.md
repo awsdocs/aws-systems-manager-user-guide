@@ -107,7 +107,7 @@ If you select the **Approved patches include non\-security updates** check box i
 
 Red Hat Enterprise Linux 7 instances use Yum as the package manager\. Red Hat Enterprise Linux 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. Individual packages are not assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages and installs packages based on the Classification filters specified in the patch baseline\.
 
-Note that repo locations differ between RHEL 7 and RHEL 8:
+Repo locations differ between RHEL 7 and RHEL 8:
 
 RHEL 7  
 The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 2019 and introduced a different naming scheme for Yum repository IDs\. Depending on the RHEL\-7 AMI you create your instances from, you might need to update your commands\. For more information, see [Repository IDs for RHEL 7 in AWS Have Changed](https://access.redhat.com/articles/4599971) on the *Red Hat Customer Portal*\.

@@ -47,7 +47,7 @@ As a best practice, begin by setting up the delegated administrator account usin
 
 To set up Change Manager for use with an organization, perform the following task in the Quick Setup area of the Systems Manager console\.
 
-Note that you repeat this task for each job function you want to create for your organization\. Each job function you create can have permissions for a different set of organizational units\.
+You repeat this task for each job function you want to create for your organization\. Each job function you create can have permissions for a different set of organizational units\.
 
 **To set up an organization for Change Manager in the Organizations management account**
 

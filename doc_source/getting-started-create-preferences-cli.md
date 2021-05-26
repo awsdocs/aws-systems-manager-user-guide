@@ -1,11 +1,11 @@
 # Create Session Manager preferences \(command line\)<a name="getting-started-create-preferences-cli"></a>
 
-The following procedure describes how to use your preferred command line tool to create Session Manager preferences for your account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to create Session Manager preferences for your Amazon Web Services account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
 For information about using command line tools to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 **Note**  
-You can use this procedure to create custom session documents for your Session Manager preferences that override account level settings\. When you create your custom session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom session documents, you must provide the name of your custom session document for the `--document-name` parameter when starting a session from the AWS Command Line Interface \(AWS CLI\)\. When you start a session from the console, you can't specify custom session documents\.
+You can use this procedure to create custom Session documents for your Session Manager preferences that override account level settings\. When you create your custom Session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom Session documents, you must provide the name of your custom Session document for the `--document-name` parameter when starting a session from the AWS Command Line Interface \(AWS CLI\)\. When you start a session from the console, you can't specify custom Session documents\.
 
 **To create Session Manager preferences \(command line\)**
 

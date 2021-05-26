@@ -42,7 +42,7 @@ This is your only opportunity to view or download the secret access keys, and yo
    + URL of the account sign\-in page\. Use the following example, substituting the correct account ID number or account alias:
 
      ```
-     https://AWS-account-ID or alias.signin.aws.amazon.com/console
+     https://account-ID or alias.signin.aws.amazon.com/console
      ```
 
    For more information, see [How IAM Users Sign In to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html) in the *IAM User Guide*\.

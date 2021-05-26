@@ -29,18 +29,21 @@ Amazon S3 permissions required by SSM Agent
 
 | S3 bucket ARN | Description | 
 | --- | --- | 
-|  For Linux and Windows Server instances: `arn:aws:s3:::aws-ssm-region/*` For Amazon EC2 instances for macOS: `arn:aws:s3:::aws-patchmanager-macos-region/*`  |  Provides access to the S3 bucket containing modules required for use with certain Systems Manager documents \(SSM documents\)\. For example: `arn:aws:s3:::aws-ssm-us-east-2/*` and `aws-patchmanager-macos-us-east-2/*`\.  Exceptions The S3 bucket names in a few AWS Regions use an extended naming convention, as shown by their ARNs\. For these Regions, use the following ARNs instead:  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  | 
-| arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support Windows operating systems\.  | 
+| arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support only Windows operating systems\.  | 
 | arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\. If these permissions are not provided, the SSM Agent makes an HTTP call to download the update\.  | 
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the SSM document `AWS-ConfigureAWSPackage`\.  | 
 | arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  This permission is needed for all AWS Regions *except* the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
 | arn:aws:s3:::aws\-ssm\-distributor\-file\-region/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the SSM document `AWS-ConfigureAWSPackage`\.  This permission is needed *only* for the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
-| arn:aws:s3:::aws\-ssm\-document\-attachments\-region/\* |  Provides access to the S3 bucket containing the packages for Distributor, a capability of AWS Systems Manager, that are owned by Amazon Web Services \(AWS\)\.  | 
-| arn:aws:s3:::patch\-baseline\-snapshot\-region/\* |  Provides access to the S3 bucket containing patch baseline snapshots\. This is required if you use the SSM documents `AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, or `AWS-RunPatchBaselineWithHooks`, or the legacy SSM document `AWS-ApplyPatchBaseline`\.  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this S3 bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `patch-baseline-snapshot-me-south-1-uduvl7q8`     | 
+| arn:aws:s3:::aws\-ssm\-document\-attachments\-region/\* |  Provides access to the S3 bucket containing the packages for Distributor, a capability of AWS Systems Manager, that are owned by AWS\.  | 
+| arn:aws:s3:::patch\-baseline\-snapshot\-region/\* |  Provides access to the S3 bucket containing patch baseline snapshots\. This is required if you use any of the following SSM documents: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, this S3 bucket uses a different naming convention\. For this AWS Region only, use the following bucket instead\.   `patch-baseline-snapshot-me-south-1-uduvl7q8`     | 
+|  For Linux and Windows Server instances: `arn:aws:s3:::aws-ssm-region/*` For Amazon EC2 instances for macOS: `arn:aws:s3:::aws-patchmanager-macos-region/*`  |  Provides access to the S3 bucket containing modules required for use with certain Systems Manager documents \(SSM documents\)\. For example:  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  Exceptions The S3 bucket names in a few AWS Regions use an extended naming convention, as shown by their ARNs\. For these Regions, use the following ARNs instead:  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  SSM documents The following are some commonly used SSM documents stored in these buckets\.  In `arn:aws:s3:::aws-ssm-region/`: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html) In `arn:aws:s3:::aws-patchmanager-macos-region/`: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-minimum-s3-permissions.html)  | 
 
 ## Example<a name="ssm-agent-minimum-s3-permissions-example"></a>
 
 The following example illustrates how to provide access to the S3 buckets required for Systems Manager operations in the US East \(Ohio\) Region \(us\-east\-2\)\.
+
+**Important**  
+We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` block for each Region\.
 
 ```
 {
@@ -62,6 +65,3 @@ The following example illustrates how to provide access to the S3 buckets requir
     ]
 }
 ```
-
-**Important**  
-We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` block for each Region\.

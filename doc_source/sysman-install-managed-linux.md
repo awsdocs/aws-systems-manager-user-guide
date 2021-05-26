@@ -7,7 +7,7 @@ This procedure is for servers and virtual machines \(VMs\) in an on\-premises or
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
-The URLs in the following scripts let you download SSM Agent from *any* AWS region\. If you want to download the agent from a *specific* region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
+The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
@@ -203,7 +203,7 @@ Use the following information to help you troubleshoot problems installing SSM A
 
 ### You receive DeliveryTimedOut error<a name="systems-manager-install-managed-linux-troubleshooting-delivery-timed-out"></a>
 
-**Problem**: While configuring an Amazon EC2 instance in one AWS account as a managed instance for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
+**Problem**: While configuring an Amazon EC2 instance in one Amazon Web Services account as a managed instance for a separate Amazon Web Services account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
 
 **Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target instance changes the instance ID of the source instance\. Because the instance ID has changed, the source instance is not able to reply to the target instance that the command failed, completed, or timed out while executing\.
 
