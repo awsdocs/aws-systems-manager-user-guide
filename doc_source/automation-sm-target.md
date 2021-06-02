@@ -11,7 +11,7 @@ You can start an automation by creating a State Manager association with a runbo
 
 Use the following procedures to create a State Manager association that runs an automation using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
-**Before You Begin**  
+**Before you begin**  
 Be aware of the following important details before you run automation by using State Manager\.
 + Before you can create an association that uses a runbook, verify that you configured permissions for Systems Manager Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
 + State Manager associations that use runbooks contribute to the maximum number of concurrently running Automations in your Amazon Web Services account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
@@ -78,7 +78,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Input parameters** section, specify the required input parameters\.
 
-   If you chose to target resources by using tags or a resource group, then you may not need to choose some of the options in the **Input parameters** section\. For example, if you chose the AWS\-RestartEC2Instance runbook, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
+   If you chose to target resources by using tags or a resource group, then you may not need to choose some of the options in the **Input parameters** section\. For example, if you chose the `AWS-RestartEC2Instance` runbook, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
 **Important**  
 You must specify a role ARN in the **AutomationAssumeRole** field\. State Manager uses the assume role to call AWS services specified in the runbook and run Automation associations on your behalf\. For more information, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\. 
 

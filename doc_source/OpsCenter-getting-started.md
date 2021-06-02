@@ -1,6 +1,6 @@
 # Getting started with OpsCenter<a name="OpsCenter-getting-started"></a>
 
-Set up for AWS Systems Manager OpsCenter is integrated with set up for AWS Systems Manager Explorer\. Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your Amazon Web Services accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter to run Automation runbooks and quickly resolve those issues\. 
+Set up for AWS Systems Manager OpsCenter is integrated with set up for AWS Systems Manager Explorer\. Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter to run Automation runbooks and quickly resolve those issues\. 
 
 If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options\. If you have not set up OpsCenter, then you can use Integrated Setup to get started with both capabilities\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
@@ -20,7 +20,7 @@ You can configure OpsCenter to send notifications to an Amazon Simple Notificati
 To receive notifications, you must create and subscribe to an Amazon SNS topic\. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) and [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
-To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and Amazon Web Services account as the OpsItem\. If you are using OpsCenter in multiple Regions or accounts, then you must create and subscribe to an Amazon SNS topic in each Region or account where you want to receive OpsItem notifications\. 
+To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and AWS account as the OpsItem\. If you are using OpsCenter in multiple Regions or accounts, then you must create and subscribe to an Amazon SNS topic in each Region or account where you want to receive OpsItem notifications\. 
 
 ### Task 2: Update the Amazon SNS access policy<a name="OpsCenter-getting-started-sns-encryption-policy"></a>
 
@@ -44,7 +44,7 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
            "Service": "ssm.amazonaws.com"
          },
          "Action": "SNS:Publish",
-          "Resource": "arn:aws:sns:AWS_Region:account_ID:topic_name"
+          "Resource": "arn:aws:sns:Region:account_ID:topic_name"
        }
    ```
 
@@ -86,7 +86,7 @@ OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured
            "Service": "ssm.amazonaws.com"
          },
          "Action": ["kms:Decrypt", "kms:GenerateDataKey*"],
-          "Resource": "arn:aws:kms:AWS_Region:account_ID:key/key_ID"
+          "Resource": "arn:aws:kms:Region:account_ID:key/key_ID"
        }
    ```
 

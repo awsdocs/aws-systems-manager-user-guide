@@ -56,7 +56,7 @@ Use the following procedure to patch your instances on demand\.
    + **Schedule a reboot time**: Specify the date, time, and UTC time zone for Patch Manager to reboot your instances\. If you want to run a Systems Manager Command document \(SSM document\) after the reboot, select it from **Post\-reboot lifecycle hook**\.
 
 1. For **Instances to patch**, choose one of the following:
-   + **Patch all instances**: Patch Manager runs the specified operation on all managed instances in your account in the current AWS Region\.
+   + **Patch all instances**: Patch Manager runs the specified operation on all managed instances in your AWS account in the current AWS Region\.
    + **Patch only the target instances I specify**: You specify which instances to target in the next step\.
 
 1. Use this step only if you chose **Patch only the target instances I specify** in the previous step\. In the **Target selection** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.

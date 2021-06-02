@@ -24,7 +24,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
          "Principal":{
             "Service":"ssm.amazonaws.com"
          },
-         "Resource":"arn:aws:kms:region:AWS-account-ID:key/KMS-key-id"
+         "Resource":"arn:aws:kms:Region:account_ID:key/KMS_key_id"
       }
    ]
 }
@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid Amazon Web Services account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {
@@ -253,9 +253,9 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system partitions the table\.
 **Note**  
-If you create resource data syncs from additional AWS Regions or Amazon Web Services accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
+If you create resource data syncs from additional AWS Regions or AWS accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
 
-1. To preview your data, choose the view icon next to the AWS\_Application table\.  
+1. To preview your data, choose the view icon next to the `AWS_Application` table\.  
 ![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**\.
@@ -268,7 +268,7 @@ If you create resource data syncs from additional AWS Regions or Amazon Web Serv
    order  by frequency desc
    ```
 
-   The query returns a count of different versions of `aws-cfn-bootstrap`, which is an AWS application present on EC2 instances for Linux, macOS, and Windows Server\.
+   The query returns a count of different versions of `aws-cfn-bootstrap`, which is an AWS application present on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\.
 
 1. Individually copy and paste the following statements into the query editor, replace *DOC\-EXAMPLE\-BUCKET* and *bucket\-prefix* with information for Amazon S3, and then choose **Run Query**\. These statements set up additional inventory tables in Athena\.
 
@@ -394,7 +394,7 @@ The following section provides an overview with links for building a visualizati
 
 1. Sign up for [Amazon QuickSight](https://quicksight.aws/) and then log in to the QuickSight console\.
 
-1. Create a data set from the AWS\_Application table and any other tables you created\. For more information, see [Creating a Data Set Using Amazon Athena Data](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html)\.
+1. Create a data set from the `AWS_Application` table and any other tables you created\. For more information, see [Creating a Data Set Using Amazon Athena Data](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html)\.
 
 1. Join tables\. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables\. For more information about joining tables, see [Joining Tables](https://docs.aws.amazon.com/quicksight/latest/user/joining-tables.html)\.
 

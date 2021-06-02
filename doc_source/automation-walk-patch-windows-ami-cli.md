@@ -5,8 +5,8 @@ The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tas
 + Install specific Windows updates and upgrade Amazon software\.
 + Customize an AMI using your scripts\.
 
-**Before You Begin**  
-Before you begin working with runbooks, [ configure roles for automation](automation-permissions.md) to add an iam:PassRole policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+**Before you begin**  
+Before you begin working with runbooks, [configure roles for Automation](automation-permissions.md) to add an `iam:PassRole` policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 Updates to SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.
@@ -40,25 +40,25 @@ This step launches an instance with an IAM instance profile role from the specif
 This step enables you to specify a script as a string that runs before updates are installed\.
 
 **Step 3: updateEC2Config \(aws:runCommand action\)**  
-This step uses the AWS\-InstallPowerShellModule runbook to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then checks the operating system to determine whether to update EC2Config or EC2Launch\. EC2Config runs on Windows Server 2008 R2 through Windows Server 2012 R2\. EC2Launch runs on Windows Server 2016\.
+This step uses the `AWS-InstallPowerShellModule` runbook to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then checks the operating system to determine whether to update EC2Config or EC2Launch\. EC2Config runs on Windows Server 2008 R2 through Windows Server 2012 R2\. EC2Launch runs on Windows Server 2016\.
 
 **Step 4: updateSSMAgent \(aws:runCommand action\)**  
-This step updates SSM Agent by using the AWS\-UpdateSSMAgent runbook\.
+This step updates SSM Agent by using the `AWS-UpdateSSMAgent` runbook\.
 
 **Step 5: updateAWSPVDriver \(aws:runCommand action\)**  
-This step updates AWS PV drivers by using the AWS\-ConfigureAWSPackage runbook\.
+This step updates AWS PV drivers by using the `AWS-ConfigureAWSPackage` runbook\.
 
 **Step 6: updateAwsEnaNetworkDriver \(aws:runCommand action\)**  
-This step updates AWS ENA Network drivers by using the AWS\-ConfigureAWSPackage runbook\.
+This step updates AWS ENA Network drivers by using the `AWS-ConfigureAWSPackage` runbook\.
 
 **Step 7: installWindowsUpdates \(aws:runCommand action\) **  
-This step installs Windows updates by using the AWS\-InstallWindowsUpdates runbook\. By default, Systems Manager searches for and installs all missing updates\. You can change the default behavior by specifying one of the following parameters: `IncludeKbs`, `ExcludeKbs`, `Categories`, or `SeverityLevels`\. 
+This step installs Windows updates by using the `AWS-InstallWindowsUpdates` runbook\. By default, Systems Manager searches for and installs all missing updates\. You can change the default behavior by specifying one of the following parameters: `IncludeKbs`, `ExcludeKbs`, `Categories`, or `SeverityLevels`\. 
 
 **Step 8: runPostUpdateScript \(aws:runCommand action\)**  
 This step enables you to specify a script as a string that runs after the updates have been installed\.
 
 **Step 9: runSysprepGeneralize \(aws:runCommand action\) **  
-This step uses the AWS\-InstallPowerShellModule runbook to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then runs sysprep using AWS\-supported methods for either EC2Launch \(Windows Server 2016\) or EC2Config \(Windows Server 2008 R2 through 2012 R2\)\.
+This step uses the `AWS-InstallPowerShellModule` runbook to download an AWS public PowerShell module\. Systems Manager verifies the integrity of the module by using an SHA\-256 hash\. Systems Manager then runs sysprep using AWS\-supported methods for either EC2Launch \(Windows Server 2016\) or EC2Config \(Windows Server 2008 R2 through 2012 R2\)\.
 
 **Step 10: stopInstance \(aws:changeInstanceState action\) **  
 This step stops the updated instance\. 

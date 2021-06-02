@@ -12,7 +12,7 @@ This topic provides general information for using Document Builder with any supp
 [Creating a runbook that runs scripts \(command line\)](automation-document-script-commandline.md) – Provides information for using a command line tool to create a runbook that runs a script\.
 [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating a runbook that runs scripts to \(1\) launch an Amazon Elastic Compute Cloud \(EC2\) instance and \(2\) wait for the instance status to change to `ok`\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you create a custom runbook using Document Builder, we recommend that you read about the different actions that you can use within a runbook\. For more information see, [Systems Manager Automation actions reference](automation-actions.md)\.
 
 **To create a runbook using Document Builder**

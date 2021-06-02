@@ -20,4 +20,4 @@ When you create an entry in Change Calendar, a capability of AWS Systems Manager
 
 1. Choose **Create calendar**\.
 
-   After the calendar entry is created, Systems Manager displays your calendar entry in the **Change Calendar** list\. The columns show the calendar version, and the calendar owner's Amazon Web Services account number\. Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Creating a Change Calendar event](change-calendar-create-event.md)\.
+   After the calendar entry is created, Systems Manager displays your calendar entry in the **Change Calendar** list\. The columns show the calendar version, and the calendar owner's AWS account number\. Your calendar entry cannot prevent or allow any actions until you add at least one event\. For information about how to add an event, see [Creating a Change Calendar event](change-calendar-create-event.md)\.

@@ -12,7 +12,7 @@ Use the following procedures to configure an automation as a registered task for
 
 The following procedure describes how to use the Systems Manager console to configure an automation as a registered task for a maintenance window\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you complete the following procedure, you must create a maintenance window and register at least one target\. For more information, see the following procedures: 
 + [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)\.
 + [Assign targets to a maintenance window \(console\)](sysman-maintenance-assign-targets.md)
@@ -37,9 +37,10 @@ Before you complete the following procedure, you must create a maintenance windo
 
 1. In the **Targets** section, if the runbook you chose is one that runs tasks on resources, identify the targets on which you want to run this automation by specifying tags or by selecting instances manually\.
 
-   If you chose a runbook that doesn't run tasks on resources, you do not need to specify a maintenance window target\. 
+   
 **Note**  
-Automation tasks more commonly don't need a target specified explicitly for a task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
+If you want to pass the resources through input parameters instead of targets, you do not need to specify a maintenance window target\.  
+In many cases, you don't need to explicitly specify a target for an automation task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
 
    For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
@@ -81,7 +82,7 @@ For example, the service\-linked role for Systems Manager doesn't have the IAM p
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to configure an automation as a registered task for a maintenance window\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you complete the following procedure, you must create a maintenance window and register at least one target\. For more information, see the following procedures:
 + [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\.
 + [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)

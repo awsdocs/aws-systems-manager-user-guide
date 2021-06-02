@@ -83,7 +83,7 @@ Use the following procedure to create a maintenance window and specify its basic
    }
    ```
 
-1. To list this and any other maintenance windows created in your Amazon Web Services account in your current AWS Region, run the following command\.
+1. To list this and any other maintenance windows created in your AWS account in your current AWS Region, run the following command\.
 
    ```
    aws ssm describe-maintenance-windows

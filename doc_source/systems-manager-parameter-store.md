@@ -30,7 +30,7 @@ Parameter Store offers these benefits:
   You can associate an alias for versions of your parameter by creating labels\. Labels can help you remember the purpose of a parameter version when there are multiple versions\. 
 + **Data validation**
 
-  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store validates these parameters to make sure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with aws:ec2:image data type, and Parameter Store performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your Amazon Web Services account\. 
+  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store validates these parameters to make sure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with aws:ec2:image data type, and Parameter Store performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\. 
 + **Reference secrets**
 
   Parameter Store is integrated with AWS Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. 

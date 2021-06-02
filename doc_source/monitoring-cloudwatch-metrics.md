@@ -2,7 +2,7 @@
 
 *Metrics* are the fundamental concept in CloudWatch\. A metric represents a time\-ordered set of data points that are published to CloudWatch\. Think of a metric as a variable to monitor, and the data points as representing the values of that variable over time\.
 
-AWS Systems Manager publishes metrics about the status of Run Command commands to CloudWatch, enabling you to set alarms based on those metrics\. These statistics are recorded for an extended period so you can access historical information and gain a better perspective on the success rate of commands run in your Amazon Web Services account\. 
+AWS Systems Manager publishes metrics about the status of Run Command commands to CloudWatch, enabling you to set alarms based on those metrics\. These statistics are recorded for an extended period so you can access historical information and gain a better perspective on the success rate of commands run in your AWS account\. 
 
 The terminal status values for commands for which you can track metrics include `Success`, `Failed`, and `Delivery Timed Out`\. For example, for an SSM Command document set to run every hour, you can configure an alarm to notify you when a status of `Success` isn't reported for any of those hours\. For more information about command status values, see [Understanding command statuses](monitor-commands.md)\.
 

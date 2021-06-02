@@ -1,6 +1,6 @@
 # Setting up Maintenance Windows<a name="sysman-maintenance-permissions"></a>
 
-Before users in your account can create and schedule maintenance window tasks using Maintenance Windows, a capability of AWS Systems Manager, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
+Before users in your AWS account can create and schedule maintenance window tasks using Maintenance Windows, a capability of AWS Systems Manager, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
 
 **Task 1: Configure instance permissions**  
 Provide the Maintenance Windows service with the AWS Identity and Access Management \(IAM\) permissions needed to run maintenance window tasks on your instances by doing one of the following: 
@@ -10,15 +10,15 @@ Provide the Maintenance Windows service with the AWS Identity and Access Managem
 You specify one of these roles as part of the configuration when you create a maintenance window task\. This allows Systems Manager to run tasks in maintenance windows on your behalf\.
 
 **Note**  
-A service\-linked role for Systems Manager might already have been created in your account\. Currently, the service\-linked role also provides permissions for the Inventory capability\.
+A service\-linked role for Systems Manager might already have been created in your AWS account\. Currently, the service\-linked role also provides permissions for the Inventory capability\.
 
 To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)\.
 
 **Task 2: Configure permissions for users who are allowed to register maintenance window tasks**  
-Allow `iam:PassRole` permissions for the users in your account who assign tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit IAM permission, a user can't assign tasks to a maintenance window when using a custom service role to run maintenance window tasks\. 
+Allow `iam:PassRole` permissions for the users in your AWS account who assign tasks to maintenance windows\. This allows them to pass the role to the maintenance window service\. Without this explicit IAM permission, a user can't assign tasks to a maintenance window when using a custom service role to run maintenance window tasks\. 
 
 **Task 3: Configure permissions for users who are not allowed to register maintenance window tasks**  
-Deny `ssm:RegisterTaskWithMaintenanceWindow` permissions for the users in your account who you don't want to register tasks with maintenance windows\. This prevents users from registering a maintenance window task by using the service\-linked role in a maintenance window task registration request\.
+Deny `ssm:RegisterTaskWithMaintenanceWindow` permissions for the users in your AWS account who you don't want to register tasks with maintenance windows\. This prevents users from registering a maintenance window task by using the service\-linked role in a maintenance window task registration request\.
 
 **Before you begin**  
 In order to complete the tasks in the section, you need one or both of the following resources\.

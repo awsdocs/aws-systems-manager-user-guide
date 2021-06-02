@@ -22,7 +22,7 @@ Additionally, AWS supports managed policies for job functions that span multiple
 
 
 
-You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Management \(IAM\) entities\. This policy is attached to a service\-linked role that allows AWS Systems Manager to perform actions on your behalf\. For more information, see [Using roles to collect inventory, run maintenance window tasks, and view OpsData: AWSServiceRoleForAmazonSSM](using-service-linked-roles-service-action-1.md)\.
+You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Management \(IAM\) entities\. This policy is attached to a service\-linked role that allows AWS Systems Manager to perform actions on your behalf\. For more information, see [Using roles to collect inventory, run maintenance window tasks, and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)\.
 
 
 
@@ -365,9 +365,9 @@ arn:aws:events:*:*:rule/SSMExplorerManagedRule
 }
 ```
 
-## AWS managed policy: AWSServiceRoleForSystemsManagerOpsDataSyncPolicy<a name="security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy"></a>
+## AWS managed policy: `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy`<a name="security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy"></a>
 
-You can't attach AWSServiceRoleForSystemsManagerOpsDataSyncPolicy to your IAM entities\. This policy is attached to a service\-linked role that allows Systems Manager to perform actions on your behalf\. For more information, see [Using roles to create OpsData and OpsItems for Systems Manager Explorer: AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md)\.
+You can't attach `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy` to your IAM entities\. This policy is attached to a service\-linked role that allows Systems Manager to perform actions on your behalf\. For more information, see [Using roles to create OpsData and OpsItems for Systems Manager Explorer: `AWSServiceRoleForSystemsManagerOpsDataSync`](using-service-linked-roles-service-action-3.md)\.
 
  `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy` allows the [AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md) service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\. 
 
@@ -426,7 +426,7 @@ arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*
 }
 ```
 
-**Full AWSServiceRoleForSystemsManagerOpsDataSyncPolicy policy**
+**Full `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy` policy**
 
 ```
 {
@@ -520,5 +520,5 @@ View details about updates to AWS managed policies for Systems Manager since thi
 | --- | --- | --- | 
 |  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you enable Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before enabling OpsData\.  | April 27, 2021 | 
 |  [AWSServiceRoleForSystemsManagerOpsDataSyncPolicy](#security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy) – New policy\.  |  Systems Manager added a new policy to create and update OpsItems and OpsData from Security Hub findings in Explorer and OpsCenter\.  | April 27, 2021 | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and Regions in Explorer\.  | March 24, 2021 | 
+|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and AWS Regions in Explorer\.  | March 24, 2021 | 
 |  Systems Manager started tracking changes  |  Systems Manager started tracking changes for its AWS managed policies\.  | March 12, 2021 | 

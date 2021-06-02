@@ -39,7 +39,7 @@ To use the sample JSON file content we provide in the following examples, do the
 ------
 
 **About pseudo parameters**  
-In some examples, we use *pseudo parameters* as the method to pass ID information to your tasks\. For instance, `{{RESOURCE_ID}}` is used to pass IDs of AWS resources to Automation, Lambda, and Step Functions tasks\. For more information about pseudo parameters in `--task-invocation-parameters` content, see [About pseudo parameters](mw-cli-register-tasks-parameters.md)\. 
+In some examples, we use *pseudo parameters* as the method to pass ID information to your tasks\. For instance, `{{TARGET_ID}}` and `{{RESOURCE_ID}}` can be used to pass IDs of AWS resources to Automation, Lambda, and Step Functions tasks\. For more information about pseudo parameters in `--task-invocation-parameters` content, see [About pseudo parameters](mw-cli-register-tasks-parameters.md)\. 
 
 **More information**  
 For information about some fundamental `register-task-with-maintenance-window` options, see [About register\-task\-with\-maintenance\-windows options](mw-cli-task-options.md)\.

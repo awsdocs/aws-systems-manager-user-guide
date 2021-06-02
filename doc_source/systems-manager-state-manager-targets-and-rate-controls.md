@@ -30,7 +30,7 @@ When using Amazon Elastic Compute Cloud \(Amazon EC2\) tags, you can use one tag
 For information about assigning tags to your instances, see [Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
 **Choose instances manually**  
-Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current Amazon Web Services account and AWS Region\. You can manually select as many instances as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
+Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current AWS account and AWS Region\. You can manually select as many instances as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
 
 **Note**  
 If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
@@ -50,7 +50,7 @@ An AWS Identity and Access Management \(IAM\) user, group, or role with permissi
 For more information about Resource Groups, see [What Is AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\.
 
 **Choose all instances**  
-Use this option to target all instances in the current Amazon Web Services account and AWS Region\. When you run the request, the system locates and attempts to create the association on all instances in the current Amazon Web Services account and AWS Region\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\. If you create new instances, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\.
+Use this option to target all instances in the current AWS account and AWS Region\. When you run the request, the system locates and attempts to create the association on all instances in the current AWS account and AWS Region\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\. If you create new instances, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\.
 
 ## Rate controls<a name="systems-manager-state-manager-targets-and-rate-controls-about-controls"></a>
 

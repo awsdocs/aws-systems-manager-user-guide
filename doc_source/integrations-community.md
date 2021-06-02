@@ -87,7 +87,7 @@ These links are provided for informational purposes only, and shouldn't be consi
   *Published August 2019*
 +  [Managing AWS resources across multiple accounts and Regions using AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/managing-aws-resources-across-multiple-accounts-and-regions-using-aws-systems-manager-automation/) 
 
-  Learn how to manage your resources across multiple Amazon Web Services accounts and AWS Regions using Systems Manager Automation\.
+  Learn how to manage your resources across multiple AWS accounts and AWS Regions using Systems Manager Automation\.
 
   *Published January 2019*
 + [Onica Demonstrates Uses for New AWS Systems Manager Automation Actions](https://onica.com/blog/devops/aws-blog-on-demonstrating-uses-for-new-aws-systems-manager-automation-by-onica/)
@@ -104,7 +104,7 @@ These links are provided for informational purposes only, and shouldn't be consi
   *Published December 2018*
 +  [Centralized multi\-account and multi\-Region patching with AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/centralized-multi-account-and-multi-region-patching-with-aws-systems-manager-automation/) 
 
-  Learn how to use Systems Manager Automation to patch your managed instances across multiple Amazon Web Services accounts and AWS Regions\.
+  Learn how to use Systems Manager Automation to patch your managed instances across multiple AWS accounts and AWS Regions\.
 
   *Published November 2018*
 +  [Scalable cross\-platform patching with AWS Systems Manager](http://aws.amazon.com/blogs/mt/scalable-cross-platform-patching-with-aws-systems-manager/) 

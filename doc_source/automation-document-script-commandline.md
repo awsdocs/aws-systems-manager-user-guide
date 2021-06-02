@@ -2,7 +2,7 @@
 
 The following examples show how to use the AWS CLI or AWS Tools for PowerShell to create an runbook that runs a script using the `Attachment` parameter\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you begin, ensure you have the following resources prepared\. 
 + The content for your runbook in a YAML\-formatted file with a \.yaml extension, such as `MyAutomationDocument.yaml`\.
 + The files to attach to the runbook\. You can attach script files or \.zip files\. 

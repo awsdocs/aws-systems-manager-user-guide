@@ -32,7 +32,7 @@ The list of parameters is updated with the results of your search\.
 
 Use the `describe-parameters` command to view information about one or more parameters in the AWS CLI\. 
 
-The following examples demonstrate various options you can use to view information about the parameters in your Amazon Web Services account\. For more information about these options, see [describe\-parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-parameters.html) in the *AWS Command Line Interface User Guide*\.
+The following examples demonstrate various options you can use to view information about the parameters in your AWS account\. For more information about these options, see [describe\-parameters](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-parameters.html) in the *AWS Command Line Interface User Guide*\.
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 

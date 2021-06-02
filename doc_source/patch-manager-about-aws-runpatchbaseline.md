@@ -30,7 +30,7 @@ On macOS instances, the `AWS-RunPatchBaseline` document invokes a Python module,
 
 ------
 
-Each snapshot is specific to an Amazon Web Services account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
+Each snapshot is specific to an AWS account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. 
 

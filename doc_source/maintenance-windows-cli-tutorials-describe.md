@@ -16,7 +16,7 @@ For information about setting up and configuring the AWS Command Line Interface 
 
 ## Examples for 'describe\-maintenance\-windows'<a name="mw-cli-tutorials-describe-maintenance-windows"></a>
 
-**List all maintenance windows in your Amazon Web Services account**  
+**List all maintenance windows in your AWS account**  
 Run the following command\.
 
 ```

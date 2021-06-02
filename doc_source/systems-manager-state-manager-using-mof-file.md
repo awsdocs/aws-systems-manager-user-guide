@@ -18,7 +18,7 @@ MOF file execution is built on Windows PowerShell Desired State Configuration \(
 ## Using Amazon S3 to store artifacts<a name="systems-manager-state-manager-using-mof-file-S3-storage"></a>
 
 If you are using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
-+ If the bucket is in a different Amazon Web Services account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
++ If the bucket is in a different AWS account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
 + If you want to use custom DSC resources, you can download these resources from an Amazon S3 bucket\. You can also install them automatically from the PowerShell gallery\. 
 + If you are using Amazon S3 as a module source, upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
 + All files must be in the bucket root\. Folder structures aren't supported\.
@@ -233,7 +233,7 @@ When enabled, debug logging writes more data to your Amazon S3 bucket than stand
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Create Association**\. 
 

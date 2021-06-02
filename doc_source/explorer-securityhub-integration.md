@@ -1,6 +1,6 @@
 # Receiving findings from AWS Security Hub in Explorer<a name="explorer-securityhub-integration"></a>
 
-[AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across Amazon Web Services accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
+[AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
 
 AWS Systems Manager Explorer integration with Security Hub enables you to receive findings from Security Hub in Explorer\. Security Hub findings provide security information that you can use in Explorer to aggregate and take action on your security, performance, and operational issues in Systems Manager\. You can view a widget that provides summary of all Security Hub findings based on severity\. 
 
@@ -30,9 +30,12 @@ Data from Security Hub is retained in Explorer for up to 7 days to retry if ther
 
 ## Enabling and configuring the integration<a name="explorer-securityhub-integration-receive-enable"></a>
 
-To use the integration with Security Hub, you must enable Security Hub\. For information on how to enable Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+This topic describes how to configure Explorer start receiving Security Hub findings\.
 
-The following procedure describes how to start receiving and configure Security Hub findings\.
+**Before you begin**  
+Complete the following tasks before you configure Explorer to start receiving Security Hub findings\.
++ Enable and configure Security Hub\. For more information, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
++ Log into the AWS Organizations management account\. Systems Manager requires access to AWS Organizations to create OpsItems from Security Hub findings\. After you log into the management account, you are prompted to click the **Enable access** button on the Explorer **Configure dashboard** tab, as described in the following procedure\. If you don't log into the AWS Organizations management account, you can't enable access and Explorer can't create OpsItems from Security Hub findings\.
 
 **To start receiving Security Hub findings**
 
@@ -49,6 +52,8 @@ The following procedure describes how to start receiving and configure Security 
 1. Select the **Disabled** slider to enable **AWS Security Hub**\.
 
    Critical and High security findings are displayed by default\. To also display Medium and Low security findings, select the **Disabled** slider next to **Medium,Low**\.
+
+1. In the **OpsItems created by Security Hub findings** section, choose **Enable access**\. If you don't see this button, log into the AWS Organizations management account and return to this page to click the button\.
 
 ## How to view findings from Security Hub<a name="explorer-securityhub-integration-view-received-findings"></a>
 

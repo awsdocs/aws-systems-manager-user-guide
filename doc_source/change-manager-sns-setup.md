@@ -12,7 +12,7 @@ You can configure Change Manager, a capability of AWS Systems Manager, to send n
 First, you must create and subscribe to an Amazon SNS topic\. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) and [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
-To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and account as the delegated administrator account\. 
+To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and AWS account as the delegated administrator account\. 
 
 ## Task 2: Update the Amazon SNS access policy<a name="change-manager-sns-setup-encryption-policy"></a>
 

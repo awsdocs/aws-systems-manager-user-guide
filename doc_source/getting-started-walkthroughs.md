@@ -18,7 +18,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 ## Operations management<a name="getting-started-walkthroughs-operations-management"></a>
 
 **Explorer**  
-[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your Amazon Web Services accounts and across AWS Regions\. 
+[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. 
 + [Customizing the display and using filters](Explorer-using-filters.md)
 
 **OpsCenter**  
@@ -57,7 +57,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + Advanced: [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)
 
 **Change Calendar**  
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or not permitted to occur in your Amazon Web Services account\. 
+[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or not permitted to occur in your AWS account\. 
 + [Creating a Change Calendar entry](change-calendar-create.md)
 + [Creating a Change Calendar event](change-calendar-create-event.md)
 

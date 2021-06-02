@@ -101,7 +101,7 @@ For an illustration of how to configure patching and view patch compliance detai
 
 ## Viewing compliance configuration history and change tracking<a name="sysman-compliance-history"></a>
 
-Systems Manager Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your Amazon Web Services account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
+Systems Manager Compliance displays *current* patching and association compliance data for your managed instances\. You can view patching and association compliance history and change tracking by using [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/)\. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account\. This includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships change over time\. To view patching and association compliance history and change tracking, you must enable the following resources in AWS Config: 
 + `SSM:PatchCompliance`
 + `SSM:AssociationCompliance`
 

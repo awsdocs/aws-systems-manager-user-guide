@@ -1,13 +1,13 @@
 # Setting up Systems Manager Explorer to display data from multiple accounts and Regions<a name="Explorer-resource-data-sync"></a>
 
-AWS Systems Manager uses an integrated setup experience to help you get started with AWS Systems Manager Explorer *and* AWS Systems Manager OpsCenter\. After completing Integrated Setup, Explorer and OpsCenter automatically synchronize data\. More specifically, these capabilities synchronize OpsData and OpsItems for the Amazon Web Services account and AWS Region you used when you completed Integrated Setup\. If you want to aggregate OpsData and OpsItems from other accounts and Regions, you must create a resource data sync, as described in this topic\.
+AWS Systems Manager uses an integrated setup experience to help you get started with AWS Systems Manager Explorer *and* AWS Systems Manager OpsCenter\. After completing Integrated Setup, Explorer and OpsCenter automatically synchronize data\. More specifically, these capabilities synchronize OpsData and OpsItems for the AWS account and AWS Region you used when you completed Integrated Setup\. If you want to aggregate OpsData and OpsItems from other accounts and Regions, you must create a resource data sync, as described in this topic\.
 
 **Note**  
 For more information about Integrated Setup, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
 **About resource data sync for Explorer**  
 Resource data sync for Explorer offers two aggregation options:
-+ **Single\-account/Multiple\-regions:** You can configure Explorer to aggregate OpsItems and OpsData data from multiple AWS Regions, but the data set is limited to the current Amazon Web Services account\.
++ **Single\-account/Multiple\-regions:** You can configure Explorer to aggregate OpsItems and OpsData data from multiple AWS Regions, but the data set is limited to the current AWS account\.
 + **Multiple\-accounts/Multiple\-regions:** You can configure Explorer to aggregate data from multiple AWS Regions and accounts\. This option requires that you set up and configure AWS Organizations\. After you set up and configure AWS Organizations, you can aggregate data in Explorer by organizational unit \(OU\) or for an entire organization\. Systems Manager aggregates the data into the AWS Organizations management account before displaying it in Explorer\. For more information, see [What is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/) in the *AWS Organizations User Guide*\.
 
 The following diagram shows a resource data sync configured to work with AWS Organizations\. In this scenario, the user has two accounts defined in AWS Organizations\. Resource data sync aggregates data from both accounts and multiple AWS Regions into the AWS Organizations management account where it is then displayed in Explorer\.
@@ -22,7 +22,7 @@ This section describes important details about multiple account and multiple Reg
 
 If you don't plan to use one of these options, you can skip this section\.
 
-When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically enables all OpsData sources in the selected Regions for all Amazon Web Services accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't enabled Explorer in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
+When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically enables all OpsData sources in the selected Regions for all AWS accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't enabled Explorer in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
 
 If you don't choose one of the AWS Organizations options for a resource data sync, then you must complete Integrated Setup in each account and Region where you want Explorer to access data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\.
 
@@ -30,7 +30,7 @@ If you add a child account to your organization, Explorer automatically enables 
 
 If you update an existing resource data sync that uses one of the AWS Organizations options, the system prompts you to approve collection of all OpsData sources for all accounts and Regions affected by the change\.
 
-If you add a new service to your Amazon Web Services account, and if Explorer collects OpsData for that service, Systems Manager automatically configures Explorer to collect that OpsData\. For example, if your organization did not use AWS Trusted Advisor when you previously created a resource data sync, but your organization signs up for this service, Explorer automatically updates your resource data syncs to collect this OpsData\.
+If you add a new service to your AWS account, and if Explorer collects OpsData for that service, Systems Manager automatically configures Explorer to collect that OpsData\. For example, if your organization did not use AWS Trusted Advisor when you previously created a resource data sync, but your organization signs up for this service, Explorer automatically updates your resource data syncs to collect this OpsData\.
 
 **Important**  
 Note the following important information about multiple account and Region resource data syncs:  

@@ -48,7 +48,7 @@ Toggle between **Hide preview** and **Show preview** to see what your content lo
 
      1. Choose one of the following to specify the Amazon Simple Notification Service \(Amazon SNS\) topic in your account to use for sending notifications to approvers that a change request is ready for their review:
         + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current account and AWS Region\.\)
+        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
         + **Specify SNS topic when the change request is created **– The user who creates a change request can specify the Amazon SNS topic to use for notifications\.
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
@@ -69,7 +69,7 @@ To create a new alarm, or to review the settings of an alarm you want to specify
 
    1. Choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications about change requests that are created using this change template: 
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current Amazon Web Servicesaccount and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 

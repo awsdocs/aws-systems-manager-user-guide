@@ -72,7 +72,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
 Each API is unique and has distinct operations and permissions that you can allow or deny individually\. An explicit deny in any policy overrides the allow\.
 
 **Note**  
-The default AWS Key Management Service \(AWS KMS\) key has `Decrypt` permission for all IAM principals within the Amazon Web Services account\. If you want to have different access levels to `SecureString` parameters in your account, we don't recommend that you use the default key\.
+The default AWS Key Management Service \(AWS KMS\) key has `Decrypt` permission for all IAM principals within the AWS account\. If you want to have different access levels to `SecureString` parameters in your account, we don't recommend that you use the default key\.
 
 If you want all API operations retrieving parameter values to have the same behavior, then you can use a pattern like `GetParameter*` in a policy\. The following example shows how to deny `GetParameter`, `GetParameters`, `GetParameterHistory`, and `GetParametersByPath` for all parameters beginning with `prod-*`\.
 
@@ -170,7 +170,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 Parameter Store `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a AWS KMS key or the default KMS key provided by AWS\.
 
-When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and Amazon Web Services account\.
+When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and AWS accounta\.
 
 ```
 {

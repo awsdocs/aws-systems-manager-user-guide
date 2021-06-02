@@ -111,7 +111,7 @@ The following table describes the ARN formats for the resource types supported b
 | Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-id*   | 
 | Session |  arn:aws:ssm:*region*:*account\-id*:session/*session\-id* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)  | 
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
-|  All Systems Manager resources owned by the specified account in the specified Region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
+|  All Systems Manager resources owned by the specified AWS account in the specified AWS Region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
 
@@ -186,7 +186,7 @@ To view an example identity\-based policy for limiting access to a resource base
 
 ## Systems Manager IAM roles<a name="security_iam_service-with-iam-roles"></a>
 
-An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your Amazon Web Services account that has specific permissions\.
+An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your AWS account that has specific permissions\.
 
 ### Using temporary credentials with Systems Manager<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
@@ -210,9 +210,9 @@ Systems Manager supports service roles\.
 
 For Systems Manager to interact with your managed instances, you must choose a role to allow Systems Manager to access instances on your behalf\. If you have previously created a service role or service\-linked role, then Systems Manager provides you with a list of roles to choose from\. It's important to choose a role that allows access to start and stop managed instances\. 
 
-To access EC2 instances, the role your Amazon Web Services account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+To access EC2 instances, the role your AWS account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
-To access on\-premises instances or virtual machines \(VMs\), the role your Amazon Web Services account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
+To access on\-premises instances or virtual machines \(VMs\), the role your AWS account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
 An Automation workflow can be initiated under the context of a service role \(or assume role\)\. This allows the service to perform actions on your behalf\. If you do not specify an assume role, Automation uses the context of the user who invoked the execution\. However, certain situations require that you specify a service role for Automation\. For more information, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\.
 

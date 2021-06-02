@@ -41,7 +41,7 @@ You can view information about a runbook by choosing the runbook name\.
 
       1. If you chose to target resources by using tags, then enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\.
 
-      1. If you want to run an Automation runbook on all instances in the current Amazon Web Services account and AWS Region, then choose **All instances**\.
+      1. If you want to run an Automation runbook on all instances in the current AWS account and AWS Region, then choose **All instances**\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  

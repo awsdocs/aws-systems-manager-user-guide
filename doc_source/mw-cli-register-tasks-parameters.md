@@ -6,7 +6,8 @@ When you register a task in Maintenance Windows, a capability of AWS Systems Man
 For the target type `RESOURCE_GROUP`, depending on the ID format needed for the task, you can choose between using `{{TARGET_ID}}` and `{{RESOURCE_ID}}` to reference the resource when your task runs\. `{{TARGET_ID}}` returns the full ARN of the resource\. `{{RESOURCE_ID}}` returns only a shorter name or ID of the resource, as shown in these examples\.  
 `{{TARGET_ID}}` format: `arn:aws:ec2:us-east-1:123456789012:instance/i-02573cafcfEXAMPLE`
 `{{RESOURCE_ID}}` format: `i-02573cafcfEXAMPLE`
-For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` parameters yield the instance ID only\. For more information, see [Supported pseudo parameters](#pseudo-parameters)\.
+For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` parameters yield the instance ID only\. For more information, see [Supported pseudo parameters](#pseudo-parameters)\.  
+`{{TARGET_ID}}` and `{{RESOURCE_ID}}` can be used to pass IDs of AWS resources only to Automation, Lambda, and Step Functions tasks\. These two pseudo parameters can't be used with Run Command tasks\.
 
 ## Pseudo parameter examples<a name="pseudo-parameter-examples"></a>
 
@@ -95,9 +96,13 @@ The following list describes the pseudo parameters that you can specify using th
 
   If the target type you specify is `INSTANCE`, the `TARGET_ID` pseudo parameter is replaced by the ID of the instance; for example, `i-078a280217EXAMPLE`\.
 
-  If the target type you specify is `RESOURCE_GROUP`, the value referenced for the task execution is the full ARN of the resource; for example: `arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE`\. The following table provides sample `TARGET_ID` values for particular resource types in a resource group\.     
+  If the target type you specify is `RESOURCE_GROUP`, the value referenced for the task execution is the full ARN of the resource; for example: `arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE`\. The following table provides sample `TARGET_ID` values for particular resource types in a resource group\. 
+**Note**  
+`TARGET_ID` is not supported for Run Command tasks\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-register-tasks-parameters.html)
-+ **`RESOURCE_ID`**: The short ID of a resource type contained in a resource group\. The following table provides sample `RESOURCE_ID` values for particular resource types in a resource group\.     
++ **`RESOURCE_ID`**: The short ID of a resource type contained in a resource group\. The following table provides sample `RESOURCE_ID` values for particular resource types in a resource group\. 
+**Note**  
+`RESOURCE_ID` is not supported for Run Command tasks\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-register-tasks-parameters.html)
 **Note**  
 If the AWS resource group you specify includes resource types that do not yield a `RESOURCE_ID` value, and are not listed in the table above, then the `RESOURCE_ID` parameter is not populated\. An execution invocation will still occur for that resource\. In these cases, use the `TARGET_ID` pseudo parameter instead, which will be replaced with the full ARN of the resource\.

@@ -4,7 +4,7 @@ The following example builds on the [Walkthrough: Simplify AMI patching using Au
 
 The final step of the automation in this example uses an AWS Lambda function to copy an existing launch configuration and set the AMI ID to the newly patched AMI\. The Auto Scaling group is then updated with the new launch configuration\. In this type of Auto Scaling scenario, users could terminate existing instances in the Auto Scaling group to force a new instance to launch that uses the new image\. Or, users could wait and allow scale\-in or scale\-out events to naturally launch newer instances\.
 
-**Before You Begin**  
+**Before you begin**  
 Complete the following tasks before you begin this example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.

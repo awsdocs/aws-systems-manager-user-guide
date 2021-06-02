@@ -40,7 +40,7 @@ Identity\-based policies are very powerful\. They determine whether someone can 
 
 ## Using the Systems Manager console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the Systems Manager console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Systems Manager resources and other resources in your Amazon Web Services account\. 
+To access the Systems Manager console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Systems Manager resources and other resources in your AWS account\. 
 
 To fully use Systems Manager in the Systems Manager console, you must have permissions from the following services:
 + AWS Systems Manager
@@ -121,12 +121,12 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ## Customer managed policy examples<a name="customer-managed-policies"></a>
 
-You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your Amazon Web Services account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
+You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
 The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
-All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID should not be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with AWS\-\*\)\.
+All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID should not be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with `AWS-*`\)\.
 
  **Examples** 
 +  [Example 1: Allow a user to perform Systems Manager operations in a single Region](#identity-based-policies-example-1) 
@@ -195,7 +195,7 @@ The following example IAM policy allows a user to do the following:
 + Start and stop workflows in Automation, a capability of AWS Systems Manager\.
 + Get information about Automation workflows\.
 
-If you want to give a user permission to use this document to send commands on any instance for which the user currently has access \(as determined by their AWS user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
+If you want to give a user permission to use this document to send commands on any instance for which the user currently has access \(as determined by their user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
 
 ```
 "arn:aws:ec2:us-east-2:*:instance/*"

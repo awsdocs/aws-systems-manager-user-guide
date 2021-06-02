@@ -508,7 +508,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Troubleshooting AWS Systems Manager identity and access](security_iam_troubleshoot.md)
    + [Using service-linked roles for Systems Manager](using-service-linked-roles.md)
       + [Using roles to collect inventory, run maintenance window tasks, and view OpsData: AWSServiceRoleForAmazonSSM](using-service-linked-roles-service-action-1.md)
-      + [Using roles to collect Amazon Web Services account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM_AccountDiscovery](using-service-linked-roles-service-action-2.md)
+      + [Using roles to collect AWS account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM_AccountDiscovery](using-service-linked-roles-service-action-2.md)
       + [Using roles to create OpsData and OpsItems for Systems Manager Explorer: AWSServiceRoleForSystemsManagerOpsDataSync](using-service-linked-roles-service-action-3.md)
    + [Logging and monitoring in AWS Systems Manager](logging-and-monitoring.md)
    + [Compliance validation for AWS Systems Manager](security-compliance.md)

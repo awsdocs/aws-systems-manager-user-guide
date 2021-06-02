@@ -4,7 +4,7 @@ This Systems Manager Automation walkthrough shows how to use the input transform
 
 For more information about working with input transformers, see [Tutorial: Use Input Transformer to Customize What is Passed to the Event Target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-input-transformer-tutorial.html) in the *Amazon EventBridge User Guide*\.
 
-**Before You Begin**  
+**Before you begin**  
 Verify that you added the required permissions and trust policy for EventBridge to your Systems Manager Automation service role\. For more information, see [Overview of Managing Access Permissions to Your EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/iam-access-control-identity-based-eventbridge.html) in the *Amazon EventBridge User Guide*\.
 
 **To use input transformers with Automation**

@@ -23,7 +23,7 @@ If you decide that you don't like the new layout, choose **Reset layout** to mov
 
 ## Using filters to the change the data displayed in Explorer<a name="Explorer-using-filters-filtering"></a>
 
-By default, Explorer displays data for the current Amazon Web Services account and the current Region\. If you create one or more resource data syncs, you can use filters to change which sync is active\. You can then choose to display data for a specific Region or all Regions\. You can also use the Search bar to filter on different OpsItem and key\-tag criteria\.
+By default, Explorer displays data for the current AWS account and the current Region\. If you create one or more resource data syncs, you can use filters to change which sync is active\. You can then choose to display data for a specific Region or all Regions\. You can also use the Search bar to filter on different OpsItem and key\-tag criteria\.
 
 **To change the data displayed in Explorer by using filters**
 

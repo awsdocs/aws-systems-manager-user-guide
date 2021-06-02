@@ -78,7 +78,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
      Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
 **Note**  
-If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
+If a service\-linked role has already been created for your AWS account, choose **Use the service\-linked role for Systems Manager**\.
    + **Use a custom service role**
 
      You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
@@ -92,7 +92,7 @@ If a service\-linked role has already been created for your account, choose **Us
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
    To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
 

@@ -28,7 +28,7 @@ This collection of capabilities is a powerful set of tools and features that you
 + Securely connect to a managed instance without having to open an inbound port or manage SSH keys\.
 + Separate your secrets and configuration data from your code by using *parameters*, with or without encryption, and then reference those parameters from other AWS services\.
 + Perform automated inventory by collecting metadata about your Amazon EC2 and on\-premises managed instances\. Metadata can include information about applications, network configurations, and more\.
-+ View consolidated inventory data from multiple AWS Regions and Amazon Web Services accounts that you manage\.
++ View consolidated inventory data from multiple AWS Regions and AWS accounts that you manage\.
 + See which resources in your account are out of compliance and take corrective action from a centralized dashboard\.
 + View active summaries of metrics and alarms for your AWS resources\.
 
@@ -72,8 +72,8 @@ Systems Manager was formerly known as "Amazon Simple Systems Manager \(SSM\)" an
   + **[Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
   + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
   + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
-  + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an Amazon Web Services account\. Unless otherwise noted, each quota is Region\-specific\.
-  + **[AWS Systems Manager Service Level Agreement](https://aws.amazon.com/systems-manager/sla/)** – The Systems Manager Service Level Agreement \(SLA\) is a policy governing the use of Systems Manager and applies separately to each Amazon Web Services account using Systems Manager\.
+  + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
+  + **[AWS Systems Manager Service Level Agreement](https://aws.amazon.com/systems-manager/sla/)** – The Systems Manager Service Level Agreement \(SLA\) is a policy governing the use of Systems Manager and applies separately to each AWS account using Systems Manager\.
 
   The following related resources can help you as you work with this service\.
   + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.

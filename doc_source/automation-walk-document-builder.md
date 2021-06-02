@@ -4,7 +4,7 @@ The following walkthrough shows how to use Document Builder in the Systems Manag
 
 The first step of the runbook you create runs a script to launch an Amazon Elastic Compute Cloud \(EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you begin this walkthrough, do the following: 
 + Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 

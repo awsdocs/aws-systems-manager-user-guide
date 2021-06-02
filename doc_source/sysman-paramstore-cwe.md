@@ -16,7 +16,7 @@ Create any resources you need to specify the target action for the rule you crea
 
 ## Configuring EventBridge for parameters<a name="cwe-parameter-changes"></a>
 
-This topic explains how to create an EventBridge rule that invokes a target based on events that happen to one or more parameters in your Amazon Web Services account\.
+This topic explains how to create an EventBridge rule that invokes a target based on events that happen to one or more parameters in your AWS account\.
 
 **To configure EventBridge for Systems Manager parameters**
 
@@ -88,7 +88,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
 1. Choose **Save**\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own Amazon Web Services account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
 
@@ -100,7 +100,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
 ## Configuring EventBridge for parameter policies<a name="cwe-parameter-policy-status"></a>
 
-This topic explains how to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your Amazon Web Services account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
+This topic explains how to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 **To configure EventBridge for Systems Manager parameter policies**
 
@@ -168,7 +168,7 @@ This topic explains how to create EventBridge rules that invoke targets based on
 
 1. Choose **Save**\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own Amazon Web Services account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
 

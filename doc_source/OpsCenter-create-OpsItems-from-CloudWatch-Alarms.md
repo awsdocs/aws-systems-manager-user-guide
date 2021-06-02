@@ -66,7 +66,7 @@ If you programmatically edit an existing alarm or create a new alarm that create
 | Parameter | Details | 
 | --- | --- | 
 |  Region \(required\)  |  The AWS Region where the alarm exists\. For example: us\-west\-2\. For information about AWS Regions where you can use OpsCenter, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.  | 
-|  Amazon Web Services account ID \(required\)  |  The same Amazon Web Services account ID used to create the alarm\. For example: 123456789012\. The account ID must be followed by a colon \(:\) and the parameter `opsitem` as shown in the examples below\.  | 
+|  AWS account ID \(required\)  |  The same AWS account ID used to create the alarm\. For example: 123456789012\. The account ID must be followed by a colon \(:\) and the parameter `opsitem` as shown in the examples below\.  | 
 |  Severity \(required\)  |  A user\-defined severity level for OpsItems created from the alarm\. Valid values: 1,2,3,4 Because this is a user\-defined value, you or your organization determine what each severity value means and any service\-level agreement associated with each severity\.   | 
 |  Category \(optional\)  |  A category for OpsItems created from the alarm\. Valid values: Availability, Cost, Performance, Recovery, Security\.  | 
 
@@ -316,7 +316,7 @@ import com.amazonaws.services.cloudwatch.AmazonCloudWatch;
 
 **Update all alarms**
 
-Use the following Java code snippet to update all CloudWatch alarms in your Amazon Web Services account to create OpsItems when an alarm enters the `ALARM` state\. 
+Use the following Java code snippet to update all CloudWatch alarms in your AWS account to create OpsItems when an alarm enters the `ALARM` state\. 
 
 ```
 import com.amazonaws.services.cloudwatch.AmazonCloudWatch;

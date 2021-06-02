@@ -525,15 +525,15 @@ Systems Manager Automation includes the following predefined runbooks that invok
 
 | Runbook name | Purpose | 
 | --- | --- | 
-|  [AWS\-StartRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description)  |  Start an Amazon RDS instance\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description)  |  Start an Amazon RDS instance\.  | 
 |  [AWS\-StopRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description)  |  Stop an Amazon RDS instance\.  | 
-|  [AWS\-RebootRdsInstance](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description)  |  Reboot an Amazon RDS instance\.  | 
-|  [AWS\-CreateSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
-|  [AWS\-DeleteSnapshot](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
-|  [AWS\-ConfigureS3BucketLogging](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
-|  [AWS\-DisableS3BucketPublicReadWrite](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an S3 bucket by using a private ACL\.  | 
-|  [AWS\-ConfigureS3BucketVersioning](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an S3 bucket\.   | 
-|  [AWS\-DeleteDynamoDbBackup](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB \(DynamoDB\) table backup\.   | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description)  |  Reboot an Amazon RDS instance\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an S3 bucket by using a private ACL\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an S3 bucket\.   | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB \(DynamoDB\) table backup\.   | 
 
 Either click the links in the table above, or use the following procedure to view more details about these runbooks in the Systems Manager console\.
 

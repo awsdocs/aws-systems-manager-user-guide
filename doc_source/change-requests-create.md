@@ -55,7 +55,7 @@ One or more approvers might already be specified\. This means that mandatory app
 **Note**  
 If the option to specify an Amazon SNS topic is not available, the change template you selected already specifies the Amazon SNS topic to use\.
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current Amazon Web Servicesaccount and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
@@ -69,7 +69,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 1. In the **Deployment location** section, choose one of the following:
 **Note**  
-If you are using Change Manager with a single Amazon Web Services account only and not with an organization set up in AWS Organizations, you don't need to specify a deployment location\.
+If you are using Change Manager with a single AWS account only and not with an organization set up in AWS Organizations, you don't need to specify a deployment location\.
    + **Apply change to this account** – The runbook workflow runs in the current account only\. For an organization, this means the delegated administrator account\.
    + **Apply change to multiple organizational units \(OUs\)** – Do the following: 
 

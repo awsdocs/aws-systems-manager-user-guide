@@ -5,7 +5,7 @@ The following procedures describe how to use the AWS Systems Manager console and
 **Note**  
 For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
-**Before You Begin**  
+**Before you begin**  
 In addition to the standard inputs required by the runbook, the `aws:approve` action requires the following two parameters: 
 + A list of approvers\. The list of approvers must contain at least one approver in the form of an IAM user or a user ARN\. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the runbook\. 
 + An Amazon Simple Notification Service \(Amazon SNS\) topic ARN\. The Amazon SNS topic name must start with `Automation`\.

@@ -14,7 +14,7 @@ After you collect inventory data, you can use the filter capabilities in AWS Sys
 
 1. In the **Filter by resource groups, tags or inventory types** section, choose the filter box\. A list of predefined filters appears\.
 
-1. Choose an attribute to filter on\. For example, choose **AWS:Application**\. If prompted, choose a secondary attribute to filter\. For example, choose **AWS:Application\.Name**\. 
+1. Choose an attribute to filter on\. For example, choose `AWS:Application`\. If prompted, choose a secondary attribute to filter\. For example, choose `AWS:Application.Name`\. 
 
 1. Choose a delimiter from the list\. For example, choose **Begin with**\. A text box appears in the filter\.
 

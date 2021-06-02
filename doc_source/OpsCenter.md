@@ -69,7 +69,7 @@ More specifically, OpsCenter offers the following benefits for operations engine
   By using AWS Identity and Access Management \(IAM\) policies, you can control which members of your organization can create, view, list, and update OpsItems\. You can also assign tags to OpsItems and then create IAM policies that give access to users and groups based on tags\. For more information, see [Getting started with OpsCenter](OpsCenter-getting-started.md)\.
 + **Logging and auditing capability support**
 
-  You can audit and log OpsCenter user actions in your Amazon Web Services account through integration with other AWS services\. For more information, see [Auditing and logging OpsCenter activity](OpsCenter-logging-auditing.md)\.
+  You can audit and log OpsCenter user actions in your AWS account through integration with other AWS services\. For more information, see [Auditing and logging OpsCenter activity](OpsCenter-logging-auditing.md)\.
 + **Console, CLI, PowerShell, and SDK access to OpsCenter capabilities**
 
   You can work with OpsCenter by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), AWS Tools for PowerShell, or the AWS SDK of your choice\.

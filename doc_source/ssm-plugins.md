@@ -629,7 +629,7 @@ mainSteps:
 ### Inputs<a name="configurepackage-properties"></a>
 
 **name**  
-The name of the AWS package to install or uninstall\. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent\.  
+The name of the AWS package to install or uninstall\. Available packages include the following: `AWSPVDriver`, `AwsEnaNetworkDriver`, `AwsVssComponents`, and `AmazonCloudWatchAgent`\.  
 Type: String  
 Required: Yes
 

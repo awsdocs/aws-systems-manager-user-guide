@@ -151,7 +151,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Run Command and Maintenance Windows\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
 
-Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your Amazon Web Services account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
+Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 
 **To configure user access and attach the iam:PassRole policy to a user account**
 

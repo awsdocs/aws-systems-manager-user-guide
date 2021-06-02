@@ -25,7 +25,7 @@ The requirements and constraints for parameter names include the following:
   ```
   arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName
   ```
-+ **Prefixes**: A parameter name can't be prefixed with "aws" or "ssm" \(case\-insensitive\)\. For example, attempts to create parameters with the following names fail with an exception:
++ **Prefixes**: A parameter name can't be prefixed with "`aws`" or "`ssm`" \(case\-insensitive\)\. For example, attempts to create parameters with the following names fail with an exception:
   + `awsTestParameter`
   + `SSM-testparameter`
   + `/aws/testparam1`

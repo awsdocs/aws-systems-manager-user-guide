@@ -76,7 +76,7 @@ The following procedure links to other topics to help you create the service rol
 
 ## Create a custom runbook<a name="automation-walk-security-document"></a>
 
-This section describes how to create a custom runbook that restarts EC2 instances\. AWS provides a runbook for restarting instances called AWS\-RestartEC2Instance\. The following procedure copies the content of that runbook to show you how to enter the service role in a runbook when you create your own\. By specifying the service role directly in the runbook, the user does not require iam:PassRole permissions when using the runbook\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
+This section describes how to create a custom runbook that restarts EC2 instances\. AWS provides a runbook for restarting instances called `AWS-RestartEC2Instance`\. The following procedure copies the content of that runbook to show you how to enter the service role in a runbook when you create your own\. By specifying the service role directly in the runbook, the user does not require iam:PassRole permissions when using the runbook\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
 
 **To create a custom runbook**
 

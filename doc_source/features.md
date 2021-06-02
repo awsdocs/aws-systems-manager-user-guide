@@ -12,7 +12,7 @@ Systems Manager groups capabilities into the following capability types:
 
 ## Quick Setup<a name="features-quick-setup"></a>
 
-Use [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager, to configure frequently used AWS services and features with recommended best practices\. You can use Quick Setup in an individual account or across multiple Amazon Web Services accounts and AWS Regions by integrating with AWS Organizations\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\.
+Use [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager, to configure frequently used AWS services and features with recommended best practices\. You can use Quick Setup in an individual AWS account or across multiple AWS accounts and AWS Regions by integrating with AWS Organizations\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\.
 
 ## Operations Management<a name="features-operations-management"></a>
 
@@ -28,7 +28,7 @@ Incident Manager increases incident resolution by notifying responders of impact
 ------
 #### [ Explorer ]
 
-[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your Amazon Web Services accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter, a capability of AWS Systems Manager, to run Automation runbooks and resolve those issues\. 
+[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter, a capability of AWS Systems Manager, to run Automation runbooks and resolve those issues\. 
 
 ------
 #### [ OpsCenter ]
@@ -41,7 +41,7 @@ Incident Manager increases incident resolution by notifying responders of impact
 [Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions\. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources\. 
 
 ------
-#### [ Trusted Advisor & Personal Health Dashboard \(PHD\) ]
+#### [ Trusted Advisor & AWS Personal Health Dashboard \(PHD\) ]
 
 Systems Manager hosts two online tools to help you provision your resources and monitor your account for health events\. Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices\. For more information, see [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/)\.
 
@@ -82,7 +82,7 @@ Systems Manager provides the following capabilities for taking action on or chan
 ------
 #### [ Change Manager ]
 
-[Change Manager](change-manager.md), a capability of AWS Systems Manager, is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple Amazon Web Services accounts in multiple AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single Amazon Web Services account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
+[Change Manager](change-manager.md), a capability of AWS Systems Manager, is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple AWS accounts in multiple AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single AWS account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
 
 ------
 #### [ Automation ]
@@ -92,7 +92,7 @@ Use [Automation](systems-manager-automation.md), a capability of AWS Systems Man
 ------
 #### [ Change Calendar ]
 
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your Amazon Web Services account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 ------
 #### [ Maintenance Windows ]
@@ -108,7 +108,7 @@ Systems Manager provides the following capabilities for managing your Amazon EC2
 ------
 #### [ Compliance ]
 
-Use [Compliance](systems-manager-compliance.md),a capability of AWS Systems Manager, to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple Amazon Web Services accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
+Use [Compliance](systems-manager-compliance.md),a capability of AWS Systems Manager, to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
 
 ------
 #### [ Fleet Manager ]

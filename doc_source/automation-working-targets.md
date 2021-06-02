@@ -13,14 +13,14 @@ You can target resources for an automation by using tags, Resource Groups, and p
 
 Many AWS resources support tags, including Amazon EC2 and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups, and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run automation on your AWS resources by targeting tags\. A tag is a key\-value pair, such as Operating\_System\-Linux or Department\-Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
 
-When you specify a tag as the target for an automation, you also specify a target parameter\. The target parameter uses the `TargetParameterName` option\. By choosing a target parameter, you define the type of resource on which the automation runs\. The target parameter you specify with the tag must be a valid parameter defined in the runbook\. For example, if you want to target dozens of EC2 instances by using tags, then choose the `InstanceId` target parameter\. By choosing this parameter, you define *instances* as the resource type for the automation\. Further, when creating a custom runbook you can specify the **Target type** as `/AWS::EC2::Instance` to ensure only instances are used\. The following screenshot uses the AWS\-DetachEBSVolume runbook\. The logical target parameter is `VolumeId`\.
+When you specify a tag as the target for an automation, you also specify a target parameter\. The target parameter uses the `TargetParameterName` option\. By choosing a target parameter, you define the type of resource on which the automation runs\. The target parameter you specify with the tag must be a valid parameter defined in the runbook\. For example, if you want to target dozens of EC2 instances by using tags, then choose the `InstanceId` target parameter\. By choosing this parameter, you define *instances* as the resource type for the automation\. Further, when creating a custom runbook you can specify the **Target type** as `/AWS::EC2::Instance` to ensure only instances are used\. The following screenshot uses the `AWS-DetachEBSVolume` runbook\. The logical target parameter is `VolumeId`\.
 
 ![\[Using tags as targets for a Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-tags-1.png)
 
-The AWS\-DetachEBSVolume runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`\. This means that if the tag\-key pair `Finance-TestEnv` returns different types of resources \(for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots\) then only Amazon EBS volumes will be used\.
+The `AWS-DetachEBSVolume` runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`\. This means that if the tag\-key pair `Finance-TestEnv` returns different types of resources \(for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots\) then only Amazon EBS volumes will be used\.
 
 **Important**  
-Target parameter names are case sensitive\. If you run automations by using either the AWS CLI or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it is defined in the runbook\. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error\. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API action to see information about the available target parameters in a specific runbook\. Here is an example AWS CLI command that provides information about the AWS\-DeleteSnapshot document:  
+Target parameter names are case sensitive\. If you run automations by using either the AWS CLI or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it is defined in the runbook\. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error\. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API action to see information about the available target parameters in a specific runbook\. Here is an example AWS CLI command that provides information about the `AWS-DeleteSnapshot` document:  
 
 ```
 aws ssm describe-document \
@@ -43,7 +43,7 @@ aws ssm start-automation-execution \
 
 **Example 2: Targeting tags using a key\-value pair to delete Amazon EBS snapshots**
 
-The following example uses the AWS\-DeleteSnapshot runbook to delete all snapshots with a key of *Name* and a value of *January2018Backups*\. The target parameter uses the *VolumeId* parameter\.
+The following example uses the `AWS-DeleteSnapshot` runbook to delete all snapshots with a key of *Name* and a value of *January2018Backups*\. The target parameter uses the *VolumeId* parameter\.
 
 ```
 aws ssm start-automation-execution \
@@ -56,9 +56,9 @@ aws ssm start-automation-execution \
 
 You can specify a single AWS resource group as the target of an automation\. Systems Manager creates a child automation for every object in the target Resource Group\.
 
-For example, say that one of your Resource Groups is named PatchedAMIs\. This Resource Group includes a list of 25 Windows Amazon Machine Images \(AMIs\) that are routinely patched\. If you run an automation that uses the AWS\-CreateManagedWindowsInstance runbook and target this Resource Group, then Systems Manager creates a child automation for each of the 25 AMIs\. This means, that by targeting the PatchedAMIs Resource Group, the automation creates 25 instances from a list of patched AMIs\. The parent automation is complete when all child automations complete processing or reach a final state\.
+For example, say that one of your Resource Groups is named PatchedAMIs\. This Resource Group includes a list of 25 Windows Amazon Machine Images \(AMIs\) that are routinely patched\. If you run an automation that uses the `AWS-CreateManagedWindowsInstance` runbook and target this Resource Group, then Systems Manager creates a child automation for each of the 25 AMIs\. This means, that by targeting the PatchedAMIs Resource Group, the automation creates 25 instances from a list of patched AMIs\. The parent automation is complete when all child automations complete processing or reach a final state\.
 
-The following AWS CLI command applies to the PatchAMIs Resource Group example\. The command takes the *AmiId* parameter for the \-\-target\-parameter\-name option\. The command doesn't include an additional parameter defining which type of instance to create from each AMI\. The AWS\-CreateManagedWindowsInstance runbook defaults to the t2\.medium instance type, so this command would create 25 t2\.medium EC2 instances for Windows Server\.
+The following AWS CLI command applies to the PatchAMIs Resource Group example\. The command takes the *AmiId* parameter for the \-\-target\-parameter\-name option\. The command doesn't include an additional parameter defining which type of instance to create from each AMI\. The `AWS-CreateManagedWindowsInstance` runbook defaults to the t2\.medium instance type, so this command would create 25 t2\.medium EC2 instances for Windows Server\.
 
 ```
 aws ssm start-automation-execution \
@@ -77,7 +77,7 @@ You can also target a parameter value\. You enter `ParameterValues` as the key a
 
 For example, say that your runbook includes an **InstanceID** parameter\. If you target the values of the **InstanceID** parameter when you run the Automation, then Systems Manager runs a child automation for each instance ID value specified\. The parent automation is complete when the automation finishes running each specified instance, or if the automation fails\. You can target a maximum of 50 parameter values\.
 
-The following example uses the AWS\-CreateImage runbook\. The target parameter name specified is *InstanceId*\. The key uses *ParameterValues*\. The values are two EC2 instance IDs\. This command creates an automation for each instance, which produces an AMI from each instance\. 
+The following example uses the `AWS-CreateImage` runbook\. The target parameter name specified is *InstanceId*\. The key uses *ParameterValues*\. The values are two EC2 instance IDs\. This command creates an automation for each instance, which produces an AMI from each instance\. 
 
 ```
 aws ssm start-automation-execution 

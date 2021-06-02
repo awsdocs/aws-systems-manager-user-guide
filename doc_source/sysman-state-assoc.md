@@ -65,7 +65,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different Amazon Web Services account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
    Below are the minimal permissions required to enable Amazon S3 output for an association\. You may further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
 
@@ -129,7 +129,7 @@ Target instances by using AWS Resource Groups
 --targets Key=resource-groups:Name,Values=WindowsInstancesGroup
 ```
 
-Target all instances in the current Amazon Web Services account and AWS Region
+Target all instances in the current AWS account and AWS Region
 
 ```
 --targets Key=InstanceIds,Values=*
@@ -285,7 +285,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current Amazon Web Services account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current AWS account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux & macOS ]

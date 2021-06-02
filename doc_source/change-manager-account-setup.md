@@ -1,6 +1,6 @@
 # Configuring Change Manager options and best practices<a name="change-manager-account-setup"></a>
 
-The tasks in this section must be performed whether you are using Change Manager, a capability of AWS Systems Manager, across an organization or in a single account\.
+The tasks in this section must be performed whether you are using Change Manager, a capability of AWS Systems Manager, across an organization or in a single AWS account\.
 
 If you are using Change Manager for an organization, you can perform the following tasks in either your delegated administrator account or any account in an organization unit that you have enabled for use with Change Manager\.
 
@@ -29,7 +29,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. On the service home page, do one of the following:
    + If you are using Change Manager with AWS Organizations , choose **Set up delegated account**\.
-   + If you are using Change Manager with a single Amazon Web Services account, choose **Set up Change Manager**\.
+   + If you are using Change Manager with a single AWS account, choose **Set up Change Manager**\.
 
 1. For **User identity management**, choose one of the following\.
    + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts and groups\.
@@ -41,7 +41,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
    1. To specify the Amazon SNS topic for template reviewer notification, choose one of the following:
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current account and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
@@ -101,7 +101,7 @@ To enable change freeze reviews, you must enable the **Check Change Calendar for
 
      1. Choose one of the following to specify the Amazon Simple Notification Service \(Amazon SNS\) topic in your account to use for sending notifications to approvers during change freeze events\. \(Note that you must also specify approvers in the **Approvers for change freeze events** section above **Best practices**\.\)
         + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current account and AWS Region\.\)
+        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
 The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 

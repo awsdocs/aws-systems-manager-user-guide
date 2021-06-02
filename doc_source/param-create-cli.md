@@ -388,7 +388,7 @@ Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/k
 
    If you create a `SecureString` parameter by using the AWS\-managed AWS Key Management Service \(AWS KMS\) key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 **Note**  
-To use the AWS KMS key assigned to your Amazon Web Services account and AWS Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
+To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
    To use a customer managed key instead of the AWS managed key assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
    + Key Amazon Resource Name \(ARN\) example:
@@ -404,7 +404,7 @@ To use the AWS KMS key assigned to your Amazon Web Services account and AWS Regi
 
      `alias/MyAliasName`
 
-   You can create a customer managed key by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current AWS Region of your Amazon Web Services account\.
+   You can create a customer managed key by using the AWS Management Console or the AWS KMS API\. The following AWS CLI commands create a customer managed key in the current AWS Region of your AWS account\.
 
    ```
    aws kms [create\-key](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)

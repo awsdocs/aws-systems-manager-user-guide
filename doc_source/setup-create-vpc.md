@@ -40,7 +40,7 @@ The security group attached to the VPC endpoint must allow incoming connections 
 
 **Amazon S3 buckets**  
 Your VPC endpoint policy must allow at least access to the following Amazon S3 buckets:
-+ The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets from which the code is retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
++ The S3 buckets used by Patch Manager for patch baseline operations in your AWS Regionn\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets from which the code is retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
 **Note**  
 If you use an on\-premises firewall and plan to use Patch Manager, that firewall must also allow access to the patch baseline endpoint indicated below\.
 

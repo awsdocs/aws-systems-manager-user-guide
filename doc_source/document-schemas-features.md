@@ -521,8 +521,8 @@ mainSteps:
 
 ------
 
-**Schema version 2\.2 AWS\-ConfigureAWSPackage example**  
-The following example shows the AWS\-ConfigureAWSPackage document\. The **mainSteps** section includes the **aws:configurePackage** plugin in the **action** step\.
+**Schema version 2\.2 `AWS-ConfigureAWSPackage` example**  
+The following example shows the `AWS-ConfigureAWSPackage` document\. The **mainSteps** section includes the **aws:configurePackage** plugin in the **action** step\.
 
 **Note**  
 On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2Rescue` packages are supported\.
@@ -639,7 +639,7 @@ The following example shows the top\-level elements of a schema version 1\.2 doc
 ```
 
 **Schema version 1\.2 aws:runShellScript example**  
-The following example shows the AWS\-RunShellScript SSM document\. The **runtimeConfig** section includes the **aws:runShellScript** plugin\.
+The following example shows the `AWS-RunShellScript` SSM document\. The **runtimeConfig** section includes the **aws:runShellScript** plugin\.
 
 ```
 {

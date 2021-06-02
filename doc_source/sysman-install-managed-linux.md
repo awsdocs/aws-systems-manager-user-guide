@@ -203,7 +203,7 @@ Use the following information to help you troubleshoot problems installing SSM A
 
 ### You receive DeliveryTimedOut error<a name="systems-manager-install-managed-linux-troubleshooting-delivery-timed-out"></a>
 
-**Problem**: While configuring an Amazon EC2 instance in one Amazon Web Services account as a managed instance for a separate Amazon Web Services account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
+**Problem**: While configuring an Amazon EC2 instance in one AWS account as a managed instance for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
 
 **Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target instance changes the instance ID of the source instance\. Because the instance ID has changed, the source instance is not able to reply to the target instance that the command failed, completed, or timed out while executing\.
 

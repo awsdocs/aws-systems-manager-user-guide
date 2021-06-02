@@ -1,6 +1,6 @@
 # Receiving findings from AWS Security Hub in OpsCenter<a name="opscenter-securityhub-integration"></a>
 
-[AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across Amazon Web Services accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
+[AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
 
 The AWS Systems Manager OpsCenter integration with Security Hub enables you to receive findings from Security Hub in OpsCenter\. Security Hub findings provide security information that you can use in OpsCenter to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
 

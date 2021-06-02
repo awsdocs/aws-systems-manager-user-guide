@@ -1,20 +1,20 @@
 # Reference: ec2messages, ssmmessages, and other API calls<a name="systems-manager-setting-up-messageAPIs"></a>
 
 If you monitor API calls, you might see calls to the following APIs:
-+ ec2messages:AcknowledgeMessage
-+ ec2messages:DeleteMessage
-+ ec2messages:FailMessage
-+ ec2messages:GetEndpoint
-+ ec2messages:GetMessages
-+ ec2messages:SendReply
-+ ssmmessages:CreateControlChannel
-+ ssmmessages:CreateDataChannel
-+ ssmmessages:OpenControlChannel
-+ ssmmessages:OpenDataChannel
-+ ssm:UpdateInstanceInformation
-+ ssm:ListInstanceAssociations
-+ ssm:DescribeInstanceProperties
-+ ssm:DescribeDocumentParameters
++ `ec2messages:AcknowledgeMessage`
++ `ec2messages:DeleteMessage`
++ `ec2messages:FailMessage`
++ `ec2messages:GetEndpoint`
++ `ec2messages:GetMessages`
++ `ec2messages:SendReply`
++ `ssmmessages:CreateControlChannel`
++ `ssmmessages:CreateDataChannel`
++ `ssmmessages:OpenControlChannel`
++ `ssmmessages:OpenDataChannel`
++ `ssm:UpdateInstanceInformation`
++ `ssm:ListInstanceAssociations`
++ `ssm:DescribeInstanceProperties`
++ `ssm:DescribeDocumentParameters`
 
 These special calls are used by Systems Manager for various operations\.
 
@@ -29,4 +29,4 @@ Systems Manager uses the `ssmmessages` endpoint to make calls from SSM Agent to 
 
 `ListInstanceAssociations`: The agent calls this API to see if a new Systems Manager State Manager association is available\. This API is required for State Manager to function\.
 
-`DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager calls these APIs to render specific nodes in the Amazon EC2 console\. The `DescribeInstanceProperties` API displays the **Managed Instances** node in the left navigation\. The `DescribeDocumentParameters` API displays the **Documents** node in the left navigation\.
+`DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager calls these APIs to render specific nodes in the Amazon EC2 console\. The `DescribeInstanceProperties` API displays the **Fleet Manager** node in the left navigation\. The `DescribeDocumentParameters` API displays the **Documents** node in the left navigation\.

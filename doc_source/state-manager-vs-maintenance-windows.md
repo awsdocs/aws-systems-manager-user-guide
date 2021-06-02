@@ -4,7 +4,7 @@ State Manager and Maintenance Windows, both capabilities of AWS Systems Manager,
 
 ## State Manager and Maintenance Windows: Key use cases<a name="sm-mw-use-cases"></a>
 
-State Manager, a capability of AWS Systems Manager, sets and maintains the desired state configuration for managed instances and AWS resources within your Amazon Web Services account\. You can define combinations of configurations and targets as association objects\. State Manager is the recommended capability if you want to maintain all managed instances in your account in a consistent state, use Amazon EC2 Auto Scaling to generate new instances, or have strict compliance reporting requirements for the managed instances in your account\.
+State Manager, a capability of AWS Systems Manager, sets and maintains the desired state configuration for managed instances and AWS resources within your AWS account\. You can define combinations of configurations and targets as association objects\. State Manager is the recommended capability if you want to maintain all managed instances in your account in a consistent state, use Amazon EC2 Auto Scaling to generate new instances, or have strict compliance reporting requirements for the managed instances in your account\.
 
 The main use cases for State Manager are as follows:
 + **Auto Scaling scenarios: **State Manager can monitor all new instances launched within an account either manually or through Auto Scaling groups\. If there are any associations in the account targeting that new instance \(through tags or all instances\), then that particular association is automatically applied to the new instance\.

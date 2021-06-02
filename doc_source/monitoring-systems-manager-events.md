@@ -5,7 +5,7 @@ You can use Amazon EventBridge to perform a target event when supported AWS Syst
 The following procedure provides general steps for creating an EventBridge rule that engages when a specified event is emitted by Systems Manager\. For a list of procedures in this user guide that address specific scenarios, see **Related content** at the end of this topic\.
 
 **Note**  
-When an AWS service in your account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, you must associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule will engage only when you receive such an event from another account via cross\-account event delivery\. For more information, see [Sending and Receiving Events Between Amazon Web Services Accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide*\.
+When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, you must associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule will engage only when you receive such an event from another account via cross\-account event delivery\. For more information, see [Sending and receiving events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide*\.
 
 **To configure EventBridge for Systems Manager events**
 
@@ -25,7 +25,7 @@ When an AWS service in your account emits an event, it always goes to your accou
 
 1. Choose **Pre\-defined pattern by service**\.
 
-1. For **Service provider**, choose **AWS**\.
+1. For **Service provider**, choose **`AWS`**\.
 
 1. For **Service name**, choose **Systems Manager**\.
 
@@ -54,7 +54,7 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 
 1. If you chose a Systems Manager capability in step 8, choose whether to invoke targets for all or only certain detail types, statuses, or other supported options\. The available options depend on the capability you have selected\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own Amazon Web Services account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Select targets**, choose the AWS service that is to act when an event of the selected type is detected\.
 

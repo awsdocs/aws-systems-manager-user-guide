@@ -1,6 +1,6 @@
 # Walkthrough: Configure your managed instances for Inventory by using the CLI<a name="sysman-inventory-cliwalk"></a>
 
-The following procedures walk you through the process of configuring AWS Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the aws:softwareInventory plugin by using, for example, Systems Manager Run Command, the system returns the following error:
+The following procedures walk you through the process of configuring AWS Systems Manager Inventory to collect metadata from your managed instances\. When you configure inventory collection, you start by creating a Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, Systems Manager Run Command, the system returns the following error:
 
 `The aws:softwareInventory plugin can only be invoked via ssm-associate`\.
 
@@ -9,9 +9,9 @@ An instance can have only one inventory association configured at a time\. If yo
 
 ## Quickly configure all of your managed instances for Inventory \(CLI\)<a name="sysman-inventory-cliwalk-all"></a>
 
-You can quickly configure all managed instances in your Amazon Web Services account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
+You can quickly configure all managed instances in your AWS account and in the current Region to collect inventory data\. This is called creating a global inventory association\. To create a global inventory association by using the AWS CLI, use the wildcard option for the `instanceIds` value, as shown in the following procedure\.
 
-**To configure inventory for all managed instances in your Amazon Web Services account and in the current Region \(CLI\)**
+**To configure inventory for all managed instances in your AWS account and in the current Region \(CLI\)**
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
 

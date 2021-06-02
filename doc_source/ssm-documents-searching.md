@@ -76,8 +76,8 @@ You can search for SSM documents by using a single filter\. If you want to retur
 ![\[Applying multiple filter options on the SSM Documents page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-documents-filters-2.png)
 
 If you apply multiple filters, Systems Manager creates different search statements based on the filters you choose: 
-+ If you apply the *same* filter multiple times, for example **Document name prefix**, then Systems Manager searches by using an `OR` statement\. For example, if you specify one filter of **Document name prefix**=**AWS** and a second filter of **Document name prefix**=**Lambda**, then search returns all documents with the prefix "AWS" and all documents with the prefix "Lambda"\.
-+ If you apply *different* filters, for example **Document name prefix** and **Platform types**, then Systems Manager searches by using an `AND` statement\. For example, if you specify a **Document name prefix**=**AWS** filter and a **Platform types**=**Linux** filter, then search returns all documents with the prefix "AWS" that are specific to the Linux platform\.
++ If you apply the *same* filter multiple times, for example **Document name prefix**, then Systems Manager searches by using an `OR` statement\. For example, if you specify one filter of **Document name prefix**=**AWS** and a second filter of **Document name prefix**=**Lambda**, then search returns all documents with the prefix "`AWS`" and all documents with the prefix "`Lambda`"\.
++ If you apply *different* filters, for example **Document name prefix** and **Platform types**, then Systems Manager searches by using an `AND` statement\. For example, if you specify a **Document name prefix**=**AWS** filter and a **Platform types**=**Linux** filter, then search returns all documents with the prefix "`AWS`" that are specific to the Linux platform\.
 
 **Note**  
 Searches that use filters are case sensitive\. 

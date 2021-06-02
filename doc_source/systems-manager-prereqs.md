@@ -8,7 +8,7 @@ This topic provides an overview of these prerequisites\.
 
 **To complete prerequisites for using Systems Manager**
 
-1. Create an Amazon Web Services account and configure the required AWS Identity and Access Management \(IAM\) roles\.
+1. Create an AWS account and configure the required AWS Identity and Access Management \(IAM\) roles\.
 
 1. Verify that Systems Manager is supported in the AWS Regions where you want to use the service\.
 

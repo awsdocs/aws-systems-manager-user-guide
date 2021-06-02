@@ -10,15 +10,15 @@ For example, say that you've configured inventory to collect data about the oper
 
 With resource data sync, you perform a one\-time operation that synchronizes all inventory data from all of your managed instances\. After the sync is successfully created, Systems Manager creates a baseline of all inventory data and saves it in the target Amazon S3 bucket\. When new inventory data is collected, Systems Manager automatically updates the data in the Amazon S3 bucket\. You can then quickly and cost\-effectively port the data to Amazon Athena and Amazon QuickSight\.
 
-Diagram 1 shows how resource data sync aggregates inventory data from managed instances in Amazon EC2 and a hybrid environment to a target Amazon S3 bucket\. This diagram also shows how resource data sync works with multiple Amazon Web Services accounts and AWS Regions\.
+Diagram 1 shows how resource data sync aggregates inventory data from managed instances in Amazon EC2 and a hybrid environment to a target Amazon S3 bucket\. This diagram also shows how resource data sync works with multiple AWS accounts and AWS Regions\.
 
-**Diagram 1: Resource data sync with multiple Amazon Web Services accounts and AWS Regions**
+**Diagram 1: Resource data sync with multiple AWS accounts and AWS Regions**
 
 ![\[Systems Manager resource data sync architecture\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync.png)
 
 If you delete a managed instance, resource data sync preserves the inventory file for the deleted instance\. For running instances, however, resource data sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket\. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:ManagedInstanceInventory` resource type\. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html)\.
 
-Use the procedures in this section to create a resource data sync for Inventory by using the Amazon S3 and AWS Systems Manager consoles\. You can also use AWS CloudFormation to create or delete a resource data sync\. To use AWS CloudFormation, add the [AWS::SSM::ResourceDataSync](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html) resource to your AWS CloudFormation template\. For information, see one of the following documentation resources:
+Use the procedures in this section to create a resource data sync for Inventory by using the Amazon S3 and AWS Systems Manager consoles\. You can also use AWS CloudFormation to create or delete a resource data sync\. To use AWS CloudFormation, add the [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html) resource to your AWS CloudFormation template\. For information, see one of the following documentation resources:
 + [AWS CloudFormation resource for resource data sync in AWS Systems Manager](http://aws.amazon.com/blogs/mt/aws-cloudformation-resource-for-resource-data-sync-in-aws-systems-manager/) \(blog\)
 + [Working with AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*
 
@@ -37,9 +37,9 @@ Before you create a resource data sync, use the following procedure to create a 
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid Amazon Web Services account ID\.
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\.
 
-   To enable multiple Amazon Web Services accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
+   To enable multiple AWS accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
 
    ```
    "Resource": [
@@ -51,7 +51,7 @@ Before you create a resource data sync, use the following procedure to create a 
 
    Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
 **Note**  
-For information about viewing your Amazon Web Services account ID, see [Your Amazon Web Services Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
+For information about viewing your AWS account ID, see [Your Amazon Web Services Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
 
    ```
    {
@@ -137,12 +137,12 @@ To synchronize inventory data from multiple AWS Regions, you must create a resou
 
 ## Creating an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations"></a>
 
-You can synchronize inventory data from Amazon Web Services accounts defined in AWS Organizations to a central Amazon S3 bucket\. After you complete the following procedures, inventory data is synchronized to *individual* Amazon S3 key prefixes in the central bucket\. Each key prefix represents a different Amazon Web Services account ID\.
+You can synchronize inventory data from AWS accounts defined in AWS Organizations to a central Amazon S3 bucket\. After you complete the following procedures, inventory data is synchronized to *individual* Amazon S3 key prefixes in the central bucket\. Each key prefix represents a different AWS account ID\.
 
 **Before you begin**  
-Before you begin, verify that you set up and configured Amazon Web Services accounts in AWS Organizations\. For more information, see [ in the *AWS Organizations User Guide*\.](https://docs.aws.amazon.com/organizations/latest/userguide/rgs_getting-started.html)
+Before you begin, verify that you set up and configured AWS accounts in AWS Organizations\. For more information, see [ in the *AWS Organizations User Guide*\.](https://docs.aws.amazon.com/organizations/latest/userguide/rgs_getting-started.html)
 
-Also, be aware that you must create the organization\-based resource data sync for each AWS Region and Amazon Web Services account defined in AWS Organizations\. 
+Also, be aware that you must create the organization\-based resource data sync for each AWS Region and AWS account defined in AWS Organizations\. 
 
 ### Creating a central Amazon S3 bucket<a name="sysman-inventory-datasync-before-you-begin"></a>
 
@@ -218,7 +218,7 @@ The Asia Pacific Region came online in April 25, 2019\. If you create a resource
 
 ### Create an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>
 
-The following procedure describes how to use the AWS CLI to create a resource data sync for accounts that are defined in AWS Organizations\. You must use the AWS CLI to perform this task\. You must also perform this procedure for each AWS Region and Amazon Web Services account defined in AWS Organizations\.
+The following procedure describes how to use the AWS CLI to create a resource data sync for accounts that are defined in AWS Organizations\. You must use the AWS CLI to perform this task\. You must also perform this procedure for each AWS Region and AWS account defined in AWS Organizations\.
 
 **To create a resource data sync for an account defined in AWS Organizations \(AWS CLI\)**
 
@@ -240,4 +240,4 @@ The following procedure describes how to use the AWS CLI to create a resource da
    aws ssm create-resource-data-sync --sync-name name --s3-destination "BucketName=DOC-EXAMPLE-BUCKET,Prefix=prefix-name,SyncFormat=JsonSerDe,Region=AWS Region, for example us-east-2,DestinationDataSharing={DestinationDataSharingType=Organization}"
    ```
 
-1. Repeat Steps 2 and 3 for every AWS Region and Amazon Web Services account where you want to synchronize data to the central Amazon S3 bucket\.
+1. Repeat Steps 2 and 3 for every AWS Region and AWS account where you want to synchronize data to the central Amazon S3 bucket\.

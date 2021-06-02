@@ -9,14 +9,14 @@ Integrated Setup automatically creates and configures AWS Identity and Access Ma
 ## About the roles created by integrated setup<a name="Explorer-setup-permissions-about"></a>
 
 Integrated Setup creates and configures the following roles for working with Explorer and OpsCenter\.
-+ **AWSServiceRoleForAmazonSSM**: Provides access to AWS Resources managed or used by Systems Manager\.
++ `AWSServiceRoleForAmazonSSM`: Provides access to AWS Resources managed or used by Systems Manager\.
 + **OpsItem\-CWE\-Role**: Enables CloudWatch Events and EventBridge to create OpsItems in response to common events\.
-+ **AWSServiceRoleForAmazonSSM\_AccountDiscovery**: Enables Systems Manager to call other AWS services to discover Amazon Web Services account information when synchronizing data\. For more information about this role, see [About the AWSServiceRoleForAmazonSSM\_AccountDiscovery role](#Explorer-service-role-details)\.
-+ **AmazonSSMExplorerExport**: Enables Explorer to export OpsData to a comma\-separated value \(CSV\) file\.
++ `AWSServiceRoleForAmazonSSM_AccountDiscovery`: Enables Systems Manager to call other AWS services to discover AWS account information when synchronizing data\. For more information about this role, see [About the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role](#Explorer-service-role-details)\.
++ `AmazonSSMExplorerExport`: Enables Explorer to export OpsData to a comma\-separated value \(CSV\) file\.
 
-### About the AWSServiceRoleForAmazonSSM\_AccountDiscovery role<a name="Explorer-service-role-details"></a>
+### About the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role<a name="Explorer-service-role-details"></a>
 
-If you configure Explorer to display data from multiple accounts and Regions by using AWS Organizations and a resource data sync, then Systems Manager creates a service\-linked role\. Systems Manager uses this role to get information about your Amazon Web Services accounts in AWS Organizations\. The role uses the following permissions policy\.
+If you configure Explorer to display data from multiple accounts and Regions by using AWS Organizations and a resource data sync, then Systems Manager creates a service\-linked role\. Systems Manager uses this role to get information about your AWS accounts in AWS Organizations\. The role uses the following permissions policy\.
 
 ```
 {
@@ -38,14 +38,14 @@ If you configure Explorer to display data from multiple accounts and Regions by 
 }
 ```
 
-For more information about the AWSServiceRoleForAmazonSSM\_AccountDiscovery role, see [Using roles to collect Amazon Web Services account information for Systems Manager Explorer: AWSServiceRoleForAmazonSSM\_AccountDiscovery](using-service-linked-roles-service-action-2.md)\.
+For more information about the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role, see [Using roles to collect AWS account information for Systems Manager Explorer: `AWSServiceRoleForAmazonSSM_AccountDiscovery`](using-service-linked-roles-service-action-2.md)\.
 
 ## Configuring permissions for Systems Manager OpsCenter<a name="Explorer-getting-started-user-permissions"></a>
 
 After you complete Integrated Setup, you must configure IAM user, group, or role permissions so that users can perform actions in OpsCenter\.
 
 **Before You Begin**  
-OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across Amazon Web Services accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the Amazon Web Services account that is used to run your AWS workloads\. You can then create IAM users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same Amazon Web Services account\.
+OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create IAM users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
 
 Explorer and OpsCenter use the following API actions\. You can use all features of Explorer and OpsCenter if your IAM user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
 +  [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) 

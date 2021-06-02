@@ -35,7 +35,7 @@ On Windows Server instances, the `AWS-RunPatchBaselineWithHooks` document downlo
 
 ------
 
-Each snapshot is specific to an Amazon Web Services account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
+Each snapshot is specific to an AWS account, patch group, operating system, and snapshot ID\. The snapshot is delivered through a presigned Amazon Simple Storage Service \(Amazon S3\) URL, which expires 24 hours after the snapshot is created\. After the URL expires, however, if you want to apply the same snapshot content to other instances, you can generate a new presigned Amazon S3 URL up to three days after the snapshot was created\. To do this, use the [get\-deployable\-patch\-snapshot\-for\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-deployable-patch-snapshot-for-instance.html) command\. 
 
 After all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to Patch Manager\. 
 
@@ -165,7 +165,7 @@ This tracking file is stored in the following locations on your managed instance
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `PreInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `PreInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
 The SSM document you specify is run before the `Install` operation and performs any actions supported by SSM Agent, such as a shell script to check application health check before patching is performed on the instance\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
@@ -177,7 +177,7 @@ For information about creating a custom SSM document, see [Creating SSM document
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `PostInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `PostInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
 The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by SSM Agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 
@@ -189,7 +189,7 @@ For information about creating a custom SSM document, see [Creating SSM document
 
 **Default**: `AWS-Noop`\. 
 
-The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
+The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
 The SSM document you specify is run after the instance reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify instance health after the patching operation completes\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which does not perform any operation on the instance\. 
 

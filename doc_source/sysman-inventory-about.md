@@ -1,6 +1,6 @@
 # Learn more about Systems Manager Inventory<a name="sysman-inventory-about"></a>
 
-When you configure AWS Systems Manager Inventory, you specify the type of metadata to collect, the instances from where the metadata should be collected, and a schedule for metadata collection\. These configurations are saved with your Amazon Web Services account as a AWS Systems Manager State Manager association\. An association is simply a configuration\.
+When you configure AWS Systems Manager Inventory, you specify the type of metadata to collect, the instances from where the metadata should be collected, and a schedule for metadata collection\. These configurations are saved with your AWS account as a AWS Systems Manager State Manager association\. An association is simply a configuration\.
 
 **Note**  
 Inventory only collects metadata\. It does not collect any personal or proprietary data\.

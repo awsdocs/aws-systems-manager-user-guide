@@ -1,6 +1,6 @@
 # Querying inventory data from multiple Regions and accounts<a name="systems-manager-inventory-query"></a>
 
-AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from multiple AWS Regions and Amazon Web Services accounts\. Athena integration uses resource data sync so that you can view inventory data from all of your managed instances on the **Inventory Detail View** page in the AWS Systems Manager console\.
+AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from multiple AWS Regions and AWS accounts\. Athena integration uses resource data sync so that you can view inventory data from all of your managed instances on the **Inventory Detail View** page in the AWS Systems Manager console\.
 
 **Important**  
 This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Service \(Amazon S3\) bucket, and Amazon Athena to query the data\. Depending on how much data is crawled and queried, you can be charged for using these services\. With AWS Glue, you pay an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. With Athena, you are charged based on the amount of data scanned by each query\. We encourage you to view the pricing guidelines for these services before you use Amazon Athena integration with Systems Manager Inventory\. For more information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/) and [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)\.
@@ -26,7 +26,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
 
 1. On the **Grant permissions** page, choose **Attach existing policies directly**\.
 
-1. In the Search field, search for **AWSQuicksightAthenaAccess**\.
+1. In the Search field, search for `AWSQuicksightAthenaAccess`\.
 
 1. Choose the option next to this policy, and then choose **Next: Review**\.
 
@@ -88,7 +88,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
            "kms:Decrypt"
        ],
        "Resource": [
-           "arn:aws:kms:AWS_Region:account_ID:key/key_ARN"
+           "arn:aws:kms:Region:account_ID:key/key_ARN"
        ]
    }
    ```
@@ -101,12 +101,12 @@ If you paste this block after the last block in the policy, be sure to separate 
 **Important**  
 When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
-**AWSGlueServiceRole**: This is an AWS managed policy that enables access to AWS Glue\.
+`AWSGlueServiceRole`: This is an AWS managed policy that enables access to AWS Glue\.
 If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ## Querying data on the inventory detailed view page<a name="systems-manager-inventory-query-detail-view"></a>
 
-Use the following procedure to view inventory data from multiple AWS Regions and Amazon Web Services accounts on the Systems Manager Inventory **Detailed View** page\.
+Use the following procedure to view inventory data from multiple AWS Regions and AWS accounts on the Systems Manager Inventory **Detailed View** page\.
 
 **Important**  
 The Inventory **Detailed View** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Systems Manager Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.  
@@ -142,7 +142,7 @@ You can use the **Export to CSV** button to view the current query set in a spre
 AWS Glue crawls the inventory data in the central Amazon S3 bucket twice daily, by default\. If you frequently change the types of data to collect on your instances then you might want to crawl the data more frequently, as described in the following procedure\.
 
 **Important**  
-AWS Glue charges your Amazon Web Services account based on an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. Before you change the crawler schedule, view the [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) page\.
+AWS Glue charges your AWS account based on an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. Before you change the crawler schedule, view the [AWS Glue pricing](https://aws.amazon.com/glue/pricing/) page\.
 
 **To change the inventory data crawler schedule**
 
@@ -152,7 +152,7 @@ AWS Glue charges your Amazon Web Services account based on an hourly rate, bille
 
 1. In the crawlers list, choose the option next to the Systems Manager Inventory data crawler\. The crawler name uses the following format:
 
-   `AWSSystemsManager-DOC-EXAMPLE-BUCKET-Region-AWS_account_ID`
+   `AWSSystemsManager-DOC-EXAMPLE-BUCKET-Region-account_ID`
 
 1. Choose **Action**, and then choose **Edit crawler**\.
 

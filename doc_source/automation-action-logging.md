@@ -17,7 +17,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
 1. \(Recommended\) Select the check box next to **Encrypt log data**\. With this option enabled, log data is encrypted using the server\-side encryption key specified for the log group\. If you don't want to encrypt the log data that's sent to CloudWatch Logs, clear the check box\. You must also clear the check box if encryption isn't enabled on the log group\.
 
-1. For **CloudWatch Logs log group**, to specify the existing CloudWatch Logs log group in your Amazon Web Services account that you want to send action output to, select one of the following:
+1. For **CloudWatch Logs log group**, to specify the existing CloudWatch Logs log group in your AWS account that you want to send action output to, select one of the following:
    + **Send output to the default log group** – If the default log group doesn't exist \(/aws/ssm/automation/executeScript\), Automation creates it for you\.
    + **Choose from a list of log groups** – Select a log group that has already been created in your account to store action output\.
    + Enter the name of a log group in the text box that has already been created in your account to store action output\.
@@ -92,7 +92,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    There is no output if the command succeeds\.
 
-1. Run the following command to view the current service settings for Automation action logging preferences in the current Amazon Web Services account and AWS Region\.
+1. Run the following command to view the current service settings for Automation action logging preferences in the current AWS account and AWS Region\.
 
 ------
 #### [ Linux & macOS ]

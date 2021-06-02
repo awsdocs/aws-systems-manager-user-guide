@@ -1,15 +1,12 @@
 # Registering maintenance window tasks without targets<a name="maintenance-windows-targetless-tasks"></a>
 
-**Note**  
-The ability to register tasks without targets is not currently supported in the AWS Systems Manager console\.
-
 For each maintenance window you create, you can specify one or more tasks to perform when the maintenance window runs\. In most cases, you must specify the resources, or targets, that the task is to run on\. In some cases, however, you do not need to specify targets explicitly in the task\.
 
 One or more targets must be specified for maintenance window Systems Manager Run Command\-type tasks\. Depending on the nature of the task, targets are optional for other maintenance window task types \(Systems Manager Automation, AWS Lambda, and AWS Step Functions\)\. 
 
 For Lambda and Step Functions task types, whether a target is required depends on the content of the function or state machine you have created\.
 
-Automation tasks more commonly don't need a target specified explicitly for a task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
+In many cases, you don't need to explicitly specify a target for an automation task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
 
 Similarly, suppose you are using the AWS Command Line Interface \(AWS CLI\) to register a maintenance window Automation task that uses the document [https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-restartec2instance](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-restartec2instance)\. Because the instance to restart is specified in the `--task-invocation-parameters` argument, you don't need to also specify a `--targets` option\. 
 

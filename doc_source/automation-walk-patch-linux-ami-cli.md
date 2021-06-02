@@ -7,7 +7,7 @@ The `AWS-UpdateLinuxAmi` runbook enables you to automate image\-maintenance task
 + Install SSM Agent on an existing image to enable Systems Manager capabilities, such as running remote commands using Run Command or software inventory collection using Inventory\.
 + Install additional software packages\.
 
-**Before You Begin**  
+**Before you begin**  
 Before you begin working with runbooks, configure roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 The `AWS-UpdateLinuxAmi` runbook accepts the following input parameters\.

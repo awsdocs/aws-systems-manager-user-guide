@@ -2,7 +2,7 @@
 
 You can use the AWS Systems Manager console to generate patch compliance reports that are saved as a \.csv file to an Amazon Simple Storage Service \(Amazon S3\) bucket of your choice\. You can generate a single on\-demand report or specify a schedule for generating the reports automatically\. 
 
-Reports can be generated for a single instance or for all instances in your Amazon Web Services account\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
+Reports can be generated for a single instance or for all instances in your AWS account\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
 
 **Note**  
 After a report is generated, you can use a tool like Amazon QuickSight to import and analyze the data\. Amazon QuickSight is a business intelligence \(BI\) service you can use to explore and interpret information in an interactive visual environment\. For more information, see the *[Amazon QuickSight User Guide](https://docs.aws.amazon.com/quicksight/latest/user/)*\.
@@ -97,7 +97,7 @@ Summary information for all instances includes the following:
 
 ## Generating patch compliance reports for a single instance<a name="patch-compliance-reports-to-s3-one-instance"></a>
 
-Use the following procedure to generate a patch summary report for a single instance in your account\. The report for a single instance provides details about each patch that is out of compliance, including patch names and IDs\. 
+Use the following procedure to generate a patch summary report for a single instance in your AWS account\. The report for a single instance provides details about each patch that is out of compliance, including patch names and IDs\. 
 
 **To generate patch compliance reports for a single instance**
 
@@ -139,7 +139,7 @@ For information about viewing details of reporting schedules you have created, s
 
 ## Generating patch compliance reports for all instances<a name="patch-compliance-reports-to-s3-all-instances"></a>
 
-Use the following procedure to generate a patch summary report for all instances in your account\. The report for all instances indicates which instances are out of compliance and the numbers of out\-of\-compliance patches\. It does not provide the names or other identifiers of the patches\. For these additional details, you can generate a patch compliance report for a single instance\. For information, see [Generating patch compliance reports for a single instance](#patch-compliance-reports-to-s3-one-instance) earlier in this topic\. 
+Use the following procedure to generate a patch summary report for all instances in your AWS account\. The report for all instances indicates which instances are out of compliance and the numbers of out\-of\-compliance patches\. It does not provide the names or other identifiers of the patches\. For these additional details, you can generate a patch compliance report for a single instance\. For information, see [Generating patch compliance reports for a single instance](#patch-compliance-reports-to-s3-one-instance) earlier in this topic\. 
 
 **To generate patch compliance reports for all instances**
 
@@ -179,7 +179,7 @@ For information about viewing details of reporting schedules you have created, s
 
 ## Viewing patch compliance reporting history<a name="patch-compliance-reporting-history"></a>
 
-Use the information in this topic to help you view details about the patch compliance reports generated in your account\.
+Use the information in this topic to help you view details about the patch compliance reports generated in your AWS account\.
 
 **To view patch compliance reporting history**
 
@@ -197,7 +197,7 @@ Use the information in this topic to help you view details about the patch compl
 
 ## Viewing patch compliance reporting schedules<a name="patch-compliance-reporting-schedules"></a>
 
-Use the information in this topic to help you view details about the patch compliance reporting schedules created in your account\.
+Use the information in this topic to help you view details about the patch compliance reporting schedules created in your AWS account\.
 
 **To view patch compliance reporting history**
 

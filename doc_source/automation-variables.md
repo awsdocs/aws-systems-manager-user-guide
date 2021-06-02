@@ -2,7 +2,7 @@
 
 Systems Manager Automation runbooks use the following variables\. For an example of how these variables are used, view the JSON source of the `AWS-UpdateWindowsAmi` runbook\. 
 
-**To view the JSON source of the AWS\-UpdateWindowsAmi runbook**
+**To view the JSON source of the `AWS-UpdateWindowsAmi` runbook**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

@@ -16,9 +16,9 @@ In this example, your custom SSM document includes the following plugins to perf
 
 1. The `aws:runDocument` plugin to run the `AWS-UpdateSSMAgent` document, which updates SSM Agent to the latest version\.
 
-1. The `aws:runDocument` plugin to run the legacy AWS\-ApplyPatchBaseline document, which installs all whitelisted patches\.
+1. The `aws:runDocument` plugin to run the legacy `AWS-ApplyPatchBaseline` document, which installs all whitelisted patches\.
 
-1. The `aws:runDocument` plugin to run the AWS\-InstallApplication document, which installs the antivirus software\.
+1. The `aws:runDocument` plugin to run the `AWS-InstallApplication` document, which installs the antivirus software\.
 
 1. The `aws:downloadContent` plugin to download scripts from GitHub and run them\.
 
@@ -35,7 +35,7 @@ To create a composite document, add the [aws:runDocument](ssm-plugins.md#aws-run
 
 1. Runs the `aws:runDocument` plugin to run the StateManagerBootstrap\.yml document\. No parameters are specified\.
 
-1. Runs the `aws:runDocument` plugin to run the AWS\-ConfigureDocker pre\-defined SSM document\. The specified parameters install Docker on the instance\.
+1. Runs the `aws:runDocument` plugin to run the `AWS-ConfigureDocker pre-defined` SSM document\. The specified parameters install Docker on the instance\.
 
 ```
 {

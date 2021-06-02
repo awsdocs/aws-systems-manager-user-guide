@@ -84,7 +84,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/resources\":{\"Value\":\"[{\\"""arn\\""":\\"""arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\\"""}]\",\"Type\":\"SearchableString\"}}
    ```
 
-   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS`-RestartEC2Instance` document as an associated Automation runbook\.
+   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS `-RestartEC2Instance` document as an associated Automation runbook\.
 
    ```
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/automations\":{\"Value\":\"[{\\"""automationId\\""":\\"""AWS-RestartEC2Instance\\”"",\\"""automationType\\""":\\"""AWS::SSM::Automation\\"""}]\",\"Type\":\"SearchableString\"}}

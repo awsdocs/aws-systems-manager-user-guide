@@ -53,7 +53,7 @@ We recommend the following strategy to patch your instances with kernel live upd
 
 1. Use Run Command, a capability of AWS Systems Manager, to run a `Scan` operation on your instances using the predefined `AWS-AmazonLinux2DefaultPatchBaseline` or a custom patch baseline that also targets only `Security` updates with severity classified as `Critical` and `Important`, and the `Bugfix` severity of `All`\. 
 
-1. Open Compliance, a capability of AWS Systems Manager, at [https://console\.aws\.amazon\.com/systems\-manager/compliance](https://console.aws.amazon.com/systems-manager/compliance) and review whether non\-compliance for patching is reported for any of the instances that were scanned\. If so, view the instance compliance details to determine whether any kernel live patches are missing from the instance\.
+1. Use Compliance, a capability of AWS Systems Manager, to review whether non\-compliance for patching is reported for any of the instances that were scanned\. If so, view the instance compliance details to determine whether any kernel live patches are missing from the instance\.
 
 1. To install missing kernel live patches, use Run Command with the same patch baseline you specified before, but this time run an `Install` operation instead of a `Scan` operation\.
 

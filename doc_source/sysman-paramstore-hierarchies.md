@@ -73,7 +73,7 @@ aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 
 Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API actions and content\.
 
-In the following sample policy, users are first granted access to run the `PutParameter` API operation on all parameters in the Amazon Web Services account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. But then users are restricted from changing values of *existing* parameters because the `Overwrite` option is explicitly denied for the `PutParameter` operation\. In other words, users who are assigned this policy can create parameters, but not make changes to existing parameters\.
+In the following sample policy, users are first granted access to run the `PutParameter` API operation on all parameters in the AWS account 123456789012 in the US East \(Ohio\) Region \(us\-east\-2\)\. But then users are restricted from changing values of *existing* parameters because the `Overwrite` option is explicitly denied for the `PutParameter` operation\. In other words, users who are assigned this policy can create parameters, but not make changes to existing parameters\.
 
 ```
 {

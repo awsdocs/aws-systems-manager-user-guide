@@ -7,7 +7,7 @@ The example below shows how to invoke Automation from a Jenkins server that is r
 **Note**  
 Be sure to follow Jenkins security best\-practices when configuring your instance\.
 
-**Before You Begin**  
+**Before you begin**  
 Complete the following tasks before you configure Automation with Jenkins\.
 + Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
