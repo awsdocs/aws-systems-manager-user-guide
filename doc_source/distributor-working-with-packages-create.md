@@ -287,7 +287,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
 
 1. Add the list of \.zip files that are part of this package from step 4\. Each file entry requires the file name and `sha256` hash value checksum\. Checksum values in the manifest must match the `sha256` hash value in the zipped assets to prevent the package installation from failing\.
 
-   To get the exact checksum from your installables, you can run the following commands\. On Linux, run `shasum -a 256 file-name.zip | openssl dgst -sha256`\. On Windows, run the `Get-FileHash -Path path-to-.zip-file` cmdlet in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)\.
+   To get the exact checksum from your installables, you can run the following commands\. On Linux, run `shasum -a 256 file-name.zip` or `openssl dgst -sha256 file-name.zip`\. On Windows, run the `Get-FileHash -Path path-to-.zip-file` cmdlet in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)\.
 
    The `"files"` section of the manifest includes one reference to each of the \.zip files in your package\.
 
