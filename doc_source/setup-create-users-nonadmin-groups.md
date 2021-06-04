@@ -2,7 +2,7 @@
 
 You can create a user group for each policy and assign users to a group rather than attaching individual policies to each user\.
 
-You can create multiple user groups with different permission sets by omitting recommended or optional policies\. You can also create custom IAM policies to grant any combination of permissions for a user\. For example, you can grant a user group permission to use only the Session Manager capability in Systems Manager, as described in [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
+You can create multiple user groups with different permission sets by omitting recommended or optional policies\. You can also create custom AWS Identity and Access Management \(IAM\) policies to grant any combination of permissions for a user\. For example, you can grant a user group permission to use only the Session Manager capability in AWS Systems Manager, as described in [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 For additional examples of custom IAM policies for Systems Manager, see [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 
@@ -23,20 +23,20 @@ Use the following procedure to create a user group for your Systems Manager user
 
      AWS resource groups can be managed in the AWS Resource Groups service\. It is optional to provide the users and user groups in your account access to this service and its Tag Editor, but we recommend it for more effective management operations\.
 
-     For more information, see the [What are AWS Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)
+     For more information, see the [What are Amazon Web Services?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)
    + To provide users in this group with full access to the Systems Manager console, choose the **AmazonSSMFullAccess** policy\.
 
      \-or\-
 
      If you want users in this group only to view Systems Manager data, and not create or update resources, choose the **AmazonSSMReadOnlyAccess** policy\.
    + To provide users with access to the **Built\-In Insights** and **Dashboard by CloudWatch** pages in the Systems Manager console, select the boxes next to these managed policies: 
-     + **AWSHealthFullAccess**
+     + **`AWSHealthFullAccess`**
 
        This policy grants full access to the AWS Health APIs and Notifications and the Personal Health Dashboard\. It also provides access to portions of the Built\-In Insights Dashboard in the Systems Manager console\.
-     + **AWSConfigUserAccess**
+     + **`AWSConfigUserAccess`**
 
        This policy provides read\-only access to use AWS Config, including searching by tags on resources, and reading all tags\. It also provides access to portions of the Built\-In Insights Dashboard in the Systems Manager console\.
-     + **CloudWatchReadOnlyAccess**
+     + **`CloudWatchReadOnlyAccess`**
 
        This policy provides read\-only access to CloudWatch, which is needed to view information on the **Dashboard by CloudWatch** in the Systems Manager console\.
    + Add any other policies that provide permissions you want to grant to this user group\.

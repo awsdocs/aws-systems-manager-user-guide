@@ -2,7 +2,7 @@
 
 ## Deleting a package \(console\)<a name="distributor-delete-pkg-console"></a>
 
-You can use the AWS Systems Manager console to delete a package from Distributor\. Deleting a package deletes all versions of a package from Distributor\.
+You can use the AWS Systems Manager console to delete a package or a package version from Distributor, a capability of AWS Systems Manager\. Deleting a package deletes all versions of a package from Distributor\.
 
 **To delete a package \(console\)**
 
@@ -18,7 +18,7 @@ You can use the AWS Systems Manager console to delete a package from Distributor
 
 ## Deleting a package version \(console\)<a name="distributor-delete-pkg-version-console"></a>
 
-You can use the AWS Systems Manager console to delete a package version from Distributor\.
+You can use the Systems Manager console to delete a package version from Distributor\.
 
 **To delete a package version \(console\)**
 

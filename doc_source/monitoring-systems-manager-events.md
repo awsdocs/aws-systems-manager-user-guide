@@ -5,7 +5,7 @@ You can use Amazon EventBridge to perform a target event when supported AWS Syst
 The following procedure provides general steps for creating an EventBridge rule that engages when a specified event is emitted by Systems Manager\. For a list of procedures in this user guide that address specific scenarios, see **Related content** at the end of this topic\.
 
 **Note**  
-When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, you must associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule will engage only when you receive such an event from another account via cross\-account event delivery\. For more information, see [Sending and receiving events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide*\.
+When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, you must associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule only engages when you receive such an event from another account through cross\-account event delivery\. For more information, see [Sending and receiving events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide*\.
 
 **To configure EventBridge for Systems Manager events**
 
@@ -15,7 +15,7 @@ When a service in your AWS account emits an event, it always goes to your accoun
 
    \-or\-
 
-   If the Amazon EventBridge home page opens first, choose **Create rule**\.
+   If the EventBridge home page opens first, choose **Create rule**\.
 
 1. Enter a name and description for the rule\.
 
@@ -32,17 +32,17 @@ When a service in your AWS account emits an event, it always goes to your accoun
 1. For **Event type**, do one of the following: 
    + Choose **All Events**\. 
 
-     If you choose **All Events**, all events emitted by Systems Manager will match the rule\. Be aware that this option can result in a very large number of event target actions\.
-   + Choose the type of Systems Manager event to use for this rule\. EventBridge currently supports events from the following Systems Manager capabilities: 
+     If you choose **All Events**, all events emitted by Systems Manager will match the rule\. Be aware that this option can result in many event target actions\.
+   + Choose the type of Systems Manager event to use for this rule\. EventBridge supports events from the following AWS Systems Manager capabilities: 
      +  Change Calendar
-     + Configuration Compliance
+     + Compliance
      + Inventory
      + Maintenance Windows
      + Parameter Store
      + Run Command
      + State Manager
 **Note**  
-For Systems Manager actions that aren't supported by EventBridge, you can choose AWS API Call via CloudTrail to create an event rule that is based on an API call, which are recorded by AWS CloudTrail\. For an example, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\. 
+For Systems Manager actions that aren't supported by EventBridge, you can choose an AWS API call through CloudTrail to create an event rule that is based on an API call, which are recorded by CloudTrail\. For an example, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\. 
 
    \(Optional\) If you want to customize the event pattern, choose **Edit** next to **Event pattern**, make your changes, and choose **Save**\.
 

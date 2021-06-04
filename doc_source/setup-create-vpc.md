@@ -1,8 +1,8 @@
 # Step 6: \(Optional\) Create a Virtual Private Cloud endpoint<a name="setup-create-vpc"></a>
 
-You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. An interface VPC endpoint \(interface endpoint\) enables you to connect to services powered by AWS PrivateLink, a technology that enables you to privately access Amazon EC2 and Systems Manager APIs by using private IP addresses\. PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. This means that your managed instances don't have access to the Internet\. If you use PrivateLink, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. 
+You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. An interface VPC endpoint \(interface endpoint\) enables you to connect to services powered by AWS PrivateLink, a technology that enables you to privately access Amazon Elastic Compute Cloud \(Amazon EC2\) and Systems Manager APIs by using private IP addresses\. AWS PrivateLink restricts all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. This means that your managed instances don't have access to the Internet\. If you use AWS PrivateLink, you don't need an Internet gateway, a NAT device, or a virtual private gateway\. 
 
-You are not required to configure PrivateLink, but it's recommended\. For more information about PrivateLink and VPC endpoints, see [Accessing AWS Services Through PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html#what-is-privatelink)\.
+You are not required to configure AWS PrivateLink, but it's recommended\. For more information about AWS PrivateLink and VPC endpoints, see [Accessing AWS Services Through PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html#what-is-privatelink)\.
 
 **Note**  
 The alternative to using a VPC endpoint is to enable outbound internet access on your managed instances\. In this case, the managed instances must also allow HTTPS \(port 443\) outbound traffic to the following endpoints:  
@@ -24,7 +24,7 @@ You can use Amazon Virtual Private Cloud \(Amazon VPC\) to define a virtual netw
 
 Before you configure VPC endpoints for Systems Manager, be aware of the following restrictions and limitations\.
 
-**aws:domainJoin plugin**  
+**`aws:domainJoin` plugin**  
 If you choose to create VPC endpoints, then be aware that requests to join a Windows Server instance to a domain from SSM documents that use the `aws:domainJoin` plugin will fail unless you allow traffic from your instance to the public AWS Directory Service endpoints\. This plugin requires the AWS Directory Service, and AWS Directory Service does not have PrivateLink endpoint support\. Support for joining a Windows Server instance to a domain from other domain join methods depend only on Active Directory requirements \(for example, ensuring that domain controllers are reachable and discoverable by using DNS and other related requirements\)\. You can use [Amazon EC2 User Data scripts](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html) to join an instance to a domain\.
 
 **Cross\-region requests**  
@@ -69,11 +69,11 @@ In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, these buckets use d
 If you do not allow your instances to access the internet, you must create a VPC endpoint for CloudWatch Logs to use features that send logs to CloudWatch Logs\. For more information about creating an endpoint for CloudWatch Logs, see [Creating a VPC endpoint for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs) in the *Amazon CloudWatch Logs User Guide*\.
 
 **DNS in hybrid environment**  
-For information about configuring DNS to work with PrivateLink endpoints in hybrid environments, see [Private DNS](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-private-dns)\. If you want to use your own DNS, you can use Route 53 Resolver\. For more information, see [Resolving DNS Queries Between VPCs and Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide*\. 
+For information about configuring DNS to work with AWS PrivateLink endpoints in hybrid environments, see [Private DNS](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-private-dns)\. If you want to use your own DNS, you can use Route 53 Resolver\. For more information, see [Resolving DNS Queries Between VPCs and Your Network](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html) in the *Amazon Route 53 Developer Guide*\. 
 
 ## Creating VPC endpoints for Systems Manager<a name="sysman-setting-up-vpc-create"></a>
 
-Use the following information to create VPC interface and gateway endpoints for Systems Manager\. This topic links to procedures in the *Amazon VPC User Guide*\. 
+Use the following information to create VPC interface and gateway endpoints for AWS Systems Manager\. This topic links to procedures in the *Amazon VPC User Guide*\. 
 
 **To create VPC endpoints for Systems Manager**
 
@@ -84,14 +84,14 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Follow the steps in [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) to create the following interface endpoints:
-   + **com\.amazonaws\.*region*\.ssm**: The endpoint for the Systems Manager service\.
-   + **com\.amazonaws\.*region*\.ec2messages**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
-   + **com\.amazonaws\.*region*\.ec2**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
-   + **com\.amazonaws\.*region*\.ssmmessages**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
-   + **com\.amazonaws\.*region*\.kms**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
+   + **`com.amazonaws.region.ssm`**: The endpoint for the Systems Manager service\.
+   + **`com.amazonaws.region.ec2messages`**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
+   + **`com.amazonaws.region.ec2`**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
+   + **`com.amazonaws.region.ssmmessages`**: This endpoint is required only if you are connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
+   + **`com.amazonaws.region.kms`**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
 
 1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
-   + **com\.amazonaws\.*region*\.s3**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
+   + **`com.amazonaws.region.s3`**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
 
 ## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
 

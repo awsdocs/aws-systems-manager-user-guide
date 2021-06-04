@@ -1,6 +1,6 @@
 # Step 5: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
-This topic describes how to install SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
@@ -21,32 +21,35 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 #### [ Amazon Linux 2, Amazon Linux, RHEL, Oracle Linux, CentOS, and SLES ]
 + **Intel 64\-bit \(x86\_64\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_amd64/amazon\-ssm\-agent\.rpm 
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm `
 + **Intel 32\-bit \(x86\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_386/amazon\-ssm\-agent\.rpm
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm`
 + **ARM 64\-bit \(arm64\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/linux\_arm64/amazon\-ssm\-agent\.rpm
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm`
 
 ------
 #### [ Ubuntu Server ]
 + **Intel 64\-bit \(x86\_64\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
 + **Intel 32\-bit \(x86\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_386/amazon\-ssm\-agent\.deb
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb`
 
 ------
 #### [ Debian Server ]
 + **Intel 64\-bit \(x86\_64\)**
 
-  https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_amd64/amazon\-ssm\-agent\.deb
+  `ttps://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
++ **ARM 64\-bit \(arm64\)**
+
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 
 ------
 #### [ Raspbian ]
-+ https://s3\.*region*\.amazonaws\.com/amazon\-ssm\-*region*/latest/debian\_arm/amazon\-ssm\-agent\.deb
++ `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm/amazon-ssm-agent.deb`
 
 ------
 
@@ -173,7 +176,7 @@ The *candidate* channel in the Snap store contains the latest version of SSM Age
   sudo snap switch --channel=candidate amazon-ssm-agent
   ```
 
-The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the SSM service\. The server or VM is now a managed instance\. EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from EC2 instances with the prefix "mi\-"\.
+The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the Systems Manager service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
 Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
@@ -181,9 +184,7 @@ Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sys
 
 You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
 
-```
-aws ssm deregister-managed-instance --instance-id "mi-1234567890"
-```
+`aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
 You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance reappears in the list of managed instances\.
 

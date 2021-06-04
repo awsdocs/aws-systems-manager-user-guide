@@ -2,7 +2,7 @@
 
 **To create a runbook that runs a script**
 
-The following procedure describes how to use Document Builder in the Systems Manager console and to create a custom runbook that runs a script that you provide\.
+The following procedure describes how to use Document Builder in the AWS Systems Manager console to create a custom runbook that runs a script that you provide\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -14,13 +14,13 @@ The following procedure describes how to use Document Builder in the Systems Man
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type a descriptive name for the runbook\.
+1. For **Name**, enter a descriptive name for the runbook\.
 
 1. For **Document description**, provide the markdown style description for the runbook\. You can provide instructions for using the runbook, numbered steps, or any other type of information to describe the runbook\. Refer to the default text for information about formatting your content\.
 **Tip**  
 Toggle between **Hide preview** and **Show preview** to see what your description content looks like as you compose\.
 
-1. \(Optional\) For **Assume role**, enter the name or ARN of a service role to perform actions on your behalf\. If you don't specify a role, Automation uses the access permissions of the user who invokes the automation\.
+1. \(Optional\) For **Assume role**, enter the name or Amazon Resource Name \(ARN\) of a service role to perform actions on your behalf\. If you don't specify a role, Automation uses the access permissions of the user who invokes the automation\.
 **Important**  
 For runbooks not owned by Amazon that use the `aws:executeScript` action, a role must be specified\. For information, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 

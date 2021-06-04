@@ -1,6 +1,6 @@
 # Creating composite documents<a name="composite-docs"></a>
 
-A *composite* SSM document is a custom document that performs a series of actions by running one or more secondary SSM documents\. Composite documents promote *infrastructure as code* by enabling you to create a standard set of SSM documents for common tasks such as boot\-strapping software or domain\-joining instances\. You can then share these documents across Amazon Web Services accounts in the same AWS Region to reduce SSM document maintenance and ensure consistency\.
+A *composite* AWS Systems Manager \(SSM\) document is a custom document that performs a series of actions by running one or more secondary SSM documents\. Composite documents promote *infrastructure as code* by enabling you to create a standard set of SSM documents for common tasks such as boot\-strapping software or domain\-joining instances\. You can then share these documents across AWS accounts in the same AWS Region to reduce SSM document maintenance and ensure consistency\.
 
 For example, you can create a composite document that performs the following actions:
 
@@ -14,7 +14,7 @@ For example, you can create a composite document that performs the following act
 
 In this example, your custom SSM document includes the following plugins to perform these actions:
 
-1. The `aws:runDocument` plugin to run the `AWS-UpdateSSMAgent` document, which updates SSM Agent to the latest version\.
+1. The `aws:runDocument` plugin to run the `AWS-UpdateSSMAgent` document, which updates AWS Systems Manager SSM Agent to the latest version\.
 
 1. The `aws:runDocument` plugin to run the legacy `AWS-ApplyPatchBaseline` document, which installs all whitelisted patches\.
 
@@ -29,9 +29,9 @@ Composite documents can only run to a maximum depth of three documents\. This me
 
 ## Create a composite document<a name="composite-creating"></a>
 
-To create a composite document, add the [aws:runDocument](ssm-plugins.md#aws-rundocument) plugin in a custom SSM document and specify the required inputs\. The following is an example of a composite document that performs the following actions:
+To create a composite document, add the [`aws:runDocument`](ssm-plugins.md#aws-rundocument) plugin in a custom SSM document and specify the required inputs\. The following is an example of a composite document that performs the following actions:
 
-1. Runs the [aws:downloadContent](ssm-plugins.md#aws-downloadContent) plugin to download an SSM document from a GitHub public repository to a local directory called bootstrap\. The SSM document is called StateManagerBootstrap\.yml \(a YAML document\)\.
+1. Runs the [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent) plugin to download an SSM document from a GitHub public repository to a local directory called bootstrap\. The SSM document is called StateManagerBootstrap\.yml \(a YAML document\)\.
 
 1. Runs the `aws:runDocument` plugin to run the StateManagerBootstrap\.yml document\. No parameters are specified\.
 

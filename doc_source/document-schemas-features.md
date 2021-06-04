@@ -1,6 +1,6 @@
 # SSM document schemas and features<a name="document-schemas-features"></a>
 
-SSM documents currently use the following schema versions\.
+AWS Systems Manager \(SSM\) documents currently use the following schema versions\.
 + Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you are currently using schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.
 + Documents of type `Policy` must use schema version 2\.0 or later\.
 + Documents of type `Automation` must use schema version 0\.3\.
@@ -20,7 +20,7 @@ By using the latest schema version for `Command` and `Policy` documents, you can
 |  Cross\-platform support  |  Cross\-platform support enables you to specify different operating systems for different plugins within the same SSM document\. Cross\-platform support uses the `precondition` parameter within a step\.   | 
 
 **Note**  
-You must keep SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+You must keep AWS Systems Manager SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 The following table lists the differences between major schema versions\.
 
@@ -329,7 +329,7 @@ mainSteps:
 ------
 
 **Schema version 2\.2 State Manager example**  
-You can use the following SSM document with State Manager to download and install the ClamAV antivirus software\. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed\. If not, State Manager reruns this document\.
+You can use the following SSM document with State Manager, a capability of Systems Manager, to download and install the ClamAV antivirus software\. State Manager enforces a specific configuration, which means that each time the State Manager association is run, the system checks to see if the ClamAV software is installed\. If not, State Manager reruns this document\.
 
 ------
 #### [ YAML ]
@@ -522,7 +522,7 @@ mainSteps:
 ------
 
 **Schema version 2\.2 `AWS-ConfigureAWSPackage` example**  
-The following example shows the `AWS-ConfigureAWSPackage` document\. The **mainSteps** section includes the **aws:configurePackage** plugin in the **action** step\.
+The following example shows the `AWS-ConfigureAWSPackage` document\. The `mainSteps` section includes the `aws:configurePackage` plugin in the `action` step\.
 
 **Note**  
 On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2Rescue` packages are supported\.
@@ -638,8 +638,8 @@ The following example shows the top\-level elements of a schema version 1\.2 doc
 }
 ```
 
-**Schema version 1\.2 aws:runShellScript example**  
-The following example shows the `AWS-RunShellScript` SSM document\. The **runtimeConfig** section includes the **aws:runShellScript** plugin\.
+**Schema version 1\.2 `aws:runShellScript` example**  
+The following example shows the `AWS-RunShellScript` SSM document\. The **runtimeConfig** section includes the `aws:runShellScript` plugin\.
 
 ```
 {

@@ -21,7 +21,7 @@ The following procedure describes how to use the editor to create a runbook\.
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type a descriptive name for the runbook\.
+1. For **Name**, enter a descriptive name for the runbook\.
 
 1. Choose the **Editor** tab, and choose **Edit**\.
 

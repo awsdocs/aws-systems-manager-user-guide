@@ -2,7 +2,7 @@
 
 When you specify the target to invoke in an Amazon EventBridge rule, you can choose from over 20 target types and add up to five targets to each rule\.
 
-Of the various targets, you can choose from three AWS Systems Manager capabilities as target actions when an EventBridge event occurs\. These capabilities include Automation, OpsCenter, and Run Command\.
+Of the various targets, you can choose from Automation, OpsCenter, and Run Command, which are capabilities of AWS Systems Manager, as target actions when an EventBridge event occurs\.
 
 The following are several examples of ways you can use these capabilities as the target of an EventBridge rule\.
 
@@ -20,6 +20,6 @@ You can configure an EventBridge rule to create a new OpsItem when incidents suc
 
 **Run Command examples**  
 You can configure an EventBridge rule to run a Systems Manager Command document in Run Command when events such as the following occur:
-+ When an Auto Scaling group is about to terminate, a Run Command script could capture the log files from the instance before it is terminated\.
++ When an Auto Scaling group is about to end, a Run Command script could capture the log files from the instance before it \.
 + When a new instance is created in an Auto Scaling group, a Run Command target action could enable the web server role or install software on the instance\.
 + When a managed instance is found to be out of compliance, a Run Command target action could update patches on the instance by running the `AWS-RunPatchBaseline` document\.

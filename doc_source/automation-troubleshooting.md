@@ -1,6 +1,6 @@
 # Troubleshooting Systems Manager Automation<a name="automation-troubleshooting"></a>
 
-Use the following information to help you troubleshoot problems with the Automation service\. This topic includes specific tasks to resolve issues based on Automation error messages\.
+Use the following information to help you troubleshoot problems with AWS Systems Manager Automation, a capability of AWS Systems Manager\. This topic includes specific tasks to resolve issues based on Automation error messages\.
 
 **Topics**
 + [Common Automation errors](#automation-trbl-common)
@@ -22,7 +22,7 @@ To solve this problem, you must specify a value for the `SubnetId` input paramet
 
 ## Automation execution failed to start<a name="automation-trbl-access"></a>
 
-An automation can fail with an access denied error or an invalid assume role error if you have not properly configured IAM users, roles, and policies for Automation\.
+An automation can fail with an access denied error or an invalid assume role error if you have not properly configured AWS Identity and Access Management \(IAM\) users, roles, and policies for Automation\.
 
 ### Access denied<a name="automation-trbl-access-denied"></a>
 
@@ -31,7 +31,7 @@ The following examples describe situations when an automation failed to start wi
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn is not authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 + Possible cause 1: The IAM user attempting to start the automation does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\. 
-+ Possible cause 2: The IAM user attempting to start the automation has permission to invoke the `StartAutomationExecution` API, but does not have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
++ Possible cause 2: The IAM user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but does not have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
 **Error message**: `User: user arn is not authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
@@ -56,7 +56,7 @@ When you run an Automation, an assume role is either provided in the runbook or 
 
 Runbooks contain steps and steps run in order\. Each step invokes one or more AWS service APIs\. The APIs determine the inputs, behavior, and outputs of the step\. There are multiple places where an error can cause a step to fail\. Failure messages indicate when and where an error occurred\.
 
-To see a failure message in the EC2 console, choose the **View Outputs** link of the failed step\. To see a failure message from the AWS CLI, call `get-automation-execution` and look for the `FailureMessage` attribute in a failed `StepExecution`\.
+To see a failure message in the Amazon Elastic Compute Cloud \(Amazon EC2\) console, choose the **View Outputs** link of the failed step\. To see a failure message from the AWS CLI, call `get-automation-execution` and look for the `FailureMessage` attribute in a failed `StepExecution`\.
 
 In the following examples, a step associated with the `aws:runInstance` action failed\. Each example explores a different type of error\.
 
@@ -83,16 +83,16 @@ When a step fails, the failure message might indicate which service was being in
 
 | Action | AWS Service\(s\) invoked by this action | For information about this service | Troubleshooting content | 
 | --- | --- | --- | --- | 
-|  aws:runInstances  |  Amazon EC2  |  [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
-|  aws:changeInstanceState  |  Amazon EC2  |  [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
-|  aws:runCommand  |  Systems Manager  |   [AWS Systems Manager Run Command](execute-remote-commands.md)  |   [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)  | 
-|  aws:createImage  |  Amazon EC2  |  [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
-|  aws:createStack  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 
-|  aws:deleteStack  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 
-|  aws:deleteImage  |  Amazon EC2  |  [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
-|  aws:copyImage  |  Amazon EC2  |  [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
-|  aws:createTag  |  Amazon EC2, Systems Manager  |  [EC2 Resource and Tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html)  |  | 
-|  aws:invokeLambdaFunction  |  AWS Lambda  |  [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/)  |  [Troubleshooting Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html)  | 
+|  `aws:runInstances`  |  Amazon EC2  |  [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
+|  `aws:changeInstanceState`  |  Amazon EC2  |  [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
+|  `aws:runCommand`  |  Systems Manager  |   [AWS Systems Manager Run Command](execute-remote-commands.md)  |   [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)  | 
+|  `aws:createImage`  |  Amazon EC2  |  [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
+|  `aws:createStack`  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 
+|  `aws:deleteStack`  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 
+|  `aws:deleteImage`  |  Amazon EC2  |  [Amazon Machines Images](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
+|  `aws:copyImage`  |  Amazon EC2  |  [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
+|  `aws:createTag`  |  Amazon EC2, Systems Manager  |  [EC2 Resource and Tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_Resources.html)  |  | 
+|  `aws:invokeLambdaFunction`  |  AWS Lambda  |  [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/)  |  [Troubleshooting Lambda](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html)  | 
 
 ### Automation service internal error<a name="automation-trbl-err"></a>
 

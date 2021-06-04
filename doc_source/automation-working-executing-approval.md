@@ -37,7 +37,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Input parameters** section, specify the required input parameters\.
 
-   For example, if you chose the **AWS\-StartEC2InstanceWithApproval** runbook, then you must specify or choose instance IDs for the **InstanceId** parameter\. 
+   For example, if you chose the `AWS-StartEC2InstanceWithApproval` runbook, then you must specify or choose instance IDs for the **InstanceId** parameter\. 
 
 1. In the **Approvers** section, specify the IAM users or user ARNs of approvers for the automation action\.
 
@@ -75,7 +75,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Use the following command to run an automation with approvers\. In the document name section, specify a runbook that includes the automation action, `aws:approve`\.
 
-   For `Approvers`, specify the IAM users or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The SNS topic name must start with **Automation**\.
+   For `Approvers`, specify the IAM users or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The Amazon SNS topic name must start with `Automation`\.
 **Note**  
 The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the runbook you choose\. 
 

@@ -10,7 +10,7 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 **Note**  
 Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
 The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
-To patch Microsoft applications on virtual machines \(VMs\) on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch Microsoft applications on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching Microsoft applications on Windows Server](about-windows-app-patching.md)\.
+To patch applications released by Microsoft on virtual machines \(VMs\) on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
 
 If you don't see your managed instances listed in the console, then do the following:
 

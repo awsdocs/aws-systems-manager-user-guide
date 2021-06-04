@@ -1,6 +1,6 @@
 # Creating runbooks that run scripts<a name="automation-document-script"></a>
 
-AWS Systems Manager Automation runbooks support running scripts as part of the automation\. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. 
+Automation runbooks support running scripts as part of the automation\. Automation is a capability of AWS Systems Manager\. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. 
 
 ## Permissions for using runbooks<a name="execution-permissions"></a>
 
@@ -36,4 +36,4 @@ The following topics describe how to create runbooks that run scripts\.
 + [Script constraints for runbooks](#script-constraints)
 + [Creating a runbook that runs a script \(console\)](automation-document-script-console.md)
 + [Creating a runbook that runs scripts \(command line\)](automation-document-script-commandline.md)
-+ [Amazon managed runbooks that run scripts](runbook-scripts.md)
++ [AWS managed runbooks that run scripts](runbook-scripts.md)

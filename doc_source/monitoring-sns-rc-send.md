@@ -1,10 +1,10 @@
 # Use Run Command to send a command that returns status notifications<a name="monitoring-sns-rc-send"></a>
 
-The following procedures show how to use the AWS Command Line Interface \(AWS CLI\) or AWS Systems Manager console to send a command through Run Command that's configured to return status notifications\.
+The following procedures show how to use the AWS Command Line Interface \(AWS CLI\) or AWS Systems Manager console to send a command through Run Command, a capability of AWS Systems Manager, that is configured to return status notifications\.
 
 ## Sending a Run Command that returns notifications \(console\)<a name="monitoring-sns-rc-send-console"></a>
 
-Use the following procedure to send a command through Run Command that's configured to return status notifications using the Systems Manager console\.
+Use the following procedure to send a command through Run Command that is configured to return status notifications using the Systems Manager console\.
 
 **To send a command that returns notifications \(console\)**
 
@@ -42,7 +42,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS Notifications** section, choose **Enable SNS notifications**\.
 
-1. In the **IAM role** section, choose the Amazon SNS IAM role ARN you created in Task 3 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+1. In the **IAM role** section, choose the Amazon SNS IAM role ARN you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. In the **SNS topic** field, enter the Amazon SNS topic ARN to be used\.
 
@@ -52,43 +52,43 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-1. Check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
+1. Check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take several minutes to send the email message\.
 
 ## Sending a Run Command that returns notifications \(CLI\)<a name="monitoring-sns-rc-send-cli"></a>
 
-Use the following procedure to send a command through Run Command that's configured to return status notifications using the AWS CLI\.
+Use the following procedure to send a command through Run Command that is configured to return status notifications using the AWS CLI\.
 
 **To send a command that returns notifications \(CLI\)**
 
 1. Open the AWS CLI\.
 
-1. Specify parameters in the following command to target based on managed instance IDs:
+1. Specify parameters in the following command to target based on managed instance IDs\.
 
    ```
    aws ssm send-command --instance-ids "ID-1, ID-2" --document-name "Name" --parameters '{"commands":["input"]}' --service-role "SNSRoleARN" --notification-config '{"NotificationArn":"SNSTopicName","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
-   For example:
+   Following is an example\.
 
    ```
    aws ssm send-command --instance-ids "i-02573cafcfEXAMPLE, i-0471e04240EXAMPLE" --document-name "AWS-RunPowerShellScript" --parameters '{"commands":["Get-Process"]}' --service-role "arn:aws:iam::111122223333:role/SNS_Role" --notification-config '{"NotificationArn":"arn:aws:sns:us-east-1:111122223333:SNSTopic","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
 **Alternative commands**  
-Specify parameters in the following command to target managed instances using tags:
+Specify parameters in the following command to target managed instances using tags\.
 
    ```
    aws ssm send-command --targets "Key=tag:TagName,Values=TagKey" --document-name "Name" --parameters '{"commands":["input"]}' --service-role "SNSRoleARN" --notification-config '{"NotificationArn":"SNSTopicName","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
-   For example:
+   Following is an example\.
 
    ```
    aws ssm send-command --targets "Key=tag:Environment,Values=Dev" --document-name "AWS-RunPowerShellScript" --parameters '{"commands":["Get-Process"]}' --service-role "arn:aws:iam::111122223333:role/SNS_Role" --notification-config '{"NotificationArn":"arn:aws:sns:us-east-1:111122223333:SNSTopic","NotificationEvents":["All"],"NotificationType":"Command"}'
    ```
 
-1. Press Enter\.
+1. Press **Enter**\.
 
-1. Check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
+1. Check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take several minutes to send the email message\.
 
 For more information about configuring Run Command from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.

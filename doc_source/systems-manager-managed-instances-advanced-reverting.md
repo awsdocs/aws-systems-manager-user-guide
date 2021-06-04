@@ -8,7 +8,7 @@ Review the following important details\.
 **Note**  
 You can't revert back to the standard\-instance tier if you are running more than 1,000 hybrid instances in the account and Region\. You must first deregister hybrid instances until you have 1,000 or fewer\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\. For more information, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
 After you revert, you won't be able to use Session Manager, a capability of AWS Systems Manager, to interactively access your hybrid instances\.
-After you revert, you won't be able to use Patch Manager, a capability of AWS Systems Manager, to patch Microsoft applications on hybrid servers and virtual machines \(VMs\)\.
+After you revert, you won't be able to use Patch Manager, a capability of AWS Systems Manager, to patch applications released by Microsoft on hybrid servers and virtual machines \(VMs\)\.
 The process of reverting all hybrid instances back to the standard\-instance tier can take 30 minutes or more to complete\.
 
 This section describes how to revert all hybrid instances in an AWS account and AWS Region from the advanced\-instances tier to the standard\-instances tier\.

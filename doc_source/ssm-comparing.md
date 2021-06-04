@@ -1,6 +1,6 @@
 # Comparing SSM document versions<a name="ssm-comparing"></a>
 
-You can compare the differences in content between versions of SSM documents in the Systems Manager Documents console\. When comparing versions of an SSM document, differences between the content of the versions are highlighted\.
+You can compare the differences in content between versions of AWS Systems Manager \(SSM\) documents in the Systems Manager Documents console\. When comparing versions of an SSM document, differences between the content of the versions are highlighted\.
 
 **To compare SSM document content \(console\)**
 

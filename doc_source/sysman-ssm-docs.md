@@ -26,13 +26,13 @@ You can create and save different versions of documents\. You can then specify a
 To identify the required and optional parameters for an SSM document, as well as the actions it runs, you can view the content of the document in the Systems Manager console\. For information, see [Viewing SSM Command document content](viewing-ssm-document-content.md)\.
 
 **Customizing a document**  
-If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your Amazon Web Services account\. For more information about how to create an SSM document, see [Creating SSM documents](create-ssm-doc.md)\.
+If you want to customize the steps and actions in a document, you can create your own\. The first time you use a document to perform an action on an instance, the system stores the document with your AWS account\. For more information about how to create an SSM document, see [Creating SSM documents](create-ssm-doc.md)\.
 
 **Tagging a document**  
 You can tag your documents to help you quickly identify one or more documents based on the tags you've assigned to them\. For example, you can tag documents for specific environments, departments, users, groups, or periods\. You can also restrict access to documents by creating an AWS Identity and Access Management \(IAM\) policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager documents](tagging-documents.md)\.
 
 **Sharing a document**  
-You can make your documents public or share them with specific Amazon Web Services accounts in the same AWS Region\. Sharing documents between accounts can be useful if, for example, you want all of the EC2 instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up\-to\-date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing SSM documents](ssm-sharing.md)\.
+You can make your documents public or share them with specific AWS accounts in the same AWS Region\. Sharing documents between accounts can be useful if, for example, you want all of the EC2 instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up\-to\-date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing SSM documents](ssm-sharing.md)\.
 
 **SSM document quotas**  
 For information about SSM document quotas, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.

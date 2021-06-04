@@ -2,13 +2,13 @@
 
 You can start an automation by configuring a runbook as a registered task for a maintenance window\. By registering the runbook as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
 
-For example, let's say you create a runbook named `CreateAMI` that creates an Amazon Machine Image \( AMI\) of instances registered as targets to the maintenance window\. To specify the `CreateAMI` runbook \(and corresponding automation\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the `CreateAMI` document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation and creates an AMI of the registered targets\.
+For example, let's say you create a runbook named `CreateAMI` that creates an Amazon Machine Image \(AMI\) of instances registered as targets to the maintenance window\. To specify the `CreateAMI` runbook \(and corresponding automation\) as a registered task of a maintenance window, you first create a maintenance window and register targets\. Then you use the following procedure to specify the `CreateAMI` document as a registered task within the maintenance window\. When the maintenance window starts during the scheduled period, the system runs the automation and creates an AMI of the registered targets\.
 
-For information about creating Automation runbooks, see [Working with runbooks](automation-documents.md)\.
+For information about creating Automation runbooks, see [Working with runbooks](automation-documents.md)\. Automation is a capability of AWS Systems Manager\.
 
 Use the following procedures to configure an automation as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
-## Registering an Automation task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
+## Registering an automation task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
 
 The following procedure describes how to use the Systems Manager console to configure an automation as a registered task for a maintenance window\.
 
@@ -51,7 +51,7 @@ If the task you are running does not specify targets, you do not need to specify
 
      If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
 
-     When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per Amazon Web Services account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
+     When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.
 
 1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the automation:

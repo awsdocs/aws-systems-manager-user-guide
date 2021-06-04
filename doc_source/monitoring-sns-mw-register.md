@@ -1,15 +1,15 @@
 # Use a maintenance window to send a command that returns status notifications<a name="monitoring-sns-mw-register"></a>
 
-The following procedures show how to register an AWS Systems Manager Run Command task with your maintenance window using the Systems Manager console or the AWS Command Line Interface \(AWS CLI\)\. The procedures also describe how to configure the Run Command task to return status notifications\.
+The following procedures show how to register a Run Command task with your maintenance window using the AWS Systems Manager console or the AWS Command Line Interface \(AWS CLI\)\. Run Command is a capability of AWS Systems Manager\. The procedures also describe how to configure the Run Command task to return status notifications\.
 
-**Before You Begin**  
+**Before you begin**  
 If you haven't created a maintenance window or registered targets, see [Working with maintenance windows \(console\)](sysman-maintenance-working.md) for steps on how to create a maintenance window and register targets\.
 
-To receive notifications from the Amazon SNS service, you must attach an `iam:PassRole` policy to the Maintenance Windows service role specified in the registered task\. If you haven't added` iam:PassRole` permissions to your Maintenance Windows service role, see [Task 5: Attach the iam:PassRole policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw)\. 
+To receive notifications from the Amazon Simple Notification Service \(Amazon SNS\) service, you must attach an `iam:PassRole` policy to the Maintenance Windows service role specified in the registered task\. If you haven't added `iam:PassRole` permissions to your Maintenance Windows service role, see [Task 5: Attach the iam:PassRole policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw)\. 
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(console\)<a name="monitoring-sns-mw-register-console"></a>
 
-Use the following procedure to register a Run Command task that's configured to return status notifications to your maintenance window using the Systems Manager console\.
+Use the following procedure to register a Run Command task that is configured to return status notifications to your maintenance window using the Systems Manager console\.
 
 **To register a Run Command task with your maintenance window that returns notifications \(console\)**
 
@@ -21,7 +21,7 @@ Use the following procedure to register a Run Command task that's configured to 
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Maintenance Windows**\.
 
-1. Select the maintenance window for which you would like to register a Run Command task configured to send Amazon SNS notifications\.
+1. Select the maintenance window for which you would like to register a Run Command task configured to send Amazon Simple Notification Service \(Amazon SNS\) notifications\.
 
 1. Choose **Actions** and then choose **Register Run Command task**\.
 
@@ -65,11 +65,11 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Register Run Command task**\.
 
-1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
+1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(CLI\)<a name="monitoring-sns-mw-register-cli"></a>
 
-Use the following procedure to register a Run Command task that's configured to return status notifications to your maintenance window using the AWS CLI\.
+Use the following procedure to register a Run Command task that is configured to return status notifications to your maintenance window using the AWS CLI\.
 
 **To register a Run Command task with your maintenance window that returns notifications \(CLI\)**
 **Note**  
@@ -77,7 +77,7 @@ To better manage your task options, this procedure uses the command option `--cl
 
 1. On your local machine, create a file named `RunCommandTask.json`\.
 
-1. Paste the following contents into the file:
+1. Paste the following contents into the file\.
 
    ```
    {
@@ -119,17 +119,17 @@ To better manage your task options, this procedure uses the command option `--cl
 
    You can also restore options we've omitted from this example if you want to use them\. For example, you can save command output to an S3 bucket\. 
 
-   For more information, see For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html)\.
+   For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html)\.
 
 1. Save the file\.
 
-1. In the directory on your local machine where you saved the file, run the following command:
+1. In the directory on your local machine where you saved the file, run the following command\.
 
    `aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json`
 **Important**  
 Be sure to include `file://` before the file name\. It's required in this command\.
 
-   If successful, the command returns information similar to the following:
+   If successful, the command returns information similar to the following\.
 
    ```
    {
@@ -137,6 +137,6 @@ Be sure to include `file://` before the file name\. It's required in this comman
    }
    ```
 
-1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email\. Amazon SNS can take a few minutes to send the mail\.
+1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
 
-For more information about registering tasks for maintenance window from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+For more information about registering tasks for a maintenance window from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.

@@ -1,19 +1,19 @@
 # Creating dynamic automations with conditional branching<a name="automation-branchdocs"></a>
 
 By default, the steps that you define in the `mainSteps` section of a runbook run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire automation fails \(by default\)\. You can use the `aws:branch` automation action and the runbook options described in this section to create automations that perform *conditional branching*\. This means that you can create automations that jump to a different step after evaluating different choices or that dynamically respond to changes when a step completes\. Here is a list of options that you can use to create dynamic automations:
-+ **aws:branch**: This automation action enables you to create a dynamic automation that evaluates multiple choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation\.
-+ **nextStep**: This option specifies which step in an automation to process next after successfully completing a step\. 
-+ **isEnd**: This option stops an automation at the end of a specific step\. The default value for this option is false\.
-+ **isCritical**: This option designates a step as critical for the successful completion of the automation\. If a step with this designation fails, then Automation reports the final status of the automation as `Failed`\. The default value for this option is `true`\.
-+ **onFailure**: This option indicates whether the automation should abort, continue, or go to a different step on failure\. The default value for this option is abort\.
++ **`aws:branch`**: This automation action enables you to create a dynamic automation that evaluates multiple choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation\.
++ **`nextStep`**: This option specifies which step in an automation to process next after successfully completing a step\. 
++ **`isEnd`**: This option stops an automation at the end of a specific step\. The default value for this option is false\.
++ **`isCritical`**: This option designates a step as critical for the successful completion of the automation\. If a step with this designation fails, then Automation reports the final status of the automation as `Failed`\. The default value for this option is `true`\.
++ **`onFailure`**: This option indicates whether the automation should abort, continue, or go to a different step on failure\. The default value for this option is abort\.
 
 The following section describes the `aws:branch` automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` options, see [Examples of how to use dynamic options](#automation-branchdocs-examples)\.
 
-## Working with the aws:branch action<a name="automation-branchdocs-awsbranch"></a>
+## Working with the `aws:branch` action<a name="automation-branchdocs-awsbranch"></a>
 
 The `aws:branch` action offers the most dynamic conditional branching options for automations\. As noted earlier, this action enables your automation to evaluate multiple conditions in a single step and then jump to a new step based on the results of that evaluation\. The `aws:branch` action functions like an `IF-ELIF-ELSE` statement in programming\.
 
-Here is a YAML example of an `aws:branch` step:
+Here is a YAML example of an `aws:branch` step\.
 
 ```
 - name: ChooseOSforCommands
@@ -76,11 +76,11 @@ When you create an `aws:branch` step in a runbook, you define the `Choices` the 
 + **NextStep**: The next step in the runbook to process if the designated choice is `true`\.
 + **Variable**: Specify either the name of a parameter that is defined in the `Parameters` section of the runbook, or specify an output object from a previous step in the runbook\.
 
-  Specify parameter variables by using the following form:
+  Specify parameter variables by using the following form\.
 
   `Variable: "{{name_of_parameter}}"`
 
-  Specify output object variables by using the following form:
+  Specify output object variables by using the following form\.
 
   `Variable: "{{previousStepName.outputFieldName}}"`
 **Note**  
@@ -110,7 +110,7 @@ When you create a runbook, the system validates each operation in the runbook\. 
 **Note**  
 If you don't want to specify a `Default` value, then you can specify the `isEnd` option\. If none of the `Choices` are `true` and no `Default` value is specified, then the automation stops at the end of the step\.
 
-Use the following templates to help you construct the `aws:branch` step in your runbook:
+Use the following templates to help you construct the `aws:branch` step in your runbook\.
 
 ------
 #### [ YAML ]
@@ -164,7 +164,7 @@ mainSteps:
 
 #### About creating the output variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
 
-To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format:
+To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format\.
 
 `Variable: "{{previousStepName.outputFieldName}}"`
 
@@ -240,13 +240,13 @@ Here is a JSON example that shows how * "Variable": "\{\{ describeInstance\.Plat
     }
 ```
 
-### Example aws:branch runbooks<a name="automation-branchdocs-awsbranch-examples-docs"></a>
+### Example `aws:branch` runbooks<a name="automation-branchdocs-awsbranch-examples-docs"></a>
 
 Here are some example runbooks that use `aws:branch`\.
 
-**Example 1: Using aws:branch with an output variable to run commands based on the operating system type**
+**Example 1: Using `aws:branch`h with an output variable to run commands based on the operating system type**
 
-In the first step of this sample \(`GetInstance`\), the runbook author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API action\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
+In the first step of this example \(`GetInstance`\), the runbook author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API action\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
 
 In the second step \(`ChooseOSforCommands`\), the author uses the `aws:branch` action with two `Choices` \(`NextStep: runPowerShellCommand`\) and \(`NextStep: runShellCommand`\)\. The automation evaluates the operating system of the instance by using the output from the previous step \(`Variable: "{{GetInstance.platform}}"`\)\. The automation jumps to a step for the designated operating system\.
 
@@ -309,7 +309,7 @@ mainSteps:
     Duration: PT3S
 ```
 
-**Example 2: Using aws:branch with a parameter variable to run commands based on the operating system type**
+**Example 2: Using `aws:branch` with a parameter variable to run commands based on the operating system type**
 
 The runbook author defines several parameter options at the beginning of the runbook in the `parameters` section\. One parameter is named `OperatingSystemName`\. In the first step \(`ChooseOS`\), the author uses the `aws:branch` action with two `Choices` \(`NextStep: runWindowsCommand`\) and \(`NextStep: runLinuxCommand`\)\. The variable for these `Choices` references the parameter option specified in the parameters section \(`Variable: "{{OperatingSystemName}}"`\)\. When the user runs this runbook, they specify a value at runtime for `OperatingSystemName`\. The automation uses the runtime parameter during the `Choices` evaluation\. The automation jumps to a step for the designated operating system based on the runtime parameter specified for `OperatingSystemName`\.
 
@@ -370,7 +370,7 @@ mainSteps:
 
 You can create complex branching automations by using the `And`, `Or`, and `Not` operators in your `aws:branch` steps\.
 
-**The 'And' Operator**  
+**The 'And' operator**  
 Use the `And` operator when you want multiple variables to be `true` for a choice\. In the following example, the first choice evaluates if an instance is `running` and uses the `Windows` operating system\. If the evaluation of *both* of these variables is true, then the automation jumps to the `runPowerShellCommand` step\. If one or more of the variables is `false`, then the automation evaluates the variables for the second choice\.
 
 ```
@@ -396,7 +396,7 @@ mainSteps:
       sleep3
 ```
 
-**The 'Or' Operator**  
+**The 'Or' operator**  
 Use the `Or` operator when you want *any* of multiple variables to be true for a choice\. In the following example, the first choice evaluates if a parameter string is `Windows` and if the output from an AWS Lambda step is true\. If the evaluation determines that *either* of these variables is true, then the automation jumps to the `RunPowerShellCommand` step\. If both variables are false, then the automation evaluates the variables for the second choice\.
 
 ```
@@ -414,7 +414,7 @@ Use the `Or` operator when you want *any* of multiple variables to be true for a
   NextStep: RunShellScript
 ```
 
-**The 'Not' Operator**  
+**The 'Not' operator**  
 Use the `Not` operator when you want to jump to a step defined when a variable is *not* true\. In the following example, the first choice evaluates if a parameter string is `Not Linux`\. If the evaluation determines that the variable is not Linux, then the automation jumps to the `sleep2` step\. If the evaluation of the first choice determines that it *is* Linux, then the automation evaluates the next choice\.
 
 ```

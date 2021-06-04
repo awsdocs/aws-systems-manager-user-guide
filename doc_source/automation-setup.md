@@ -1,6 +1,6 @@
 # Setting up Automation<a name="automation-setup"></a>
 
-To set up Automation, you must verify user access to the Automation service and situationally configure roles so that the service can perform actions on your resources\. To ensure proper access to Systems Manager Automation, review the following user and service role requirements\.
+To set up Automation, a capability of AWS Systems Manager, you must verify user access to the Automation service and situationally configure roles so that the service can perform actions on your resources\. To ensure proper access to AWS Systems Manager Automation, review the following user and service role requirements\.
 
 ## Verifying user access for runbooks<a name="automation-setup-user-access"></a>
 
@@ -15,7 +15,7 @@ Automations can be initiated under the context of a service role \(or *assume ro
 
 However, the following situations require that you specify a service role for Automation:
 + When you want to restrict a user's privileges on a resource, but you want the user to run an automation that requires elevated privileges\. In this scenario, you can create a service role with elevated privileges and allow the user to run the automation\.
-+ When you create a State Manager association that runs a runbook\.
++ When you create a Systems Manager State Manager association that runs a runbook\.
 + When you have operations that you expect to run longer than 12 hours\.
 + When you are running a runbook not owned by Amazon that uses the `aws:executeScript` action to call an AWS API operation or to act on an AWS resource\. For information, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 

@@ -1,9 +1,9 @@
 # Using shared SSM documents<a name="ssm-using-shared"></a>
 
-When you share an SSM document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and run a shared document from the Amazon EC2 console, you do not see the ARN\. However, if you want to run a shared SSM document from a command line application, you must specify a full ARN\. You are shown the full ARN for an SSM document when you run the command to list documents\. 
+When you share an AWS Systems Manager \(SSM\) document, the system generates an Amazon Resource Name \(ARN\) and assigns it to the command\. If you select and run a shared document from the Amazon Elastic Compute Cloud \(Amazon EC2\) console, you do not see the ARN\. However, if you want to run a shared SSM document from a command line application, you must specify a full ARN\. You are shown the full ARN for an SSM document when you run the command to list documents\. 
 
 **Note**  
-You are not required to specify ARNs for AWS public documents \(documents that begin with AWS\-\*\) or documents that you own\.
+You are not required to specify ARNs for AWS public documents \(documents that begin with `AWS-*`\) or documents that you own\.
 
 ## Use a shared SSM document \(command line\)<a name="ssm-using-shared-cli"></a>
 

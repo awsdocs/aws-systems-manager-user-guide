@@ -1,4 +1,4 @@
-# aws:executeStateMachine – Run an AWS Step Functions state machine<a name="automation-action-executeStateMachine"></a>
+# `aws:executeStateMachine` – Run an AWS Step Functions state machine<a name="automation-action-executeStateMachine"></a>
 
 Runs an AWS Step Functions state machine\.
 
@@ -6,7 +6,7 @@ Runs an AWS Step Functions state machine\.
 
 This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
 
-**Required IAM permissions**
+**Required AWS Identity and Access Management \(IAM\) permissions**
 + `states:DescribeExecution`
 + `states:StartExecution`
 + `states:StopExecution`
@@ -52,7 +52,7 @@ inputs:
 ------
 
 stateMachineArn  
-The ARN of the Step Functions state machine\.  
+The Amazon Resource Name \(ARN\) of the Step Functions state machine\.  
 Type: String  
 Required: Yes
 

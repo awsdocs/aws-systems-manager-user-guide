@@ -1,13 +1,13 @@
 # Add a package version to Distributor<a name="distributor-working-with-packages-version"></a>
 
-To add a package version, [create a package](distributor-working-with-packages-create.md), and then use Distributor to add a package version by adding an entry to the SSM document that already exists for older versions\. To save time, update the manifest for an older version of the package, change the value of the `version` entry in the manifest \(for example, from `Test_1.0` to `Test_2.0`\) and save it as the manifest for the new version\. The simple **Add version** workflow in the Distributor console updates the manifest file for you\.
+To add a package version, [create a package](distributor-working-with-packages-create.md), and then use Distributor to add a package version by adding an entry to the AWS Systems Manager \(SSM\) document that already exists for older versions\. Distributor is a capability of AWS Systems Manager\. To save time, update the manifest for an older version of the package, change the value of the `version` entry in the manifest \(for example, from `Test_1.0` to `Test_2.0`\) and save it as the manifest for the new version\. The simple **Add version** workflow in the Distributor console updates the manifest file for you\.
 
 A new package version can:
 + Replace at least one of the installable files attached to the current version\.
 + Add new installable files to support additional platforms\.
 + Delete files to discontinue support for specific platforms\.
 
-A newer version can use the same S3 bucket, but must have a URL with a different file name shown at the end\. You can use the AWS Systems Manager console or the AWS CLI to add the new version\. Uploading an installable file with the exact name as an existing installable file in the S3 bucket overwrites the existing file\. No installable files are copied over from the older version to the new version; you must upload installable files from the older version to have them be part of a new version\. After Distributor is finished creating your new package version, you can delete or repurpose the S3 bucket, because Distributor copies your software to an internal Systems Manager bucket as part of the versioning process\.
+A newer version can use the same Amazon Simple Storage Service \(Amazon S3\) bucket, but must have a URL with a different file name shown at the end\. You can use the Systems Manager console or the AWS Command Line Interface \(AWS CLI\) to add the new version\. Uploading an installable file with the exact name as an existing installable file in the Amazon S3 bucket overwrites the existing file\. No installable files are copied over from the older version to the new version; you must upload installable files from the older version to have them be part of a new version\. After Distributor is finished creating your new package version, you can delete or repurpose the Amazon S3 bucket, because Distributor copies your software to an internal Systems Manager bucket as part of the versioning process\.
 
 **Note**  
 Each package is held to a maximum of 25 versions\. You can delete versions that are no longer required\.
@@ -18,7 +18,7 @@ Each package is held to a maximum of 25 versions\. You can delete versions that 
 
 ## Adding a package version \(console\)<a name="add-pkg-version"></a>
 
-Before you perform these steps, follow the instructions in [Create a package](distributor-working-with-packages-create.md) to create a new package for the version\. Then, use the AWS Systems Manager console to add a new package version to Distributor\.
+Before you perform these steps, follow the instructions in [Create a package](distributor-working-with-packages-create.md) to create a new package for the version\. Then, use the Systems Manager console to add a new package version to Distributor\.
 
 ### Adding a package version \(simple\)<a name="add-pkg-version-simple"></a>
 
@@ -90,7 +90,7 @@ To add a package version, [create a package](distributor-working-with-packages-c
 
 1. For **Manifest**, choose **Extract from package** to use a manifest that you uploaded to the S3 bucket with your \.zip files\.
 
-   \(Optional\) If you did not upload your revised JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+   \(Optional\) If you did not upload your revised JSON manifest to the Amazon S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 1. When you are finished with the manifest, choose **Add package version**\.
 
@@ -104,7 +104,7 @@ You can use the AWS CLI to add a new package version to Distributor\. Before you
 
 **To add a package version \(AWS CLI\)**
 
-1. Run the following command to edit the AWS Systems Manager document with an entry for a new package version\. Replace *document\-name* with the name of your document\. Replace *DOC\-EXAMPLE\-BUCKET* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the S3 bucket where the entire package is stored\. Replace *version\-name\-from\-updated\-manifest* with the value of `version` in the manifest\. Set the `--document-version` parameter to `$LATEST` to make the document associated with this package version the latest version of the document\.
+1. Run the following command to edit the AWS Systems Manager document with an entry for a new package version\. Replace *document\-name* with the name of your document\. Replace *DOC\-EXAMPLE\-BUCKET* with the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an Amazon S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3)\. *S3\-bucket\-URL\-of\-package* is the URL of the Amazon S3 bucket where the entire package is stored\. Replace *version\-name\-from\-updated\-manifest* with the value of `version` in the manifest\. Set the `--document-version` parameter to `$LATEST` to make the document associated with this package version the latest version of the document\.
 
    ```
    aws ssm update-document \

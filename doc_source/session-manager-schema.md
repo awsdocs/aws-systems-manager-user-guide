@@ -1,6 +1,6 @@
 # Session document schema<a name="session-manager-schema"></a>
 
-The following information describes the schema elements of a Session document\. Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command\.
+The following information describes the schema elements of a Session document\. AWS Systems Manager Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command\.
 
 [schemaVersion](#version)  
 The schema version of the Session document\. Currently, Session documents only support version 1\.0\.  
@@ -27,11 +27,11 @@ The Amazon Simple Storage Service \(Amazon S3\) bucket you want to send session 
 Type: String  
 Required: No  
 [s3KeyPrefix](#prefix)  
-The prefix to use when sending logs to the S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service Console User Guide*\.  
+The prefix to use when sending logs to the Amazon S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service Console User Guide*\.  
 Type: String  
 Required: No  
 [s3EncryptionEnabled](#s3Encrypt)  
-If set to `true`, the S3 bucket you specified in the `s3BucketName` input must be encrypted\.  
+If set to `true`, the Amazon S3 bucket you specified in the `s3BucketName` input must be encrypted\.  
 Type: Boolean  
 Required: Yes  
 [cloudWatchLogGroupName](#logGroup)  
@@ -51,7 +51,7 @@ The ID of the AWS KMS key you want to use to further encrypt data between your l
 Type: String  
 Required: No  
 [runAsEnabled](#run)  
-If set to `true`, you must specify a user account that exists on the instances you'll be connecting to in the `runAsDefaultUser` input\. Otherwise, sessions will fail to start\. By default, sessions are started using the `ssm-user` account created by the SSM Agent\. The Run As feature is only supported for connecting to Linux instances\.  
+If set to `true`, you must specify a user account that exists on the instances you'll be connecting to in the `runAsDefaultUser` input\. Otherwise, sessions will fail to start\. By default, sessions are started using the `ssm-user` account created by the AWS Systems Manager SSM Agent\. The Run As feature is only supported for connecting to Linux instances\.  
 Type: Boolean  
 Required: Yes  
 [runAsDefaultUser](#runUser)  

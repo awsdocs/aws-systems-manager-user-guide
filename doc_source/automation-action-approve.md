@@ -1,11 +1,11 @@
-# aws:approve – Pause an automation for manual approval<a name="automation-action-approve"></a>
+# `aws:approve` – Pause an automation for manual approval<a name="automation-action-approve"></a>
 
 Temporarily pauses an automation until designated principals either approve or reject the action\. After the required number of approvals is reached, the automation resumes\. You can insert the approval step any place in the `mainSteps` section of your runbook\. 
 
 **Note**  
-The default timeout for this action is 7 days \(604800 seconds\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an aws:approve step\. If the automation step reaches the timeout value before receiving all required approval decisions, then the step and the automation stop running and return a status of Timed Out\.
+The default timeout for this action is 7 days \(604800 seconds\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:approve` step\. If the automation step reaches the timeout value before receiving all required approval decisions, then the step and the automation stop running and return a status of Timed Out\.
 
-In the following example, the aws:approve action temporarily pauses the automation until one approver either accepts or rejects the automation\. Upon approval, the automation runs a simple PowerShell command\. 
+In the following example, the `aws:approve` action temporarily pauses the automation until one approver either accepts or rejects the automation\. Upon approval, the automation runs a simple PowerShell command\. 
 
 ------
 #### [ YAML ]
@@ -151,12 +151,12 @@ Approvers:
 ------
 
 NotificationArn  
-The ARN of an Amazon SNS topic for Automation approvals\. When you specify an `aws:approve` step in a runbook, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step\. The title of the Amazon SNS topic must be prefixed with "Automation"\.  
+The Amazon Resource Name \(ARN of an Amazon Simple Notification Service \(Amazon SNS\) topic for Automation approvals\. When you specify an `aws:approve` step in a runbook, Automation sends a message to this topic letting principals know that they must either approve or reject an Automation step\. The title of the Amazon SNS topic must be prefixed with "Automation"\.  
 Type: String  
 Required: No
 
 Message  
-The information you want to include in the SNS topic when the approval request is sent\. The maximum message length is 4096 characters\.   
+The information you want to include in the Amazon SNS topic when the approval request is sent\. The maximum message length is 4096 characters\.   
 Type: String  
 Required: No
 

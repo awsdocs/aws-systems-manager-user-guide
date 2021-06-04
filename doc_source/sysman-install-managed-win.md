@@ -71,7 +71,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 The command does the following: 
 + Downloads and installs SSM Agent onto the server or VM\.
-+ Registers the server or VM with the SSM service\.
++ Registers the server or VM with the Systems Manager service\.
 + Returns a response to the request similar to the following:
 
   ```
@@ -94,9 +94,7 @@ The server or VM is now a managed instance\. These instances are now identified 
 
 You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
 
-```
-aws ssm deregister-managed-instance --instance-id "mi-1234567890"
-```
+`aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
 You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance reappears in the list of managed instances\.
 

@@ -1,8 +1,8 @@
-# aws:executeScript – Run a script<a name="automation-action-executeScript"></a>
+# `aws:executeScript` – Run a script<a name="automation-action-executeScript"></a>
 
 Runs the Python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, the handler is not required\.\)
 
-Currently, the `aws:executeScript` action contains the following preinstalled PowerShell Core modules\. 
+Currently, the `aws:executeScript` action contains the following preinstalled PowerShell Core modules: 
 + Microsoft\.PowerShell\.Host
 + Microsoft\.PowerShell\.Management
 + Microsoft\.PowerShell\.Security
@@ -55,7 +55,7 @@ New-EC2Tag -Resource i-12345678 -Tag $tag
 For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
 
 **Note**  
-Each `aws:executeScript` action can run up to a maximum duration of 600 seconds \(ten minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:executeScript` step\.
+Each `aws:executeScript` action can run up to a maximum duration of 600 seconds \(10 minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:executeScript` step\.
 
 **Input**  
 Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.

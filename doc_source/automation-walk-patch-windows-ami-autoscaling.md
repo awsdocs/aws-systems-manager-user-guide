@@ -6,7 +6,7 @@ The final step of the automation in this example uses an AWS Lambda function to 
 
 **Before you begin**  
 Complete the following tasks before you begin this example\.
-+ Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
++ Configure IAM roles for Automation, a capability of AWS Systems Manager\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
 + If you are not familiar with Lambda, we recommend that you create a simple Lambda function by using the [Create a Simple Lambda Function](https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html) topic in the *AWS Lambda Developer Guide*\. The topic will help you understand, in detail, some of the steps required to create a Lambda function\.
 
 ## Task 1: Create an IAM role for AWS Lambda<a name="automation-asg1"></a>

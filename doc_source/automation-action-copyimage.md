@@ -1,9 +1,9 @@
-# aws:copyImage – Copy or encrypt an Amazon Machine Image<a name="automation-action-copyimage"></a>
+# `aws:copyImage` – Copy or encrypt an Amazon Machine Image<a name="automation-action-copyimage"></a>
 
-Copies an AMI from any region into the current region\. This action can also encrypt the new AMI\.
+Copies an Amazon Machine Image \(AMI\) from any AWS Region into the current Region\. This action can also encrypt the new AMI\.
 
 **Input**  
-This action supports most CopyImage parameters\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html)\.
+This action supports most `CopyImage` parameters\. For more information, see [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html)\.
 
 The following example creates a copy of an AMI in the Seoul region \(`SourceImageID`: ami\-0fe10819\. `SourceRegion`: ap\-northeast\-2\)\. The new AMI is copied to the region where you initiated the Automation action\. The copied AMI will be encrypted because the optional `Encrypted` flag is set to `true`\.
 
@@ -48,7 +48,7 @@ Type: String
 Required: Yes
 
 SourceImageId  
-The AMI ID to copy from the source region\.  
+The AMI ID to copy from the source Region\.  
 Type: String  
 Required: Yes
 

@@ -315,7 +315,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 #### [ PowerShell ]
 
    ```
-   Action               : aws:changeInstanceState
+   Action: aws:changeInstanceState
    ExecutionEndTime     : 5/6/2019 19:45:46
    ExecutionStartTime   : 5/6/2019 19:45:03
    FailureDetails       : 

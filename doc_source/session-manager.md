@@ -25,8 +25,8 @@ Session Manager offers these benefits:
   To meet operational or security requirements in your organization, you might need to provide a record of the connections made to your instances and the commands that were run on them\. You can also receive notifications when a user in your organization starts or ends session activity\. 
 
   Logging and auditing capabilities are provided through integration with the following AWS services:
-  + **AWS CloudTrail** – AWS CloudTrail captures information about Session Manager API calls made in your Amazon Web Services account and writes it to log files that are stored in an S3 bucket you specify\. One bucket is used for all CloudTrail logs for your account\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
-  + **Amazon Simple Storage Service** – You can choose to store session log data in an S3 bucket of your choice for debugging and troubleshooting purposes\. Log data can be sent to your S3 bucket with or without encryption using your AWS KMS key\. For more information, see [Logging session data using Amazon S3 \(console\)](session-manager-logging.md#session-manager-logging-s3)\.
+  + **AWS CloudTrail** – AWS CloudTrail captures information about Session Manager API calls made in your AWS account and writes it to log files that are stored in an Amazon Simple Storage Service \(Amazon S3\) bucket you specify\. One bucket is used for all CloudTrail logs for your account\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
+  + **Amazon Simple Storage Service** – You can choose to store session log data in an Amazon S3 bucket of your choice for debugging and troubleshooting purposes\. Log data can be sent to your Amazon S3 bucket with or without encryption using your AWS KMS key\. For more information, see [Logging session data using Amazon S3 \(console\)](session-manager-logging.md#session-manager-logging-s3)\.
   + **Amazon CloudWatch Logs** – CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for debugging and troubleshooting purposes\. Log data can be sent to your log group with or without AWS KMS encryption using your KMS key\. For more information, see [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging.md#session-manager-logging-cloudwatch-logs)\.
   + **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge lets you set up rules to detect when changes happen to AWS resources that you specify\. You can create a rule to detect when a user in your organization starts or stops a session, and then receive a notification through Amazon SNS \(for example, a text or email message\) about the event\. You can also configure a CloudWatch event to initiate other responses\. For more information, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\.
 **Note**  
@@ -62,19 +62,19 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
   Through the use of IAM policies, you can control which members of your organization can initiate sessions to instances and which instances they can access\. You can also provide temporary access to your instances\. For example, you might want to give an on\-call engineer \(or a group of on\-call engineers\) access to production servers only for the duration of their rotation\.
 +  **Logging and auditing capability support** 
 
-  Session Manager provide you with options for auditing and logging session histories in your Amazon Web Services account through integration with a number of other AWS services\. For more information, see [Auditing session activity](session-manager-auditing.md) and [Logging session activity](session-manager-logging.md)\.
+  Session Manager provide you with options for auditing and logging session histories in your AWS account through integration with a number of other AWS services\. For more information, see [Auditing session activity](session-manager-auditing.md) and [Logging session activity](session-manager-logging.md)\.
 + **Configurable shell profiles**
 
   Session Manager provides you with options to configure preferences within sessions\. These customizable profiles enable you to define preferences such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
 +  **Customer key data encryption support** 
 
-  You can configure Session Manager to encrypt the session data logs that you send to an S3 bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Logging session activity](session-manager-logging.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
+  You can configure Session Manager to encrypt the session data logs that you send to an Amazon Simple Storage Service \(Amazon S3\) bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Logging session activity](session-manager-logging.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
 +  **AWS PrivateLink support for instances without public IP addresses** 
 
   You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. AWS PrivateLink limits all network traffic between your managed instances, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
 +  **Tunneling** 
 
-  In a session, use a Session\-type SSM document to tunnel traffic, such as http or a custom protocol, between a local port on a client machine and a remote port on an instance\.
+  In a session, use a Session\-type AWS Systems Manager \(SSM\) document to tunnel traffic, such as http or a custom protocol, between a local port on a client machine and a remote port on an instance\.
 +  **Interactive commands** 
 
   Create a Session\-type SSM document that uses a session to interactively run a single command, giving you a way to manage what users can do on an instance\.

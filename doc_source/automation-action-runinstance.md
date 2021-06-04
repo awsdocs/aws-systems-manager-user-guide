@@ -1,6 +1,6 @@
-# aws:runInstances – Launch an EC2 instance<a name="automation-action-runinstance"></a>
+# `aws:runInstances` – Launch an Amazon EC2 instance<a name="automation-action-runinstance"></a>
 
-Launches a new instance\.
+Launches a new Amazon Elastic Compute Cloud \(Amazon EC2\) instance\.
 
 **Input**  
 The action supports most API parameters\. For more information, see the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API documentation\.
@@ -103,17 +103,17 @@ Type: String
 Required: No
 
 DisableApiTermination  
-Enables or disables instance API termination  
+Enables or disables instance API termination\.  
 Type: Boolean  
 Required: No
 
 EbsOptimized  
-Enables or disabled EBS optimization\.  
+Enables or disabled Amazon Elastic Block Store \(Amazon EBS\) optimization\.  
 Type: Boolean  
 Required: No
 
 IamInstanceProfileArn  
-The ARN of the IAM instance profile for the instance\.  
+The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management \(IAM\) instance profile for the instance\.  
 Type: String  
 Required: No
 
@@ -188,7 +188,7 @@ Type: String
 Required: No
 
 TagSpecifications  
-The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [aws:createTags – Create tags for AWS resources](automation-action-createtag.md) action\.  
+The tags to apply to the resources during launch\. You can only tag instances and volumes at launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag an instance after it has been launched, use the [`aws:createTags` – Create tags for AWS resources](automation-action-createtag.md) action\.  
 Type: MapList \(For more information, see [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html)\.\)  
 Required: No
 

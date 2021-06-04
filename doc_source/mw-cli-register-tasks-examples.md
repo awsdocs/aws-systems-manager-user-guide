@@ -199,7 +199,7 @@ aws ssm register-task-with-maintenance-window \
     --priority 2 --max-concurrency 10 --max-errors 5 --name "My-Lambda-Example" \
     --description "A description for my LAMBDA example task" --task-type "LAMBDA" \
     --task-arn "arn:aws:lambda:us-east-2:123456789012:function:serverlessrepo-SSMrestart-my-instances-C4JF9EXAMPLE" \
-    --task-invocation-parameters '{"Lambda":{\"Payload\":{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"},"Qualifier": "$LATEST"}}'
+    --task-invocation-parameters '{"Lambda":{"Payload":"{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}","Qualifier": "$LATEST"}}'
 ```
 
 ------

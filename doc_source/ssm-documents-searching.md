@@ -1,6 +1,6 @@
 # Searching for SSM documents<a name="ssm-documents-searching"></a>
 
-You can search the AWS Systems Manager document store for SSM documents by using either free text search or a filter\-based search\. This section describes how to use both capabilities to find an SSM document\. 
+You can search the AWS Systems Manager \(SSM\) document store for SSM documents by using either free text search or a filter\-based search\. This section describes how to use both capabilities to find an SSM document\. 
 
 ## Using free text search<a name="ssm-documents-searching-free-text"></a>
 

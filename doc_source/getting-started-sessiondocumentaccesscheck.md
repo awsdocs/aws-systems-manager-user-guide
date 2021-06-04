@@ -1,6 +1,6 @@
 # Enforce a session document permission check for the AWS CLI<a name="getting-started-sessiondocumentaccesscheck"></a>
 
-When you configure Session Manager for your account, the system creates a `Session`\-type SSM document `SSM-SessionManagerRunShell`\. This SSM document stores your session preferences, such as whether session data is saved in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service, and whether Run As support is enabled for your sessions\. The following is an example\.
+When you configure Session Manager for your account, the system creates a `Session`\-type SSM document `SSM-SessionManagerRunShell`\. This SSM document stores your session preferences, such as whether session data is saved in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service \(AWS KMS\), and whether Run As support is enabled for your sessions\. The following is an example\.
 
 ```
 {

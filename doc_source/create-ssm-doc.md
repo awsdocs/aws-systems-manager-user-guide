@@ -84,7 +84,7 @@ You can clone AWS Systems Manager documents using the Systems Manager Documents 
 
 ## Using SSM documents in State Manager Associations<a name="ssm-docs-assoc"></a>
 
-If you create an SSM document for State Manager, you must associate the document with your managed instances after you add the document to the system\. For more information, see [Creating associations](sysman-state-assoc.md)\.
+If you create an SSM document for State Manager, a capability of AWS Systems Manager, you must associate the document with your managed instances after you add the document to the system\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 
 Keep in mind the following details when using SSM documents in State Manager associations\.
 + You can assign multiple documents to a target by creating different State Manager associations that use different documents\. 

@@ -4,7 +4,7 @@ If the AWS Systems Manager public runbooks don't support all the actions you wan
 
 Using the Document Builder, you can add automation actions to your custom runbook and provide the required parameters without having to use JSON or YAML syntax\. After you add steps and create the runbook, the system converts the actions you've added into the YAML format that Systems Manager can use to run automation\.
 
-Runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to runbooks and individual steps within the runbook\. For more information on using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
+Runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to runbooks and individual steps within the runbook\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
 **Tip**  
 This topic provides general information for using Document Builder with any supported action type\. For more information about creating runbooks that run scripts, see the following topics:  
@@ -13,7 +13,7 @@ This topic provides general information for using Document Builder with any supp
 [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating a runbook that runs scripts to \(1\) launch an Amazon Elastic Compute Cloud \(EC2\) instance and \(2\) wait for the instance status to change to `ok`\.
 
 **Before you begin**  
-Before you create a custom runbook using Document Builder, we recommend that you read about the different actions that you can use within a runbook\. For more information see, [Systems Manager Automation actions reference](automation-actions.md)\.
+Before you create a custom runbook using Document Builder, we recommend that you read about the different actions that you can use within a runbook\. For more information, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 **To create a runbook using Document Builder**
 
@@ -27,7 +27,7 @@ Before you create a custom runbook using Document Builder, we recommend that you
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type a descriptive name for the runbook\.
+1. For **Name**, enter a descriptive name for the runbook\.
 
 1. For **Document description**, provide the markdown style description for the runbook\. You can provide instructions for using the runbook, numbered steps, or any other type of information to describe the runbook\. Refer to the default text for information about formatting your content\.
 **Tip**  
@@ -69,7 +69,7 @@ If you specify a value of '`/`', the runbook can run on all types of resources\.
    + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\.
    + Depending on the **Action type** selected, enter the required inputs for the action type in the **Step inputs** section\. For example, if you selected the action `aws:approve`, you must specify a value for the `Approvers` property\.
 
-     For information about the step input fields, see the entry in [Systems Manager Automation actions reference](automation-actions.md) for the action type you selected\. For example: [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)\.
+     For information about the step input fields, see the entry in [Systems Manager Automation actions reference](automation-actions.md) for the action type you selected\. For example: [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)\.
    + \(Optional\) For **Additional inputs**, provide any additional input values needed for your runbook\. The available input types depend on the action type you selected for the step\. \(Note that some action types require input values\.\)
 **Note**  
 To add more inputs, choose **Add optional input**\. To remove an input, choose the **X** \(Remove\) button\.

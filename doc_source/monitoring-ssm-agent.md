@@ -1,11 +1,11 @@
 # Sending SSM Agent logs to CloudWatch Logs<a name="monitoring-ssm-agent"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your EC2 instances and your hybrid instances \(on\-premises instances and virtual machines\) that are configured for Systems Manager\. SSM Agent processes requests from the Systems Manager service in cloud and configures your machine as specified in the request\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your EC2 instances and your hybrid instances \(on\-premises instances and virtual machines\) that are configured for Systems Manager\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 
 In addition, following the steps below, you can configure SSM Agent to send log data to Amazon CloudWatch Logs\. 
 
 **Before you begin**  
-Create a log group in Amazon CloudWatch Logs\. For more information, see [Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Create-Log-Group.html) in the *Amazon CloudWatch Logs User Guide*\.
+Create a log group in CloudWatch Logs\. For more information, see [Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Create-Log-Group.html) in the *Amazon CloudWatch Logs User Guide*\.
 
 **To configure SSM Agent to send logs to CloudWatch**
 
@@ -14,7 +14,7 @@ Create a log group in Amazon CloudWatch Logs\. For more information, see [Create
 **Linux**  
 On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 
-   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`\.
+   On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS: `/snap/amazon-ssm-agent/current/seelog.xml.template`
 
 **macOS**  
 `/opt/aws/ssm/seelog.xml.template`
@@ -22,9 +22,9 @@ On most Linux instance types: `/etc/amazon/ssm/seelog.xml.template`\.
 **Windows**  
 `%ProgramFiles%\Amazon\SSM\seelog.xml.template`
 
-1. Change the file name from `seelog.xml.template` to `seelog.xml`\.
+1. Change the file name from `seelog.xml.template` to `seelog.xml`
 **Note**  
-On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following commands:  
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`\. You can create this directory and file by running the following commands\.  
 
    ```
    sudo mkdir -p /etc/amazon/ssm

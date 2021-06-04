@@ -14,7 +14,7 @@ For demonstration purposes only, an example package, [ExamplePackage\.zip](sampl
 
 ## Create a package \(simple\)<a name="distributor-working-with-packages-create-simple"></a>
 
-This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](sysman-ssm-docs.md)\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
+This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. Distributor is a capability of AWS Systems Manager\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](sysman-ssm-docs.md)\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
 When you use the Simple method to create a package, Distributor creates `install` and `uninstall` scripts for you\. However, when you create a package for an in\-place update, you must provide your own `update` script content on the **Update script** tab\. When you add input commands for an `update` script, Distributor includes this script in the \.zip package it creates for you, along with the `install` and `uninstall` scripts\.
 
@@ -67,7 +67,7 @@ If Distributor cannot upload any of the software installable files, it displays 
 
 ## Create a package \(advanced\)<a name="distributor-working-with-packages-create-adv"></a>
 
-In this section, learn about how advanced users can create a package in Distributor after uploading installable assets zipped with installation and uninstallation scripts, and a JSON manifest file, to an S3 bucket\.
+In this section, learn about how advanced users can create a package in Distributor after uploading installable assets zipped with installation and uninstallation scripts, and a JSON manifest file, to an Amazon S3 bucket\.
 
 To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder, and the manifest is populated with correct values, upload your package to an S3 bucket\.
 
@@ -76,7 +76,7 @@ An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is availa
 **Topics**
 + [Step 1: Create the ZIP files](#packages-zip)
 + [Step 2: Create the JSON package manifest](#packages-manifest)
-+ [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)
++ [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)
 + [Step 4: Add a package to Distributor](#distributor-working-with-packages-add)
 
 ### Step 1: Create the ZIP files<a name="packages-zip"></a>
@@ -387,7 +387,7 @@ The following is an example of a completed manifest\. In this example, you have 
 
 An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
-### Step 3: Upload the package and manifest to an S3 bucket<a name="packages-upload-s3"></a>
+### Step 3: Upload the package and manifest to an Amazon S3 bucket<a name="packages-upload-s3"></a>
 
 Prepare your package by copying or moving all \.zip files into a folder or directory\. A valid package requires the manifest that you created in [Step 2: Create the JSON package manifest](#packages-manifest) and all \.zip files identified in the manifest file list\.
 
@@ -403,7 +403,7 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 ### Step 4: Add a package to Distributor<a name="distributor-working-with-packages-add"></a>
 
-You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to AWS Systems Manager Distributor\. When you add a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
 **Topics**
 + [Adding a package \(console\)](#create-pkg-console)
@@ -411,7 +411,7 @@ You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI an
 
 #### Adding a package \(console\)<a name="create-pkg-console"></a>
 
-You can use the AWS Systems Manager console to create a package\. Have ready the name of the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
+You can use the AWS Systems Manager console to create a package\. Have ready the name of the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
 
 **To add a package to Distributor \(console\)**
 
@@ -425,11 +425,11 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
 1. For **Version name**, enter the exact value of the `version` entry in your manifest file\.
 
-1. For **S3 bucket name**, choose the name of the bucket to which you uploaded your \.zip files and manifest in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
+1. For **S3 bucket name**, choose the name of the bucket to which you uploaded your \.zip files and manifest in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
 
 1. For **S3 key prefix**, enter the subfolder of the bucket where your \.zip files and manifest are stored\.
 
-1. For **Manifest**, choose **Extract from package** to use a manifest that you have uploaded to the S3 bucket with your \.zip files\.
+1. For **Manifest**, choose **Extract from package** to use a manifest that you have uploaded to the Amazon S3 bucket with your \.zip files\.
 
    \(Optional\) If you did not upload your JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
@@ -439,13 +439,13 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
 #### Adding a package \(AWS CLI\)<a name="create-pkg-cli"></a>
 
-You can use the AWS CLI to create a package\. Have the URL ready from the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an S3 bucket](#packages-upload-s3)\.
+You can use the AWS CLI to create a package\. Have the URL ready from the bucket to which you uploaded your package in [Step 3: Upload the package and manifest to an Amazon S3 bucket](#packages-upload-s3)\.
 
 **To add a package to Amazon S3 \(AWS CLI\)**
 
-1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *DOC\-EXAMPLE\-BUCKET* is the URL of the S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
+1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *DOC\-EXAMPLE\-BUCKET* is the URL of the Amazon S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
-   If you did not add your manifest file to the S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
+   If you did not add your manifest file to the Amazon S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
 
    ```
    aws ssm create-document \

@@ -1,9 +1,9 @@
 # Running automations with triggers using State Manager<a name="automation-sm-target"></a>
 
-You can start an automation by creating a State Manager association with a runbook\. By creating a State Manager association with a runbook, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
-+ Attach a Systems Manager role to EC2 instances to make them *managed instances*\.
+You can start an automation by creating a State Manager association with a runbook\. State Manager is a capability of AWS Systems Manager\. By creating a State Manager association with a runbook, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
++ Attach a Systems Manager role to Amazon Elastic Compute Cloud \(Amazon EC2\) instances to make them *managed instances*\.
 + Enforce desired ingress and egress rules for a security group\.
-+ Create or delete Amazon DynamoDB \(DynamoDB\) backups\.
++ Create or delete Amazon DynamoDB backups\.
 + Create or delete Amazon Elastic Block Store \(Amazon EBS\) snapshots\.
 + Disable read and write permissions on Amazon Simple Storage Service \(Amazon S3\) buckets\.
 + Start, restart, or stop managed instances and Amazon Relational Database Service \(Amazon RDS\) instances\.
@@ -12,9 +12,9 @@ You can start an automation by creating a State Manager association with a runbo
 Use the following procedures to create a State Manager association that runs an automation using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
 **Before you begin**  
-Be aware of the following important details before you run automation by using State Manager\.
-+ Before you can create an association that uses a runbook, verify that you configured permissions for Systems Manager Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
-+ State Manager associations that use runbooks contribute to the maximum number of concurrently running Automations in your Amazon Web Services account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
+Be aware of the following important details before you run an automation by using State Manager:
++ Before you can create an association that uses a runbook, verify that you configured permissions for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\.
++ State Manager associations that use runbooks contribute to the maximum number of concurrently running automations in your AWS account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 
 ------

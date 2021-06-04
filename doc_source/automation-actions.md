@@ -5,7 +5,7 @@
 | --- |
 | Automation documents are now referred to as runbooks\. | 
 
-This reference describes the Automation actions that you can specify in an AWS Systems Manager Automation runbook\. These actions cannot be used in other types of SSM documents\. For information about plugins for other types of SSM documents, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
+This reference describes the Automation actions that you can specify in an Automation runbook\. Automation is a capability of AWS Systems Manager\. These actions cannot be used in other types of Systems Manager \(SSM\) documents\. For information about plugins for other types of SSM documents, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
 
 Systems Manager Automation runs steps defined in Automation runbooks\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your runbook\.
 
@@ -23,26 +23,26 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 **Topics**
 + [Properties shared by all actions](#automation-common)
-+ [aws:approve – Pause an automation for manual approval](automation-action-approve.md)
-+ [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
-+ [aws:branch – Run conditional automation steps](automation-action-branch.md)
-+ [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md)
-+ [aws:copyImage – Copy or encrypt an Amazon Machine Image](automation-action-copyimage.md)
-+ [aws:createImage – Create an Amazon Machine Image](automation-action-create.md)
-+ [aws:createStack – Create an AWS CloudFormation stack](automation-action-createstack.md)
-+ [aws:createTags – Create tags for AWS resources](automation-action-createtag.md)
-+ [aws:deleteImage – Delete an Amazon Machine Image](automation-action-delete.md)
-+ [aws:deleteStack – Delete an AWS CloudFormation stack](automation-action-deletestack.md)
-+ [aws:executeAutomation – Run another automation](automation-action-executeAutomation.md)
-+ [aws:executeAwsApi – Call and run AWS API actions](automation-action-executeAwsApi.md)
-+ [aws:executeScript – Run a script](automation-action-executeScript.md)
-+ [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)
-+ [aws:invokeLambdaFunction – Invoke an AWS Lambda function](automation-action-lamb.md)
-+ [aws:pause – Pause an automation](automation-action-pause.md)
-+ [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md)
-+ [aws:runInstances – Launch an EC2 instance](automation-action-runinstance.md)
-+ [aws:sleep – Delay an automation](automation-action-sleep.md)
-+ [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
++ [`aws:approve` – Pause an automation for manual approval](automation-action-approve.md)
++ [`aws:assertAwsResourceProperty` – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
++ [`aws:branch` – Run conditional automation steps](automation-action-branch.md)
++ [`aws:changeInstanceState` – Change or assert instance state](automation-action-changestate.md)
++ [`aws:copyImage` – Copy or encrypt an Amazon Machine Image](automation-action-copyimage.md)
++ [`aws:createImage` – Create an Amazon Machine Image](automation-action-create.md)
++ [`aws:createStack` – Create an AWS CloudFormation stack](automation-action-createstack.md)
++ [`aws:createTags` – Create tags for AWS resources](automation-action-createtag.md)
++ [`aws:deleteImage` – Delete an Amazon Machine Image](automation-action-delete.md)
++ [`aws:deleteStack` – Delete an AWS CloudFormation stack](automation-action-deletestack.md)
++ [`aws:executeAutomation` – Run another automation](automation-action-executeAutomation.md)
++ [`aws:executeAwsApi` – Call and run AWS API actions](automation-action-executeAwsApi.md)
++ [`aws:executeScript` – Run a script](automation-action-executeScript.md)
++ [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)
++ [`aws:invokeLambdaFunction` – Invoke an AWS Lambda function](automation-action-lamb.md)
++ [`aws:pause` – Pause an automation](automation-action-pause.md)
++ [`aws:runCommand` – Run a command on a managed instance](automation-action-runcommand.md)
++ [`aws:runInstances` – Launch an Amazon EC2 instance](automation-action-runinstance.md)
++ [`aws:sleep` – Delay an automation](automation-action-sleep.md)
++ [`aws:waitForAwsResourceProperty` – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)
 + [Automation system variables](automation-variables.md)
 
 ## Properties shared by all actions<a name="automation-common"></a>
@@ -55,7 +55,7 @@ Type: String
 Required: Yes
 
 [action](#actProp)  
-The name of the action the step is to run\. [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
+The name of the action the step is to run\. [`aws:runCommand` – Run a command on a managed instance](automation-action-runcommand.md) is an example of an action you can specify here\. This document provides detailed information about all available actions\.  
 Type: String  
 Required: Yes
 
@@ -81,14 +81,14 @@ Type: String
 Valid values: Abort \| step:*step\_name*  
 Required: No  
 The `onCancel` property does not support moving to the following actions:  
-+ aws:approve
-+ aws:copyImage
-+ aws:createImage
-+ aws:createStack
-+ aws:createTags
-+ aws:pause
-+ aws:runInstances
-+ aws:sleep
++ `aws:approve`
++ `aws:copyImage`
++ `aws:createImage`
++ `aws:createStack`
++ `aws:createTags`
++ `aws:pause`
++ `aws:runInstances`
++ `aws:sleep`
 
 [isEnd](#endProp)  
 This option stops an automation at the end of a specific step\. The automation stops if the step failed or succeeded\. The default value is false\.  

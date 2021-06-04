@@ -72,7 +72,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified EC2 instance\.
+   Here is an example using the runbook `AWS-RestartEC2Instance` to restart the specified Amazon Elastic Compute Cloud \(Amazon EC2\) instance\.
 
 ------
 #### [ Linux & macOS ]

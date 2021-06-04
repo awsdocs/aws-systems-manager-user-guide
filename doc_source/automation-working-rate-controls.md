@@ -7,8 +7,8 @@ Concurrency enables you to specify how many resources are allowed to run an auto
 
 The queueing system delivers the automation to a single resource and waits until the initial invocation is complete before sending the automation to two more resources\. The system exponentially sends the automation to more resources until the concurrency value is met\.
 
-**Error Thresholds**  
-An error threshold enables you to specify how many automations are allowed to fail before Systems Manager stops sending the automation to other resources\. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%\.
+**Error thresholds**  
+An error threshold enables you to specify how many automations are allowed to fail before AWS Systems Manager stops sending the automation to other resources\. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%\.
 
 If you specify an absolute number of 3 errors, for example, the system stops running the automation when the fourth error is received\. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned\.
 

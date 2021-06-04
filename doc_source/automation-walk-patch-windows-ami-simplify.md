@@ -1,11 +1,11 @@
 # Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store<a name="automation-walk-patch-windows-ami-simplify"></a>
 
-The following example expands on how to update a Windows AMI, as described in [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon EC2 AMIs\.
+The following example expands on how to update a Windows AMI, as described in [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)\. This example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon Elastic Compute Cloud \(Amazon EC2\) AMIs\.
 
-The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the automation\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\.
+The following procedure shows how to automatically apply operating system \(OS\) patches to a Windows AMI that is already considered to be the most up\-to\-date or *latest* AMI\. In the example, the default value of the parameter `SourceAmiId` is defined by a AWS Systems Manager Parameter Store parameter called `latestAmi`\. The value of `latestAmi` is updated by an AWS Lambda function invoked at the end of the automation\. As a result of this Automation process, the time and effort spent patching AMIs is minimized because patching is always applied to the most up\-to\-date AMI\. Parameter Store and Automation are capabilities of AWS Systems Manager\.
 
 **Before you begin**  
-Configure Automation roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
+Configure Automation roles and, optionally, Amazon EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
 
 **Topics**
 + [Task 1: Create a parameter in Systems Manager Parameter Store](#automation-pet1)

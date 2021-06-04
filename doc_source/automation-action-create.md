@@ -1,9 +1,9 @@
-# aws:createImage – Create an Amazon Machine Image<a name="automation-action-create"></a>
+# `aws:createImage` – Create an Amazon Machine Image<a name="automation-action-create"></a>
 
-Creates a new AMI from an instance that is either running or stopped\. 
+Creates an Amazon Machine Image \(AMI\) from an instance that is either running or stopped\. 
 
 **Input**  
-This action supports most CreateImage parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
+This action supports most `CreateImage` parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
 
 ------
 #### [ YAML ]
@@ -57,8 +57,8 @@ Required: No
 
 NoReboot  
 A boolean literal\.  
-By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image\. If the **No Reboot** option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image\. When this option is used, file system integrity on the created image can't be guaranteed\.   
-If you do not want the instance to run after you create an AMI image from it, first use the [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md) action to stop the instance, and then use this `aws:createImage` action with the **NoReboot** option set to `true`\.  
+By default, Amazon Elastic Compute Cloud \(Amazon EC2\) attempts to shut down and reboot the instance before creating the image\. If the **No Reboot** option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image\. When this option is used, file system integrity on the created image can't be guaranteed\.   
+If you do not want the instance to run after you create an AMI from it, first use the [`aws:changeInstanceState` – Change or assert instance state](automation-action-changestate.md) action to stop the instance, and then use this `aws:createImage` action with the **NoReboot** option set to `true`\.  
 Type: Boolean  
 Required: No
 

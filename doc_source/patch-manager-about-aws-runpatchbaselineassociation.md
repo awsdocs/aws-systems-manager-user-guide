@@ -1,6 +1,6 @@
 # About the `AWS-RunPatchBaselineAssociation` SSM document<a name="patch-manager-about-aws-runpatchbaselineassociation"></a>
 
-Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for Microsoft applications\.\)
+Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
 **Note**  
 `AWS-RunPatchBaselineAssociation` is not currently supported for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.

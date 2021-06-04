@@ -2,7 +2,7 @@
 
 When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the automation\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run automation is called *delegated administration*\.
 
-When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more EC2 instances\. The automation restarts the instances, but the service role does not give the user permission to access those instances\.
+When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. Automation is a capability of AWS Systems Manager\. The automation restarts the instances, but the service role does not give the user permission to access those instances\.
 
 You can specify a service role at runtime when you run an automation, or you can create custom runbooks and specify the service role directly in the runbook\. If you specify a service role, either at runtime or in a runbook, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the automation\.
 
@@ -90,7 +90,7 @@ This section describes how to create a custom runbook that restarts EC2 instance
 
 1. Choose **Create document**\. 
 
-1. In the **Name** field, type a name for the runbook, such as Restart\-EC2InstanceDemo\.
+1. In the **Name** field, enter a name for the runbook, such as Restart\-EC2InstanceDemo\.
 
 1. In the **Document type** list, choose **Automation document**\. 
 
@@ -156,6 +156,6 @@ The following procedure describes how to run the runbook you just created using 
 
 1. In the **Execution mode** section, choose **Simple execution**\.
 
-1. In the **Input parameters** section, type one or more instance IDs that you want to restart, and then choose **Execute**\. 
+1. In the **Input parameters** section, enter one or more instance IDs that you want to restart, and then choose **Execute**\. 
 
 **Execution details** describes the status of the automation\. Step 1 stops the instances\. Step 2 starts the instances\.

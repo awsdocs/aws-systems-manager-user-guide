@@ -1,6 +1,6 @@
-# aws:executeAwsApi – Call and run AWS API actions<a name="automation-action-executeAwsApi"></a>
+# `aws:executeAwsApi` – Call and run AWS API actions<a name="automation-action-executeAwsApi"></a>
 
-Calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html), to name a few\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
+Calls and runs AWS API actions\. Most API actions are supported, although not all API actions have been tested\. For example, the following API actions are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html)\. Streaming API actions, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
 **Inputs**  
 Inputs are defined by the API action that you choose\. 
@@ -44,12 +44,12 @@ outputs: # These are user-specified outputs
 ------
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. You can view a list of supported AWS service namespaces in the [Available services](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) of the AWS SDK for Python \(Boto3\)\. The namespace can be found in the **Client** section\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\.  
+The AWS service namespace that contains the API action that you want to run\. You can view a list of supported AWS service namespaces in [Available services](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) of the AWS SDK for Python \(Boto3\)\. The namespace can be found in the **Client** section\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon Elastic Compute Cloud \(Amazon EC2\) is `ec2`\.  
 Type: String  
 Required: Yes
 
 Api  
-The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
 Type: String  
 Required: Yes
 

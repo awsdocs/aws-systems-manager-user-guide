@@ -5,7 +5,7 @@
 | --- |
 | Automation documents are now referred to as runbooks\. | 
 
-A Systems Manager Automation runbook defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation runs\. A runbook contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
+An Automation runbook defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation runs\. Automation is a capability of AWS Systems Manager\. A runbook contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
 
 The process of running these actions and their steps is called the *automation*\.
 
@@ -13,7 +13,7 @@ Action types supported for runbooks let you automate a wide variety of operation
 
 For a list of all 20 supported action types for Automation, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-AWS Systems Manager Automation provides several runbooks with pre\-defined steps that you can use to perform common tasks like restarting one or more EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own runbooks and share them with other Amazon Web Services accounts, or make them public for all Automation users\.
+AWS Systems Manager Automation provides several runbooks with pre\-defined steps that you can use to perform common tasks like restarting one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own runbooks and share them with other AWS accounts, or make them public for all Automation users\.
 
 Runbooks are written using JavaScript Object Notation \(JSON\) or YAML\. Using the **Document Builder** in the Systems Manager Automation console, however, you can create a runbook without having to author in native JSON or YAML\.
 
@@ -22,7 +22,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 For information about the actions that you can specify in a runbook, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-For information about the AWS managed runbooks that run scripts, see [Amazon managed runbooks that run scripts](runbook-scripts.md)\.
+For information about the AWS managed runbooks that run scripts, see [AWS managed runbooks that run scripts](runbook-scripts.md)\.
 
 For information about using the AWS Toolkit for Visual Studio Code to create runbooks, see [Working with Systems Manager Automation documents](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) in the *AWS Toolkit for Visual Studio Code User Guide*\.
 

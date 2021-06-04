@@ -1,4 +1,4 @@
-# aws:branch – Run conditional automation steps<a name="automation-action-branch"></a>
+# `aws:branch` – Run conditional automation steps<a name="automation-action-branch"></a>
 
 The `aws:branch` action enables you to create a dynamic automation that evaluates different choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation\. 
 

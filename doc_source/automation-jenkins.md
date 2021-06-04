@@ -1,14 +1,14 @@
 # Walkthrough: Using Automation with Jenkins<a name="automation-jenkins"></a>
 
-If your organization uses Jenkins software in a CI/CD pipeline, you can add Automation as a post\-build step to pre\-install application releases into Amazon Machine Images \(AMIs\)\. You can also use the Jenkins scheduling feature to call Automation and create your own operating system \(OS\) patching cadence\.
+If your organization uses Jenkins software in a CI/CD pipeline, you can add Automation as a post\-build step to pre\-install application releases into Amazon Machine Images \(AMIs\)\. Automation is a capability of AWS Systems Manager\. You can also use the Jenkins scheduling feature to call Automation and create your own operating system \(OS\) patching cadence\.
 
-The example below shows how to invoke Automation from a Jenkins server that is running either on\-premises or in Amazon EC2\. For authentication, the Jenkins server uses AWS credentials based on an AWS Identity and Access Management \(IAM\) user that you create in the example\. If your Jenkins server is running in Amazon EC2, you can also authenticate it using an IAM instance profile role\.
+The example below shows how to invoke Automation from a Jenkins server that is running either on\-premises or in Amazon Elastic Compute Cloud \(Amazon EC2\)\. For authentication, the Jenkins server uses AWS credentials based on an AWS Identity and Access Management \(IAM\) user that you create in the example\. If your Jenkins server is running in Amazon EC2, you can also authenticate it using an IAM instance profile role\.
 
 **Note**  
 Be sure to follow Jenkins security best\-practices when configuring your instance\.
 
 **Before you begin**  
-Complete the following tasks before you configure Automation with Jenkins\.
+Complete the following tasks before you configure Automation with Jenkins:
 + Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
 + After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The automation uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during the automation\.
@@ -57,7 +57,7 @@ Complete the following tasks before you configure Automation with Jenkins\.
 
 1. In the **Set permissions for** section, choose **Attach existing policies directly**\.
 
-1. In the filter field, type the name of the policy you created earlier\.
+1. In the filter field, enter the name of the policy you created earlier\.
 
 1. Select the check box next to the policy, and then choose **Next: Tags**\.
 
@@ -73,7 +73,7 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 1. Connect to your Jenkins server on port 8080 using your preferred browser to access the management interface\.
 
-1. Enter the password found in `/var/lib/jenkins/secrets/initialAdminPassword`\. To display your password, run the following command:
+1. Enter the password found in `/var/lib/jenkins/secrets/initialAdminPassword`\. To display your password, run the following command\.
 
    ```
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -109,13 +109,13 @@ Use the following procedure to configure your Jenkins project to invoke Automati
 
 1. Choose **Execute shell** or **Execute Windows batch command** \(depending on your operating system\)\.
 
-1. In the **Command** box, run an AWS CLI command like the following:
+1. In the **Command** box, run an AWS CLI command like the following\.
 
    ```
    aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your runbook name --parameters parameters for the runbook
    ```
 
-   The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md):
+   The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)\.
 
    ```
    aws --region region-id ssm start-automation-execution \

@@ -1,6 +1,6 @@
 # Working with Session Manager<a name="session-manager-working-with"></a>
 
-You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(Amazon EC2\) console, or the AWS Command Line Interface \(AWS CLI\) to start sessions that connect you to the EC2 instances your system administrator has granted you access to using AWS Identity and Access Management \(IAM\) policies\. Depending on your permissions, you can also view information about sessions, resume inactive sessions that have not timed out, and end sessions\.
+You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(Amazon EC2\) console, or the AWS Command Line Interface \(AWS CLI\) to start sessions that connect you to the Amazon EC2 instances your system administrator has granted you access to using AWS Identity and Access Management \(IAM\) policies\. Depending on your permissions, you can also view information about sessions, resume inactive sessions that have not timed out, and end sessions\.
 
 For more information about sessions, see [What is a session?](session-manager.md#what-is-a-session)
 

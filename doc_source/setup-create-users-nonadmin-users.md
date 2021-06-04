@@ -1,6 +1,6 @@
 # Task 2: Create users and assign permissions<a name="setup-create-users-nonadmin-users"></a>
 
-Create IAM users for the individuals who require access to AWS Systems Manager, and add each user to the appropriate user group to ensure that they have the right level of permissions\. 
+Create AWS Identity and Access Management \(IAM\) users for the individuals who require access to AWS Systems Manager, and add each user to the appropriate user group to ensure that they have the right level of permissions\. 
 
 **Note**  
 If your organization has an existing identity system, you might want to create a single sign\-on \(SSO\) option\. SSO gives users access to the AWS Management Console for your account without requiring them to have an IAM user identity\. SSO also eliminates the need for users to sign in to your organization's site and to AWS separately\. For more information, see [Enabling custom identity broker access to the AWS console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html)\.

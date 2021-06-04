@@ -1,25 +1,25 @@
 # Walkthrough: Reset passwords and SSH keys on EC2 instances<a name="automation-ec2reset"></a>
 
-You can use the **AWSSupport\-ResetAccess** runbook to automatically reenable local Administrator password generation on EC2 instances for Windows Server and to generate a new SSH key on EC2 instances for Linux\. The **AWSSupport\-ResetAccess** runbook is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to reset the local administrator password\.
+You can use the `AWSSupport-ResetAccess` runbook to automatically re\-enable local Administrator password generation on Amazon Elastic Compute Cloud Amazon EC2 instances for Windows Server and to generate a new SSH key on EC2 instances for Linux\. The `AWSSupport-ResetAccess` runbook is designed to perform a combination of AWS Systems Manager actions, AWS CloudFormation actions, and AWS Lambda functions that automate the steps normally required to reset the local administrator password\.
 
-You can use Automation with the **AWSSupport\-ResetAccess** runbook to solve the following problems:
+You can use Automation, a capability of AWS Systems Manager, with the `AWSSupport-ResetAccess` runbook to solve the following problems:
 
 **Windows**
 
 *You lost the EC2 key pair*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** runbook to create a password\-enabled AMI from your current instance, launch a new instance from the AMI, and select a key pair you own\.
 
-*You lost the local Administrator password*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** runbook to generate a new password that you can decrypt with the current EC2 key pair\.
+*You lost the local Administrator password*: To resolve this problem, you can use the `AWSSupport-ResetAccess` runbook to generate a new password that you can decrypt with the current EC2 key pair\.
 
 **Linux**
 
-*You lost your EC2 key pair, or you configured SSH access to the instance with a key you lost*: To resolve this problem, you can use the **AWSSupport\-ResetAccess** runbook to create a new SSH key for your current instance, which enables you to connect to the instance again\.
+*You lost your EC2 key pair, or you configured SSH access to the instance with a key you lost*: To resolve this problem, you can use the `AWSSupport-ResetAccess` runbook to create a new SSH key for your current instance, which enables you to connect to the instance again\.
 
 **Note**  
-If your EC2 instance for Windows Server is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+If your EC2 instance for Windows Server is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and AWS Systems Manager Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 ## How it works<a name="automation-ec2reset-how"></a>
 
-Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** runbook works as follows:
+Troubleshooting an instance with Automation and the `AWSSupport-ResetAccess` runbook works as follows:
 + You specify the ID of the instance and run the runbook\.
 + The system creates a temporary VPC, and then runs a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
@@ -36,12 +36,12 @@ Troubleshooting an instance with Automation and the **AWSSupport\-ResetAccess** 
 
 Before you run the following Automation, do the following:
 + Copy the instance ID of the instance on which you want to reset the Administrator password\. You will specify this ID in the procedure\.
-+ Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your Amazon Web Services account\. Verify that your Amazon Web Services account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information about Amazon VPC quotas, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-vpcs-subnets) in the *Amazon VPC User Guide*\.
++ Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information about Amazon VPC quotas, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-vpcs-subnets) in the *Amazon VPC User Guide*\.
 + Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
 ### Granting AWSSupport\-EC2Rescue permissions to perform actions on your instances<a name="automation-ec2reset-access"></a>
 
-EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your Amazon Web Services account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
+EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting permissions by using IAM policies](#automation-ec2reset-access-iam)
 + [Granting permissions by using an AWS CloudFormation template](#automation-ec2reset-access-cfn)
 
@@ -138,7 +138,7 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 1. Download [samples/AWSSupport-EC2RescueRole.zip](samples/AWSSupport-EC2RescueRole.zip) and extract the `AWSSupport-EC2RescueRole.json` file to a directory on your local machine\.
 
-1. If your Amazon Web Services account is in a special partition, edit the template to change the ARN values to those for your partition\.
+1. If your AWS account is in a special partition, edit the template to change the ARN values to those for your partition\.
 
    For example, for the China Regions, change all cases of `arn:aws` to `arn:aws-cn`\.
 
@@ -172,7 +172,7 @@ AWS CloudFormation automates the process of creating IAM roles and policies by u
 
 ## Running the Automation<a name="automation-ec2reset-executing"></a>
 
-The following procedure describes how to run the **AWSSupport\-ResetAccess** runbook by using the AWS Systems Manager console\.
+The following procedure describes how to run the `AWSSupport-ResetAccess` runbook by using the AWS Systems Manager console\.
 
 **Important**  
 The following automation stops the instance\. Stopping the instance can result in lost data on attached instance store volumes \(if present\)\. Stopping the instance can also cause the public IP to change, if no Elastic IP is associated\. To avoid these configuration changes, use Run Command to reset access\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.

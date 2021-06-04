@@ -1,8 +1,8 @@
-# aws:createStack – Create an AWS CloudFormation stack<a name="automation-action-createstack"></a>
+# `aws:createStack` – Create an AWS CloudFormation stack<a name="automation-action-createstack"></a>
 
-Creates a new AWS CloudFormation stack from a template\.
+Creates an AWS CloudFormation stack from a template\.
 
-For supplemental information about creating AWS CloudFormation stacks, see [CreateStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html) in the *AWS CloudFormation API Reference*\. 
+For supplemental information about creating CloudFormation stacks, see [CreateStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html) in the *AWS CloudFormation API Reference*\. 
 
 **Input**
 
@@ -59,17 +59,17 @@ inputs:
 ------
 
 Capabilities  
-A list of values that you specify before AWS CloudFormation can create certain stacks\. Some stack templates include resources that can affect permissions in your Amazon Web Services account\. For example, creating new AWS Identity and Access Management \(IAM\) users can affect permissions in your account\. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter\.   
+A list of values that you specify before CloudFormation can create certain stacks\. Some stack templates include resources that can affect permissions in your AWS account\. For example, creating new AWS Identity and Access Management \(IAM\) users can affect permissions in your account\. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter\.   
 Valid values include `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, and `CAPABILITY_AUTO_EXPAND`\.   
 **CAPABILITY\_IAM and CAPABILITY\_NAMED\_IAM**  
 If you have IAM resources, you can specify either capability\. If you have IAM resources with custom names, you must specify `CAPABILITY_NAMED_IAM`\. If you don't specify this parameter, this action returns an `InsufficientCapabilities` error\. The following resources require you to specify either `CAPABILITY_IAM` or `CAPABILITY_NAMED_IAM`\.
-+ [AWS::IAM::AccessKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
-+ [AWS::IAM::Group](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
-+ [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
-+ [AWS::IAM::Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
-+ [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
-+ [AWS::IAM::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
-+ [AWS::IAM::UserToGroupAddition](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html)
++ [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html)
 If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions, if necessary\.   
 For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities)\.   
 **CAPABILITY\_AUTO\_EXPAND**  
@@ -80,7 +80,7 @@ Valid Values: `CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_AUTO_EXPAND`
 Required: No
 
 ClientRequestToken  
-A unique identifier for this CreateStack request\. Specify this token if you set maxAttempts in this step to a value greater than 1\. By specifying this token, AWS CloudFormation knows that you're not attempting to create a new stack with the same name\.  
+A unique identifier for this CreateStack request\. Specify this token if you set maxAttempts in this step to a value greater than 1\. By specifying this token, CloudFormation knows that you're not attempting to create a new stack with the same name\.  
 Type: String  
 Required: No  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
@@ -94,7 +94,7 @@ Type: Boolean
 Required: No
 
 NotificationARNs  
-The Amazon SNS topic ARNs for publishing stack\-related events\. You can find SNS topic ARNs using the Amazon SNS console, [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.   
+The Amazon Simple Notification Service \(Amazon SNS\) topic ARNs for publishing stack\-related events\. You can find SNS topic ARNs using the Amazon SNS console, [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.   
 Type: array of Strings  
 Array Members: Maximum number of 5 items\.  
 Required: No
@@ -139,20 +139,20 @@ The template resource types that you have permissions to work with for this crea
   ```
   AWS::service_name::resource_logical_ID
   ```
-If the list of resource types doesn't include a resource that you're creating, the stack creation fails\. By default, AWS CloudFormation grants permissions to all resource types\. IAM uses this parameter for AWS CloudFormation\-specific condition keys in IAM policies\. For more information, see [Controlling Access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html)\.   
+If the list of resource types doesn't include a resource that you're creating, the stack creation fails\. By default, CloudFormation grants permissions to all resource types\. IAM uses this parameter for CloudFormation\-specific condition keys in IAM policies\. For more information, see [Controlling Access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html)\.   
 Type: array of Strings  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: No
 
 RoleARN  
-The Amazon Resource Name \(ARN\) of an IAM role that AWS CloudFormation assumes to create the stack\. AWS CloudFormation uses the role's credentials to make calls on your behalf\. AWS CloudFormation always uses this role for all future operations on the stack\. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it\. Ensure that the role grants the least amount of privileges\.   
-If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack\. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials\.   
+The Amazon Resource Name \(ARN\) of an IAM role that CloudFormation assumes to create the stack\. CloudFormation uses the role's credentials to make calls on your behalf\. CloudFormation always uses this role for all future operations on the stack\. As long as users have permission to operate on the stack, CloudFormation uses this role even if the users don't have permission to pass it\. Ensure that the role grants the least amount of privileges\.   
+If you don't specify a value, CloudFormation uses the role that was previously associated with the stack\. If no role is available, CloudFormation uses a temporary session that is generated from your user credentials\.   
 Type: String  
 Length Constraints: Minimum length of 20\. Maximum length of 2048\.  
 Required: No
 
 StackName  
-The name that is associated with the stack\. The name must be unique in the region in which you are creating the stack\.  
+The name that is associated with the stack\. The name must be unique in the Region in which you are creating the stack\.  
 A stack name can contain only alphanumeric characters \(case sensitive\) and hyphens\. It must start with an alphabetic character and cannot be longer than 128 characters\. 
 Type: String  
 Required: Yes
@@ -172,7 +172,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 1350\.
 Required: No
 
 Tags  
-Key\-value pairs to associate with this stack\. AWS CloudFormation also propagates these tags to the resources created in the stack\. You can specify a maximum number of 10 tags\.   
+Key\-value pairs to associate with this stack\. CloudFormation also propagates these tags to the resources created in the stack\. You can specify a maximum number of 10 tags\.   
 Type: array of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html) objects   
 Required: No
 

@@ -1,6 +1,6 @@
 # Create a custom IAM instance profile for Session Manager<a name="getting-started-create-iam-instance-profile"></a>
 
-You can create a custom AWS Identity and Access Management \(IAM\) instance profile that provides permissions for only Session Manager actions on your instances\. You can also create a policy to provide the permissions needed for logs of session activity to be sent to Amazon S3 and CloudWatch Logs\.
+You can create a custom AWS Identity and Access Management \(IAM\) instance profile that provides permissions for only Session Manager actions on your instances\. You can also create a policy to provide the permissions needed for logs of session activity to be sent to Amazon Simple Storage Service \(Amazon S3\) and Amazon CloudWatch Logs\.
 
 After you create an instance profile, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the instance profile to an instance, For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\.
 
@@ -164,7 +164,7 @@ For information about specifying preferences for storing session logs, see [Logg
    }
    ```
 **Important**  
-To output session logs to an S3 bucket owned by a different Amazon Web Services account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the S3 bucket cannot access the session output logs\.
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the Amazon S3 bucket cannot access the session output logs\.
 
 1. Choose **Review policy**\.
 

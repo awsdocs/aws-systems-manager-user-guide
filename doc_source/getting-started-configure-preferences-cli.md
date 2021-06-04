@@ -1,6 +1,6 @@
 # Update Session Manager preferences \(command line\)<a name="getting-started-configure-preferences-cli"></a>
 
-The following procedure describes how to use your preferred command line tool to make changes to the Session Manager preferences for your Amazon Web Services account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+The following procedure describes how to use your preferred command line tool to make changes to the AWS Systems Manager Session Manager preferences for your AWS account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
 
 **To update Session Manager preferences \(command line\)**
 
@@ -57,8 +57,8 @@ The following procedure describes how to use your preferred command line tool to
    ```
 **Note**  
 If you do not want to encrypt the session log data, change `true` to `false` for `s3EncryptionEnabled`\.  
-If you aren't sending logs to either an S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to enable Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the `inputs` section does not end with a comma\.  
-If you add a KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the KMS key with Session Manager through IAM policies\. For information, see the following topics:  
+If you aren't sending logs to either an Amazon S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to enable Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the `inputs` section does not end with a comma\.  
+If you add a KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the KMS key with Session Manager through AWS Identity and Access Management \(IAM\) policies\. For information, see the following topics:  
 Add AWS KMS permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
 Add AWS KMS permissions for instances in your account: [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
 

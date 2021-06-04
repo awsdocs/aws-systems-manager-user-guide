@@ -1,10 +1,10 @@
 # Running automations that use targets and rate controls<a name="automation-working-targets-and-rate-controls"></a>
 
-AWS Systems Manager enables you to run automations on a fleet of AWS resources by using targets\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the automation to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
+With AWS Systems Manager, you can run automations on a fleet of AWS resources by using targets\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the automation to other resources\. The concurrency and error threshold features are collectively called *rate controls*\. 
 
 For more information about concurrency and error thresholds, see [About concurrency and error thresholds](automation-working-rate-controls.md)\. For more information about targets, see [About targets](automation-working-targets.md)\.
 
-The following procedures describe how to run an automation with targets and rate controls by using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
+The following procedures describe how to run an automation with targets and rate controls by using the Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
 ## Running an automation with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
 
@@ -269,7 +269,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   *Targeting all instances in the current Amazon Web Services account and AWS Region*
+   *Targeting all instances in the current AWS account and AWS Region*
 
 ------
 #### [ Linux & macOS ]

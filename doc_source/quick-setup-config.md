@@ -1,6 +1,6 @@
 # AWS Config recording<a name="quick-setup-config"></a>
 
-With Quick Setup, you can quickly create a configuration recorder powered by AWS Config\. Use the configuration recorder to detect changes in your resource configurations and capture the changes as configuration items\. If you are unfamiliar with AWS Config, we recommend learning more about the service by reviewing the content in the AWS Config Developer Guide before creating a configuration with Quick Setup\. For more information about AWS Config, see [What is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
+With Quick Setup, a capability of AWS Systems Manager, you can quickly create a configuration recorder powered by AWS Config\. Use the configuration recorder to detect changes in your resource configurations and capture the changes as configuration items\. If you are unfamiliar with AWS Config, we recommend learning more about the service by reviewing the content in the *AWS Config Developer Guide* before creating a configuration with Quick Setup\. For more information about AWS Config, see [What is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*\.
 
 By default, the configuration recorder records all supported resources in the AWS Region where AWS Config is running\. You can customize the configuration so that only the resource types you specify are recorded\. For more information, see [Selecting which resources AWS Config records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\.
 
@@ -9,7 +9,7 @@ You are charged service usage fees when AWS Config starts recording configuratio
 **Note**  
 Deleting the Quick Setup **Config recording** configuration type does not stop the configuration recorder\. Changes continue to be recorded, and service usage fees apply until you stop the configuration recorder\. To learn more about managing the configuration recorder, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *AWS Config Developer Guide*\.
 
-To set up AWS Config recording, perform the following tasks in the AWS Systems Manager Quick Setup console\.
+To set up AWS Config recording, perform the following tasks in the AWS Systems Manager console\.
 
 **To set up AWS Config recording with Quick Setup**
 
@@ -31,7 +31,7 @@ To set up AWS Config recording, perform the following tasks in the AWS Systems M
 
 1. Create a new Amazon Simple Storage Service \(Amazon S3\) bucket, or choose an existing bucket you want to send configuration snapshots to\.
 
-1. Choose the notification option you prefer\. AWS Config uses Amazon Simple Notification Service \(Amazon SNS\) to notify you about important AWS Config events related to your resources\. If you choose the **Use existing SNS topics** option, you must provide the Amazon Web Services account ID and name of the existing Amazon SNS topic in that account you want to use\. If you target multiple AWS Regions, the topic names must be identical in each Region\.
+1. Choose the notification option you prefer\. AWS Config uses Amazon Simple Notification Service \(Amazon SNS\) to notify you about important AWS Config events related to your resources\. If you choose the **Use existing SNS topics** option, you must provide the AWS account ID and name of the existing Amazon SNS topic in that account you want to use\. If you target multiple AWS Regions, the topic names must be identical in each Region\.
 
 1. In the **Schedule** section, choose how frequently you want Quick Setup to remediate changes made to resources that differ from your configuration\. The **Default** option runs once\. If you don't want Quick Setup to remediate changes made to resources that differ from your configuration, choose **Disable remediation** under **Custom**\.
 

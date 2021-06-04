@@ -1,6 +1,6 @@
 # Troubleshooting Session Manager<a name="session-manager-troubleshooting"></a>
 
-Use the following information to help you troubleshoot problems with Session Manager\.
+Use the following information to help you troubleshoot problems with AWS Systems Manager Session Manager\.
 
 **Topics**
 + [No permission to start a session](#session-manager-troubleshooting-start-permissions)
@@ -27,11 +27,11 @@ Use the following information to help you troubleshoot problems with Session Man
 **Problem 1**: You want to start a session on the **Start a session** console page, but an instance is not in the list\.
 + **Solution A**: The instance you want to connect to might not have been configured to use with the AWS Systems Manager service\. To use an instance with Systems Manager, an IAM instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 **Note**  
-If SSM Agent is already running on an instance when you attach the IAM instance profile, you might need to restart the agent before the instance is listed on the **Start a session** console page\.
+If AWS Systems Manager SSM Agent is already running on an instance when you attach the IAM instance profile, you might need to restart the agent before the instance is listed on the **Start a session** console page\.
 + **Solution B**: The proxy configuration you applied to the SSM Agent on your instance might be incorrect\. If the proxy configuration is incorrect, the instance will not be able to reach the needed service endpoints, or the instance may report as a different operating system to Systems Manager\. For more information, see [Configure SSM Agent to use a proxy \(Linux\)](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.
 
 **Problem 2**: An instance you want to connect is in the list on the **Start a session** console page, but the page reports that "The instance you selected is not configured to use Session Manager\." 
-+ **Solution A**: The instance has been configured for use with the AWS Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
++ **Solution A**: The instance has been configured for use with the Systems Manager service, but the IAM instance profile attached to the instance might not include permissions for the Session Manager capability\. For information, see [Verify or Create an IAM Instance Profile with Session Manager Permissions](session-manager-getting-started-instance-profile.md)\.
 + **Solution B**: The instance is not running a version of SSM Agent that supports Session Manager\. Update SSM Agent on the instance to version 2\.3\.68\.0 or later\. 
 
   Update SSM Agent manually on an instance by following the steps in [Manually install SSM Agent on EC2 instances for Windows Server](sysman-install-win.md), [Manually install SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md), or [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md), depending on the operating system\. 
@@ -84,9 +84,9 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
   ```
   https://us-west-2.console.aws.amazon.com/systems-manager/session-manager/sessions?region=us-west-1
   ```
-+ **Solution C**: The instance is connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket, but an `s3` gateway endpoint does not exist in the VPC\. An `s3` endpoint in the format **com\.amazonaws\.*region*\.s3** is required if your instances are connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
-+ **Solution D**: The log group or S3 bucket you specified in your session preferences has been deleted\. To resolve this issue, update your session preferences with a valid log group or S3 bucket\.
-+ **Solution E**: The log group or S3 bucket you specified in your session preferences is not encrypted, but you have set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `true`\. To resolve this issue, update your session preferences with a log group or S3 bucket that is encrypted, or set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `false`\. This scenario is only applicable to customers who create session preferences using command line tools\.
++ **Solution C**: The instance is connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket, but an `s3` gateway endpoint does not exist in the VPC\. An `s3` endpoint in the format **`com.amazonaws.region.s3`** is required if your instances are connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
++ **Solution D**: The log group or Amazon S3 bucket you specified in your session preferences has been deleted\. To resolve this issue, update your session preferences with a valid log group or S3 bucket\.
++ **Solution E**: The log group or Amazon S3 bucket you specified in your session preferences is not encrypted, but you have set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `true`\. To resolve this issue, update your session preferences with a log group or Amazon S3 bucket that is encrypted, or set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `false`\. This scenario is only applicable to customers who create session preferences using command line tools\.
 
 ## Instance becomes unresponsive during long running sessions<a name="session-manager-troubleshooting-log-retention"></a>
 

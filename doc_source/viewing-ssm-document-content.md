@@ -1,6 +1,6 @@
 # Viewing SSM Command document content<a name="viewing-ssm-document-content"></a>
 
-To preview the required and optional parameters for an SSM Command document, as well as the actions the document runs, you can view the content of the document in the Systems Manager console\.
+To preview the required and optional parameters for an AWS Systems Manager \(SSM\) Command document, as well as the actions the document runs, you can view the content of the document in the Systems Manager console\.
 
 **To view SSM Command document content**
 

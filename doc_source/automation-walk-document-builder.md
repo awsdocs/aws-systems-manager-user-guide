@@ -1,19 +1,19 @@
 # Walkthrough: Using Document Builder to create a custom runbook<a name="automation-walk-document-builder"></a>
 
-The following walkthrough shows how to use Document Builder in the Systems Manager Automation console to create a custom runbook and then run the custom runbook\.
+The following walkthrough shows how to use Document Builder in the AWS Systems Manager Automation console to create a custom runbook and then run the custom runbook\. Automation is a capability of AWS Systems Manager\.
 
-The first step of the runbook you create runs a script to launch an Amazon Elastic Compute Cloud \(EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation\.
+The first step of the runbook you create runs a script to launch an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. The second step runs another script to monitor for the instance status check to change to `ok`\. Then, an overall status of `Success` is reported for the automation\.
 
 **Before you begin**  
 Before you begin this walkthrough, do the following: 
 + Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 
   For information, see [ Verifying user access for runbooks](automation-setup.md#automation-setup-user-access)\.
-+ Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your Amazon Web Services account\. The role is required because this walkthrough uses the **aws:executeScript** action\. 
++ Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your AWS account\. The role is required because this walkthrough uses the `aws:executeScript` action\. 
 
   For information about creating this role, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\. 
 
-  For information about the IAM service role requirement for running **aws:executeScript**, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
+  For information about the IAM service role requirement for running `aws:executeScript`, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 + Verify that you have permission to launch EC2 instances\. 
 
   For information, see [IAM and Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingIAM.html#intro-to-iam) in the *Amazon EC2 User Guide for Linux Instances*\.
@@ -24,7 +24,7 @@ Before you begin this walkthrough, do the following:
 
 ## Step 1: Create the custom runbook<a name="automation-walk-document-builder-create"></a>
 
-Use the following procedure to create a custom runbook that launches an EC2 instance and waits for the instance status check to change to `ok`\.
+Use the following procedure to create a custom runbook that launches an Amazon EC2 instance and waits for the instance status check to change to `ok`\.
 
 **Tip**  
 If you copy and paste values from this walkthrough into Document Builder, such as parameter names and handler names, make sure to delete any leading or trailing spaces added to the text value you enter\.
@@ -58,7 +58,7 @@ If you copy and paste values from this walkthrough into Document Builder, such a
    imageId  | String | (Optional) The AMI ID to use for launching the instance. The default value uses the latest Amazon Linux AMI ID available. | {{ ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2 }}
    ```
 
-1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your Amazon Web Services account ID for 111122223333\.
+1. For **Assume role**, enter the ARN of the IAM service role for Automation \(Assume role\) for the automation, in the format **arn:aws:iam::111122223333:role/AutomationServiceRole**\. Substitute your AWS account ID for 111122223333\.
 
    The role you specify is used to provide the permissions needed to start the automation\.
 **Important**  
@@ -78,7 +78,7 @@ For runbooks not owned by Amazon that use the `aws:executeScript` action, a role
       {{ ssm:/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2 }}
       ```
 **Note**  
-This value launches an EC2 instance using the latest Amazon Linux Amazon Machine Image \(AMI\) ID\. If you want to use a different AMI, replace the value with your AMI ID\.
+This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon Machine Image \(AMI\) ID\. If you want to use a different AMI, replace the value with your AMI ID\.
 
    1. For **Description**, enter the following\.
 

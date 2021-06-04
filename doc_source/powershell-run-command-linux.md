@@ -50,4 +50,4 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-To see examples that use the `aws:runPowerShellScript` plugin, see [aws:runPowerShellScript](ssm-plugins.md#aws-runPowerShellScript)\.
+To see examples that use the `aws:runPowerShellScript` plugin, see [`aws:runPowerShellScript`](ssm-plugins.md#aws-runPowerShellScript)\.

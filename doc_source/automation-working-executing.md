@@ -1,6 +1,6 @@
 # Running a simple automation<a name="automation-working-executing"></a>
 
-The following procedures describe how to run a simple Systems Manager automation using the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
+The following procedures describe how to run a simple AWS Systems Manager automation using the Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
 
 **Note**  
 For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
@@ -32,7 +32,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. Choose **Execute**\. 
 
-The console displays the status of the automation\. If the Automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
+The console displays the status of the automation\. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
 ## Running a simple automation \(command line\)<a name="automation-working-executing-commandline"></a>
 

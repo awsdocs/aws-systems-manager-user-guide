@@ -19,9 +19,9 @@ This AWS managed policy enables an instance to use Systems Manager service core 
 
 **Policy: A custom policy for S3 bucket access**  
 Required permissions in either of the following cases:  
-+ **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink\. 
++ **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
 
-  SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned S3 buckets\. These buckets are publicly accessible\. 
+  SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. These buckets are publicly accessible\. 
 
   In a private VPC endpoint environment, however, you must explicitly provide access to these buckets:
 
@@ -31,16 +31,16 @@ Required permissions in either of the following cases:
   ```
 
   For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
-+ **Case 2**: You plan to use an S3 bucket that you create as part of your Systems Manager operations\.
++ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
 
-  Your EC2 instance profile for Systems Manager must grant access to an S3 bucket that you own for tasks like the following: 
+  Your Amazon EC2 instance profile for Systems Manager must grant access to an Amazon S3 bucket that you own for tasks like the following: 
   + To access scripts you store in the S3 bucket to use in commands you run\.
   + To store the full output of Run Command commands or Session Manager sessions\.
   + To access custom patch lists for use when patching your instances\.
 Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to do so\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
 
 **Policy: AmazonSSMDirectoryServiceAccess**  
-Required only if you plan to join EC2 instance for Windows Server to a Microsoft AD directory\.  
+Required only if you plan to join Amazon EC2 instances for Windows Server to a Microsoft AD directory\.  
 This AWS managed policy allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\. For more information, see [Seamlessly Join a Windows EC2 Instance](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/launching_instance.html) in the *AWS Directory Service Administration Guide*\.
 
 **Policy: CloudWatchAgentServerPolicy**  
@@ -108,7 +108,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
 
    **4** The `GetEncryptionConfiguration` element is required if your S3 bucket is configured to use encryption\.
 
-   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, arn:aws:s3:::*DOC\-EXAMPLE\-BUCKET*\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
+   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, `arn:aws:s3:::DOC-EXAMPLE-BUCKET`\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
 
 1. If you are using a VPC endpoint in your operations, do the following: 
 
@@ -197,4 +197,4 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
 
-Continue to [Step 5: Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\.
+Continue to [Step 5: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.

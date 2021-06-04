@@ -1,17 +1,19 @@
 # Monitoring Systems Manager status changes using Amazon SNS notifications<a name="monitoring-sns-notifications"></a>
 
-You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands that you send using Run Command or Maintenance Windows, capabilities of AWS Systems Manager\. Amazon SNS coordinates and manages sending and delivering notifications to clients or endpoints that are subscribed to Amazon SNS topics\. You can receive a notification whenever a command changes to a new state or to a specific state, such as *Failed* or *Timed Out*\. In cases where you send a command to multiple instances, you can receive a notification for each copy of the command sent to a specific instance\. Each copy is called an *invocation*\.
+You can configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications about the status of commands that you send using Run Command or Maintenance Windows, which are capabilities of AWS Systems Manager\. Amazon SNS coordinates and manages sending and delivering notifications to clients or endpoints that are subscribed to Amazon SNS topics\. You can receive a notification whenever a command changes to a new state or to a specific state, such as *Failed* or *Timed Out*\. In cases where you send a command to multiple instances, you can receive a notification for each copy of the command sent to a specific instance\. Each copy is called an *invocation*\.
 
 Amazon SNS can deliver notifications as HTTP or HTTPS POST, email \(SMTP, either plaintext or in JSON format\), or as a message posted to an Amazon Simple Queue Service \(Amazon SQS\) queue\. For more information, see [What is Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/) in the *Amazon Simple Notification Service Developer Guide*\. For examples of the structure of the JSON data included in the Amazon SNS notification provided by Run Command and Maintenance Windows, see [Example Amazon SNS notifications for AWS Systems Manager](monitoring-sns-examples.md)\.
 
 ## Configure Amazon SNS notifications for AWS Systems Manager<a name="monitoring-sns-configure"></a>
 
-Run Command and Maintenance Windows tasks that are registered to a maintenance window can send Amazon SNS notifications for command tasks that enter the following statuses\. For information about the conditions that cause a command to enter one of these statuses, see [Understanding command statuses](monitor-commands.md)\.
+Run Command and Maintenance Windows tasks that are registered to a maintenance window can send Amazon SNS notifications for command tasks that enter the following statuses: 
 + In Progress
 + Success
 + Failed
 + Timed Out
 + Canceled
+
+For information about the conditions that cause a command to enter one of these statuses, see [Understanding command statuses](monitor-commands.md)\.
 
 **Note**  
 Commands sent using Run Command also report Canceling and Pending status\. These statuses aren't captured by Amazon SNS notifications\.
@@ -67,10 +69,10 @@ If you aren't configuring Amazon SNS notifications for your maintenance window, 
 
 ### Task 1: Create and subscribe to an Amazon SNS topic<a name="monitoring-configure-sns"></a>
 
-An Amazon SNS *topic* is a communication channel that Run Command and Run Command tasks that are registered to a maintenance window use to send notifications about the status of your commands\. Amazon SNS supports different communication protocols, including HTTP/S, email, and other AWS services like Amazon SQS\. To get started quickly, we recommend that you start with the email protocol\. For information about how to create a topic, see [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+An Amazon SNS *topic* is a communication channel that Run Command and Run Command tasks that are registered to a maintenance window use to send notifications about the status of your commands\. Amazon SNS supports different communication protocols, including HTTP/S, email, and other AWS services like Amazon Simple Queue Service \(Amazon SQS\)\. To get started, we recommend that you start with the email protocol\. For information about how to create a topic, see [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
-After you create the topic, copy or make a note of the **Topic ARN**\. You specify this ARN when you send a command that's configured to return status notifications\.
+After you create the topic, copy or make a note of the **Topic ARN**\. You specify this ARN when you send a command that is configured to return status notifications\.
 
 After you create the topic, subscribe to it by specifying an **Endpoint**\. If you chose the Email protocol, the endpoint is the email address where you want to receive notifications\. For more information about how to subscribe to a topic, see [Subscribing an endpoint to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
@@ -90,7 +92,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following:
+1. Replace the default content with the following\.
 
    ```
    {
@@ -137,19 +139,19 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
-1. On the **Review** page, type a name in the **Role name** box, such as **my\-sns\-role**\. 
+1. On the **Review** page, enter a name in the **Role name** box, such as **my\-sns\-role**\. 
 
 1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Triggers SNS topics on your behalf\.**
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
-1. Copy or make a note of the **Role ARN**\. This Role Amazon Resource Name \(ARN\) is used when you send a command that's configured to return Amazon SNS notifications\.
+1. Copy or make a note of the **Role ARN**\. This Role Amazon Resource Name \(ARN\) is used when you send a command that is configured to return Amazon SNS notifications\.
 
 1. Keep the **Summary** page open\.
 
 ### Task 4: Configure user access<a name="monitoring-sns-passpolicy"></a>
 
-If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Run Command and Maintenance Windows\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
+If your IAM user account, group, or role is assigned administrator permissions, then you have access to Run Command and Maintenance Windows, capabilities of AWS Systems Manager\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
 
 Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 
@@ -167,7 +169,7 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. Choose **Select actions**\.
 
-1. In the **Filter actions** text box, type **PassRole**, and then choose the **PassRole** option\.
+1. In the **Filter actions** text box, enter **PassRole**, and then choose the **PassRole** option\.
 
 1. Choose **Resources**\. Verify that **Specific** is selected, and then choose **Add ARN**\.
 
@@ -177,13 +179,13 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, type a name and then choose **Create Policy**\.
+1. On the **Review Policy** page, enter a name and then choose **Create Policy**\.
 
 ### Task 5: Attach the iam:PassRole policy to your maintenance window role<a name="monitoring-sns-passpolicy-mw"></a>
 
-When you register a Run Command task with a maintenance window, you specify a service role Amazon Resource Name \(ARN\)\. This service role is used by Systems Manager to run tasks registered to the maintenance window\. To configure Amazon SNS notifications for a registered Run Command task, attach an `iam:PassRole` policy to the maintenance window service role specified\. If you don't intend to configure the registered task for Amazon SNS notifications, then this task can be skipped\.
+When you register a Run Command task with a maintenance window, you specify a service role Amazon Resource Name \(ARN\)\. This service role is used by Systems Manager to run tasks registered to the maintenance window\. To configure Amazon SNS notifications for a registered Run Command task, attach an `iam:PassRole` policy to the maintenance window service role specified\. If you don't intend to configure the registered task for Amazon SNS notifications, then you can skip this task\.
 
-The `iam:PassRole` policy allows the Maintenance Windows service role to pass the Amazon SNS IAM role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the` iam:PassRole` policy to the Maintenance Windows service role\.
+The `iam:PassRole` policy allows the Maintenance Windows service role to pass the Amazon SNS IAM role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the `iam:PassRole` policy to the Maintenance Windows service role\.
 
 **Note**  
 You must use a custom service role for your maintenance window to send notifications related to the Run Command tasks registered\. For information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.  
@@ -196,7 +198,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Roles** and select the Amazon SNS IAM role role created in Task 3\.
+1. In the navigation pane, choose **Roles** and select the Amazon SNS IAM role created in Task 3\.
 
 1. Copy or make a note of the **Role ARN** and return to the **Roles** section of the IAM console\.
 

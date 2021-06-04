@@ -1,6 +1,6 @@
 # Install or update packages<a name="distributor-working-with-packages-deploy"></a>
 
-You can use the AWS Management Console or the AWS CLI to deploy packages to your AWS Systems Manager managed instances by using AWS Systems Manager Distributor\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager to install packages\. Using State Manager helps ensure that your instances are always running the most up\-to\-date version of your package\.
+You can deploy packages to your AWS Systems Manager managed instances by using Distributor, a capability of AWS Systems Manager\. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface \(AWS CLI\)\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager, a capability of AWS Systems Manager, to install packages\. Using State Manager helps ensure that your instances are always running the most up\-to\-date version of your package\.
 
 
 | Preference | AWS Systems Manager action | More information | 
@@ -19,7 +19,7 @@ You can use the AWS Management Console or the AWS CLI to deploy packages to your
 
 ## Installing or updating a package one time \(console\)<a name="distributor-deploy-pkg-console"></a>
 
-You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to perform the installation\.
+You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to perform the installation\.
 
 **To install or update a package one time \(console\)**
 
@@ -31,7 +31,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. Choose **Install one time**\.
 
-   This command opens Systems Manager Run Command with the command document `AWS-ConfigureAWSPackage` and your Distributor package already selected\.
+   This command opens Run Command with the command document `AWS-ConfigureAWSPackage` and your Distributor package already selected\.
 
 1. For **Document version**, select the version of the `AWS-ConfigureAWSPackage` document that you want to run\.
 
@@ -39,7 +39,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. For **Installation type**, choose one of the following: 
    + **Uninstall and reinstall**: The package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS\-published packages except the `AWSEC2Launch-Agent` package\.
+   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS published packages except the `AWSEC2Launch-Agent` package\.
 
 1. For **Name**, verify that the name of the package you selected is entered\.
 
@@ -75,7 +75,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    The command output page shows the results of your command execution\. 
 
-1. \(Optional\) If you chose to write command output to an S3 bucket, choose **Amazon S3** to view the output log data\.
+1. \(Optional\) If you chose to write command output to an Amazon S3 bucket, choose **Amazon S3** to view the output log data\.
 
 ## Scheduling a package installation or update \(console\)<a name="distributor-deploy-sm-pkg-console"></a>
 
@@ -91,7 +91,7 @@ You can use the AWS Systems Manager console to schedule the installation or upda
 
 1. For **Package**, choose **Install on a schedule**\.
 
-   This command opens Systems Manager State Manager to a new association that is created for you\.
+   This command opens State Manager to a new association that is created for you\.
 
 1. For **Name**, enter a name \(for example, **Deploy\-test\-agent\-package**\)\. This is optional, but recommended\. Spaces aren't allowed in the name\.
 

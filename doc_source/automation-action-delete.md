@@ -1,6 +1,6 @@
-# aws:deleteImage – Delete an Amazon Machine Image<a name="automation-action-delete"></a>
+# `aws:deleteImage` – Delete an Amazon Machine Image<a name="automation-action-delete"></a>
 
-Deletes the specified image and all related snapshots\.
+Deletes the specified Amazon Machine Image \(AMI\) and all related snapshots\.
 
 **Input**  
 This action supports only one parameter\. For more information, see the documentation for [DeregisterImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html) and [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html)\.

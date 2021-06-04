@@ -1,9 +1,9 @@
 # Deploy VPC architecture and Microsoft Active Directory domain controllers<a name="automation-document-sample-mad"></a>
 
-To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\.
+To increase efficiency and standardize common tasks, you might choose to automate deployments\. This is useful if you regularly deploy the same architecture across multiple accounts and AWS Regions\. Automating architecture deployments can also reduce the potential for human error that can occur when deploying architecture manually\. AWS Systems Manager Automation actions can help you accomplish this\. Automation is a capability of AWS Systems Manager\.
 
-The following sample AWS Systems Manager runbook performs these actions\.
-+ Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers\.
+The following sample AWS Systems Manager runbook performs these actions:
++ Retrieves the latest Windows Server 2012R2 Amazon Machine Image \(AMI\) using Systems Manager Parameter Store to use when launching the EC2 instances that will be configured as domain controllers\. Parameter Store is a capability of AWS Systems Manager\.
 + Uses the `aws:executeAwsApi` automation action to call several AWS API actions to create the VPC architecture\. The domain controller instances are launched in private subnets, and connect to the internet using a NAT gateway\. This enables the SSM Agent on the instances to access the requisite Systems Manager endpoints\.
 + Uses the `aws:waitForAwsResourceProperty` automation action to confirm the instances launched by the previous action are `Online` for AWS Systems Manager\.
 + Uses the `aws:runCommand` automation action to configure the instances launched as Microsoft Active Directory domain controllers\.

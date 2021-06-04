@@ -1,14 +1,14 @@
 # Running Systems Manager Command documents from remote locations<a name="run-remote-documents"></a>
 
-You can run Systems Manager documents \(SSM documents\) from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports running SSM documents stored in the following locations:
+You can run AWS Systems Manager \(SSM\) documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document currently supports running SSM documents stored in the following locations:
 + GitHub repositories \(public and private\)
 + Amazon S3 buckets
 + Systems Manager
 
-While you can also run remote documents by using State Manager or Automation, the following procedure describes only how to run remote SSM documents by using Run Command in the AWS Systems Manager console\. 
+While you can also run remote documents by using State Manager or Automation, capabilities of AWS Systems Manager, the following procedure describes only how to run remote SSM documents by using AWS Systems Manager Run Command in the Systems Manager console\. 
 
 **Note**  
-`AWS-RunDocument` can be used to run only command\-type SSM documents, not other types such as Automation runbooks\. The `AWS-RunDocument` uses the `aws:downloadContent` plugin\. For more information about the `aws:downloadContent` plugin, see [aws:downloadContent](ssm-plugins.md#aws-downloadContent)\.
+`AWS-RunDocument` can be used to run only command\-type SSM documents, not other types such as Automation runbooks\. The `AWS-RunDocument` uses the `aws:downloadContent` plugin\. For more information about the `aws:downloadContent` plugin, see [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent)\.
 
 **Before you begin**  
 Before you run a remote document, you must complete the following tasks\.

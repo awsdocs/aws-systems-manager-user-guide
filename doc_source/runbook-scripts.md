@@ -1,6 +1,6 @@
-# Amazon managed runbooks that run scripts<a name="runbook-scripts"></a>
+# AWS managed runbooks that run scripts<a name="runbook-scripts"></a>
 
-AWS Systems Manager Automation runbooks support running scripts as part of the automation\. 
+Automation runbooks support running scripts as part of the automation\. Automation is a capability of AWS Systems Manager\.
 
 The following are AWS managed runbooks that include support for running scripts\.
 

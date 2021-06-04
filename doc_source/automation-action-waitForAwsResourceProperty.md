@@ -1,4 +1,4 @@
-# aws:waitForAwsResourceProperty – Wait on an AWS resource property<a name="automation-action-waitForAwsResourceProperty"></a>
+# `aws:waitForAwsResourceProperty` – Wait on an AWS resource property<a name="automation-action-waitForAwsResourceProperty"></a>
 
 The `aws:waitForAwsResourceProperty` action enables your automation to wait for a specific resource state or event state before continuing the automation\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
@@ -40,12 +40,12 @@ inputs:
 ------
 
 Service  
-The AWS service namespace that contains the API action that you want to run\. For example, the namespace for Systems Manager is `ssm`\. The namespace for Amazon EC2 is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
+The AWS service namespace that contains the API action that you want to run\. For example, the namespace for AWS Systems Manager is `ssm`\. The namespace for Amazon Elastic Compute Cloud \(Amazon EC2\) is `ec2`\. You can view a list of supported AWS service namespaces in the [Available Services](https://docs.aws.amazon.com/cli/latest/reference/#available-services) section of the *AWS CLI Command Reference*\.  
 Type: String  
 Required: Yes
 
 Api  
-The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon RDS are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
+The name of the API action that you want to run\. You can view the API actions \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API actions \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.  
 Type: String  
 Required: Yes
 

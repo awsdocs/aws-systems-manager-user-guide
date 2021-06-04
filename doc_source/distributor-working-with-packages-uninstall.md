@@ -1,6 +1,6 @@
 # Uninstall a package<a name="distributor-working-with-packages-uninstall"></a>
 
-You can use the AWS Management Console or the AWS CLI to uninstall Distributor packages from your AWS Systems Manager managed instances by using Run Command\. In this release, you can uninstall one version of one package per command\. You can uninstall a specific version or the default version\.
+You can use the AWS Management Console or the AWS Command Line Interface \(AWS CLI\) to uninstall Distributor packages from your AWS Systems Manager managed instances by using Run Command\. Distributor and Run Command are capabilities of AWS Systems Manager\. In this release, you can uninstall one version of one package per command\. You can uninstall a specific version or the default version\.
 
 **Topics**
 + [Uninstalling a package \(console\)](#distributor-pkg-uninstall-console)
@@ -8,7 +8,7 @@ You can use the AWS Management Console or the AWS CLI to uninstall Distributor p
 
 ## Uninstalling a package \(console\)<a name="distributor-pkg-uninstall-console"></a>
 
-You can use Run Command in the AWS Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to uninstall packages\.
+You can use Run Command in the Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to uninstall packages\.
 
 **To uninstall a package \(console\)**
 
@@ -26,7 +26,7 @@ You can use Run Command in the AWS Systems Manager console to uninstall a packag
 
 1. In **Targets**, choose target managed instances by specifying a tag key and values that are shared by the managed instances, or specify instances by any of seven attributes, including instance ID, platform, and SSM Agent version\.
 
-1. You can use the advanced options to add comments about the operation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure Amazon SNS notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
+1. You can use the advanced options to add comments about the operation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure Amazon Simple Notification Service \(Amazon SNS\) notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
 
 1. When you are ready to uninstall the package, choose **Run**, and then choose **View results**\.
 

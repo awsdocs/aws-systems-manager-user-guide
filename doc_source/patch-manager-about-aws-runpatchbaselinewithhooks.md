@@ -10,7 +10,7 @@ AWS Systems Manager supports `AWS-RunPatchBaselineWithHooks`, a Systems Manager 
 
 When the document is run, it uses the patch baseline currently specified as the "default" for an operating system type if no patch group is specified\. Otherwise, it uses the patch baselines that is associated with the patch group\. For information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\. 
 
-You can use the document `AWS-RunPatchBaselineWithHooks` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for Microsoft applications\.\)
+You can use the document `AWS-RunPatchBaselineWithHooks` to apply patches for both operating systems and applications\. \(On Windows, application support is limited to updates for applications released by Microsoft\.\)
 
 This document supports Linux, macOS, and Windows Server instances\. The document will perform the appropriate actions for each platform\.
 

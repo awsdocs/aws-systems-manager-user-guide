@@ -3,13 +3,13 @@
 Review the following guidelines before you share or use a shared document\. 
 
 **Remove sensitive information**  
-Review your SSM document carefully and remove any sensitive information\. For example, verify that the document does not include your AWS credentials\. If you share a document with specific individuals, those users can view the information in the document\. If you share a document publicly, anyone can view the information in the document\.
+Review your AWS Systems Manager \(SSM\) document carefully and remove any sensitive information\. For example, verify that the document does not include your AWS credentials\. If you share a document with specific individuals, those users can view the information in the document\. If you share a document publicly, anyone can view the information in the document\.
 
 **Block public sharing for documents**  
 Unless your use case requires public sharing to be enabled, we recommend turning on the block public sharing setting for your Systems Manager documents in the **Preferences** section of the Systems Manager Documents console\.
 
 **Restrict Run Command actions using an IAM user trust policy**  
-Create a restrictive AWS Identity and Access Management \(IAM\) user policy for users who will have access to the document\. The IAM policy determines which SSM documents a user can see in either the Amazon EC2 console or by calling `ListDocuments` using the AWS CLI or AWS Tools for Windows PowerShell\. The policy also restricts the actions the user can perform with SSM documents\. You can create a restrictive policy so that a user can only use specific documents\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md) and [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
+Create a restrictive AWS Identity and Access Management \(IAM\) user policy for users who will have access to the document\. The IAM policy determines which SSM documents a user can see in either the Amazon Elastic Compute Cloud \(Amazon EC2\) console or by calling `ListDocuments` using the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell\. The policy also restricts the actions the user can perform with SSM documents\. You can create a restrictive policy so that a user can only use specific documents\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md) and [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 
 **Use caution when using shared SSM documents**  
 Review the contents of every document that is shared with you, especially public documents, to understand the commands that will be run on your instances\. A document could intentionally or unintentionally have negative repercussions after it is run\. If the document references an external network, review the external source before you use the document\. 

@@ -32,14 +32,14 @@ For information about which versions of each operating system Patch Manager supp
 |  `AWS-UbuntuDefaultPatchBaseline`  |  Ubuntu Server  |  Immediately approves all operating system security\-related patches that have a priority of "Required", "Important", "Standard," "Optional," or "Extra\." There is no wait before approval because reliable release dates are not available in the repos\.  | 
 | AWS\-DefaultPatchBaseline |  Windows Server  |  Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
 | AWS\-WindowsPredefinedPatchBaseline\-OS |  Windows Server  |  Approves all Windows Server operating system patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. Patches are auto\-approved seven days after release\.  | 
-| AWS\-WindowsPredefinedPatchBaseline\-OS\-Applications | Windows Server | For the Windows Server operating system, approves all patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. For Microsoft applications, approves all patches\. Patches for both OS and applications are auto\-approved seven days after release\. | 
+| AWS\-WindowsPredefinedPatchBaseline\-OS\-Applications | Windows Server | For the Windows Server operating system, approves all patches that are classified as "CriticalUpdates" or "SecurityUpdates" and that have an MSRC severity of "Critical" or "Important"\. For applications released by Microsoft, approves all patches\. Patches for both OS and applications are auto\-approved seven days after release\. | 
 
 ## About custom baselines<a name="patch-manager-baselines-custom"></a>
 
 If you create your own patch baseline, you can choose which patches to auto\-approve by using the following categories\.
 + Operating system: Windows, Amazon Linux, Ubuntu Server, and so on\.
 + Product name \(for operating systems\): For example, RHEL 6\.5, Amazon Linux 2014\.09, Windows Server 2012, Windows Server 2012 R2, and so on\.
-+ Product name \(for Microsoft applications on Windows Server only\): For example, Word 2016, BizTalk Server, and so on\.
++ Product name \(for applications released by Microsoft on Windows Server only\): For example, Word 2016, BizTalk Server, and so on\.
 + Classification: For example, critical updates, security updates, and so on\.
 + Severity: For example, critical, important, and so on\.
 
@@ -62,7 +62,7 @@ By using multiple patch baselines with different auto\-approval delays or cutoff
 Keep the following in mind when you create a patch baseline:
 + Patch Manager provides one predefined patch baseline for each supported operating system\. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type\. 
 **Note**  
-For Windows Server, three predefined patch baselines are provided\. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself\. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The configuration settings in these two patch baselines are the same\. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server\. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported Microsoft applications\.
+For Windows Server, three predefined patch baselines are provided\. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself\. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The configuration settings in these two patch baselines are the same\. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server\. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported applications released by Microsoft\.
 + For on\-premises servers and virtual machines \(VMs\), Patch Manager attempts to use your custom default patch baseline\. If no custom default patch baseline exists, the system uses the predefined patch baseline for the corresponding operating system\.
 + If a patch is listed as both approved and rejected in the same patch baseline, the patch is rejected\.
 + An instance can have only one patch baseline defined for it\.
