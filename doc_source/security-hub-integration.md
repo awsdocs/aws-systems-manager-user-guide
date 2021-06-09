@@ -8,7 +8,7 @@ By using the integration between Patch Manager, a capability of AWS Systems Mana
 + [How Patch Manager sends findings to Security Hub](#securityhub-integration-sending-findings)
   + [Types of findings that Patch Manager sends](#securityhub-integration-finding-types)
   + [Latency for sending findings](#securityhub-integration-finding-latency)
-  + [Retrying when Security Hub is not available](#securityhub-integration-retry-send)
+  + [Retrying when Security Hub isn't available](#securityhub-integration-retry-send)
   + [Updating existing findings in Security Hub](#securityhub-integration-finding-updates)
 + [Typical finding from Patch Manager](#securityhub-integration-finding-example)
 + [Enabling and configuring the integration](#securityhub-integration-enable)
@@ -33,17 +33,17 @@ Patch Manager sends the findings to Security Hub using the [AWS Security Finding
 
 ### Latency for sending findings<a name="securityhub-integration-finding-latency"></a>
 
-When Patch Manager creates a new finding, it is usually sent to Security Hub within a few seconds to 2 hours\. The speed depends on the traffic in the AWS Region being processed at that time\.
+When Patch Manager creates a new finding, it's usually sent to Security Hub within a few seconds to 2 hours\. The speed depends on the traffic in the AWS Region being processed at that time\.
 
-### Retrying when Security Hub is not available<a name="securityhub-integration-retry-send"></a>
+### Retrying when Security Hub isn't available<a name="securityhub-integration-retry-send"></a>
 
 If there is a service outage, an AWS Lambda function is run to put the messages back into the main queue after the service is running again\. After the messages are in the main queue, the retry is automatic\.
 
-If Security Hub is not available, Patch Manager retries sending the findings until they are received\.
+If Security Hub isn't available, Patch Manager retries sending the findings until they are received\.
 
 ### Updating existing findings in Security Hub<a name="securityhub-integration-finding-updates"></a>
 
-Patch Manager does not update a finding after it sends the finding to Security Hub\.
+Patch Manager doesn't update a finding after it sends the finding to Security Hub\.
 
 Any additional patching operations on `AwsEc2Instance` resource types before the instance has been brought to compliance standards result in new findings being sent to Security Hub\.
 
@@ -128,7 +128,7 @@ The following procedure describes how to integrate Patch Manager and Security Hu
 
 1. Choose the **Settings** tab\.
 
-1. Under the **Export to Security Hub** section, to the right of **Patch compliance findings are not being exported to Security Hub**, choose **Enable**\.
+1. Under the **Export to Security Hub** section, to the right of **Patch compliance findings aren't being exported to Security Hub**, choose **Enable**\.
 
 ## How to stop sending findings<a name="securityhub-integration-disable"></a>
 

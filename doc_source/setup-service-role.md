@@ -6,7 +6,7 @@ This topic explains the difference between a *service role* and a *service\-link
 
 **Service\-linked role**: A service\-linked role is predefined by Systems Manager and includes all the permissions that the service requires to call other AWS services on your behalf\.
 
-Currently, the Systems Manager service\-linked role can be used for the following:
+The Systems Manager service\-linked role can be used for the following:
 + The Systems Manager Inventory capability uses the service\-linked role to collect inventory metadata from tags and resource groups\.
 + The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described below\.
 

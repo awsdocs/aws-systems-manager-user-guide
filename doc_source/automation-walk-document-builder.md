@@ -41,7 +41,7 @@ If you copy and paste values from this walkthrough into Document Builder, such a
 
 1. Choose **Create automation**\.
 
-1. For **Name**, type this descriptive name for the runbook: **LaunchInstanceAndCheckStatus**\.
+1. For **Name**, enter this descriptive name for the runbook: **LaunchInstanceAndCheckStatus**\.
 
 1. \(Optional\) For **Document description**, replace the default text with a description for this runbook, using Markdown\. The following is an example\.
 
@@ -142,7 +142,7 @@ This value launches an Amazon EC2 instance using the latest Amazon Linux Amazon 
 
    1. For **Handler**, enter **launch\_instance**\. This is the function name declared in the following script\.
 **Note**  
-This is not required for PowerShell\.
+This isn't required for PowerShell\.
 
    1. For **Script**, replace the default contents with the following\. Be sure to match the script with the corresponding runtime value\.
 
@@ -238,7 +238,7 @@ This is not required for PowerShell\.
 
    1. For **Handler**, enter **poll\_instance**\. This is the function name declared in the following script\.
 **Note**  
-This is not required for PowerShell\.
+This isn't required for PowerShell\.
 
    1. For **Script**, replace the default contents with the following\. Be sure to match the script with the corresponding runtime value\.
 

@@ -5,7 +5,7 @@ To set up servers and virtual machines \(VMs\) in your hybrid environment as man
 For information about configuring on\-premises servers and VMs as managed instances, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
-macOS is not currently supported for Systems Manager hybrid environments\.
+macOS isn't supported for Systems Manager hybrid environments\.
 
 **About Systems Manager instances tiers**
 
@@ -13,5 +13,5 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 
 **Note**  
 Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
-The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
+The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
 To patch applications released by Microsoft on virtual machines \(VMs\) on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.

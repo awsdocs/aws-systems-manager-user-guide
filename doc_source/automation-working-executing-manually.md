@@ -34,7 +34,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. Choose **Execute**\. 
 
-1. Choose **Execute this step** when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 3 of this procedure\. If the runbook has multiple steps, you must select **Execute this step** for each step for the automation to proceed\. Each time you choose **Execute this step** the action runs\.
+1. Choose **Execute this step** when you're ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 3 of this procedure\. If the runbook has multiple steps, you must select **Execute this step** for each step for the automation to proceed\. Each time you choose **Execute this step** the action runs\.
 **Note**  
 The console displays the status of the automation\. If the automation fails to run a step, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
@@ -46,7 +46,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To run an automation step by step**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -147,7 +147,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command when you are ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
+1. Run the following command when you're ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
 
 ------
 #### [ Linux & macOS ]

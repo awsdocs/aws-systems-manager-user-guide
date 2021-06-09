@@ -1,8 +1,10 @@
 # Reference: Cron and rate expressions for Systems Manager<a name="reference-cron-and-rate-expressions"></a>
 
-When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
+When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. State Manager is a capability of AWS Systems Manager\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
 
-When you create an association or a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
+When you create an association or a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and
+
+ time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
 
 ```
 cron(30 23 ? * TUE#3 *)
@@ -178,7 +180,7 @@ This section includes examples of cron and rate expressions for State Manager as
 + If you specify the optional `Seconds` field, its value can be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`
 
 **Note**  
-For an association that collects metadata for Systems Manager Inventory, we recommend using a rate expression\.
+For an association that collects metadata for Inventory, a capability of AWS Systems Manager, we recommend using a rate expression\.
 
 The following table presents cron examples for associations using the required six fields\.
 
@@ -214,13 +216,13 @@ This section includes examples of cron and rate expressions for maintenance wind
 
 Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Note: Zero \(0\) isn't supported in the seconds field\.\)
 
-For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day:
+For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day\.
 
 ```
 cron(30 09 ? * * *)
 ```
 
-By adding a value to the `Seconds` field, the following 7\-field cron expression runs a maintenance window at 9:30:24 AM every day:
+By adding a value to the `Seconds` field, the following 7\-field cron expression runs a maintenance window at 9:30:24 AM every day\.
 
 ```
 cron(24 30 09 ? * * *)

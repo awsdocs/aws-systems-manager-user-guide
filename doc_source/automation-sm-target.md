@@ -15,7 +15,7 @@ Use the following procedures to create a State Manager association that runs an 
 Be aware of the following important details before you run an automation by using State Manager:
 + Before you can create an association that uses a runbook, verify that you configured permissions for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\.
 + State Manager associations that use runbooks contribute to the maximum number of concurrently running automations in your AWS account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
-+ Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API actions\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
++ Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API operations\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 
 ------
 #### [ Linux & macOS ]
@@ -78,7 +78,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Input parameters** section, specify the required input parameters\.
 
-   If you chose to target resources by using tags or a resource group, then you may not need to choose some of the options in the **Input parameters** section\. For example, if you chose the `AWS-RestartEC2Instance` runbook, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
+   If you chose to target resources by using tags or a resource group, then you might not need to choose some of the options in the **Input parameters** section\. For example, if you chose the `AWS-RestartEC2Instance` runbook, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
 **Important**  
 You must specify a role ARN in the **AutomationAssumeRole** field\. State Manager uses the assume role to call AWS services specified in the runbook and run Automation associations on your behalf\. For more information, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\. 
 
@@ -102,7 +102,7 @@ Rate expressions are the preferred scheduling mechanism for State Manager associ
 
 1. Choose **Create Association**\. 
 **Important**  
-When you create an association, the association immediately runs against the specified targets\. The association then runs based on the cron or rate expression you chose\. If you chose **No schedule**, the association does not run again\.
+When you create an association, the association immediately runs against the specified targets\. The association then runs based on the cron or rate expression you chose\. If you chose **No schedule**, the association doesn't run again\.
 
 ## Creating an association that runs an automation \(command line\)<a name="automation-sm-target-commandline"></a>
 
@@ -110,7 +110,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To create an association that runs an automation**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -481,6 +481,6 @@ If you use tags to create an association on one or more target instances, and th
 
 ## Troubleshooting State Manager automations<a name="systems-manager-state-manager-automation-documents-troubleshooting"></a>
 
-Systems Manager Automation enforces a limit of 100 concurrent automations, and 1,000 queued automations per account, per Region\. If a State Manager association that uses a runbook shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your automation may have reached the limit\. As a result, Systems Manager throttles the automations\. To resolve this issue, do the following:
+Systems Manager Automation enforces a limit of 100 concurrent automations, and 1,000 queued automations per account, per Region\. If a State Manager association that uses a runbook shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your automation migth have reached the limit\. As a result, Systems Manager throttles the automations\. To resolve this issue, do the following:
 + Use a different rate or cron expression for your association\. For example, if the association is scheduled to run every 30 minutes, then change the expression so that it runs every hour or two\.
 + Delete existing automations that have a status of **Pending**\. By deleting these automations, you clear the current queue\.

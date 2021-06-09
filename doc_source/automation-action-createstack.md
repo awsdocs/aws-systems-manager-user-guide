@@ -152,8 +152,8 @@ Length Constraints: Minimum length of 20\. Maximum length of 2048\.
 Required: No
 
 StackName  
-The name that is associated with the stack\. The name must be unique in the Region in which you are creating the stack\.  
-A stack name can contain only alphanumeric characters \(case sensitive\) and hyphens\. It must start with an alphabetic character and cannot be longer than 128 characters\. 
+The name that is associated with the stack\. The name must be unique in the Region in which you're creating the stack\.  
+A stack name can contain only alphanumeric characters \(case sensitive\) and hyphens\. It must start with an alphabetic character and can't be longer than 128 characters\. 
 Type: String  
 Required: Yes
 
@@ -191,7 +191,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 1024\.
 Required: No
 
 TimeoutInMinutes  
-The amount of time that can pass before the stack status becomes `CREATE_FAILED`\. If `DisableRollback` is not set or is set to `false`, the stack will be rolled back\.   
+The amount of time that can pass before the stack status becomes `CREATE_FAILED`\. If `DisableRollback` isn't set or is set to `false`, the stack will be rolled back\.   
 Type: Integer  
 Valid Range: Minimum value of 1\.  
 Required: No

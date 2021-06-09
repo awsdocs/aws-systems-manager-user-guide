@@ -5,12 +5,12 @@
 | --- |
 | Automation documents are now referred to as runbooks\. | 
 
-This reference describes the Automation actions that you can specify in an Automation runbook\. Automation is a capability of AWS Systems Manager\. These actions cannot be used in other types of Systems Manager \(SSM\) documents\. For information about plugins for other types of SSM documents, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
+This reference describes the Automation actions that you can specify in an Automation runbook\. Automation is a capability of AWS Systems Manager\. These actions can't be used in other types of Systems Manager \(SSM\) documents\. For information about plugins for other types of SSM documents, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
 
 Systems Manager Automation runs steps defined in Automation runbooks\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your runbook\.
 
 **Note**  
-Currently, only the following plugins are supported on EC2 instances for macOS:  
+The following plugins are supported on EC2 instances for macOS:  
 `aws:configurePackage`
 `aws:refreshAssociation`
 `aws:runShellScript`
@@ -34,7 +34,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 + [`aws:deleteImage` – Delete an Amazon Machine Image](automation-action-delete.md)
 + [`aws:deleteStack` – Delete an AWS CloudFormation stack](automation-action-deletestack.md)
 + [`aws:executeAutomation` – Run another automation](automation-action-executeAutomation.md)
-+ [`aws:executeAwsApi` – Call and run AWS API actions](automation-action-executeAwsApi.md)
++ [`aws:executeAwsApi` – Call and run AWS API operations](automation-action-executeAwsApi.md)
 + [`aws:executeScript` – Run a script](automation-action-executeScript.md)
 + [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)
 + [`aws:invokeLambdaFunction` – Invoke an AWS Lambda function](automation-action-lamb.md)
@@ -60,12 +60,12 @@ Type: String
 Required: Yes
 
 [maxAttempts](#maxProp)  
-The number of times the step should be retried in case of failure\. If the value is greater than 1, the step is not considered to have failed until all retry attempts have failed\. The default value is 1\.  
+The number of times the step should be retried in case of failure\. If the value is greater than 1, the step isn't considered to have failed until all retry attempts have failed\. The default value is 1\.  
 Type: Integer  
 Required: No
 
 [timeoutSeconds](#timeProp)  
-The timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step is not considered to have timed out until all retries have been attempted\.  
+The timeout value for the step\. If the timeout is reached and the value of `maxAttempts` is greater than 1, then the step isn't considered to have timed out until all retries have been attempted\.  
 Type: Integer  
 Required: No
 
@@ -80,7 +80,7 @@ Indicates which step the automation should go to in the event that a user cancel
 Type: String  
 Valid values: Abort \| step:*step\_name*  
 Required: No  
-The `onCancel` property does not support moving to the following actions:  
+The `onCancel` property doesn't support moving to the following actions:  
 + `aws:approve`
 + `aws:copyImage`
 + `aws:createImage`

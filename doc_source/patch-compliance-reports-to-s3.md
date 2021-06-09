@@ -127,7 +127,7 @@ Use the following procedure to generate a patch summary report for a single inst
 
 1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
 **Important**  
-If you are working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
+If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
@@ -139,7 +139,7 @@ For information about viewing details of reporting schedules you have created, s
 
 ## Generating patch compliance reports for all instances<a name="patch-compliance-reports-to-s3-all-instances"></a>
 
-Use the following procedure to generate a patch summary report for all instances in your AWS account\. The report for all instances indicates which instances are out of compliance and the numbers of out\-of\-compliance patches\. It does not provide the names or other identifiers of the patches\. For these additional details, you can generate a patch compliance report for a single instance\. For information, see [Generating patch compliance reports for a single instance](#patch-compliance-reports-to-s3-one-instance) earlier in this topic\. 
+Use the following procedure to generate a patch summary report for all instances in your AWS account\. The report for all instances indicates which instances are out of compliance and the numbers of out\-of\-compliance patches\. It doesn't provide the names or other identifiers of the patches\. For these additional details, you can generate a patch compliance report for a single instance\. For information, see [Generating patch compliance reports for a single instance](#patch-compliance-reports-to-s3-one-instance) earlier in this topic\. 
 
 **To generate patch compliance reports for all instances**
 
@@ -153,7 +153,7 @@ Use the following procedure to generate a patch summary report for all instances
 
 1. Choose the **Reporting** tab\.
 
-1. Choose **Export to S3**\. Do not select an instance ID\.
+1. Choose **Export to S3**\. Don't select an instance ID\.
 
 1. For **Report name**, enter a name to help you identify the report later\.
 
@@ -167,7 +167,7 @@ Use the following procedure to generate a patch summary report for all instances
 
 1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
 **Important**  
-If you are working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
+If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when report the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
@@ -219,7 +219,7 @@ Use the following information to help you troubleshoot problems with generating 
 
 **Topics**
 + [A message reports that the `AWS-SystemsManager-PatchSummaryExportRolePolicy` policy is corrupted](#patch-compliance-reports-troubleshooting-1)
-+ [After deleting patch compliance policies or roles, scheduled reports are not generated successfully](#patch-compliance-reports-troubleshooting-2)
++ [After deleting patch compliance policies or roles, scheduled reports aren't generated successfully](#patch-compliance-reports-troubleshooting-2)
 
 ### A message reports that the `AWS-SystemsManager-PatchSummaryExportRolePolicy` policy is corrupted<a name="patch-compliance-reports-troubleshooting-1"></a>
 
@@ -243,7 +243,7 @@ you have deleted.
 
   1. Follow the steps to generate or schedule a new patch compliance report\.
 
-### After deleting patch compliance policies or roles, scheduled reports are not generated successfully<a name="patch-compliance-reports-troubleshooting-2"></a>
+### After deleting patch compliance policies or roles, scheduled reports aren't generated successfully<a name="patch-compliance-reports-troubleshooting-2"></a>
 
 **Problem**: The first time you generate a report, Systems Manager creates a service role and a policy to use for the export process \(`AWS-SystemsManager-PatchSummaryExportRole` and `AWS-SystemsManager-PatchSummaryExportRolePolicy`\)\. The first time you generate a report on a schedule, Systems Manager creates another service role and a policy \(`AWS-EventBridge-Start-SSMAutomationRole` and `AWS-EventBridge-Start-SSMAutomationRolePolicy`\)\. These let Amazon EventBridge start an automation using the runbook [AWS\-ExportPatchReportToS3 ](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportpatchreporttos3)\.
 

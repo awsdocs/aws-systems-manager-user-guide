@@ -52,7 +52,7 @@ Use the following procedure to patch your instances on demand\.
 
 1. Use this step only if you chose **Scan and install** in the previous step\. For **Reboot option**, choose one of the following:
    + **Reboot if needed**: After installation, Patch Manager reboots instances only if needed to complete a patch installation\.
-   + **Do not reboot my instances**: After installation, Patch Manager does not reboot instances\. You can reboot instances manually when you choose or manage reboots outside of Patch Manager\.
+   + **Don't reboot my instances**: After installation, Patch Manager doesn't reboot instances\. You can reboot instances manually when you choose or manage reboots outside of Patch Manager\.
    + **Schedule a reboot time**: Specify the date, time, and UTC time zone for Patch Manager to reboot your instances\. If you want to run a Systems Manager Command document \(SSM document\) after the reboot, select it from **Post\-reboot lifecycle hook**\.
 
 1. For **Instances to patch**, choose one of the following:
@@ -61,7 +61,7 @@ Use the following procedure to patch your instances on demand\.
 
 1. Use this step only if you chose **Patch only the target instances I specify** in the previous step\. In the **Target selection** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.  
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.  
 If you choose to target a resource group, note that resource groups that are based on an AWS CloudFormation stack must still be tagged with the default `aws:cloudformation:stack-id` tag\. If it has been removed, Patch Manager might be unable to determine which instances belong to the resource group\.
 
 1. \(Optional\) For **Patching log storage**, if you want to create and save logs from this patching operation, select the S3 bucket for storing the logs\.

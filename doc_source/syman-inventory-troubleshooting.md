@@ -13,7 +13,7 @@ This topic includes information about how to troubleshoot common errors or probl
 
 ## Multiple apply all associations with document '`AWS-GatherSoftwareInventory`' are not supported<a name="systems-manager-inventory-troubleshooting-multiple"></a>
 
-An error that `Multiple apply all associations with document 'AWS-GatherSoftwareInventory' are not supported` means that one or more AWS Regions where you are trying to configure an Inventory association *for all instances* are already configured with an inventory association for all instances\. If necessary, you can delete the existing inventory association for all instance and then create a new one\. To view existing inventory associations, choose **State Manager** in the Systems Manager console and then locate associations that use the `AWS-GatherSoftwareInventory` SSM document\. If the existing inventory association for all instances was created across multiple Regions, and you want to create a new one, you must delete the existing association from each Region where it currently exists\.
+An error that `Multiple apply all associations with document 'AWS-GatherSoftwareInventory' aren't supported` means that one or more AWS Regions where you're trying to configure an Inventory association *for all instances* are already configured with an inventory association for all instances\. If necessary, you can delete the existing inventory association for all instance and then create a new one\. To view existing inventory associations, choose **State Manager** in the Systems Manager console and then locate associations that use the `AWS-GatherSoftwareInventory` SSM document\. If the existing inventory association for all instances was created across multiple Regions, and you want to create a new one, you must delete the existing association from each Region where it exists\.
 
 ## Inventory execution status never exits pending<a name="sysman-inventory-troubleshooting-pending"></a>
 
@@ -59,13 +59,13 @@ The `AWS-ListWindowsInventory` document is deprecated\. Don't use this document 
 
 ## Console doesn't display Inventory Dashboard \| Detailed View \| Settings tabs<a name="sysman-inventory-troubleshooting-tabs"></a>
 
-The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.
+The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs aren't displayed on the Inventory page, it means Athena isn't available in the Region and you can't use the **Detailed View** to query data\.
 
 ![\[Displaying Inventory Dashboard | Detailed View | Settings tabs\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
 
 ## UnsupportedAgent<a name="sysman-inventory-troubleshooting-unsupported-agent"></a>
 
-If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of AWS Systems Manager SSM Agent on the instance is not correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of AWS Systems Manager SSM Agent on the instance isn't correct\. To create a global inventory association \(to inventory all instances in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your instances on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your instances, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 
 ## Skipped<a name="sysman-inventory-troubleshooting-skipped"></a>
 

@@ -2,7 +2,7 @@
 
 To use Patch Manager, a capability of AWS Systems Manager, complete the following tasks\. These tasks are described in more detail in this section\.
 
-1. Verify that the AWS predefined patch baseline for each operating system type that you use meets your needs\. If it does not, create a patch baseline that defines a standard set of patches for that instance type and set it as the default instead\.
+1. Verify that the AWS predefined patch baseline for each operating system type that you use meets your needs\. If it doesn't, create a patch baseline that defines a standard set of patches for that instance type and set it as the default instead\.
 
 1. Organize instances into patch groups by using Amazon EC2 tags \(optional, but recommended\)\.
 

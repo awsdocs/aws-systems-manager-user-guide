@@ -1,6 +1,6 @@
 # Enable run as support for Linux and macOS instances<a name="session-preferences-run-as"></a>
 
-By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux and macOS machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system \(OS\) account\. OS level and directory policies, like log in restrictions, might not apply to the OS account since sessions are authenticated by AWS Identity and Access Management \(IAM\) and run within the context of the OS account that you specify\. AWS Systems Manager Session Manager verifies the OS account that you specify exists before starting a session\. If you specify an OS account that does not exist, the session fails to start\. Session Manager provides two methods for specifying the operating system account to use\.
+By default, sessions are launched using the credentials of a system\-generated `ssm-user` account that is created on a managed instance\. \(On Linux and macOS machines, this account is added to `/etc/sudoers/`\.\) You can instead launch sessions using the credentials of an operating system \(OS\) account\. OS level and directory policies, like log in restrictions, might not apply to the OS account since sessions are authenticated by AWS Identity and Access Management \(IAM\) and run within the context of the OS account that you specify\. AWS Systems Manager Session Manager verifies the OS account that you specify exists before starting a session\. If you specify an OS account that doesn't exist, the session fails to start\. Session Manager provides two methods for specifying the operating system account to use\.
 
 **Method 1: Tag an IAM user or role \(recommended\)**  
 You can specify the operating system user account that is used to start sessions by tagging an IAM user or associated role with the AWS\-provided key name `SSMSessionRunAs`, and specifying the OS user name as its value\. For example, if the OS user account name is `DevRoleLogin`, the corresponding tag to use is `SSMSessionRunAs = DevRoleLogin`\.
@@ -21,15 +21,15 @@ If you enable Run As support for sessions, the system checks for access permissi
 
 1. For the user who is starting the session, has their IAM user account or role been tagged with `SSMSessionRunAs = os-user-account-name`?
 
-   If Yes, does the user name exist on the instance? If it does, start the session\. If it does not, do not allow a session to start\.
+   If Yes, does the user name exist on the instance? If it does, start the session\. If it doesn't, don't allow a session to start\.
 
    If the IAM user's account or role has *not* been tagged with `SSMSessionRunAs = os-user-account-name`, continue to step 2\.
 
 1. If the IAM user's account or role hasn't been tagged with `SSMSessionRunAs = os-user-account-name`, has an OS user name been specified in the AWS account's Session Manager preferences?
 
-   If Yes, does the user name exist on the instance? If it does, start the session\. If it does not, do not allow a session to start\. 
+   If Yes, does the user name exist on the instance? If it does, start the session\. If it doesn't, don't allow a session to start\. 
 
-   At this point, Session Manager does not fall back on the default `ssm-user` account\. In other words, enabling Run As support prevents sessions from being started using an `ssm-user` account on an instance\.
+   At this point, Session Manager doesn't fall back on the default `ssm-user` account\. In other words, enabling Run As support prevents sessions from being started using an `ssm-user` account on an instance\.
 
 **To enable Run As support for Linux and macOS instances**
 

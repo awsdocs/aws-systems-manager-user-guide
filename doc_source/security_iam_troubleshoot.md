@@ -13,10 +13,10 @@ Use the following information to help you diagnose and fix common issues that yo
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\.
 
-The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a document but does not have `ssm:GetDocument` permissions\.
+The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a document but doesn't have `ssm:GetDocument` permissions\.
 
 ```
-User: arn:aws:ssm::123456789012:user/mateojackson is not authorized to perform: ssm:GetDocument on resource: MyExampleDocument
+User: arn:aws:ssm::123456789012:user/mateojackson isn't authorized to perform: ssm:GetDocument on resource: MyExampleDocument
 ```
 
 In this case, Mateo asks his administrator to update his policies to allow him to access the `MyExampleDocument` resource using the `ssm:GetDocument` action\.

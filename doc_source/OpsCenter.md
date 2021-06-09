@@ -6,7 +6,7 @@ OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch\. This mea
 
 To help you diagnose issues, each OpsItem includes contextually relevant information such as the name and ID of the AWS resource that generated the OpsItem, alarm or event details, alarm history, and an alarm timeline graph\.
 
-Operations engineers and IT professionals can create, view, and edit OpsItems by using the OpsCenter page in the AWS Systems Manager console, public API actions, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. OpsCenter public API actions also enable you to integrate OpsCenter with your case management systems and health dashboards\. 
+Operations engineers and IT professionals can create, view, and edit OpsItems by using the OpsCenter page in the AWS Systems Manager console, public API operations, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. OpsCenter public API operations also enable you to integrate OpsCenter with your case management systems and health dashboards\. 
 
 ## OpsCenter integration<a name="OpsCenter-integration"></a>
 
@@ -46,10 +46,10 @@ More specifically, OpsCenter offers the following benefits for operations engine
   Each OpsItem includes multiple fields of information, including a title, ID, priority, description, the source of the OpsItem, and the date/time it was last updated\. Each OpsItem also includes the following configurable features:
   + **Status**: Open, In progress, Resolved, or Open and In progress\.
   + **Related resources**: A related resource is the impacted resource or the resource that triggered the EventBridge event that created the OpsItem\. Each OpsItem includes a **Related resources** section where OpsCenter automatically lists the Amazon Resource Name \(ARN\) of the related resource\. You can also manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource without having to visit other console pages to view that information\. For example, if you specify the ARN of an EC2 instance, you can view all of the EC2\-provided details about that instance in OpsCenter\. You can manually add the ARNs of additional related resources\. Each OpsItem can list a maximum of 100 related resource ARNs\. For more information, see [Working with related resources](OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources)\.
-  + **Related and Similar OpsItems**: The **Related OpsItems** feature lets you specify the IDs of OpsItems that are in some way related to the current OpsItem\. The **Similar OpsItem** feature automatically reviews OpsItem titles and descriptions and then lists other OpsItems that may be related or of interest to you\.
+  + **Related and Similar OpsItems**: The **Related OpsItems** feature lets you specify the IDs of OpsItems that are in some way related to the current OpsItem\. The **Similar OpsItem** feature automatically reviews OpsItem titles and descriptions and then lists other OpsItems that might be related or of interest to you\.
   + **Searchable and private operational data**: Operational data is custom data that provides useful reference details about the OpsItem\. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data\. You enter operational data as key\-value pairs\. The key has a maximum length of 128 characters\. The value has a maximum size of 20 KB\.
 
-    This custom data is searchable, but with restrictions\. For the **Searchable operational data** feature, all users with access to the OpsItem Overview page \(as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API action\) can view and search on the specified data\. For the **Private operational data** feature, the data is only viewable by users who have access to the OpsItem \(as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API action\)\.
+    This custom data is searchable, but with restrictions\. For the **Searchable operational data** feature, all users with access to the OpsItem Overview page \(as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API operation\) can view and search on the specified data\. For the **Private operational data** feature, the data is only viewable by users who have access to the OpsItem \(as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API action\)\.
   + **Deduplication**: By specifying related resources, OpsCenter uses built\-in logic to help you avoid creating duplicate OpsItems\. Additionally, OpsItems that are automatically created from an event in EventBridge include a deduplication string to reduce the number of duplicate OpsItems\. For more information, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
 + **Easy remediation using runbooks**
 
@@ -82,9 +82,9 @@ OpsCenter helps you investigate and remediate the problem\. OpsCenter brings tog
 
 ## Does OpsCenter integrate with my existing case management system?<a name="OpsCenter-learn-more-case-management"></a>
 
-OpsCenter is designed to complement your existing case management systems\. You can integrate OpsItems into your existing case management system by using public API actions\. You can also maintain manual lifecycle workflows in your current systems and use OpsCenter as an investigation and remediation hub\. 
+OpsCenter is designed to complement your existing case management systems\. You can integrate OpsItems into your existing case management system by using public API operations\. You can also maintain manual lifecycle workflows in your current systems and use OpsCenter as an investigation and remediation hub\. 
 
-For information about OpsCenter public API actions, see the following API actions in the *AWS Systems Manager API Reference*\.
+For information about OpsCenter public API operations, see the following API operations in the *AWS Systems Manager API Reference*\.
 + [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html)
 + [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html)
 + [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html)
@@ -93,7 +93,7 @@ For information about OpsCenter public API actions, see the following API action
 
 ## Is there a charge to use OpsCenter?<a name="OpsCenter-learn-more-cost"></a>
 
-Yes\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Yes\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 ## Does OpsCenter work with my on\-premises and hybrid managed instances?<a name="OpsCenter-learn-more-hybrid"></a>
 

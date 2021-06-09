@@ -14,7 +14,7 @@ You can also set an existing patch baseline as the default for an operating syst
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. In the patch baselines list, choose the button of a patch baseline that is not currently set as the default for an operating system type\.
+1. In the patch baselines list, choose the button of a patch baseline that isn't currently set as the default for an operating system type\.
 **Tip**  
 The **Default baseline ** column indicates which baselines are currently set as the defaults\.
 

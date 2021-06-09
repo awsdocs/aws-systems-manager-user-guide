@@ -2,7 +2,7 @@
 
 This tutorial demonstrates how to use the AWS Command Line Interface \(AWS CLI\) to view details about your completed maintenance window tasks\. 
 
-If you are continuing directly from [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your maintenance window to run at least once in order to see its execution results\.
+If you're continuing directly from [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md), make sure you have allowed enough time for your maintenance window to run at least once in order to see its execution results\.
 
 As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 

@@ -5,13 +5,13 @@ The following procedure describes how to patch a server environment by using a c
 **Before you begin**
 + Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 + Configure roles and permissions for Maintenance Windows, a capability of AWS Systems Manager\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
-+ Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
++ Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 **To configure Patch Manager and patch instances \(command line\)**
 
-1. Run the following command to create a patch baseline for Windows named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they are released\. That is, we have tagged the patch baseline to indicate that it is for a production environment\.
+1. Run the following command to create a patch baseline for Windows named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they're released\. That is, we have tagged the patch baseline to indicate that it's for a production environment\.
 **Note**  
 The `OperatingSystem` parameter and `PatchFilters` vary depending on the operating system of the target instances the patch baseline applies to\. For more information, see [OperatingSystem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-OperatingSystem) and [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html)\.
 
@@ -109,7 +109,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    }
    ```
 
-1. Run the following commands to create two maintenance windows for the production servers\. The first window runs every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the maintenance window is tagged to indicate that it is for a production environment\.
+1. Run the following commands to create two maintenance windows for the production servers\. The first window runs every Tuesday at 10 PM\. The second window runs every Saturday at 10 PM\. In addition, the maintenance window is tagged to indicate that it's for a production environment\.
 
 ------
 #### [ Linux & macOS ]
@@ -337,7 +337,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 
 1. Run the following command to get the high\-level patch compliance summary for a patch group\. The high\-level patch compliance summary includes the number of instances with patches in the respective patch states\.
 **Note**  
-It is expected to see zeroes for the number of instances in the summary until the patch task runs during the first maintenance window\.
+It's expected to see zeroes for the number of instances in the summary until the patch task runs during the first maintenance window\.
 
 ------
 #### [ Linux & macOS ]

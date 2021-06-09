@@ -1,6 +1,6 @@
 # Step 3: Control user access to packages<a name="distributor-getting-started-restrict-access"></a>
 
-Using AWS Identity and Access Management \(IAM\) policies, you can control who can create, deploy, and manage packages\. You also control which Run Command and State Manager API actions they can perform on managed instances\. Like Distributor, both Run Command and State Manager, are capabilities of AWS Systems Manager\.
+Using AWS Identity and Access Management \(IAM\) policies, you can control who can create, deploy, and manage packages\. You also control which Run Command and State Manager API operations they can perform on managed instances\. Like Distributor, both Run Command and State Manager, are capabilities of AWS Systems Manager\.
 
 **ARN Format**  
 User\-defined packages are associated with document Amazon Resource Names \(ARNs\) and have the following format\.

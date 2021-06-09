@@ -5,14 +5,14 @@ The following procedures describe how to use the AWS Systems Manager console to 
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)](#sysman-maintenance-role)
 + [Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(console\)](#sysman-maintenance-passrole)
-+ [Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(console\)](#mw-deny-task-registrations)
++ [Task 3: Configure permissions for users who aren't allowed to register maintenance window tasks \(console\)](#mw-deny-task-registrations)
 
 ## Task 1: \(Optional\) Create a custom service role for maintenance windows \(console\)<a name="sysman-maintenance-role"></a>
 
 Use the following procedure to create a custom service role for Maintenance Windows, a capability of Systems Manager, so that Systems Manager can run tasks on your behalf\.
 
 **Important**  
-A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
+A custom service role isn't required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you don't have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
 [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)
 [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)
@@ -108,7 +108,7 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. Choose **Users**, and then choose the name of the user account you want to update\.
 
-1. On the **Permissions** tabs, in the policies list, verify that the `AmazonSSMFullAccess` policy is listed, or that there is a comparable policy that gives the IAM user permission to call the Systems Manager API\. Add the permission if it is not included already\. For information, see [Adding and Removing IAM Policies \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-remove-policies-console) in the *IAM User Guide*\.
+1. On the **Permissions** tabs, in the policies list, verify that the `AmazonSSMFullAccess` policy is listed, or that there is a comparable policy that gives the IAM user permission to call the Systems Manager API\. Add the permission if it's not included already\. For information, see [Adding and Removing IAM Policies \(Console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-remove-policies-console) in the *IAM User Guide*\.
 
 1. Choose **Add inline policy**, and then choose the **JSON** tab\.
 
@@ -192,11 +192,11 @@ Depending on whether you are assigning the `iam:Passrole` permission to an indiv
 
 1. Choose **Apply Policy**\.
 
-## Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(console\)<a name="mw-deny-task-registrations"></a>
+## Task 3: Configure permissions for users who aren't allowed to register maintenance window tasks \(console\)<a name="mw-deny-task-registrations"></a>
 
-Depending on whether you are denying the `ssm:RegisterTaskWithMaintenanceWindow` permission for an individual user or a group, use one of the following procedures to prevent users from registering tasks with a maintenance window\.
+Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` permission for an individual user or a group, use one of the following procedures to prevent users from registering tasks with a maintenance window\.
 
-**To configure permissions for users who are not allowed to register maintenance window tasks \(console\)**
+**To configure permissions for users who aren't allowed to register maintenance window tasks \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -223,7 +223,7 @@ Depending on whether you are denying the `ssm:RegisterTaskWithMaintenanceWindow`
 
 1. On the **Review policy** page, enter a name in the **Name** box to identify this policy, such as **my\-deny\-mw\-tasks\-policy**, and then choose **Create policy**\.
 
-**To configure permissions for groups that are not allowed to register maintenance window tasks \(console\)**
+**To configure permissions for groups that aren't allowed to register maintenance window tasks \(console\)**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

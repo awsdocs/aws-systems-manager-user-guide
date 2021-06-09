@@ -1,6 +1,6 @@
 # Step 3: Control user session access to instances<a name="session-manager-getting-started-restrict-access"></a>
 
-AWS Systems Manager Session Manager allows you to centrally grant and revoke user access to instances\. Using AWS Identity and Access Management \(IAM\) policies, you control which instances specific users or groups can connect to, and you control what Session Manager API actions they can perform on the instances they are given access to\. 
+AWS Systems Manager Session Manager allows you to centrally grant and revoke user access to instances\. Using AWS Identity and Access Management \(IAM\) policies, you control which instances specific users or groups can connect to, and you control what Session Manager API operations they can perform on the instances they're given access to\. 
 
 **About Session ID ARN Formats**  
 IAM policies for Session Manager access use variables for user names as part of session IDs\. Session IDs in turn are used in session Amazon Resource Names \(ARNs\) to control access\. Session ARNs have the following format:

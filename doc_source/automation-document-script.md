@@ -6,11 +6,11 @@ Automation runbooks support running scripts as part of the automation\. Automati
 
 To use a runbook, Systems Manager must use the permissions of an AWS Identity and Access Management \(IAM\) role\. The method that Automation uses to determine which role's permissions to use depends on a few factors, and whether a step uses the `aws:executeScript` action\. 
 
-For runbooks that do not use `aws:executeScript`, Automation uses one of two sources of permissions:
+For runbooks that don't use `aws:executeScript`, Automation uses one of two sources of permissions:
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.
 + If no IAM service role is specified, the permissions of the IAM user who started the automation\. 
 
-When a step in a runbook includes the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API actions\. Automation checks for this role in the following order:
+When a step in a runbook includes the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API operations\. Automation checks for this role in the following order:
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.
 + If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
 
@@ -22,7 +22,7 @@ You can add scripts to your runbooks by including the script inline as part of a
 
 ## Script constraints for runbooks<a name="script-constraints"></a>
 
-The automation action `aws:executeScript` currently supports running Python 3\.6, Python 3\.7, and PowerShell Core 6\.0 scripts\.
+The automation action `aws:executeScript` supports running Python 3\.6, Python 3\.7, and PowerShell Core 6\.0 scripts\.
 
 Runbooks enforce a limit of five file attachments\. Scripts can either be in the form of a Python script \(\.py\), a PowerShell Core script \(\.ps1\), or attached as contents within a \.zip file\.
 

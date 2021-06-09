@@ -14,12 +14,12 @@ To ensure the latest version of the Python `requests` module is installed, follo
      ```
      requests (1.2.3)
      ```
-   + If the module is not installed, run the following command to install it\.
+   + If the module isn't installed, run the following command to install it\.
 
      ```
      pip install requests
      ```
-   + If pip itself is not installed, run the following command to install it\.
+   + If pip itself isn't installed, run the following command to install it\.
 
      ```
      sudo yum install -y python-pip

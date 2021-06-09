@@ -56,8 +56,8 @@ For information about accepted formats for lists of approved patches and rejecte
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
    + For **Rejected patches action**, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
-     + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it is a dependency of another package\. It is considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
-     + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, are not installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it is considered noncompliant with the patch baseline and its status is reported as *InstalledRejected*\.
+     + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it's a dependency of another package\. It's considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
+     + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, aren't installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it's considered noncompliant with the patch baseline and its status is reported as *InstalledRejected*\.
 
 1. \(Optional\) For **Manage tags**, apply one or more tag key name/value pairs to the patch baseline\.
 

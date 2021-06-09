@@ -1,6 +1,6 @@
 # Monitoring AWS Systems Manager<a name="monitoring"></a>
 
-Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Systems Manager and your AWS solutions\. You should collect monitoring data from all parts of your AWS solution so that you can more easily debug a multipoint failure if one occurs\. But before you start monitoring Systems Manager, create a monitoring plan that includes answers to the following questions: 
+Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Systems Manager and your AWS solutions\. You should collect monitoring data from all parts of your AWS solution so that you can debug a multipoint failure if one occurs\. But before you start monitoring Systems Manager, create a monitoring plan that includes answers to the following questions: 
 + What are your monitoring goals?
 + What resources will you monitor?
 + How often will you monitor these resources?

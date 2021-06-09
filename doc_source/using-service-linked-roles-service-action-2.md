@@ -2,7 +2,7 @@
 
 AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [ service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
-A service\-linked role makes setting up Systems Manager easier because you don’t have to manually add the necessary permissions\. Systems Manager defines the permissions of its service\-linked roles, and unless defined otherwise, only Systems Manager can assume its roles\. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity\.
+A service\-linked role makes setting up Systems Manager easier because you don’t have to manually add the necessary permissions\. Systems Manager defines the permissions of its service\-linked roles, and unless defined otherwise, only Systems Manager can assume its roles\. The defined permissions include the trust policy and the permissions policy, and that permissions policy can't be attached to any other IAM entity\.
 
 You can delete a service\-linked role only after first deleting their related resources\. This protects your Systems Manager resources because you can't inadvertently remove permission to access the resources\.
 
@@ -29,15 +29,15 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 
 ## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-2"></a>
 
-You must create a service\-linked role\. If you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API action\.
+You must create a service\-linked role\. If you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API operation\.
 
 ## Editing a service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-2"></a>
 
-Systems Manager does not allow you to edit the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role\. After you create a service\-linked role, you cannot change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
+Systems Manager doesn't allow you to edit the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role\. After you create a service\-linked role, you can't change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
 ## Deleting a service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-2"></a>
 
-If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that is not actively monitored or maintained\. However, you must clean up your service\-linked role before you can manually delete it\.
+If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that isn't actively monitored or maintained\. However, you must clean up your service\-linked role before you can manually delete it\.
 
 ### Cleaning up a service\-linked role<a name="service-linked-role-review-before-delete-service-action-2"></a>
 
@@ -54,7 +54,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleFo
 
 Systems Manager supports using service\-linked roles in all of the regions where the service is available\. For more information, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)\.
 
-Systems Manager does not support using service\-linked roles in every region where the service is available\. You can use the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role in the following regions\.
+Systems Manager doesn't support using service\-linked roles in every region where the service is available\. You can use the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role in the following regions\.
 
 
 ****  

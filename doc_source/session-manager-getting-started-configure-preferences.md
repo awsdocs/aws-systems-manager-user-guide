@@ -8,7 +8,7 @@ An AWS Identity and Access Management \(IAM\) user with administrator permission
 + Configure Session Manager to use configurable shell profiles\. These customizable profiles enable you to define preferences within sessions such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
 
 **Note**  
-Before a user can update Session Manager preferences, they must have been granted the specific permissions that will let them make these updates, if they do not possess them already\. Without these permissions, the user can't configure logging options or set other session preferences for your account\.
+Before a user can update Session Manager preferences, they must have been granted the specific permissions that will let them make these updates, if they don't possess them already\. Without these permissions, the user can't configure logging options or set other session preferences for your account\.
 
 **Topics**
 + [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)

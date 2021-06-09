@@ -24,7 +24,7 @@ When it's time to use a different AMI in your instance creation workflow, you ne
 
 ## Grant permissions to create a parameter of aws:ec2:image data type<a name="parameter-store-ec2-iam"></a>
 
-Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API actions and content\.
+Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API operations and content\.
 
 The following example policy grants users permission to call the `PutParameter` API operation for `aws:ec2:image`\. This means that the user can add a parameter of data type `aws:ec2:image` to the system\. 
 
@@ -52,7 +52,7 @@ The following example policy grants users permission to call the `PutParameter` 
 
 When you specify `aws:ec2:image` as the data type for a parameter, Systems Manager doesn't create the parameter immediately\. It instead performs an asynchronous validation operation to ensure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\.
 
-A parameter version number might be generated before the validation operation is complete\. The operation may not be complete even if a parameter version number is generated\. 
+A parameter version number might be generated before the validation operation is complete\. The operation might not be complete even if a parameter version number is generated\. 
 
 To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge \(EventBridge\) to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. If an operation fails, the notification includes an error message that indicates the reason for the failure\. 
 

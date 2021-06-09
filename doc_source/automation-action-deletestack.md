@@ -41,7 +41,7 @@ Pattern: \[a\-zA\-Z\]\[\-a\-zA\-Z0\-9\]\*
 Required: No
 
 RetainResources\.member\.N  
-This input applies only to stacks that are in a `DELETE_FAILED` state\. A list of logical resource IDs for the resources you want to retain\. During deletion, CloudFormation deletes the stack, but does not delete the retained resources\.  
+This input applies only to stacks that are in a `DELETE_FAILED` state\. A list of logical resource IDs for the resources you want to retain\. During deletion, CloudFormation deletes the stack, but doesn't delete the retained resources\.  
 Retaining resources is useful when you can't delete a resource, such as a non\-empty S3 bucket, but you want to delete the stack\.  
 Type: array of strings  
 Required: No

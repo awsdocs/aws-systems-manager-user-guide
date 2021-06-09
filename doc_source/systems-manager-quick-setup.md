@@ -15,12 +15,12 @@ For more information about the Host Management configuration type, see [Quick Se
 For more information about the Change Manager configuration type, see [Setting up Change Manager for an organization \(management account\)](change-manager-organization-setup.md)\.
 
 **Note**  
-Currently, the deployment configuration process for Change Manager, a capability of AWS Systems Manager, cannot be performed in the following AWS Regions:  
+The deployment configuration process for Change Manager, a capability of AWS Systems Manager, can't be performed in the following AWS Regions:  
 Europe \(Milan\) \(eu\-south\-1\)
 Middle East \(Bahrain\) \(me\-south\-1\)
 Africa \(Cape Town\) \(af\-south\-1\)
 Asia Pacific \(Hong Kong\) \(ap\-east\-1\)
-Ensure that you are working in a different Region in your management account for [this procedure](change-manager-organization-setup.md)\.
+Ensure that you're working in a different Region in your management account for [this procedure](change-manager-organization-setup.md)\.
 
 After setting up a configuration, you can view details about it and its deployment status across organizational units \(OUs\) and Regions\. You can also view State Manager association status for the configuration\. State Manager is a capability of AWS Systems Manager\. In the **Configuration details** pane, you can view a summary of the Quick Setup configuration\. This summary includes details from all accounts and any detected configuration drift\. 
 
@@ -29,3 +29,4 @@ After setting up a configuration, you can view details about it and its deployme
 **Topics**
 + [Quick Setup Host Management](quick-setup-host-management.md)
 + [AWS Config recording](quick-setup-config.md)
++ [Deploy Distributor packages with Quick Setup](quick-setup-distributor.md)

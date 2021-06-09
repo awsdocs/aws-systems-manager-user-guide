@@ -58,7 +58,7 @@ To use the version of your scripts that are in a particular *commit* in your rep
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, enter information about this command\.
@@ -67,7 +67,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 1. For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
@@ -82,7 +82,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Run an Ansible Playbook from GitHub by using the AWS CLI<a name="integration-github-ansible-cli"></a>
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

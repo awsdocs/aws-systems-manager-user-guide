@@ -1,6 +1,6 @@
 # Creating runbooks using Document Builder<a name="automation-document-builder"></a>
 
-If the AWS Systems Manager public runbooks don't support all the actions you want to perform on your AWS resources, you can create your own runbooks\. To create a custom runbook, you can manually create a local JavaScript Object Notation \(JSON\) or YAML format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to more easily build a custom runbook\.
+If the AWS Systems Manager public runbooks don't support all the actions you want to perform on your AWS resources, you can create your own runbooks\. To create a custom runbook, you can manually create a local JavaScript Object Notation \(JSON\) or YAML format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to build a custom runbook\.
 
 Using the Document Builder, you can add automation actions to your custom runbook and provide the required parameters without having to use JSON or YAML syntax\. After you add steps and create the runbook, the system converts the actions you've added into the YAML format that Systems Manager can use to run automation\.
 
@@ -43,13 +43,13 @@ For runbooks not owned by Amazon that use the `aws:executeScript` action, a role
 
 1. \(Optional\) Expand the **Input parameters** section and do the following\.
 
-   1. For **Parameter name**, enter a descriptive name for the runbook parameter you are creating\.
+   1. For **Parameter name**, enter a descriptive name for the runbook parameter you're creating\.
 
    1. For **Type**, choose a type for the parameter, such as String or MapList\.
 
    1. For **Required**, do one of the following: 
       + Choose **Yes** if a value for this runbook parameter must be supplied at runtime\.
-      + Choose **No** if the parameter is not required, and \(optional\) enter a default parameter value in **Default value**\.
+      + Choose **No** if the parameter isn't required, and \(optional\) enter a default parameter value in **Default value**\.
 
    1. For **Description**, enter a description for the runbook parameter\.
 **Note**  
@@ -76,7 +76,7 @@ To add more inputs, choose **Add optional input**\. To remove an input, choose t
    + \(Optional\) For **Outputs**, enter any outputs for this step to make available for other processes\.
 **Note**  
 **Outputs** isn't available for all action types\.
-   + \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it is stopped\.
+   + \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it's stopped\.
 
      For more information, see [Properties shared by all actions](automation-actions.md#automation-common)\.
 **Note**  

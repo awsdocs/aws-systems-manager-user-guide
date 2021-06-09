@@ -7,7 +7,7 @@ After you create a package in Distributor, which creates an SSM document, you ca
 + On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)
 
 **Important**  
-Distributor does not guarantee that the third\-party packages you install are free of any potential malware\. We encourage that you conduct your own additional due diligence to ensure compliance with your internal security controls\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/)\.
+Distributor doesn't guarantee that the third\-party packages you install are free of any potential malware\. We encourage that you conduct your own additional due diligence to ensure compliance with your internal security controls\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/)\.
 
 ## How can Distributor benefit my organization?<a name="distributor-benefits"></a>
 
@@ -35,7 +35,7 @@ Distributor offers these benefits:
 
   With Distributor, you can deploy software packages to Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux and Windows Server\. For a list of supported instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms)\.
 **Note**  
-Distributor is not currently supported on the macOS operating system\.
+Distributor isn't supported on the macOS operating system\.
 +  **Deploy packages one time, or on an automated schedule** 
 
   You can choose to deploy packages one time, on a regular schedule, or whenever the default package version is changed to a different version\. 
@@ -58,13 +58,13 @@ A *package* is a collection of installable software or assets that includes the 
 + A \.zip file of software per target operating system platform\. Each \.zip file must include the following\.
   + An install and an uninstall script\. Windows Server\-based instances require PowerShell scripts \(scripts named `install.ps1` and `uninstall.ps1`\)\. Linux\-based instances require shell scripts \(scripts named `install.sh` and `uninstall.sh`\)\. AWS Systems Manager SSM Agent reads and carries out the instructions in the install and uninstall scripts\.
   + An executable file\. SSM Agent must find this executable to install the package on target instances\.
-+ A JSON\-formatted manifest file that describes the package contents\. The manifest is not included in the \.zip file, but it is stored in the same Amazon Simple Storage Service \(Amazon S3\) bucket as the \.zip files that form the package\. The manifest identifies the package version and maps the \.zip files in the package to target instance attributes, such as operating system version or architecture\. For information about how to create the manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
++ A JSON\-formatted manifest file that describes the package contents\. The manifest isn't included in the \.zip file, but it's stored in the same Amazon Simple Storage Service \(Amazon S3\) bucket as the \.zip files that form the package\. The manifest identifies the package version and maps the \.zip files in the package to target instance attributes, such as operating system version or architecture\. For information about how to create the manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 When you choose **Simple** package creation in the Distributor console, Distributor generates the installation and uninstallation scripts, file hashes, and the JSON package manifest for you, based on the software executable file name and target platforms and architectures\.
 
 ### Supported package platforms and architectures<a name="what-is-a-package-platforms"></a>
 
-Distributor supports package distribution to any release version of the following platforms that is supported as a Systems Manager managed instance\. A version value must match the exact release version of the operating system Amazon Machine Image \(AMI\) that you are targeting\. For more information about determining this version, see step 4 of [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+Distributor supports package distribution to any release version of the following platforms that is supported as a Systems Manager managed instance\. A version value must match the exact release version of the operating system Amazon Machine Image \(AMI\) that you're targeting\. For more information about determining this version, see step 4 of [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 
 | Platform | Code value in manifest file | Architecture | 

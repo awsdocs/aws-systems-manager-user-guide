@@ -14,7 +14,7 @@ Parameters can't be referenced or nested in the values of other parameters\. You
 
 ## Create a `String` parameter \(AWS CLI\)<a name="param-create-cli-string"></a>
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -236,7 +236,7 @@ The system returns information like the following\.
 
 ## Create a `StringList` parameter \(AWS CLI\)<a name="param-create-cli-stringlist"></a>
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -307,12 +307,12 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 Use the following procedure to create a `SecureString` parameter\.
 
 **Important**  
-Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
+Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
 
 **Important**  
-Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You cannot use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -482,7 +482,7 @@ If you don't specify the `with-decryption` parameter, or if you specify the `no-
 
 ------
 
-1. Run the following command to change the parameter value if you are **not** using a customer managed AWS KMS key\.
+1. Run the following command to change the parameter value if you're **not** using a customer managed AWS KMS key\.
 
 ------
 #### [ Linux & macOS ]
@@ -605,9 +605,9 @@ By default, all `SecureString` values are displayed as cipher\-text\. To decrypt
 
 ## Create a multi\-line parameter \(AWS CLI\)<a name="param-create-cli-multiline"></a>
 
-You can use the AWS CLI to create a parameter with line breaks\. Adding line breaks lets you break up the text in longer parameter values for better legibility or, for example, more easily update multi\-paragraph parameter content for a web page\. You can include the content in a JSON file and use the `--cli-input-json` option, using line break characters like `/n`, as shown in the following example\.
+You can use the AWS CLI to create a parameter with line breaks\. Adding line breaks lets you break up the text in longer parameter values for better legibility or, for example, update multi\-paragraph parameter content for a web page\. You can include the content in a JSON file and use the `--cli-input-json` option, using line break characters like `/n`, as shown in the following example\.
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

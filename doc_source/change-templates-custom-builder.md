@@ -17,16 +17,16 @@ Using the Builder for change templates in Change Manager, a capability of AWS Sy
 1. For **Name**, enter a name for the template that makes its purpose easy to identify, such as **UpdateEC2LinuxAMI**\.
 
 1. In the **Change template details** section, do the following:
-   + For **Description**, provide a brief explanation of how and when the change template you are creating is to be used\. 
+   + For **Description**, provide a brief explanation of how and when the change template you're creating is to be used\. 
 
-     This description helps users who create change requests determine whether they are using the correct change template\. It helps those who review change requests understand whether the request should be approved\.
-   + For **Change template type**, specify whether you are creating a standard change template or an emergency change template\.
+     This description helps users who create change requests determine whether they're using the correct change template\. It helps those who review change requests understand whether the request should be approved\.
+   + For **Change template type**, specify whether you're creating a standard change template or an emergency change template\.
 
      An emergency change template is used for situations when a change must be made even if changes are otherwise blocked by an event in the calendar in use by AWS Systems Manager Change Calendar\. Change requests created from an emergency change template must still be approved by its designated approvers, but the requested changes can still run even when the calendar is blocked\.
    + For **Runbook options**, specify the runbooks that users can choose from when creating a change request\. You can add a single runbook or multiple runbooks\. Alternatively, you can allow requesters to specify which runbook to use\. In any of these cases, only one runbook can be included in the change request\.
    + For **Runbook**, select the names of the runbooks and the versions of those runbooks that users can choose from for their change requests\. No matter how many runbooks you add to the change template, only one can be selected per change request\.
 
-     You do not specify a runbook if you chose **Any runbook can be used **above\.
+     You don't specify a runbook if you chose **Any runbook can be used **above\.
 **Tip**  
 Select a runbook and runbook version, and then choose **View** to examine the contents of the runbook in the Systems Manager Documents interface\.
 
@@ -48,10 +48,10 @@ Toggle between **Hide preview** and **Show preview** to see what your content lo
 
      1. Choose one of the following to specify the Amazon Simple Notification Service \(Amazon SNS\) topic in your account to use for sending notifications to approvers that a change request is ready for their review:
         + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
+        + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option isn't available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
         + **Specify SNS topic when the change request is created **– The user who creates a change request can specify the Amazon SNS topic to use for notifications\.
 **Note**  
-The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
+The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they're sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
      1. Choose **Add notification**\.
 
@@ -69,9 +69,9 @@ To create a new alarm, or to review the settings of an alarm you want to specify
 
    1. Choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications about change requests that are created using this change template: 
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current AWS account\. \(This option isn't available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
-The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
+The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they're sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
    1. Choose **Add notification**\.
 
@@ -85,10 +85,10 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 1. Choose **Save and preview**\.
 
-1. Review the details of the change template you are creating\.
+1. Review the details of the change template you're creating\.
 
    If you want to make change to the change template before submitting it for review, choose **Actions, Edit**\.
 
-   If you are satisfied with the contents of the change template, choose **Submit for review**\. The users in your organization or account who have been specified as template reviewers on the **Settings** tab in Change Manager are notified that a new change template is pending their review\. 
+   If you're satisfied with the contents of the change template, choose **Submit for review**\. The users in your organization or account who have been specified as template reviewers on the **Settings** tab in Change Manager are notified that a new change template is pending their review\. 
 
    If an Amazon SNS topic has been specified for change templates, notifications are sent when the change template is rejected or approved\. If you don't receive notifications related to this change template, you can return to Change Manager later to check on its status\.

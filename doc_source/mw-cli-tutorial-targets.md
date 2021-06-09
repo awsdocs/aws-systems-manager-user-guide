@@ -33,7 +33,7 @@ You should already have created an Amazon Elastic Compute Cloud \(Amazon EC2\) i
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -61,7 +61,7 @@ You should already have created an Amazon Elastic Compute Cloud \(Amazon EC2\) i
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {

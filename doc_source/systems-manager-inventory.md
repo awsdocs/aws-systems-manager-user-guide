@@ -5,7 +5,7 @@ AWS Systems Manager Inventory provides visibility into your Amazon EC2 and on\-p
 If the pre\-configured metadata types collected by Systems Manager Inventory don't meet your needs, then you can create custom inventory\. Custom inventory is simply a JSON file with information that you provide and add to the managed instance in a specific directory\. When Systems Manager Inventory collects data, it captures this custom inventory data\. For example, if you run a large datacenter, you can specify the rack location of each of your servers as custom inventory\. You can then view the rack space data when you view other inventory data\.
 
 **Important**  
-Systems Manager Inventory collects *only* metadata from your managed instances\. Inventory does not access proprietary information or data\.
+Systems Manager Inventory collects *only* metadata from your managed instances\. Inventory doesn't access proprietary information or data\.
 
 The following table lists the types of metadata that you can collect with Systems Manager Inventory\. The table also lists the instances you can collect inventory information from and the collection intervals you can specify\.
 

@@ -1,6 +1,6 @@
 # Reviewing and approving or rejecting change requests<a name="change-requests-review"></a>
 
-If you are specified as a reviewer for a change request in Change Manager, a capability of AWS Systems Manager, you are notified through an Amazon Simple Notification Service \(Amazon SNS\) topic when a new change request is awaiting your review\. 
+If you're specified as a reviewer for a change request in Change Manager, a capability of AWS Systems Manager, you're notified through an Amazon Simple Notification Service \(Amazon SNS\) topic when a new change request is awaiting your review\. 
 
 **Note**  
 This functionality depends on whether an Amazon SNS was specified in the change template for sending review notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
@@ -20,7 +20,7 @@ The following procedure describes how to use the Systems Manager console to revi
 
 1. In the summary page, review the proposed content of the change request\.
 
-   To approve the change request, choose **Approve**\. In the dialog box, provide any comments you want to add for this approval, and then choose **Approve**\. The runbook workflow represented by this request starts to run either when scheduled, or as soon as changes are not blocked by any restrictions\.
+   To approve the change request, choose **Approve**\. In the dialog box, provide any comments you want to add for this approval, and then choose **Approve**\. The runbook workflow represented by this request starts to run either when scheduled, or as soon as changes aren't blocked by any restrictions\.
 
    \-or\-
 
@@ -32,7 +32,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To review and approve or reject a change request**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

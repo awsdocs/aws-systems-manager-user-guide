@@ -45,7 +45,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **Input parameters** section, specify the required inputs\. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
 **Note**  
-You may not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources by using tags or a resource group\. For example, if you chose the `AWS-RestartEC2Instance` runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags or resource group you specified\. 
+You might not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources by using tags or a resource group\. For example, if you chose the `AWS-RestartEC2Instance` runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The Automation execution locates the instances to restart by using the tags or resource group you specified\. 
 
 1. Use the options in the **Rate control** section to restrict the number of AWS resources that can run the Automation within each account\-Region pair\. 
 
@@ -67,7 +67,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To run an automation with targets and rate controls**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -15,7 +15,7 @@ The Parameter Store throughput setting applies to all transactions created by al
 
 Verify that you have permission in IAM to increase Parameter Store throughput by doing one of the following:
 + Make sure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
-+ Make sure that you have permission to change the throughput service setting by using the following API actions:
++ Make sure that you have permission to change the throughput service setting by using the following API operations:
   + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)

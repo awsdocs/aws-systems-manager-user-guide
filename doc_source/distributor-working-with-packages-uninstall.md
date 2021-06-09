@@ -28,7 +28,7 @@ You can use Run Command in the Systems Manager console to uninstall a package on
 
 1. You can use the advanced options to add comments about the operation, change **Concurrency** and **Error threshold** values in **Rate control**, specify output options, or configure Amazon Simple Notification Service \(Amazon SNS\) notifications\. For more information, see [Running Commands from the Console](https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-console.html) in this guide\.
 
-1. When you are ready to uninstall the package, choose **Run**, and then choose **View results**\.
+1. When you're ready to uninstall the package, choose **Run**, and then choose **View results**\.
 
 1. In the commands list, choose the `AWS-ConfigureAWSPackage` command that you ran\. If the command is still in progress, choose the refresh icon in the top\-right corner of the console\.
 

@@ -1,25 +1,25 @@
 # Setting up Change Manager for an organization \(management account\)<a name="change-manager-organization-setup"></a>
 
-The tasks in this topic apply if you are using Change Manager, a capability of AWS Systems Manager, with an organization that is set up in AWS Organizations\. If you want to use Change Manager only with a single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
+The tasks in this topic apply if you're using Change Manager, a capability of AWS Systems Manager, with an organization that is set up in AWS Organizations\. If you want to use Change Manager only with a single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
 
 Perform the tasks in this section in an AWS account that is serving as the *management account* in Organizations\. For information about the management account and other Organizations concepts, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\.
 
 If you need to enable Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](url-ao-user;orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
 
 **Note**  
-Currently, this setup process cannot be performed in the following AWS Regions:  
+This setup process can't be performed in the following AWS Regions:  
 Europe \(Milan\) \(eu\-south\-1\)
 Middle East \(Bahrain\) \(me\-south\-1\)
 Africa \(Cape Town\) \(af\-south\-1\)
 Asia Pacific \(Hong Kong\) \(ap\-east\-1\)
-Ensure that you are working in a different Region in your management account for this procedure\.
+Ensure that you're working in a different Region in your management account for this procedure\.
 
 During the setup procedure, you perform the following major tasks in Quick Setup, a capability of AWS Systems Manager\.
 + **Task 1: Register the delegated administrator account for your organization**
 
-  The change\-related tasks that are performed using Change Manager are managed in one of your member accounts, which you specify to be the *delegated administrator account*\. The delegated administrator account you register for Change Manager becomes the delegated administrator account for all your Systems Manager operations\. \(You might have delegated administrator accounts for other AWS services\.\) Your delegated administrator account for Change Manager, which is not the same as your management account, manages change activities across your organization, including change templates, change requests, and approvals for each\. In the delegated administrator account, you also specify other configuration options for your Change Manager operations\. 
+  The change\-related tasks that are performed using Change Manager are managed in one of your member accounts, which you specify to be the *delegated administrator account*\. The delegated administrator account you register for Change Manager becomes the delegated administrator account for all your Systems Manager operations\. \(You might have delegated administrator accounts for other AWS services\.\) Your delegated administrator account for Change Manager, which isn't the same as your management account, manages change activities across your organization, including change templates, change requests, and approvals for each\. In the delegated administrator account, you also specify other configuration options for your Change Manager operations\. 
 **Important**  
-The delegated administrator account must be the only member of the organizational unit \(OU\) to which it is assigned in Organizations\.
+The delegated administrator account must be the only member of the organizational unit \(OU\) to which it's assigned in Organizations\.
 + **Task 2: Define and specify runbook access policies for change requester roles, or custom job functions, that you want to use for your Change Manager operations**
 
   In order to create change requests in Change Manager, users in your member accounts must be granted AWS Identity and Access Management \(IAM\) permissions that allow them to access only the Automation runbooks and change templates you choose to make available to them\. 
@@ -42,7 +42,7 @@ When a user creates a change request, they first select a change template\. This
   You can use Change Manager with all the member accounts in all your organizational units that are set up in Organizations, and in all the AWS Regions they operate in\. If you prefer, you can instead use Change Manager with only some of your organizational units\.
 
 **Important**  
-We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you are making and the permissions you are granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users or user groups, they are being granted only the permissions you intend for them to have\.  
+We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you're making and the permissions you're granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users or user groups, they're being granted only the permissions you intend for them to have\.  
 As a best practice, begin by setting up the delegated administrator account using the login for an AWS account administrator\. Then configure job functions and their permissions after you have created change templates and identified the runbooks that each one uses\.
 
 To set up Change Manager for use with an organization, perform the following task in the Quick Setup area of the Systems Manager console\.
@@ -67,9 +67,9 @@ You repeat this task for each job function you want to create for your organizat
 
    If you have previously specified a delegated administrator account for Systems Manager, its ID is already reported in this field\. 
 **Important**  
-The delegated administrator account must be the only member of the organizational unit \(OU\) to which it is assigned in Organizations\.  
+The delegated administrator account must be the only member of the organizational unit \(OU\) to which it's assigned in Organizations\.  
 If the delegated administrator account you register is later deregistered from that role, the system removes its permissions for managing Systems Manager operations at the same time\. Keep in mind that it will be necessary for you return to Quick Setup, designate a different delegated administrator account, and specify all job functions and permissions again\.  
-If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
 1. In the **Permissions to request and make changes** section, do the following\.
 **Note**  
@@ -93,7 +93,7 @@ Granting users full administrative privileges should be done sparingly, and only
 **Tip**  
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
-   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example is not comprehensive\. Additional permissions may be needed for working with other AWS resources, such as databases and instances\.
+   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
 
    ```
    {
@@ -134,7 +134,7 @@ We recommend that you use the IAM policy editor to construct your policy and the
 
    For more information about IAM policies, see [Access management for AWS Config resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
 
-1. In the **Targets** section, choose whether to grant permissions for the job function you are creating to your entire organization or only some of your organizational units\.
+1. In the **Targets** section, choose whether to grant permissions for the job function you're creating to your entire organization or only some of your organizational units\.
 
    If you choose **Entire organization**, continue to step 9\.
 

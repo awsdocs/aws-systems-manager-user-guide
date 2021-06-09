@@ -50,7 +50,7 @@ You can configure a rule in Amazon EventBridge to create an event in response to
 }
 ```
 
-**[PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) call with old schema version event**: If a rule is configured to monitor for this event, EventBridge creates an event when a PutInventory call is made that uses a schema version that is lower than the current schema\. This event applies to all inventory types\. Here is a sample event pattern\.
+**[PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) call with old schema version event**: If a rule is configured to monitor for this event, EventBridge creates an event when a PutInventory call is made that uses a schema version that is lower than the current schema\. This event applies to all inventory types\. Here is a sample event pattern\.
 
 ```
 {

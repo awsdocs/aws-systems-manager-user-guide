@@ -1,6 +1,6 @@
 # Create an SSM document \(API\)<a name="create-ssm-document-api"></a>
 
-After you create the content for your custom AWS Systems Manager \(SSM\) document, as described in [Writing SSM document content](create-ssm-doc.md#writing-ssm-doc-content), you can use your preferred SDK to call the AWS Systems Manager [CreateDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html) API action to create an SSM document using your content\. The JSON or YAML string for the `Content` request parameter is generally read from a file\. The following sample functions create an SSM document using the SDKs for Python, Go, and Java\.
+After you create the content for your custom AWS Systems Manager \(SSM\) document, as described in [Writing SSM document content](create-ssm-doc.md#writing-ssm-doc-content), you can use your preferred SDK to call the AWS Systems Manager [CreateDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html) API operation to create an SSM document using your content\. The JSON or YAML string for the `Content` request parameter is generally read from a file\. The following sample functions create an SSM document using the SDKs for Python, Go, and Java\.
 
 ------
 #### [ Python ]
@@ -112,4 +112,4 @@ public class createDocumentApiExample {
 
 ------
 
-For more information on creating custom document content, see [SSM document syntax](sysman-doc-syntax.md)\.
+For more information about creating custom document content, see [SSM document syntax](sysman-doc-syntax.md)\.

@@ -1,8 +1,8 @@
 # Configuring permissions for Systems Manager Application Manager<a name="application-manager-getting-started-permissions"></a>
 
-You can use all features of Application Manager, a capability of AWS Systems Manager, if your AWS Identity and Access Management \(IAM\) user, group, or role has access to the API actions listed in this topic\. The API actions are separated into two tables to help you understand the different functions they perform\.
+You can use all features of Application Manager, a capability of AWS Systems Manager, if your AWS Identity and Access Management \(IAM\) user, group, or role has access to the API operations listed in this topic\. The API operations are separated into two tables to help you understand the different functions they perform\.
 
-The following table lists the API actions that Systems Manager calls if you choose a resource in Application Manager because you want to view the resource details\. For example, if Application Manager lists an Amazon EC2 Auto Scaling group, and if you choose that group to view its details, then Systems Manager calls the `autoscaling:DescribeAutoScalingGroups` API action\. If you don't have any Auto Scaling groups in your account, this API action isn't called from Application Manager\.
+The following table lists the API operations that Systems Manager calls if you choose a resource in Application Manager because you want to view the resource details\. For example, if Application Manager lists an Amazon EC2 Auto Scaling group, and if you choose that group to view its details, then Systems Manager calls the `autoscaling:DescribeAutoScalingGroups` API operations\. If you don't have any Auto Scaling groups in your account, this API operation isn't called from Application Manager\.
 
 
 ****  
@@ -11,7 +11,7 @@ The following table lists the API actions that Systems Manager calls if you choo
 | --- | 
 |  <pre>acm:DescribeCertificate <br />acm:ListTagsForCertificate<br />autoscaling:DescribeAutoScalingGroups <br />cloudfront:GetDistribution<br />cloudfront:ListTagsForResource <br />cloudtrail:DescribeTrails<br />cloudtrail:ListTags <br />cloudtrail:LookupEvents<br />codebuild:BatchGetProjects <br />codepipeline:GetPipeline<br />codepipeline:ListTagsForResource <br />dynamodb:DescribeTable<br />dynamodb:ListTagsOfResource <br />ec2:DescribeAddresses<br />ec2:DescribeCustomerGateways <br />ec2:DescribeHosts<br />ec2:DescribeInternetGateways <br />ec2:DescribeNetworkAcls<br />ec2:DescribeNetworkInterfaces <br />ec2:DescribeRouteTables<br />ec2:DescribeSecurityGroups <br />ec2:DescribeSubnets<br />ec2:DescribeVolumes <br />ec2:DescribeVpcs <br />ec2:DescribeVpnConnections<br />ec2:DescribeVpnGateways <br />elasticbeanstalk:DescribeApplications<br />elasticbeanstalk:ListTagsForResource<br />elasticloadbalancing:DescribeInstanceHealth<br />elasticloadbalancing:DescribeListeners<br />elasticloadbalancing:DescribeLoadBalancers<br />elasticloadbalancing:DescribeTags <br />iam:GetGroup <br />iam:GetPolicy<br />iam:GetRole <br />iam:GetUser <br />lambda:GetFunction<br />rds:DescribeDBClusters <br />rds:DescribeDBInstances<br />rds:DescribeDBSecurityGroups <br />rds:DescribeDBSnapshots<br />rds:DescribeDBSubnetGroups <br />rds:DescribeEventSubscriptions<br />rds:ListTagsForResource <br />redshift:DescribeClusterParameters<br />redshift:DescribeClusterSecurityGroups<br />redshift:DescribeClusterSnapshots<br />redshift:DescribeClusterSubnetGroups <br />redshift:DescribeClusters<br />s3:GetBucketTagging</pre>  | 
 
-The following table lists the API actions that Systems Manager uses to make changes to applications and resources listed in Application Manager or to view operations information for a selected application or resource\.
+The following table lists the API operations that Systems Manager uses to make changes to applications and resources listed in Application Manager or to view operations information for a selected application or resource\.
 
 
 ****  
@@ -22,7 +22,7 @@ The following table lists the API actions that Systems Manager uses to make chan
 
 ## Configuring permissions<a name="application-manager-getting-started-user-permissions"></a>
 
-To configure Application Manager permissions for an IAM user, group, or role, create an IAM policy using the following example\. This policy example includes all API actions used by Application Manager\. 
+To configure Application Manager permissions for an IAM user, group, or role, create an IAM policy using the following example\. This policy example includes all API operations used by Application Manager\. 
 
 ```
 {
@@ -130,7 +130,7 @@ To configure Application Manager permissions for an IAM user, group, or role, cr
 ```
 
 **Note**  
-You can restrict a user's ability to make changes to applications and resources in Application Manager by removing the following API actions from the IAM permissions policy attached to their user, group, or role\. Removing these actions creates a read\-only experience in Application Manager\.  
+You can restrict a user's ability to make changes to applications and resources in Application Manager by removing the following API operations from the IAM permissions policy attached to their user, group, or role\. Removing these actions creates a read\-only experience in Application Manager\.  
 
 ```
 eks:TagResource

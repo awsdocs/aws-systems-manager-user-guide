@@ -9,7 +9,7 @@ You can also subscribe to notifications by watching the [SSM Agent Release Notes
 
 1. Open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.
 
-1. From the Region selector in the navigation bar, choose **US East \(N\. Virginia\)**, if it is not selected already\. You must select this AWS Region because the Amazon SNS notifications for SSM Agent that you are subscribing to are generated from this Region only\.
+1. From the Region selector in the navigation bar, choose **US East \(N\. Virginia\)**, if it isn't selected already\. You must select this AWS Region because the Amazon SNS notifications for SSM Agent that you're subscribing to are generated from this Region only\.
 
 1. In the navigation pane, choose **Subscriptions**\.
 
@@ -27,7 +27,7 @@ You can also subscribe to notifications by watching the [SSM Agent Release Notes
 
    1. Choose **Create subscription**\.
 
-1. If you chose `Email`, you'll receive an email message asking you to confirm your subscription\. Open the message, and follow the directions to complete your subscription\.
+1. If you chose `Email`, you will receive an email message asking you to confirm your subscription\. Open the message, and follow the directions to complete your subscription\.
 
 Whenever a new version of SSM Agent is released, we send notifications to subscribers\. If you no longer want to receive these notifications, use the following procedure to unsubscribe\.
 

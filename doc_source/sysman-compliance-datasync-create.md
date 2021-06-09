@@ -61,14 +61,14 @@ Use the following procedure to create a resource data sync for Compliance by usi
 
 1. Choose **Account management**, **Resource Data Syncs**, and then choose **Create resource data sync**\.
 
-1. In the **Sync name** field, type a name for the sync configuration\.
+1. In the **Sync name** field, enter a name for the sync configuration\.
 
-1. In the **Bucket name** field, type the name of the Amazon S3 bucket you created at the start of this procedure\.
+1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created at the start of this procedure\.
 
-1. \(Optional\) In the **Bucket prefix** field, type the name of an Amazon S3 bucket prefix \(subdirectory\)\.
+1. \(Optional\) In the **Bucket prefix** field, enter the name of an Amazon S3 bucket prefix \(subdirectory\)\.
 
-1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and type the name of the Region\.
+1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different Regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different Regions, you might be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. Choose **Create**\.

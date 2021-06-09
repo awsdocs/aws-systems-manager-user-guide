@@ -1,6 +1,6 @@
 # Exporting OpsData from Systems Manager Explorer<a name="Explorer-exporting-OpsData"></a>
 
-When you click a link in AWS Systems Manager Explorer, some pages display OpsData in a list\. These pages include an **Export** button that enables you to export up to 5,000 OpsData items as a comma separated value \(\.csv\) file to an Amazon Simple Storage Service \(Amazon S3\) bucket\. Before you can export data from Explorer pages, you must configure data export as described in this topic\.
+When you select a link in AWS Systems Manager Explorer, some pages display OpsData in a list\. These pages include an **Export** button that enables you to export up to 5,000 OpsData items as a comma separated value \(\.csv\) file to an Amazon Simple Storage Service \(Amazon S3\) bucket\. Before you can export data from Explorer pages, you must configure data export as described in this topic\.
 
 ![\[Exporting OpsData from Systems Manager Explorer\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-data-export.png)
 

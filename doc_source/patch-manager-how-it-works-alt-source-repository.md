@@ -14,7 +14,7 @@ For a list of example scenarios for using this option, see [Sample uses for alte
 For information about default and custom patch baselines, see [About predefined and custom patch baselines](sysman-patch-baselines.md)\.
 
 **Example: Using the console**  
-To specify alternative patch source repositories when you are working in the Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
+To specify alternative patch source repositories when you're working in the Systems Manager console, use the **Patch sources** section on the **Create patch baseline** page\. For information about using the **Patch sources** options, see [Creating a custom patch baseline \(Linux\)](create-baseline-console-linux.md)\.
 
 **Example: Using the AWS CLI**  
 For an example of using the `--sources` option with the AWS Command Line Interface \(AWS CLI\), see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources)\.
@@ -37,14 +37,14 @@ Running a custom patch baseline that specifies alternative patch repositories fo
 
 **Patching behavior for YUM\-based distributions depends on the updateinfo\.xml manifest**  
 When you specify alternative patch repositories for YUM\-based distributions, such as Amazon Linux or Amazon Linux 2, Red Hat Enterprise Linux, or CentOS, patching behavior depends on whether the repository includes an update manifest in the form of a complete and correctly formatted `updateinfo.xml` file\. This file specifies the release date, classifications, and severities of the various packages\. Any of the following will affect the patching behavior:
-+ If you filter on **Classification** and **Severity**, but they aren't specified in `updateinfo.xml`, the package will not be included by the filter\. This also means that packages without an `updateinfo.xml` file won't be included in patching\.
-+ If you filter on **ApprovalAfterDays**, but the package release date isn't in Unix Epoch format \(or has no release date specified\), the package will not be included by the filter\.
++ If you filter on **Classification** and **Severity**, but they'ren't specified in `updateinfo.xml`, the package won't be included by the filter\. This also means that packages without an `updateinfo.xml` file won't be included in patching\.
++ If you filter on **ApprovalAfterDays**, but the package release date isn't in Unix Epoch format \(or has no release date specified\), the package won't be included by the filter\.
 + There is an exception if you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page\. In this case, packages without an `updateinfo.xml` file \(or that contains this file without properly formatted **Classification**, **Severity**, and **Date** values\) *will* be included in the prefiltered list of patches\. \(They must still meet the other patch baseline rule requirements in order to be installed\.\)
 
 ## Sample uses for alternative patch source repositories<a name="patch-manager-how-it-works-alt-source-repository-examples"></a>
 
 **Example 1 – Nonsecurity Updates for Ubuntu Server**  
-You are already using Patch Manager to install security patches on a fleet of Ubuntu Server instances using the AWS\-provided predefined patch baseline `AWS-UbuntuDefaultPatchBaseline`\. You can create a new patch baseline that is based on this default, but specify in the approval rules that you want nonsecurity related updates that are part of the default distribution to be installed as well\. When this patch baseline is run against your instances, patches for both security and nonsecurity issues are applied\. You can also choose to approve nonsecurity patches in the patch exceptions you specify for a baseline\.
+You're already using Patch Manager to install security patches on a fleet of Ubuntu Server instances using the AWS\-provided predefined patch baseline `AWS-UbuntuDefaultPatchBaseline`\. You can create a new patch baseline that is based on this default, but specify in the approval rules that you want nonsecurity related updates that are part of the default distribution to be installed as well\. When this patch baseline is run against your instances, patches for both security and nonsecurity issues are applied\. You can also choose to approve nonsecurity patches in the patch exceptions you specify for a baseline\.
 
 **Example 2 \- Personal Package Archives \(PPA\) for Ubuntu Server**  
 Your Ubuntu Server instances are running software that is distributed through a [Personal Package Archives \(PPA\) for Ubuntu](https://launchpad.net/ubuntu/+ppas)\. In this case, you create a patch baseline that specifies a PPA repository that you have configured on the instance as the source repository for the patching operation\. Then use Run Command to run the patch baseline document on the instances\.

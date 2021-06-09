@@ -7,7 +7,7 @@ Users in your company or organization who will use Systems Manager on your hybri
 
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
-+ **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
++ **Case 1**: You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
 + **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 **Note**  
 If you use an on\-premises firewall and plan to use Patch Manager, that firewall must also allow access to the patch baseline endpoint `arn:aws:s3:::patch-baseline-snapshot-region/*`\.  

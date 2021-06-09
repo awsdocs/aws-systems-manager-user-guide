@@ -3,7 +3,7 @@
 You can define patching preferences at runtime using the baseline override feature in Patch Manager, a capability of AWS Systems Manager\. Do this by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket containing a JSON object with a list of patch baselines\. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline\.
 
 **Note**  
-Using the `BaselinOverride` parameter does not overwrite the patch compliance of the baseline provided in the parameter\. The output results are recorded in the Stdout logs from Run Command, a capability of AWS Systems Manager\. The results only print out packages that are marked as `NON_COMPLIANT`\. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`\.
+Using the `BaselinOverride` parameter doesn't overwrite the patch compliance of the baseline provided in the parameter\. The output results are recorded in the Stdout logs from Run Command, a capability of AWS Systems Manager\. The results only print out packages that are marked as `NON_COMPLIANT`\. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`\.
 
 ## Using the patch baseline override with Snapshot Id or Install Override List parameters<a name="patch-manager-about-baselineoverride-other-parameters"></a>
 
@@ -15,7 +15,7 @@ Snapshot Ids ensure that all instances in a particular patching command all appl
 When using both a Snapshot Id and a patch baseline override, the Snapshot Id takes precedence over the patch baseline override\. The baseline override rules will still be used, but they will only be evaluated once\. In the earlier example, the patches across your 1,000 instances will still always be the same\. If, midway through the patching operation, you changed the JSON file in the referenced S3 bucket to be something different, the patches applied will still be the same\. This is because the Snapshot Id was provided\.
 
 **Using baseline override and Install Override List at the same time**  
-You cannot use these two parameters at the same time\. The patching document fails if both parameters are supplied, and it does not perform any scans or installs on the instance\.
+You can't use these two parameters at the same time\. The patching document fails if both parameters are supplied, and it doesn't perform any scans or installs on the instance\.
 
 ## Code examples<a name="patch-manager-about-baselineoverride-code"></a>
 

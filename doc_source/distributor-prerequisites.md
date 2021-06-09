@@ -12,4 +12,4 @@ Before you use Distributor, a capability of AWS Systems Manager, be sure your en
 |  AWS Tools for PowerShell  |  \(Optional\) To use the Tools for PowerShell instead of the Systems Manager console to create and manage packages, install the newest release of Tools for PowerShell on your local computer\. For more information about how to install or upgrade the Tools for PowerShell, see [Setting Up the AWS Tools for Windows PowerShell or AWS Tools for PowerShell Core](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html) in the *AWS Tools for PowerShell User Guide*\.  | 
 
 **Note**  
-Systems Manager currently doesn't support distributing packages to Oracle Linux instances by using Distributor\.
+Systems Manager doesn't support distributing packages to Oracle Linux instances by using Distributor\.

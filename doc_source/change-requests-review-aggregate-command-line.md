@@ -1,6 +1,6 @@
 # Viewing aggregated counts of change requests \(command line\)<a name="change-requests-review-aggregate-command-line"></a>
 
-You can view aggregated counts of change requests in Change Manager, a capability of AWS Systems Manager, by using the [GetOpsSummary](https://docs.aws.amazon.com/ssm/latest/APIReference/API_GetOpsSummary.html) API action\. This API action can return counts for a single AWS account in a single AWS Region or for multiple accounts and multiple Regions\.
+You can view aggregated counts of change requests in Change Manager, a capability of AWS Systems Manager, by using the [GetOpsSummary](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html) API operation\. This API operation can return counts for a single AWS account in a single AWS Region or for multiple accounts and multiple Regions\.
 
 **Note**  
 If you want to view aggregated counts of change requests for multiple AWS accounts and multiple AWS Regions, you must set up and configure a resource data sync\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
@@ -9,7 +9,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To view aggregated counts of change requests**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -17,7 +17,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    **Single account and Region**
 
-   This command returns a count of all change requests for the AWS account and AWS Region for which your AWS CLI session is currently configured\.
+   This command returns a count of all change requests for the AWS account and AWS Region for which your AWS CLI session is configured\.
 
 ------
 #### [ Linux & macOS ]

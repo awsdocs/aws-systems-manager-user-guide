@@ -20,7 +20,7 @@ When you specify a tag as the target for an automation, you also specify a targe
 The `AWS-DetachEBSVolume` runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`\. This means that if the tag\-key pair `Finance-TestEnv` returns different types of resources \(for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots\) then only Amazon EBS volumes will be used\.
 
 **Important**  
-Target parameter names are case sensitive\. If you run automations by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it is defined in the runbook\. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error\. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API action to see information about the available target parameters in a specific runbook\. Following is an example AWS CLI command that provides information about the `AWS-DeleteSnapshot` document\.  
+Target parameter names are case sensitive\. If you run automations by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it's defined in the runbook\. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error\. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API operation to see information about the available target parameters in a specific runbook\. Following is an example AWS CLI command that provides information about the `AWS-DeleteSnapshot` document\.  
 
 ```
 aws ssm describe-document \
@@ -87,14 +87,14 @@ aws ssm start-automation-execution
 ```
 
 **Note**  
-`AutomationAssumeRole` is not a valid parameter\. Don’t choose this item when running automation that target a parameter value\.
+`AutomationAssumeRole` isn't a valid parameter\. Don’t choose this item when running automation that target a parameter value\.
 
 ### Targeting parameter value maps<a name="automation-working-targets-maps"></a>
 
 The `TargetMaps` option expands your ability to target `ParameterValues`\. You can enter an array of parameter values by using `TargetMaps` at the command line\. You can specify a maximum of 50 parameter values at the command line\. If you want to run commands that specify more than 50 parameter values, then you can enter the values in a JSON file\. You can then call the file from the command line\.
 
 **Note**  
-The `TargetMaps` option is not supported in the console\.
+The `TargetMaps` option isn't supported in the console\.
 
 Use the following format to specify multiple parameter values by using the `TargetMaps` option in a command\.
 

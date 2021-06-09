@@ -14,7 +14,7 @@ After you create the content for your custom SSM document, as described in [Writ
 
 1. Choose **Create command or session**\.
 
-1. Type a descriptive name for the document 
+1. Enter a descriptive name for the document 
 
 1. \(Optional\) For **Target type**, specify the type of resources the document can run on\.
 

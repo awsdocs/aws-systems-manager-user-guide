@@ -18,7 +18,7 @@ On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
 
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\. 
 **Note**  
-If no `updateinfo.xml` file is found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they are installed when the auto\-approval time arrives\.
+If no `updateinfo.xml` file is found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    
@@ -39,7 +39,7 @@ On CentOS, the patch selection process is as follows:
 
 1. On the instance, the YUM library \(on CentOS 6\.x and 7\.x versions\) or the DNF library \(on CentOS 8\.x\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
-If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they are installed when the auto\-approval time arrives\.
+If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    
@@ -58,7 +58,7 @@ For information about patch compliance status values, see [Understanding patch c
 
 On Debian Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
-1. On Debian Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
+1. On Debian Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
 **Important**  
 On Debian Server 8 only: Because Debian Server 8\.\* operating systems refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:  
 On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
@@ -68,7 +68,7 @@ After the installation process completes, the reference to the `jessie-backports
 
 1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
 **Note**  
-Because it's not possible to reliably determine the release dates of update packages for Debian Server, the auto\-approval options are not supported for this operating system\.
+Because it isn't possible to reliably determine the release dates of update packages for Debian Server, the auto\-approval options aren't supported for this operating system\.
 
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 
@@ -86,7 +86,7 @@ For information about accepted formats for lists of approved patches and rejecte
 To view the contents of the *Priority* and *Section *fields, run the following `aptitude` command: 
 
 **Note**  
-You may need to first install Aptitude on Debian Server systems\.
+You might need to first install Aptitude on Debian Server systems\.
 
 ```
 aptitude search -F '%p %P %s %t %V#' '~U'
@@ -121,7 +121,7 @@ On Oracle Linux, the patch selection process is as follows:
 
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
-The `updateinfo.xml` file might not be available if the repo is not one managed by Oracle\. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they are installed when the auto\-approval time arrives\.
+The `updateinfo.xml` file might not be available if the repo is not one managed by Oracle\. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    
@@ -142,7 +142,7 @@ On Red Hat Enterprise Linux \(RHEL\), the patch selection process is as follows:
 
 1. On the instance, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
-The `updateinfo.xml` file might not be available if the repo is not one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
+The `updateinfo.xml` file might not be available if the repo isn't one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    
@@ -162,10 +162,10 @@ For information about patch compliance status values, see [Understanding patch c
 On SLES, each patch includes the following attributes that denote the properties of the packages in the patch:
 + **Category**: Corresponds to the value of the **Classification** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the type of patch included in the update notice\.
 
-  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API action [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
+  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API operation [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
 + **Severity**: Corresponds to the value of the **Severity** key attribute patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. Denotes the severity of the patches\.
 
-  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API action [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
+  You can view the list of supported values by using the AWS CLI command [describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html) or the API operation [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)\. You can also view the list in the **Approval rules** area of the **Create patch baseline** page or **Edit patch baseline** page in the Systems Manager console\.
 
 The product of the instance is determined by SSM Agent\. This attribute corresponds to the value of the **Product** key attribute in the patch baseline's [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) data type\. 
 
@@ -178,11 +178,11 @@ For information about accepted formats for lists of approved patches and rejecte
 
 On Ubuntu Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Ubuntu Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
-1. On Ubuntu Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos are not configured and the data is pulled from repos configured in a `sources` list\.
+1. On Ubuntu Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
 
 1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
 **Note**  
-Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options are not supported for this operating system\.
+Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options aren't supported for this operating system\.
 
    Approval rules, however, are also subject to whether the **Include nonsecurity updates** check box was selected when creating or last updating a patch baseline\.
 
@@ -200,7 +200,7 @@ For information about accepted formats for lists of approved patches and rejecte
 To view the contents of the *Priority* and *Section *fields, run the following `aptitude` command: 
 
 **Note**  
-You may need to first install Aptitude on Ubuntu Server 16 systems\.
+You might need to first install Aptitude on Ubuntu Server 16 systems\.
 
 ```
 aptitude search -F '%p %P %s %t %V#' '~U'

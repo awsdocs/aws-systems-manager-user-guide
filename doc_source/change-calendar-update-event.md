@@ -14,7 +14,7 @@ Use the following procedure to update a Change Calendar event in the Systems Man
 
 1. In the calendar page, choose the event that you want to edit\. Use the buttons on the upper left to move back or forward one year, or back or forward one month\. Change the time zone, if required, by choosing the correct time zone from the dropdown list\.
 
-1. In **Event details**, you can change the **Description** text\. You cannot edit the name of the event\.
+1. In **Event details**, you can change the **Description** text\. You can't edit the name of the event\.
 
 1. To change the **Event start date** value, enter or choose a day in the format `MM/DD/YYYY` to start the event, and enter a time on the specified day in the format `hh:mm:ss` \(hours, minutes, and seconds\) to start the event\.
 

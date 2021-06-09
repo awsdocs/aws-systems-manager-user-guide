@@ -30,7 +30,7 @@ The title of each section here is an active link to the corresponding section in
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by or on behalf of Run Command, a capability of AWS Systems Manager, using AWS CloudTrail\.
-+ When you run a command in Run Command, do not include any sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket, in AWS CloudTrail logs\. This means that any user with access to that S3 bucket can view the plaintext values of those secrets\. For this reason, we strongly recommend creating and using `SecureString` parameters to encrypt the sensitive data you use in your Systems Manager operations\.
++ When you run a command in Run Command, don't include any sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket, in AWS CloudTrail logs\. This means that any user with access to that S3 bucket can view the plaintext values of those secrets\. For this reason, we strongly recommend creating and using `SecureString` parameters to encrypt the sensitive data you use in your Systems Manager operations\.
 
   For more information, see [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
 **Note**  
@@ -56,7 +56,7 @@ For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Manage
 + For information about the differences between State Manager and Maintenance Windows, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md)\.
 
 **[Managed Instances](managed_instances.md)**
-+ Systems Manager requires accurate time references to perform its operations\. If your instance's date and time aren't set correctly, they may not match the signature date of your API requests\. This might lead to errors or incomplete functionality\. For example, instances with incorrect time settings won't be included in your lists of managed instances\.
++ Systems Manager requires accurate time references to perform its operations\. If your instance's date and time aren't set correctly, they migth not match the signature date of your API requests\. This might lead to errors or incomplete functionality\. For example, instances with incorrect time settings won't be included in your lists of managed instances\.
 
   For information about setting the time on your instances, see the following topics: 
   +  [Setting the Time for Your Linux Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)

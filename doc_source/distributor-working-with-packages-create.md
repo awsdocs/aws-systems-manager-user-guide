@@ -2,11 +2,11 @@
 
 To create a package, prepare your installable software or assets, one file per operating system platform\. At least one file is required to create a package\.
 
-Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you are creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
+Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you're creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
-When you create a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+When you create a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
-For demonstration purposes only, an example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts do not contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you do not zip installable assets in the **Simple** workflow\.
+For demonstration purposes only, an example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts don't contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you don't zip installable assets in the **Simple** workflow\.
 
 **Topics**
 + [Create a package \(simple\)](#distributor-working-with-packages-create-simple)
@@ -31,13 +31,13 @@ The `In-place` update option lets you add new or updated files to an existing pa
 
 1. On the **Create package** page, enter a name for your package\. Package names can contain letters, numbers, periods, dashes, and underscores\. The name should be generic enough to apply to all versions of the package attachments, but specific enough to identify the purpose of the package\.
 
-1. \(Optional\) For **Version name**, enter a version name\. Version names can be a maximum of 512 characters, and cannot contain special characters\.
+1. \(Optional\) For **Version name**, enter a version name\. Version names can be a maximum of 512 characters, and can't contain special characters\.
 
 1. For **Location**, choose a bucket by using the bucket name and prefix or by using the bucket URL\.
 
 1. For **Upload software**, choose **Add software**, and then browse for installable software files with `.rpm`, `.msi`, or `.deb` extensions\. If the file name contains spaces, the upload fails\. You can upload more than one software file in a single action\.
 
-1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown is not correct, choose the correct operating system from the drop\-down list\.
+1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the drop\-down list\.
 
    For the **Simple** package creation workflow, because you upload each installable file only once, extra steps are required to instruct Distributor to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to target the same software at both Amazon Linux and Ubuntu operating systems\. When targeting multiple platforms, do one of the following\.
    + Use the **Advanced** workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Create a package \(advanced\)](#distributor-working-with-packages-create-adv)\.
@@ -61,9 +61,9 @@ The `In-place` update option lets you add new or updated files to an existing pa
 
 1. Choose **Create package**\.
 
-Wait for Distributor to finish uploading your software and creating your package\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the new package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page does not show all information about your package until Distributor finishes the package creation process\. To stop the upload and package creation process, choose **Cancel**\.
+Wait for Distributor to finish uploading your software and creating your package\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you're adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the new package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page doesn't show all information about your package until Distributor finishes the package creation process\. To stop the upload and package creation process, choose **Cancel**\.
 
-If Distributor cannot upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
+If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
 
 ## Create a package \(advanced\)<a name="distributor-working-with-packages-create-adv"></a>
 
@@ -92,7 +92,7 @@ The following items are required in each \.zip file:
 
 **Optional files**  
 The following item is optional in each \.zip file:
-+ An update script\. Providing an update script makes it possible for you to use the `In-place update` option to install a package\. When you want to add new or updated files to an existing package installation, the `In-place update` option does not take the package application offline while the update is performed\. Windows Server\-based instances require a PowerShell script \(script named `update.ps1`\)\. Linux\-based instances require a shell script \(script named `update.sh`\)\. SSM Agent runs the instructions in the update script\.
++ An update script\. Providing an update script makes it possible for you to use the `In-place update` option to install a package\. When you want to add new or updated files to an existing package installation, the `In-place update` option doesn't take the package application offline while the update is performed\. Windows Server\-based instances require a PowerShell script \(script named `update.ps1`\)\. Linux\-based instances require a shell script \(script named `update.sh`\)\. SSM Agent runs the instructions in the update script\.
 
 For more information about installing or updating packages, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
@@ -167,8 +167,8 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
 
 1. Add packages\. The `"packages"` section describes the platforms, release versions, and architectures supported by the \.zip files in your package\. For more information, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
-   The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a \.zip file supports any release of the platform\. You can also specify a major release version followed by a wildcard so all minor versions are supported, for example 7\.\*\. If you choose to specify a *platform\-version* value for a specific operating system version, be sure that it matches the exact release version of the operating system AMI that you are targeting\. The following are suggested resources for getting the correct value of the operating system\.
-   + On a Windows Server\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows Server\-based instance to get version information, then parse the results for `version`\. This command does not show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
+   The *platform\-version* can be the wildcard value, `_any`\. Use it to indicate that a \.zip file supports any release of the platform\. You can also specify a major release version followed by a wildcard so all minor versions are supported, for example 7\.\*\. If you choose to specify a *platform\-version* value for a specific operating system version, be sure that it matches the exact release version of the operating system AMI that you're targeting\. The following are suggested resources for getting the correct value of the operating system\.
+   + On a Windows Server\-based instance, the release version is available as Windows Management Instrumentation \(WMI\) data\. You can run the following Command Prompt command on a Windows Server\-based instance to get version information, then parse the results for `version`\. This command doesn't show the version for Windows Server Nano; the version value for Windows Server Nano is `nano`\.
 
      ```
      wmic OS get /format:list
@@ -179,7 +179,7 @@ After you prepare and zip your installable files, create a JSON manifest\. The f
      cat /etc/os-release
      ```
 
-     If that does not return the results that you need, run the following command to get LSB release information from the `/etc/lsb-release` file, and look for the value of `DISTRIB_RELEASE`\.
+     If that doesn't return the results that you need, run the following command to get LSB release information from the `/etc/lsb-release` file, and look for the value of `DISTRIB_RELEASE`\.
 
      ```
      lsb_release -a
@@ -393,17 +393,17 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 **To upload the package and manifest to Amazon S3**
 
-1. Copy or move all \.zip archive files that you specified in the manifest to a folder or directory\. Do not zip the folder or directory you move your \.zip archive files and manifest file to\.
+1. Copy or move all \.zip archive files that you specified in the manifest to a folder or directory\. Don't zip the folder or directory you move your \.zip archive files and manifest file to\.
 
 1. Create a bucket or choose an existing bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. For more information about how to run an AWS CLI command to create a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) in the *AWS CLI Command Reference*\.
 
-1. Upload the folder to the bucket\. For more information, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, do not upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
+1. Upload the folder to the bucket\. For more information, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, don't upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
 
 1. On the bucket's home page, choose the folder that you uploaded\. If you uploaded your files to a subfolder in a bucket, be sure to note the subfolder \(also known as a *prefix*\)\. You need the prefix to add your package to Distributor\.
 
 ### Step 4: Add a package to Distributor<a name="distributor-working-with-packages-add"></a>
 
-You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you are adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
 
 **Topics**
 + [Adding a package \(console\)](#create-pkg-console)
@@ -433,9 +433,9 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
    \(Optional\) If you did not upload your JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
-1. When you are finished with the manifest, choose **Create package**\.
+1. When you're finished with the manifest, choose **Create package**\.
 
-1. Wait for Distributor to create your package from your \.zip files and manifest\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the new package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page does not show all information about your package until Distributor finishes the package creation process\. To stop the upload and package creation process, choose **Cancel**\.
+1. Wait for Distributor to create your package from your \.zip files and manifest\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the new package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page doesn't show all information about your package until Distributor finishes the package creation process\. To stop the upload and package creation process, choose **Cancel**\.
 
 #### Adding a package \(AWS CLI\)<a name="create-pkg-cli"></a>
 

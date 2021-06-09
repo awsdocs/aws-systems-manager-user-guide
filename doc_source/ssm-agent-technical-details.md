@@ -14,7 +14,7 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
 
-When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that's attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
+When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
 
 In rare cases, however, an instance might end up with permissions added to more than one of the locations where SSM Agent checks for permissions to run its tasks\. 
 
@@ -70,15 +70,15 @@ Amazon Machine Images \(AMIs\) that include SSM Agent by default can take up to 
 
 After an SSM Agent update is made available in its GitHub repository, it can take up to two weeks until the updated version is rolled out to all AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" or "updating amazon\-ssm\-agent to an older version, please enable allow downgrade to proceed" error when trying to deploy a new version of SSM Agent in a Region\.
 
-To determine the version of SSM Agent currently available to you, you can run a `curl` command\.
+To determine the version of SSM Agent available to you, you can run a `curl` command\.
 
-To view the version of the agent currently available in the global download bucket, run the following command\.
+To view the version of the agent available in the global download bucket, run the following command\.
 
 ```
 curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/VERSION
 ```
 
-To view the version of the agent currently available in a specific Region, run the following command, substituting *region* with the Region you are working in, such as `us-east-2` for the US East \(Ohio\) Region\.
+To view the version of the agent available in a specific Region, run the following command, substituting *region* with the Region you are working in, such as `us-east-2` for the US East \(Ohio\) Region\.
 
 ```
 curl https://s3.region.amazonaws.com/amazon-ssm-region/latest/VERSION
@@ -105,7 +105,7 @@ When comparing the current machine attributes to the hardware hash stored in the
 
 The similarity threshold is stored in the Vault, as part of the hardware hash\. 
 
-The similarity threshold can be set after an instance is registered using a command like the following:
+The similarity threshold can be set after an instance is registered using a command like the following\.
 
 On Linux instances:
 
@@ -144,4 +144,4 @@ SSM Agent might be pre\-installed on Community AMIs that support other operating
 
 ## SSM Agent on GitHub<a name="github"></a>
 
-The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services doesn't currently provide support for running modified copies of this software\.
+The source code for SSM Agent is available on [GitHub](https://github.com/aws/amazon-ssm-agent) so that you can adapt the agent to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/amazon-ssm-agent/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services doesn't provide support for running modified copies of this software\.

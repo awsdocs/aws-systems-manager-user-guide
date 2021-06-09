@@ -9,7 +9,7 @@ When you create a change request in Change Manager, a capability of AWS Systems 
 In some cases, a change template might be configured so you specify your own Automation runbook to use, and to specify who should review and approve the request\.
 
 **Important**  
-If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
 The following procedure describes how to create a change request by using the Systems Manager console\.
 
@@ -33,14 +33,14 @@ The following procedure describes how to create a change request by using the Sy
 
 1. For **Runbook**, select the runbook you want to use to make your requested change\.
 **Note**  
-If the option to select a runbook is not available, the change template author has specified which runbook must be used\.
+If the option to select a runbook isn't available, the change template author has specified which runbook must be used\.
 
-1. For **Change request information**, use Markdown to provide additional information about the change request to help reviewers decide whether to approve or reject the change request\. The author of the template you are using may have provided instructions or questions for you to answer\.
+1. For **Change request information**, use Markdown to provide additional information about the change request to help reviewers decide whether to approve or reject the change request\. The author of the template you're using might have provided instructions or questions for you to answer\.
 **Note**  
 Markdown is a markup language that allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
 
 1. In the **Workflow start time** section, choose one of the following:
-   + **Run the operation at a scheduled time** – For **Requested start time**, enter the date and time you propose for running the runbook workflow for this request\. For **Estimated end time**, enter the date and time that you expect the runbook workflow to complete\. \(This time is an estimate only that you are providing for reviewers\.\)
+   + **Run the operation at a scheduled time** – For **Requested start time**, enter the date and time you propose for running the runbook workflow for this request\. For **Estimated end time**, enter the date and time that you expect the runbook workflow to complete\. \(This time is an estimate only that you're providing for reviewers\.\)
 **Tip**  
 Choose **View Change Calendar** to check for any blocking events for the time you specify\.
    + **Run the operation as soon as possible after approval** – If the change request is approved, the runbook workflow runs as soon as there is a non\-restricted period when changes can be made\.
@@ -49,15 +49,15 @@ Choose **View Change Calendar** to check for any blocking events for the time yo
 
    1. Choose **Add approver**, and then select one or more users or groups from the lists of available reviewers\.
 **Note**  
-One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers cannot be removed from the request\. If the **Add approver** button is not enabled, the template you have chosen doesn't allow additional reviewers to be added to requests\.
+One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't enabled, the template you have chosen doesn't allow additional reviewers to be added to requests\.
 
    1. Under **SNS topic to notify approvers**, choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications to the approvers you are adding to this change request\.
 **Note**  
-If the option to specify an Amazon SNS topic is not available, the change template you selected already specifies the Amazon SNS topic to use\.
+If the option to specify an Amazon SNS topic isn't available, the change template you selected already specifies the Amazon SNS topic to use\.
       + **Enter an SNS Amazon Resource Name \(ARN\)** – For **Topic ARN**, enter the ARN of an existing Amazon SNS topic\. This topic can be in any of your organization's accounts\.
-      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option is not available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
+      + **Select an existing SNS topic** – For **Target notification topic**, select the ARN of an existing Amazon SNS topic in your current account\. \(This option isn't available if you haven't yet created any Amazon SNS topics in your current AWS account and AWS Region\.\)
 **Note**  
-The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they are sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
+The Amazon SNS topic you select must be configured to specify the notifications it sends and the subscribers they're sent to\. Its access policy must also grant permissions to Systems Manager so Change Manager can send notifications\. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)\. 
 
    1. Choose **Add notification**\.
 
@@ -69,7 +69,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 1. In the **Deployment location** section, choose one of the following:
 **Note**  
-If you are using Change Manager with a single AWS account only and not with an organization set up in AWS Organizations, you don't need to specify a deployment location\.
+If you're using Change Manager with a single AWS account only and not with an organization set up in AWS Organizations, you don't need to specify a deployment location\.
    + **Apply change to this account** – The runbook workflow runs in the current account only\. For an organization, this means the delegated administrator account\.
    + **Apply change to multiple organizational units \(OUs\)** – Do the following: 
 
@@ -115,6 +115,6 @@ If you are using Change Manager with a single AWS account only and not with an o
 
    Choose the **Edit** button for any section you want to make changes to\.
 
-   When you are satisfied with the change request details, choose **Submit for approval**\.
+   When you're satisfied with the change request details, choose **Submit for approval**\.
 
 If an Amazon SNS topic has been specified in the change template you chose for the request, notifications are sent when the request is rejected or approved\. If you don't receive notifications for the request, you can return to Change Manager to check the status of your request\. 

@@ -34,7 +34,7 @@ You can update or delete the targets of a maintenance window\. If you choose to 
    + To update targets, choose **Edit**\.
    + To delete targets, choose Deregister targets, and then choose the **Targets** tab\.
 
-     Choose the target to delete, and then choose **Deregister target**\. In the **Deregister maintenance windows target** window, leave the **Safely deregister target** option selected if you want the system to check if the target is referenced by any tasks before deleting it\. If the target is referenced by a task, the system returns an error and doesn't delete the target\. Clear the **Safely deregister target** option if you want the system to delete the target even if it is referenced by a task\.
+     Choose the target to delete, and then choose **Deregister target**\. In the **Deregister maintenance windows target** window, leave the **Safely deregister target** option selected if you want the system to check if the target is referenced by any tasks before deleting it\. If the target is referenced by a task, the system returns an error and doesn't delete the target\. Clear the **Safely deregister target** option if you want the system to delete the target even if it's referenced by a task\.
 
      Choose **Deregister**\.
 

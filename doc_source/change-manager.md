@@ -12,7 +12,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 
 Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS Single Sign\-On helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
-Change Manager complements the safety controls of your [continuous integration](https://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager is not intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
+Change Manager complements the safety controls of your [continuous integration](https://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
 
 ## How Change Manager works<a name="how-change-manager-works"></a>
 
@@ -72,7 +72,7 @@ Primary features of Change Manager include the following:
   + Require all change templates created in your account to be reviewed and approved before they can be used to create change requests\.
 + **Different approval paths for closed calendar periods and emergency change requests**
 
-  You can enable an option to check Change Calendar for restricted events and block approved change requests until the event completes\. However, you can also designate a second group of approvers, change freeze approvers, who can permit the change to be made even if the calendar is closed\. You can also create emergency change templates\. Change requests created from an emergency change template still require regular approvals but are not subject to calendar restrictions and do not require change freeze approvals\.
+  You can enable an option to check Change Calendar for restricted events and block approved change requests until the event completes\. However, you can also designate a second group of approvers, change freeze approvers, who can permit the change to be made even if the calendar is closed\. You can also create emergency change templates\. Change requests created from an emergency change template still require regular approvals but aren't subject to calendar restrictions and don't require change freeze approvals\.
 + **Control how and when runbook workflows are started**
 
   Runbook workflows can be started according to a schedule, or as soon as approvals are complete \(subject to calendar restriction rules\)\.
@@ -81,7 +81,7 @@ Primary features of Change Manager include the following:
   Specify who in your organization should review and approve change templates and change requests\.  Assign an Amazon SNS topic to a change template to send notifications to the topic's subscribers about status changes for change requests created with that change template\. 
 + **Integration with AWS Systems Manager Change Calendar**
 
-  Change Manager allows administrators to restrict scheduling changes during specified time periods\. For instance, you can create a policy that allows changes only during business hours to ensure that the team is available to handle any issues\. You can also restrict changes during important business events\. For example, retail businesses may restrict changes during large sales events\. You can also require additional approvals during restricted periods\. 
+  Change Manager allows administrators to restrict scheduling changes during specified time periods\. For instance, you can create a policy that allows changes only during business hours to ensure that the team is available to handle any issues\. You can also restrict changes during important business events\. For example, retail businesses might restrict changes during large sales events\. You can also require additional approvals during restricted periods\. 
 + **Integration with AWS Single Sign\-On and Active Directory support**
 
   With AWS SSO integration, members of your organization can access AWS accounts and manage their resources using Systems Manager based on a common user identity\. Using AWS SSO, you can assign your users access to accounts across AWS\. 
@@ -104,10 +104,10 @@ Change Manager components that you use to manage the change process in your orga
 
 ### Delegated administrator account<a name="change-manager-what-is-delegated-account"></a>
 
-If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account designated as the account for managing operations activities across Systems Manager, including Change Manager\. The delegated administrator account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. The delegated administrator account must be the only member of the organizational unit \(OU\) to which it is assigned\. The delegated administrator account is not required if you use Change Manager with a single AWS account only\.
+If you use Change Manager across an organization, you use a delegated administrator account\. This is the AWS account designated as the account for managing operations activities across Systems Manager, including Change Manager\. The delegated administrator account manages change activities across your organization\. When you set up your organization for use with Change Manager, you specify which of your accounts serves in this role\. The delegated administrator account must be the only member of the organizational unit \(OU\) to which it's assigned\. The delegated administrator account isn't required if you use Change Manager with a single AWS account only\.
 
 **Important**  
-If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes will not be reported in or viewable from the delegated administrator account\.
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
 ### Change template<a name="change-manager-what-is-change-template"></a>
 
@@ -115,7 +115,7 @@ A change template is a collection of configuration settings in Change Manager th
 
 You can require that the change templates created by users in your organization or account go through an approval process before they can be used\.
 
-Change Manager supports two types of change templates\. For an approved change request that is based on an *emergency change template*, the requested change can be made even if there are blocking events in Change Calendar\. For an approved change request that is based on a *standard change template*, the requested change cannot be made if there are blocking events in Change Calendar unless additional approvals are received from designated *change freeze event * approvers\. 
+Change Manager supports two types of change templates\. For an approved change request that is based on an *emergency change template*, the requested change can be made even if there are blocking events in Change Calendar\. For an approved change request that is based on a *standard change template*, the requested change can't be made if there are blocking events in Change Calendar unless additional approvals are received from designated *change freeze event * approvers\. 
 
 ### Change request<a name="change-manager-what-is-change-request"></a>
 
@@ -123,13 +123,13 @@ A change request is a request in Change Manager to run an Automation runbook tha
 
 When you create a change request, one or more approvers in your organization or account must review and approve the request\. Without the required approvals, the runbook workflow, which applies the changes you request, is not permitted to run\.
 
-In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` are not displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced limits as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
+In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced limits as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
 
-Additionally, to create a change request programmatically, you do not call the `CreateOpsItem` API action\. Instead, you use the `[StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html)` API action\. But rather than running immediately, the change request must be approved, and there must not any blocking events in Change Calendar to prevent the workflow from running\. When approvals have been received and the calendar is not blocked \(or permission has been given to bypass blocking calendar events\), the `StartChangeRequestExecution` action is able to complete\.
+Additionally, to create a change request programmatically, you don't call the `CreateOpsItem` API operation\. Instead, you use the `[StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html)` API operation\. But rather than running immediately, the change request must be approved, and there must not any blocking events in Change Calendar to prevent the workflow from running\. When approvals have been received and the calendar isn't blocked \(or permission has been given to bypass blocking calendar events\), the `StartChangeRequestExecution` action is able to complete\.
 
 ### Runbook workflow<a name="change-manager-what-is-runbook-workflow"></a>
 
-A runbook workflow is the process of requested changes being made to the targeted resources in your cloud or on\-premises environment\. Each change request designates a single Automation runbook to use to make the requested change\. The runbook workflow occurs after all required approvals have been granted and there are no blocking events in Change Calendar\. If the change has been scheduled for a specific date and time, the runbook workflow doesn't begin until scheduled, even if all approvals have been received and the calendar is not blocked\.
+A runbook workflow is the process of requested changes being made to the targeted resources in your cloud or on\-premises environment\. Each change request designates a single Automation runbook to use to make the requested change\. The runbook workflow occurs after all required approvals have been granted and there are no blocking events in Change Calendar\. If the change has been scheduled for a specific date and time, the runbook workflow doesn't begin until scheduled, even if all approvals have been received and the calendar isn't blocked\.
 
 ### <a name="change-manager-what-is-OpsItem"></a>
 

@@ -1,7 +1,7 @@
 # SSM document schemas and features<a name="document-schemas-features"></a>
 
-AWS Systems Manager \(SSM\) documents currently use the following schema versions\.
-+ Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you are currently using schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.
+AWS Systems Manager \(SSM\) documents use the following schema versions\.
++ Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you use schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.
 + Documents of type `Policy` must use schema version 2\.0 or later\.
 + Documents of type `Automation` must use schema version 0\.3\.
 + You can create documents in JSON or YAML\.
@@ -14,7 +14,7 @@ By using the latest schema version for `Command` and `Policy` documents, you can
 | Feature | Details | 
 | --- | --- | 
 |  Document editing  |  Documents can now be updated\. With version 1\.2, any update to a document required that you save it with a different name\.  | 
-|  Automatic versioning  |  Any update to a document creates a new version\. This is not a schema version, but a version of the document\.  | 
+|  Automatic versioning  |  Any update to a document creates a new version\. This isn't a schema version, but a version of the document\.  | 
 |  Default version  |  If you have multiple versions of a document, you can specify which version is the default document\.  | 
 |  Sequencing  |  Plugins or *steps* in a document run in the order that you specified\.  | 
 |  Cross\-platform support  |  Cross\-platform support enables you to specify different operating systems for different plugins within the same SSM document\. Cross\-platform support uses the `precondition` parameter within a step\.   | 
@@ -40,7 +40,7 @@ With schema version 2\.2 or later, you can use the `precondition` parameter to s
 
 For documents that use schema version 2\.2 or later, if `precondition` is not specified, each plugin is either run or skipped based on the plugin’s compatibility with the operating system\. Plugin compatibility with the operating system is evaluated before the `precondition`\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
 
-For example, in a schema version 2\.2 document, if `precondition` is not specified and the `aws:runShellScript` plugin is listed, then the step runs on Linux instances, but the system skips it on Windows Server instances because the `aws:runShellScript` is not compatible with Windows Server instances\. However, for a schema version 2\.0 document, if you specify the `aws:runShellScript` plugin, and then run the document on a Windows Server instances, the execution fails\. You can see an example of the precondition parameter in an SSM document later in this section\.
+For example, in a schema version 2\.2 document, if `precondition` isn't specified and the `aws:runShellScript` plugin is listed, then the step runs on Linux instances, but the system skips it on Windows Server instances because the `aws:runShellScript` is not compatible with Windows Server instances\. However, for a schema version 2\.0 document, if you specify the `aws:runShellScript` plugin, and then run the document on a Windows Server instances, the execution fails\. You can see an example of the precondition parameter in an SSM document later in this section\.
 
 ## Schema version 2\.2<a name="documents-schema-twox"></a>
 

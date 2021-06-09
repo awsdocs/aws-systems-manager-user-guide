@@ -75,7 +75,7 @@ The following example output has been truncated for space\.
 }
 ```
 
-If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `describe-parameters` call and filter the parameters using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path filter may be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. The path filter is recursive by default\. Specify `Option:OneLevel` if you don't want it to be recursive\.
+If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `describe-parameters` call and filter the parameters using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path filter might be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. The path filter is recursive by default\. Specify `Option:OneLevel` if you don't want it to be recursive\.
 
 ```
 aws ssm describe-parameters --parameter-filters "Key=Path, Values=/aws/service/global-infrastructure"

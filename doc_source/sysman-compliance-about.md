@@ -7,17 +7,17 @@ Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InS
 
 ## About patch compliance<a name="sysman-compliance-monitor-patch"></a>
 
-After you use Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS Command Line Interface \(AWS CLI\) commands or corresponding Systems Manager API actions\.
+After you use Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS Command Line Interface \(AWS CLI\) commands or corresponding Systems Manager API operations\.
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
 ## About State Manager association compliance<a name="sysman-compliance-about-association"></a>
 
-After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API actions\. For associations, Compliance shows statuses of `Compliant` or `Non-compliant` and the severity level assigned to the association, such as `Critical` or `Medium`\.
+After you create one or more State Manager associations, compliance status information is immediately available to you in the console or in response to AWS CLI commands or corresponding Systems Manager API operations\. For associations, Compliance shows statuses of `Compliant` or `Non-compliant` and the severity level assigned to the association, such as `Critical` or `Medium`\.
 
 ## About custom compliance<a name="sysman-compliance-custom"></a>
 
-You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutComplianceItems.html) API action to explicitly note which managed instances are running older versions of software X\. Currently you can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
+You can assign compliance metadata to a managed instance\. This metadata can then be aggregated with other compliance data for compliance reporting purposes\. For example, say that your business runs versions 2\.0, 3\.0, and 4\.0 of software X on your managed instances\. The company wants to standardize on version 4\.0, meaning that instances running versions 2\.0 and 3\.0 are non\-compliant\. You can use the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API operation to explicitly note which managed instances are running older versions of software X\. You can only assign compliance metadata by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDKs\. The following CLI sample command assigns compliance metadata to a managed instance and specifies the compliance type in the required format `Custom:`\.
 
 ------
 #### [ Linux & macOS ]
@@ -83,18 +83,18 @@ For information about fixing compliance issues, see [Remediating compliance issu
 You can view summaries of compliance data for patching, associations, and custom compliance types in the in the AWS CLI by using the following AWS CLI commands\. 
 
 [list\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-compliance-summaries.html)  
-Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\. \(API: [ListComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListComplianceSummaries.html)\)
+Returns a summary count of compliant and non\-compliant association statuses according to the filter you specify\. \(API: [ListComplianceSummaries](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListComplianceSummaries.html)\)
 
 [list\-resource\-compliance\-summaries](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-resource-compliance-summaries.html)  
-Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and detailed compliance\-item severity counts, according to the filter criteria you specify\. \(API: [ListResourceComplianceSummaries](https://docs.aws.amazon.com/ssm/latest/APIReference/API_ListResourceComplianceSummaries.html)\)
+Returns a resource\-level summary count\. The summary includes information about compliant and non\-compliant statuses and detailed compliance\-item severity counts, according to the filter criteria you specify\. \(API: [ListResourceComplianceSummaries](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListResourceComplianceSummaries.html)\)
 
 You can view additional compliance data for patching by using the following AWS CLI commands\.
 
 [describe\-patch\-group\-state](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-group-state.html)  
-Returns high\-level aggregated patch compliance state for a patch group\. \(API: [DescribePatchGroupState](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribePatchGroupState.html)\)
+Returns high\-level aggregated patch compliance state for a patch group\. \(API: [DescribePatchGroupState](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroupState.html)\)
 
 [describe\-instance\-patch\-states\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-patch-states-for-patch-group.html)  
-Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
+Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
 For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.

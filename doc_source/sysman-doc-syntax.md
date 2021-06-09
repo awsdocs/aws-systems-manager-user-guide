@@ -30,7 +30,7 @@ The `parameters` structure accepts the following fields and values:
 To use a number as a parameter value, use `String` as the parameter type\.
 + `description`: \(Optional\) A description of the parameter\.
 + `default`: \(Optional\) The default value of the parameter or a reference to a parameter in Parameter Store\.
-+ `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that is not allowed, the execution fails to start\.
++ `allowedValues`: \(Optional\) An array of values allowed for the parameter\. Defining allowed values for the parameter validates the user input\. If a user inputs a value that isn't allowed, the execution fails to start\.
 
 ------
 #### [ YAML ]
@@ -63,9 +63,9 @@ To use a number as a parameter value, use `String` as the parameter type\.
   ```
 
 ------
-+ `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input does not match the allowed pattern, the execution fails to start\.
++ `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input doesn't match the allowed pattern, the execution fails to start\.
 **Note**  
-In SSM documents, the `allowedPattern` field supports the [Google re2 regex syntax](https://github.com/google/re2/wiki/Syntax), which does not include support for lookaround\.
+In SSM documents, the `allowedPattern` field supports the [Google re2 regex syntax](https://github.com/google/re2/wiki/Syntax), which doesn't include support for lookaround\.
 
 ------
 #### [ YAML ]
@@ -99,7 +99,7 @@ In SSM documents, the `allowedPattern` field supports the [Google re2 regex synt
 Required: No
 
 **runtimeConfig**  
-\(Schema version 1\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins are not guaranteed to run in sequence\.   
+\(Schema version 1\.2 only\) The configuration for the instance as applied by one or more Systems Manager plugins\. Plugins aren't guaranteed to run in sequence\.   
 Type: Dictionary<string,PluginConfiguration>  
 Required: No
 
@@ -115,7 +115,7 @@ Required: No
 
 **files**  
 \(Schema version 0\.3 only\) The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
-For script runtime support, Automation runbooks currently support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation runbooks, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
+For script runtime support, Automation runbooks support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation runbooks, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
 When you create an Automation runbook you specify attachment files using the `--attachments` option \(for AWS CLI\) or `Attachments` \(for API and SDK\)\. You can specify the file location for both local files and files stored in Amazon Simple Storage Service \(Amazon S3\) buckets\.  
 
 ```
@@ -140,7 +140,7 @@ Required: No
 
 ## SSM document parameter `type` examples<a name="top-level-properties-type"></a>
 
-Parameter types in SSM documents are static\. This means the parameter type can't be changed after it is defined\. When using parameters with SSM document plugins, the type of a parameter can't be dynamically changed within a plugin's input\. For example, you can't reference an `Integer` parameter within the `runCommand` input of the `aws:runShellScript` plugin because this input accepts a string or list of strings\. To use a parameter for a plugin input, the parameter type must match the accepted type\. For example, you must specify a `Boolean` type parameter for the `allowDowngrade` input of the `aws:updateSsmAgent` plugin\. If your parameter type doesn't match the input type for a plugin, the SSM document fails to validate and the system doesn't create the document\.
+Parameter types in SSM documents are static\. This means the parameter type can't be changed after it's defined\. When using parameters with SSM document plugins, the type of a parameter can't be dynamically changed within a plugin's input\. For example, you can't reference an `Integer` parameter within the `runCommand` input of the `aws:runShellScript` plugin because this input accepts a string or list of strings\. To use a parameter for a plugin input, the parameter type must match the accepted type\. For example, you must specify a `Boolean` type parameter for the `allowDowngrade` input of the `aws:updateSsmAgent` plugin\. If your parameter type doesn't match the input type for a plugin, the SSM document fails to validate and the system doesn't create the document\.
 
 When using parameters with AWS Systems Manager Automation actions, parameter types aren't validated when you create the SSM document in most cases\. Only when you use the `aws:runCommand` action are parameter types validated when you create the SSM document\. In all other cases, the parameter validation occurs during the automation execution when an action's input is verified before running the action\. For example, if your input parameter is a `String` and you reference it as the value for the `MaxInstanceCount` input of the `aws:runInstances` action, the SSM document is created\. However, when running the document, the automation fails while validating the `aws:runInstances` action because the `MaxInstanceCount` input requires an `Integer`\.
 
@@ -185,7 +185,7 @@ commands:
 ```
 
 Boolean  
-Accepts only `true` or `false`\. Does not accept "true" or 0\.  
+Accepts only `true` or `false`\. Doesn't accept "true" or 0\.  
 
 ```
 ---

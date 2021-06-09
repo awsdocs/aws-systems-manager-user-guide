@@ -26,7 +26,7 @@ You can also use this role in runbooks, such as the `AWS-CreateManagedLinuxInsta
 
 1. On the **Attached permissions policy** page, search for the **AmazonSSMAutomationRole** policy, choose it, and then choose **Next: Review**\. 
 
-1. On the **Review** page, type a name in the **Role name** box, and then enter a description\.
+1. On the **Review** page, enter a name in the **Role name** box, and then enter a description\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
@@ -35,7 +35,7 @@ You can also use this role in runbooks, such as the `AWS-CreateManagedLinuxInsta
 **Note**  
 The `AmazonSSMAutomationRole` policy assigns the Automation role permission to a subset of AWS Lambda functions within your account\. These functions begin with "Automation"\. If you plan to use Automation with Lambda functions, the Lambda ARN must use the following format:  
 `"arn:aws:lambda:*:*:function:Automation*"`  
-If you have existing Lambda functions whose ARNs do not use this format, then you must also attach an additional Lambda policy to your automation role, such as the **AWSLambdaRole** policy\. The additional policy or role must provide broader access to Lambda functions within the AWS account\.
+If you have existing Lambda functions whose ARNs don't use this format, then you must also attach an additional Lambda policy to your automation role, such as the **AWSLambdaRole** policy\. The additional policy or role must provide broader access to Lambda functions within the AWS account\.
 
 ### \(Optional\) Add an Automation inline policy to invoke other AWS services<a name="automation-role-add-inline-policy"></a>
 
@@ -97,11 +97,11 @@ If you run an automation that invokes other AWS services by using an IAM service
 
    For details about the IAM policy language, see [IAM JSON Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*\.
 
-1. When you are finished, choose **Review policy**\. The [Policy Validator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) reports any syntax errors\.
+1. When you're finished, choose **Review policy**\. The [Policy Validator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) reports any syntax errors\.
 
-1. On the **Review policy** page, enter a **Name** for the policy that you are creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
+1. On the **Review policy** page, enter a **Name** for the policy that you're creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
 
-1. After you create an inline policy, it is automatically embedded in your role\.
+1. After you create an inline policy, it's automatically embedded in your role\.
 
 ## Task 2: Attach the iam:PassRole policy to your Automation role<a name="automation-passpolicy"></a>
 
@@ -131,7 +131,7 @@ If you want the Automation service role to attach an IAM instance profile role t
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, type a name and then choose **Create Policy**\.
+1. On the **Review Policy** page, enter a name and then choose **Create Policy**\.
 
 ## Task 3: Configure user access to Automation<a name="automation-passrole"></a>
 

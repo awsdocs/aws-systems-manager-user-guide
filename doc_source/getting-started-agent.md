@@ -5,7 +5,7 @@ AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed
 In this task, you install or update the SSM Agent on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\.
 
 **Note**  
-If you are working with your own on\-premises servers or VMs, see the following topics:  
+If you're working with your own on\-premises servers or VMs, see the following topics:  
 [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
 [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
  macOS isn't supported for AWS Systems Manager hybrid environments\.

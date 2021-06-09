@@ -4,7 +4,7 @@
 
 The AWS Systems Manager OpsCenter integration with Security Hub enables you to receive findings from Security Hub in OpsCenter\. Security Hub findings provide security information that you can use in OpsCenter to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
 
-You can automatically create operational issues \(OpsItems\) in OpsCenter for diagnosis and remediation of critical and high severity findings\. To help you with the diagnosis, the OpsItem includes relevant information, such as AWS resource ID and type, and findings details\. You can also use Systems Manager Automation runbooks within OpsCenter to run predefined workflows to help remediate common security issues with AWS resources more easily\. 
+You can automatically create operational issues \(OpsItems\) in OpsCenter for diagnosis and remediation of critical and high severity findings\. To help you with the diagnosis, the OpsItem includes relevant information, such as AWS resource ID and type, and findings details\. You can also use Systems Manager Automation runbooks within OpsCenter to run predefined workflows to help remediate common security issues with AWS resources\. 
 
 OpsCenter has bidirectional integration with Security Hub\. When you make updates to OpsItem status and severity fields related to a security finding, those changes are automatically sent to Security Hub to ensure you always see the latest and correct information\. OpsCenter is also integrated with AWS Systems Manager Explorer \(Explorer\)\. In Explorer, you can view a widget that provides summary of all Security Hub findings based on severity\.
 
@@ -24,7 +24,7 @@ To receive the findings from Security Hub, OpsCenter takes advantage of the Secu
 
 ### How long does it take to receive findings from Security Hub?<a name="opscenter-securityhub-integration-receive-finding-latency"></a>
 
-When Security Hub creates a new finding, it is usually visible in OpsCenter within seconds\.
+When Security Hub creates a new finding, it's usually visible in OpsCenter within seconds\.
 
 ### Retrying if there is a system outage<a name="opscenter-securityhub-integration-retry-receive"></a>
 

@@ -1,6 +1,6 @@
 # AWS Systems Manager Session Manager<a name="session-manager"></a>
 
-Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\) through an interactive one\-click browser\-based shell or through the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your managed instances\.
+Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\) through an interactive one\-click browser\-based shell or through the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your managed instances\.
 
 ## How can Session Manager benefit my organization?<a name="session-manager-benefits"></a>
 
@@ -30,7 +30,7 @@ Session Manager offers these benefits:
   + **Amazon CloudWatch Logs** – CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for debugging and troubleshooting purposes\. Log data can be sent to your log group with or without AWS KMS encryption using your KMS key\. For more information, see [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging.md#session-manager-logging-cloudwatch-logs)\.
   + **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge lets you set up rules to detect when changes happen to AWS resources that you specify\. You can create a rule to detect when a user in your organization starts or stops a session, and then receive a notification through Amazon SNS \(for example, a text or email message\) about the event\. You can also configure a CloudWatch event to initiate other responses\. For more information, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\.
 **Note**  
-Logging is not available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
+Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 ## Who should use Session Manager?<a name="session-manager-who"></a>
 + Any AWS customer who wants to improve their security and audit posture, reduce operational overhead by centralizing access control on instances, and reduce inbound instance access\. 
@@ -48,7 +48,7 @@ Session Manager support for on\-premises servers is provided for the advanced\-i
 
   You can work with Session Manager in the following ways:
 
-  The **AWS Systems Manager console** includes access to all the Session Manager capabilities for both administrators and end users\. You can perform any task that's related to your sessions by using the Systems Manager console\. 
+  The **AWS Systems Manager console** includes access to all the Session Manager capabilities for both administrators and end users\. You can perform any task that is related to your sessions by using the Systems Manager console\. 
 
   The Amazon EC2 console provides the ability for end users to connect to the EC2 instances for which they have been granted session permissions\.
 

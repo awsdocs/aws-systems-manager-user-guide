@@ -3,31 +3,169 @@
 Use the following information to help you troubleshoot problems with Patch Manager, a capability of AWS Systems Manager\.
 
 **Topics**
-+ [Troubleshooting mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch)
-+ [Troubleshooting `AWS-RunPatchBaseline` output returns an `HRESULT`](#patch-manager-troubleshooting-hresult)
-+ [Troubleshooting instance does not have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access)
-+ [Troubleshooting PatchBaseline module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable)
-+ [Troubleshooting missing patches](#patch-manager-troubleshooting-module-not-downloadable)
++ [Errors when running `AWS-RunPatchBaseline` on Linux](#patch-manager-troubleshooting-linux)
++ [Errors when running `AWS-RunPatchBaseline` on Windows Server](#patch-manager-troubleshooting-windows)
 + [Contacting AWS Support](#patch-manager-troubleshooting-contact-support)
 
-## Troubleshooting mismatched product family/product pairs<a name="patch-manager-troubleshooting-product-family-mismatch"></a>
+## Errors when running `AWS-RunPatchBaseline` on Linux<a name="patch-manager-troubleshooting-linux"></a>
 
-**Problem**: When you create a patch baseline in the console, you specify a product family and a product\. For example, you might choose:
+**Topics**
++ [Issue: 'No such file or directory' error](#patch-manager-troubleshooting-linux-1)
++ [Issue: 'another process has acquired yum lock' error](#patch-manager-troubleshooting-linux-2)
++ [Issue: 'Permission denied / failed to run commands' error](#patch-manager-troubleshooting-linux-3)
++ [Issue: 'Unable to download payload' error](#patch-manager-troubleshooting-linux-4)
++ [Issue: 'unsupported package manager and python version combination' error](#patch-manager-troubleshooting-linux-5)
++ [Issue: Patch Manager isn't applying rules specified to exclude certain packages](#patch-manager-troubleshooting-linux-6)
++ [Issue: Patching fails and Patch Manager reports that the Server Name Indication extension to TLS is not available](#patch-manager-troubleshooting-linux-7)
++ [Issue: Patch Manager reports 'No more mirrors to try'](#patch-manager-troubleshooting-linux-8)
+
+### Issue: 'No such file or directory' error<a name="patch-manager-troubleshooting-linux-1"></a>
+
+**Problem**: When you run `AWS-RunPatchBaseline`, patching fails with one of the following errors\.
+
+```
+IOError: [Errno 2] No such file or directory: 'patch-baseline-operations-X.XX.tar.gz'
+```
+
+```
+Unable to extract tar file: /var/log/amazon/ssm/patch-baseline-operations/patch-baseline-operations-1.75.tar.gz.failed to run commands: exit status 155
+```
+
+```
+Unable to load and extract the content of payload, abort.failed to run commands: exit status 152
+```
+
+**Cause 1**: Two commands to run `AWS-RunPatchBaseline` were running at the same time on the same instance\. This creates a race condition that results in the temporary `file patch-baseline-operations*` not being created or accessed properly\.
+
+**Cause 2**: Insufficient storage space remains under the `/var` directory\. 
+
+**Solution 1**: Ensure that no maintenance window has two or more Run Command tasks that run `AWS-RunPatchBaseline` with the same Priority level and that run on the same target IDs\. If this is the case, reorder the priority\. Run Command is a capability of AWS Systems Manager\.
+
+**Solution 2**: Ensure that only one maintenance window at a time is running Run Command tasks that use `AWS-RunPatchBaseline` on the same targets and on the same schedule\. If this is the case, change the schedule\.
+
+**Solution 3**: Ensure that only one State Manager association is running `AWS-RunPatchBaseline` on the same schedule and targeting the same instances\. State Manager is a capability of AWS Systems Manager\.
+
+**Solution 4**: Free up sufficient storage space under the `/var` directory for the update packages\.
+
+### Issue: 'another process has acquired yum lock' error<a name="patch-manager-troubleshooting-linux-2"></a>
+
+**Problem**: When you run `AWS-RunPatchBaseline`, patching fails with the following error\.
+
+```
+12/20/2019 21:41:48 root [INFO]: another process has acquired yum lock, waiting 2 s and retry.
+```
+
+**Cause**: The `AWS-RunPatchBaseline` document has started running on an instance where it is already running in another operation and and has acquired the package manager `yum` process\.
+
+**Solution**: Ensure that no State Manager association, maintenance window tasks, or other configurations that run `AWS-RunPatchBaseline` on a schedule\) are targeting the same instance around the same time\.
+
+### Issue: 'Permission denied / failed to run commands' error<a name="patch-manager-troubleshooting-linux-3"></a>
+
+**Problem**: When you run `AWS-RunPatchBaseline`, patching fails with the following error\.
+
+```
+sh: 
+/var/lib/amazon/ssm/instanceid/document/orchestration/commandid/PatchLinux/_script.sh: Permission denied
+failed to run commands: exit status 126
+```
+
+**Cause**: `/var/lib/amazon/` might be mounted with `noexec` permissions\. This is an issue because SSM Agent downloads payload scripts to `/var/lib/amazon/ssm` and runs them from that location\.
+
+**Solution**: Ensure that you have have configured exclusive partitions to `/var/log/amazon` and `/var/lib/amazon`, and that they are mounted with `exec` permissions\.
+
+### Issue: 'Unable to download payload' error<a name="patch-manager-troubleshooting-linux-4"></a>
+
+**Problem**: When you run `AWS-RunPatchBaseline`, patching fails with the following error\.
+
+```
+Unable to download payload: https://s3.DOC-EXAMPLE-BUCKET.region.amazonaws.com/aws-ssm-region/patchbaselineoperations/linux/payloads/patch-baseline-operations-X.XX.tar.gz.failed to run commands: exit status 156
+```
+
+**Cause**: The instance does not have the required permissions to access the specified Amazon Simple Storage Service \(Amazon S3\) bucket\.
+
+**Solution**: Update your network configuration so that S3 endpoints are reachable\. For more details, see information about required access to S3 buckets for Patch Manager in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
+
+### Issue: 'unsupported package manager and python version combination' error<a name="patch-manager-troubleshooting-linux-5"></a>
+
+**Problem**: When you run `AWS-RunPatchBaseline`, patching fails with the following error\.
+
+```
+An unsupported package manager and python version combination was found. Apt requires Python3 to be installed.
+failed to run commands: exit status 1
+```
+
+**Cause**: python3 is not installed on the Ubuntu Server or Debian Server instance\.
+
+**Solution**: Install python3 on the server, which is required for Ubuntu Server or Debian Server instances\.
+
+### Issue: Patch Manager isn't applying rules specified to exclude certain packages<a name="patch-manager-troubleshooting-linux-6"></a>
+
+**Problem**: You have attempted to exclude certain packages by specifying them in the `/etc/yum.conf` file, in the format `exclude=package-name`, but they are not excluded during the Patch Manager `Install` operation\.
+
+**Cause**: Patch Manager does not incorporate exclusions specified in the `/etc/yum.conf` file\.
+
+**Solution**: To exclude specific packages, create a custom patch baseline and create a rule to exclude the packages you don't want installed\.
+
+### Issue: Patching fails and Patch Manager reports that the Server Name Indication extension to TLS is not available<a name="patch-manager-troubleshooting-linux-7"></a>
+
+**Problem**: The patching operation issues the following message\.
+
+```
+/var/log/amazon/ssm/patch-baseline-operations/urllib3/util/ssl_.py:369: 
+SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension
+to TLS is not available on this platform. This may cause the server to present an incorrect TLS 
+certificate, which can cause validation failures. You can upgrade to a newer version of Python 
+to solve this. 
+For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+```
+
+**Cause**: This message doesn't indicate an error\. Instead, it is a warning that the older version of Python distributed with the operating system doesn't support TLS Server Name Indication\. The Systems Manager patch payload script issues this warning when connecting to AWS APIs that support SNI\.
+
+**Solution**: To troubleshoot any patching failures when this message is reported, review the contents of the `stdout` and `stderr` files\. If you haven't configured the patch baseline to store these files in an Amazon S3 bucket or in Amazon CloudWatch Logs, you can locate the files in the following location on your Linux instance\. 
+
+`/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`
+
+### Issue: Patch Manager reports 'No more mirrors to try'<a name="patch-manager-troubleshooting-linux-8"></a>
+
+**Problem**: The patching operation issues the following message\.
+
+```
+[Errno 256] No more mirrors to try.
+```
+
+**Cause**: The repositories configured on the instance are not working correctly\. Possible causes for this include:
++ The `yum` cache is corrupted\.
++ A repository URL can't be reached due to network\-related issues\.
+
+**Solution**: Patch Manager uses the instance’s default package manager to perform patching operation\. Double\-check that repositories are configured and operating correctly\.
+
+## Errors when running `AWS-RunPatchBaseline` on Windows Server<a name="patch-manager-troubleshooting-windows"></a>
+
+**Topics**
++ [Issue: mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch)
++ [Issue: `AWS-RunPatchBaseline` output returns an `HRESULT` \(Windows Server\)](#patch-manager-troubleshooting-hresult)
++ [Issue: Instance doesn't have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access)
++ [Issue: PatchBaselineOperations PowerShell module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable)
++ [Issue: missing patches](#patch-manager-troubleshooting-module-not-downloadable)
+
+### Issue: mismatched product family/product pairs<a name="patch-manager-troubleshooting-product-family-mismatch"></a>
+
+**Problem**: When you create a patch baseline in the Systems Manager console, you specify a product family and a product\. For example, you might choose:
 + **Product family**: **Office**
 
   **Product**: **Office 2016**
 
 **Cause**: If you attempt to create a patch baseline with a mismatched product family/product pair, an error message is displayed\. The following are reasons this can occur:
-+ You selected a valid product family/product pair but then removed the product family selection\.
++ You selected a valid product family and product pair but then removed the product family selection\.
 + You chose a product from the **Obsolete or mismatched options** sublist instead of the **Available and matching options** sublist\. 
 
-  Items in the product **Obsolete or mismatched options** sublist might have been entered in error through an SDK or AWS Command Line Interface \(AWS CLI\) `create-patch-baseline` command\. This could mean a typo was introduced or a product was assigned to the wrong product family\. A product also appears in the **Obsolete or mismatched options** sublist if it was specified for a previous patch baseline but currently has no patches available from Microsoft\. 
+  Items in the product **Obsolete or mismatched options** sublist might have been entered in error through an SDK or AWS Command Line Interface \(AWS CLI\) `create-patch-baseline` command\. This could mean a typo was introduced or a product was assigned to the wrong product family\. A product also appears in the **Obsolete or mismatched options** sublist if it was specified for a previous patch baseline but has no patches available from Microsoft\. 
 
 **Solution**: To avoid this issue in the console, always choose options from the **Currently available options** sublists\.
 
-You can also view the products that have currently available patches by using the `[describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html)` command in the AWS CLI or the `[DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)` API command\.
+You can also view the products that have available patches by using the `[describe\-patch\-properties](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-patch-properties.html)` command in the AWS CLI or the `[DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html)` API command\.
 
-## Troubleshooting `AWS-RunPatchBaseline` output returns an `HRESULT`<a name="patch-manager-troubleshooting-hresult"></a>
+### Issue: `AWS-RunPatchBaseline` output returns an `HRESULT` \(Windows Server\)<a name="patch-manager-troubleshooting-hresult"></a>
 
 **Problem**: You received an error like the following\.
 
@@ -49,7 +187,7 @@ failed to run commands: exit status 4294967295
 
 **Solution**: Check the `HResult` code in the [Microsoft documentation](https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-errors) to identify troubleshooting steps for resolving the error\.
 
-## Troubleshooting instance does not have access to Windows Update Catalog or WSUS<a name="patch-manager-troubleshooting-instance-access"></a>
+### Issue: Instance doesn't have access to Windows Update Catalog or WSUS<a name="patch-manager-troubleshooting-instance-access"></a>
 
 **Problem**: You received an error like the following\.
 
@@ -143,14 +281,15 @@ at Amazon.Patch.Baseline.Operations.PatchNow.Implementations.WindowsUpdateAgent.
 
 **Cause**: This error could be related to the Windows Update components, or to a lack of connectivity to the Windows Update Catalog or Windows Server Update Services \(WSUS\)\.
 
-**Solution**: Confirm that the instance has connectivity to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/home.aspx) through an internet gateway, NAT gateway, or NAT instance\. If you are using WSUS, confirm that the instance has connectivity to the WSUS server in your environment\. If connectivity is available to the intended destination, check the Microsoft documentation for other potential causes of `HResult 0x80072EE2`\. This might indicate an operating system level issue\. 
+**Solution**: Confirm that the instance has connectivity to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/home.aspx) through an internet gateway, NAT gateway, or NAT instance\. If you're using WSUS, confirm that the instance has connectivity to the WSUS server in your environment\. If connectivity is available to the intended destination, check the Microsoft documentation for other potential causes of `HResult 0x80072EE2`\. This might indicate an operating system level issue\. 
 
-## Troubleshooting PatchBaseline module is not downloadable<a name="patch-manager-troubleshooting-module-not-downloadable"></a>
+### Issue: PatchBaselineOperations PowerShell module is not downloadable<a name="patch-manager-troubleshooting-module-not-downloadable"></a>
 
 **Problem**: You received an error like the following\.
 
 ```
 Preparing to download PatchBaselineOperations PowerShell module from S3.
+                    
 Downloading PatchBaselineOperations PowerShell module from https://s3.amazonaws.com/path_to_module.zip to C:\Windows\TEMP\Amazon.PatchBaselineOperations-1.29.zip.
 ----------ERROR-------
 
@@ -167,7 +306,7 @@ failed to run commands: exit status 4294967295
 
 **Solution**: Check the instance connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The instance's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\. The instance must communicate with the Amazon S3 endpoint via Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
 
-## Troubleshooting missing patches<a name="patch-manager-troubleshooting-module-not-downloadable"></a>
+### Issue: missing patches<a name="patch-manager-troubleshooting-module-not-downloadable"></a>
 
 **Problem**: `AWS-RunPatchbaseline` completed successfully, but there are some missing patches\.
 
@@ -219,14 +358,13 @@ Below are some common causes and their solutions\.
 
 ## Contacting AWS Support<a name="patch-manager-troubleshooting-contact-support"></a>
 
-If you can't find troubleshooting solutions in this section or in the [Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185) and if you have an AWS Support plan with Enhanced Technical Support, you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
+If you can't find troubleshooting solutions in this section or in the [Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185), and you have a [Developer, Business, or Enterprise AWS Support plan](http://aws.amazon.com/premiumsupport/plans), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
 
 Before you contact AWS Support, collect the following items:
 + [SSM agent logs](sysman-agent-logs.md)
-+ `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as described on the Windows tab of [How patches are installed](patch-manager-how-it-works-installation.md)
-+  Windows update logs: 
-
-  For Windows 2012 R2 and older, use `%windir%/WindowsUpdate.log`
-
-  For Windows 2016 and newer, first run the PowerShell command [https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps](https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps) before using `%windir%/WindowsUpdate.log`
 + Run Command command ID, maintenance window ID, or Automation execution ID
++ For Windows Server instances, also collect the following:
+  + `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as described on the **Windows** tab of [How patches are installed](patch-manager-how-it-works-installation.md)
+  + Windows update logs: For Windows Server 2012 R2 and older, use `%windir%/WindowsUpdate.log`\. For Windows Server 2016 and newer, first run the PowerShell command [https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps](https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps) before using `%windir%/WindowsUpdate.log`
++ For Linux instances, also collect the following:
+  + The contents of the file `/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`

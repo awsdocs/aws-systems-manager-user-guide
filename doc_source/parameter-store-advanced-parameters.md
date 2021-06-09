@@ -24,7 +24,7 @@ The following table describes the differences between the tiers\.
 
 ## Specifying a default parameter tier<a name="ps-default-tier"></a>
 
-In requests to create or update a parameter \(that's, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` operation\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS Command Line Interface \(AWS CLI\)\.
+In requests to create or update a parameter \(that is, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` operation\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS Command Line Interface \(AWS CLI\)\.
 
 ```
 aws ssm put-parameter \
@@ -75,7 +75,7 @@ You can change the Parameter Store default tier setting at any time\.
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to change the default parameter tier in Parameter Store by doing one of the following:
 + Make sure that you attach the `AdministratorAccess` policy to your IAM user, group, or role\.
-+ Make sure that you have permission to change the default tier setting by using the following API actions:
++ Make sure that you have permission to change the default tier setting by using the following API operations:
   + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)

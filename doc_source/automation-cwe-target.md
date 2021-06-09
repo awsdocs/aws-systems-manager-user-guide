@@ -52,7 +52,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To configure a runbook as a target of an EventBridge event rule**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

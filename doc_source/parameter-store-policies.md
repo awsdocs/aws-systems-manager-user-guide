@@ -21,7 +21,7 @@ A parameter policy is a JSON array, as shown in the following table\. You can as
 
 You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers an EventBridge event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
 
-The following example shows a [PutParameter](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new `SecureString` parameter named `ProdDB3`\.
+The following example shows a [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new `SecureString` parameter named `ProdDB3`\.
 
 ```
 PutParameterRequest
@@ -109,7 +109,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 **To add policies to an existing parameter**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

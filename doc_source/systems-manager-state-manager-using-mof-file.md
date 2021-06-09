@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
 
-You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the `AWS-ApplyDSCMofs` SSM document\. The `AWS-ApplyDSCMofs` document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are currently in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The `AWS-ApplyDSCMofs` document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
+You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the `AWS-ApplyDSCMofs` SSM document\. The `AWS-ApplyDSCMofs` document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The `AWS-ApplyDSCMofs` document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
 
 State Manager logs and reports the status of each MOF file execution during each association run\. State Manager also reports the output of each MOF file execution as a compliance event which you can view on the [AWS Systems Manager Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
@@ -17,10 +17,10 @@ MOF file execution is built on Windows PowerShell Desired State Configuration \(
 
 ## Using Amazon S3 to store artifacts<a name="systems-manager-state-manager-using-mof-file-S3-storage"></a>
 
-If you are using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
+If you're using Amazon S3 to store PowerShell modules, MOF files, compliance reports, or status reports, then the AWS Identity and Access Management \(IAM\) role used by AWS Systems Manager SSM Agent must have `GetObject` and `ListBucket` permissions on the bucket\. If you don't provide these permissions, the system returns an *Access Denied* error\. Also note the following important information about storing artifacts in Amazon S3\.
 + If the bucket is in a different AWS account, create a bucket resource policy that grants the account \(or the IAM role\) `GetObject` and `ListBucket` permissions\.
 + If you want to use custom DSC resources, you can download these resources from an Amazon S3 bucket\. You can also install them automatically from the PowerShell gallery\. 
-+ If you are using Amazon S3 as a module source, upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
++ If you're using Amazon S3 as a module source, upload the module as a Zip file in the following case\-sensitive format: *ModuleName*\_*ModuleVersion*\.zip\. For example: MyModule\_1\.0\.0\.zip\.
 + All files must be in the bucket root\. Folder structures aren't supported\.
 
 ## Resolving credentials in MOF files<a name="systems-manager-state-manager-using-mof-file-credentials"></a>
@@ -173,11 +173,11 @@ Before you create an association that runs MOF files, verify that your managed i
         \StateManagerAssociationsBox\MOFs_folder\MyMof.mof
         ```
 
-   1. **Service Path**: \(Optional\) A service path is either an Amazon S3 bucket prefix where you want to write reports and status information\. Or, a service path is a path for Parameter Store parameter\-based tags\. When resolving parameter\-based tags, the system uses \{ssm:%servicePath%/*parameter\_name*\} to inject the servicePath value into the parameter name\. For example, if your service path is "WebServers/Production" then the systems resolves the parameter as: WebServers/Production/*parameter\_name*\. This is useful for when you are running multiple environments in the same account\.
+   1. **Service Path**: \(Optional\) A service path is either an Amazon S3 bucket prefix where you want to write reports and status information\. Or, a service path is a path for Parameter Store parameter\-based tags\. When resolving parameter\-based tags, the system uses \{ssm:%servicePath%/*parameter\_name*\} to inject the servicePath value into the parameter name\. For example, if your service path is "WebServers/Production" then the systems resolves the parameter as: WebServers/Production/*parameter\_name*\. This is useful for when you're running multiple environments in the same account\.
 
    1. **Report Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write compliance data\. Reports are saved in this bucket in JSON format\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region by using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: us\-west\-2:MyMOFBucket\. If you're using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region by using the us\-east\-1 endpoint\.
 
    1. **Mof Operation Mode**: Choose State Manager behavior when running the **`AWS-ApplyDSCMofs`** association:
       + **Apply**: Correct instance configurations that aren't compliant\. 
@@ -185,11 +185,11 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
 
    1. **Status Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket where you want to write MOF execution status information\. These status reports are singleton summaries of the most recent compliance run of an instance\. This means that the report is overwritten the next time the association runs MOF files\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you're using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
 
    1. **Module Source Bucket Name**: \(Optional\) Enter the name of an Amazon S3 bucket that contains PowerShell module files\. If you specify **None**, choose **True** for the next option, **Allow PS Gallery Module Source**\.
 **Note**  
-You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you are using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
+You can prefix the bucket name with a Region where the bucket is located\. Here's an example: `us-west-2:doc-example-bucket`\. If you're using a proxy for Amazon S3 endpoints in a specific Region that doesn't include us\-east\-1, prefix the bucket name with a Region\. If the bucket name isn't prefixed, it automatically discovers the bucket Region using the us\-east\-1 endpoint\.
 
    1. **Allow PS Gallery Module Source**: \(Optional\) Choose **True** to download PowerShell modules from [https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\. If you choose **False**, specify a source for the previous option, **ModuleSourceBucketName**\.
 
@@ -270,7 +270,7 @@ If State Manager failed to apply the association to your instances, then start b
 + The instance has the required access permissions to all MOF\-related Amazon S3 buckets\. Specifically:
   + **s3:GetObject permissions**: This is required for MOF files in private Amazon S3 buckets and custom modules in Amazon S3 buckets\.
   + **s3:PutObject permission**: This is required to write compliance reports and compliance status to Amazon S3 buckets\.
-+ If you are using tags, then ensure that the instance has the required IAM policy\. Using tags requires the instance IAM role to have a policy allowing the `ec2:DescribeInstances` and `ssm:ListTagsForResource` actions\.
++ If you're using tags, then ensure that the instance has the required IAM policy\. Using tags requires the instance IAM role to have a policy allowing the `ec2:DescribeInstances` and `ssm:ListTagsForResource` actions\.
 + Ensure that the instance has the expected tags or SSM parameters assigned\.
 + Ensure that the tags or SSM parameters aren't misspelled\.
 + Try applying the MOF locally on the instance to make sure there isn't an issue with the MOF file itself\.

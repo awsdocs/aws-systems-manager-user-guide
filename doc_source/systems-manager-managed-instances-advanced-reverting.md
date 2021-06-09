@@ -1,6 +1,6 @@
 # Reverting from the advanced\-instances tier to the standard\-instances tier<a name="systems-manager-managed-instances-advanced-reverting"></a>
 
-This section describes how to change hybrid instances currently running in the advanced\-instances tier back to the standard\-instances tier\. This configuration applies to all hybrid instances in an AWS account and a single AWS Region\.
+This section describes how to change hybrid instances running in the advanced\-instances tier back to the standard\-instances tier\. This configuration applies to all hybrid instances in an AWS account and a single AWS Region\.
 
 **Before you begin**  
 Review the following important details\.

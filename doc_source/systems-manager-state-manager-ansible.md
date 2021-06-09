@@ -9,7 +9,7 @@ You can create State Manager associations that run Ansible playbooks by using th
 
 **Note**  
 Systems Manager includes two SSM documents that allow you to create State Manager associations that run Ansible playbooks: `AWS-RunAnsiblePlaybook` and `AWS-ApplyAnsiblePlaybooks`\. The `AWS-RunAnsiblePlaybook` document is deprecated\. It remains available in Systems Manager for legacy purposes\. We recommend that you use the `AWS-ApplyAnsiblePlaybooks` document because of the enhancements described here\.  
-Associations that run Ansible playbooks aren't currently supported on macOS\.
+Associations that run Ansible playbooks aren't supported on macOS\.
 
 **Support for running complex playbooks**
 
@@ -160,7 +160,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To create an association that runs Ansible playbooks \(CLI\)**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

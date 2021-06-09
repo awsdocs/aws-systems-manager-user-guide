@@ -12,7 +12,7 @@ Systems Manager uses the service\-linked role named **`AWSServiceRoleForAmazonSS
 
 The `AWSServiceRoleForAmazonSSM` service\-linked role trusts only `ssm.amazonaws.com` to assume this role\. 
 
-Currently, three Systems Manager capabilities use the service\-linked role:
+Three Systems Manager capabilities use the service\-linked role:
 + The Inventory capability requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
 + Systems Manager Maintenance Windows can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. The service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 + The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
@@ -29,15 +29,15 @@ If you delete this service\-linked role, and then need to create it again, you c
 
 ## Editing a service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-1"></a>
 
-Systems Manager does not allow you to edit the `AWSServiceRoleForAmazonSSM` service\-linked role\. After you create a service\-linked role, you cannot change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
+Systems Manager doesn't allow you to edit the `AWSServiceRoleForAmazonSSM` service\-linked role\. After you create a service\-linked role, you can't change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
 ## Deleting a service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-1"></a>
 
-If you no longer need to use any feature or service that requires a service\-linked role, then we recommend that you delete that role\. That way you don’t have an unused entity that is not actively monitored or maintained\. You can use the IAM console, the AWS CLI, or the IAM API to manually delete the service\-linked role\. To do this, you must first manually clean up the resources for your service\-linked role, and then you can manually delete it\.
+If you no longer need to use any feature or service that requires a service\-linked role, then we recommend that you delete that role\. That way you don’t have an unused entity that isn't actively monitored or maintained\. You can use the IAM console, the AWS CLI, or the IAM API to manually delete the service\-linked role\. To do this, you must first manually clean up the resources for your service\-linked role, and then you can manually delete it\.
 
 Because the Systems Manager service\-linked role can be used by multiple capabilities, ensure that none are using the role before attempting to delete it\.
 + **Inventory:** If you delete the service\-linked role used by the Inventory capability, then the Inventory data for tags and Resource Groups will no longer be synchronized\. You must clean up the resources for your service\-linked role before you can manually delete it\.
-+ **Maintenance Windows:** You can't delete the service\-linked role if any maintenance window tasks currently rely on the role\. You must first remove the service\-linked role from the tasks before you can delete the role\. 
++ **Maintenance Windows:** You can't delete the service\-linked role if any maintenance window tasks rely on the role\. You must first remove the service\-linked role from the tasks before you can delete the role\. 
 + **Explorer:** If you delete the service\-linked role used by the Explorer capability, then the cross\-account and cross\-Region OpsData and OpsItems are no longer viewable\. 
 
 **Note**  

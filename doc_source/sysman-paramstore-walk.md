@@ -10,7 +10,7 @@ The walkthrough in this section shows you how to create, store, and run paramete
 This walkthrough shows how to join a Windows Server instance to a domain using AWS Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed key and passed as an encrypted string\. 
 
 **Prerequisites**  
-This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that's associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
+This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
 **To create a `SecureString` parameter and join an instance to a domain**
 
@@ -22,7 +22,7 @@ This walkthrough assumes that you already specified your domain name and DNS ser
    Write-SSMParameter -Name "domainJoinPassword" -Value "PASSWORD" -Type SecureString
    ```
 **Important**  
-Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties are not encrypted\.
+Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
 
 1. Attach the following AWS Identity and Access Management \(IAM\) policies to the IAM role permissions for your instance: 
    + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy enables a managed instance to use Systems Manager service core functionality\.

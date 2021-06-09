@@ -14,4 +14,4 @@ You can delete one event at a time in Change Calendar, a capability in AWS Syste
 
 1. In the calendar page, choose the event that you want to delete\. Use the buttons on the upper left to move the calendar back or forward one year, or back or forward one month\. Change the time zone, if required, by choosing the correct time zone from the dropdown list\.
 
-1. On the **Event details** page, choose **Delete**\. When you are prompted to confirm that you want to delete the event, choose **Delete**\.
+1. On the **Event details** page, choose **Delete**\. When you're prompted to confirm that you want to delete the event, choose **Delete**\.

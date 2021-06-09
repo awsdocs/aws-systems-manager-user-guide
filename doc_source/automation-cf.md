@@ -38,7 +38,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 Use the following procedure to copy information about the Automation service role from the AWS CloudFormation console\. You must specify these roles when you use a runbook\.
 
 **Note**  
-You do not need to copy role information using this procedure if you run the `AWS-UpdateLinuxAmi` or `AWS-UpdateWindowsAmi` runbooks\. These runbooks already have the required roles specified as default values\. The roles specified in these runbooks use IAM managed policies\. 
+You don't need to copy role information using this procedure if you run the `AWS-UpdateLinuxAmi` or `AWS-UpdateWindowsAmi` runbooks\. These runbooks already have the required roles specified as default values\. The roles specified in these runbooks use IAM managed policies\. 
 
 **To copy the role names**
 

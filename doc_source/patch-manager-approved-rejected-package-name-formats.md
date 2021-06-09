@@ -1,6 +1,6 @@
 # About package name formats for approved and rejected patch lists<a name="patch-manager-approved-rejected-package-name-formats"></a>
 
-The formats of package names you can add to lists of approved patches and rejected patches depend on the type of operating system you are patching\.
+The formats of package names you can add to lists of approved patches and rejected patches depend on the type of operating system you're patching\.
 
 ## Package name formats for Linux operating systems<a name="patch-manager-approved-rejected-package-name-formats-linux"></a>
 
@@ -43,7 +43,7 @@ The formats you can specify for approved and rejected patches in your patch base
 **Approved patches** and **rejected patches**: For both approved and rejected patches, specify the following:
 + Package names, in the format `ExamplePkg33`
 **Note**  
-For Debian Server lists and Ubuntu Server lists, do not include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
+For Debian Server lists and Ubuntu Server lists, don't include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
 `ExamplePkg33.x86.1`
 `ExamplePkg33.x86.2`
 `ExamplePkg33.x64.1`
@@ -69,7 +69,7 @@ For Debian Server lists and Ubuntu Server lists, do not include elements such as
 + `XProtectPlistConfigData`
 + `MRTConfigData`
 
-Wildcards are not supported in approved and rejected patch lists for macOS\.
+Wildcards aren't supported in approved and rejected patch lists for macOS\.
 
 ## Package name formats for Windows operating systems<a name="patch-manager-approved-rejected-package-name-formats-windows"></a>
 

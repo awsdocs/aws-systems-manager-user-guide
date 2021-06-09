@@ -15,7 +15,7 @@ Search terms require a minimum of three characters and have a maximum of 20 char
 Free text search accepts up to five search terms\.
 If you enter a space between search terms, the system includes the space when searching\.
 You can combine free text search with other search options such as **Document type** or **Platform type**\.
-The **Document Name Prefix** filter and free text search can't be used together\. They are mutually exclusive\.
+The **Document Name Prefix** filter and free text search can't be used together\. they're mutually exclusive\.
 
 **To search for an SSM document**
 
@@ -33,7 +33,7 @@ The **Document Name Prefix** filter and free text search can't be used together\
 
 **To perform a free text document search by using the CLI**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

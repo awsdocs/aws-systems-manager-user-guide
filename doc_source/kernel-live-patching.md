@@ -19,7 +19,7 @@ To use Patch Manager to apply kernel live patches to your Amazon Linux 2 instanc
 ## About Kernel Live Patching and Patch Manager<a name="about-klp"></a>
 
 Updating the kernel version  
-You do not need to reboot an instance after applying a kernel live patch update\. However, AWS provides kernel live patches for an Amazon Linux 2 kernel version for up to three months after its release\. After the three\-month period, you must update to a later kernel version to continue to receive kernel live patches\. We recommend using a maintenance window to schedule a reboot of your instance at least once every three months to prompt the kernel version update\.
+You don't need to reboot an instance after applying a kernel live patch update\. However, AWS provides kernel live patches for an Amazon Linux 2 kernel version for up to three months after its release\. After the three\-month period, you must update to a later kernel version to continue to receive kernel live patches\. We recommend using a maintenance window to schedule a reboot of your instance at least once every three months to prompt the kernel version update\.
 
 Uninstalling kernel live patches  
 Kernel live patches can't be uninstalled using Patch Manager\. Instead, you can disable Kernel Live Patching, which removes the RPM packages for the applied kernel live patches\. For more information, see [Disabling Kernel Live Patching using Run Command](#disable-klp)\.
@@ -45,7 +45,7 @@ AWS releases two types of kernel live patches for Amazon Linux 2: security updat
 You can create a custom patch baseline that targets only these patches, or use the predefined `AWS-AmazonLinux2DefaultPatchBaseline` patch baseline\. In other words, you can use `AWS-AmazonLinux2DefaultPatchBaseline` with Amazon Linux 2 instances on which Kernel Live Patching is enabled, and kernel live updates will be applied\.
 
 **Note**  
-The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it is installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
+The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it's installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
 
 We recommend the following strategy to patch your instances with kernel live updates:
 
@@ -144,8 +144,8 @@ For information about applying kernel live patches by running `yum` commands dir
 1. In the **Command document** list, choose the SSM document `AWS-RunPatchBaseline`\.
 
 1. In the **Command parameters** section, do one of the following:
-   + If you are checking whether new kernel live patches are available, for **Operation**, choose `Scan`\. For **Reboot Option**, if do not want your instances to reboot after this operation, choose `NoReboot`\. After the operation completes, you can check for new patches and compliance status in Compliance\.
-   + If you checked patch compliance already and are ready to apply available kernel live patches, for **Operation**, choose `Install`\. For **Reboot Option**, if you do not want your instances to reboot after this operation, choose `NoReboot`\.
+   + If you're checking whether new kernel live patches are available, for **Operation**, choose `Scan`\. For **Reboot Option**, if don't want your instances to reboot after this operation, choose `NoReboot`\. After the operation completes, you can check for new patches and compliance status in Compliance\.
+   + If you checked patch compliance already and are ready to apply available kernel live patches, for **Operation**, choose `Install`\. For **Reboot Option**, if you don't want your instances to reboot after this operation, choose `NoReboot`\.
 
 1. For information about working with the remaining controls on this page, see [Running commands from the console](rc-console.md)\.
 
@@ -214,7 +214,7 @@ For information about other options you can use in these commands, see [send\-co
 To disable Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and the custom SSM document `AWS-ConfigureKernelLivePatching`\.
 
 **Note**  
-If you no longer need to use Kernel Live Patching, you can disable it at any time\. In most cases, disabling the feature is not necessary\.
+If you no longer need to use Kernel Live Patching, you can disable it at any time\. In most cases, disabling the feature isn't necessary\.
 
 For information about disabling Kernel Live Patching by running `yum` commands directly on the instance, see [Enabling Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
 

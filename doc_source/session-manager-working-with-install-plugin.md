@@ -49,7 +49,7 @@ If Windows is unable to find the executable, you might need to re\-open the comm
 You can install the Session Manager plugin on macOS using the bundled installer\.
 
 **Important**  
-The bundled installer does not support installing to paths that contain spaces\.
+The bundled installer doesn't support installing to paths that contain spaces\.
 
 **To install the Session Manager plugin using the bundled installer \(macOS\)**
 
@@ -183,7 +183,7 @@ aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 
 ## Session Manager plugin on GitHub<a name="plugin-github"></a>
 
-The source code for Session Manager plugin is available on [GitHub](https://github.com/aws/session-manager-plugin) so that you can adapt the plugin to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/session-manager-plugin/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services does not currently provide support for running modified copies of this software\.
+The source code for Session Manager plugin is available on [GitHub](https://github.com/aws/session-manager-plugin) so that you can adapt the plugin to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/session-manager-plugin/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services doesn't provide support for running modified copies of this software\.
 
 ## \(Optional\) Enable Session Manager plugin logging<a name="install-plugin-configure-logs"></a>
 
@@ -211,7 +211,7 @@ By default, log entries about opening a data channel and reconnecting sessions a
    + **Debug level**: You can change the debug level from `formatid="fmtinfo"` to `outputs formatid="fmtdebug"`\.
    + **Log file options**: You can make changes to the log file options, including where the logs are stored, with the exception of the log file names\. 
 **Important**  
-Do not change the file names or logging will not work correctly\.
+Don't change the file names or logging won't work correctly\.
 
      ```
      <rollingfile type="size" filename="C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\Logs\session-manager-plugin.log" maxsize="30000000" maxrolls="5"/>
@@ -237,7 +237,7 @@ By default, log entries about opening data channels and reconnecting sessions ar
    + **Debug level**: You can change the debug level from `formatid="fmtinfo"` to `outputs formatid="fmtdebug"`
    + **Log file options**: You can make changes to the log file options, including where the logs are stored, with the exception of the log file names\. 
 **Important**  
-Do not change the file names or logging will not work correctly\.
+Don't change the file names or logging won't work correctly\.
 
      ```
      <rollingfile type="size" filename="/usr/local/sessionmanagerplugin/logs/session-manager-plugin.log" maxsize="30000000" maxrolls="5"/>
@@ -251,7 +251,7 @@ If you use the specified default directory for storing logs, you must either run
 
 ## Session Manager plugin latest version and release history<a name="plugin-version-history"></a>
 
-Your local machine must be running a supported version of the Session Manager plugin\. The current minimum supported version is 1\.1\.17\.0\. If you are running an earlier version, your Session Manager operations might not succeed\. 
+Your local machine must be running a supported version of the Session Manager plugin\. The current minimum supported version is 1\.1\.17\.0\. If you're running an earlier version, your Session Manager operations might not succeed\. 
 
  
 
@@ -273,7 +273,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 | 1\.2\.30\.0 |  November 24, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Improved overall performance\.  | 
 | 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 
 | 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 
-| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin is not ready\.   | 
+| 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin isn't ready\.   | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
 |  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 
 | 1\.1\.33\.0 | September 26, 2019 | Enhancement: \(Port forwarding sessions only\) Send a disconnect signal to the server when the client drops the TCP connection\.  | 

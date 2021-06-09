@@ -36,7 +36,7 @@ Use the search box filters to locate the resource for which you want to view det
 
 ![\[Filtering the list of State Manager association executions targets.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
 
-1. If you are investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.
+1. If you're investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.
 
 1. Choose the **Apply association now** button\. After the execution is complete, verify that the association execution succeeded\.
 
@@ -46,7 +46,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To view execution history for a specific association ID**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -378,7 +378,7 @@ This command includes a filter to limit the results to only those executions tha
 
 ------
 
-1. If you are investigating an association that failed to run, you can use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association immediately and only one time\. After you change the resource where the association failed to run, run the following command to run the association immediately and only one time\.
+1. If you're investigating an association that failed to run, you can use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association immediately and only one time\. After you change the resource where the association failed to run, run the following command to run the association immediately and only one time\.
 
 ------
 #### [ Linux & macOS ]

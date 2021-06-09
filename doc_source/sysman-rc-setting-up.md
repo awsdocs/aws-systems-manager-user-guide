@@ -17,7 +17,7 @@ You can restrict which of your managed instances commands can be run on by creat
 
 ## Restricting Run Command access based on instance tags<a name="sysman-rc-setting-up-cmdsec"></a>
 
-You can restrict command execution to specific instances by creating an IAM user policy that includes a condition that the user can only run commands on instances that are tagged with specific Amazon EC2 tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any instance \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that's not tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
+You can restrict command execution to specific instances by creating an IAM user policy that includes a condition that the user can only run commands on instances that are tagged with specific Amazon EC2 tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any instance \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that isn't tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
 
 ```
 {
@@ -52,7 +52,7 @@ You can restrict command execution to specific instances by creating an IAM user
 }
 ```
 
-You can create IAM policies that enable a user to run commands on instances that are tagged with multiple tags\. The following policy enables the user to run commands on instances that have two tags\. If a user sends a command to an instance that's not tagged with both of these tags, the execution results show `AccessDenied`\.
+You can create IAM policies that enable a user to run commands on instances that are tagged with multiple tags\. The following policy enables the user to run commands on instances that have two tags\. If a user sends a command to an instance that isn't tagged with both of these tags, the execution results show `AccessDenied`\.
 
 ```
 {

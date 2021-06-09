@@ -1,6 +1,6 @@
 # Data protection in AWS Systems Manager<a name="data-protection"></a>
 
-Data protection refers to protecting data while *in transit* \(as it travels to and from Systems Manager\) and *at rest* \(while it is stored in AWS data centers\)\.
+Data protection refers to protecting data while *in transit* \(as it travels to and from Systems Manager\) and *at rest* \(while it's stored in AWS data centers\)\.
 
 The AWS [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Systems Manager\. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud\. You are responsible for maintaining control over your content that is hosted on this infrastructure\. This content includes the security configuration and management tasks for the AWS services that you use\. For more information about data privacy, see the [Data Privacy FAQ](http://aws.amazon.com/compliance/data-privacy-faq)\. For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](http://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*\.
 
@@ -24,7 +24,7 @@ The types of parameters you can create in Parameter Store, a capability of AWS S
 To encrypt `SecureString` parameter values, Parameter Store uses an AWS KMS key in AWS Key Management Service \(AWS KMS\)\. AWS KMS uses either a customer managed key or an AWS managed key to encrypt the parameter value in an AWS managed database\.
 
 **Important**  
-Do not store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
+Don't store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
 For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter) and [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
 
 **Content in Amazon S3 buckets**  

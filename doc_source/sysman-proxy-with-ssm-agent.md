@@ -36,7 +36,7 @@ Use the following procedure to create an override configuration file for an `ups
    env no_proxy=169.254.169.254
    ```
 **Note**  
-You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
+You must add the `no_proxy` setting to the file and specify the IP address listed here\. It's the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
 1. Save the file with the name `amazon-ssm-agent.override` in the following location: `/etc/init/`
 
@@ -92,7 +92,7 @@ Some of the steps in this procedure contain explicit instructions for Ubuntu Ser
    Environment="no_proxy=169.254.169.254"
    ```
 **Note**  
-You must add the `no_proxy` setting to the file and specify the IP address listed here\. It is the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
+You must add the `no_proxy` setting to the file and specify the IP address listed here\. It's the instance metadata endpoint for Systems Manager\. Without this IP address, calls to Systems Manager fail\.
 
 1. Save your changes\. The system automatically creates one of the following files, depending on the operating system type\.
    + On Ubuntu Server instances where SSM Agent is installed by using a snap: 

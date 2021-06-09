@@ -18,7 +18,7 @@ CVE details are included for supported versions of the following operating syste
 + SUSE Linux Enterprise Server \(SLES\)
 + CentOS
 
-  By default, CentOS does not provide CVE information about updates\. You can, however, enable this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
+  By default, CentOS doesn't provide CVE information about updates\. You can, however, enable this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
 
 **Note**  
 You can also add CVE IDs to your lists of approved or rejected patches in your patch baselines, as the situation and your patching goals warrant\.  

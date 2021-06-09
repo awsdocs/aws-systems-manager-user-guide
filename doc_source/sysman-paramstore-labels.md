@@ -60,7 +60,7 @@ The following procedure describes how to attach a label to a specific version of
 
 1. In the text box, enter the label name\. To add more labels, choose **Add new label**\. You can attach a maximum of ten labels\.
 
-1. When you are finished, choose **Save changes**\. 
+1. When you're finished, choose **Save changes**\. 
 
 ### View labels attached to a parameter \(console\)<a name="sysman-paramstore-labels-console-view"></a>
 
@@ -108,7 +108,7 @@ The following procedure describes how to move a parameter label to a different v
 
 1. In the text box, enter the label name\.
 
-1. When you are finished, choose **Save changes**\. 
+1. When you're finished, choose **Save changes**\. 
 
 ### Delete parameter labels \(console\)<a name="systems-manager-parameter-store-labels-console-delete"></a>
 
@@ -134,7 +134,7 @@ The following procedure describes how to delete one or multiple parameter labels
 
 1. Choose **Remove**\. next to each label you want to delete\. 
 
-1. When you are finished, choose **Save changes**\.
+1. When you're finished, choose **Save changes**\.
 
 1. Confirm that your changes are correct, enter `Confirm` in the text box, and choose **Confirm**\.
 
@@ -153,7 +153,7 @@ The following procedure describes how to attach a label to a specific version of
 
 **To create a parameter label**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

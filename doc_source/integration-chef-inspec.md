@@ -37,7 +37,7 @@ Here is how the process of using InSpec profiles with Compliance works:
 **Note**  
 Note the following information\.  
 Chef uses a client on your instances to process the profile\. You don't need to install the client\. When Systems Manager runs the SSM document `AWS-RunInspecChecks`, the system checks if the client is installed\. If not, Systems Manager installs the Chef client during the scan, and then uninstalls the client after the scan is completed\.
-Running the SSM document `AWS-RunInspecChecks`, as described in this topic, assigns a compliance entry of type `Custom:Inspec` to each targeted instance\. To assign this compliance type, the document calls the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API action\.
+Running the SSM document `AWS-RunInspecChecks`, as described in this topic, assigns a compliance entry of type `Custom:Inspec` to each targeted instance\. To assign this compliance type, the document calls the [PutComplianceItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutComplianceItems.html) API operation\.
 
 ## Running an InSpec compliance scan<a name="integration-chef-inspec-running"></a>
 
@@ -77,14 +77,14 @@ This section includes information about how to run an InSpec compliance scan by 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Specify schedule** section, use the schedule builder options to create a schedule that specifies when you want the Compliance scan to run\.
 
 1. For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
@@ -101,7 +101,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ### Running an InSpec compliance scan with Run Command \(AWS CLI\)<a name="integration-chef-inspec-running-cli"></a>
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -141,7 +141,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm list-resource-compliance-summaries --filters Key=ComplianceType,Values=Custom:Inspec
    ```
 
-1. Run the following command to see details of an instance that is not compliant\.
+1. Run the following command to see details of an instance that isn't compliant\.
 
    ```
    aws ssm list-compliance-items --resource-ids instance_ID --resource-type ManagedInstance --filters Key=DocumentName,Values=AWS-RunInspecChecks

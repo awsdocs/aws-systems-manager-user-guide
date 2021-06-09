@@ -12,7 +12,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
 **Solution**: This message can indicate the following: 
 + You don't have the AWS Identity and Access Management \(IAM\) permission for the `ec2:DescribeImages` API operation, or you lack permission to access the specific image referenced in the parameter\. Contact an IAM user with administrator permissions in your organization to request the necessary permissions\.
-+ The Amazon Machine Image \(AMI\) ID you entered as a parameter value isn't valid\. Make sure you are entering the ID of an AMI that's available in the current AWS Region and account you are working in\.
++ The Amazon Machine Image \(AMI\) ID you entered as a parameter value isn't valid\. Make sure you're entering the ID of an AMI that is available in the current AWS Region and account you're working in\.
 
 ### New `aws:ec2:image` parameter isn't available<a name="ps-ec2-aliases-2"></a>
 
@@ -26,6 +26,6 @@ Use the following information to help troubleshoot problems with creating `aws:e
     aws ssm get-parameter --name MyParameter
     ```
 
-    For a new parameter, a `ParameterNotFound` message is returned until the parameter is validated\. For an existing parameter that you are updating, information about the new version isn't included until the parameter is validated\.
+    For a new parameter, a `ParameterNotFound` message is returned until the parameter is validated\. For an existing parameter that you're updating, information about the new version isn't included until the parameter is validated\.
 
   If you attempt to create or update the parameter again before the validation process completes, the system reports that validation is still in process\. If the parameter isn't created or updated, you can try again after 5 minutes have passed from the original attempt\. 

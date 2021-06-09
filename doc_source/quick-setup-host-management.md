@@ -59,11 +59,11 @@ To set up host management, perform the following tasks in the AWS Systems Manage
 
    If you choose the **Scan instances for missing patches daily** option, then Systems Manager uses Patch Manager to scan your instances each day and generate a simple report in the **Compliance** page\. Patch Manager is a capability of AWS Systems Manager\. The report shows how many instances are patch\-compliant according to the *default patch baseline*\. The report includes a list of each instance and its compliance status\. You can navigate this list to see details about noncompliant instances\. For more information about patching operations and patch baselines, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\. To view compliance information, see the Systems Manager [Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
-   If you choose the **Install and configure the CloudWatch agent** option, the CloudWatch agent is installed on your Amazon EC2 instances\. The agent collects metrics and log files from your instances for Amazon CloudWatch\. This information is consolidated so you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There may be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+   If you choose the **Install and configure the CloudWatch agent** option, the CloudWatch agent is installed on your Amazon EC2 instances\. The agent collects metrics and log files from your instances for Amazon CloudWatch\. This information is consolidated so you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There might be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
    If you choose the **Update the CloudWatch agent** option, then Systems Manager automatically checks every four weeks for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
-1. In the **Targets** section, choose whether to set up host management for your entire organization, some of your organizational units \(OUs\), or the account you're currently logged in to\.
+1. In the **Targets** section, choose whether to set up host management for your entire organization, some of your organizational units \(OUs\), or the account you're logged in to\.
 
    If you choose **Entire organization**, continue to step 8\.
 
@@ -92,7 +92,7 @@ The **Inventory collection** option can take up to 10 minutes to complete, even 
 + To edit the association for a Quick Setup option, choose the **Edit** button in the option card\. If you edit the association, * don't* choose a different SSM document in the **Edit Association** page\. If you choose a different SSM document, the option becomes unavailable in Quick Setup\. Change only the parameters and targets of the association\. When you save your changes to the association, State Manager automatically runs the association\.
 + To view compliance data for your Quick Setup, choose the **View compliance summary in Explorer** button\. This opens the Explorer dashboard\. For more information about Explorer, a capability of AWS Systems Manager, see [AWS Systems Manager Explorer](Explorer.md)\.
 + When viewing Quick Setup results while signed in to the management account for your AWS Organizations organization, you see a summary of the results for your **Organization** Quick Setup in the **Organization** tab\. This view shows the **Applied configuration** for your Quick Setup, allows you to filter results, shows the **Deployment** and **Association** statuses for your targets, and enables you to view more details for individual targets in the **Quick Setup deployments** card\.
-+ **Deployment status** refers to the state of a target or stack instance\. In other words, this status indicates whether AWS CloudFormation successfully deployed your configuration options\. **Deployment status** does not evaluate the status of the associations created in your Quick Setup\.
++ **Deployment status** refers to the state of a target or stack instance\. In other words, this status indicates whether AWS CloudFormation successfully deployed your configuration options\. **Deployment status** doesn't evaluate the status of the associations created in your Quick Setup\.
 + **Association status** refers to the state of all associations created by your Quick Setup within a target or stack instance\. All associations must successfully run, otherwise the status for the target is **Failed**\.
 
 ## Troubleshooting Quick Setup Results<a name="quick-setup-results-troubleshooting"></a>
@@ -102,7 +102,7 @@ If a Quick Setup card shows **Not configured**, you might have missed an option 
 If you still see a problem with one or more Quick Setup results cards, then use the following procedure to troubleshoot the issue\.
 
 **Note**  
-To investigate **Failed** associations for an **Organization** Quick Setup, you must sign in to the account with the failed association and use the following procedure\. The **Association ID** is not a hyperlink to the target account when viewing results from the management account\.
+To investigate **Failed** associations for an **Organization** Quick Setup, you must sign in to the account with the failed association and use the following procedure\. The **Association ID** isn't a hyperlink to the target account when viewing results from the management account\.
 
 **To troubleshoot a failed Quick Setup configuration**
 

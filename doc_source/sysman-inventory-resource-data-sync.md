@@ -3,7 +3,7 @@
 The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface \(AWS CLI\)\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
 **Note**  
-This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory does not collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
+This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory doesn't collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
 Before you start this walkthrough, you must collect inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect inventory metadata, see [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
@@ -95,7 +95,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
    }
    ```
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -123,9 +123,9 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 ------
 
-1. Run the following command to create a resource data sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you are currently logged into\.
+1. Run the following command to create a resource data sync configuration with the Amazon S3 bucket you created at the start of this procedure\. This command creates a sync from the AWS Region you're logged into\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different regions, you may be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target Amazon S3 bucket are located in different regions, you might be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 ------
 #### [ Linux & macOS ]
@@ -253,7 +253,7 @@ The following section describes how to view and query the data in Amazon Athena\
 
    The system partitions the table\.
 **Note**  
-If you create resource data syncs from additional AWS Regions or AWS accounts, then you must run this command again to update the partitions\. You may also need to update your Amazon S3 bucket policy\.
+If you create resource data syncs from additional AWS Regions or AWS accounts, then you must run this command again to update the partitions\. You might also need to update your Amazon S3 bucket policy\.
 
 1. To preview your data, choose the view icon next to the `AWS_Application` table\.  
 ![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)

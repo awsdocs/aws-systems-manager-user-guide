@@ -104,7 +104,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
 
 1. For **Role name**, enter a name for your new role, such as **lambda\-ssm\-role** or another name that you prefer\. 
 **Note**  
-Because various entities might reference the role, you cannot change the name of the role after it has been created\.
+Because various entities might reference the role, you can't change the name of the role after it has been created\.
 
 1. Choose **Create role**\.
 

@@ -76,7 +76,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from, then press Enter\.
 **Note**  
 Note the following important details:  
-`sudo` is not necessary if you are a root user\.
+`sudo` isn't necessary if you're a root user\.
 Each command block specifies `sudo -E amazon-ssm-agent`\. The `-E` is only necessary if you set an HTTP or HTTPS proxy environment variable\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
@@ -206,13 +206,13 @@ Use the following information to help you troubleshoot problems installing SSM A
 
 **Problem**: While configuring an Amazon EC2 instance in one AWS account as a managed instance for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
 
-**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target instance changes the instance ID of the source instance\. Because the instance ID has changed, the source instance is not able to reply to the target instance that the command failed, completed, or timed out while executing\.
+**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target instance changes the instance ID of the source instance\. Because the instance ID has changed, the source instance isn't able to reply to the target instance that the command failed, completed, or timed out while executing\.
 
 ### Unable to load instance associations<a name="systems-manager-install-managed-linux-troubleshooting-associations"></a>
 
 **Problem**: After running the install commands, you see the following error in the SSM Agent error logs:
 
-`Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint does not match`
+`Unable to load instance associations, unable to retrieve associations unable to retrieve associations error occurred in RequestManagedInstanceRoleToken: MachineFingerprintDoesNotMatch: Fingerprint doesn't match`
 
 You see this error when the machine ID doesn't persist after a reboot\.
 

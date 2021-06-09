@@ -59,7 +59,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    }
    ```
 
-1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update does not include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager\.
+1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update doesn't include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager\.
 
 ------
 #### [ Linux & macOS ]
@@ -168,7 +168,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -267,7 +267,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
    }
    ```
 
-1. If you are updating a Step Functions task, adapt and run the following command to update its task\-invocation\-parameters\.
+1. If you're updating a Step Functions task, adapt and run the following command to update its task\-invocation\-parameters\.
 
 ------
 #### [ Linux & macOS ]
@@ -357,7 +357,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    An error occurred (TargetInUseException) when calling the DeregisterTargetFromMaintenanceWindow operation: 
@@ -488,7 +488,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
 
 ------
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {

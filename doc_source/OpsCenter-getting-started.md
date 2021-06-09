@@ -20,7 +20,7 @@ You can configure OpsCenter to send notifications to an Amazon Simple Notificati
 To receive notifications, you must create and subscribe to an Amazon SNS topic\. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) and [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
-To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and AWS account as the OpsItem\. If you are using OpsCenter in multiple Regions or accounts, then you must create and subscribe to an Amazon SNS topic in each Region or account where you want to receive OpsItem notifications\. 
+To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and AWS account as the OpsItem\. If you're using OpsCenter in multiple Regions or accounts, then you must create and subscribe to an Amazon SNS topic in each Region or account where you want to receive OpsItem notifications\. 
 
 ### Task 2: Update the Amazon SNS access policy<a name="OpsCenter-getting-started-sns-encryption-policy"></a>
 
@@ -62,7 +62,7 @@ If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS 
 If you enabled AWS KMS server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
 **Note**  
-OpsCenter does not support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.
+OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.
 
 1. Open the AWS KMS console at [https://console\.aws\.amazon\.com/kms](https://console.aws.amazon.com/kms)\.
 

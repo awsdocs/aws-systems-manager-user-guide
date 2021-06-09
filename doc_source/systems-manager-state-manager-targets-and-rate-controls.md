@@ -33,7 +33,7 @@ For information about assigning tags to your instances, see [Tagging Your Amazon
 Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current AWS account and AWS Region\. You can manually select as many instances as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
 
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 **Choose a resource group**  
 Use this option to create an association on all instances returned by an AWS Resource Groups tag\-based or AWS CloudFormation stack\-based query\. 
@@ -64,7 +64,7 @@ Concurrency helps to limit the impact on your instances by allowing you to speci
 State Manager concurrency has the following restrictions and limitations:
 + If you choose to create an association by using targets, but you don't specify a concurrency value, then State Manager automatically enforces a maximum concurrency of 50 instances\.
 + If new instances that match the target criteria come online while an association that uses concurrency is running, then the new instances run the association if the concurrency value isn't exceeded\. If the concurrency value is exceeded, then the instances are ignored during the current association execution interval\. The instances run the association during the next scheduled interval while conforming to the concurrency requirements\.
-+ If you update an association that uses concurrency, and one or more instances are processing that association when it's updated, then any instance that's running the association is allowed to complete\. Those associations that haven't started are stopped\. After running associations complete, all target instances immediately run the association again because it was updated\. When the association runs again, the concurrency value is enforced\. 
++ If you update an association that uses concurrency, and one or more instances are processing that association when it's updated, then any instance that is running the association is allowed to complete\. Those associations that haven't started are stopped\. After running associations complete, all target instances immediately run the association again because it was updated\. When the association runs again, the concurrency value is enforced\. 
 
 **Error thresholds**  
 An error threshold specifies how many association executions are allowed to fail before Systems Manager sends a command to each instance configured with that association\. The command stops the association from running until the next scheduled execution\. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%\.

@@ -2,7 +2,7 @@
 
 Changes or asserts the state of the instance\.
 
-This action can be used in assert mode \(does not run the API to change the state but verifies the instance is in the desired state\.\) To use assert mode, set the `CheckStateOnly` parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an Amazon Machine Image \(AMI\)\.
+This action can be used in assert mode \(doesn't run the API to change the state but verifies the instance is in the desired state\.\) To use assert mode, set the `CheckStateOnly` parameter to true\. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time\. You can ensure that the instance is stopped before you create an Amazon Machine Image \(AMI\)\.
 
 **Note**  
 The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:changeInstanceState` step\.
@@ -63,7 +63,7 @@ Valid values: `running` \| `stopped` \| `terminated`
 Required: Yes
 
 Force  
-If set, forces the instances to stop\. The instances do not have an opportunity to flush file system caches or file system metadata\. If you use this option, you must perform file system check and repair procedures\. This option is not recommended for EC2 instances for Windows Server\.  
+If set, forces the instances to stop\. The instances don't have an opportunity to flush file system caches or file system metadata\. If you use this option, you must perform file system check and repair procedures\. This option isn't recommended for EC2 instances for Windows Server\.  
 Type: Boolean  
 Required: No
 

@@ -39,17 +39,17 @@ Before you complete the following procedure, you must create a maintenance windo
 
    
 **Note**  
-If you want to pass the resources through input parameters instead of targets, you do not need to specify a maintenance window target\.  
-In many cases, you don't need to explicitly specify a target for an automation task\. For example, say that you are creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
+If you want to pass the resources through input parameters instead of targets, you don't need to specify a maintenance window target\.  
+In many cases, you don't need to explicitly specify a target for an automation task\. For example, say that you're creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
 
-   For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+   For information about maintenance window tasks that don't require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 1. \(Optional\) For **Rate control**:
 **Note**  
-If the task you are running does not specify targets, you do not need to specify rate controls\.
+If the task you're running doesn't specify targets, you do not need to specify rate controls\.
    + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation at the same time\.
 
-     If you selected targets by choosing tag key\-value pairs, and you are not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
+     If you selected targets by choosing tag key\-value pairs, and you're not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
 
      When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.
@@ -89,7 +89,7 @@ Before you complete the following procedure, you must create a maintenance windo
 
 **To configure an automation as a registered task for a maintenance window**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -114,8 +114,8 @@ Before you complete the following procedure, you must create a maintenance windo
 
 **Note**  
 If you configure an automation as a registered task by using the AWS CLI, use the `--Task-Invocation-Parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--Task-Parameters` parameter\. The `--Task-Parameters` parameter is a legacy parameter\.  
-For maintenance window tasks without a target specified, you cannot supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which may be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values do not affect the running of your task and can be ignored\.  
-For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+For maintenance window tasks without a target specified, you can't supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which might be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values don't affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that don't require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 #### [ Windows ]
@@ -136,8 +136,8 @@ For information about maintenance window tasks that do not require targets, see 
 
 **Note**  
 If you configure an automation as a registered task by using the AWS CLI, use the `--task-invocation-parameters` parameter to specify parameters to pass to a task when it runs\. Don't use the `--task-parameters` parameter\. The `--task-parameters` parameter is a legacy parameter\.  
-For maintenance window tasks without a target specified, you cannot supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which may be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values do not affect the running of your task and can be ignored\.  
-For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+For maintenance window tasks without a target specified, you can't supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which might be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values don't affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that don't require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 #### [ PowerShell ]
@@ -158,8 +158,8 @@ For information about maintenance window tasks that do not require targets, see 
 
 **Note**  
 If you configure an automation as a registered task by using the AWS Tools for PowerShell, use the `-Automation_Parameter` parameter to specify parameters to pass to a task when the task runs\. Don't use the `-TaskParameters` parameter\. The `-TaskParameters` parameter is a legacy parameter\.  
-For maintenance window tasks without a target specified, you cannot supply values for `-MaxError` and `-MaxConcurrency`\. Instead, the system inserts a placeholder value of 1, which may be reported in the response to commands such as `Get-SSMMaintenanceWindowTaskList` and `Get-SSMMaintenanceWindowTask`\. These values do not affect the running of your task and can be ignored\.  
-For information about maintenance window tasks that do not require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+For maintenance window tasks without a target specified, you can't supply values for `-MaxError` and `-MaxConcurrency`\. Instead, the system inserts a placeholder value of 1, which might be reported in the response to commands such as `Get-SSMMaintenanceWindowTaskList` and `Get-SSMMaintenanceWindowTask`\. These values don't affect the running of your task and can be ignored\.  
+For information about maintenance window tasks that don't require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 ------
 

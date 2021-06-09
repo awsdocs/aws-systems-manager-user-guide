@@ -29,26 +29,26 @@ An automation can fail with an access denied error or an invalid assume role err
 The following examples describe situations when an automation failed to start with an access denied error\.
 
 **Access Denied to Systems Manager API**  
-**Error message**: `User: user arn is not authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The IAM user attempting to start the automation does not have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\. 
-+ Possible cause 2: The IAM user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but does not have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
+**Error message**: `User: user arn isn't authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
++ Possible cause 1: The IAM user attempting to start the automation doesn't have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\. 
++ Possible cause 2: The IAM user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but doesn't have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-permissions.md#automation-passrole)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
-**Error message**: `User: user arn is not authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
+**Error message**: `User: user arn isn't authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-The IAM user attempting to start the automation does not have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the automation\. For more information, see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-permissions.md#automation-passpolicy)\.
+The IAM user attempting to start the automation doesn't have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the automation\. For more information, see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-permissions.md#automation-passpolicy)\.
 
 ### Invalid assume role<a name="automation-trbl-ar"></a>
 
-When you run an Automation, an assume role is either provided in the runbook or passed as a parameter value for the runbook\. Different types of errors can occur if the assume role is not specified or configured properly\.
+When you run an Automation, an assume role is either provided in the runbook or passed as a parameter value for the runbook\. Different types of errors can occur if the assume role isn't specified or configured properly\.
 
 **Malformed Assume Role**  
 **Error message**: `The format of the supplied assume role ARN is invalid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your runbook or as a runtime parameter when starting the automation\.
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The assume role does not exist\. To resolve this issue, create the role\. For more information, see [Setting up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
-+ Possible cause 2: The assume role does not have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [I Can't Assume A Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role) in the *IAM User Guide*\. 
++ Possible cause 1: The assume role doesn't exist\. To resolve this issue, create the role\. For more information, see [Setting up Automation](automation-setup.md)\. Specific details for creating this role are described in the following topic, [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
++ Possible cause 2: The assume role doesn't have a trust relationship with the Systems Manager service\. To resolve this issue, create the trust relationship\. For more information, see [I Can't Assume A Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_cant-assume-role) in the *IAM User Guide*\. 
 
 ## Execution started, but status is failed<a name="automation-trbl-exstrt"></a>
 
@@ -61,17 +61,17 @@ To see a failure message in the Amazon Elastic Compute Cloud \(Amazon EC2\) cons
 In the following examples, a step associated with the `aws:runInstance` action failed\. Each example explores a different type of error\.
 
 **Missing Image**  
-**Error message**: `Automation Step Execution fails when it is launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [The image id '[ami id]' does not exist (Service: AmazonEC2; Status Code: 400; Error Code: InvalidAMIID.NotFound; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
+**Error message**: `Automation Step Execution fails when it's launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [The image id '[ami id]' doesn't exist (Service: AmazonEC2; Status Code: 400; Error Code: InvalidAMIID.NotFound; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
 The `aws:runInstances` action received input for an `ImageId` that doesn't exist\. To resolve this problem, update the runbook or parameter values with the correct AMI ID\.
 
 **Assume Role Policy Doesn't Have Sufficient Permissions**  
-**Error message**: `Automation Step Execution fails when it is launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [You are not authorized to perform this operation. Encoded authorization failure message: xxxxxxx (Service: AmazonEC2; Status Code: 403; Error Code: UnauthorizedOperation; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
+**Error message**: `Automation Step Execution fails when it's launching the instance(s). Get Exception from RunInstances API of ec2 Service. Exception Message from RunInstances API: [You aren't authorized to perform this operation. Encoded authorization failure message: xxxxxxx (Service: AmazonEC2; Status Code: 403; Error Code: UnauthorizedOperation; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)]. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
 The assume role doesn't have sufficient permission to invoke the `RunInstances` API on EC2 instances\. To resolve this problem, attach an IAM policy to the assume role that has permission to invoke the `RunInstances` API\. For more information, see the [Method 2: Use IAM to configure roles for Automation](automation-permissions.md)\.
 
 **Unexpected State**  
-**Error message**: `Step fails when it is verifying launched instance(s) are ready to be used. Instance i-xxxxxxxxx entered unexpected state: shutting-down. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
+**Error message**: `Step fails when it's verifying launched instance(s) are ready to be used. Instance i-xxxxxxxxx entered unexpected state: shutting-down. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 + Possible cause 1: There is a problem with the instance or the Amazon EC2 service\. To resolve this problem, login to the instance or review the instance system log to understand why the instance started shutting down\.
 + Possible cause 2: The user data script specified for the `aws:runInstances` action has a problem or incorrect syntax\. Verify the syntax of the user data script\. Also, verify that the user data scripts doesn't shut down the instance, or invoke other scripts that shut down the instance\.
 
@@ -104,4 +104,4 @@ A problem with the Automation service is preventing the specified runbook from r
 
 **Error message**: `Step timed out while step is verifying launched instance(s) are ready to be used. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for `timeoutSeconds`\. If that does not solve the problem, investigate why the step takes longer to run than expected\.
+A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for `timeoutSeconds`\. If that doesn't solve the problem, investigate why the step takes longer to run than expected\.

@@ -1,11 +1,11 @@
 # AWS Systems Manager reference<a name="reference"></a>
 
-The following information and topics can help you better implement Systems Manager solutions\.
+The following information and topics can help you better implement AWS Systems Manager solutions\.
 
 **Principal**  
 In AWS Identity and Access Management \(IAM\), you can grant or deny a service access to resources using the Principal policy element\. The Principal policy element value for Systems Manager is `ssm.amazonaws.com`\.
 
- ** Supported Regions and Endpoints **  
+ ** Supported AWS Regions and endpoints **  
 See [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
  **Service Quotas**  

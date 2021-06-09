@@ -3,7 +3,7 @@
 The following information describes the schema elements of a Session document\. AWS Systems Manager Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command\.
 
 [schemaVersion](#version)  
-The schema version of the Session document\. Currently, Session documents only support version 1\.0\.  
+The schema version of the Session document\. Session documents only support version 1\.0\.  
 Type: String  
 Required: Yes
 
@@ -51,11 +51,11 @@ The ID of the AWS KMS key you want to use to further encrypt data between your l
 Type: String  
 Required: No  
 [runAsEnabled](#run)  
-If set to `true`, you must specify a user account that exists on the instances you'll be connecting to in the `runAsDefaultUser` input\. Otherwise, sessions will fail to start\. By default, sessions are started using the `ssm-user` account created by the AWS Systems Manager SSM Agent\. The Run As feature is only supported for connecting to Linux instances\.  
+If set to `true`, you must specify a user account that exists on the instances you will be connecting to in the `runAsDefaultUser` input\. Otherwise, sessions will fail to start\. By default, sessions are started using the `ssm-user` account created by the AWS Systems Manager SSM Agent\. The Run As feature is only supported for connecting to Linux instances\.  
 Type: Boolean  
 Required: Yes  
 [runAsDefaultUser](#runUser)  
-The name of the user account to start sessions with on Linux instances when the `runAsEnabled` input is set to `true`\. The user account you specify for this input must exist on the instances you'll be connecting to; otherwise, sessions will fail to start\.  
+The name of the user account to start sessions with on Linux instances when the `runAsEnabled` input is set to `true`\. The user account you specify for this input must exist on the instances you will be connecting to; otherwise, sessions will fail to start\.  
 Type: String  
 Required: No  
 [idleSessionTimeout](#timeout)  

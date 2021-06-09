@@ -6,7 +6,7 @@ This section includes information about how to manually create OpsItems in AWS S
 If you manually create an OpsItem for an impacted AWS resource, then collect information about that resource so that you can create an Amazon Resource Name \(ARN\)\. If you specify an ARN when you create an OpsItem, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 **Note**  
-OpsCenter does not support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
+OpsCenter doesn't support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
 This section includes the following procedures\.
 + [To manually create an OpsItem \(console\)](#OpsCenter-manually-create-OpsItems-console)
@@ -111,7 +111,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
 **Note**  
 For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using quotation marks with strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#quoting-strings) in the *AWS Command Line Interface User Guide*\.
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {
@@ -125,7 +125,7 @@ For information about how to enter JSON\-formatted parameters on the command lin
    aws ssm get-ops-item --ops-item-id ID
    ```
 
-   The system returns information like the following:
+   The system returns information like the following\.
 
    ```
    {

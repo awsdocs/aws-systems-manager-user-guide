@@ -145,7 +145,7 @@ You can also restrict access to OpsItems by using an inline IAM policy that spec
 }
 ```
 
-Here is an example that specifies a tag key of *Department* and a tag value of *Finance*\. With this policy, the user can only call the *GetOpsItem* API action to view OpsItems that were previously tagged with Key=Department and Value=Finance\. Users can't view any other OpsItems\.
+Here is an example that specifies a tag key of *Department* and a tag value of *Finance*\. With this policy, the user can only call the *GetOpsItem* API operation to view OpsItems that were previously tagged with Key=Department and Value=Finance\. Users can't view any other OpsItems\.
 
 ```
 {
@@ -164,7 +164,7 @@ Here is an example that specifies a tag key of *Department* and a tag value of *
 }
 ```
 
-Here is an example that specifies API actions for viewing and updating OpsItems\. This policy also specifies two sets of tag key\-value pairs: Department\-Finance and Project\-Unity\.
+Here is an example that specifies API operations for viewing and updating OpsItems\. This policy also specifies two sets of tag key\-value pairs: Department\-Finance and Project\-Unity\.
 
 ```
 {

@@ -182,10 +182,10 @@ This example demonstrates two levels of approvals\. You can specify up to five l
 
 1. Choose **Save and preview**\.
 
-1. Review the details of the change template you are creating\.
+1. Review the details of the change template you're creating\.
 
    If you want to make change to the change template before submitting it for review, choose **Actions, Edit**\.
 
-   If you are satisfied with the contents of the change template, choose **Submit for review**\. The users in your organization or account who have been specified as template reviewers on the **Settings** tab in Change Manager are notified that a new change template is pending their review\. 
+   If you're satisfied with the contents of the change template, choose **Submit for review**\. The users in your organization or account who have been specified as template reviewers on the **Settings** tab in Change Manager are notified that a new change template is pending their review\. 
 
    If an Amazon Simple Notification Service \(Amazon SNS\) topic has been specified for change templates, notifications are sent when the change template is rejected or approved\. If you don't receive notifications related to this change template, you can return to Change Manager later to check on its status\.

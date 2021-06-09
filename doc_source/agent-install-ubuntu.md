@@ -122,7 +122,7 @@ On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb instal
 1. You can use the following script if you need to install SSM Agent on an on\-premises server or if you need to reinstall the agent\.
 **Important**  
 SSM Agent is installed by default on instances created from Ubuntu Server 16\.04 LTS 64\-bit AMIs with an identifier of `20180627` or later\. Instances created from AMIs with earlier identifiers, for example `20171121.1` and `20180522`, should continue to use deb installers\.   
-If SSM Agent is installed on your instance in conjunction with a Snap and you install or update SSM Agent using a deb installer package, the installation or SSM Agent operations may fail\.
+If SSM Agent is installed on your instance in conjunction with a Snap and you install or update SSM Agent using a deb installer package, the installation or SSM Agent operations might fail\.
 
    Create a temporary directory on the instance\.
 
@@ -242,7 +242,7 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
 ------
 
 **Note**  
-If you are unable to download the agent from the AWS Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+If you're unable to download the agent from the AWS Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
 Intel 64\-bit \(x86\_64\)  
 
   ```

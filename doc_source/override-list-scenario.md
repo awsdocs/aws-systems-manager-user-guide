@@ -13,7 +13,7 @@ With the following strategy, you use the `InstallOverrideList` parameter to appl
 
 1. In the default patch baseline, ensure that only `Security` updates are specified\.
 
-1. Create a maintenance window that runs `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` each week\. Do not specify an override list\.
+1. Create a maintenance window that runs `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` each week\. Don't specify an override list\.
 
 1. Create an override list of the patches of all types that you want to apply on a monthly basis and store it in an Amazon Simple Storage Service \(Amazon S3\) bucket\. 
 

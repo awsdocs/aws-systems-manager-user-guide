@@ -8,7 +8,7 @@ Before you begin, ensure you have the following resources prepared\.
 + The files to attach to the runbook\. You can attach script files or \.zip files\. 
 
   For scripts, Automation supports Python 3\.6 and 3\.7, PowerShell Core 6\.0\.
-+ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
++ Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -1,10 +1,10 @@
 # About minimum S3 Bucket permissions for SSM Agent<a name="ssm-agent-minimum-s3-permissions"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) might need to access Amazon Simple Storage Service \(Amazon S3\) buckets in order to perform Systems Manager operations\. These S3 buckets are publicly accessible\. However, in some cases, you might need to provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you are using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\.
+AWS Systems Manager Agent \(SSM Agent\) might need to access Amazon Simple Storage Service \(Amazon S3\) buckets in order to perform Systems Manager operations\. These S3 buckets are publicly accessible\. However, in some cases, you might need to provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you're using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\.
 
 To grant access to these buckets, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines\) in a hybrid environment\.
 
-For SSM Agent updates, if the instance profile does not provide permissions to these buckets, the SSM Agent makes an HTTP call to download the update\.
+For SSM Agent updates, if the instance profile doesn't provide permissions to these buckets, the SSM Agent makes an HTTP call to download the update\.
 
 **Note**  
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 
@@ -30,7 +30,7 @@ Amazon S3 permissions required by SSM Agent
 | S3 bucket ARN | Description | 
 | --- | --- | 
 | arn:aws:s3:::aws\-windows\-downloads\-region/\* |  Required for some SSM documents that support only Windows operating systems\.  | 
-| arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\. If these permissions are not provided, the SSM Agent makes an HTTP call to download the update\.  | 
+| arn:aws:s3:::amazon\-ssm\-region/\* | Required for updating SSM Agent installations\. These buckets contain the SSM Agent installation packages, and the installation manifests that are referenced by the AWS\-UpdateSSMAgent document and plugin\. If these permissions aren't provided, the SSM Agent makes an HTTP call to download the update\.  | 
 | arn:aws:s3:::amazon\-ssm\-packages\-region/\* |  Required for using versions of SSM Agent prior to 2\.2\.45\.0 to run the SSM document `AWS-ConfigureAWSPackage`\.  | 
 | arn:aws:s3:::region\-birdwatcher\-prod/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the document `AWS-ConfigureAWSPackage`\.  This permission is needed for all AWS Regions *except* the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
 | arn:aws:s3:::aws\-ssm\-distributor\-file\-region/\* |  Provides access to the distribution service used by version 2\.2\.45\.0 and later of SSM Agent\. This service is used to run the SSM document `AWS-ConfigureAWSPackage`\.  This permission is needed *only* for the Africa \(Cape Town\) Region \(af\-south\-1\) and the Europe \(Milan\) Region \(eu\-south\-1\)\.  | 
@@ -43,7 +43,7 @@ Amazon S3 permissions required by SSM Agent
 The following example illustrates how to provide access to the S3 buckets required for Systems Manager operations in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 **Important**  
-We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and do not use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` block for each Region\.
+We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and don't use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` block for each Region\.
 
 ```
 {

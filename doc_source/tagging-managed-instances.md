@@ -4,7 +4,7 @@ The topics in this section describe how to work with tags on managed instances\.
 
 A managed instance is any machine configured for AWS Systems Manager\. This includes Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers or virtual machines \(VMs\) that you have configured to manage using Systems Manager in a hybrid environment\.
 
-The instructions in this topic are applicable to any machine that's managed using Systems Manager\.
+The instructions in this topic are applicable to any machine that is managed using Systems Manager\.
 
 **Topics**
 + [Creating or activating managed instances with tags](#tagging-managed-instances-new)
@@ -39,7 +39,7 @@ You can add tags to managed instances by using the Systems Manager console or th
 
 1. Choose the name of the managed instance to add tags to, and then choose the **Tags** tab\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Tags** section, choose **Edit**, and then add one or more key\-value tag pairs\.
 

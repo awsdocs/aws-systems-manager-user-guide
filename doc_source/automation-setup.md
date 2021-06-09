@@ -11,13 +11,13 @@ The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager actio
 
 ## Configuring a service role \(assume role\) access for automations<a name="automation-setup-configure-role"></a>
 
-Automations can be initiated under the context of a service role \(or *assume role*\)\. This allows the service to perform actions on your behalf\. If you do not specify an assume role, Automation uses the context of the user who invoked the automation\.
+Automations can be initiated under the context of a service role \(or *assume role*\)\. This allows the service to perform actions on your behalf\. If you don't specify an assume role, Automation uses the context of the user who invoked the automation\.
 
 However, the following situations require that you specify a service role for Automation:
 + When you want to restrict a user's privileges on a resource, but you want the user to run an automation that requires elevated privileges\. In this scenario, you can create a service role with elevated privileges and allow the user to run the automation\.
 + When you create a Systems Manager State Manager association that runs a runbook\.
 + When you have operations that you expect to run longer than 12 hours\.
-+ When you are running a runbook not owned by Amazon that uses the `aws:executeScript` action to call an AWS API operation or to act on an AWS resource\. For information, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
++ When you're running a runbook not owned by Amazon that uses the `aws:executeScript` action to call an AWS API operation or to act on an AWS resource\. For information, see [Permissions for using runbooks](automation-document-script.md#execution-permissions)\.
 
 If you need to create a service role for Automation, you can use one of the following methods\.
 

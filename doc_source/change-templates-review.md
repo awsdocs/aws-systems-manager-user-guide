@@ -1,6 +1,6 @@
 # Reviewing and approving or rejecting change templates<a name="change-templates-review"></a>
 
-If you are specified as a reviewer for change templates in Change Manager, a capability of AWS Systems Manager, you are notified when a new change template, or new version of a change template, is awaiting your review\. An Amazon Simple Notification Service \(Amazon SNS\) topic sends the notifications\.
+If you're specified as a reviewer for change templates in Change Manager, a capability of AWS Systems Manager, you're notified when a new change template, or new version of a change template, is awaiting your review\. An Amazon Simple Notification Service \(Amazon SNS\) topic sends the notifications\.
 
 **Note**  
 This functionality depends on whether your account has been configured to use an Amazon SNS topic to send change template review notifications\. For information about specifying a template reviewer notification topic, see [Task 1: Configuring Change Manager user identity management and template reviewers](change-manager-account-setup.md#cm-configure-account-task-1)\.

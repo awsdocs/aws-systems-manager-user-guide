@@ -1,12 +1,12 @@
 # Systems Manager Command document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins cannot be used in SSM Automation runbooks, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
+This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins can't be used in SSM Automation runbooks, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Note**  
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.   
-Currently, only the following document plugins are supported on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for macOS:  
+The following document plugins are supported on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for macOS:  
 `aws:refreshAssociation`
 `aws:runShellScript`
 `aws:runPowerShellScript`
@@ -42,13 +42,13 @@ Valid values: `true` \| `false`
 Required: No
 
 **onFailure**  
-If you specify this input for a plugin with the `exit` value and the step fails, the step status reflects the failure and the document does not run any remaining steps unless a `finallyStep` has been defined\. If you specify this input for a plugin with the `successAndExit` value and the step fails, the step status shows successful and the document does not run any remaining steps unless a `finallyStep` has been defined\.  
+If you specify this input for a plugin with the `exit` value and the step fails, the step status reflects the failure and the document doesn't run any remaining steps unless a `finallyStep` has been defined\. If you specify this input for a plugin with the `successAndExit` value and the step fails, the step status shows successful and the document doesn't run any remaining steps unless a `finallyStep` has been defined\.  
 Type: String  
 Valid values: `exit` \| `successAndExit`  
 Required: No
 
 **onSuccess**  
-If you specify this input for a plugin and the step completes successfully, the document does not run any remaining steps unless a `finallyStep` has been defined\.  
+If you specify this input for a plugin and the step completes successfully, the document doesn't run any remaining steps unless a `finallyStep` has been defined\.  
 Type: String  
 Valid values: `exit`  
 Required: No
@@ -279,7 +279,7 @@ Sends IIS log data to CloudWatch Logs\.
 
 **PerformanceCounter**  
 Sends Windows performance counters to CloudWatch\. You can select different categories to upload to CloudWatch as metrics\. For each performance counter that you want to upload, create a **PerformanceCounter** section with a unique ID \(for example, "PerformanceCounter2", "PerformanceCounter3", and so on\) and configure its properties\.  
-If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped, performance counter data is not logged in CloudWatch This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available\.
+If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped, performance counter data isn't logged in CloudWatch This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available\.
 
 **SecurityEventLog**  
 Sends security event log data to CloudWatch Logs\.
@@ -311,7 +311,7 @@ The destination where your log data is sent\. You can add more sections with uni
 ### Settings and properties<a name="cloudWatch-properties"></a>
 
 **AccessKey**  
-Your access key ID\. This property is required unless you launched your instance using an IAM role\. This property cannot be used with SSM\.  
+Your access key ID\. This property is required unless you launched your instance using an IAM role\. This property can't be used with SSM\.  
 Type: String  
 Required: No
 
@@ -326,9 +326,9 @@ Type: String
 Required: Yes
 
 **CultureName**  
-The locale where the timestamp is logged\. If **CultureName** is blank, it defaults to the same locale currently used by your Windows Server instance\.  
+The locale where the timestamp is logged\. If **CultureName** is blank, it defaults to the same locale used by your Windows Server instance\.  
 Type: String  
-Valid values: For a list of supported values, see [National Language Support \(NLS\)](https://msdn.microsoft.com/en-us/library/cc233982.aspx) on the Microsoft website\. The **div**, **div\-MV**, **hu**, and **hu\-HU** values are not supported\.  
+Valid values: For a list of supported values, see [National Language Support \(NLS\)](https://msdn.microsoft.com/en-us/library/cc233982.aspx) on the Microsoft website\. The **div**, **div\-MV**, **hu**, and **hu\-HU** values aren't supported\.  
 Required: No
 
 **DimensionName**  
@@ -371,7 +371,7 @@ Type: String
 Required: Yes
 
 **InstanceName**  
-The name of the performance counter instance\. Do not use an asterisk \(\*\) to indicate all instances because each performance counter component only supports one metric\. You can, however use **\_Total**\.  
+The name of the performance counter instance\. Don't use an asterisk \(\*\) to indicate all instances because each performance counter component only supports one metric\. You can, however use **\_Total**\.  
 Type: String  
 Required: Yes
 
@@ -392,7 +392,7 @@ Type: Integer
 Required: No
 
 **LogDirectoryPath**  
-For CustomLogs, the path where logs are stored on your EC2 instance\. For IIS logs, the folder where IIS logs are stored for an individual site \(for example, **C:\\\\inetpub\\\\logs\\\\LogFiles\\\\W3SVC*n***\)\. For IIS logs, only W3C log format is supported\. IIS, NCSA, and Custom formats are not supported\.   
+For CustomLogs, the path where logs are stored on your EC2 instance\. For IIS logs, the folder where IIS logs are stored for an individual site \(for example, **C:\\\\inetpub\\\\logs\\\\LogFiles\\\\W3SVC*n***\)\. For IIS logs, only W3C log format is supported\. IIS, NCSA, and Custom formats aren't supported\.   
 Type: String  
 Required: Yes
 
@@ -404,11 +404,11 @@ Required: Yes
 **LogName**  
 The name of the log file\.  
 
-1. To find the name of the log, in Event Viewer, in the navigation pane, click **Applications and Services Logs**\.
+1. To find the name of the log, in Event Viewer, in the navigation pane, select **Applications and Services Logs**\.
 
-1. In the list of logs, right\-click the log you want to upload \(for example, Microsoft>Windows>Backup>Operational\), and then click **Create Custom View**\.
+1. In the list of logs, right\-click the log you want to upload \(for example, Microsoft>Windows>Backup>Operational\), and then select **Create Custom View**\.
 
-1. In the **Create Custom View** dialog box, click the **XML** tab\. The **LogName** is in the <Select Path=> tag \(for example, `Microsoft-Windows-Backup`\)\. Copy this text into the **LogName** parameter\.
+1. In the **Create Custom View** dialog box, select the **XML** tab\. The **LogName** is in the <Select Path=> tag \(for example, `Microsoft-Windows-Backup`\)\. Copy this text into the **LogName** parameter\.
 Type: String  
 Valid values: `Application` \| `Security` \| `System` \| `Microsoft-Windows-WinINet/Analytic`  
 Required: Yes
@@ -640,7 +640,7 @@ Valid values: `Install` \| `Uninstall`
 Required: Yes
 
 **installationType**  
-The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option is not supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
+The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option isn't supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
 Type: Enum  
 Valid values: `Uninstall and reinstall` \| `In-place update`  
 Required: No
@@ -860,7 +860,7 @@ mainSteps:
 ### Inputs<a name="downloadContent-inputs"></a>
 
 **sourceType**  
-The download source\. Systems Manager currently supports the following source types for downloading scripts and SSM documents: `GitHub`, `Git`, `HTTP`, `S3`, and `SSMDocument`\.  
+The download source\. Systems Manager supports the following source types for downloading scripts and SSM documents: `GitHub`, `Git`, `HTTP`, `S3`, and `SSMDocument`\.  
 Type: String  
 Required: Yes
 
@@ -891,7 +891,7 @@ Required: Yes
     ```
 + tokenInfo: The Systems Manager parameter \(a SecureString parameter\) where you store your GitHub access token information, in the format `{{ssm-secure:secure-string-token-name}}`\.
 **Note**  
-This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters are not supported for any other fields, nor for any other SSM document plugins\.
+This `tokenInfo` field is the only SSM document plugin field that supports a SecureString parameter\. SecureString parameters aren't supported for any other fields, nor for any other SSM document plugins\.
 
 ```
 {
@@ -959,7 +959,7 @@ Additionally, you can specify the following optional parameters:
 Additionally, you can specify the following optional parameters:  
 + allowInsecureDownload
 
-  Determines whether a download can be performed over a connection that is not encrypted with Secure Socket Layer \(SSL\) or Transport Layer Security \(TLS\)\. The default value is `false`\. We do not recommend performing downloads without encryption\. If you choose to do so, you assume all associated risks\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/)\.
+  Determines whether a download can be performed over a connection that isn't encrypted with Secure Socket Layer \(SSL\) or Transport Layer Security \(TLS\)\. The default value is `false`\. We don't recommend performing downloads without encryption\. If you choose to do so, you assume all associated risks\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/)\.
 
   Type: Boolean
 + authMethod
@@ -1120,7 +1120,7 @@ Type: String
 Required: No
 
 **timeoutSeconds**  
-The time in seconds for a command to be completed before it is considered to have failed\.  
+The time in seconds for a command to be completed before it's considered to have failed\.  
 Type: String  
 Required: No
 
@@ -1486,7 +1486,7 @@ Type: StringList
 Required: Yes
 
 **timeoutSeconds**  
-The time in seconds for a command to be completed before it is considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
+The time in seconds for a command to be completed before it's considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
 Type: String  
 Required: No
 
@@ -1600,7 +1600,7 @@ Type: StringList
 Required: Yes
 
 **timeoutSeconds**  
-The time in seconds for a command to be completed before it is considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
+The time in seconds for a command to be completed before it's considered to have failed\. When the timeout is reached, Systems Manager stops the command execution\.  
 Type: String  
 Required: No
 

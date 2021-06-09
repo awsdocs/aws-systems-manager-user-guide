@@ -20,7 +20,7 @@ When you configure Session Manager for your account, the system creates a `Sessi
 }
 ```
 
-By default, if a user in your account was granted permission in their AWS Identity and Access Management \(IAM\) user policy to start sessions, that user has access to the `SSM-SessionManagerRunShell` SSM document\. This means that when they use the AWS CLI to run the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` command, and they do not specify a document in the `--document-name` option, the system uses `SSM-SessionManagerRunShell` and launches the session\. The session starts even if the user’s IAM policy doesn’t grant explicit permission to access the `SSM-SessionManagerRunShell` document\.
+By default, if a user in your account was granted permission in their AWS Identity and Access Management \(IAM\) user policy to start sessions, that user has access to the `SSM-SessionManagerRunShell` SSM document\. This means that when they use the AWS CLI to run the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` command, and they don't specify a document in the `--document-name` option, the system uses `SSM-SessionManagerRunShell` and launches the session\. The session starts even if the user’s IAM policy doesn’t grant explicit permission to access the `SSM-SessionManagerRunShell` document\.
 
 For example, the following command doesn’t specify a Session document\.
 

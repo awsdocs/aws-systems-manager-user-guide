@@ -4,7 +4,7 @@ Run Command, a capability of AWS Systems Manager, reports detailed status inform
 + Choose the **Refresh** icon on the **Run Command** page in the Amazon Elastic Compute Cloud \(Amazon EC2\) console\.
 + Call [list\-commands](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-commands.html) or [list\-command\-invocations](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-command-invocations.html.html) using the AWS Command Line Interface \(AWS CLI\)\. Or call [Get\-SSMCommand](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommand.html) or [Get\-SSMCommandInvocation](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommandInvocation.html) using AWS Tools for Windows PowerShell\.
 + Configure Amazon EventBridge to respond to state or status changes\.
-+ Configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications for all status changes or specific statuses like Failed or TimedOut\.
++ Configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications for all status changes or specific statuses such as Failed or TimedOut\.
 
 ## Run Command status<a name="monitor-about-status"></a>
 
@@ -22,7 +22,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 
 | Status | Details | 
 | --- | --- | 
-| Pending | The command hasn't yet been sent to the instance or hasn't been received by SSM Agent\. If the command isn't received by the agent before the length of time passes that's equal to the sum of the Timeout \(seconds\) parameter and the Execution timeout parameter, the status changes to Delivery Timed Out\. | 
+| Pending | The command hasn't yet been sent to the instance or hasn't been received by SSM Agent\. If the command isn't received by the agent before the length of time passes that is equal to the sum of the Timeout \(seconds\) parameter and the Execution timeout parameter, the status changes to Delivery Timed Out\. | 
 | In Progress | Systems Manager is attempting to send the command to the instance, or the command was received by SSM Agent and has started running on the instance\. Depending on the result of all command plugins, the status changes to Success, Failed, Delivery Timed Out, or Execution Timed Out\. Exception: If the agent isn't running or available on the instance, the command status remains at In Progress until the agent is available again, or until the execution timeout limit is reached\. The status then changes to a terminal state\. | 
 | Delayed | The system attempted to send the command to the instance but wasn't successful\. The system retries again\. | 
 | Success | The command was received by SSM Agent on the instance and returned an exit code of zero\. This status doesn't mean the command was processed on the instance\. This is a terminal state\.  To troubleshoot errors or get more information about the command execution, send a command that handles errors or exceptions by returning appropriate exit codes \(non\-zero exit codes for command failure\)\.  | 
@@ -58,7 +58,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 Systems Manager enforces the following timeout values when running commands\.
 
 **Delivery Timeout**  
-In the Systems Manager console, you specify the delivery timeout value in the **Timeout \(seconds\)** field\. After a command is sent, Run Command checks whether the command has expired or not\. If a command reaches the command expiration limit \(total timeout\), it changes status to `DeliveryTimedOut` for all invocations that are currently have status of `InProgress`, `Pending` or `Delayed`\.
+In the Systems Manager console, you specify the delivery timeout value in the **Timeout \(seconds\)** field\. After a command is sent, Run Command checks whether the command has expired or not\. If a command reaches the command expiration limit \(total timeout\), it changes status to `DeliveryTimedOut` for all invocations that have the status `InProgress`, `Pending` or `Delayed`\.
 
 ![\[The Timeout (seconds) field in the Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
 

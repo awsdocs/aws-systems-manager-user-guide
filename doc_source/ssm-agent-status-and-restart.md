@@ -1,6 +1,6 @@
 # Checking SSM Agent status and starting the agent<a name="ssm-agent-status-and-restart"></a>
 
-This topic lists the commands to check whether AWS Systems Manager Agent \(SSM Agent\) is running on each supported operating system\. It also provides the commands to start the agent if it is not running\.
+This topic lists the commands to check whether AWS Systems Manager Agent \(SSM Agent\) is running on each supported operating system\. It also provides the commands to start the agent if it isn't running\.
 
 
 | Operating system | Command to check SSM Agent status | Command to start SSM Agent | 

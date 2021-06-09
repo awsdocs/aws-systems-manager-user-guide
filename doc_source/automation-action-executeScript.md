@@ -1,8 +1,8 @@
 # `aws:executeScript` – Run a script<a name="automation-action-executeScript"></a>
 
-Runs the Python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, the handler is not required\.\)
+Runs the Python or PowerShell script provided using the specified runtime and handler\. \(For PowerShell, the handler isn't required\.\)
 
-Currently, the `aws:executeScript` action contains the following preinstalled PowerShell Core modules: 
+The `aws:executeScript` action contains the following preinstalled PowerShell Core modules: 
 + Microsoft\.PowerShell\.Host
 + Microsoft\.PowerShell\.Management
 + Microsoft\.PowerShell\.Security
@@ -10,7 +10,7 @@ Currently, the `aws:executeScript` action contains the following preinstalled Po
 + PackageManagement
 + PowerShellGet
 
-To use PowerShell Core modules that are not preinstalled, your script must install the module with the `-Force` flag, as shown in the following command\.
+To use PowerShell Core modules that aren't preinstalled, your script must install the module with the `-Force` flag, as shown in the following command\.
 
 ```
 Install-Module ModuleName -Force
@@ -19,7 +19,7 @@ Install-Module ModuleName -Force
 To use PowerShell Core cmdlets in your script, we recommend using the `AWS.Tools` modules, as shown in the following commands\. 
 
 **Important**  
-Installing the `AWSPowerShell.NetCore` module is not supported\.
+Installing the `AWSPowerShell.NetCore` module isn't supported\.
 + Amazon S3 cmdlets\.
 
   ```
@@ -61,7 +61,7 @@ Each `aws:executeScript` action can run up to a maximum duration of 600 seconds 
 Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
 
 **Important**  
-The script input parameter is not supported for JSON runbooks\. JSON runbooks must provide script content using the attachment input parameter\.
+The script input parameter isn't supported for JSON runbooks\. JSON runbooks must provide script content using the attachment input parameter\.
 
 ------
 #### [ YAML ]
@@ -101,7 +101,7 @@ inputs:
 ------
 
 Runtime  
-The runtime language to be used for executing the provided script\. Currently, aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
+The runtime language to be used for executing the provided script\. aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
 Supported values: **python3\.6** \| **python3\.7** \| **PowerShell Core 6\.0**  
 Type: String  
 Required: Yes
@@ -122,7 +122,7 @@ Type: String
 Required: No \(Python\) \| Yes \(PowerShell\)
 
 Attachment  
-The name of a standalone script file or \.zip file that can be invoked by the action\. To invoke a file for Python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using and inline script\. Gzip is not supported\.  
+The name of a standalone script file or \.zip file that can be invoked by the action\. To invoke a file for Python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using and inline script\. Gzip isn't supported\.  
 When including Python libraries in your attachment, we recommend adding an empty `__init__.py` file in each module directory\. This enables you to import the modules from the library in your attachment within your script content\. For example: `from library import module`  
 Type: String  
 Required: NoOutput

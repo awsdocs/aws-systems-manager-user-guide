@@ -25,7 +25,7 @@ aws ssm create-activation \
 
 If you specify tags when you create an activation, then those tags are automatically assigned to your on\-premises servers and VMs when you activate them\.
 
-You can't add tags to or delete tags from an existing activation\. If you don't want to automatically assign tags to your on\-premises servers and VMs using an activation, then you can add tags to them later\. More specifically, you can tag your on\-premises servers and VMs after they connect to Systems Manager for the first time\. After they connect, they are assigned a managed instance ID and listed in the Systems Manager console with an ID that is prefixed with "mi\-"\. For information about how to add tags to your managed instances without using the activation process, see [ Tagging managed instances](tagging-managed-instances.md)\.
+You can't add tags to or delete tags from an existing activation\. If you don't want to automatically assign tags to your on\-premises servers and VMs using an activation, then you can add tags to them later\. More specifically, you can tag your on\-premises servers and VMs after they connect to Systems Manager for the first time\. After they connect, they're assigned a managed instance ID and listed in the Systems Manager console with an ID that is prefixed with "mi\-"\. For information about how to add tags to your managed instances without using the activation process, see [ Tagging managed instances](tagging-managed-instances.md)\.
 
 **Note**  
 You can't assign tags to an activation if you create it by using the Systems Manager console\. You must create it by using either the AWS CLI or Tools for Windows PowerShell\.
@@ -81,7 +81,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To create an activation**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

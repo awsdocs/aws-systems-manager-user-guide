@@ -2,7 +2,7 @@
 
 When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the automation\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role \(also called an *assumed* role\) that is configured with the AmazonSSMAutomationRole managed policy\. Using an IAM service role to run automation is called *delegated administration*\.
 
-When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. Automation is a capability of AWS Systems Manager\. The automation restarts the instances, but the service role does not give the user permission to access those instances\.
+When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. Automation is a capability of AWS Systems Manager\. The automation restarts the instances, but the service role doesn't give the user permission to access those instances\.
 
 You can specify a service role at runtime when you run an automation, or you can create custom runbooks and specify the service role directly in the runbook\. If you specify a service role, either at runtime or in a runbook, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the automation\.
 
@@ -20,7 +20,7 @@ To properly illustrate how delegated administration can work in an organization,
 In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here shows how delegated administration enables enhanced security in complex organizations\.
 
 **Important**  
-As a security best practice, we recommend that you always use a service role to run automations, even if you are an administrator who performs all of these tasks\.
+As a security best practice, we recommend that you always use a service role to run automations, even if you're an administrator who performs all of these tasks\.
 
 The procedures in this section link to topics in other AWS guides or other Systems Manager topics\. We recommend that you open links to other topics in a new tab in your web browser so you don't lose your place in this topic\.
 
@@ -76,7 +76,7 @@ The following procedure links to other topics to help you create the service rol
 
 ## Create a custom runbook<a name="automation-walk-security-document"></a>
 
-This section describes how to create a custom runbook that restarts EC2 instances\. AWS provides a runbook for restarting instances called `AWS-RestartEC2Instance`\. The following procedure copies the content of that runbook to show you how to enter the service role in a runbook when you create your own\. By specifying the service role directly in the runbook, the user does not require iam:PassRole permissions when using the runbook\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
+This section describes how to create a custom runbook that restarts EC2 instances\. AWS provides a runbook for restarting instances called `AWS-RestartEC2Instance`\. The following procedure copies the content of that runbook to show you how to enter the service role in a runbook when you create your own\. By specifying the service role directly in the runbook, the user doesn't require iam:PassRole permissions when using the runbook\. Without iam:PassRole permissions, the user can't use the service role elsewhere in AWS\.
 
 **To create a custom runbook**
 

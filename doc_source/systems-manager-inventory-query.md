@@ -10,7 +10,7 @@ You can view inventory data on the **Inventory Detail View** page in all AWS Reg
 **Before you begin**  
 Athena integration uses resource data sync\. You must set up and configure resource data sync to use this feature\. For more information, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
 
-Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by resource data sync\. If you are not the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
+Also, be aware that the **Inventory Detail View** page displays inventory data for the *owner* of the central Amazon S3 bucket used by resource data sync\. If you aren't the owner of the central Amazon S3 bucket, then you won't see inventory data on the **Inventory Detail View** page\.
 
 ## Configuring access<a name="systems-manager-inventory-query-iam"></a>
 
@@ -102,14 +102,14 @@ If you paste this block after the last block in the policy, be sure to separate 
 When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
 `AWSGlueServiceRole`: This is an AWS managed policy that enables access to AWS Glue\.
-If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy is not attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
+If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy isn't attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ## Querying data on the inventory detailed view page<a name="systems-manager-inventory-query-detail-view"></a>
 
 Use the following procedure to view inventory data from multiple AWS Regions and AWS accounts on the Systems Manager Inventory **Detailed View** page\.
 
 **Important**  
-The Inventory **Detailed View** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs are not displayed on the Systems Manager Inventory page, it means Athena is not available in the Region and you can't use the **Detailed View** to query data\.  
+The Inventory **Detailed View** page is only available in AWS Regions that offer Amazon Athena\. If the following tabs aren't displayed on the Systems Manager Inventory page, it means Athena isn't available in the Region and you can't use the **Detailed View** to query data\.  
 
 ![\[Displaying Inventory Dashboard | Detailed View | Settings tabs\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
 
@@ -161,4 +161,4 @@ AWS Glue charges your AWS account based on an hourly rate, billed by the second,
 1. In the **Cron expression** field, specify a new schedule by using a cron format\. For more information about the cron format, see [Time\-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) in the *AWS Glue Developer Guide*\.
 
 **Important**  
-You can pause the crawler to stop incurring charges from AWS Glue\. If you pause the crawler, or if you change the frequency so that the data is crawled less often, then the Inventory **Detailed View** might display data that is not current\.
+You can pause the crawler to stop incurring charges from AWS Glue\. If you pause the crawler, or if you change the frequency so that the data is crawled less often, then the Inventory **Detailed View** might display data that isn't current\.

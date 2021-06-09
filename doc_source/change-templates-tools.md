@@ -4,13 +4,13 @@ The following procedures describe how to use the AWS Command Line Interface \(AW
 
 **To create a change template**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Create a JSON file on your local machine with a name such as `MyChangeTemplate.json`, and then paste the content for your change template into it\.
 **Note**  
-Change templates use a version of schema 0\.3 that does not include all the same support as for Automation runbooks\.
+Change templates use a version of schema 0\.3 that doesn't include all the same support as for Automation runbooks\.
 
    The following is an example\.
 **Note**  

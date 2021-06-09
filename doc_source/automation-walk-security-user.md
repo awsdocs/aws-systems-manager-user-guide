@@ -27,7 +27,7 @@ You can view information about a runbook by choosing the runbook name\.
 **Note**  
 This procedure uses the **Simple execution** mode\. However, you can alternatively choose **Rate control** or **Manual execution** and run the automation as the current authenticated user\.
 
-1. In the **Input parameters** section, specify the required inputs\. To run the automation as the current authenticated user, do not specify an IAM service role for the value AutomationAssumeRole\.
+1. In the **Input parameters** section, specify the required inputs\. To run the automation as the current authenticated user, don't specify an IAM service role for the value AutomationAssumeRole\.
 
 1. Choose **Execute**\. The console displays the status of the automation\.
 
@@ -37,7 +37,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To run the automation as the current authenticated user**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

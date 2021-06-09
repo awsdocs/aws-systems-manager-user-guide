@@ -8,7 +8,7 @@ You can view AWS Systems Manager Inventory history and change tracking for all o
 
 **Note**  
 Note the following important details about Inventory history and change tracking\.  
-If you use AWS Config to track changes in your system, you must configure Systems Manager Inventory to collect `AWS:File` metadata so that you can view file changes in AWS Config \(`SSM:FileData`\)\. If you don't, then AWS Config does not track file changes on your system\.
+If you use AWS Config to track changes in your system, you must configure Systems Manager Inventory to collect `AWS:File` metadata so that you can view file changes in AWS Config \(`SSM:FileData`\)\. If you don't, then AWS Config doesn't track file changes on your system\.
 By enabling SSM:PatchCompliance and SSM:AssociationCompliance, you can view Systems Manager Patch Manager patching and Systems Manager State Manager association compliance history and change tracking\. For more information about compliance management for these resources, see [Working with Compliance](sysman-compliance-about.md)\. 
 
 The following procedure describes how to enable inventory history and change\-track recording in AWS Config by using the AWS Command Line Interface \(AWS CLI\)\. For more information about how to choose and configure these resources in AWS Config, see [Selecting Which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html) in the *AWS Config Developer Guide*\. For information about AWS Config pricing, see [Pricing](https://aws.amazon.com/config/pricing/)\.
@@ -19,7 +19,7 @@ AWS Config requires AWS Identity and Access Management \(IAM\) permissions to ge
 
 **To enable inventory history and change\-track recording in AWS Config**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

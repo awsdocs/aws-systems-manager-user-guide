@@ -3,7 +3,7 @@
 This section describes the setup tasks that account and system administrators perform for a *hybrid environment*\. A hybrid environment includes on\-premises servers and virtual machines \(VMs\) that have been configured for use with AWS Systems Manager, including VMs in other cloud environments\. After these steps are complete, users who have been granted permissions by the AWS account administrator can use Systems Manager to configure and manage their organization's on\-premises servers and virtual machines \(VMs\)\. 
 
 **Note**  
-macOS is not currently supported for Systems Manager hybrid environments\.
+macOS isn't supported for Systems Manager hybrid environments\.
 
 If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
 

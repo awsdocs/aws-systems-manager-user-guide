@@ -5,7 +5,7 @@ Use the information in this topic to help you prepare to patch applications on W
 **Microsoft application patching**  
 Patching support for applications on Windows Server managed instances is limited to applications released by Microsoft\.
 
-**Patch baselines for patching applications released by Microsoft**  
+**Patch baselines to patch applications released by Microsoft**  
 For Windows Server, three predefined patch baselines are provided\. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself\. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The configuration settings in these two patch baselines are the same\. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server\. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported applications released by Microsoft\.
 
 You can also create a custom patch baseline to update applications released by Microsoft on Windows Server machines\.
@@ -80,4 +80,4 @@ aws ssm create-patch-baseline ^
 ------
 
 **Note**  
-If you receive an error message about a mismatched product and family pairing, see [Troubleshooting mismatched product family/product pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch) for help resolving the issue\.
+If you receive an error message about a mismatched product and family pairing, see [Issue: mismatched product family/product pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch) for help resolving the issue\.

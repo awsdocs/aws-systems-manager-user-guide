@@ -92,12 +92,12 @@ Use [Automation](systems-manager-automation.md), a capability of AWS Systems Man
 ------
 #### [ Change Calendar ]
 
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) may or may not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) might or might not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 ------
 #### [ Maintenance Windows ]
 
-Use [Maintenance Windows](systems-manager-maintenance.md), a capability of AWS Systems Manager, to set up recurring schedules for managed instances to run administrative tasks like installing patches and updates without interrupting business\-critical operations\. 
+Use [Maintenance Windows](systems-manager-maintenance.md), a capability of AWS Systems Manager, to set up recurring schedules for managed instances to run administrative tasks such as installing patches and updates without interrupting business\-critical operations\. 
 
 ------
 
@@ -118,7 +118,7 @@ Use [Compliance](systems-manager-compliance.md),a capability of AWS Systems Mana
 ------
 #### [ Managed Instances ]
 
-A [managed instance](systems-manager-setting-up.md) is any EC2 instance or on\-premises machine–a server or a virtual machine \(VM\)–in your hybrid environment that's configured for Systems Manager\. To set up managed instances, install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
+A [managed instance](systems-manager-setting-up.md) is any EC2 instance or on\-premises machine–a server or a virtual machine \(VM\)–in your hybrid environment that is configured for Systems Manager\. To set up managed instances, install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
 
 ------
 #### [ Inventory ]
@@ -128,12 +128,12 @@ A [managed instance](systems-manager-setting-up.md) is any EC2 instance or on\-p
 ------
 #### [ Session Manager ]
 
-Use [Session Manager](session-manager.md), a capability of AWS Systems Manager, to manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your EC2 instances\. 
+Use [Session Manager](session-manager.md), a capability of AWS Systems Manager, to manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your EC2 instances\. 
 
 ------
 #### [ Run Command ]
 
-Use [Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to remotely and securely manage the configuration of your managed instances at scale\. Use Run Command to perform on\-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances\. 
+Use [Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to remotely and securely manage the configuration of your managed instances at scale\. Use Run Command to perform on\-demand changes such as updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances\. 
 
 ------
 #### [ State Manager ]
@@ -153,7 +153,7 @@ Use [Distributor](distributor.md), a capability of AWS Systems Manager, to creat
 ------
 #### [ Hybrid Activations ]
 
-To set up servers and VMs in your hybrid environment as managed instances, create a managed instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code and ID combination functions like an Amazon Elastic Compute Cloud \(Amazon EC2\) access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
+To set up servers and VMs in your hybrid environment as managed instances, create a managed instance [activation](systems-manager-managedinstances.md)\. After you complete the activation, you receive an activation code and ID\. This code and ID combination functions such as an Amazon Elastic Compute Cloud \(Amazon EC2\) access ID and secret key to provide secure access to the Systems Manager service from your managed instances\.
 
 ------
 

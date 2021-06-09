@@ -53,6 +53,6 @@ You can do this task only by using the `GetCalendarState` API operation\. The pr
   }
   ```
 
-  The results show the state of the calendar \(whether the calendar is of type `DEFAULT_OPEN` or `DEFAULT_CLOSED`\) for the specified calendar entries that are owned by or shared with your account, at the time specified as the value of `--at-time`, and the time of the next transition\. If you do not add the `--at-time` parameter, the current time is used\.
+  The results show the state of the calendar \(whether the calendar is of type `DEFAULT_OPEN` or `DEFAULT_CLOSED`\) for the specified calendar entries that are owned by or shared with your account, at the time specified as the value of `--at-time`, and the time of the next transition\. If you don't add the `--at-time` parameter, the current time is used\.
 **Note**  
 If you specify more than one calendar in a request, the command returns the status of `OPEN` only if all calendars in the request are open\. If one or more calendars in the request are closed, the status returned is `CLOSED`\.

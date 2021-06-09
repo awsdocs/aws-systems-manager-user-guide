@@ -14,4 +14,4 @@ You can share an entry in Change Calendar, a capability of AWS Systems Manager, 
 
 1. In **Share calendar**, for **Account ID**, enter the ID number of a valid AWS account, and then choose **Share**\.
 
-   Users of the shared account can read the Change Calendar, but they cannot make changes\.
+   Users of the shared account can read the Change Calendar, but they can't make changes\.

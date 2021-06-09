@@ -9,7 +9,7 @@ The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tas
 Before you begin working with runbooks, [configure roles for Automation](automation-permissions.md) to add an `iam:PassRole` policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure Amazon EventBridge for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
-Updates to AWS Systems Manager SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.
+Updates to AWS Systems Manager SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you're working in\. This will ensure that you're working with the latest SSM Agent released for that region and avoid compatibility issues\.
 
 The `AWS-UpdateWindowsAmi` runbook accepts the following input parameters\.
 
@@ -21,7 +21,7 @@ The `AWS-UpdateWindowsAmi` runbook accepts the following input parameters\.
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Windows Server AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Windows AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)\.  | 
 |  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The runbook uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the automation\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Setting up Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in a runbook\. For this parameter, the complete ARN must be specified\.  | 
-|  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
+|  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it's created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by region\. The default type is t2\.medium\.  | 
 |  PreUpdateScript  |  String  |  \(Optional\) A script to run before updating the AMI\. Enter a script in the runbook or at runtime as a parameter\.  | 
 |  PostUpdateScript  |  String  |  \(Optional\) A script to run after updating the AMI\. Enter a script in the runbook or at runtime as a parameter\.  | 
@@ -79,7 +79,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` runboo
 
 **To create a patched Windows AMI by using Automation**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -18,7 +18,7 @@ After you collect inventory data, you can use the filter capabilities in AWS Sys
 
 1. Choose a delimiter from the list\. For example, choose **Begin with**\. A text box appears in the filter\.
 
-1. Type a value in the text box\. For example, type *Amazon* \(SSM Agent is named *Amazon SSM Agent*\)\. 
+1. Enter a value in the text box\. For example, enter *Amazon* \(SSM Agent is named *Amazon SSM Agent*\)\. 
 
 1. Press Enter\. The system returns a list of managed instances that include an application name that begins with the word *Amazon*\.
 

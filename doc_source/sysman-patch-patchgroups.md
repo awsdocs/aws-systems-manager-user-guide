@@ -1,6 +1,6 @@
 # About patch groups<a name="sysman-patch-patchgroups"></a>
 
-You can use a *patch group* to associate instances with a specific patch baseline in Patch Manager, a capability of AWS Systems Manager\. Patch groups help ensure that you are deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
+You can use a *patch group* to associate instances with a specific patch baseline in Patch Manager, a capability of AWS Systems Manager\. Patch groups help ensure that you're deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of instances\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
 **Note**  
 A patch group can be registered with only one patch baseline for each operating system type\.
@@ -12,7 +12,7 @@ You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) ta
 **Note**  
 An instance can only be in one patch group\.
 
-After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information on how to create a patch group and associate the patch group to a patch baseline, see [Creating a patch group \(console\)](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
+After you create a patch group and tag instances, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the instances within the patch group use the rules defined in the associated patch baseline\. For more information about how to create a patch group and associate the patch group to a patch baseline, see [Creating a patch group \(console\)](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
 To view an example of creating a patch baseline and patch groups by using the AWS Command Line Interface \(AWS CLI\), see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*\.
 
@@ -70,7 +70,7 @@ The general process to scan or install patches using Run Command, a capability o
 
      1. SSM Agent, which is installed on EC2 instances in group three, receives the command issued in Step 1 to begin a patching operation\. SSM Agent validates that the EC2 instances have the patch group tag\-value `QA` applied and queries Patch Manager for an associated patch baseline\.
 
-     1. Patch Manager does not find a patch baseline that has the patch group `QA` associated\.
+     1. Patch Manager doesn't find a patch baseline that has the patch group `QA` associated\.
 
      1. Patch Manager notifies SSM Agent to use the default Windows patch baseline `pb-0123456789abcdef0`\.
 

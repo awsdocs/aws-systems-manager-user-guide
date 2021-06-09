@@ -4,7 +4,7 @@ Runs an AWS Step Functions state machine\.
 
 **Input**
 
-This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action\.
+This action supports most parameters for the Step Functions [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API operation\.
 
 **Required AWS Identity and Access Management \(IAM\) permissions**
 + `states:DescribeExecution`
@@ -12,7 +12,7 @@ This action supports most parameters for the Step Functions [StartExecution](htt
 + `states:StopExecution`
 
 **Note**  
-Currently, this action is only supported in the following AWS Regions:  
+This action is only supported in the following AWS Regions:  
 us\-west\-2
 us\-east\-1
 us\-east\-2

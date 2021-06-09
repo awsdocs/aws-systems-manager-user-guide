@@ -72,19 +72,19 @@ To specify all maintenance windows that belong to a specific account, use the wi
 "Resource": "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/*"
 ```
 
-For `Parameter Store` API actions, you can provide or restrict access to all parameters in one level of a hierarchy by using hierarchical names and AWS Identity and Access Management \(IAM\) policies as follows\.
+For `Parameter Store` API operations, you can provide or restrict access to all parameters in one level of a hierarchy by using hierarchical names and AWS Identity and Access Management \(IAM\) policies as follows\.
 
 ```
 "Resource": "arn:aws:ssm:us-west-2:123456789012:parameter/Dev/ERP/Oracle/*"
 ```
 
-Some Systems Manager actions, such as those for creating resources, cannot be performed on a specific resource\. In those cases, you must use the wildcard \(\*\)\.
+Some Systems Manager actions, such as those for creating resources, can't be performed on a specific resource\. In those cases, you must use the wildcard \(\*\)\.
 
 ```
 "Resource": "*"
 ```
 
-Some Systems Manager API actions accept multiple resources\. To specify multiple resources in a single statement, separate their ARNs with commas as follows\.
+Some Systems Manager API operations accept multiple resources\. To specify multiple resources in a single statement, separate their ARNs with commas as follows\.
 
 ```
 "Resource": [
@@ -123,7 +123,7 @@ The following table describes the ARN formats for the resource types supported b
 arn:aws:us-east-2:111122223333:session/JohnDoe-1a2b3c4sEXAMPLE
 ```
 
-However, if the user ID is not available, the ARN is constructed this way instead:
+However, if the user ID isn't available, the ARN is constructed this way instead:
 
 ```
 arn:aws:us-east-2:111122223333:session/session-1a2b3c4sEXAMPLE
@@ -168,7 +168,7 @@ To view examples of Systems Manager identity\-based policies, see [AWS Systems M
 
 Other AWS services, such as Amazon Simple Storage Service \(Amazon S3\), support resource\-based permissions policies\. For example, you can attach a permissions policy to an S3 bucket to manage access permissions to that bucket\. 
 
-Systems Manager does not support resource\-based policies\.
+Systems Manager doesn't support resource\-based policies\.
 
 ## Authorization based on Systems Manager tags<a name="security_iam_service-with-iam-tags"></a>
 
@@ -214,7 +214,7 @@ To access EC2 instances, the role your AWS account needs is an IAM instance prof
 
 To access on\-premises instances or virtual machines \(VMs\), the role your AWS account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
-An Automation workflow can be initiated under the context of a service role \(or assume role\)\. This allows the service to perform actions on your behalf\. If you do not specify an assume role, Automation uses the context of the user who invoked the execution\. However, certain situations require that you specify a service role for Automation\. For more information, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\.
+An Automation workflow can be initiated under the context of a service role \(or assume role\)\. This allows the service to perform actions on your behalf\. If you don't specify an assume role, Automation uses the context of the user who invoked the execution\. However, certain situations require that you specify a service role for Automation\. For more information, see [Configuring a service role \(assume role\) access for automations](automation-setup.md#automation-setup-configure-role)\.
 
 ### AWS managed policies for AWS Systems Manager<a name="managed-policies"></a>
 
@@ -222,7 +222,7 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 
 The following AWS managed policies, which you can attach to users in your account, are specific to Systems Manager:
 + **AmazonSSMFullAccess** – User trust policy that grants full access to the Systems Manager API and documents\.
-+ **AmazonSSMReadOnlyAccess** – User trust policy that grants access to Systems Manager read\-only API actions, such as `Get*` and `List*`\.
++ **AmazonSSMReadOnlyAccess** – User trust policy that grants access to Systems Manager read\-only API operations, such as `Get*` and `List*`\.
 + **AmazonSSMAutomationApproverAccess** – User trust policy that enables access to view automation executions and send approval decisions to automation that is waiting for approval\.
 + **AmazonSSMAutomationRole** – Service role policy that provides permissions for the Systems Manager Automation service to run activities defined within Automation runbooks\. Assign this policy to administrators and trusted power users\.
 + **AmazonSSMDirectoryServiceAccess** – Instance trust policy that allows SSM Agent to access AWS Directory Service on behalf of the user for requests to join the domain by the managed instance\.

@@ -6,7 +6,7 @@ Runs the specified commands\.
 Automation only supports *output* of one AWS Systems Manager Run Command action\. A runbook can include multiple Run Command actions, but output is supported for only one action at a time\.
 
 **Input**  
-This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html)\.
+This action supports most send command parameters\. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html)\.
 
 ------
 #### [ YAML ]
@@ -53,7 +53,7 @@ Required: Yes
 
 InstanceIds  
 The instance IDs where you want the command to run\. You can specify a maximum of 50 IDs\.   
-You can also use the pseudo parameter `{{RESOURCE_ID}}` in place of instance IDs to more easily run the command on all instances in the target group\. For more information about pseudo parameters, see [About pseudo parameters](mw-cli-register-tasks-parameters.md)\. \.  
+You can also use the pseudo parameter `{{RESOURCE_ID}}` in place of instance IDs to run the command on all instances in the target group\. For more information about pseudo parameters, see [About pseudo parameters](mw-cli-register-tasks-parameters.md)\. \.  
 Another alternative is to send commands to a fleet of instances by using the `Targets` parameter\. The `Targets` parameter accepts Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. For more information about how to use the `Targets` parameter, see [Using targets and rate controls to send commands to a fleet](send-commands-multiple.md)\.  
 Type: StringList  
 Required: No \(If you don't specify InstanceIds or use the `{{RESOURCE_ID}}` pseudo parameter, then you must specify the `Targets` parameter\.\)
@@ -195,7 +195,7 @@ Type: String
 Required: No
 
 TimeoutSeconds  
-The amount of time in seconds to wait for a command to deliver to the AWS Systems Manager SSM Agent on an instance\. If the command is not received by the SSM Agent on the instance before the value specified is reached, then the status of the command changes to `Delivery Timed Out`\.  
+The amount of time in seconds to wait for a command to deliver to the AWS Systems Manager SSM Agent on an instance\. If the command isn't received by the SSM Agent on the instance before the value specified is reached, then the status of the command changes to `Delivery Timed Out`\.  
 Type: Integer  
 Required: NoOutput
 

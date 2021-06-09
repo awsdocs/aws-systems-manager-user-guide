@@ -1,6 +1,6 @@
 # Modify permissions for a shared SSM document<a name="ssm-share-modify"></a>
 
-If you share a command, users can view and use that command until you either remove access to the AWS Systems Manager \(SSM\) document or delete the SSM document\. However, you cannot delete a document as long as it is shared\. You must stop sharing it first and then delete it\.
+If you share a command, users can view and use that command until you either remove access to the AWS Systems Manager \(SSM\) document or delete the SSM document\. However, you can't delete a document as long as it's shared\. You must stop sharing it first and then delete it\.
 
 ## Stop sharing a document \(console\)<a name="unshare-using-console"></a>
 
@@ -14,7 +14,7 @@ If you share a command, users can view and use that command until you either rem
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. In the documents list, choose the document you want to stop sharing, and then choose **View details**\. On the **Permissions** tab, verify that you are the document owner\. Only a document owner can stop sharing a document\.
+1. In the documents list, choose the document you want to stop sharing, and then choose **View details**\. On the **Permissions** tab, verify that you're the document owner\. Only a document owner can stop sharing a document\.
 
 1. Choose **Edit**\.
 

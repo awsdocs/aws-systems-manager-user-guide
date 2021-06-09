@@ -61,7 +61,7 @@ For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, a
 **About 'kms:Decrypt'**  
 In this policy, the `kms:Decrypt` permission enables customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
 
-   If you will not use AWS KMS encryption for your session data, you can remove the following content from the policy\.
+   If you won't use AWS KMS encryption for your session data, you can remove the following content from the policy\.
 
    ```
    ,
@@ -164,7 +164,7 @@ For information about specifying preferences for storing session logs, see [Logg
    }
    ```
 **Important**  
-To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the Amazon S3 bucket cannot access the session output logs\.
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
 
 1. Choose **Review policy**\.
 

@@ -1,6 +1,6 @@
 # Install or update packages<a name="distributor-working-with-packages-deploy"></a>
 
-You can deploy packages to your AWS Systems Manager managed instances by using Distributor, a capability of AWS Systems Manager\. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface \(AWS CLI\)\. You can currently deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager, a capability of AWS Systems Manager, to install packages\. Using State Manager helps ensure that your instances are always running the most up\-to\-date version of your package\.
+You can deploy packages to your AWS Systems Manager managed instances by using Distributor, a capability of AWS Systems Manager\. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface \(AWS CLI\)\. You can deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager, a capability of AWS Systems Manager, to install packages\. Using State Manager helps ensure that your instances are always running the most up\-to\-date version of your package\.
 
 
 | Preference | AWS Systems Manager action | More information | 
@@ -39,7 +39,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. For **Installation type**, choose one of the following: 
    + **Uninstall and reinstall**: The package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\.
-   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option is not supported for AWS published packages except the `AWSEC2Launch-Agent` package\.
+   + **In\-place update**: Only new or changed files are added to the existing installation according to instructions you provide in an `update` script\. The application remains available throughout the update process\. This option isn't supported for AWS published packages except the `AWSEC2Launch-Agent` package\.
 
 1. For **Name**, verify that the name of the package you selected is entered\.
 
@@ -47,7 +47,7 @@ You can use the AWS Systems Manager console to install or update a package one t
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, enter information about this command\.
@@ -56,7 +56,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 1. For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you are not certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
+If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
@@ -67,7 +67,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
-1. When you are ready to install the package, choose **Run**\.
+1. When you're ready to install the package, choose **Run**\.
 
 1. The **Command status** area reports the progress of the execution\. If the command is still in progress, choose the refresh icon in the top\-left corner of the console until the **Overall status** or **Detailed status** column shows **Success** or **Failed**\.
 
@@ -133,7 +133,7 @@ You can run send\-command in the AWS CLI to install a Distributor package one ti
       --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["package-name (in same account) or package-ARN (shared from different account)"]}'
   ```
 **Note**  
-The default behavior for `installationType` is `Uninstall and reinstall`\. You can omit `"installationType":["Uninstall and reinstall"]` from this command when you are installing a complete package\.
+The default behavior for `installationType` is `Uninstall and reinstall`\. You can omit `"installationType":["Uninstall and reinstall"]` from this command when you're installing a complete package\.
 
   The following is an example\.
 
@@ -185,7 +185,7 @@ aws ssm create-association \
 ```
 
 **Note**  
-The default behavior for `installationType` is `Uninstall and reinstall`\. You can omit `"installationType":["Uninstall and reinstall"]` from this command when you are installing a complete package\.
+The default behavior for `installationType` is `Uninstall and reinstall`\. You can omit `"installationType":["Uninstall and reinstall"]` from this command when you're installing a complete package\.
 
 The following is an example\.
 

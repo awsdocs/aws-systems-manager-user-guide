@@ -83,10 +83,10 @@ You can view reports about OpsItem statuses on the **Summary** tab\. For more in
 When you edit an OpsItem, you can choose a priority for that OpsItem by choosing a value between 1 and 5\. We recommend that your organization determine what each priority level means and a corresponding service level agreement for each\.
 
 **About the Notifications Field**  
-When you edit an OpsItem, you can specify the ARN of an Amazon SNS topic in the **Notifications** field\. By specifying an ARN, you ensure that all stakeholders receive a notification when the OpsItem is edited, including a status change\. You may find it helpful to create different ARNs for notifications about different types of AWS resources or different environments\. The Amazon SNS topic must exist in the same AWS Region as the OpsItems\. If they are in different Regions, the system returns an error\. For more information, see the [https://docs.aws.amazon.com/sns/latest/dg/](https://docs.aws.amazon.com/sns/latest/dg/)\.
+When you edit an OpsItem, you can specify the ARN of an Amazon SNS topic in the **Notifications** field\. By specifying an ARN, you ensure that all stakeholders receive a notification when the OpsItem is edited, including a status change\. You might find it helpful to create different ARNs for notifications about different types of AWS resources or different environments\. The Amazon SNS topic must exist in the same AWS Region as the OpsItems\. If they're in different Regions, the system returns an error\. For more information, see the [https://docs.aws.amazon.com/sns/latest/dg/](https://docs.aws.amazon.com/sns/latest/dg/)\.
 
 **Important**  
-The Amazon SNS topic must exist in the same AWS Region as the OpsItem\. If they are in different Regions, the system returns an error\.
+The Amazon SNS topic must exist in the same AWS Region as the OpsItem\. If they're in different Regions, the system returns an error\.
 
 **To edit OpsItem details**
 
@@ -100,13 +100,13 @@ The Amazon SNS topic must exist in the same AWS Region as the OpsItem\. If they 
 
 1. Edit the details of the OpsItem according to the requirements and guidelines specified by your organization\.
 
-1. When you are finished, choose **Save**\.
+1. When you're finished, choose **Save**\.
 
 ## Working with similar and related OpsItems<a name="OpsCenter-working-with-OpsItems-similar"></a>
 
 The **Similar OpsItems** and **Related OpsItems** features are designed to help you investigate operations issues while providing context about the scope of an issue\.
 
-The **Similar OpsItems** feature is a system\-generated list of OpsItems that may be related or of interest to you\. To generate the list, the system scans the titles and descriptions of all OpsItems and returns OpsItems that use similar words\.
+The **Similar OpsItems** feature is a system\-generated list of OpsItems that might be related or of interest to you\. To generate the list, the system scans the titles and descriptions of all OpsItems and returns OpsItems that use similar words\.
 
 ![\[Viewing similar OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_5.png)
 
@@ -139,7 +139,7 @@ Operational data keys *can't* begin with the following: `amazon`, `aws`, `amzn`,
 
 ![\[Viewing operational data for an OpsItem.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_7.png)
 
-You can choose to make the data searchable by other users in the account or you can restrict search access\. Searchable data means that all users with access to the OpsItem Overview page \(as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API action\) can view and search on the specified data\. Operational data that is not searchable is only viewable by users who have access to the OpsItem \(as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API action\)\.
+You can choose to make the data searchable by other users in the account or you can restrict search access\. Searchable data means that all users with access to the OpsItem Overview page \(as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API operation\) can view and search on the specified data\. Operational data that isn't searchable is only viewable by users who have access to the OpsItem \(as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API operation\)\.
 
 **To add operational data to an OpsItem**
 
@@ -166,10 +166,10 @@ You can filter OpsItems by using the **Operational data** operator on the OpsIte
 
 ## Reducing duplicate OpsItems<a name="OpsCenter-working-deduplication"></a>
 
-OpsCenter uses a combination of built\-in logic and configurable deduplication strings to help avoid creating duplicate OpsItems\. Deduplication built\-in logic is applied anytime the [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) API action is called\. When creating the OpsItem, Systems Manager creates and stores a hash based on the deduplication string and the resource that initiated the OpsItem\. When a request is made to create a new OpsItem, the system checks the deduplication string of the new request\. If a matching hash exists for this deduplication string, then Systems Manager doesn't create a new OpsItem\. 
+OpsCenter uses a combination of built\-in logic and configurable deduplication strings to help avoid creating duplicate OpsItems\. Deduplication built\-in logic is applied anytime the [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) API operation is called\. When creating the OpsItem, Systems Manager creates and stores a hash based on the deduplication string and the resource that initiated the OpsItem\. When a request is made to create a new OpsItem, the system checks the deduplication string of the new request\. If a matching hash exists for this deduplication string, then Systems Manager doesn't create a new OpsItem\. 
 
 Note the following information about OpsCenter and deduplication: 
-+ Deduplication strings are not case sensitive\. If the system finds a matching hash based on a deduplication string in an incoming OpsItem, regardless of the deduplication string casing, the new OpsItem isn't created\.
++ Deduplication strings aren't case sensitive\. If the system finds a matching hash based on a deduplication string in an incoming OpsItem, regardless of the deduplication string casing, the new OpsItem isn't created\.
 + If the system finds a matching deduplication string in an OpsItem, and that OpsItem has a status of `Open/InProgress`, then the new OpsItem isn't created\. If a matching deduplication string is found in an OpsItem that has a status of `Resolved`, then the system creates a new OpsItem\.
 + If the system finds a matching deduplication string in an OpsItem, but the resources are different, then the system creates the new OpsItem\.
 + If no deduplication string is specified for an incoming OpsItem, then the OpsItem is always created\.

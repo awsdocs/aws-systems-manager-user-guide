@@ -7,7 +7,7 @@ You can use Quick Setup, a capability of AWS Systems Manager, to quickly configu
 
 Note the following details about creating an IAM instance profile:
 + If you are configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, you must configure your servers and VMs to use an IAM service role\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
-+ If you change the IAM instance profile, it might take some time for the instance credentials to refresh\. SSM Agent will not process requests until this happens\. To speed up the refresh process, you can restart SSM Agent or restart the instance\.
++ If you change the IAM instance profile, it might take some time for the instance credentials to refresh\. SSM Agent won't process requests until this happens\. To speed up the refresh process, you can restart SSM Agent or restart the instance\.
 
 ## About policies for a Systems Manager instance profile<a name="instance-profile-policies-overview"></a>
 
@@ -19,7 +19,7 @@ This AWS managed policy enables an instance to use Systems Manager service core 
 
 **Policy: A custom policy for S3 bucket access**  
 Required permissions in either of the following cases:  
-+ **Case 1**: You are using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
++ **Case 1**: You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
 
   SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. These buckets are publicly accessible\. 
 
@@ -55,7 +55,7 @@ To create an instance profile with permissions for additional Systems Manager se
 
 ## Task 1: \(Optional\) Create a custom policy for S3 bucket access<a name="instance-profile-custom-s3-policy"></a>
 
-Creating a custom policy for Amazon S3 access is required only if you are using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
+Creating a custom policy for Amazon S3 access is required only if you're using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
 
 For information about the AWS managed S3 buckets you provide access to in the policy below, see [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 
@@ -100,9 +100,9 @@ For information about the AWS managed S3 buckets you provide access to in the po
    }
    ```
 
-   **1** The first `Statement` element is required only if you are using a VPC endpoint\.
+   **1** The first `Statement` element is required only if you're using a VPC endpoint\.
 
-   **2** The second `Statement` element is required only if you are using an S3 bucket that you created to use in your Systems Manager operations\.
+   **2** The second `Statement` element is required only if you're using an S3 bucket that you created to use in your Systems Manager operations\.
 
    **3** The `PutObjectAcl` access control list permission is required only if you plan to support cross\-account access to S3 buckets in other accounts\.
 
@@ -110,7 +110,7 @@ For information about the AWS managed S3 buckets you provide access to in the po
 
    **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, `arn:aws:s3:::DOC-EXAMPLE-BUCKET`\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
 
-1. If you are using a VPC endpoint in your operations, do the following: 
+1. If you're using a VPC endpoint in your operations, do the following: 
 
    In the first `Statement` element, replace each *region* placeholder with the identifier of the AWS Region this policy will be used in\. For example, use `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 **Important**  
@@ -118,9 +118,9 @@ We recommend that you avoid using wildcard characters \(\*\) in place of specifi
 
    \-or\-
 
-   If you are not using a VPC endpoint in your operations, you can delete the first `Statement` element\.
+   If you aren't using a VPC endpoint in your operations, you can delete the first `Statement` element\.
 
-1. If you are using an S3 bucket of your own in your Systems Manager operations, do the following:
+1. If you're using an S3 bucket of your own in your Systems Manager operations, do the following:
 
    In the second `Statement` element, replace **DOC\-EXAMPLE\-BUCKET** with the name of an S3 bucket in your account\. You will use this bucket for your Systems Manager operations\. It provides permission for objects in the bucket, using `"arn:aws:s3:::my-bucket-name/*"` as the resource\. For more information about providing permissions for buckets or objects in buckets, see the topic [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) in the *Amazon Simple Storage Service Developer Guide* and the AWS blog post [IAM Policies and Bucket Policies and ACLs\! Oh, My\! \(Controlling Access to S3 Resources\)](http://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/)\.
 **Note**  
@@ -135,7 +135,7 @@ If you use more than one bucket, provide the ARN for each one\. For example, for
 
    \-or\-
 
-   If you are not using an S3 bucket of your own in your Systems Manager operations, you can delete the second `Statement` element\.
+   If you aren't using an S3 bucket of your own in your Systems Manager operations, you can delete the second `Statement` element\.
 
 1. Choose **Review policy**\.
 
@@ -145,7 +145,7 @@ If you use more than one bucket, provide the ARN for each one\. For example, for
 
 ## Task 2: Add permissions to a Systems Manager instance profile \(console\)<a name="instance-profile-add-permissions"></a>
 
-Depending on whether you are creating a new role for your instance profile or adding the necessary permissions to an existing role, use one of the following procedures\.<a name="setup-instance-profile-managed-policy"></a>
+Depending on whether you're creating a new role for your instance profile or adding the necessary permissions to an existing role, use one of the following procedures\.<a name="setup-instance-profile-managed-policy"></a>
 
 **To create an instance profile for Systems Manager managed instances \(console\)**
 

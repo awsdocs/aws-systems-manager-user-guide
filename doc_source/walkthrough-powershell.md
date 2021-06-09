@@ -3,7 +3,7 @@
 The following examples show how to use the AWS Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined AWS Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the predefined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to AWS Systems Manager Run Command, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your instances\. If a user has permission to run any of the predefined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the instance\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, a capability of AWS Systems Manager, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell session settings](#walkthrough-powershell-settings)
@@ -27,7 +27,7 @@ Set-AWSCredentials –AccessKey key-name –SecretKey key-name
 ```
 
 **Set a default AWS Region**  
-Run the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is currently available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+Run the following command to set the region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\. Run Command is available in the AWS Regions listed in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ```
 Set-DefaultAWSRegion `
@@ -44,7 +44,7 @@ Get-SSMDocumentList
 
 ## Run PowerShell commands or scripts<a name="walkthrough-powershell-run-script"></a>
 
-Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or type in a path to a local script to run the command\. 
+Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on an Amazon Elastic Compute Cloud \(Amazon EC2\) instance as if you were logged onto the instance using Remote Desktop\. You can issue commands or enter a path to a local script to run the command\. 
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.
@@ -228,7 +228,7 @@ Get-SSMCommandInvocation `
 
 Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command you must [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
-Currently you can only join an instance to a domain\. You can't remove an instance from a domain\.
+You can only join an instance to a domain\. You can't remove an instance from a domain\.
 
 **Note**  
 For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed instance from scripts](send-commands-reboot.md)\.

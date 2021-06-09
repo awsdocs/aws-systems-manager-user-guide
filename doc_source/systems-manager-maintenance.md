@@ -6,7 +6,7 @@ For more information, see [Choosing between State Manager and Maintenance Window
 
 Maintenance Windows, a capability of AWS Systems Manager, helps you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\. With Maintenance Windows, you can schedule actions on numerous other AWS resource types, such as Amazon Simple Storage Service \(Amazon S3\) buckets, Amazon Simple Queue Service \(Amazon SQS\) queues, AWS Key Management Service \(AWS KMS\) keys, and many more\. For a full list of supported resource types that you can include in a maintenance window target, see [Supported Resources for AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html#supported-resources-console) in the *AWS Resource Groups User Guide*\.
 
-Each maintenance window has a schedule, a maximum duration, a set of registered targets \(the instances or other AWS resources that are acted upon\), and a set of registered tasks\. You can add tags to your maintenance windows when you create or update them\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can also specify dates that a maintenance window should not run before or after, and you can specify the international time zone on which to base the maintenance window schedule\. 
+Each maintenance window has a schedule, a maximum duration, a set of registered targets \(the instances or other AWS resources that are acted upon\), and a set of registered tasks\. You can add tags to your maintenance windows when you create or update them\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can also specify dates that a maintenance window shouldn't run before or after, and you can specify the international time zone on which to base the maintenance window schedule\. 
 
 For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.
 
@@ -28,9 +28,9 @@ Maintenance windows support running four types of tasks:
   For more information about Step Functions, see the *[AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/)*\.
 
 **Note**  
-One or more targets must be specified for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+One or more targets must be specified for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
-This means you can use maintenance windows to perform tasks like the following on your selected targets:
+This means you can use maintenance windows to perform tasks like the following on your selected targets\.
 + Install or update applications\.
 + Apply patches\.
 + Install or update SSM Agent\.

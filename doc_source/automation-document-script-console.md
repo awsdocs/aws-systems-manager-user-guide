@@ -30,13 +30,13 @@ For runbooks not owned by Amazon that use the `aws:executeScript` action, a role
 
 1. \(Optional\) Expand the **Input parameters** section and do the following\.
 
-   1. For **Parameter name**, enter a descriptive name for the runbook parameter you are creating\.
+   1. For **Parameter name**, enter a descriptive name for the runbook parameter you're creating\.
 
    1. For **Type**, choose a type for the parameter, such as String or StringList\.
 
    1. For **Required**, do one of the following\.
       + Choose **Yes** if a value for this runbook parameter must be supplied at runtime\.
-      + Choose **No** if the parameter is not required, and \(optional\) enter a default parameter value in **Default value**\.
+      + Choose **No** if the parameter isn't required, and \(optional\) enter a default parameter value in **Default value**\.
 
    1. For **Description**, enter a description for the runbook parameter\.
 **Note**  
@@ -52,7 +52,7 @@ If you specify a value of '`/`', the runbook can run on all types of resources\.
    + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\. 
 
 1. Expand the **Inputs** section and provide the following information\.
-   + For **Runtime**, choose the type of script you are adding\. Currently, Automation supports Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\.
+   + For **Runtime**, choose the type of script you're adding\. Automation supports Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\.
    + For **Handler**, enter the the function name from your script\. \(Not required for PowerShell\.\)
 **Important**  
 You must ensure the function defined in the handler has two parameters, `events` and `context`\. For example, you would enter `launch_instance` if your script began with the following\.  
@@ -95,7 +95,7 @@ You can calculate the checksum of the file in sha256 by using a tool like shasum
 **Tip**  
 To add more outputs, select **Add output**\. 
 
-1. \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all Automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it is stopped\.
+1. \(Optional\) Expand the **Common properties** section and specify properties for the actions that are common to all Automation actions\. For example, for **Timeout seconds**, you can provide a value in seconds to specify how long the step can run before it's stopped\.
 
    For more information, see [Properties shared by all actions](automation-actions.md#automation-common)\.
 **Note**  

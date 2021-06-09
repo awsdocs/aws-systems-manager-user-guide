@@ -11,14 +11,14 @@ You can create State Manager associations that run Chef recipes by using the `AW
 You can use GitHub or Amazon S3 buckets as sources for Chef cookbooks and recipes that you specify in an `AWS-ApplyChefRecipes` document\.
 
 **Note**  
-Associations that run Chef recipes aren't currently supported on macOS\.
+Associations that run Chef recipes aren't supported on macOS\.
 
 ## Prerequisites: Set up your association, repository, and cookbooks<a name="state-manager-chef-prereqs"></a>
 
 Before you create an `AWS-ApplyChefRecipes` document, prepare your Chef cookbooks and cookbook repository\. If you don't already have a Chef cookbook that you want to use, you can get started by using a test `HelloWorld` cookbook that AWS has prepared for you\. The `AWS-ApplyChefRecipes` document already points to this cookbook by default\. Your cookbooks should be set up similarly to the following directory structure\. In the following example, `jenkins` and `nginx` are examples of Chef cookbooks that are available in the [Chef Supermarket](https://supermarket.chef.io/) on the Chef website\.
 
-Though AWS can't officially support cookbooks on the [Chef Supermarket](https://supermarket.chef.io/) website, many of them work with the `AWS-ApplyChefRecipes` document\. The following are examples of criteria to determine when you are testing a community cookbook:
-+ The cookbook should support the Linux\-based operating systems of the Systems Manager managed nodes that you are targeting\.
+Though AWS can't officially support cookbooks on the [Chef Supermarket](https://supermarket.chef.io/) website, many of them work with the `AWS-ApplyChefRecipes` document\. The following are examples of criteria to determine when you're testing a community cookbook:
++ The cookbook should support the Linux\-based operating systems of the Systems Manager managed nodes that you're targeting\.
 + The cookbook should be valid for the Chef client version \(Chef 11 through Chef 14\) that you use\.
 + The cookbook is compatible with Chef Infra Client, and, doesn't require a Chef server\.
 
@@ -149,17 +149,17 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. For **Chef client version**, specify a Chef version\. Valid values are `11`, `12`, `13`, `14`, or `None`\. If you specify `11` through `14`, Systems Manager installs the correct Chef client version on your target instances\. If you specify `None`, Systems Manager doesn't install the Chef client on target instances before running the document's recipes\. The default value is `14`\.
 
-1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you are using\. To learn more about supported arguments, run `chef-client -h` on an instance that's running the Chef client\.
+1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you're using\. To learn more about supported arguments, run `chef-client -h` on an instance that is running the Chef client\.
 
 1. \(Optional\) Enable **Why\-run** to show changes made to target instances if the recipes are run, without actually changing target instances\.
 
-1. For **Compliance severity**, choose the severity of Systems Manager Configuration Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Configuration Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 14\)\. For more information about Configuration Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
+1. For **Compliance severity**, choose the severity of Systems Manager Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 14\)\. For more information about Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
 
-   Compliance scans measure drift between configuration that's specified in your Chef recipes and instance resources\. Valid values are `Critical`, `High`, `Medium`, `Low`, `Informational`, `Unspecified`, or `None`\. To skip compliance reporting, choose `None`\.
+   Compliance scans measure drift between configuration that is specified in your Chef recipes and instance resources\. Valid values are `Critical`, `High`, `Medium`, `Low`, `Informational`, `Unspecified`, or `None`\. To skip compliance reporting, choose `None`\.
 
 1. For **Compliance type**, specify the compliance type for which you want results reported\. Valid values are `Association` for State Manager associations, or `Custom:`*custom\_type*\. The default value is `Custom:Chef`\.
 
-1. For **Compliance report bucket**, enter the name of an S3 bucket in which to store information about every Chef run performed by this document, including resource configuration and Configuration Compliance results\.
+1. For **Compliance report bucket**, enter the name of an S3 bucket in which to store information about every Chef run performed by this document, including resource configuration and Compliance results\.
 
 1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
@@ -181,7 +181,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 The following procedure describes how to use the AWS Command Line Interface \(AWS CLI\) to create a State Manager association that runs Chef cookbooks by using the `AWS-ApplyChefRecipes` document\.
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -306,7 +306,7 @@ The **Compliance resources summary** section displays a count of resources that 
 
 ![\[Viewing counts in the Compliance resources summary section of the Compliance page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-summary.png)
 
-The **Details overview for resources** section shows information about the AWS resource that's not in compliance\. This section also includes the Chef resource type against which compliance was run, severity of issue, compliance status, and links to more information when applicable\.
+The **Details overview for resources** section shows information about the AWS resource that isn't in compliance\. This section also includes the Chef resource type against which compliance was run, severity of issue, compliance status, and links to more information when applicable\.
 
 ![\[Viewing compliance details for a Chef managed resource failure\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-details.png)
 

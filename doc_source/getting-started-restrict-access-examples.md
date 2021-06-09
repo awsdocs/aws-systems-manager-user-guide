@@ -43,7 +43,7 @@ You can restrict access to specific instances by creating an IAM user policy tha
 
 ## Example 2: Restrict access based on instance tags<a name="restrict-access-example-instance-tags"></a>
 
-You can restrict access to instances based on specific Amazon EC2 tags\. In the following example, the user is allowed to start and resume sessions \(`Effect: Allow, Action: ssm:StartSession, ssm:ResumeSession`\) on any instance \(`Resource: arn:aws:ec2:region:987654321098:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that is not tagged or that has any tag other than `Finance: WebServer`, the command result will include `AccessDenied`\.
+You can restrict access to instances based on specific Amazon EC2 tags\. In the following example, the user is allowed to start and resume sessions \(`Effect: Allow, Action: ssm:StartSession, ssm:ResumeSession`\) on any instance \(`Resource: arn:aws:ec2:region:987654321098:instance/*`\) with the condition that the instance is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to an instance that isn't tagged or that has any tag other than `Finance: WebServer`, the command result will include `AccessDenied`\.
 
 ```
 {
@@ -79,7 +79,7 @@ You can restrict access to instances based on specific Amazon EC2 tags\. In the 
 }
 ```
 
-You can create IAM policies that enable a user to start sessions to instances that are tagged with multiple tags\. The following policy enables the user to start sessions to instances that have both the specified tags applied to them\. If a user sends a command to an instance that is not tagged with both of these tags, the command result will include `AccessDenied`\.
+You can create IAM policies that enable a user to start sessions to instances that are tagged with multiple tags\. The following policy enables the user to start sessions to instances that have both the specified tags applied to them\. If a user sends a command to an instance that isn't tagged with both of these tags, the command result will include `AccessDenied`\.
 
 ```
 {
@@ -111,7 +111,7 @@ For more information about creating IAM user policies, see [Managed Policies and
 ## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 
 Session Manager provides two methods to control which sessions a user in your AWS account is allowed to end\.
-+ Use the variable `{aws:username}` in an AWS Identity and Access Management \(IAM\) permissions policy\. Users can end only sessions they started\. This method does not work for accounts that use federated IDs to grant access to AWS\. Federated IDs use the variable `{aws:userid}` instead of `{aws:username}`\.
++ Use the variable `{aws:username}` in an AWS Identity and Access Management \(IAM\) permissions policy\. Users can end only sessions they started\. This method doesn't work for accounts that use federated IDs to grant access to AWS\. Federated IDs use the variable `{aws:userid}` instead of `{aws:username}`\.
 + Use tags supplied by AWS tags in an IAM permissions policy\. In the policy, you include a condition that allows users to end only sessions that are tagged with specific tags that have been provided by AWS\. This method works for all accounts, including those that use federated IDs to grant access to AWS\.
 
 ### Method 1: Grant TerminateSession privileges using the variable `{aws:username}`<a name="restrict-access-example-user-sessions-username"></a>
@@ -119,7 +119,7 @@ Session Manager provides two methods to control which sessions a user in your AW
 The following IAM policy lets a user view the IDs of all sessions in your account\. However, users can interact with instances only through sessions they started\. A user who is assigned the following policy can't connect to or end other users' sessions\. The policy uses the variable `{aws:username}` to achieve this\.
 
 **Note**  
-This method does not work for accounts that grant access to AWS using federated IDs\.
+This method doesn't work for accounts that grant access to AWS using federated IDs\.
 
 ```
 {

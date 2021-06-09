@@ -19,7 +19,7 @@ For information about how to quickly configure and collect inventory data from a
 
 ## Aggregating inventory data to see counts of instances that collect specific types of data<a name="sysman-inventory-aggregate-type"></a>
 
-You can use the AWS Systems Manager [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API action to view aggregated counts of instances that collect one or more inventory types and data types\. For example, the `AWS:InstanceInformation` inventory type enables you to view an aggregate of operating systems by using the GetInventory API action with the `AWS:InstanceInformation.PlatformType` data type\. Here is an example AWS CLI command and output:
+You can use the AWS Systems Manager [GetInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetInventory.html) API operation to view aggregated counts of instances that collect one or more inventory types and data types\. For example, the `AWS:InstanceInformation` inventory type enables you to view an aggregate of operating systems by using the GetInventory API operation with the `AWS:InstanceInformation.PlatformType` data type\. Here is an example AWS CLI command and output:
 
 ```
 aws ssm get-inventory --aggregators "Expression=AWS:InstanceInformation.PlatformType"
@@ -247,7 +247,7 @@ Use the following command to call the file from the AWS CLI\.
 aws ssm get-inventory --aggregators file://file_name.json
 ```
 
-The command returns information like the following:
+The command returns information like the following\.
 
 ```
 {"Entities": 
@@ -415,7 +415,7 @@ Run the following command from the AWS CLI\.
 aws ssm get-inventory --cli-input-json file://input.json
 ```
 
-The command returns information like the following:
+The command returns information like the following\.
 
 ```
 {
@@ -503,7 +503,7 @@ Run the following command from the AWS CLI\.
 aws ssm get-inventory --cli-input-json file://input.json
 ```
 
-The command returns information like the following:
+The command returns information like the following\.
 
 ```
 {

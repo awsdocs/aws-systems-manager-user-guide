@@ -105,7 +105,7 @@ Creating the output variable is described in more detail in the next section, [A
 **Boolean operation**
   + BooleanEquals
 **Important**  
-When you create a runbook, the system validates each operation in the runbook\. If an operation is not supported, the system returns an error when you try to create the runbook\.
+When you create a runbook, the system validates each operation in the runbook\. If an operation isn't supported, the system returns an error when you try to create the runbook\.
 + **Default**: Specify a fallback step that the automation should jump to if none of the `Choices` are `true`\.
 **Note**  
 If you don't want to specify a `Default` value, then you can specify the `isEnd` option\. If none of the `Choices` are `true` and no `Default` value is specified, then the automation stops at the end of the step\.
@@ -246,7 +246,7 @@ Here are some example runbooks that use `aws:branch`\.
 
 **Example 1: Using `aws:branch`h with an output variable to run commands based on the operating system type**
 
-In the first step of this example \(`GetInstance`\), the runbook author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API action\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
+In the first step of this example \(`GetInstance`\), the runbook author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API operation\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
 
 In the second step \(`ChooseOSforCommands`\), the author uses the `aws:branch` action with two `Choices` \(`NextStep: runPowerShellCommand`\) and \(`NextStep: runShellCommand`\)\. The automation evaluates the operating system of the instance by using the output from the previous step \(`Variable: "{{GetInstance.platform}}"`\)\. The automation jumps to a step for the designated operating system\.
 
@@ -415,7 +415,7 @@ Use the `Or` operator when you want *any* of multiple variables to be true for a
 ```
 
 **The 'Not' operator**  
-Use the `Not` operator when you want to jump to a step defined when a variable is *not* true\. In the following example, the first choice evaluates if a parameter string is `Not Linux`\. If the evaluation determines that the variable is not Linux, then the automation jumps to the `sleep2` step\. If the evaluation of the first choice determines that it *is* Linux, then the automation evaluates the next choice\.
+Use the `Not` operator when you want to jump to a step defined when a variable is *not* true\. In the following example, the first choice evaluates if a parameter string is `Not Linux`\. If the evaluation determines that the variable isn't Linux, then the automation jumps to the `sleep2` step\. If the evaluation of the first choice determines that it *is* Linux, then the automation evaluates the next choice\.
 
 ```
 mainSteps:
@@ -483,7 +483,7 @@ mainSteps:
 The following example uses the `onFailure: step:step_name`, `nextStep`, and `isEnd` options to create a dynamic automation\. With this example, if the `InstallMsiPackage` action fails, then the automation jumps to an action called *PostFailure* \(`onFailure: step:PostFailure`\) to run an AWS Lambda function to perform some action in the event the install failed\. If the install succeeds, then the automation jumps to the TestInstall action \(`nextStep: TestInstall`\)\. Both the `TestInstall` and the `PostFailure` steps use the `isEnd` option \(`isEnd: true`\) so that the automation finishes when either of those steps is completed\.
 
 **Note**  
-Using the `isEnd` option in the last step of the `mainSteps` section is optional\. If the last step does not jump to other steps, then the automation stops after running the action in the last step\.
+Using the `isEnd` option in the last step of the `mainSteps` section is optional\. If the last step doesn't jump to other steps, then the automation stops after running the action in the last step\.
 
 **Example 2: A dynamic automation that jumps to different steps**
 
@@ -520,11 +520,11 @@ mainSteps
 ```
 
 **Note**  
-Before processing a runbook, the system verifies that the runbook does not create an infinite loop\. If an infinite loop is detected, Automation returns an error and a circle trace showing which steps create the loop\.
+Before processing a runbook, the system verifies that the runbook doesn't create an infinite loop\. If an infinite loop is detected, Automation returns an error and a circle trace showing which steps create the loop\.
 
 **Creating a dynamic automation that defines critical steps**
 
-You can specify that a step is critical for the overall success of the automation\. If a critical step fails, then Automation reports the status of the automation as `Failed`, even if one or more steps ran successfully\. In the following example, the user identifies the *VerifyDependencies* step if the *InstallMsiPackage* step fails \(`onFailure: step:VerifyDependencies`\)\. The user specifies that the `InstallMsiPackage` step is not critical \(`isCritical: false`\)\. In this example, if the application failed to install, Automation processes the `VerifyDependencies` step to determine if one or more dependencies is missing, which therefore caused the application install to fail\. 
+You can specify that a step is critical for the overall success of the automation\. If a critical step fails, then Automation reports the status of the automation as `Failed`, even if one or more steps ran successfully\. In the following example, the user identifies the *VerifyDependencies* step if the *InstallMsiPackage* step fails \(`onFailure: step:VerifyDependencies`\)\. The user specifies that the `InstallMsiPackage` step isn't critical \(`isCritical: false`\)\. In this example, if the application failed to install, Automation processes the `VerifyDependencies` step to determine if one or more dependencies is missing, which therefore caused the application install to fail\. 
 
 **Example 3: Defining critical steps for the automation **
 

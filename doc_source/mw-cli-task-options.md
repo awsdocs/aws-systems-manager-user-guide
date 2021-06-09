@@ -5,7 +5,7 @@ The register\-task\-with\-maintenance\-window command provides several options f
 This topic provides information about some of these options to help you work with samples in this tutorial section\. For information about all command options, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html) in the *AWS CLI Command Reference*\.
 
 **About the `--task-arn` option**  
-The option `--task-arn` is used to specify the resource that the task uses during execution\. The value that you specify depends on the type of task you are registering, as described in the following table\.
+The option `--task-arn` is used to specify the resource that the task uses during execution\. The value that you specify depends on the type of task you're registering, as described in the following table\.
 
 
 **TaskArn formats for maintenance window tasks**  
@@ -19,7 +19,7 @@ The option `--task-arn` is used to specify the resource that the task uses durin
 **About the `--service-role-arn` option**  
 The role for AWS Systems Manager to assume when running the maintenance window task\.
 
-Specifying a service role ARN is optional\. If you do not specify a service role ARN, Systems Manager creates a service\-linked role or uses your account's service\-linked role\. 
+Specifying a service role ARN is optional\. If you don't specify a service role ARN, Systems Manager creates a service\-linked role or uses your account's service\-linked role\. 
 
 The service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 

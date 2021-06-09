@@ -10,4 +10,4 @@ You can delete an entry in Change Calendar, a capability of AWS Systems Manager,
 
 1. In the **Change Calendar** list, choose the name of the calendar entry that you want to delete\.
 
-1. On the calendar entry's details page, choose **Delete**\. When you are prompted to confirm that you want to delete the calendar entry, choose **Delete**\.
+1. On the calendar entry's details page, choose **Delete**\. When you're prompted to confirm that you want to delete the calendar entry, choose **Delete**\.

@@ -6,7 +6,7 @@ Use the following information to help you troubleshoot problems with maintenance
 + [Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."](#maintenance-window-role-troubleshooting)
 + [Not all maintenance window targets are updated](#targets-not-updated)
 + [Task fails with error message: "Step fails when it is validating and resolving the step inputs"](#step-fails)
-+ [Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"](#maxconcurrency-maxerrors-not-supported)
++ [Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](#maxconcurrency-maxerrors-not-supported)
 
 ## Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."<a name="maintenance-window-role-troubleshooting"></a>
 
@@ -30,7 +30,7 @@ You can wait for the next scheduled maintenance window time to run tasks on the 
 
 ## Task fails with error message: "Step fails when it is validating and resolving the step inputs"<a name="step-fails"></a>
 
-**Problem**: An Automation runbook or Systems Manager Command document you are using in a task requires that you specify inputs such as `InstanceId` or `SnapshotId`, but a value is not supplied or is not supplied correctly\.
+**Problem**: An Automation runbook or Systems Manager Command document you're using in a task requires that you specify inputs such as `InstanceId` or `SnapshotId`, but a value isn't supplied or isn't supplied correctly\.
 + **Solution 1**: If your task is targeting a single resource, such as a single instance or single snapshot, enter its ID in the input parameters for the task\.
 + **Solution 2**: If your task is targeting multiple resources, such as creating images from multiple instances when you use the runbook `AWS-CreateImage`, you can use one of the pseudo parameters supported for maintenance window tasks in the input parameters to represent instance IDs in the command\. 
 
@@ -74,10 +74,10 @@ You can wait for the next scheduled maintenance window time to run tasks on the 
 
   For more information about working with pseudo parameters for maintenance window tasks, see [About pseudo parameters](mw-cli-register-tasks-parameters.md) and [Task registration examples](mw-cli-register-tasks-examples.md#task-examples)\.
 
-## Error messages: "Maintenance window tasks without targets do not support MaxConcurrency values" and "Maintenance window tasks without targets do not support MaxErrors values"<a name="maxconcurrency-maxerrors-not-supported"></a>
+## Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"<a name="maxconcurrency-maxerrors-not-supported"></a>
 
-**Problem:** When you register a Run Command\-type task, you must specify at least one target for the task to run on\. For other task types \(Automation, AWS Lambda, and AWS Step Functions\), depending on the nature of the task, targets are optional\. The options `MaxConcurrency` \(the number of resources to run a task on at the same time\) and `MaxErrors` \(the number of failures to run the task on target resources before the task fails\) are not required or supported for maintenance window tasks that do not specify targets\. The system generates these error messages if values are specified for either of these options when no task target is specified\.
+**Problem:** When you register a Run Command\-type task, you must specify at least one target for the task to run on\. For other task types \(Automation, AWS Lambda, and AWS Step Functions\), depending on the nature of the task, targets are optional\. The options `MaxConcurrency` \(the number of resources to run a task on at the same time\) and `MaxErrors` \(the number of failures to run the task on target resources before the task fails\) aren't required or supported for maintenance window tasks that don't specify targets\. The system generates these error messages if values are specified for either of these options when no task target is specified\.
 
 **Solution**: If you receive either of these errors, remove the values for concurrency and error threshold before continuing to register or update the maintenance window task\.
 
-For more information about running tasks that do not specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md) in the *AWS Systems Manager User Guide*\.
+For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md) in the *AWS Systems Manager User Guide*\.

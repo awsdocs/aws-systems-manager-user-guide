@@ -2,7 +2,7 @@
 
 In this step, you create a maintenance window and specify its basic options, such as name, schedule, and duration\. In later steps, you choose the instance it updates and the task it runs\.
 
-In our example, you create a maintenance window that runs every five minutes\. Normally, you would not run a maintenance window this frequently\. However, this rate lets you see your tutorial results quickly\. We'll show you how to change to a less frequent rate after the task has run successfully\.
+In our example, you create a maintenance window that runs every five minutes\. Normally, you would not run a maintenance window this frequently\. However, this rate lets you see your tutorial results quickly\. We will show you how to change to a less frequent rate after the task has run successfully\.
 
 **Note**  
 For an explanation of how the various schedule\-related options for maintenance windows relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md)\.  

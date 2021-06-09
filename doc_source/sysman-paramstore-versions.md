@@ -34,7 +34,7 @@ You can use the Systems Manager console to create a new version of a parameter a
 
 1. Choose **Edit**\.
 
-1. In the **Value** box, type a new value, and then choose **Save changes**\.
+1. In the **Value** box, enter a new value, and then choose **Save changes**\.
 
 1. Choose the name of the parameter you just updated\. On the **Overview** tab, verify that the version number incremented by 1, and verify the new value\.
 

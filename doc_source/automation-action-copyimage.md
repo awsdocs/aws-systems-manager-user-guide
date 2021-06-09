@@ -43,7 +43,7 @@ inputs:
 ------
 
 SourceRegion  
-The region where the source AMI currently exists\.  
+The region where the source AMI exists\.  
 Type: String  
 Required: Yes
 

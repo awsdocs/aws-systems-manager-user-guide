@@ -25,4 +25,4 @@ To get information about the current or upcoming state of the calendar, a policy
 
 If your IAM user account, group, or role is assigned administrator permissions, then you have access to Change Calendar\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
 
-Change Calendar entries that are owned by \(that is, created by\) accounts other than yours are read\-only, even if they are shared with your account\.
+Change Calendar entries that are owned by \(that is, created by\) accounts other than yours are read\-only, even if they're shared with your account\.

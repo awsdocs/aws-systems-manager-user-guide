@@ -26,7 +26,7 @@ You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Ma
 
 
 
-Currently, three Systems Manager capabilities use the service\-linked role: 
+Three Systems Manager capabilities use the service\-linked role: 
 + The Inventory capability requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
 + The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 + The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.

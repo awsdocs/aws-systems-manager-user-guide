@@ -14,7 +14,7 @@ You can use the AWS Systems Manager console to delete a package or a package ver
 
 1. On the package's details page, choose **Delete package**\.
 
-1. When you are prompted to confirm the deletion, choose **Delete package**\.
+1. When you're prompted to confirm the deletion, choose **Delete package**\.
 
 ## Deleting a package version \(console\)<a name="distributor-delete-pkg-version-console"></a>
 
@@ -30,7 +30,7 @@ You can use the Systems Manager console to delete a package version from Distrib
 
 1. On the versions page for the package, choose the version to delete and choose **Delete version**\.
 
-1. When you are prompted to confirm the deletion, choose **Delete package version**\.
+1. When you're prompted to confirm the deletion, choose **Delete package version**\.
 
 ## Deleting a package \(command line\)<a name="distributor-delete-pkg-cli"></a>
 
@@ -55,7 +55,7 @@ You can use your preferred command line tool to delete a package from Distributo
        --name "package-name"
    ```
 
-1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted should not appear in the list\.
+1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
 
    ```
    aws ssm list-documents \
@@ -81,7 +81,7 @@ You can use your preferred command line tool to delete a package from Distributo
        --name "package-name"
    ```
 
-1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted should not appear in the list\.
+1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
 
    ```
    aws ssm list-documents ^
@@ -111,7 +111,7 @@ You can use your preferred command line tool to delete a package from Distributo
        -Name "package-name"
    ```
 
-1. Run the Get\-SSMDocumentList command again to verify that the package was deleted\. The package you deleted should not appear in the list\.
+1. Run the Get\-SSMDocumentList command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
 
    ```
    $filter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
@@ -148,7 +148,7 @@ You can use your preferred command line tool to delete a package version from Di
        --document-version version
    ```
 
-1. Run the list\-document\-versions command to verify that the version of the package was deleted\. The package version that you deleted should not be found\.
+1. Run the list\-document\-versions command to verify that the version of the package was deleted\. The package version that you deleted shouldn't be found\.
 
    ```
    aws ssm list-document-versions \
@@ -175,7 +175,7 @@ You can use your preferred command line tool to delete a package version from Di
        --document-version version
    ```
 
-1. Run the list\-document\-versions command to verify that the version of the package was deleted\. The package version that you deleted should not be found\.
+1. Run the list\-document\-versions command to verify that the version of the package was deleted\. The package version that you deleted shouldn't be found\.
 
    ```
    aws ssm list-document-versions ^
@@ -202,7 +202,7 @@ You can use your preferred command line tool to delete a package version from Di
        -DocumentVersion version
    ```
 
-1. Run the Get\-SSMDocumentVersionList command to verify that the version of the package was deleted\. The package version that you deleted should not be found\.
+1. Run the Get\-SSMDocumentVersionList command to verify that the version of the package was deleted\. The package version that you deleted shouldn't be found\.
 
    ```
    Get-SSMDocumentVersionList `

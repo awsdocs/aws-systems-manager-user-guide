@@ -35,7 +35,7 @@ Depending on whether the user accounts for this group were already created, use 
 
 1. To view the users' access keys \(access key IDs and secret access keys\), choose **Show** next to each password and access key that you want to see\. To save the access keys, choose `Download .csv` and then save the file to a safe location\.
 **Important**  
-This is your only opportunity to view or download the secret access keys, and you must provide this information to your users before they can use the AWS API or AWS CLI\. Save the user's new access key ID and secret access key in a safe and secure place\. **You will not have access to the secret keys again after this step\.**
+This is your only opportunity to view or download the secret access keys, and you must provide this information to your users before they can use the AWS API or AWS CLI\. Save the user's new access key ID and secret access key in a safe and secure place\. **You won't have access to the secret keys again after this step\.**
 
 1. Provide each user with his or her credentials\. On the final page you can choose **Send email** next to each user\. Your local mail client opens with a draft that you can customize and send\. The email template includes the following details for each user:
    + User name
@@ -47,7 +47,7 @@ This is your only opportunity to view or download the secret access keys, and yo
 
    For more information, see [How IAM Users Sign In to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html) in the *IAM User Guide*\.
 **Important**  
-The user's password is not included in the generated email\. You must provide them to the user in a way that complies with your organization's security guidelines\.
+The user's password isn't included in the generated email\. You must provide them to the user in a way that complies with your organization's security guidelines\.
 
 **To add permissions for an existing user**
 

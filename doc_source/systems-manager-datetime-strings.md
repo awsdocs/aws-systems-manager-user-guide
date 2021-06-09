@@ -1,8 +1,8 @@
 # Reference: Creating formatted date and time strings for Systems Manager<a name="systems-manager-datetime-strings"></a>
 
-AWS Systems Manager API actions accept filters to limit the number of results returned by a request\. Some of these API actions accept filters that require a formatted string to represent a specific date and time\. For example, the `DescribeSessions` API operation accepts the `InvokedAfter` and `InvokedBefore` keys as some valid values for a `SessionFilter` object\. Another example is the `DescribeAutomationExecutions` API operation, which accepts the `StartTimeBefore` and `StartTimeAfter` keys as some valid values for an `AutomationExecutionFilter` object\. The values you provide for these keys when filtering your requests must match the ISO 8601 standard\. For information about ISO 8601, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)\.
+AWS Systems Manager API operations accept filters to limit the number of results returned by a request\. Some of these API operations accept filters that require a formatted string to represent a specific date and time\. For example, the `DescribeSessions` API operation accepts the `InvokedAfter` and `InvokedBefore` keys as some valid values for a `SessionFilter` object\. Another example is the `DescribeAutomationExecutions` API operation, which accepts the `StartTimeBefore` and `StartTimeAfter` keys as some valid values for an `AutomationExecutionFilter` object\. The values you provide for these keys when filtering your requests must match the ISO 8601 standard\. For information about ISO 8601, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)\.
 
-These formatted date and time strings aren't limited to filters\. There are also API actions that require an ISO 8601 formatted string to represent a specific date and time when providing a value for a request parameter\. For example, the `AtTime` request parameter for the `GetCalendarState` operation\. These strings are difficult to create\. Use the examples in this topic to create formatted date and time strings to use with Systems Manager API actions\.
+These formatted date and time strings aren't limited to filters\. There are also API actions that require an ISO 8601 formatted string to represent a specific date and time when providing a value for a request parameter\. For example, the `AtTime` request parameter for the `GetCalendarState` operation\. These strings are difficult to create\. Use the examples in this topic to create formatted date and time strings to use with Systems Manager API operations\.
 
 ## Formatting date and time strings for Systems Manager<a name="systems-manager-datetime-strings-format"></a>
 
@@ -46,7 +46,7 @@ date '+%Y-%m-%dT%H:%M:%SZ'
 
 ------
 
-When working with Systems Manager API actions, you might need to create historical date and time strings for reporting or troubleshooting purposes\. The following are examples of how you can create and use custom historical ISO 8601 formatted date and time strings for the AWS Tools for PowerShell and AWS CLI\.
+When working with Systems Manager API operations, you might need to create historical date and time strings for reporting or troubleshooting purposes\. The following are examples of how you can create and use custom historical ISO 8601 formatted date and time strings for the AWS Tools for PowerShell and AWS Command Line Interface \(AWS CLI\)\.
 
 ------
 #### [ AWS CLI ]

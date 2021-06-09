@@ -22,14 +22,14 @@ If you plan to add the patching configuration to a maintenance window, you must 
 1. Choose **Configure patching**\.
 
 1. In the **Instances to patch** section, choose one of the following:
-   + **Enter instance tags**: Enter a tag key and optional tag value to specify the tagged instance to patch\. Click **Add** to include additional tagged instances\.
+   + **Enter instance tags**: Enter a tag key and optional tag value to specify the tagged instance to patch\. Select **Add** to include additional tagged instances\.
    + **Select a patch group**: Choose the name of an existing patch group that includes the instances you want to patch\.
 **Note**  
 The **Select a patch group** list displays only those patch groups that are attached to, or registered with, a patch baseline\. You can register a patch group with a patch baseline in one of two ways\. You can use the [register\-patch\-baseline\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-patch-baseline-for-patch-group.html) AWS Command Line Interface \(AWS CLI\) command, or you can view a patch baseline in the Systems Manager console and select **Modify patch groups** from the **Actions** menu\.  
-Alternatively, to specify an existing patch group that is not registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
+Alternatively, to specify an existing patch group that isn't registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 **Note**  
-If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Patching schedule** section, choose one of the following:
    + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to Step 7\. 
@@ -38,7 +38,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 
 1. If you chose **Schedule in a new maintenance window** in Step 5, then under **How do you want to specify a patching schedule?**, do the following:
    + Under **How do you want to specify a maintenance window schedule?**, choose a schedule builder or expression option\.
-   + Under **maintenance window run frequency**, specify how frequently the maintenance window runs\. If you are specifying a CRON/Rate expression, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) for more information\.
+   + Under **maintenance window run frequency**, specify how frequently the maintenance window runs\. If you're specifying a CRON/Rate expression, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md) for more information\.
    + For **Maintenance window duration**, specify the number of hours the maintenance window is permitted to run before timing out\.
    + For **Maintenance window name**, enter a name to identify the maintenance window\.
 
@@ -54,7 +54,7 @@ If an Amazon EC2 instance you expect to see is not listed, see [Troubleshooting 
 
    1. Choose **Close**\.
 **Note**  
-For any target instances you selected that are not part of a patch group, Patch Manager instead uses the default patch baseline for the operating system type of the instance\.
+For any target instances you selected that aren't part of a patch group, Patch Manager instead uses the default patch baseline for the operating system type of the instance\.
 
 1. Choose **Configure patching**\.
 

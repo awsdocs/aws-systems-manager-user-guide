@@ -126,7 +126,7 @@ You can create standalone policies that you administer in your own AWS account\.
 The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
-All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID should not be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with `AWS-*`\)\.
+All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID shouldn't be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with `AWS-*`\)\.
 
  **Examples** 
 +  [Example 1: Allow a user to perform Systems Manager operations in a single Region](#identity-based-policies-example-1) 
@@ -195,7 +195,7 @@ The following example IAM policy allows a user to do the following:
 + Start and stop workflows in Automation, a capability of AWS Systems Manager\.
 + Get information about Automation workflows\.
 
-If you want to give a user permission to use this document to send commands on any instance for which the user currently has access \(as determined by their user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
+If you want to give a user permission to use this document to send commands on any instance for which the user has access \(as determined by their user account\), you could specify the following entry in the `Resource` section and remove the other instance entries\.
 
 ```
 "arn:aws:ec2:us-east-2:*:instance/*"
@@ -298,4 +298,4 @@ You can use conditions in your identity\-based policy to control access to Syste
 }
 ```
 
-You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise he is denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names are not case\-sensitive\. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
+You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they're denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names aren't case\-sensitive\. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.

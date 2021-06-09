@@ -69,7 +69,7 @@ One or more expressions that the Automation should evaluate when determining the
 **Boolean operation**
   + BooleanEquals
 **Important**  
-When you create a runbook, the system validates each operation in the runbook\. If an operation is not supported, the system returns an error when you try to create the runbook\.
+When you create a runbook, the system validates each operation in the runbook\. If an operation isn't supported, the system returns an error when you try to create the runbook\.
 
 Default  
 The name of a step the automation should jump to if none of the `Choices` are true\.  

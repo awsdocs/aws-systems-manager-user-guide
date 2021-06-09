@@ -33,7 +33,7 @@ For more information about using the AWS CLI for AWS Systems Manager tasks, see 
 
 ### Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they are released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it is for a production environment\.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 five days after they're released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it's for a production environment\.
 
 ------
 #### [ Linux & macOS ]
@@ -78,7 +78,7 @@ The system returns information like the following\.
 Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but it could be adapted to a different source repository that you have configured for an instance\.
 
 **Note**  
-To better demonstrate this more complex command, we are using the `--cli-input-json` option with additional options stored an external JSON file\.
+To better demonstrate this more complex command, we're using the `--cli-input-json` option with additional options stored an external JSON file\.
 
 1. Create a JSON file with a name like `my-patch-repository.json` and add the following content to it\.
 

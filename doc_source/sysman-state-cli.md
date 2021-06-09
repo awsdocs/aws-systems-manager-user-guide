@@ -8,14 +8,14 @@ Beginning September 21, 2020, autoupdate installs SSM Agent version 3\.0\. For m
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before you begin**  
-Before you complete the following procedure, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux, macOS, or Windows Server that's configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux, macOS, or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **Note**  
 If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\), use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
 
 **To create an association for automatically updating SSM Agent**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -5,13 +5,13 @@ The following procedures describe how to use the AWS Tools for Windows PowerShel
 **Topics**
 + [Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)](#sysman-maintenance-role-ps)
 + [Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(PowerShell\)](#sysman-mw-passrole-ps)
-+ [Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(PowerShell\)](#mw-deny-task-registrations-ps)
++ [Task 3: Configure permissions for users who aren't allowed to register maintenance window tasks \(PowerShell\)](#mw-deny-task-registrations-ps)
 
 ## Task 1: \(Optional\) Create a custom service role for maintenance windows \(Tools for Windows PowerShell\)<a name="sysman-maintenance-role-ps"></a>
 
 ****
 **Important**  
-A custom service role is not required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you do not have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
+A custom service role isn't required if you choose to use a Systems Manager service\-linked role to let maintenance windows run tasks on your behalf instead\. If you don't have a Systems Manager service\-linked role in your account, you can create it when you create or update a maintenance window task using the Systems Manager console\. For more information, see the following topics:  
 [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
 [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)
 [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)
@@ -95,7 +95,7 @@ When you register a task with a maintenance window, you specify either a custom 
 
 1. Open Tools for Windows PowerShell\.
 
-1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
+1. Depending on whether you're assigning the permission to an IAM user or group, run one of the following commands\.
    + **For an IAM user**:
 
      ```
@@ -140,7 +140,7 @@ If you plan to register tasks for maintenance windows using the AWS Systems Mana
        -GroupName "group-name"
    ```
 
-## Task 3: Configure permissions for users who are not allowed to register maintenance window tasks \(PowerShell\)<a name="mw-deny-task-registrations-ps"></a>
+## Task 3: Configure permissions for users who aren't allowed to register maintenance window tasks \(PowerShell\)<a name="mw-deny-task-registrations-ps"></a>
 
 1. Copy and paste the following IAM policy into a text editor and save it with the following name and file extension: `deny-mw-tasks-policy.json`\.
 
@@ -159,7 +159,7 @@ If you plan to register tasks for maintenance windows using the AWS Systems Mana
 
 1. Open Tools for Windows PowerShell\.
 
-1. Depending on whether you are assigning the permission to an IAM user or group, run one of the following commands\.
+1. Depending on whether you're assigning the permission to an IAM user or group, run one of the following commands\.
    + **For an IAM user**:
 
      ```

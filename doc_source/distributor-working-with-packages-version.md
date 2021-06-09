@@ -34,15 +34,15 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. On the **Add version** page, choose **Simple**\.
 
-1. For **Version name**, enter a version name\. The version name for the new version must be different from older version names\. Version names can be a maximum of 512 characters, and cannot contain special characters\.
+1. For **Version name**, enter a version name\. The version name for the new version must be different from older version names\. Version names can be a maximum of 512 characters, and can't contain special characters\.
 
 1. For **S3 bucket name**, choose an existing S3 bucket from the list\. This can be the same bucket that you used to store installable files for older versions, but the installable file names must be different to avoid overwriting existing installable files in the bucket\.
 
 1. For **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
 
-1. For **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions are not automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
+1. For **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions aren't automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
 
-1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown is not correct, choose the correct operating system from the drop\-down list\.
+1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the drop\-down list\.
 
    In the **Simple** versioning workflow, because you upload each installable file only once, extra steps are required to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to instruct Distributor to target the same software at both Amazon Linux and Ubuntu operating systems\. You can do one of the following to work around this limitation\.
    + Use the **Advanced** versioning workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Adding a package version \(advanced\)](#add-pkg-version-adv)\.
@@ -62,13 +62,13 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. When you finish adding software and reviewing the target platform, version, and architecture data, choose **Add version**\.
 
-1. Wait for Distributor to finish uploading your software and creating the new package version\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page does not show all information about your package until Distributor finishes creating the new package version\. To stop the upload and package version creation, choose **Stop upload**\.
+1. Wait for Distributor to finish uploading your software and creating the new package version\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page doesn't show all information about your package until Distributor finishes creating the new package version\. To stop the upload and package version creation, choose **Stop upload**\.
 
-1. If Distributor cannot upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package version creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
+1. If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package version creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
 
 1. When Distributor is finished creating the new package version, on the package's **Details** page, on the **Versions** tab, view the new version in the list of available package versions\. Set a default version of the package by choosing a version, and then choosing **Set default version**\.
 
-   If you do not set a default version, the newest package version is the default version\.
+   If you don't set a default version, the newest package version is the default version\.
 
 ### Adding a package version \(advanced\)<a name="add-pkg-version-adv"></a>
 
@@ -92,11 +92,11 @@ To add a package version, [create a package](distributor-working-with-packages-c
 
    \(Optional\) If you did not upload your revised JSON manifest to the Amazon S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
-1. When you are finished with the manifest, choose **Add package version**\.
+1. When you're finished with the manifest, choose **Add package version**\.
 
 1. On the package's **Details** page, on the **Versions** tab, view the new version in the list of available package versions\. Set a default version of the package by choosing a version, and then choosing **Set default version**\.
 
-   If you do not set a default version, the newest package version is the default version\.
+   If you don't set a default version, the newest package version is the default version\.
 
 ## Adding a package version \(AWS CLI\)<a name="add-pkg-version-cli"></a>
 

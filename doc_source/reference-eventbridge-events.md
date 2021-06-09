@@ -5,13 +5,13 @@
 | --- |
 | Amazon EventBridge is the preferred way to manage your events\. CloudWatch Events and EventBridge are the same underlying service and API, but EventBridge provides more features\. Changes you make in either CloudWatch or EventBridge will appear in each console\. For more information, see the [https://docs.aws.amazon.com/eventbridge/latest/userguide/](https://docs.aws.amazon.com/eventbridge/latest/userguide/)\. | 
 
-Using Amazon EventBridge \(EventBridge\), you can create *rules* that match incoming *events* and route them to *targets* for processing\. 
+Using Amazon EventBridge, you can create *rules* that match incoming *events* and route them to *targets* for processing\. 
 
-An event indicates a change in an environment in your own applications, software\-as\-a\-service \(SaaS\) applications, or an AWS service\. Events are produced on a best effort basis\. After an event type that's specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
+An event indicates a change in an environment in your own applications, software as a service \(SaaS\) applications, or an AWS service\. Events are produced on a best effort basis\. After an event type that is specified in a rule is detected, EventBridge routes it to a specified target for processing\. Targets can include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, AWS Lambda functions, Amazon Kinesis streams, Amazon Elastic Container Service \(Amazon ECS\) tasks, AWS Step Functions state machines, Amazon Simple Notification Service \(Amazon SNS\) topics, Amazon Simple Queue Service \(Amazon SQS\) queues, built\-in targets and many more\.
 
 For information about creating EventBridge rules, see the following topics:
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
-+ [AWS Systems Manager Events](https://docs.aws.amazon.com/eventbridge/latest/userguide/event-types.html#ssm-event-types) in the *Amazon EventBridge User Guide*\.
++ [AWS Systems Manager Events](https://docs.aws.amazon.com/eventbridge/latest/userguide/event-types.html#ssm-event-types) in the *Amazon EventBridge User Guide*
 + [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*
 
 The remainder of this topic describes the types of Systems Manager events that you can include in your EventBridge rules\.
@@ -44,7 +44,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
-| Configuration Compliance State Change | The state of a managed instance changes, for either Association compliance or patch compliance\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| Configuration Compliance State Change | The state of a managed instance changes, for either association compliance or patch compliance\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 
 ## Event type: Inventory<a name="event-type-inventory"></a>
 
@@ -53,7 +53,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
-| Inventory Resource State Change | The deletion of custom inventory and a [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) call that uses an old schema version\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) For more information, see [About EventBridge monitoring of Inventory events](systems-manager-inventory-setting-up-eventbridge.md)\.  | 
+| Inventory Resource State Change | The deletion of custom inventory and a [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) call that uses an old schema version\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) For more information, see [About EventBridge monitoring of Inventory events](systems-manager-inventory-setting-up-eventbridge.md)\.  | 
 
 ## Event type: State Manager<a name="event-type-state-manager"></a>
 
@@ -63,7 +63,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 | Event type name | Description of events you can add to a rule | 
 | --- | --- | 
 | EC2 State Manager Association State Change | The overall state of an Association changes as it's being applied\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
-| EC2 State Manager Instance Association State Change | The state of a single managed instance that's targeted by an Association changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| EC2 State Manager Instance Association State Change | The state of a single managed instance that is targeted by an Association changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 
 ## Event type: Maintenance Window<a name="event-type-maintenance-window"></a>
 

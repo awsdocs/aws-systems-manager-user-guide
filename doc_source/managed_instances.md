@@ -9,7 +9,7 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 
 **Note**  
 Advanced instances also enable you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
-The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which is not a common scenario\)\.
+The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
 To patch applications released by Microsoft on virtual machines \(VMs\) on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
 
 If you don't see your managed instances listed in the console, then do the following:
@@ -21,7 +21,7 @@ If you don't see your managed instances listed in the console, then do the follo
 1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
-Systems Manager requires accurate time references in order to perform its operations\. If your instance's date and time aren't set correctly, they may not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
+Systems Manager requires accurate time references in order to perform its operations\. If your instance's date and time aren't set correctly, they might not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
 
 **Note**  
 When instance tags are created or edited, it takes up to an hour for the table filter to reflect those changes\.

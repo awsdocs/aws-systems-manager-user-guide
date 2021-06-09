@@ -6,7 +6,7 @@ Rather than make changes to a resource, the result of the runbook workflow assoc
 
 **Before you begin**  
 Before you begin, ensure you have completed the following tasks:
-+ If you are using AWS Organizations to manage change across an organization, complete the organization setup tasks described in [Setting up Change Manager for an organization \(management account\)](change-manager-organization-setup.md)\.
++ If you're using AWS Organizations to manage change across an organization, complete the organization setup tasks described in [Setting up Change Manager for an organization \(management account\)](change-manager-organization-setup.md)\.
 + Configure Change Manager for your delegated administrator account or single account, as described in [Configuring Change Manager options and best practices](change-manager-account-setup.md)\. 
 **Note**  
 If you have enabled the best practice option **Require monitors for all templates** in your Change Manager settings, disable it temporarily while you test the Hello World change template\.

@@ -4,7 +4,7 @@
 
 AWS Systems Manager Explorer integration with Security Hub enables you to receive findings from Security Hub in Explorer\. Security Hub findings provide security information that you can use in Explorer to aggregate and take action on your security, performance, and operational issues in Systems Manager\. You can view a widget that provides summary of all Security Hub findings based on severity\. 
 
-Turning on Security Hub integration accrues a cost\. Explorer integrates with Systems Manager OpsCenter \(OpsCenter\) to provide Security Hub findings\. There is a cost to use Explorer with OpsCenter\. For more information, see [Receiving findings from AWS Security Hub in OpsCenter](opscenter-securityhub-integration.md) and [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Turning on Security Hub integration accrues a cost\. Explorer integrates with Systems Manager OpsCenter \(OpsCenter\) to provide Security Hub findings\. There is a cost to use Explorer with OpsCenter\. For more information, see [Receiving findings from AWS Security Hub in OpsCenter](opscenter-securityhub-integration.md) and [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 ## How Explorer receives findings from Security Hub<a name="explorer-securityhub-integration-receiving-findings"></a>
 
@@ -22,7 +22,7 @@ Explorer receives [all findings](https://docs.aws.amazon.com/securityhub/latest/
 
 ### How long does it take to receive findings from Security Hub?<a name="explorer-securityhub-integration-receive-finding-latency"></a>
 
-When Security Hub creates a new finding, it is usually visible in Explorer within seconds\. 
+When Security Hub creates a new finding, it's usually visible in Explorer within seconds\. 
 
 ### Retrying if there is a system outage<a name="explorer-securityhub-integration-retry-receive"></a>
 
@@ -35,7 +35,7 @@ This topic describes how to configure Explorer start receiving Security Hub find
 **Before you begin**  
 Complete the following tasks before you configure Explorer to start receiving Security Hub findings\.
 + Enable and configure Security Hub\. For more information, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
-+ Log into the AWS Organizations management account\. Systems Manager requires access to AWS Organizations to create OpsItems from Security Hub findings\. After you log into the management account, you are prompted to click the **Enable access** button on the Explorer **Configure dashboard** tab, as described in the following procedure\. If you don't log into the AWS Organizations management account, you can't enable access and Explorer can't create OpsItems from Security Hub findings\.
++ Log into the AWS Organizations management account\. Systems Manager requires access to AWS Organizations to create OpsItems from Security Hub findings\. After you log into the management account, you are prompted to select the **Enable access** button on the Explorer **Configure dashboard** tab, as described in the following procedure\. If you don't log into the AWS Organizations management account, you can't enable access and Explorer can't create OpsItems from Security Hub findings\.
 
 **To start receiving Security Hub findings**
 
@@ -53,7 +53,7 @@ Complete the following tasks before you configure Explorer to start receiving Se
 
    Critical and High security findings are displayed by default\. To also display Medium and Low security findings, select the **Disabled** slider next to **Medium,Low**\.
 
-1. In the **OpsItems created by Security Hub findings** section, choose **Enable access**\. If you don't see this button, log into the AWS Organizations management account and return to this page to click the button\.
+1. In the **OpsItems created by Security Hub findings** section, choose **Enable access**\. If you don't see this button, log into the AWS Organizations management account and return to this page to select the button\.
 
 ## How to view findings from Security Hub<a name="explorer-securityhub-integration-view-received-findings"></a>
 

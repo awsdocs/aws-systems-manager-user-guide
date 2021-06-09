@@ -4,9 +4,9 @@ In this step of the tutorial, you register an AWS Systems Manager Run Command ta
 
 \-or\-
 
-If you are targeting an Amazon EC2 instance for Windows Server instead of Linux, replace df in the following command with ipconfig\. Output from this command lists details about the IP address, subnet mask, and default gateway for adapters on the target instance\.
+If you're targeting an Amazon EC2 instance for Windows Server instead of Linux, replace df in the following command with ipconfig\. Output from this command lists details about the IP address, subnet mask, and default gateway for adapters on the target instance\.
 
-When you are ready to register other task types, or use more of the available Systems Manager Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
+When you're ready to register other task types, or use more of the available Systems Manager Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md)\. There, we provide more information about all four task types, and some of their most important options, to help you plan for more extensive real\-world scenarios\. 
 
 **To register a task with a maintenance window**
 

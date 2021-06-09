@@ -69,7 +69,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 **To run an automation with approvers**
 
-1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

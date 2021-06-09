@@ -5,7 +5,7 @@ You can assign any metadata you want to your instances by creating AWS Systems M
 **Note**  
 Systems Manager supports a maximum of 20 custom inventory types per AWS account\.
 
-To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/ssm/latest/APIReference/API_PutInventory.html) API action, as described in [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
+To assign custom inventory to an instance, you can either use the Systems Manager [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation, as described in [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)\. Or, you can create a custom inventory JSON file and upload it to the instance\. This section describes how to create the JSON file\.
 
 The following example JSON file with custom inventory specifies rack information about an on\-premises server\. This examples specifies one type of custom inventory data \(`"TypeName": "Custom:RackInformation"`\), with multiple entries under `Content` that describe the data\.
 
@@ -58,7 +58,7 @@ The JSON schema for custom inventory requires SchemaVersion, TypeName, and Conte
 
 TypeName is limited to 100 characters\. Also, the TypeName section must start with Custom\. For example, Custom:PuppetModuleInfo\. Both Custom and the *Data* you specify must begin with a capital letter\. The following examples would cause an exception: "CUSTOM:RackInformation", "custom:rackinformation"\.
 
-The Content section includes attributes and *data*\. These items are not case\-sensitive\. However, if you define an attribute \(for example: "Vendor": "DELL"\), then you must consistently reference this attribute in your custom inventory files\. If you specify "Vendor": "DELL" \(using a capital “V” in vendor\) in one file, and then you specify "vendor": "DELL" \(using a lowercase “v” in vendor\) in another file, the system returns an error\.
+The Content section includes attributes and *data*\. These items aren't case\-sensitive\. However, if you define an attribute \(for example: "Vendor": "DELL"\), then you must consistently reference this attribute in your custom inventory files\. If you specify "Vendor": "DELL" \(using a capital “V” in vendor\) in one file, and then you specify "vendor": "DELL" \(using a lowercase “v” in vendor\) in another file, the system returns an error\.
 
 **Note**  
 You must save the file with a \.json extension and the inventory you define must consist only of string values\.
@@ -78,7 +78,7 @@ For an example of how to use custom inventory, see [Get Disk Utilization of Your
 
 ## Deleting custom inventory<a name="sysman-inventory-delete"></a>
 
-You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API action to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS Command Line Interface \(AWS CLI\) to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
+You can use the [DeleteInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteInventory.html) API operation to delete a custom inventory type and the data associated with that type\. You call the delete\-inventory command by using the AWS Command Line Interface \(AWS CLI\) to delete all data for an inventory type\. You call the delete\-inventory command with the `SchemaDeleteOption` to delete a custom inventory type\.
 
 **Note**  
 An inventory type is also called an inventory schema\.
@@ -89,7 +89,7 @@ The `SchemaDeleteOption` parameter includes the following options:
 
 **To delete or disable custom inventory by using the AWS CLI**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have not already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

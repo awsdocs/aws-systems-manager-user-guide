@@ -2,7 +2,7 @@
 
 For several AWS Systems Manager operations, you can choose to manually select the instances on which you want to run the operation\. Examples include running an Run Command command, specifying maintenance window targets, installing Distributor packages, and connecting to the instance using Session Manager, a capability of AWS Systems Manager\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
 
-This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* does not appear in your lists of managed instances in Systems Manager\. 
+This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* doesn't appear in your lists of managed instances in Systems Manager\. 
 
 In order for an EC2 instance to be managed by Systems Manager and available in lists of managed instances, it must meet three primary requirements:
 + SSM Agent must be installed and running on an instance with a supported operating system\.
@@ -90,7 +90,7 @@ If the command doesn't return results after 5 minutes or so, use the following i
 + [Solution 2: Verify that an IAM instance role has been specified for the instance](#instances-missing-solution-2)
 + [Solution 3: Verify service endpoint connectivity](#instances-missing-solution-3)
 + [Solution 4: Verify target operating system support](#instances-missing-solution-4)
-+ [Solution 5: Verify you are working in the same AWS Region as the EC2 instance](#instances-missing-solution-5)
++ [Solution 5: Verify you're working in the same AWS Region as the EC2 instance](#instances-missing-solution-5)
 + [Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance](#instances-missing-solution-6)
 
 ## Solution 1: Verify that SSM Agent is installed and running on the instance<a name="instances-missing-solution-1"></a>
@@ -146,9 +146,9 @@ For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint]
 
 Verify that the operation you have chosen can be run on the type of instance you expect to see listed\. Some Systems Manager operations can target only Windows instances or only Linux instances\. For example, the Systems Manager \(SSM\) documents `AWS-InstallPowerShellModule` and `AWS-ConfigureCloudWatch` can be run only on Windows instances\. In the **Run a command** page, if you choose either of these documents and select **Choose instances manually**, only your Windows instances are listed and available for selection\.
 
-## Solution 5: Verify you are working in the same AWS Region as the EC2 instance<a name="instances-missing-solution-5"></a>
+## Solution 5: Verify you're working in the same AWS Region as the EC2 instance<a name="instances-missing-solution-5"></a>
 
-EC2 instances are created and available in specific AWS Regions, such as the US East \(Ohio\) Region \(us\-east\-2\) or Europe \(Ireland\) Region \(eu\-west\-1\)\. Ensure that you are working in the same AWS Region as the EC2 instance that you want to work with\. For more information, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) in *Getting Started with the AWS Management Console*\.
+EC2 instances are created and available in specific AWS Regions, such as the US East \(Ohio\) Region \(us\-east\-2\) or Europe \(Ireland\) Region \(eu\-west\-1\)\. Ensure that you're working in the same AWS Region as the EC2 instance that you want to work with\. For more information, see [Choosing a Region](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region) in *Getting Started with the AWS Management Console*\.
 
 ## Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance<a name="instances-missing-solution-6"></a>
 

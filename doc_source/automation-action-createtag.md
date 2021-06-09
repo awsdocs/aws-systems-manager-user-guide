@@ -59,7 +59,7 @@ inputs:
 ------
 
 ResourceIds  
-The IDs of the resource\(s\) to be tagged\. If resource type is not “EC2”, this field can contain only a single item\.  
+The IDs of the resource\(s\) to be tagged\. If resource type isn't “EC2”, this field can contain only a single item\.  
 Type: String List  
 Required: Yes
 

@@ -73,7 +73,7 @@ Required: Yes
 
 InstanceType  
 The instance type\.  
-If an instance type value is not provided, the m1\.small instance type is used\.
+If an instance type value isn't provided, the m1\.small instance type is used\.
 Type: String  
 Required: No
 

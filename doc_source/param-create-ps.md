@@ -13,7 +13,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 ## Create a `String` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string"></a>
 
-1. Install and configure the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -59,7 +59,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 ## Create a `StringList` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-stringlist"></a>
 
-1. Install and configure the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -97,9 +97,9 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
 **Important**  
-Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You cannot use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
-1. Install and configure the AWS Tools for PowerShell, if you have not already\.
+1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -7,7 +7,7 @@ This makes the password reset option useful when a user has forgotten a password
 **Prerequisites**  
 Before you can reset the password on an instance, the following requirements must be met:
 + The instance you want to change a password on must be a Systems Manager managed instance\. This means that the SSM Agent is installed on the instance\. \(SSM Agent Version 2\.3\.668\.0 or later is required for changing passwords\.\) For information about installing or updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
-+ The password reset functionality uses the Session Manager configuration that's set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current AWS Region\. For more information, see [Setting up Session Manager](session-manager-getting-started.md)\.
++ The password reset functionality uses the Session Manager configuration that is set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current AWS Region\. For more information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 + The AWS user who is changing the password must have the `ssm:SendCommand` permission for the instance\. For information, see [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
@@ -16,7 +16,7 @@ Session Manager support for on\-premises servers is provided for the advanced\-i
 You can limit a user's ability to reset passwords to specific instances\. This is done by using identity\-based policies for the Session Manager `ssm:StartSession` operation with the `AWS-PasswordReset` SSM document\. For more information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 **Encrypting data**  
-You must turn on AWS Key Management Service \(AWS KMS\) end\-to\-end encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+You must turn on AWS Key Management Service \(AWS KMS\) complete encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 ## Reset a password on a managed instance<a name="managed-instance-reset-a-password"></a>
 
@@ -36,13 +36,13 @@ You can reset a password on a Systems Manager managed instance using the Systems
 
 1. In the **Instance actions** menu, choose **Reset password**\.
 
-1. For **User name**, enter the name of the user for which you are changing the password\. This can be any user name that has an account on the instance\.
+1. For **User name**, enter the name of the user for which you're changing the password\. This can be any user name that has an account on the instance\.
 
 1. Choose **Submit**\.
 
 1. Follow the prompts in the **Enter new password** command window to specify the new password\.
 **Note**  
-If the version of SSM Agent on the instance doesn't support password resets, you are prompted to install a supported version using Run Command, a capability of AWS Systems Manager\.
+If the version of SSM Agent on the instance doesn't support password resets, you're prompted to install a supported version using Run Command, a capability of AWS Systems Manager\.
 
 **To reset the password on a managed instance \(AWS CLI\)**
 

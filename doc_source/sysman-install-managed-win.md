@@ -92,7 +92,7 @@ The server or VM is now a managed instance\. These instances are now identified 
 
 ## Deregister and reregister a managed instance<a name="systems-manager-install-managed-win-deregister-reregister"></a>
 
-You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API action from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
+You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API operation from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
 
 `aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
