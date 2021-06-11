@@ -2,7 +2,6 @@
 
 You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Specify instance tags** option in the **Run a command** page in the console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon Elastic Compute Cloud \(Amazon EC2\) tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows Server and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
 
-**Note**  
 You can also use the `targets` parameter to target a list of specific instance IDs, as described in the next section\.
 
 To control how commands run across hundreds or thousands of instances, Run Command, a capability of AWS Systems Manager, also includes parameters for restricting how many instances can simultaneously process a request and how many errors can be thrown by a command before the command is canceled\.
@@ -15,10 +14,7 @@ To control how commands run across hundreds or thousands of instances, Run Comma
 
 You can run a command and target instances by specifying tags applied to managed instances, AWS resource group names, or instance IDs\. 
 
-**Note**  
-Sample commands in this section are truncated using `[...]`\. 
-
-For use with the AWS Command Line Interface \(AWS CLI \) `[send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html)` command, the `targets` parameter supports the syntax demonstrated in the following examples\.
+For use with the AWS Command Line Interface \(AWS CLI \) `[send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html)` command, the `targets` parameter supports the syntax demonstrated in the following examples\. Sample commands in this section are truncated using `[...]`\.
 
 **Example 1: Targeting tags**
 
@@ -252,7 +248,6 @@ aws ssm send-command ^
 
 ------
 
-**Note**  
 You can specify a maximum of five keys, and five values for each key\.
 
 If either a tag key \(the tag name\) or a tag value includes spaces, enclose the tag key or the value in quotation marks, as shown in the following examples\.

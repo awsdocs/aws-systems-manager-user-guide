@@ -70,7 +70,7 @@ Type: Integer
 Required: No
 
 [onFailure](#failProp)  
-Indicates whether the automation should abort, continue, or go to a different step on failure\. The default value for this option is abort\.  
+Indicates whether the automation should stop, continue, or go to a different step on failure\. The default value for this option is abort\.  
 Type: String  
 Valid values: Abort \| Continue \| step:*step\_name*  
 Required: No

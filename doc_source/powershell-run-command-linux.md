@@ -5,7 +5,6 @@ Using the `aws:runPowerShellScript` plugin or the `AWS-RunPowerShellScript` comm
 **Before you begin**  
 Connect to your Linux instance and follow the [PowerShell Core ](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) installation procedure for the appropriate operating system\.
 
-**Note**  
 Many PowerShell commands \(cmdlets\) aren't available on Linux\. To see which commands are available, use the `Get-Command` cmdlet after starting PowerShell using the `pwsh` command on your Linux instance\. For more information, see [Get\-Command](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command?view=powershell-6)\. 
 
 The following procedure describes how to run a PowerShell script on a Linux instance using the console\.

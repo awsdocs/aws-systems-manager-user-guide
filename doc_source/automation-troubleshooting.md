@@ -43,7 +43,7 @@ The IAM user attempting to start the automation doesn't have PassRole permission
 When you run an Automation, an assume role is either provided in the runbook or passed as a parameter value for the runbook\. Different types of errors can occur if the assume role isn't specified or configured properly\.
 
 **Malformed Assume Role**  
-**Error message**: `The format of the supplied assume role ARN is invalid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your runbook or as a runtime parameter when starting the automation\.
+**Error message**: `The format of the supplied assume role ARN is not valid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your runbook or as a runtime parameter when starting the automation\.
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`

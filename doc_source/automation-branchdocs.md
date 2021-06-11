@@ -5,7 +5,7 @@ By default, the steps that you define in the `mainSteps` section of a runbook ru
 + **`nextStep`**: This option specifies which step in an automation to process next after successfully completing a step\. 
 + **`isEnd`**: This option stops an automation at the end of a specific step\. The default value for this option is false\.
 + **`isCritical`**: This option designates a step as critical for the successful completion of the automation\. If a step with this designation fails, then Automation reports the final status of the automation as `Failed`\. The default value for this option is `true`\.
-+ **`onFailure`**: This option indicates whether the automation should abort, continue, or go to a different step on failure\. The default value for this option is abort\.
++ **`onFailure`**: This option indicates whether the automation should stop, continue, or go to a different step on failure\. The default value for this option is abort\.
 
 The following section describes the `aws:branch` automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` options, see [Examples of how to use dynamic options](#automation-branchdocs-examples)\.
 

@@ -11,6 +11,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 **Topics**
 + [Install the Session Manager plugin on Windows](#install-plugin-windows)
 + [Install and uninstall the Session Manager plugin on macOS](#install-plugin-macos)
++ [Install the Session Manager plugin on macOS with the signed installer](#install-plugin-macos-signed)
 + [Install Session Manager plugin on Linux](#install-plugin-linux)
 + [Install the Session Manager plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager plugin installation](#install-plugin-verify)
@@ -97,6 +98,27 @@ sudo rm -rf /usr/local/sessionmanagerplugin
 ```
 sudo rm /usr/local/bin/session-manager-plugin
 ```
+
+## Install the Session Manager plugin on macOS with the signed installer<a name="install-plugin-macos-signed"></a>
+
+You can install the Session Manager plugin on macOS using the signed installer\.
+
+**To install the Session Manager plugin using the signed installer \(macOS\)**
+
+1. Download the signed installer\.
+
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o "session-manager-plugin.pkg"
+   ```
+
+1. Run the install command\.
+
+   ```
+   sudo installer -pkg session-manager-plugin.pkg -target /
+   ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
+   ```
+
+1. Verify that the installation was successful\. For information, see [Verify the Session Manager plugin installation](#install-plugin-verify)\.
 
 ## Install Session Manager plugin on Linux<a name="install-plugin-linux"></a>
 
@@ -269,6 +291,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.205\.0 |  June 10, 2021  | Enhancement: Added support for signed macOS installer\. | 
 | 1\.2\.54\.0 |  January 29, 2021  | Enhancement: Added support for running sessions in NonInteractiveCommands execution mode\. | 
 | 1\.2\.30\.0 |  November 24, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Improved overall performance\.  | 
 | 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 

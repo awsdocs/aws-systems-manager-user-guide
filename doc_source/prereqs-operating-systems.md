@@ -32,10 +32,11 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 6\.0 | ✓ |  |  | 
-| 6\.3 and later 6\.x versions | ✓ | ✓ |  | 
+| 6\.x¹ | ✓ | ✓ | ✓ | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
 | 8\.0, 8\.1, and 8\.2 versions |  | ✓ | ✓ | 
+
+**¹** 
 
 
 **Debian Server**  
@@ -64,10 +65,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 6\.0 |  | ✓ |  | 
-| 6\.5 | ✓ | ✓ |  | 
-| 6\.9 | ✓ | ✓ |  | 
-| 6\.10 |  | ✓ |  | 
+| 6\.x¹ | ✓ | ✓ |  | 
 | 7\.0 |  | ✓ |  | 
 | 7\.1 |  | ✓ |  | 
 | 7\.2 |  | ✓ |  | 
@@ -82,6 +80,8 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 8\.1 |  | ✓ | ✓ | 
 | 8\.2 |  | ✓ | ✓ | 
 | 8\.3 |  | ✓ | ✓ | 
+
+**¹** 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  

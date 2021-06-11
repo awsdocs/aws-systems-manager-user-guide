@@ -13,7 +13,6 @@ In the **Run a command** page, after you choose an SSM document to run and selec
 
 If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-**Note**  
 After you create, activate, reboot, or restart a managed instance, install Run Command on an instance, or attach an AWS Identity and Access Management \(IAM\) instance profile to an instance, it can take a few minutes for the instance to appear in the list\.
 
 ## A step in my script failed, but the overall status is 'succeeded'<a name="ts-exit-codes"></a>
