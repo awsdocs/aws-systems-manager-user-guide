@@ -31,7 +31,7 @@ SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. 
   For information about creating and attaching an IAM instance profile for Systems Manager to your instance, see the following topics:
   + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
   + [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)
-+ **Create additional resources as needed**: Run Command, a capability of Systems Manager, includes many tasks that do not require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. You also need an Amazon Elastic Compute Cloud \(EC2\) instance that is configured to use with Systems Manager, as described above\. After you configure that instance, you can register a simple Run Command task\. 
++ **Create additional resources as needed**: Run Command, a capability of Systems Manager, includes many tasks that don't require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. You also need an Amazon Elastic Compute Cloud \(EC2\) instance that is configured to use with Systems Manager, as described above\. After you configure that instance, you can register a simple Run Command task\. 
 
   The Systems Manager Maintenance Windows capability supports running four types of tasks: 
   + Run Command commands

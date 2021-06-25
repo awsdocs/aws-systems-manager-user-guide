@@ -1,11 +1,11 @@
 # Enabling the advanced\-instances tier<a name="systems-manager-managedinstances-advanced"></a>
 
-AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and virtual machines \(VMs\) in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can activate as many managed instances in a hybrid environment as you like in the advanced\-instances tier\. However, all instances configured for Systems Manager using the managed\-instance activation process described earlier in [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md) are made available on a pay\-per\-use basis\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
+AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and virtual machines \(VMs\) in your hybrid environment\. The standard\-instances tier allows you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can activate as many managed instances in a hybrid environment as you like in the advanced\-instances tier\. However, all instances configured for Systems Manager using the managed\-instance activation process described earlier in [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md) are made available on a pay\-per\-use basis\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
 
 **Note**  
 Advanced instances also use Session Manager to connect to your hybrid machines\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
 The standard\-instances limit also applies to Amazon EC2 instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
-To patch applications released by Microsoft on virtual machines \(VMs\) and on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
+To patch applications released by Microsoft on virtual machines \(VMs\) and on\-premises instances, turn on the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
 
 This section describes how to configure your hybrid environment to use the advanced\-instances tier\.
 
@@ -19,7 +19,7 @@ Verify that you have permission in AWS Identity and Access Management \(IAM\) to
 + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
 + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user account\. This policy enables a user to view the current managed\-instance tier setting\. This policy also enables the user to change or reset the current setting in the specified AWS account and AWS Region\.
+Use the following procedure to add an inline IAM policy to a user account\. This policy allows a user to view the current managed\-instance tier setting\. This policy also allows the user to change or reset the current setting in the specified AWS account and AWS Region\.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

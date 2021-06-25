@@ -34,7 +34,7 @@ inputs:
 ------
 
 ClientRequestToken  
-A unique identifier for this `DeleteStack` request\. Specify this token if you plan to retry requests so that CloudFormation knows that you're not attempting to delete a stack with the same name\. You can retry `DeleteStack` requests to verify that CloudFormation received them\.  
+A unique identifier for this `DeleteStack` request\. Specify this token if you plan to retry requests so that CloudFormation knows that you aren't attempting to delete a stack with the same name\. You can retry `DeleteStack` requests to verify that CloudFormation received them\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: \[a\-zA\-Z\]\[\-a\-zA\-Z0\-9\]\*  

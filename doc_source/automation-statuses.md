@@ -16,25 +16,25 @@ The overall automation status can be different than the status reported by an in
 
 | Status | Details | 
 | --- | --- | 
-| Pending | The step has not started running\. If your automation uses conditional actions, steps remain in this state after an automation has completed if the condition was not met to run the step\. Steps also remain in this state if the automation is canceled before the step runs\. | 
+| Pending | The step hasn't started running\. If your automation uses conditional actions, steps remain in this state after an automation has completed if the condition wasn't met to run the step\. Steps also remain in this state if the automation is canceled before the step runs\. | 
 | InProgress | The step is running\. | 
 | Waiting | The step is waiting for input\. | 
 | Success | The step completed successfully\. This is a terminal state\. | 
-| TimedOut | A step or approval was not completed before the specified timeout period\. This is a terminal state\. | 
+| TimedOut | A step or approval wasn't completed before the specified timeout period\. This is a terminal state\. | 
 | Cancelling | The step is in the process of stopping after being canceled by a requester\. | 
 | Cancelled | The step was stopped by a requester before it completed\. This is a terminal state\. | 
-| Failed |  The step did not complete successfully\. This is a terminal state\.  | 
+| Failed |  The step didn't complete successfully\. This is a terminal state\.  | 
 
 
 **Detailed status for an automation**  
 
 | Status | Details | 
 | --- | --- | 
-| Pending | The automation has not started running\. | 
+| Pending | The automation hasn't started running\. | 
 | InProgress | The automation is running\. | 
 | Waiting | The automation is waiting for input\. | 
 | Success | The automation completed successfully\. This is a terminal state\. | 
-| TimedOut | A step or approval was not completed before the specified timeout period\. This is a terminal state\. | 
+| TimedOut | A step or approval wasn't completed before the specified timeout period\. This is a terminal state\. | 
 | Cancelling | The automation is in the process of stopping after being canceled by a requester\. | 
 | Cancelled | The automation was stopped by a requester before it completed\. This is a terminal state\. | 
-| Failed |  The automation did not complete successfully\. This is a terminal state\.  | 
+| Failed |  The automation didn't complete successfully\. This is a terminal state\.  | 

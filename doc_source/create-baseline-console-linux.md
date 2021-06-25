@@ -33,7 +33,7 @@ For information about creating a patch baseline for macOS instances, see [Creati
    + **Classification**: The type of patches the approval rule applies to, such as `Security` or `Enhancement`\. The default selection is `All`\. 
 **Tip**  
 You can configure a patch baseline to control whether minor version upgrades for Linux are installed, such as RHEL 7\.8\. Minor version upgrades can be installed automatically by Patch Manager provided that the update is available in the appropriate repository\.  
-For Linux operating systems, minor version upgrades are not classified consistently\. They can be classified as bug fixes or security updates, or not classified, even within the same kernel version\. Here are a few options for controlling whether a patch baseline installs them\.   
+For Linux operating systems, minor version upgrades aren't classified consistently\. They can be classified as bug fixes or security updates, or not classified, even within the same kernel version\. Here are a few options for controlling whether a patch baseline installs them\.   
 **Option 1**: The broadest approval rule to ensure minor version upgrades are installed when available is to specify **Classification** as **All** \(\*\) and choose the **Include nonsecurity updates** option\.
 **Option 2**: To ensure patches for an operating system version are installed, you can use a wildcard \(\*\) to specify its kernel format in the **Patch exceptions** section of the baseline\. For example, the kernel format for RHEL 7\.\* is `kernel-3.10.0-*.el7.x86_64`\.  
 Enter `kernel-3.10.0-*.el7.x86_64` in the **Approved patches** list in your patch baseline to ensure all patches, including minor version upgrades, are applied to your RHEL 7\.\* instances\. \(If you know the exact package name of a minor version patch, you can enter that instead\.\)
@@ -65,7 +65,7 @@ For information about accepted formats for lists of approved patches and rejecte
 **Note**  
 For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
    + For **Rejected patches action**, select the action for Patch Manager to take on patches included in the **Rejected patches** list\.
-     + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it is a dependency of another package\. It's considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
+     + **Allow as dependency**: A package in the **Rejected patches** list is installed only if it's a dependency of another package\. It's considered compliant with the patch baseline and its status is reported as *InstalledOther*\. This is the default action if no option is specified\.
      + **Block**: Packages in the **Rejected patches** list, and packages that include them as dependencies, aren't installed under any circumstances\. If a package was installed before it was added to the **Rejected patches** list, it's considered noncompliant with the patch baseline and its status is reported as *InstalledRejected*\.
 
 1. \(Optional\) If you want to specify alternative patch repositories for different versions of an operating system, such as *AmazonLinux2016\.03* and *AmazonLinux2017\.09*, do the following for each product in the **Patch sources** section:

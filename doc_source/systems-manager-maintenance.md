@@ -36,7 +36,7 @@ This means you can use maintenance windows to perform tasks like the following o
 + Install or update SSM Agent\.
 + Run PowerShell commands and Linux shell scripts by using a Systems Manager Run Command task\.
 + Build Amazon Machine Images \(AMIs\), boot\-strap software, and configure instances by using a Systems Manager Automation task\.
-+ Run AWS Lambda functions that trigger additional actions, such as scanning your instances for patch updates\.
++ Run AWS Lambda functions that invokes additional actions, such as scanning your instances for patch updates\.
 + Run AWS Step Functions state machines to perform tasks such as removing an instance from an Elastic Load Balancing environment, patching the instance, and then adding the instance back to the Elastic Load Balancing environment\.
 + Target instances that are offline by specifying an AWS resource group as the target\.
 

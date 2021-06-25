@@ -431,7 +431,7 @@ You can use the AWS Systems Manager console to create a package\. Have ready the
 
 1. For **Manifest**, choose **Extract from package** to use a manifest that you have uploaded to the Amazon S3 bucket with your \.zip files\.
 
-   \(Optional\) If you did not upload your JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](#packages-manifest)\.
+   \(Optional\) If you didn't upload your JSON manifest to the S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
 1. When you're finished with the manifest, choose **Create package**\.
 
@@ -445,7 +445,7 @@ You can use the AWS CLI to create a package\. Have the URL ready from the bucket
 
 1. To use the AWS CLI to create a package, run the following command, replacing *package\-name* with the name of your package and *path\-to\-manifest\-file* with the file path for your JSON manifest file\. *DOC\-EXAMPLE\-BUCKET* is the URL of the Amazon S3 bucket where the entire package is stored\. When you run the create\-document command in Distributor, you specify the `Package` value for `--document-type`\.
 
-   If you did not add your manifest file to the Amazon S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
+   If you didn't add your manifest file to the Amazon S3 bucket, the `--content` parameter value is the file path to the JSON manifest file\.
 
    ```
    aws ssm create-document \

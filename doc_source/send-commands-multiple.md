@@ -23,9 +23,9 @@ For use with the AWS Command Line Interface \(AWS CLI \) `[send\-command](https:
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:tag-name,Values=tag-value \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:tag-name,Values=tag-value \
+    [...]
 ```
 
 ------
@@ -33,9 +33,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:tag-name,Values=tag-value ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:tag-name,Values=tag-value ^
+    [...]
 ```
 
 ------
@@ -51,20 +51,20 @@ In order to send commands that target a resource group, you must have been grant
 #### [ Linux & macOS ]
 
 ```
-aws ssm send-command \	
-	--document-name document-name \
-	--targets Key=resource-groups:Name,Values=resource-group-name \
-	[...]
+aws ssm send-command \    
+    --document-name document-name \
+    --targets Key=resource-groups:Name,Values=resource-group-name \
+    [...]
 ```
 
 ------
 #### [ Windows ]
 
 ```
-aws ssm send-command ^	
-	--document-name document-name ^
-	--targets Key=resource-groups:Name,Values=resource-group-name ^
-	[...]
+aws ssm send-command ^    
+    --document-name document-name ^
+    --targets Key=resource-groups:Name,Values=resource-group-name ^
+    [...]
 ```
 
 ------
@@ -80,20 +80,20 @@ In order to send commands that target a resource group, you must have been grant
 #### [ Linux & macOS ]
 
 ```
-aws ssm send-command \	
-	--document-name document-name \
-	--targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 \
-	[...]
+aws ssm send-command \    
+    --document-name document-name \
+    --targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 \
+    [...]
 ```
 
 ------
 #### [ Windows ]
 
 ```
-aws ssm send-command ^	
-	--document-name document-name ^
-	--targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 ^
-	[...]
+aws ssm send-command ^    
+    --document-name document-name ^
+    --targets Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 ^
+    [...]
 ```
 
 ------
@@ -105,9 +105,9 @@ aws ssm send-command ^
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=instanceids,Values=instance-ID-1,instance-ID-2,instance-ID-3 \
-	[...]
+    --document-name document-name \
+    --targets Key=instanceids,Values=instance-ID-1,instance-ID-2,instance-ID-3 \
+    [...]
 ```
 
 ------
@@ -115,9 +115,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=instanceids,Values=instance-ID-1,instance-ID-2,instance-ID-3 ^
-	[...]
+    --document-name document-name ^
+    --targets Key=instanceids,Values=instance-ID-1,instance-ID-2,instance-ID-3 ^
+    [...]
 ```
 
 ------
@@ -129,9 +129,9 @@ If you tagged instances for different environments using a `Key` named `Environm
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Environment,Values=Development \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Environment,Values=Development \
+    [...]
 ```
 
 ------
@@ -139,9 +139,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Environment,Values=Development ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Environment,Values=Development ^
+    [...]
 ```
 
 ------
@@ -153,9 +153,9 @@ You could target additional instances in other environments by adding to the `Va
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Environment,Values=Development,Test,Pre-production \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Environment,Values=Development,Test,Pre-production \
+    [...]
 ```
 
 ------
@@ -163,9 +163,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Environment,Values=Development,Test,Pre-production ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Environment,Values=Development,Test,Pre-production ^
+    [...]
 ```
 
 ------
@@ -179,9 +179,9 @@ You can refine the number of targets for your command by including multiple `Key
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database \
+    [...]
 ```
 
 ------
@@ -189,9 +189,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Department,Values=Finance Key=tag:ServerRole,Values=Database ^
+    [...]
 ```
 
 ------
@@ -205,9 +205,9 @@ Expanding on the previous example, you can target multiple departments and multi
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database \
+    [...]
 ```
 
 ------
@@ -215,9 +215,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database ^
+    [...]
 ```
 
 ------
@@ -231,9 +231,9 @@ If you tagged instances for different environments using a `Key` named `Departme
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Department,Values=Sales,Finance \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Department,Values=Sales,Finance \
+    [...]
 ```
 
 ------
@@ -241,9 +241,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Department,Values=Sales,Finance ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Department,Values=Sales,Finance ^
+    [...]
 ```
 
 ------
@@ -259,9 +259,9 @@ If either a tag key \(the tag name\) or a tag value includes spaces, enclose the
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:OS,Values="Windows Server 2016 Nano" \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:OS,Values="Windows Server 2016 Nano" \
+    [...]
 ```
 
 ------
@@ -269,9 +269,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:OS,Values="Windows Server 2016 Nano" ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:OS,Values="Windows Server 2016 Nano" ^
+    [...]
 ```
 
 ------
@@ -283,9 +283,9 @@ aws ssm send-command ^
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key="tag:Operating System",Values="Windows Server 2016 Nano" \
-	[...]
+    --document-name document-name \
+    --targets Key="tag:Operating System",Values="Windows Server 2016 Nano" \
+    [...]
 ```
 
 ------
@@ -293,9 +293,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key="tag:Operating System",Values="Windows Server 2016 Nano" ^
-	[...]
+    --document-name document-name ^
+    --targets Key="tag:Operating System",Values="Windows Server 2016 Nano" ^
+    [...]
 ```
 
 ------
@@ -307,9 +307,9 @@ aws ssm send-command ^
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" \
-	[...]
+    --document-name document-name \
+    --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" \
+    [...]
 ```
 
 ------
@@ -317,9 +317,9 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" ^
-	[...]
+    --document-name document-name ^
+    --targets Key=tag:Department,Values="Sales","Finance","Systems Mgmt" ^
+    [...]
 ```
 
 ------
@@ -341,18 +341,18 @@ You can control the number of servers that run the command simultaneously by usi
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--max-concurrency 10 \
-	--targets Key=tag:Environment,Values=Development \
-	[...]
+    --document-name document-name \
+    --max-concurrency 10 \
+    --targets Key=tag:Environment,Values=Development \
+    [...]
 ```
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--max-concurrency 10% \
-	--targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database \
-	[...]
+    --document-name document-name \
+    --max-concurrency 10% \
+    --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database \
+    [...]
 ```
 
 ------
@@ -360,18 +360,18 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--max-concurrency 10 ^
-	--targets Key=tag:Environment,Values=Development ^
-	[...]
+    --document-name document-name ^
+    --max-concurrency 10 ^
+    --targets Key=tag:Environment,Values=Development ^
+    [...]
 ```
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--max-concurrency 10% ^
-	--targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database ^
-	[...]
+    --document-name document-name ^
+    --max-concurrency 10% ^
+    --targets Key=tag:Department,Values=Finance,Marketing Key=tag:ServerRole,Values=WebServer,Database ^
+    [...]
 ```
 
 ------
@@ -387,27 +387,27 @@ Invocations that are already running a command when `max-errors` is reached are 
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--max-errors 10 \
-	--targets Key=tag:Database,Values=Development \
-	[...]
+    --document-name document-name \
+    --max-errors 10 \
+    --targets Key=tag:Database,Values=Development \
+    [...]
 ```
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--max-errors 10% \
-	--targets Key=tag:Environment,Values=Development \
-	[...]
+    --document-name document-name \
+    --max-errors 10% \
+    --targets Key=tag:Environment,Values=Development \
+    [...]
 ```
 
 ```
 aws ssm send-command \
-	--document-name document-name \
-	--max-concurrency 1 \
-	--max-errors 1 \
-	--targets Key=tag:Environment,Values=Production \
-	[...]
+    --document-name document-name \
+    --max-concurrency 1 \
+    --max-errors 1 \
+    --targets Key=tag:Environment,Values=Production \
+    [...]
 ```
 
 ------
@@ -415,27 +415,27 @@ aws ssm send-command \
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--max-errors 10 ^
-	--targets Key=tag:Database,Values=Development ^
-	[...]
+    --document-name document-name ^
+    --max-errors 10 ^
+    --targets Key=tag:Database,Values=Development ^
+    [...]
 ```
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--max-errors 10% ^
-	--targets Key=tag:Environment,Values=Development ^
-	[...]
+    --document-name document-name ^
+    --max-errors 10% ^
+    --targets Key=tag:Environment,Values=Development ^
+    [...]
 ```
 
 ```
 aws ssm send-command ^
-	--document-name document-name ^
-	--max-concurrency 1 ^
-	--max-errors 1 ^
-	--targets Key=tag:Environment,Values=Production ^
-	[...]
+    --document-name document-name ^
+    --max-concurrency 1 ^
+    --max-errors 1 ^
+    --targets Key=tag:Environment,Values=Production ^
+    [...]
 ```
 
 ------

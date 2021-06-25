@@ -15,11 +15,11 @@ A parameter policy is a JSON array, as shown in the following table\. You can as
 
 | Policy | Details | Examples | 
 | --- | --- | --- | 
-|  **Expiration**  |  This policy deletes the parameter\. You can specify a specific date and time by using either the `ISO_INSTANT` format or the `ISO_OFFSET_DATE_TIME` format\. To change when you want the parameter to be deleted, you must update the policy\. Updating a *parameter* doesn't affect the expiration date or time of the policy attached to it\. When the expiration date and time is reached, Parameter Store deletes the parameter\.  This example uses the `ISO_INSTANT` format\. You can also specify a date and time by using the `ISO_OFFSET_DATE_TIME` format\. Here is an example: `2019-11-01T22:13:48.87+10:30:00` \.   |  <pre>{<br />   "Type":"Expiration",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Timestamp":"2018-12-02T21:34:33.000Z"<br />   }<br />}</pre>  | 
-|  **ExpirationNotification**  |  This policy triggers an event in Amazon EventBridge \(EventBridge\) that notifies you about the expiration\. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours\.  |  <pre>{<br />   "Type":"ExpirationNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Before":"15",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
-|  **NoChangeNotification**  |  This policy triggers an event in EventBridge if a parameter has *not* been modified for a specified period of time\. This policy type is useful when, for example, a password needs to be changed within a period of time\. This policy determines when to send a notification by reading the `LastModifiedTime` attribute of the parameter\. If you change or edit a parameter, the system resets the notification time period based on the new value of `LastModifiedTime`\.  |  <pre>{<br />   "Type":"NoChangeNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "After":"20",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
+|  **Expiration**  |  This policy deletes the parameter\. You can specify a specific date and time by using either the `ISO_INSTANT` format or the `ISO_OFFSET_DATE_TIME` format\. To change when you want the parameter to be deleted, update the policy\. Updating a *parameter* doesn't affect the expiration date or time of the policy attached to it\. When the expiration date and time is reached, Parameter Store deletes the parameter\.  This example uses the `ISO_INSTANT` format\. You can also specify a date and time by using the `ISO_OFFSET_DATE_TIME` format\. Here is an example: `2019-11-01T22:13:48.87+10:30:00` \.   |  <pre>{<br />   "Type":"Expiration",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Timestamp":"2018-12-02T21:34:33.000Z"<br />   }<br />}</pre>  | 
+|  **ExpirationNotification**  |  This policy initiates an event in Amazon EventBridge \(EventBridge\) that notifies you about the expiration\. By using this policy, you can receive notifications before the expiration time is reached, in units of days or hours\.  |  <pre>{<br />   "Type":"ExpirationNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "Before":"15",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
+|  **NoChangeNotification**  |  This policy initiates an event in EventBridge if a parameter has *not* been modified for a specified period of time\. This policy type is useful when, for example, a password needs to be changed within a period of time\. This policy determines when to send a notification by reading the `LastModifiedTime` attribute of the parameter\. If you change or edit a parameter, the system resets the notification time period based on the new value of `LastModifiedTime`\.  |  <pre>{<br />   "Type":"NoChangeNotification",<br />   "Version":"1.0",<br />   "Attributes":{<br />      "After":"20",<br />      "Unit":"Days"<br />   }<br />}</pre>  | 
 
-You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system triggers an EventBridge event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
+You can assign multiple policies to a parameter\. For example, you can assign `Expiration` and `ExpirationNotification` policies so that the system initiates an EventBridge event to notify you about the impending deletion of a parameter\. You can assign a maximum of ten \(10\) policies to a parameter\.
 
 The following example shows a [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new `SecureString` parameter named `ProdDB3`\.
 
@@ -101,7 +101,7 @@ Use the following procedure to add policies to an existing parameter by using th
 **Important**  
 Parameter Store preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies\. 
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy by using brackets and curly braces, as follows: `[{}]`
-If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
+If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes\.
 
 ### Add policies to an existing parameter \(AWS CLI\)<a name="sysman-paramstore-policy-create-cli"></a>
 
@@ -208,7 +208,7 @@ To remove all policies from an existing parameter, edit the parameter and apply 
       --value 'parameter-value' ^
       --policies "[{}]"
   ```
-If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
+If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes\.
 
 ### Add policies to an existing parameter \(Tools for Windows PowerShell\)<a name="sysman-paramstore-policy-create-ps"></a>
 
@@ -253,4 +253,4 @@ To remove all policies from an existing parameter, edit the parameter and apply 
   ```
   Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{}]"
   ```
-If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, then you must copy and paste the original policies, type the new policy, and then save your changes\.
+If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes\.

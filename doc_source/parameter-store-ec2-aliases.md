@@ -9,6 +9,9 @@ For example, you can specify the parameter that contains your preferred AMI ID w
 **Note**  
 The user who runs this command must have AWS Identity and Access Management \(IAM\) permissions that include the `ssm:GetParameters` API operation in order for the parameter value to be validated\. Otherwise, the parameter creation process fails\.
 
+------
+#### [ Linux & macOS ]
+
 ```
 aws ec2 run-instances \
     --image-id resolve:ssm:/golden-ami \
@@ -17,6 +20,20 @@ aws ec2 run-instances \
     --key-name my-key-pair \
     --security-groups my-security-group
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ec2 run-instances ^
+    --image-id resolve:ssm:/golden-ami ^
+    --count 1 ^
+    --instance-type t2.micro ^
+    --key-name my-key-pair ^
+    --security-groups my-security-group
+```
+
+------
 
 You can also choose your preferred AMI when you create an instance using the Amazon EC2 console\. For more information, see [Using a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon EC2 User Guide for Windows Instances*\.
 

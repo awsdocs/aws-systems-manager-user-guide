@@ -39,7 +39,7 @@ Systems Manager doesn't allow you to edit the `AWSServiceRoleForSystemsManagerOp
 
 ## Deleting a Service\-Linked Role for Systems Manager<a name="delete-slr-service-action-3"></a>
 
-If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that is not actively monitored or maintained\. However, you must clean up the resources for your service\-linked role before you can manually delete it\.
+If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that isn't actively monitored or maintained\. However, you must clean up the resources for your service\-linked role before you can manually delete it\.
 
 **Note**  
 If the Systems Manager service is using the role when you try to delete the resources, then the deletion might fail\. If that happens, wait for a few minutes and try the operation again\.

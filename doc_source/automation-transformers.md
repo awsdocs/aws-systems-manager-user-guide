@@ -1,6 +1,6 @@
 # Walkthrough: Using input transformers with Automation<a name="automation-transformers"></a>
 
-This AWS Systems Manager Automation walkthrough shows how to use the input transformer feature of Amazon EventBridge to extract the `instance-id` of an Amazon Elastic Compute Cloud \(Amazon EC2\) instance from an instance state change event\. Automation is a capability of AWS Systems Manager\. We use the input transformer to pass that data to the `AWS-CreateImage` runbook target as the `InstanceId` input parameter\. The rule is triggered when any instance changes to the `stopped` state\.
+This AWS Systems Manager Automation walkthrough shows how to use the input transformer feature of Amazon EventBridge to extract the `instance-id` of an Amazon Elastic Compute Cloud \(Amazon EC2\) instance from an instance state change event\. Automation is a capability of AWS Systems Manager\. We use the input transformer to pass that data to the `AWS-CreateImage` runbook target as the `InstanceId` input parameter\. The rule is initiated when any instance changes to the `stopped` state\.
 
 For more information about working with input transformers, see [Tutorial: Use Input Transformer to Customize What is Passed to the Event Target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-input-transformer-tutorial.html) in the *Amazon EventBridge User Guide*\.
 
@@ -39,7 +39,7 @@ Verify that you added the required permissions and trust policy for EventBridge 
 
    1. Choose **Any instance**\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select ** AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select ** AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Target**, choose **SSM Automation**\.
 

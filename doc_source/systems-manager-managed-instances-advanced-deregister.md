@@ -1,6 +1,6 @@
 # Deregistering managed instances in a hybrid environment<a name="systems-manager-managed-instances-advanced-deregister"></a>
 
-If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using AWS Systems Manager, then you can deregister it\. Deregistering a hybrid machine removes it from the list of managed instances in Systems Manager\. SSM Agent running on the hybrid machine won't be able to refresh its authorization token because it's no longer registered\. SSM Agent hibernates and reduce its ping frequency to Systems Manager in the cloud to once per hour\.
+If you no longer want to manage an on\-premises server or virtual machine \(VM\) by using AWS Systems Manager, then you can deregister it\. Deregistering a hybrid machine removes it from the list of managed instances in Systems Manager\. AWS Systems Manager Agent \(SSM Agent\) running on the hybrid machine won't be able to refresh its authorization token because it's no longer registered\. SSM Agent hibernates and reduce its ping frequency to Systems Manager in the cloud to once per hour\.
 
 You can reregister an on\-premises server or VM again at any time\. Systems Manager stores the command history for a deregistered managed instance for 30 days\.
 

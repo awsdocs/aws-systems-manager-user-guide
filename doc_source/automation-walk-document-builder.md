@@ -6,7 +6,7 @@ The first step of the runbook you create runs a script to launch an Amazon Elast
 
 **Before you begin**  
 Before you begin this walkthrough, do the following: 
-+ Verify that you have administrator privileges, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
++ Verify that you have administrator permissions, or that you have been granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management \(IAM\)\. 
 
   For information, see [ Verifying user access for runbooks](automation-setup.md#automation-setup-user-access)\.
 + Verify that you have an IAM service role for Automation \(also known as an *assume role*\) in your AWS account\. The role is required because this walkthrough uses the `aws:executeScript` action\. 

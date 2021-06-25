@@ -24,8 +24,8 @@ Run the following command\.
 
 ```
 aws ssm cancel-command \
-	--command-id "command-ID" \
-	--instance-ids "instance-ID"
+    --command-id "command-ID" \
+    --instance-ids "instance-ID"
 ```
 
 ------
@@ -33,8 +33,8 @@ aws ssm cancel-command \
 
 ```
 aws ssm cancel-command ^
-	--command-id "command-ID" ^
-	--instance-ids "instance-ID"
+    --command-id "command-ID" ^
+    --instance-ids "instance-ID"
 ```
 
 ------

@@ -15,12 +15,12 @@ Use the following information to help you troubleshoot problems with AWS Systems
 ## No permission to start a session<a name="session-manager-troubleshooting-start-permissions"></a>
 
 **Problem**: You try to start a session, but the system tells you that you don't have the necessary permissions\.
-+ **Solution**: A system administrator has not granted you AWS Identity and Access Management \(IAM\) policy permissions for starting Session Manager sessions\. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
++ **Solution**: A system administrator hasn't granted you AWS Identity and Access Management \(IAM\) policy permissions for starting Session Manager sessions\. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 ## No permission to change session preferences<a name="session-maner-troubleshooting-preferences-permissions"></a>
 
 **Problem**: You try to update global session preferences for your organization, but the system tells you that you don't have the necessary permissions\.
-+ **Solution**: A system administrator has not granted you IAM policy permissions for setting Session Manager preferences\. For information, see [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)\.
++ **Solution**: A system administrator hasn't granted you IAM policy permissions for setting Session Manager preferences\. For information, see [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)\.
 
 ## Instance not available or not configured for Session Manager<a name="session-manager-troubleshooting-instances"></a>
 
@@ -86,7 +86,7 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
   ```
 + **Solution C**: The instance is connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket, but an `s3` gateway endpoint doesn't exist in the VPC\. An `s3` endpoint in the format **`com.amazonaws.region.s3`** is required if your instances are connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
 + **Solution D**: The log group or Amazon S3 bucket you specified in your session preferences has been deleted\. To resolve this issue, update your session preferences with a valid log group or S3 bucket\.
-+ **Solution E**: The log group or Amazon S3 bucket you specified in your session preferences is not encrypted, but you have set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `true`\. To resolve this issue, update your session preferences with a log group or Amazon S3 bucket that is encrypted, or set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `false`\. This scenario is only applicable to customers who create session preferences using command line tools\.
++ **Solution E**: The log group or Amazon S3 bucket you specified in your session preferences isn't encrypted, but you have set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `true`\. To resolve this issue, update your session preferences with a log group or Amazon S3 bucket that is encrypted, or set the `cloudWatchEncryptionEnabled` or `s3EncryptionEnabled` input to `false`\. This scenario is only applicable to customers who create session preferences using command line tools\.
 
 ## Instance becomes unresponsive during long running sessions<a name="session-manager-troubleshooting-log-retention"></a>
 

@@ -14,6 +14,9 @@ SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. 
 
 **Choose your operating system**  
 Choose a link to view the procedure for manually installing SSM Agent on the specified operating system\. 
+
+**Note**  
+For a list of supported versions of each of the following operating systems, see [Supported operating systems](prereqs-operating-systems.md)\.
 + [Amazon Linux](agent-install-al.md)
 + [Amazon Linux 2](agent-install-al2.md)
 + [CentOS](agent-install-centos.md)

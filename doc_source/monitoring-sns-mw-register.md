@@ -5,7 +5,7 @@ The following procedures show how to register a Run Command task with your maint
 **Before you begin**  
 If you haven't created a maintenance window or registered targets, see [Working with maintenance windows \(console\)](sysman-maintenance-working.md) for steps on how to create a maintenance window and register targets\.
 
-To receive notifications from the Amazon Simple Notification Service \(Amazon SNS\) service, you must attach an `iam:PassRole` policy to the Maintenance Windows service role specified in the registered task\. If you haven't added `iam:PassRole` permissions to your Maintenance Windows service role, see [Task 5: Attach the iam:PassRole policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw)\. 
+To receive notifications from the Amazon Simple Notification Service \(Amazon SNS\) service, attach an `iam:PassRole` policy to the Maintenance Windows service role specified in the registered task\. If you haven't added `iam:PassRole` permissions to your Maintenance Windows service role, see [Task 5: Attach the iam:PassRole policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw)\. 
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(console\)<a name="monitoring-sns-mw-register-console"></a>
 
@@ -45,7 +45,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. In the ** IAM service role** area, choose the Maintenance Windows service role that has `iam:PassRole` permissions to the SNS role\.
 **Note**  
-You must add `iam:PassRole` permissions to the Maintenance Windows role to enable Systems Manager to pass the SNS role to Amazon SNS\. If you haven't added `iam:PassRole` permissions, see Task 5 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+Add `iam:PassRole` permissions to the Maintenance Windows role to enable Systems Manager to pass the SNS role to Amazon SNS\. If you haven't added `iam:PassRole` permissions, see Task 5 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
@@ -53,7 +53,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS notifications** section, choose **Enable SNS Notifications**\.
 
-1. In the **IAM role** section, choose the Amazon SNS IAM role Amazon Resource Name \(ARN\) you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) to trigger Amazon SNS\.
+1. In the **IAM role** section, choose the Amazon SNS IAM role Amazon Resource Name \(ARN\) you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) to initiate Amazon SNS\.
 
 1. In the **SNS topic** section, enter the Amazon SNS topic ARN to be used\.
 

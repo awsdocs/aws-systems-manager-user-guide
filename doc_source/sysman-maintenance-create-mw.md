@@ -18,7 +18,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. For **Description**, enter a description\.
 
-1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you have not registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
+1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you haven't registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
 
    If you don't choose this option, then you must choose previously\-registered targets when you register a task with the maintenance window\.
 

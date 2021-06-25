@@ -1,6 +1,6 @@
 # Editing and creating a new version of an association<a name="sysman-state-assoc-edit"></a>
 
-You can edit an association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, State Manager, a capability of AWS Systems Manager, creates a new version\. You can view different versions after editing, as described in the following procedures\. 
+You can edit a State Manager association to specify a new name, schedule, severity level, or targets\. State Manager is a capability of AWS Systems Manager\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, State Manager, a capability of AWS Systems Manager, creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
 The following procedures describe how to edit and create a new version of an association using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\. 
 

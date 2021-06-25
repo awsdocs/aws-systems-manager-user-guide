@@ -7,7 +7,7 @@ If you already use other Systems Manager capabilities, such as Run Command or Pa
 However, in some cases, you might need to modify the permissions attached to your instance profile\. For example, you want to provide a narrower set of instance permissions, you have created a custom policy for your instance profile, or you want to use Amazon Simple Storage Service \(Amazon S3\) encryption or AWS Key Management Service \(AWS KMS\) encryption options for securing session data\. For these cases, do one of the following to allow Session Manager actions to be performed on your instances:
 +  **Embed permissions for Session Manager actions in a custom instance profile** 
 
-  To add permissions for Session Manager actions to an existing IAM instance profile that does not rely on the AWS\-provided default policy **AmazonSSMManagedInstanceCore**, follow the steps in [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\.
+  To add permissions for Session Manager actions to an existing IAM instance profile that doesn't rely on the AWS\-provided default policy **AmazonSSMManagedInstanceCore**, follow the steps in [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\.
 +  **Create a custom IAM instance profile with Session Manager permissions only** 
 
   To create an IAM instance profile that contains permissions only for Session Manager actions, follow the steps in [Create a custom IAM instance profile for Session Manager](getting-started-create-iam-instance-profile.md)\.

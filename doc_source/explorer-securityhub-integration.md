@@ -35,7 +35,7 @@ This topic describes how to configure Explorer start receiving Security Hub find
 **Before you begin**  
 Complete the following tasks before you configure Explorer to start receiving Security Hub findings\.
 + Enable and configure Security Hub\. For more information, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
-+ Log into the AWS Organizations management account\. Systems Manager requires access to AWS Organizations to create OpsItems from Security Hub findings\. After you log into the management account, you are prompted to select the **Enable access** button on the Explorer **Configure dashboard** tab, as described in the following procedure\. If you don't log into the AWS Organizations management account, you can't enable access and Explorer can't create OpsItems from Security Hub findings\.
++ Log into the AWS Organizations management account\. Systems Manager requires access to AWS Organizations to create OpsItems from Security Hub findings\. After you log in to the management account, you're prompted to select the **Enable access** button on the Explorer **Configure dashboard** tab, as described in the following procedure\. If you don't log in to the AWS Organizations management account, you can't enable access and Explorer can't create OpsItems from Security Hub findings\.
 
 **To start receiving Security Hub findings**
 
@@ -53,7 +53,7 @@ Complete the following tasks before you configure Explorer to start receiving Se
 
    Critical and High security findings are displayed by default\. To also display Medium and Low security findings, select the **Disabled** slider next to **Medium,Low**\.
 
-1. In the **OpsItems created by Security Hub findings** section, choose **Enable access**\. If you don't see this button, log into the AWS Organizations management account and return to this page to select the button\.
+1. In the **OpsItems created by Security Hub findings** section, choose **Enable access**\. If you don't see this button, log in to the AWS Organizations management account and return to this page to select the button\.
 
 ## How to view findings from Security Hub<a name="explorer-securityhub-integration-view-received-findings"></a>
 

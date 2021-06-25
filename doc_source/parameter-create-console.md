@@ -30,11 +30,11 @@ The following procedure walks you through the process of creating a parameter in
 1. For **Parameter tier** choose either **Standard** or **Advanced**\. For more information about advanced parameters, see [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
 1. For **Type**, choose **String**, **StringList**, or **SecureString**\.
-   + If you choose **String**, the **Data type** field appears\. If you are creating a parameter to hold the resource ID for an Amazon Machine Image \(AMI\), select `aws:ec2:image`\. Otherwise, keep the default `text` selected\.
+   + If you choose **String**, the **Data type** field appears\. If you're creating a parameter to hold the resource ID for an Amazon Machine Image \(AMI\), select `aws:ec2:image`\. Otherwise, keep the default `text` selected\.
    + If you choose **SecureString,** the **KMS Key ID** field appears\. If you don't provide an AWS Key Management Service AWS KMS key ID, a AWS KMS key Amazon Resource Name \(ARN\), an alias name, or an alias ARN, then the system uses `alias/aws/ssm`, which is the AWS managed key for Systems Manager\. If you don't want to use this key, then you can use a customer managed key\. For more information about AWS managed and customer managed keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
 **Important**  
-Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
-   + When creating a `SecureString` parameter in the console by using the `key-id` parameter with either a customer managed key alias name or an alias ARN, you must specify the prefix `alias/` before the alias\. Following is an ARN example\.
+Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+   + When creating a `SecureString` parameter in the console by using the `key-id` parameter with either a customer managed key alias name or an alias ARN, specify the prefix `alias/` before the alias\. Following is an ARN example\.
 
      ```
      arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
@@ -65,4 +65,4 @@ If you chose **SecureString**, the value of the parameter is masked by default \
 1. In the parameters list, choose the name of the parameter you just created\. Verify the details on the **Overview** tab\. If you created a `SecureString` parameter, choose **Show** to view the unencrypted value\.
 
 **Note**  
-You can’t change an advanced parameter to a standard parameter\. If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, you must delete it and recreate it as a new standard parameter\.
+You can’t change an advanced parameter to a standard parameter\. If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, delete it and recreate it as a new standard parameter\.

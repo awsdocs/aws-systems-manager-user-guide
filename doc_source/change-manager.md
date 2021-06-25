@@ -121,7 +121,7 @@ Change Manager supports two types of change templates\. For an approved change r
 
 A change request is a request in Change Manager to run an Automation runbook that updates one or more resources in your AWS or on\-premises environments\. A change request is created using a change template\.
 
-When you create a change request, one or more approvers in your organization or account must review and approve the request\. Without the required approvals, the runbook workflow, which applies the changes you request, is not permitted to run\.
+When you create a change request, one or more approvers in your organization or account must review and approve the request\. Without the required approvals, the runbook workflow, which applies the changes you request, isn't permitted to run\.
 
 In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced limits as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
 

@@ -90,7 +90,7 @@ To find the correct signature file for your instance's architecture and operatin
 
    If the fingerprint doesn't match, don't install the agent\. Contact AWS Support\.
 
-1. If you're using GPG to verify the installer package, download the signature file according to your instance's architecture and operating system if you have not already done so\. RPM packages already contain the needed signature for RPM verification\.
+1. If you're using GPG to verify the installer package, download the signature file according to your instance's architecture and operating system if you haven't already done so\. RPM packages already contain the needed signature for RPM verification\.
 
 1. Verify the installer package signature\. Be sure to replace the *signature\-filename* and *agent\-download\-filename* with the values you specified when downloading the signature file and agent\.
 
@@ -132,6 +132,6 @@ To find the correct signature file for your instance's architecture and operatin
 
 ------
 
-   When using GPG, if the output includes the phrase `BAD signature`, check whether you performed the procedure correctly\. If you continue to get this response, contact AWS Support and don't install the agent\. The warning message about the trust doesn't mean that the signature isn't\\ valid, only that you haven't verified the public key\. A key is trusted only if you or someone who you trust has signed it\.
+   When using GPG, if the output includes the phrase `BAD signature`, check whether you performed the procedure correctly\. If you continue to get this response, contact AWS Support and don't install the agent\. The warning message about the trust doesn't mean that the signature isn't valid, only that you haven't verified the public key\. A key is trusted only if you or someone who you trust has signed it\.
 
    When using RPM, if `pgp` is missing from the output and you have imported the public key, then the agent isn't signed\. If the output contains the phrase `NOT OK (MISSING KEYS: (MD5) key-id)`, check whether you performed the procedure correctly\. If you continue to get this response, contact AWS Support and don't install the agent\.

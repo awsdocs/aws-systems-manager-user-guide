@@ -49,7 +49,7 @@ Starting with version 2\.3\.50\.0 of SSM Agent, the agent creates a local user a
 
 On Windows Server, SSM Agent handles setting a new password for the `ssm-user` account when each session starts\. No passwords are set for `ssm-user` on Linux managed instances\.
 
-Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, you must create the `ssm-user` account manually if it isn't already present\.
+Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, create the `ssm-user` account manually if it isn't already present, and assign Domain Administrator permissions to the user\.
 
 **Important**  
 In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
@@ -78,7 +78,7 @@ To view the version of the agent available in the global download bucket, run th
 curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/VERSION
 ```
 
-To view the version of the agent available in a specific Region, run the following command, substituting *region* with the Region you are working in, such as `us-east-2` for the US East \(Ohio\) Region\.
+To view the version of the agent available in a specific Region, run the following command, substituting *region* with the Region you're working in, such as `us-east-2` for the US East \(Ohio\) Region\.
 
 ```
 curl https://s3.region.amazonaws.com/amazon-ssm-region/latest/VERSION
@@ -117,7 +117,7 @@ On Windows Server instances using Powershell:
 
 ```
 cd "C:\Program Files\Amazon\SSM\" `
-	.\amazon-ssm-agent.exe -fingerprint -similarityThreshold 1
+    .\amazon-ssm-agent.exe -fingerprint -similarityThreshold 1
 ```
 
 **Important**  

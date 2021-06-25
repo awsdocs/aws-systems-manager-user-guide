@@ -155,7 +155,7 @@ The following table shows the wildcard values that cron expressions support\.
 | W | The W wildcard in the Day\-of\-month field specifies a weekday\. In the Day\-of\-month field, 3W specifies the day closest to the third weekday of the month\. | 
 
 **Note**  
-Cron expressions that lead to rates faster than five \(5\) minute aren't supported\. Support for specifying both a day\-of\-week and a day\-of\-month value isn't complete\. You must use the question mark \(?\) character in one of these fields\. 
+Cron expressions that lead to rates faster than five \(5\) minute aren't supported\. Support for specifying both a day\-of\-week and a day\-of\-month value isn't complete\. Use the question mark \(?\) character in one of these fields\. 
 
 For more information about cron expressions, see [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) at the *Wikipedia website*\.
 
@@ -214,7 +214,7 @@ Here are some rate examples for associations\.
 
 This section includes examples of cron and rate expressions for maintenance windows\.
 
-Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Note: Zero \(0\) isn't supported in the seconds field\.\)
+Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Zero \(0\) isn't supported in the seconds field\.\)
 
 For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day\.
 

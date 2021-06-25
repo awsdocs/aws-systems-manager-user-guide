@@ -3,7 +3,7 @@
 AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from multiple AWS Regions and AWS accounts\. Athena integration uses resource data sync so that you can view inventory data from all of your managed instances on the **Inventory Detail View** page in the AWS Systems Manager console\.
 
 **Important**  
-This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Service \(Amazon S3\) bucket, and Amazon Athena to query the data\. Depending on how much data is crawled and queried, you can be charged for using these services\. With AWS Glue, you pay an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. With Athena, you are charged based on the amount of data scanned by each query\. We encourage you to view the pricing guidelines for these services before you use Amazon Athena integration with Systems Manager Inventory\. For more information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/) and [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)\.
+This feature uses AWS Glue to crawl the data in your Amazon Simple Storage Service \(Amazon S3\) bucket, and Amazon Athena to query the data\. Depending on how much data is crawled and queried, you can be charged for using these services\. With AWS Glue, you pay an hourly rate, billed by the second, for crawlers \(discovering data\) and ETL jobs \(processing and loading data\)\. With Athena, you're charged based on the amount of data scanned by each query\. We encourage you to view the pricing guidelines for these services before you use Amazon Athena integration with Systems Manager Inventory\. For more information, see [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/) and [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)\.
 
 You can view inventory data on the **Inventory Detail View** page in all AWS Regions where Amazon Athena is available\. For a list of supported Regions, see [Amazon Athena Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/athena.html#athena_region) in the *Amazon Web Services General Reference*\.
 
@@ -34,7 +34,7 @@ Before you can query and view data from multiple accounts and Regions on the **I
 
 1. Choose the user name again to return to the **Summary** page\.
 
-1. Now add an inline policy so that AWS Glue can crawl your inventory data\. On the **Permissions** tab, at the right side of the page, choose **Add inline policy**\. The **Create policy** page opens\.
+1. Now add an inline policy so that AWS Glue can crawl your inventory data\. On the **Permissions** tab, choose **Add inline policy**\. The **Create policy** page opens\.
 
 1. Choose the **JSON** tab\.
 

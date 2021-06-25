@@ -872,7 +872,7 @@ Required: Yes
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
-+ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\. If your repository was created after October 1st, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you're using the latest commit in the master branch\. If your repository was created after October 1st, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
 
   This parameter uses the following format:
   + branch:*branch\_name*
@@ -911,7 +911,7 @@ This `tokenInfo` field is the only SSM document plugin field that supports a Sec
 Additionally, you can specify the following optional parameters:  
 + getOptions
 
-  Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you are using the latest commit in the master branch\.
+  Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you're using the latest commit in the master branch\.
 
   Type: String
 

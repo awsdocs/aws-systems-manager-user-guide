@@ -1,6 +1,6 @@
 # Walkthrough: Update application dependencies, patch an instance, and perform an application\-specific health check<a name="aws-runpatchbaselinewithhooks-walkthrough"></a>
 
-In many cases, a managed instance must be rebooted after it has been patched with the latest software update\. However, rebooting an instance in production without safeguards in place can cause several problems, such as triggering alarms, recording incorrect metric data, and interrupting data synchronizations\.
+In many cases, a managed instance must be rebooted after it has been patched with the latest software update\. However, rebooting an instance in production without safeguards in place can cause several problems, such as invoking alarms, recording incorrect metric data, and interrupting data synchronizations\.
 
 This walkthrough demonstrates how to avoid problems like these by using the AWS Systems Manager document \(SSM document\) `AWS-RunPatchBaselineWithHooks` to achieve a complex, multi\-step patching operation that accomplishes the following:
 

@@ -77,7 +77,7 @@ Each deployment configuration you create provides the permissions policy for jus
 
    **To create an administrative role** – For an administrator job function that has IAM permissions for all AWS actions, do the following\.
 **Important**  
-Granting users full administrative privileges should be done sparingly, and only if their roles require full Systems Manager access\. For important information about security considerations for Systems Manager access, see [Identity and access management for AWS Systems Manager](security-iam.md) and [Security best practices for Systems Manager](security-best-practices.md)\.
+Granting users full administrative permissions should be done sparingly, and only if their roles require full Systems Manager access\. For important information about security considerations for Systems Manager access, see [Identity and access management for AWS Systems Manager](security-iam.md) and [Security best practices for Systems Manager](security-best-practices.md)\.
 
    1. For **Job function**, enter a name to identify this role and its permissions, such as **MyAWSAdmin**\.
 
@@ -93,7 +93,7 @@ Granting users full administrative privileges should be done sparingly, and only
 **Tip**  
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
-   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
+   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
 
    ```
    {

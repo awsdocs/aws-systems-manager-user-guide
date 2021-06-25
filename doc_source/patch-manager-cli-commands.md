@@ -890,8 +890,8 @@ The system returns information like the following\.
 
 **Topics**
 + [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline)
-+ [Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `CRITICAL`](#patch-manager-cli-commands-describe-available-patches-linux)
-+ [Get all patches for Windows Server 2012 that have a MSRC severity of Critical](#patch-manager-cli-commands-describe-available-patches)
++ [Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `Critical`](#patch-manager-cli-commands-describe-available-patches-linux)
++ [Get all patches for Windows Server 2012 that have a MSRC severity of `Critical`](#patch-manager-cli-commands-describe-available-patches)
 + [Get all available patches](#patch-manager-cli-commands-describe-available-patches)
 + [Get patch summary states per\-instance](#patch-manager-cli-commands-describe-instance-patch-states)
 + [Get patch compliance details for an instance](#patch-manager-cli-commands-describe-instance-patches)
@@ -985,7 +985,7 @@ The system returns information like the following\.
      ---output truncated---
 ```
 
-### Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `CRITICAL`<a name="patch-manager-cli-commands-describe-available-patches-linux"></a>
+### Get all patches for AmazonLinux2018\.03 that have a Classification `SECURITY` and Severity of `Critical`<a name="patch-manager-cli-commands-describe-available-patches-linux"></a>
 
 ------
 #### [ Linux & macOS ]
@@ -993,7 +993,7 @@ The system returns information like the following\.
 ```
 aws ssm describe-available-patches \
     --region us-east-2 \
-    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITICAL
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=Critical
 ```
 
 ------
@@ -1002,7 +1002,7 @@ aws ssm describe-available-patches \
 ```
 aws ssm describe-available-patches ^
     --region us-east-2 ^
-    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=CRITICAL
+    --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=SEVERITY,Values=Critical
 ```
 
 ------
@@ -1031,7 +1031,7 @@ The system returns information like the following\.
 ---output truncated---
 ```
 
-### Get all patches for Windows Server 2012 that have a MSRC severity of Critical<a name="patch-manager-cli-commands-describe-available-patches"></a>
+### Get all patches for Windows Server 2012 that have a MSRC severity of `Critical`<a name="patch-manager-cli-commands-describe-available-patches"></a>
 
 ------
 #### [ Linux & macOS ]

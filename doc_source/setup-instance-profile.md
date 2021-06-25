@@ -1,12 +1,12 @@
 # Step 4: Create an IAM instance profile for Systems Manager<a name="setup-instance-profile"></a>
 
-By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
+By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. Grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
 
 **Note**  
 You can use Quick Setup, a capability of AWS Systems Manager, to quickly configure an instance profile on all instances in your AWS account\. Quick Setup also creates an IAM service role \(or *assume* role\), which enables Systems Manager to securely run commands on your instances on your behalf\. By using Quick Setup, you can skip this step \(Step 4\) and Step 5\. For more information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)\. 
 
 Note the following details about creating an IAM instance profile:
-+ If you are configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, you must configure your servers and VMs to use an IAM service role\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
++ If you're configuring servers or virtual machines \(VMs\) in a hybrid environment for Systems Manager, you don't need to create an instance profile for them\. Instead, configure your servers and VMs to use an IAM service role\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 + If you change the IAM instance profile, it might take some time for the instance credentials to refresh\. SSM Agent won't process requests until this happens\. To speed up the refresh process, you can restart SSM Agent or restart the instance\.
 
 ## About policies for a Systems Manager instance profile<a name="instance-profile-policies-overview"></a>
@@ -23,7 +23,7 @@ Required permissions in either of the following cases:
 
   SSM Agent is Amazon software that is installed on your instances and performs Systems Manager tasks\. This agent requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. These buckets are publicly accessible\. 
 
-  In a private VPC endpoint environment, however, you must explicitly provide access to these buckets:
+  In a private VPC endpoint environment, however, explicitly provide access to these buckets:
 
   ```
   arn:aws:s3:::patch-baseline-snapshot-region/*

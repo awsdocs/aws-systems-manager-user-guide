@@ -34,7 +34,7 @@ Logging isn't available for Session Manager sessions that connect through port f
 
 ## Who should use Session Manager?<a name="session-manager-who"></a>
 + Any AWS customer who wants to improve their security and audit posture, reduce operational overhead by centralizing access control on instances, and reduce inbound instance access\. 
-+ Information Security experts who want to monitor and track instance access and activity, close down inbound ports on instances, or enable connections to instances that do not have a public IP address\. 
++ Information Security experts who want to monitor and track instance access and activity, close down inbound ports on instances, or enable connections to instances that don't have a public IP address\. 
 + Administrators who want to grant and revoke access from a single location, and who want to provide one solution to users for Linux, macOS, and Windows Server instances\.
 + Users who want to connect to an instance with just one click from the browser or AWS CLI without having to provide SSH keys\.
 

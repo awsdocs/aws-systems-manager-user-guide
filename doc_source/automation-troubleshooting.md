@@ -22,7 +22,7 @@ To solve this problem, you must specify a value for the `SubnetId` input paramet
 
 ## Automation execution failed to start<a name="automation-trbl-access"></a>
 
-An automation can fail with an access denied error or an invalid assume role error if you have not properly configured AWS Identity and Access Management \(IAM\) users, roles, and policies for Automation\.
+An automation can fail with an access denied error or an invalid assume role error if you haven't properly configured AWS Identity and Access Management \(IAM\) users, roles, and policies for Automation\.
 
 ### Access denied<a name="automation-trbl-access-denied"></a>
 
@@ -43,7 +43,7 @@ The IAM user attempting to start the automation doesn't have PassRole permission
 When you run an Automation, an assume role is either provided in the runbook or passed as a parameter value for the runbook\. Different types of errors can occur if the assume role isn't specified or configured properly\.
 
 **Malformed Assume Role**  
-**Error message**: `The format of the supplied assume role ARN is not valid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your runbook or as a runtime parameter when starting the automation\.
+**Error message**: `The format of the supplied assume role ARN isn't valid.` The assume role is improperly formatted\. To resolve this issue, verify that a valid assume role is specified in your runbook or as a runtime parameter when starting the automation\.
 
 **Assume Role Can't Be Assumed**  
 **Error message**: `The defined assume role is unable to be assumed. (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: InvalidAutomationExecutionParametersException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
@@ -104,4 +104,4 @@ A problem with the Automation service is preventing the specified runbook from r
 
 **Error message**: `Step timed out while step is verifying launched instance(s) are ready to be used. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for `timeoutSeconds`\. If that doesn't solve the problem, investigate why the step takes longer to run than expected\.
+A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for the `timeoutSeconds` parameter in the `aws:runInstances` action\. If that doesn't solve the problem, investigate why the step takes longer to run than expected\.

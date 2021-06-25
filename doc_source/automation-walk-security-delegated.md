@@ -62,7 +62,7 @@ This section describes how to create an IAM test user account with restricted pe
 
 1. Create a new IAM user account named AutomationRestrictedOperator\. For information about how to create a new IAM user, see [Creating IAM Users \(Console\) ](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) in the IAM User Guide\. When prompted, choose **Attach existing policies directly**, and choose the policy you just created\.
 
-1. Note the user name, password, and the **Console login link**\. You will log into this account later in this topic\.
+1. Note the user name, password, and the **Console login link**\. You will log in to this account later in this topic\.
 
 ## Create an IAM service role for Automation<a name="automation-walk-security-service-role"></a>
 

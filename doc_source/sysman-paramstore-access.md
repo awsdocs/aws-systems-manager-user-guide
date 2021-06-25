@@ -135,7 +135,7 @@ You can view the AWS managed key by running the following command from the AWS C
 aws kms describe-key --key-id alias/aws/ssm
 ```
 
-The following example enables instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
+The following example allows instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
 Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.

@@ -1,6 +1,6 @@
 # Working with parameter versions<a name="sysman-paramstore-versions"></a>
 
-Each time you edit the value of a parameter, Parameter Store creates a new *version* of the parameter and retains the previous versions\. When you initially create a parameter, Parameter Store assigns version `1` to that parameter\. When you change the value of the parameter, Parameter Store automatically iterates the version number by one\. You can view the details, including the values, of all versions in a parameter's history\. 
+Each time you edit the value of a parameter, Parameter Store, a capability of AWS Systems Manager creates a new *version* of the parameter and retains the previous versions\. When you initially create a parameter, Parameter Store assigns version `1` to that parameter\. When you change the value of the parameter, Parameter Store automatically iterates the version number by one\. You can view the details, including the values, of all versions in a parameter's history\. 
 
 You can also specify the version of a parameter to use in API commands and SSM documents; for example: `ssm:MyParameter:3`\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\. 
 
@@ -42,9 +42,12 @@ You can use the Systems Manager console to create a new version of a parameter a
 
 ## Reference a parameter version<a name="reference-parameter-version"></a>
 
-You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: ssm: `parameter-name:version-number`\. 
+You can reference specific parameter versions in commands, API calls, and SSM documents by using the following format: ssm:`parameter-name:version-number`\. 
 
 In the following example, the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances command` uses version 3 of the parameter `golden-ami`\. 
+
+------
+#### [ Linux & macOS ]
 
 ```
 aws ec2 run-instances \
@@ -54,6 +57,20 @@ aws ec2 run-instances \
     --key-name my-key-pair \
     --security-groups my-security-group
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ec2 run-instances ^
+    --image-id resolve:ssm:/golden-ami:3 ^
+    --count 1 ^
+    --instance-type t2.micro ^
+    --key-name my-key-pair ^
+    --security-groups my-security-group
+```
+
+------
 
 **Note**  
 Using `resolve` and a parameter value only works with the `--image-id` option and a parameter that contains an Amazon Machine Image \(AMI\) as its value\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.

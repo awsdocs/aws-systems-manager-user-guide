@@ -3,7 +3,7 @@
 You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
 
 **Note**  
-You must specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
+Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
 
 In this topic, we provide examples of using the AWS Command Line Interface \(AWS CLI\) command `register-task-with-maintenance-window` to register each of the four supported task types with a maintenance window\. The examples are for demonstration only, but you can modify them to create working task registration commands\. 
 
@@ -185,7 +185,7 @@ The following examples demonstrate how to register Lambda function tasks with a 
 For these examples, the user who created the Lambda function named it `SSMrestart-my-instances` and created two parameters called `instanceId` and `targetType`\.
 
 **Important**  
-The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to Lambda function \(or alias\) names\. Before you proceed to register this type of task, you must update its name in AWS Lambda to include `SSM`\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
+The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to Lambda function \(or alias\) names\. Before you proceed to register this type of task, update its name in AWS Lambda to include `SSM`\. For example, if your Lambda function name is `MyLambdaFunction`, change it to `SSMMyLambdaFunction`\.
 
 **AWS CLI command:**
 

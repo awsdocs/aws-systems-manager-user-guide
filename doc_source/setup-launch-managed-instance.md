@@ -5,7 +5,7 @@ The procedures in this topic describe how to attach the AWS Identity and Access 
 **SSM Agent requirements for instances**  
 AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
 
-If the Amazon Machine Image \(AMI\) type you choose in the first procedure doesn't come with SSM Agent preinstalled, you must manually install the agent on the new instance before it can be used with Systems Manager\. If SSM Agent isn't installed on the existing EC2 instance you choose in the second procedure, you must manually install the agent on the instance before it can be used with Systems Manager\.
+If the Amazon Machine Image \(AMI\) type you choose in the first procedure doesn't come with SSM Agent preinstalled, manually install the agent on the new instance before it can be used with Systems Manager\. If SSM Agent isn't installed on the existing EC2 instance you choose in the second procedure, manually install the agent on the instance before it can be used with Systems Manager\.
 
 SSM Agent is installed by default on the following AMIs:
 + Amazon Linux
@@ -22,7 +22,7 @@ SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. 
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
-A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any AMI\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, you must install the certificate yourself\. For more information, see [Install a TLS certificate on and VMs on\-premises servers](hybrid-tls-certificate.md)\.
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any AMI\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, install the certificate yourself\. For more information, see [Install a TLS certificate on and VMs on\-premises servers](hybrid-tls-certificate.md)\.
 
 **Topics**
 + [Launch an instance that uses the Systems Manager instance profile \(console\)](#setup-launch-managed-instance-new)
@@ -50,7 +50,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 1. Complete the wizard\.
 
-If you create other instances that you want to configure using Systems Manager, you must specify the instance profile for each instance\.
+If you create other instances that you want to configure using Systems Manager, specify the instance profile for each instance\.
 
 ## Attach the Systems Manager instance profile to an existing instance \(console\)<a name="setup-launch-managed-instance-existing"></a>
 

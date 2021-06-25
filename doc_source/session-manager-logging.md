@@ -18,7 +18,7 @@ Session Manager logs the commands you enter and their output during a session de
   $Passwd = Read-Host -AsSecureString
   ```
 If you're using Windows Server 2012 or earlier, the data in your logs might not be formatted optimally\. We recommend using Windows Server 2012 R2 and later for optimal log formats\.
-If you're using Linux or macOS instances, ensure that the screen utility is installed\. If it's not, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
+If you're using Linux or macOS instances, ensure that the screen utility is installed\. If it isn't, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
 Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
@@ -35,7 +35,7 @@ Refer to the following topics for more information about logging options for Ses
 You can send a continuous stream of session data logs to Amazon CloudWatch Logs\. Essential details, such as the commands a user has run in a session, the ID of the user who ran the commands, and timestamps for when the session data is streamed to CloudWatch Logs, are included when streaming session data\. When streaming session data, the logs are JSON\-formatted to help you integrate with your existing logging solutions\. Streaming session data isn't supported for interactive commands\.
 
 **Note**  
-To stream session data from Windows Server instances, you must have PowerShell 5\.1 or later installed\. By default, Windows Server 2016 and later have the required PowerShell version installed\. However, Windows Server 2012 and 2012 R2 don't have the required PowerShell version installed by default\. If you have not already updated PowerShell on your Windows Server 2012 or 2012 R2 instances, you can do so using Run Command\. For information on updating PowerShell using Run Command, see [Update PowerShell using Run Command](rc-console.md#rc-console-pwshexample)\.
+To stream session data from Windows Server instances, you must have PowerShell 5\.1 or later installed\. By default, Windows Server 2016 and later have the required PowerShell version installed\. However, Windows Server 2012 and 2012 R2 don't have the required PowerShell version installed by default\. If you haven't already updated PowerShell on your Windows Server 2012 or 2012 R2 instances, you can do so using Run Command\. For information on updating PowerShell using Run Command, see [Update PowerShell using Run Command](rc-console.md#rc-console-pwshexample)\.
 
 **Important**  
 If you have the **PowerShell Transcription** policy setting configured on your Windows Server instances, you won't be able to stream session data\.
@@ -71,7 +71,7 @@ When you use virtual hosted–style buckets with Secure Sockets Layer \(SSL\), t
 In order to send logs to your Amazon S3 bucket with encryption, encryption must be enabled on the bucket\. For more information about Amazon S3 bucket encryption, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html)\.
 
 **Customer\-managed key**  
-If you're using a KMS key that you manage yourself to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the key\. If you use an AWS managed key, the instance does not require this explicit permission\. For more information about providing the instance profile with access to use the key, see [Allows Key Users to Use the key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
+If you're using a KMS key that you manage yourself to encrypt your bucket, then the IAM instance profile attached to your instances must have explicit permissions to read the key\. If you use an AWS managed key, the instance doesn't require this explicit permission\. For more information about providing the instance profile with access to use the key, see [Allows Key Users to Use the key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS Key Management Service Developer Guide*\.
 
 Follow these steps to configure Session Manager to store session logs in an Amazon S3 bucket\.
 

@@ -1,19 +1,24 @@
 # Step 1: Install or upgrade AWS command line tools<a name="getting-started-cli"></a>
 
-This topic is for users who have *programmatic access* to use AWS Systems Manager \(or any other AWS service\), and who want to run AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell commands from their local machines\. 
+This topic is for users who have *programmatic access* to use AWS Systems Manager \(or any other AWS service\), and who want to run AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell commands from their local machines\. \(Programmatic access and *console access* are different permissions that can be granted to a user account by an AWS account administrator\. A user can be granted one or both access types\. For information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.\)
 
-**Note**  
-Programmatic access and *console access* are different permissions that can be granted to a user account by an AWS account administrator\. A user can be granted one or both access types\. For information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+**Tip**  
+As an alternative to running commands from your local machine, you can use AWS CloudShell\. CloudShell is a browser\-based, pre\-authenticated shell that you can launch directly from the AWS Management Console\. You can run AWS CLI commands against AWS services using your preferred shell \(Bash, PowerShell, or Z shell\)\. And you can do this without needing to download or install command line tools\. For more information, see the [https://docs.aws.amazon.com/cloudshell/latest/userguide/](https://docs.aws.amazon.com/cloudshell/latest/userguide/)\.
 
-For information about the AWS CLI, see the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)*\. For information about the Tools for Windows PowerShell, see the *[AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)*\.
+**Topics**
++ [Installing or upgrading and then configuring the AWS CLI](#getting-started-aws-cli)
++ [Installing or upgrading and then configuring the AWS Tools for PowerShell](#getting-started-twp)
 
-For information about all Systems Manager commands you can run using the AWS CLI, see [the Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\. For information about all Systems Manager commands you can run using the AWS Tools for PowerShell, see [the Systems Manager section of the *AWS Tools for PowerShell Cmdlet Reference*](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)\.
+## Installing or upgrading and then configuring the AWS CLI<a name="getting-started-aws-cli"></a>
+
+The AWS CLI is an open source tool that enables you to interact with AWS services using commands in your command\-line shell\. With minimal configuration, the AWS CLI enables you to start running commands that implement functionality equivalent to that provided by the browser\-based AWS Management Console from the command prompt in your terminal program\.
+
+For more information about the AWS CLI, see the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)*\.
+
+For information about all Systems Manager commands you can run using the AWS CLI, see [the Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
 **Important**  
-Beginning January 10th, 2020, AWS CLI version 1\.17 and later will no longer support Python 2\.6 or Python 3\.3\. After this date, the installer for the AWS CLI will require Python 2\.7, Python 3\.4, or a later version to successfully install the AWS CLI\. For more information, see [Using the AWS CLI version 1 with Python 2\.6 or Python 3\.3](https://docs.aws.amazon.com/cli/latest/userguide/deprecate-python-26-33.html) in the *IAM User Guide*\.
-
-------
-#### [ AWS CLI ]
+As of January 10th, 2020, AWS CLI version 1\.17 and later no longer support Python 2\.6 or Python 3\.3\. Since that date, the installer for the AWS CLI requires Python 2\.7, Python 3\.4, or a later version\. For more information, see [Using the AWS CLI version 1 with Python 2\.6 or Python 3\.3](https://docs.aws.amazon.com/cli/latest/userguide/deprecate-python-26-33.html) in the *IAM User Guide*\.
 
 **To install or upgrade and then configure the AWS CLI**
 
@@ -42,8 +47,13 @@ When you configure the AWS CLI, you're prompted to specify an AWS Region\. Choos
 
    If successful, this command displays a list of available Systems Manager commands\.
 
-------
-#### [ AWS Tools for PowerShell ]
+## Installing or upgrading and then configuring the AWS Tools for PowerShell<a name="getting-started-twp"></a>
+
+The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell enable you to script operations on your AWS resources from the PowerShell command line\. The cmdlets provide an idiomatic PowerShell experience for specifying parameters and handling results even though they are implemented using the various AWS service HTTP query APIs\.
+
+ For information about the Tools for Windows PowerShell, see the *[AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)*\.
+
+ For information about all Systems Manager commands you can run using the AWS Tools for PowerShell, see [the Systems Manager section of the *AWS Tools for PowerShell Cmdlet Reference*](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)\.
 
 **To install or upgrade and then configure the AWS Tools for PowerShell**
 
@@ -73,5 +83,3 @@ When you configure Tools for PowerShell, you can run `Set-DefaultAWSRegion` to s
    ```
 
    If successful, this command displays a list of available Systems Manager cmdlets\.
-
-------

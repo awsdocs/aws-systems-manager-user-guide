@@ -105,7 +105,7 @@ To install or reinstall SSM Agent on an EC2 instance, see the following topics:
 
 ## Solution 2: Verify that an IAM instance role has been specified for the instance<a name="instances-missing-solution-2"></a>
 
-Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that enables the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that enables your account to communicate with the Systems Manager API\.
+Verify that the instance is configured with an AWS Identity and Access Management \(IAM\) role that allows the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that allows your account to communicate with the Systems Manager API\.
 
 **To determine whether an instance profile with the necessary permissions is attached to the instance**
 
@@ -138,7 +138,7 @@ Verify that the instance is configured with an AWS Identity and Access Managemen
 
 Verify that the instance has connectivity to the Systems Manager service endpoints\. This connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by allowing HTTPS \(port 443\) outbound traffic to the service endpoints\. 
 
-Often, when you create an EC2 instance, the Systems Manager service endpoint for the AWS Region the instance is used to register the instance\. However, if you are using a Virtual Private Cloud \(VPC\) and the EC2 instance has been created in a private subnet, service endpoints aren't provided automatically\. You must configure interface endpoints for your VPC instead\.
+Often, when you create an EC2 instance, the Systems Manager service endpoint for the AWS Region the instance is used to register the instance\. However, if you are using a Virtual Private Cloud \(VPC\) and the EC2 instance has been created in a private subnet, service endpoints aren't provided automatically\. Configure interface endpoints for your VPC instead\.
 
 For more information, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
 

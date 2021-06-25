@@ -47,7 +47,7 @@ After you complete Integrated Setup, you must configure IAM user, group, or role
 **Before You Begin**  
 OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create IAM users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
 
-Explorer and OpsCenter use the following API actions\. You can use all features of Explorer and OpsCenter if your IAM user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
+Explorer and OpsCenter use the following API operations\. You can use all features of Explorer and OpsCenter if your IAM user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
 +  [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) 
 +  [CreateResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateResourceDataSync.html) 
 +  [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) 
@@ -89,7 +89,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 
 1. Choose the **Permissions** tab\.
 
-1. On the right side of the page, under **Permission policies**, choose **Add inline policy**\. 
+1. Choose **Add inline policy**\. 
 
 1. Choose the **JSON** tab\.
 
@@ -138,8 +138,8 @@ You can also restrict access to OpsItems by using an inline IAM policy that spec
         "One_or_more_OpsItem_API_actions"
              ],
       "Resource": "*"
-	  ,
-	  "Condition": { "StringEquals": { "ssm:resourceTag/tag_key": "tag_value" } }
+      ,
+      "Condition": { "StringEquals": { "ssm:resourceTag/tag_key": "tag_value" } }
     }
   ]
 }
@@ -157,8 +157,8 @@ Here is an example that specifies a tag key of *Department* and a tag value of *
         "ssm:GetOpsItem"
              ],
       "Resource": "*"
-	  ,
-	  "Condition": { "StringEquals": { "ssm:resourceTag/Department": "Finance" } }
+      ,
+      "Condition": { "StringEquals": { "ssm:resourceTag/Department": "Finance" } }
     }
   ]
 }

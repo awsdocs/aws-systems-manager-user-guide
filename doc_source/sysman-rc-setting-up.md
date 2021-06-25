@@ -1,8 +1,8 @@
 # Setting up Run Command<a name="sysman-rc-setting-up"></a>
 
-Before you can manage instances by using Run Command, a capability of AWS Systems Manager, you must configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
+Before you can manage instances by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
 
-You must also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
+Also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
 
 We also strongly recommend completing the following optional setup tasks to help minimize the security posture and day\-to\-day management of your instances\.
 
@@ -52,7 +52,7 @@ You can restrict command execution to specific instances by creating an IAM user
 }
 ```
 
-You can create IAM policies that enable a user to run commands on instances that are tagged with multiple tags\. The following policy enables the user to run commands on instances that have two tags\. If a user sends a command to an instance that isn't tagged with both of these tags, the execution results show `AccessDenied`\.
+You can create IAM policies that allow a user to run commands on instances that are tagged with multiple tags\. The following policy alows the user to run commands on instances that have two tags\. If a user sends a command to an instance that isn't tagged with both of these tags, the execution results show `AccessDenied`\.
 
 ```
 {
@@ -99,7 +99,7 @@ You can create IAM policies that enable a user to run commands on instances that
 }
 ```
 
-You can also create IAM policies that enables a user to run commands on multiple groups of tagged instances\. The following policy enables the user to run commands on either group of tagged instances, or both groups\.
+You can also create IAM policies that allows a user to run commands on multiple groups of tagged instances\. The following policy allows the user to run commands on either group of tagged instances, or both groups\.
 
 ```
 {

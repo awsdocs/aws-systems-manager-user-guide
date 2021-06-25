@@ -55,7 +55,7 @@ Unable to load and extract the content of payload, abort.failed to run commands:
 12/20/2019 21:41:48 root [INFO]: another process has acquired yum lock, waiting 2 s and retry.
 ```
 
-**Cause**: The `AWS-RunPatchBaseline` document has started running on an instance where it is already running in another operation and and has acquired the package manager `yum` process\.
+**Cause**: The `AWS-RunPatchBaseline` document has started running on an instance where it's already running in another operation and and has acquired the package manager `yum` process\.
 
 **Solution**: Ensure that no State Manager association, maintenance window tasks, or other configurations that run `AWS-RunPatchBaseline` on a schedule\) are targeting the same instance around the same time\.
 
@@ -71,7 +71,7 @@ failed to run commands: exit status 126
 
 **Cause**: `/var/lib/amazon/` might be mounted with `noexec` permissions\. This is an issue because SSM Agent downloads payload scripts to `/var/lib/amazon/ssm` and runs them from that location\.
 
-**Solution**: Ensure that you have have configured exclusive partitions to `/var/log/amazon` and `/var/lib/amazon`, and that they are mounted with `exec` permissions\.
+**Solution**: Ensure that you have have configured exclusive partitions to `/var/log/amazon` and `/var/lib/amazon`, and that they're mounted with `exec` permissions\.
 
 ### Issue: 'Unable to download payload' error<a name="patch-manager-troubleshooting-linux-4"></a>
 
@@ -81,7 +81,7 @@ failed to run commands: exit status 126
 Unable to download payload: https://s3.DOC-EXAMPLE-BUCKET.region.amazonaws.com/aws-ssm-region/patchbaselineoperations/linux/payloads/patch-baseline-operations-X.XX.tar.gz.failed to run commands: exit status 156
 ```
 
-**Cause**: The instance does not have the required permissions to access the specified Amazon Simple Storage Service \(Amazon S3\) bucket\.
+**Cause**: The instance doesn't have the required permissions to access the specified Amazon Simple Storage Service \(Amazon S3\) bucket\.
 
 **Solution**: Update your network configuration so that S3 endpoints are reachable\. For more details, see information about required access to S3 buckets for Patch Manager in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
 
@@ -94,15 +94,15 @@ An unsupported package manager and python version combination was found. Apt req
 failed to run commands: exit status 1
 ```
 
-**Cause**: python3 is not installed on the Ubuntu Server or Debian Server instance\.
+**Cause**: python3 isn't installed on the Ubuntu Server or Debian Server instance\.
 
 **Solution**: Install python3 on the server, which is required for Ubuntu Server or Debian Server instances\.
 
 ### Issue: Patch Manager isn't applying rules specified to exclude certain packages<a name="patch-manager-troubleshooting-linux-6"></a>
 
-**Problem**: You have attempted to exclude certain packages by specifying them in the `/etc/yum.conf` file, in the format `exclude=package-name`, but they are not excluded during the Patch Manager `Install` operation\.
+**Problem**: You have attempted to exclude certain packages by specifying them in the `/etc/yum.conf` file, in the format `exclude=package-name`, but they aren't excluded during the Patch Manager `Install` operation\.
 
-**Cause**: Patch Manager does not incorporate exclusions specified in the `/etc/yum.conf` file\.
+**Cause**: Patch Manager doesn't incorporate exclusions specified in the `/etc/yum.conf` file\.
 
 **Solution**: To exclude specific packages, create a custom patch baseline and create a rule to exclude the packages you don't want installed\.
 
@@ -119,7 +119,7 @@ to solve this.
 For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
 ```
 
-**Cause**: This message doesn't indicate an error\. Instead, it is a warning that the older version of Python distributed with the operating system doesn't support TLS Server Name Indication\. The Systems Manager patch payload script issues this warning when connecting to AWS APIs that support SNI\.
+**Cause**: This message doesn't indicate an error\. Instead, it's a warning that the older version of Python distributed with the operating system doesn't support TLS Server Name Indication\. The Systems Manager patch payload script issues this warning when connecting to AWS APIs that support SNI\.
 
 **Solution**: To troubleshoot any patching failures when this message is reported, review the contents of the `stdout` and `stderr` files\. If you haven't configured the patch baseline to store these files in an Amazon S3 bucket or in Amazon CloudWatch Logs, you can locate the files in the following location on your Linux instance\. 
 
@@ -312,7 +312,7 @@ failed to run commands: exit status 4294967295
 
 Below are some common causes and their solutions\.
 
-**Cause 1**: The baseline is not effective\.
+**Cause 1**: The baseline isn't effective\.
 
 **Solution 1**: To check if this is the cause, use the following procedure\.
 
@@ -354,7 +354,7 @@ Below are some common causes and their solutions\.
 
 **Cause 3**: The same patch might have different KB numbers because the WSUS and Window online updates are handled as independent Release Channels by Microsoft\.
 
-**Solution 3**: Check the patch eligibility\. If the package is not available under WSUS, install [OS Build 14393\.3115](https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57)\. If the package is available for all operating system builds, install [OS Builds 18362\.1256 and 18363\.1256](https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9)\.
+**Solution 3**: Check the patch eligibility\. If the package isn't available under WSUS, install [OS Build 14393\.3115](https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57)\. If the package is available for all operating system builds, install [OS Builds 18362\.1256 and 18363\.1256](https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9)\.
 
 ## Contacting AWS Support<a name="patch-manager-troubleshooting-contact-support"></a>
 

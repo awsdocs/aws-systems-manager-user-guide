@@ -50,7 +50,7 @@ For information about canceling a command, see [Canceling a command](rc-cancel.m
 ## Rerunning commands<a name="run-command-rerun"></a>
 
 Systems Manager includes two options to help you rerun a command from the **Run Command** page in the Systems Manager console\. 
-+ **Rerun**: This button enables you to run the same command without making changes to it\.
++ **Rerun**: This button allows you to run the same command without making changes to it\.
 + **Copy to new**: This button copies the settings of one command to a new command and gives you the option to edit those settings before you run it\.
 
 **To rerun a command**
@@ -94,7 +94,7 @@ To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Note
 
    1. \(Optional\) For **Version**, enter the version of SSM Agent to install\. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) of the agent\. If you don't specify a version, the service installs the latest version\.
 
-   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, you must specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
+   1. \(Optional\) For **Allow Downgrade**, choose **true** to install an earlier version of SSM Agent\. If you choose this option, specify the [earlier](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) version number\. Choose **false** to install only the newest version of the service\.
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  

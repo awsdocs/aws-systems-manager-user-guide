@@ -121,7 +121,7 @@ On Oracle Linux, the patch selection process is as follows:
 
 1. On the instance, the YUM library accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
-The `updateinfo.xml` file might not be available if the repo is not one managed by Oracle\. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
+The `updateinfo.xml` file might not be available if the repo isn't one managed by Oracle\. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 
 1. Each update notice in `updateinfo.xml` includes several attributes that denote the properties of the packages in the notice, as described in the following table\.  
 **Update notice attributes**    

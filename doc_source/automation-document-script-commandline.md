@@ -62,7 +62,7 @@ New-SSMDocument `
 ------
 
 **Attach files from an S3 bucket**  
-Run the following command to create a runbook using a script or multiple script files stored in an S3 bucket\. A `Name` key for files is not specified\. The command attaches all supported files from the S3 bucket location\.
+Run the following command to create a runbook using a script or multiple script files stored in an S3 bucket\. A `Name` key for files isn't specified\. The command attaches all supported files from the S3 bucket location\.
 
 ------
 #### [ Linux & macOS ]

@@ -17,7 +17,7 @@ The following list includes important information about Explorer delegated admin
 + You can delegate only one account for Explorer administration\.
 + The account ID that you specify as an Explorer delegated administrator must be listed as a member account in AWS Organizations\. For more information, see [Creating an AWS account in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html) in the *AWS Organizations User Guide*\.
 + A delegated administrator can use all Explorer resource data sync API operations in the console or by using programmatic tools such as the SDK, the AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\. Resource data sync API operations include the following: [CreateResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateResourceDataSync.html), [DeleteResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteResourceDataSync.html), [ListResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListResourceDataSync.html), and [UpdateResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateResourceDataSync.html)\.
-+ A delegated administrator can search, filter, and aggregate Explorer data in the console or by using programmatic tools such as the SDK, the AWS CLI, or AWS Tools for Windows PowerShell\. Search, filter, and data aggregation use the [GetOpsSummary](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html) API action\.
++ A delegated administrator can search, filter, and aggregate Explorer data in the console or by using programmatic tools such as the SDK, the AWS CLI, or AWS Tools for Windows PowerShell\. Search, filter, and data aggregation use the [GetOpsSummary](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsSummary.html) API operation\.
 + Resource data syncs created by a delegated administrator are only available in the delegated administrator account\. You can't view the syncs or the aggregated data in the AWS Organizations management account\.
 + A delegated administrator can create a maximum of five resource data syncs\.
 + A delegated administrator can create a resource data sync for either an entire organization in AWS Organizations or a subset of organizational units\.
@@ -62,4 +62,4 @@ Use the following procedure to deregister an Explorer delegated administrator\. 
 
 1. Enter the account ID and choose **Remove**\.
 
-The account no longer has access to the AWS Organizations resource data sync API actions\. The system deletes all AWS Organizations resource data syncs created by the account\.
+The account no longer has access to the AWS Organizations resource data sync API operations\. The system deletes all AWS Organizations resource data syncs created by the account\.

@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run MOF files<a name="systems-manager-state-manager-using-mof-file"></a>
 
-You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the `AWS-ApplyDSCMofs` SSM document\. The `AWS-ApplyDSCMofs` document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The `AWS-ApplyDSCMofs` document enables you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
+You can run Managed Object Format \(MOF\) files to enforce a desired state on Windows Server managed instances with State Manager, a capability of AWS Systems Manager, by using the `AWS-ApplyDSCMofs` SSM document\. The `AWS-ApplyDSCMofs` document has two execution modes\. With the first mode, you can configure the association to scan and report if the managed instances are in the desired state defined in the specified MOF files\. In the second mode, you can run the MOF files and change the configuration of your instances based on the resources and their values defined in the MOF files\. The `AWS-ApplyDSCMofs` document allows you to download and run MOF configuration files from Amazon Simple Storage Service \(Amazon S3\), a local share, or from a secure website with an HTTPS domain\.
 
 State Manager logs and reports the status of each MOF file execution during each association run\. State Manager also reports the output of each MOF file execution as a compliance event which you can view on the [AWS Systems Manager Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
@@ -25,7 +25,7 @@ If you're using Amazon S3 to store PowerShell modules, MOF files, compliance rep
 
 ## Resolving credentials in MOF files<a name="systems-manager-state-manager-using-mof-file-credentials"></a>
 
-Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also enables DSC to automatically propagate credentials to your servers without redeploying MOFs\.
+Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also allows DSC to automatically propagate credentials to your servers without redeploying MOFs\.
 
 To use an AWS Secrets Manager secret in a configuration, create a PSCredential object where the Username is the SecretId or SecretARN of the secret containing the credential\. You can specify any value for the password\. The value is ignored\. Following is an example\.
 
@@ -204,11 +204,11 @@ You can prefix the bucket name with a Region where the bucket is located\. Here'
 
    1. **Turn on Verbose Logging**: \(Optional\) We recommend that you turn on verbose logging when deploying MOF files for the first time\.
 **Important**  
-When enabled, verbose logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
+When allowed, verbose logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
    1. **Turn on Debug Logging**: \(Optional\) We recommend that you turn on debug logging to troubleshoot MOF failures\. We also recommend that you deactivate this option for normal use\.
 **Important**  
-When enabled, debug logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
+When allowed, debug logging writes more data to your Amazon S3 bucket than standard association execution logging\. This might result in slower performance and higher storage charges for Amazon S3\. To mitigate storage size issues, we recommend that you turn on lifecycle policies on your Amazon S3 bucket\. For more information, see [How Do I Create a Lifecycle Policy for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-lifecycle.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
    1. **Compliance Type**: \(Optional\) Specify the compliance type to use when reporting compliance information\. The default compliance type is **Custom:DSC**\. If you create multiple associations that run MOF files, then be sure to specify a different compliance type for each association\. If you don't, each additional association that uses **Custom:DSC** overwrites the existing compliance data\.
 
@@ -250,7 +250,7 @@ The `AWS-ApplyDSCMofs` is a Systems Manager Command document\. This means that y
 
 This section includes information to help you troubleshoot issues creating associations that run MOF files\.
 
-**Enable enhanced logging**  
+**Turn on enhanced logging**  
 As a first step to troubleshooting, turn on enhanced logging\. More specifically, do the following:
 
 1. Verify that the association is configured to write command output to either Amazon S3 or Amazon CloudWatch Logs \(CloudWatch\)\.
@@ -259,7 +259,7 @@ As a first step to troubleshooting, turn on enhanced logging\. More specifically
 
 1. Set the **Enable Debug Logging** parameter to True\.
 
-With verbose and debug logging enabled, the **Stdout** output file includes details about the script execution\. This output file can help you identify where the script failed\. The **Stderr** output file contains errors that occurred during the script execution\. 
+With verbose and debug logging turned on, the **Stdout** output file includes details about the script execution\. This output file can help you identify where the script failed\. The **Stderr** output file contains errors that occurred during the script execution\. 
 
 ### Common problems<a name="systems-manager-state-manager-using-mof-file-troubleshooting-common"></a>
 

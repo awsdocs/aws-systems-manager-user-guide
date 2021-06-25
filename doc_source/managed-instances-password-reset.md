@@ -16,7 +16,7 @@ Session Manager support for on\-premises servers is provided for the advanced\-i
 You can limit a user's ability to reset passwords to specific instances\. This is done by using identity\-based policies for the Session Manager `ssm:StartSession` operation with the `AWS-PasswordReset` SSM document\. For more information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 **Encrypting data**  
-You must turn on AWS Key Management Service \(AWS KMS\) complete encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+Turn on AWS Key Management Service \(AWS KMS\) complete encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 ## Reset a password on a managed instance<a name="managed-instance-reset-a-password"></a>
 
@@ -92,7 +92,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### Instance not available<a name="password-reset-troubleshooting-instances"></a>
 
 **Problem**: You want to reset the password for an EC2 instance on the **Managed instances** console page, but the instance isn't in the list\.
-+ **Solution**: The instance you want to connect to might not be configured to use with the Systems Manager service\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, you must create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
++ **Solution**: The instance you want to connect to might not be configured to use with the Systems Manager service\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
 
 ### SSM Agent not up\-to\-date \(console\)<a name="password-reset-troubleshooting-ssmagent-console"></a>
 

@@ -14,6 +14,7 @@ Before you manually install SSM Agent on a macOS operating system, review the fo
 + SSM Agent is installed by default on the following EC2 instances and Amazon Machine Images:
   + macOS 10\.14\.x \(Mojave\)
   + macOS 10\.15\.x \(Catalina\)
+  + macOS 11\.x \(BigSur\)
 
   SSM Agent doesn't need to be manually installed on macOS EC2 instances unless it has been uninstalled\.
 + Systems Manager doesn't support macOS in hybrid environments\.

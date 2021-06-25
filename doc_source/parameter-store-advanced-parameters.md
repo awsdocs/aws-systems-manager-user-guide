@@ -4,7 +4,7 @@ Parameter Store, a capability of AWS Systems Manager, includes *standard paramet
 
 You can change a standard parameter to an advanced parameter at any time, but you can’t revert an advanced parameter to a standard parameter\. Reverting an advanced parameter to a standard parameter would result in data loss because the system would truncate the size of the parameter from 8 KB to 4 KB\. Reverting would also remove any policies attached to the parameter\. Also, advanced parameters use a different form of encryption than standard parameters\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
 
-If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, you must delete it and recreate it as a new standard parameter\. 
+If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, delete it and recreate it as a new standard parameter\. 
 
 The following table describes the differences between the tiers\.
 
@@ -26,6 +26,9 @@ The following table describes the differences between the tiers\.
 
 In requests to create or update a parameter \(that is, the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` operation\), you can specify the parameter tier to use in the request\. The following is an example, using the AWS Command Line Interface \(AWS CLI\)\.
 
+------
+#### [ Linux & macOS ]
+
 ```
 aws ssm put-parameter \
     --name "default-ami" \
@@ -33,6 +36,19 @@ aws ssm put-parameter \
     --value "t2.micro" \
     --tier "Standard"
 ```
+
+------
+#### [ Windows ]
+
+```
+aws ssm put-parameter ^
+    --name "default-ami" ^
+    --type "String" ^
+    --value "t2.micro" ^
+    --tier "Standard"
+```
+
+------
 
 Whenever you specify a tier in the request, Parameter Store creates or updates the parameter according to your request\. However, if you don't explicitly specify a tier in a request, the Parameter Store default tier setting determines which tier the parameter is created in\.
 
@@ -80,7 +96,7 @@ Verify that you have permission in AWS Identity and Access Management \(IAM\) to
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user account\. This policy enables a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\. 
+Use the following procedure to add an inline IAM policy to a user account\. This policy allows a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\. 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

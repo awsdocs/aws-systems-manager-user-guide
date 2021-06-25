@@ -12,7 +12,7 @@ Follow these steps to embed Session Manager permissions in an existing AWS Ident
 
 1. Choose the **Permissions** tab\.
 
-1. Scroll to the bottom of the page and choose **Add inline policy**\. 
+1. Choose **Add inline policy**\. 
 
 1. Choose the **JSON** tab\.
 

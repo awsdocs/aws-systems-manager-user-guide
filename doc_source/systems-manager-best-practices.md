@@ -56,7 +56,7 @@ For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Manage
 + For information about the differences between State Manager and Maintenance Windows, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md)\.
 
 **[Managed Instances](managed_instances.md)**
-+ Systems Manager requires accurate time references to perform its operations\. If your instance's date and time aren't set correctly, they migth not match the signature date of your API requests\. This might lead to errors or incomplete functionality\. For example, instances with incorrect time settings won't be included in your lists of managed instances\.
++ Systems Manager requires accurate time references to perform its operations\. If your instance's date and time aren't set correctly, they might not match the signature date of your API requests\. This might lead to errors or incomplete functionality\. For example, instances with incorrect time settings won't be included in your lists of managed instances\.
 
   For information about setting the time on your instances, see the following topics: 
   +  [Setting the Time for Your Linux Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)

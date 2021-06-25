@@ -27,9 +27,13 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Change Manager**\.
 
-1. On the service home page, do one of the following:
+1. On the service home page, depending on the available options, do one of the following:
    + If you're using Change Manager with AWS Organizations , choose **Set up delegated account**\.
    + If you're using Change Manager with a single AWS account, choose **Set up Change Manager**\.
+
+     \-or\-
+
+     Choose **Create sample change request**, **Skip**, and then choose the **Settings** tab\.
 
 1. For **User identity management**, choose one of the following\.
    + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts and groups\.
@@ -67,7 +71,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1), you can designate extra reviewers for change requests during *change freeze events* and specify which available best practices you want to enable for your Change Manager operations\.
 
-A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they do not, the change won't be processed until the calendar state is again OPEN\.
+A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they don't, the change won't be processed until the calendar state is again OPEN\.
 
 **To configure Change Manager change freeze event approvers and best practices**
 

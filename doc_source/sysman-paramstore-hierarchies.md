@@ -7,7 +7,7 @@ You can use parameter hierarchies to help you organize and manage parameters\. A
 **Topics**
 + [Parameter hierarchy examples](#ps-hierarchy-examples)
 + [Querying parameters in a hierarchy](#ps-hierarchy-queries)
-+ [Restricting access to Parameter Store API actions](#ps-hierarchy-restrictions)
++ [Restricting access to Parameter Store API operations](#ps-hierarchy-restrictions)
 + [Manage parameters using hierarchies \(AWS CLI\)](#sysman-paramstore-walk-hierarchy)
 
 ## Parameter hierarchy examples<a name="ps-hierarchy-examples"></a>
@@ -69,7 +69,7 @@ To view decrypted `SecureString` parameters in a hierarchy, you specify the path
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
-## Restricting access to Parameter Store API actions<a name="ps-hierarchy-restrictions"></a>
+## Restricting access to Parameter Store API operations<a name="ps-hierarchy-restrictions"></a>
 
 Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API operations and content\.
 

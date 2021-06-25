@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run Ansible playbooks<a name="systems-manager-state-manager-ansible"></a>
 
-You can create State Manager associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. This document offers the following benefits for running playbooks:
+You can create State Manager associations that run Ansible playbooks by using the `AWS-ApplyAnsiblePlaybooks` SSM document\. State Manager is a capability of AWS Systems Manager\. This document offers the following benefits for running playbooks:
 + Support for running complex playbooks
 + Support for downloading playbooks from GitHub and Amazon Simple Storage Service \(Amazon S3\)
 + Support for compressed playbook structure
@@ -54,7 +54,7 @@ If you specify Amazon S3, then the AWS Identity and Access Management \(IAM\) in
 
 **Support for compressed playbook structure**
 
-The `AWS-ApplyAnsiblePlaybooks` document enables you to run compressed \.zip files in the downloaded bundle\. The document checks if the downloaded files contain a compressed file in \.zip format\. If a \.zip is found, the document automatically decompresses the file and then runs the specified Ansible automation\.
+The `AWS-ApplyAnsiblePlaybooks` document allows you to run compressed \.zip files in the downloaded bundle\. The document checks if the downloaded files contain a compressed file in \.zip format\. If a \.zip is found, the document automatically decompresses the file and then runs the specified Ansible automation\.
 
 **Enhanced logging**
 

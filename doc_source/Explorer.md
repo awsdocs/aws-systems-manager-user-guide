@@ -28,7 +28,7 @@ Explorer includes the following features:
 
 [Systems Manager OpsCenter](OpsCenter.md) provides a central location where operations engineers and IT professionals view, investigate, and resolve OpsItems related to AWS resources\. Explorer is a report hub where DevOps managers view aggregated summaries of their operations data, including OpsItems, across AWS Regions and accounts\. Explorer helps users discover trends and patterns and, if necessary, quickly resolve issues using Systems Manager Automation runbooks\.
 
-OpsCenter setup is now integrated with Explorer Setup\. If you already set up OpsCenter, then Explorer automatically displays operations data, including aggregated information about OpsItems\. If you have not set up OpsCenter, then you can use Explorer Setup to get started with both capabilities\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
+OpsCenter setup is now integrated with Explorer Setup\. If you already set up OpsCenter, then Explorer automatically displays operations data, including aggregated information about OpsItems\. If you haven't set up OpsCenter, then you can use Explorer Setup to get started with both capabilities\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
 
 ## What is OpsData?<a name="Explorer-learn-more-OpsData"></a>
 

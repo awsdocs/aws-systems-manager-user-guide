@@ -45,8 +45,8 @@ import (
 func main() {
     openFile, err := ioutil.ReadFile("/path/to/file/documentContent.yaml")
     if err != nil {
-		log.Fatal(err)
-	}
+        log.Fatal(err)
+    }
     documentContent := string(openFile)
     sesh := session.Must(session.NewSessionWithOptions(session.Options{
         SharedConfigState: session.SharedConfigEnable}))

@@ -20,6 +20,6 @@ You can configure an EventBridge rule to create a new OpsItem when incidents suc
 
 **Run Command examples**  
 You can configure an EventBridge rule to run a Systems Manager Command document in Run Command when events such as the following occur:
-+ When an Auto Scaling group is about to end, a Run Command script could capture the log files from the instance before it \.
-+ When a new instance is created in an Auto Scaling group, a Run Command target action could enable the web server role or install software on the instance\.
++ When an Auto Scaling group is about to end, a Run Command script could capture the log files from the instance before it is ended\.
++ When a new instance is created in an Auto Scaling group, a Run Command target action could turn on the web server role or install software on the instance\.
 + When a managed instance is found to be out of compliance, a Run Command target action could update patches on the instance by running the `AWS-RunPatchBaseline` document\.

@@ -90,6 +90,24 @@ The command does the following:
 
 The server or VM is now a managed instance\. These instances are now identified with the prefix "mi\-"\. You can view managed instances on the **Managed Instances** page in the Systems Manager console, by using the AWS CLI command [describe\-instance\-information](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-instance-information.html), or by using the API command [DescribeInstancePatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatches.html)\.
 
+## Setting up private key auto rotation<a name="ssm-agent-hybrid-private-key-rotation-windows"></a>
+
+To strengthen your security posture, you can configure AWS Systems Manager Agent \(SSM Agent\) to rotate the hybrid environment private key automatically\. You can access this feature using SSM Agent version 3\.0\.1031\.0 or later\. Turn on this feature using the procedure below\.
+
+**To configure SSM Agent to rotate the hybrid environment private key**
+
+1. Navigate to `/etc/amazon/ssm/` on a Linux machine or `C:\Program Files\Amazon\SSM` for a Windows machine\.
+
+1. Copy the contents of `amazon-ssm-agent.json.template` to a new file named `amazon-ssm-agent.json`\. Save `amazon-ssm-agent.json` in the same folder where `amazon-ssm-agent.json.template` is located\.
+
+1. Find `Profile`, `KeyAutoRotateDays`\. Enter the number of days that you want between automatic private key rotations\. 
+
+1. Restart SSM Agent\.
+
+Every time you change the configuration, restart SSM Agent\.
+
+You can customize other features of SSM Agent using the same procedure\. For an up\-to\-date list of the available configuration properties and their default values, see [Config Property Definitions](https://github.com/aws/amazon-ssm-agent#config-property-definitions)\. 
+
 ## Deregister and reregister a managed instance<a name="systems-manager-install-managed-win-deregister-reregister"></a>
 
 You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API operation from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:

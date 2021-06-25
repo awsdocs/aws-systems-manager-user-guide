@@ -1,6 +1,6 @@
 # Walkthrough: Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
 
-You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSM document\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
+You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSM document\. State Manager is a capability of AWS Systems Manager\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
 + Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
 + Automatically installs the Chef client software on target instances\.
 + Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
@@ -22,7 +22,7 @@ Though AWS can't officially support cookbooks on the [Chef Supermarket](https://
 + The cookbook should be valid for the Chef client version \(Chef 11 through Chef 14\) that you use\.
 + The cookbook is compatible with Chef Infra Client, and, doesn't require a Chef server\.
 
-Verify that you can reach the Chef\.io website, so that any cookbooks you specify in your run list can be installed when the Systems Manager document runs\. Using a nested `cookbooks` folder is supported, but not required; you can store cookbooks directly under the root level\.
+Verify that you can reach the Chef\.io website, so that any cookbooks you specify in your run list can be installed when the Systems Manager document \(SSM document\) runs\. Using a nested `cookbooks` folder is supported, but not required; you can store cookbooks directly under the root level\.
 
 ```
 <Top-level directory, or the top level of the archive file (ZIP or tgz or tar.gz)>
@@ -42,7 +42,7 @@ Systems Manager can deliver compliance reports to an S3 bucket, the Systems Mana
 
 ### Logging the document run<a name="state-manager-chef-logging"></a>
 
-When you run a Systems Manager document by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs \(CloudWatch Logs\)\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an Amazon S3 bucket or CloudWatch Logs\. For more information, see [Creating associations](sysman-state-assoc.md)\.
+When you run a Systems Manager document \(SSM document\) by using a State Manager association, you can configure the association to choose the output of the document run, and you can send the output to Amazon S3 or Amazon CloudWatch Logs \(CloudWatch Logs\)\. To help ease troubleshooting when an association has finished running, verify that the association is configured to write command output to either an Amazon S3 bucket or CloudWatch Logs\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 
 ## Use GitHub as a cookbook source<a name="state-manager-chef-github"></a>
 

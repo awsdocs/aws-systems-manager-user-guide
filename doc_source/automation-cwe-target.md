@@ -28,7 +28,7 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 
    For information about creating EventBridge rules, see [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Target**, choose **SSM Automation**\. 
 
@@ -89,7 +89,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates an EventBridge event rule that triggers every day at 9:00 AM \(UTC\)\.
+   The following example creates an EventBridge event rule that starts every day at 9:00 AM \(UTC\)\.
 
 ------
 #### [ Linux & macOS ]
@@ -151,7 +151,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   The following example creates an EventBridge event rule that triggers when any EC2 instance in the Region changes state\.
+   The following example creates an EventBridge event rule that starts when any EC2 instance in the Region changes state\.
 
 ------
 #### [ Linux & macOS ]

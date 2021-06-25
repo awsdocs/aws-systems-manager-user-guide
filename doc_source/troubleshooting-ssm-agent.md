@@ -14,7 +14,7 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## View SSM Agent log files<a name="systems-manager-ssm-agent-log-files"></a>
 
-SSM Agent logs information in the following files\. The information in these files can also help you troubleshoot problems\.
+SSM Agent logs information in the following files\. The information in these files can also help you troubleshoot problems\. For more information about SSM Agent log files, including how to enable debug logging, see [Viewing SSM Agent logs](sysman-agent-logs.md)\.
 
 **Note**  
 If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
@@ -31,7 +31,7 @@ For Linux instances, you might find more information in the `messages` file writ
 
 ## Agent log files don't rotate \(Windows\)<a name="systems-manager-ssm-agent-troubleshooting-log-rotation"></a>
 
-If you specify date\-based log file rotation in the seelog\.xml file \(on Windows Server instances\) and the logs don't rotate, then you must specify the `fullname=true` parameter\. Here is an example of a seelog\.xml configuration file with the `fullname=true` parameter specified\.
+If you specify date\-based log file rotation in the seelog\.xml file \(on Windows Server instances\) and the logs don't rotate, specify the `fullname=true` parameter\. Here is an example of a seelog\.xml configuration file with the `fullname=true` parameter specified\.
 
 ```
 <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">

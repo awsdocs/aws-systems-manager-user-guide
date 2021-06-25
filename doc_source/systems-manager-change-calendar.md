@@ -1,6 +1,6 @@
 # AWS Systems Manager Change Calendar<a name="systems-manager-change-calendar"></a>
 
-Change Calendar, a capability of AWS Systems Manager, lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) might or might not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you are creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
+Change Calendar, a capability of AWS Systems Manager, lets you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) might or might not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
 A Change Calendar entry can be one of two types:
 
@@ -8,7 +8,7 @@ A Change Calendar entry can be one of two types:
 When a calendar entry is open by default, actions can run by default, but are blocked from running during associated events\. During events, the state of a `DEFAULT_OPEN` calendar is `CLOSED`\.
 
 **`DEFAULT_CLOSED`**, or Closed by default  
-When a calendar entry is closed by default, actions that are tracking Change Calendar do not run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
+When a calendar entry is closed by default, actions that are tracking Change Calendar don't run by default, but can run during events associated with the calendar entry\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN`\.
 
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
 + Any Amazon Web Services customer who creates or runs Automation runbooks, creates change requests in Change Manager, or creates associations in State Manager\. \(Automation, Change Manager, and State Manager are all capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these three action types depending on the current state of the change calendar you associate with each one\.

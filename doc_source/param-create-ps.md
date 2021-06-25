@@ -1,9 +1,10 @@
 # Create a Systems Manager parameter \(Tools for Windows PowerShell\)<a name="param-create-ps"></a>
 
-You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. 
+You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\.
+
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
 
 **Note**  
-Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.  
 Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
@@ -97,7 +98,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
 **Important**  
-Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
 1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
 

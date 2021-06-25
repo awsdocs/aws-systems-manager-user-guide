@@ -1,6 +1,6 @@
 # Restricting access to root\-level commands through SSM Agent<a name="ssm-agent-restrict-root-level-commands"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) runs on Amazon Elastic Compute Cloud \(Amazon EC2\) instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. Because these are the highest level of system access privileges, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions\. \(In AWS, a trusted entity that can perform actions and access resources in AWS is called a *principal*\. A principal can be an account root user, an AWS Identity and Access Management \(IAM\) user, or a role\.\)
+AWS Systems Manager Agent \(SSM Agent\) runs on Amazon Elastic Compute Cloud \(Amazon EC2\) instances using root permissions \(Linux\) or SYSTEM permissions \(Windows Server\)\. Because these are the highest level of system access permissions, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions\. \(In AWS, a trusted entity that can perform actions and access resources in AWS is called a *principal*\. A principal can be an account root user, an AWS Identity and Access Management \(IAM\) user, or a role\.\)
 
 This level of access is required for a principal to send authorized Systems Manager commands to SSM Agent, but also makes it possible for a principal to run malicious code by exploiting any potential vulnerabilities in SSM Agent\. 
 
@@ -8,7 +8,7 @@ In particular, permissions to run the commands [SendCommand](https://docs.aws.am
 
 For example, say you have two fleets of instances, one for testing, one for production\. In the IAM policy applied to junior engineers, you specify that they can run commands only on instances tagged with `ssm:resourceTag/testServer`\. But, for a smaller group of lead engineers, who should have access to all instances, you grant access to instances tagged with both `ssm:resourceTag/testServer` and `ssm:resourceTag/productionServer`\.
 
-Using this approach, if junior engineers attempt to run a command on a production instance, they will be denied access because their assigned IAM policy does not provide explicit access to instances tagged with `ssm:resourceTag/productionServer`\.
+Using this approach, if junior engineers attempt to run a command on a production instance, they will be denied access because their assigned IAM policy doesn't provide explicit access to instances tagged with `ssm:resourceTag/productionServer`\.
 
 For more information and examples, see the following topics:
 + [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)

@@ -1,6 +1,6 @@
 # `aws:executeAwsApi` – Call and run AWS API operations<a name="automation-action-executeAwsApi"></a>
 
-Calls and runs AWS API operations\. Most API operations are supported, although not all API actions have been tested\. For example, the following API operations are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html)\. Streaming API operations, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
+Calls and runs AWS API operations\. Most API operations are supported, although not all API operations have been tested\. For example, the following API operations are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html)\. Streaming API operations, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) operation, aren't supported\. For more information and examples of how to use this operation, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
 **Inputs**  
 Inputs are defined by the API operation that you choose\. 
@@ -78,7 +78,7 @@ Type: Determined by chosen API operation
 Required: Yes
 
 **Outputs**  
-Outputs are specified by the user based on the response from the chosen API action\.
+Outputs are specified by the user based on the response from the chosen API operation\.
 
 Name  
 A name for the output\.  

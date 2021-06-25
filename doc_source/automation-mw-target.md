@@ -46,10 +46,10 @@ In many cases, you don't need to explicitly specify a target for an automation t
 
 1. \(Optional\) For **Rate control**:
 **Note**  
-If the task you're running doesn't specify targets, you do not need to specify rate controls\.
+If the task you're running doesn't specify targets, you don;t need to specify rate controls\.
    + For **Concurrency**, specify either a number or a percentage of targets on which to run the automation at the same time\.
 
-     If you selected targets by choosing tag key\-value pairs, and you're not certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
+     If you selected targets by choosing tag key\-value pairs, and you aren't certain how many targets use the selected tags, then limit the number of automations that can run at the same time by specifying a percentage\.
 
      When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.

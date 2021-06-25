@@ -13,7 +13,7 @@ This topic includes information about how to troubleshoot common errors or probl
 
 ## Multiple apply all associations with document '`AWS-GatherSoftwareInventory`' are not supported<a name="systems-manager-inventory-troubleshooting-multiple"></a>
 
-An error that `Multiple apply all associations with document 'AWS-GatherSoftwareInventory' aren't supported` means that one or more AWS Regions where you're trying to configure an Inventory association *for all instances* are already configured with an inventory association for all instances\. If necessary, you can delete the existing inventory association for all instance and then create a new one\. To view existing inventory associations, choose **State Manager** in the Systems Manager console and then locate associations that use the `AWS-GatherSoftwareInventory` SSM document\. If the existing inventory association for all instances was created across multiple Regions, and you want to create a new one, you must delete the existing association from each Region where it exists\.
+An error that `Multiple apply all associations with document 'AWS-GatherSoftwareInventory' are not supported` means that one or more AWS Regions where you're trying to configure an Inventory association *for all instances* are already configured with an inventory association for all instances\. If necessary, you can delete the existing inventory association for all instance and then create a new one\. To view existing inventory associations, choose **State Manager** in the Systems Manager console and then locate associations that use the `AWS-GatherSoftwareInventory` SSM document\. If the existing inventory association for all instances was created across multiple Regions, and you want to create a new one, you must delete the existing association from each Region where it exists\.
 
 ## Inventory execution status never exits pending<a name="sysman-inventory-troubleshooting-pending"></a>
 
@@ -69,7 +69,7 @@ If the detailed status of an inventory association shows **UnsupportedAgent**, a
 
 ## Skipped<a name="sysman-inventory-troubleshooting-skipped"></a>
 
-If the status of the inventory association for an instance shows **Skipped**, this means that you created a *global inventory association* \(to collect inventory from all instances\), but the skipped instance already had an inventory association assigned to it\. The global inventory association was not assigned to this instance, and no inventory was collected by the global inventory association\. However, the instance will still report inventory data when the existing inventory association runs\.
+If the status of the inventory association for an instance shows **Skipped**, this means that you created a *global inventory association* \(to collect inventory from all instances\), but the skipped instance already had an inventory association assigned to it\. The global inventory association wasn't assigned to this instance, and no inventory was collected by the global inventory association\. However, the instance will still report inventory data when the existing inventory association runs\.
 
 If you don't want the instance to be skipped by the global inventory association, you must delete the existing inventory association\. To view existing inventory associations, choose **State Manager** in the Systems Manager console and then locate associations that use the `AWS-GatherSoftwareInventory` SSM document\.
 

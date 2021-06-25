@@ -74,7 +74,7 @@ The following procedure describes how to create a custom `Session` type SSM docu
 ## Restrict access to commands in a session \(command line\)<a name="restrict-command-access-commandline"></a>
 
 **Before you begin**  
-If you have not already, install and configure the AWS Command Line Interface \(AWS CLI\) or the AWS Tools for PowerShell\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+If you haven't already, install and configure the AWS Command Line Interface \(AWS CLI\) or the AWS Tools for PowerShell\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 **To restrict the commands a user can run in a Session Manager session \(command line\)**
 

@@ -38,7 +38,7 @@ Before you start this walkthrough, you must collect inventory metadata from your
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
-1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you did not created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
+1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the Amazon S3 bucket you created and a valid AWS account ID\. Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't created a prefix, remove *bucket\-prefix/* from the ARN in the policy\. 
 
    ```
    {

@@ -1,10 +1,11 @@
 # Create a Systems Manager parameter \(AWS CLI\)<a name="param-create-cli"></a>
 
-You can use the AWS Command Line Interface \(AWS CLI\) to create `String`, `StringList`, and `SecureString` parameter types\. 
+You can use the AWS Command Line Interface \(AWS CLI\) to create `String`, `StringList`, and `SecureString` parameter types\.
+
+Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
 
 **Note**  
-Parameters are only available in the AWS Region where they were created\.  
-Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
+Parameters are only available in the AWS Region where they were created\.
 
 **Topics**
 + [Create a `String` parameter \(AWS CLI\)](#param-create-cli-string)
@@ -310,7 +311,7 @@ Use the following procedure to create a `SecureString` parameter\.
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
 
 **Important**  
-Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
+Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
@@ -390,7 +391,7 @@ Parameter Store supports only [symmetric KMS keys](https://docs.aws.amazon.com/k
 **Note**  
 To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 
-   To use a customer managed key instead of the AWS managed key assigned to your account, you must specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
+   To use a customer managed key instead of the AWS managed key assigned to your account, specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
    + Key Amazon Resource Name \(ARN\) example:
 
       `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
@@ -440,6 +441,8 @@ To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `
 
 1. Run the following command to verify the details of the parameter\.
 
+   If you don't specify the `with-decryption` parameter, or if you specify the `no-with-decryption` parameter, the command returns an encrypted GUID\.
+
 ------
 #### [ Linux & macOS ]
 
@@ -459,8 +462,6 @@ To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `
    ```
 
 ------
-**Note**  
-If you don't specify the `with-decryption` parameter, or if you specify the `no-with-decryption` parameter, the command returns an encrypted GUID\.
 
 1. Run the following command to view the parameter metadata\.
 

@@ -29,7 +29,7 @@ For information about monitoring Session Manager activity, see [Auditing session
 
 ## Migrate Windows Server instance log collection to the CloudWatch agent<a name="monitoring-cloudwatch-agent-migrate"></a>
 
-If you are using SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch agent as your log collection tool, and migrate your configuration settings\.
+If you're using SSM Agent on supported Windows Server instances to send SSM Agent log files to Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch agent as your log collection tool, and migrate your configuration settings\.
 
 The CloudWatch agent isn't supported on 32\-bit versions of Windows Server\.
 
@@ -143,12 +143,12 @@ After the migration, this entry maps to a domain, such as ip\-11\-1\-1\-11\.prod
 
 1. In **Name**, enter **AmazonCloudWatchAgent**\.
 
-1. In **Version**, enter **latest** if it's not already provided by default\.
+1. In **Version**, enter **latest** if it isn't already provided by default\.
 
 1. Choose **Run**\.
 
 **Two: To update config data JSON format**
-+ To update the JSON formatting of the existing config settings for the CloudWatch agent, use **Run Command**, a capability of AWS Systems Manager, or log into the instance directly with an RDP connection to run the following Windows PowerShell commands on the instance, one at a time\.
++ To update the JSON formatting of the existing config settings for the CloudWatch agent, use **Run Command**, a capability of AWS Systems Manager, or log in to the instance directly with an RDP connection to run the following Windows PowerShell commands on the instance, one at a time\.
 
   ```
   cd ${Env:ProgramFiles}\\Amazon\\AmazonCloudWatchAgent

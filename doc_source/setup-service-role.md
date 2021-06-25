@@ -21,7 +21,7 @@ You can create the following service roles as part of Systems Manager setup, or 
 Automation previously required that you specify a service role so that the service had permission to perform actions on your behalf\. Automation no longer requires this role because the service now operates by using the context of the user who invoked the execution\. 
 
 However, the following situations still require that you specify a service role for Automation:
-+ When you want to restrict a user's privileges on a resource, but you want the user to run an Automation workflow that requires elevated privileges\. In this scenario, you can create a service role with elevated privileges and allow the user to run the workflow\.
++ When you want to restrict a user's permissions on a resource, but you want the user to run an Automation workflow that requires elevated permissions\. In this scenario, you can create a service role with elevated permissions and allow the user to run the workflow\.
 + Operations that you expect to run longer than 12 hours require a service role\.
 
 If you need to create a service role and an instance profile role for Automation, you can use one of the following methods\.
@@ -50,7 +50,7 @@ For more information, see [Monitoring Systems Manager status changes using Amazo
 
 ### Service role for a Systems Manager hybrid environment<a name="setup-service-role-hybrid-environment"></a>
 
-If you plan to use Systems Manager to manage on\-premises servers and virtual machines \(VMs\) in what is called a *hybrid environment*, you must create an IAM role for those resources to communicate with the Systems Manager service\.
+If you plan to use Systems Manager to manage on\-premises servers and virtual machines \(VMs\) in what is called a *hybrid environment*, create an IAM role for those resources to communicate with the Systems Manager service\.
 
 For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 

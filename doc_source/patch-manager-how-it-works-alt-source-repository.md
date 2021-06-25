@@ -2,7 +2,7 @@
 
 When you use the default repositories configured on an instance for patching operations, Patch Manager, a capability of AWS Systems Manager, scans for or installs security\-related patches\. This is the default behavior for Patch Manager\. For complete information about how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
 
-On Linux systems, however, you can also use Patch Manager to install patches that are not related to security, or that are in a different source repository than the default one configured on the instance\. You can specify alternative patch source repositories when you create a custom patch baseline\. In each custom patch baseline, you can specify patch source configurations for up to 20 versions of a supported Linux operating system\. 
+On Linux systems, however, you can also use Patch Manager to install patches that aren't related to security, or that are in a different source repository than the default one configured on the instance\. You can specify alternative patch source repositories when you create a custom patch baseline\. In each custom patch baseline, you can specify patch source configurations for up to 20 versions of a supported Linux operating system\. 
 
 For example, suppose that your Ubuntu Server fleet includes both Ubuntu Server 14\.04 and Ubuntu Server 16\.04 instances\. In this case, you can specify alternate repositories for each version in the same custom patch baseline\. For each version, you provide a name, specify the operating system version type \(product\), and provide a repository configuration\. You can also specify a single alternative source repository that applies to all versions of a supported operating system\.
 
@@ -37,7 +37,7 @@ Running a custom patch baseline that specifies alternative patch repositories fo
 
 **Patching behavior for YUM\-based distributions depends on the updateinfo\.xml manifest**  
 When you specify alternative patch repositories for YUM\-based distributions, such as Amazon Linux or Amazon Linux 2, Red Hat Enterprise Linux, or CentOS, patching behavior depends on whether the repository includes an update manifest in the form of a complete and correctly formatted `updateinfo.xml` file\. This file specifies the release date, classifications, and severities of the various packages\. Any of the following will affect the patching behavior:
-+ If you filter on **Classification** and **Severity**, but they'ren't specified in `updateinfo.xml`, the package won't be included by the filter\. This also means that packages without an `updateinfo.xml` file won't be included in patching\.
++ If you filter on **Classification** and **Severity**, but they aren't specified in `updateinfo.xml`, the package won't be included by the filter\. This also means that packages without an `updateinfo.xml` file won't be included in patching\.
 + If you filter on **ApprovalAfterDays**, but the package release date isn't in Unix Epoch format \(or has no release date specified\), the package won't be included by the filter\.
 + There is an exception if you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page\. In this case, packages without an `updateinfo.xml` file \(or that contains this file without properly formatted **Classification**, **Severity**, and **Date** values\) *will* be included in the prefiltered list of patches\. \(They must still meet the other patch baseline rule requirements in order to be installed\.\)
 

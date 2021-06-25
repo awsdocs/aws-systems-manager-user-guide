@@ -1,6 +1,6 @@
 # Walkthrough: Automatically update SSM Agent \(CLI\)<a name="sysman-state-cli"></a>
 
-The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
+The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface \(AWS CLI\)\. State Manager is a capability of AWS Systems Manager\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 
 **Note**  
 Note the following details about automatically updating SSM Agent:  

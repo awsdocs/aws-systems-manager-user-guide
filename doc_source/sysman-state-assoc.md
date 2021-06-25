@@ -1,6 +1,6 @@
 # Creating associations<a name="sysman-state-assoc"></a>
 
-The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface, and AWS Tools for PowerShell\.
+The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell\. State Manager is a capability of AWS Systems Manager\.
 
 **Important**  
 The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an Automation runbook, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
@@ -67,7 +67,7 @@ The following procedure describes how to use the Systems Manager console to crea
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-   Below are the minimal permissions required to enable Amazon S3 output for an association\. You might further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
+   Below are the minimal permissions required to turn on Amazon S3 output for an association\. You might further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
 
    ```
    {
@@ -91,7 +91,7 @@ If you delete the association you created, the association no longer runs on any
 
 ## Create an association \(command line\)<a name="create-state-manager-association-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or Tools for PowerShell to create a State Manager association\. This section includes several examples that show how to use targets and rate controls\. Targets and rate controls enable you to assign an association to dozens or hundreds of instances while controlling the execution of those associations\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or Tools for PowerShell to create a State Manager association\. This section includes several examples that show how to use targets and rate controls\. Targets and rate controls allow you to assign an association to dozens or hundreds of instances while controlling the execution of those associations\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
 **Before you begin**  
 The `targets` parameter is an array of search criteria that targets instances using a `Key`,`Value` combination that you specify\. If you plan to create an association on dozens or hundreds of instance by using the `targets` parameter, review the following targeting options before you begin the procedure\.
@@ -285,7 +285,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This enables Systems Manager to create an association on *all* instances in the current AWS account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This allows Systems Manager to create an association on *all* instances in the current AWS account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux & macOS ]

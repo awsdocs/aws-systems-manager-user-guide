@@ -2,7 +2,7 @@
 
 Amazon Windows Amazon Machine Images \(AMIs\) contain a set of drivers to permit access to virtualized hardware\. These drivers are used by Amazon Elastic Compute Cloud \(Amazon EC2\) to map instance store and Amazon Elastic Block Store \(Amazon EBS\) volumes to their devices\. We recommend that you install the latest drivers to improve stability and performance of your EC2 instances for Windows Server\. For more information about PV drivers, see [AWS PV Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/xen-drivers-overview.html#xen-driver-awspv)\.
 
-The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\.
+The following walkthrough shows you how to configure a State Manager association to automatically download and install new AWS PV drivers when the drivers become available\. State Manager is a capability of AWS Systems Manager\.
 
 **Before you begin**  
 Before you complete the following procedure, verify that you have at least one Amazon EC2 instance for Windows Server running that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 

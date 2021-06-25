@@ -155,8 +155,9 @@ The returned parameters might be different when you use `Option=BeginsWith` beca
 
 ## Finding public parameters using the Parameter Store console<a name="paramstore-discover-public-console"></a>
 
-**Note**  
 You must have at least one parameter in your AWS account and AWS Region before you can search for public parameters using the console\.
+
+**To find public parameters using the console**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

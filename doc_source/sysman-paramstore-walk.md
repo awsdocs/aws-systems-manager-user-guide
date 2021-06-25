@@ -1,6 +1,6 @@
 # Parameter Store walkthroughs<a name="sysman-paramstore-walk"></a>
 
-The walkthrough in this section shows you how to create, store, and run parameters with Parameter Store in a test environment\. This walkthrough shows you how to use Parameter Store with other Systems Manager capabilities\. You can also use Parameter Store with other AWS services\. For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter)\.
+The walkthrough in this section shows you how to create, store, and run parameters with Parameter Store, a capability of AWS Systems Manager, in a test environment\. This walkthrough shows you how to use Parameter Store with other Systems Manager capabilities\. You can also use Parameter Store with other AWS services\. For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter)\.
 
 **Topics**
 + [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](#sysman-param-securestring-walkthrough)
@@ -25,7 +25,7 @@ This walkthrough assumes that you already specified your domain name and DNS ser
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
 
 1. Attach the following AWS Identity and Access Management \(IAM\) policies to the IAM role permissions for your instance: 
-   + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy enables a managed instance to use Systems Manager service core functionality\.
+   + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy allows a managed instance to use Systems Manager service core functionality\.
    + **AmazonSSMDirectoryServiceAccess** – Required\. This AWS managed policy allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\.
    + **A custom policy for S3 bucket access** – Required\. SSM Agent, which is on your instance and performs Systems Manager tasks, requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. In the custom S3 bucket policy that you create, you also provide access to S3 buckets of your own that are necessary for Systems Manager operations\. 
 

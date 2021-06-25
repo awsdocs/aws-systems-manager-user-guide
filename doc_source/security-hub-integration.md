@@ -39,7 +39,7 @@ When Patch Manager creates a new finding, it's usually sent to Security Hub with
 
 If there is a service outage, an AWS Lambda function is run to put the messages back into the main queue after the service is running again\. After the messages are in the main queue, the retry is automatic\.
 
-If Security Hub isn't available, Patch Manager retries sending the findings until they are received\.
+If Security Hub isn't available, Patch Manager retries sending the findings until they're received\.
 
 ### Updating existing findings in Security Hub<a name="securityhub-integration-finding-updates"></a>
 

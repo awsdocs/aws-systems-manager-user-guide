@@ -436,7 +436,7 @@ mainSteps:
 
 ## Examples of how to use dynamic options<a name="automation-branchdocs-examples"></a>
 
-This section includes different examples of how to use dynamic options in a runbook\. Each example in this section extends the following runbook\. This runbook has two actions\. The first action is named `InstallMsiPackage`\. It uses the `aws:runCommand` action to install an application on a Windows Server instance\. The second action is named `TestInstall`\. It uses the `aws:invokeLambdaFunction` action to perform a test of the installed application if the application installed successfully\. Step one specifies `onFailure: Abort`\. This means that if the application did not install successfully, the automation stops before step two\.
+This section includes different examples of how to use dynamic options in a runbook\. Each example in this section extends the following runbook\. This runbook has two actions\. The first action is named `InstallMsiPackage`\. It uses the `aws:runCommand` action to install an application on a Windows Server instance\. The second action is named `TestInstall`\. It uses the `aws:invokeLambdaFunction` action to perform a test of the installed application if the application installed successfully\. Step one specifies `onFailure: Abort`\. This means that if the application didn't install successfully, the automation stops before step two\.
 
 **Example 1: Runbook with two linear actions**
 

@@ -131,7 +131,7 @@ The `SchemaDeleteOption` parameter includes the following options:
    aws ssm delete-inventory --type-name "Custom:custom_type_name"
    ```
 **Note**  
-The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system has not deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress, as described later in this topic\.
+The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system hasn't deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress, as described later in this topic\.
 
    The system returns information like the following\.
 
@@ -433,7 +433,7 @@ The system returns information like the following\.
 The user runs the following command to delete the Custom:RackSpace inventory\. 
 
 **Note**  
-The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system has not deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress\.
+The output of this command doesn't show the deletion progress\. For this reason, TotalCount and Remaining Count are always the same because the system hasn't deleted anything yet\. You can use the describe\-inventory\-deletions command to show the deletion progress\.
 
 ```
 aws ssm delete-inventory --type-name "Custom:RackSpace"
@@ -469,7 +469,7 @@ The system returns information like the following\.
 You can configure Amazon EventBridge to create an event anytime a user deletes custom inventory\. EventBridge offers three types of events for custom inventory delete operations:
 + **Delete action for an instance**: If the custom inventory for a specific managed instance was successfully deleted or not\. 
 + **Delete action summary**: A summary of the delete action\.
-+ **Warning for disabled custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API action for a custom inventory type version that was previously\-disabled\.
++ **Warning for disabled custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation for a custom inventory type version that was previously\-disabled\.
 
 Here are examples of each event:
 
@@ -576,7 +576,7 @@ Use the following procedure to create an EventBridge rule for custom inventory d
 
 1. Verify that **Any detail type** is selected\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to trigger on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
 1. For **Target**, choose **SNS topic**, and then choose your topic from the **Topic** list\.
 

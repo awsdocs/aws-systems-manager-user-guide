@@ -16,7 +16,7 @@ To receive notifications, you must specify the Amazon Resource Name \(ARN\) of a
 
 ## Task 2: Update the Amazon SNS access policy<a name="change-manager-sns-setup-encryption-policy"></a>
 
-Use the following procedure to update the Amazon SNS access policy so that Systems Manager can publish Change Manager notifications to the Amazon SNS topic you created in Task 1\. Without completing this task, Change Manager does not have permission to send notifications for the events you add the topic for\.
+Use the following procedure to update the Amazon SNS access policy so that Systems Manager can publish Change Manager notifications to the Amazon SNS topic you created in Task 1\. Without completing this task, Change Manager doesn't have permission to send notifications for the events you add the topic for\.
 
 1. Sign in to the AWS Management Console and open the Amazon SNS console at [https://console\.aws\.amazon\.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home)\.
 

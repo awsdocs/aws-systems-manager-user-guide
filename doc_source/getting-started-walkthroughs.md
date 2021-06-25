@@ -46,7 +46,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + Advanced: [Try out the AWS managed Hello World change template](change-templates-aws-managed.md)
 
 **Automation**  
-[Automation](systems-manager-automation.md), a capability of AWS Systems Manager, allows you to safe automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and use stored configuration scripts to share best practices with the rest of your organization\.
+[Automation](systems-manager-automation.md), a capability of AWS Systems Manager, allows you to safely automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and use stored configuration scripts to share best practices with the rest of your organization\.
 + Advanced: [Walkthrough: Patch a Linux AMI \(console\)](automation-walk-patch-linux-ami-console.md)
 + Advanced: [Walkthrough: Patch a Linux AMI \(AWS CLI\)](automation-walk-patch-linux-ami-cli.md)
 + Advanced: [Walkthrough: Patch a Windows Server AMI](automation-walk-patch-windows-ami-cli.md)

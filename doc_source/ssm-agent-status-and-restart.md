@@ -10,6 +10,7 @@ This topic lists the commands to check whether AWS Systems Manager Agent \(SSM A
 | CentOS 6\.x |  `sudo status amazon-ssm-agent`  |  `sudo start amazon-ssm-agent`  | 
 | CentOS 7\.x and CentOS 8\.x |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 
 | Debian Server 8, 9, and 10 |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 
+| macOS | Check the agent log file at /var/log/amazon/ssm/amazon\-ssm\-agent\.log |  `sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist` `sudo launchctl start com.amazon.aws.ssm`  | 
 | Oracle Linux |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 
 | Red Hat Enterprise Linux \(RHEL\) 6\.x |  `sudo status amazon-ssm-agent`  |  `sudo start amazon-ssm-agent`  | 
 | Red Hat Enterprise Linux \(RHEL\) 7\.x and 8\.x |  `sudo systemctl status amazon-ssm-agent`  |  `sudo systemctl enable amazon-ssm-agent` `sudo systemctl start amazon-ssm-agent`  | 

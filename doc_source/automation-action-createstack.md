@@ -80,7 +80,7 @@ Valid Values: `CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_AUTO_EXPAND`
 Required: No
 
 ClientRequestToken  
-A unique identifier for this CreateStack request\. Specify this token if you set maxAttempts in this step to a value greater than 1\. By specifying this token, CloudFormation knows that you're not attempting to create a new stack with the same name\.  
+A unique identifier for this CreateStack request\. Specify this token if you set maxAttempts in this step to a value greater than 1\. By specifying this token, CloudFormation knows that you aren't attempting to create a new stack with the same name\.  
 Type: String  
 Required: No  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  

@@ -3,7 +3,7 @@
 The following walkthrough shows you how to use the AWS Systems Manager console to create a maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Systems Manager Run Command task to update SSM Agent\.
 
 **Before you begin**  
-Before you complete the following procedure, you must either have administrator privileges on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
+Before you complete the following procedure, you must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
 **Topics**
 + [Step 1: Create the maintenance window \(console\)](#mw-walkthrough-console-create)
@@ -24,7 +24,7 @@ Before you complete the following procedure, you must either have administrator 
 
 1. For **Description**, enter a description\.
 
-1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you have not registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
+1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you haven't registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
 
    If you don't choose this option, then you must choose previously\-registered targets when you register a task with the maintenance window\.
 
@@ -125,7 +125,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\)\. If you choose to enable this option, you need to specify the following:
 
-   1. The IAM role to trigger Amazon SNS notifications\.
+   1. The IAM role to start Amazon SNS notifications\.
 
    1. The Amazon SNS topic to be used\.
 

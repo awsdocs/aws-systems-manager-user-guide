@@ -14,7 +14,7 @@ Only trusted administrators should be allowed to use Systems Manager pre\-config
 + [Join an instance to a Domain using the `AWS-JoinDirectoryServiceDomain` JSON document](#walkthrough-powershell-domain-join)
 + [Send Windows metrics to Amazon CloudWatch Logs using the `AWS-ConfigureCloudWatch` document](#walkthrough-powershell-windows-metrics)
 + [Update EC2Config using the `AWS-UpdateEC2Config` document](#walkthrough-powershell-update-ec2config)
-+ [Enable or disable Windows automatic update using the `AWS-ConfigureWindowsUpdate` document](#walkthrough-powershell-enable-windows-update)
++ [Turn on or turn off Windows automatic update using the `AWS-ConfigureWindowsUpdate` document](#walkthrough-powershell-enable-windows-update)
 + [Manage Windows updates using Run Command](#walkthough-powershell-windows-updates)
 
 ## Configure AWS Tools for Windows PowerShell session settings<a name="walkthrough-powershell-settings"></a>
@@ -31,7 +31,7 @@ Run the following command to set the region for your PowerShell session\. The ex
 
 ```
 Set-DefaultAWSRegion `
-	-Region us-east-2
+    -Region us-east-2
 ```
 
 ## List all available documents<a name="walkthrough-powershell-all-documents"></a>
@@ -53,14 +53,14 @@ For information about rebooting servers and instances when using Run Command to 
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-RunPowerShellScript"
+    -Name "AWS-RunPowerShellScript"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-RunPowerShellScript" | Select -ExpandProperty Parameters
+    -Name "AWS-RunPowerShellScript" | Select -ExpandProperty Parameters
 ```
 
 ### Send a command using the `AWS-RunPowerShellScript` document<a name="walkthrough-powershell-run-script-send-command-aws-runpowershellscript"></a>
@@ -69,10 +69,10 @@ The following command shows the contents of the `"C:\Users"` directory and the c
 
 ```
 $runPSCommand = Send-SSMCommand `
-	-InstanceIds @("instance-ID-1", "instance-ID-2") `
-	-DocumentName "AWS-RunPowerShellScript" `
-	-Comment "Demo AWS-RunPowerShellScript with two instances" `
-	-Parameter @{'commands'=@('dir C:\Users', 'dir C:\')}
+    -InstanceIds @("instance-ID-1", "instance-ID-2") `
+    -DocumentName "AWS-RunPowerShellScript" `
+    -Comment "Demo AWS-RunPowerShellScript with two instances" `
+    -Parameter @{'commands'=@('dir C:\Users', 'dir C:\')}
 ```
 
 **Get command request details**  
@@ -80,7 +80,7 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommand `
-	-CommandId $runPSCommand.CommandId
+    -CommandId $runPSCommand.CommandId
 ```
 
 The status of the command in this example can be Success, Pending, or InProgress\.
@@ -90,7 +90,7 @@ The following command uses the `CommandId` from the previous command to get the 
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $runPSCommand.CommandId
+    -CommandId $runPSCommand.CommandId
 ```
 
 **Get command information with response data for a specific instance**  
@@ -98,9 +98,9 @@ The following command returns the output of the original `Send-SSMCommand` for a
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $runPSCommand.CommandId `
-	-Details $true `
-	-InstanceId instance-ID | Select -ExpandProperty CommandPlugins
+    -CommandId $runPSCommand.CommandId `
+    -Details $true `
+    -InstanceId instance-ID | Select -ExpandProperty CommandPlugins
 ```
 
 ### Cancel a command<a name="walkthrough-powershell-run-script-cancel-command"></a>
@@ -109,10 +109,10 @@ The following command cancels the `Send-SSMCommand` for the `AWS-RunPowerShellSc
 
 ```
 $cancelCommand = Send-SSMCommand `
-	-InstanceIds @("instance-ID-1","instance-ID-2") `
-	-DocumentName "AWS-RunPowerShellScript" `
-	-Comment "Demo AWS-RunPowerShellScript with two instances" `
-	-Parameter @{'commands'='Start-Sleep –Seconds 120; dir C:\'}
+    -InstanceIds @("instance-ID-1","instance-ID-2") `
+    -DocumentName "AWS-RunPowerShellScript" `
+    -Comment "Demo AWS-RunPowerShellScript with two instances" `
+    -Parameter @{'commands'='Start-Sleep –Seconds 120; dir C:\'}
 
 Stop-SSMCommand -CommandId $cancelCommand.CommandId
 ```
@@ -122,7 +122,7 @@ The following command checks the status of the `Cancel` command\.
 
 ```
 Get-SSMCommand `
-	-CommandId $cancelCommand.CommandId
+    -CommandId $cancelCommand.CommandId
 ```
 
 ## Install an application using the `AWS-InstallApplication` document<a name="walkthrough-powershell-install-application"></a>
@@ -136,14 +136,14 @@ For information about rebooting servers and instances when using Run Command to 
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-InstallApplication"
+    -Name "AWS-InstallApplication"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-InstallApplication" | Select -ExpandProperty Parameters
+    -Name "AWS-InstallApplication" | Select -ExpandProperty Parameters
 ```
 
 ### Send a command using the `AWS-InstallApplication` document<a name="walkthrough-powershell-install-application-send-command-aws-installapplication"></a>
@@ -152,9 +152,9 @@ The following command installs a version of Python on your instance in unattende
 
 ```
 $installAppCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallApplication" `
-	-Parameter @{'source'='https://www.python.org/ftp/python/2.7.9/python-2.7.9.msi'; 'parameters'='/norestart /quiet /log c:\pythoninstall.txt'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallApplication" `
+    -Parameter @{'source'='https://www.python.org/ftp/python/2.7.9/python-2.7.9.msi'; 'parameters'='/norestart /quiet /log c:\pythoninstall.txt'}
 ```
 
 **Get command information per instance**  
@@ -162,8 +162,8 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $installAppCommand.CommandId `
-	-Details $true
+    -CommandId $installAppCommand.CommandId `
+    -Details $true
 ```
 
 **Get command information with response data for a specific instance**  
@@ -171,9 +171,9 @@ The following command returns the results of the Python installation\.
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $installAppCommand.CommandId `
-	-Details $true `
-	-InstanceId instance-ID | Select -ExpandProperty CommandPlugins
+    -CommandId $installAppCommand.CommandId `
+    -Details $true `
+    -InstanceId instance-ID | Select -ExpandProperty CommandPlugins
 ```
 
 ## Install a PowerShell module using the `AWS-InstallPowerShellModule` JSON document<a name="walkthrough-powershell-install-module"></a>
@@ -184,14 +184,14 @@ You can use Run Command to install PowerShell modules on an Amazon EC2 instance\
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-InstallPowerShellModule"
+    -Name "AWS-InstallPowerShellModule"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-InstallPowerShellModule" | Select -ExpandProperty Parameters
+    -Name "AWS-InstallPowerShellModule" | Select -ExpandProperty Parameters
 ```
 
 ### Install a PowerShell module<a name="walkthrough-powershell-install-module-install"></a>
@@ -200,10 +200,10 @@ The following command downloads the EZOut\.zip file, installs it, and then runs 
 
 ```
 $installPSCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallPowerShellModule" `
-	-Parameter @{'source'='https://gallery.technet.microsoft.com/EZOut-33ae0fb7/file/110351/1/EZOut.zip';'commands'=@('Add-WindowsFeature -name XPS-Viewer -restart')} `
-	-OutputS3BucketName demo-ssm-output-bucket
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallPowerShellModule" `
+    -Parameter @{'source'='https://gallery.technet.microsoft.com/EZOut-33ae0fb7/file/110351/1/EZOut.zip';'commands'=@('Add-WindowsFeature -name XPS-Viewer -restart')} `
+    -OutputS3BucketName demo-ssm-output-bucket
 ```
 
 **Get command information per instance**  
@@ -211,8 +211,8 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $installPSCommand.CommandId `
-	-Details $true
+    -CommandId $installPSCommand.CommandId `
+    -Details $true
 ```
 
 **Get command information with response data for the instance**  
@@ -220,13 +220,13 @@ The following command returns the output of the original `Send-SSMCommand` for t
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $installPSCommand.CommandId `
-	-Details $true | Select -ExpandProperty CommandPlugins
+    -CommandId $installPSCommand.CommandId `
+    -Details $true | Select -ExpandProperty CommandPlugins
 ```
 
 ## Join an instance to a Domain using the `AWS-JoinDirectoryServiceDomain` JSON document<a name="walkthrough-powershell-domain-join"></a>
 
-Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command you must [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
+Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command, [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
 You can only join an instance to a domain\. You can't remove an instance from a domain\.
 
@@ -237,14 +237,14 @@ For information about rebooting servers and instances when using Run Command to 
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-JoinDirectoryServiceDomain"
+    -Name "AWS-JoinDirectoryServiceDomain"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-JoinDirectoryServiceDomain" | Select -ExpandProperty Parameters
+    -Name "AWS-JoinDirectoryServiceDomain" | Select -ExpandProperty Parameters
 ```
 
 ### Join an instance to a domain<a name="walkthrough-powershell-domain-join-instance"></a>
@@ -253,10 +253,10 @@ The following command joins the instance to the given AWS Directory Service doma
 
 ```
 $domainJoinCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-JoinDirectoryServiceDomain" `
-	-Parameter @{'directoryId'='d-example01'; 'directoryName'='ssm.example.com'; 'dnsIpAddresses'=@('192.168.10.195', '192.168.20.97')} `
-	-OutputS3BucketName demo-ssm-output-bucket
+    -InstanceId instance-ID `
+    -DocumentName "AWS-JoinDirectoryServiceDomain" `
+    -Parameter @{'directoryId'='d-example01'; 'directoryName'='ssm.example.com'; 'dnsIpAddresses'=@('192.168.10.195', '192.168.20.97')} `
+    -OutputS3BucketName demo-ssm-output-bucket
 ```
 
 **Get command information per instance**  
@@ -264,8 +264,8 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $domainJoinCommand.CommandId `
-	-Details $true
+    -CommandId $domainJoinCommand.CommandId `
+    -Details $true
 ```
 
 **Get command information with response data for the instance**  
@@ -273,28 +273,28 @@ This command returns the output of the original `Send-SSMCommand` for the specif
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $domainJoinCommand.CommandId `
-	-Details $true | Select -ExpandProperty CommandPlugins
+    -CommandId $domainJoinCommand.CommandId `
+    -Details $true | Select -ExpandProperty CommandPlugins
 ```
 
 ## Send Windows metrics to Amazon CloudWatch Logs using the `AWS-ConfigureCloudWatch` document<a name="walkthrough-powershell-windows-metrics"></a>
 
-You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you enable logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time aren't included\. If you disable logging and then later re\-enable logging, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
+You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you allow logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time aren't included\. If you turn off logging and then later turn logging back on, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
 
-If you previously enabled CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
+If you previously turned on CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
 
 **View the description and available parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-ConfigureCloudWatch"
+    -Name "AWS-ConfigureCloudWatch"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-ConfigureCloudWatch" | Select -ExpandProperty Parameters
+    -Name "AWS-ConfigureCloudWatch" | Select -ExpandProperty Parameters
 ```
 
 ### Send application logs to CloudWatch<a name="walkthrough-powershell-windows-metrics-send-logs-cloudwatch"></a>
@@ -303,9 +303,9 @@ The following command configures the instance and moves Windows Applications log
 
 ```
 $cloudWatchCommand = Send-SSMCommand `
-	-InstanceID instance-ID `
-	-DocumentName "AWS-ConfigureCloudWatch" `
-	-Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"region", "LogGroup":"my-log-group", "LogStream":"instance-id"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
+    -InstanceID instance-ID `
+    -DocumentName "AWS-ConfigureCloudWatch" `
+    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"ApplicationEventLog", "FullName":"AWS.EC2.Windows.CloudWatch.EventLog.EventLogInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"LogName":"Application", "Levels":"7"}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch", "Parameters":{"Region":"region", "LogGroup":"my-log-group", "LogStream":"instance-id"}}], "Flows":{"Flows":["ApplicationEventLog,CloudWatch"]}}}'}
 ```
 
 **Get command information per instance**  
@@ -313,8 +313,8 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $cloudWatchCommand.CommandId `
-	-Details $true
+    -CommandId $cloudWatchCommand.CommandId `
+    -Details $true
 ```
 
 **Get command information with response data for a specific instance**  
@@ -322,9 +322,9 @@ The following command returns the results of the Amazon CloudWatch configuration
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $cloudWatchCommand.CommandId `
-	-Details $true `
-	-InstanceId instance-ID | Select -ExpandProperty CommandPlugins
+    -CommandId $cloudWatchCommand.CommandId `
+    -Details $true `
+    -InstanceId instance-ID | Select -ExpandProperty CommandPlugins
 ```
 
 ### Send performance counters to CloudWatch using the `AWS-ConfigureCloudWatch` document<a name="walkthrough-powershell-windows-metrics-send-performance-counters-cloudwatch"></a>
@@ -333,9 +333,9 @@ The following demonstration command uploads performance counters to CloudWatch\.
 
 ```
 $cloudWatchMetricsCommand = Send-SSMCommand `
-	-InstanceID instance-ID `
-	-DocumentName "AWS-ConfigureCloudWatch" `
-	-Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"region", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
+    -InstanceID instance-ID `
+    -DocumentName "AWS-ConfigureCloudWatch" `
+    -Parameter @{'properties'='{"engineConfiguration": {"PollInterval":"00:00:15", "Components":[{"Id":"PerformanceCounter", "FullName":"AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"CategoryName":"Memory", "CounterName":"Available MBytes", "InstanceName":"", "MetricName":"AvailableMemory", "Unit":"Megabytes","DimensionName":"", "DimensionValue":""}},{"Id":"CloudWatch", "FullName":"AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch", "Parameters":{"AccessKey":"", "SecretKey":"","Region":"region", "NameSpace":"Windows-Default"}}], "Flows":{"Flows":["PerformanceCounter,CloudWatch"]}}}'}
 ```
 
 ## Update EC2Config using the `AWS-UpdateEC2Config` document<a name="walkthrough-powershell-update-ec2config"></a>
@@ -346,22 +346,22 @@ Using Run Command and the `AWS-EC2ConfigUpdate` document, you can update the EC2
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-UpdateEC2Config"
+    -Name "AWS-UpdateEC2Config"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-UpdateEC2Config" | Select -ExpandProperty Parameters
+    -Name "AWS-UpdateEC2Config" | Select -ExpandProperty Parameters
 ```
 
 ### Update EC2Config to the latest version<a name="walkthrough-powershell-update-ec2config-latest-version"></a>
 
 ```
 $ec2ConfigCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-UpdateEC2Config"
+    -InstanceId instance-ID `
+    -DocumentName "AWS-UpdateEC2Config"
 ```
 
 **Get command information with response data for the instance**  
@@ -369,9 +369,9 @@ This command returns the output of the specified command from the previous `Send
 
 ```
 Get-SSMCommandInvocation `
-	-CommandId $ec2ConfigCommand.CommandId `
-	-Details $true `
-	-InstanceId instance-ID | Select -ExpandProperty CommandPlugins
+    -CommandId $ec2ConfigCommand.CommandId `
+    -Details $true `
+    -InstanceId instance-ID | Select -ExpandProperty CommandPlugins
 ```
 
 ### Update EC2Config to a specific version<a name="walkthrough-powershell-update-ec2config-specific-version"></a>
@@ -380,38 +380,38 @@ The following command downgrades EC2Config to an older version\.
 
 ```
 Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-UpdateEC2Config" `
-	-Parameter @{'version'='4.9.3519'; 'allowDowngrade'='true'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-UpdateEC2Config" `
+    -Parameter @{'version'='4.9.3519'; 'allowDowngrade'='true'}
 ```
 
-## Enable or disable Windows automatic update using the `AWS-ConfigureWindowsUpdate` document<a name="walkthrough-powershell-enable-windows-update"></a>
+## Turn on or turn off Windows automatic update using the `AWS-ConfigureWindowsUpdate` document<a name="walkthrough-powershell-enable-windows-update"></a>
 
-Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can enable or disable automatic Windows updates on your Windows Server instances\. This command configures the Windows Update Agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows Update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
+Using Run Command and the `AWS-ConfigureWindowsUpdate` document, you can turn on or turn off automatic Windows updates on your Windows Server instances\. This command configures the Windows Update Agent to download and install Windows updates on the day and hour that you specify\. If an update requires a reboot, the computer reboots automatically 15 minutes after updates have been installed\. With this command you can also configure Windows Update to check for updates but not install them\. The `AWS-ConfigureWindowsUpdate` document is compatible with Windows Server 2008, 2008 R2, 2012, 2012 R2, and 2016\.
 
 **View the description and available parameters**
 
 ```
 Get-SSMDocumentDescription `
-	–Name "AWS-ConfigureWindowsUpdate"
+    –Name "AWS-ConfigureWindowsUpdate"
 ```
 
 **View more information about parameters**
 
 ```
 Get-SSMDocumentDescription `
-	-Name "AWS-ConfigureWindowsUpdate" | Select -ExpandProperty Parameters
+    -Name "AWS-ConfigureWindowsUpdate" | Select -ExpandProperty Parameters
 ```
 
-### Enable Windows automatic update<a name="walkthrough-powershell-enable-windows-update-automatic"></a>
+### Turn on Windows automatic update<a name="walkthrough-powershell-enable-windows-update-automatic"></a>
 
 The following command configures Windows Update to automatically download and install updates daily at 10:00 PM\. 
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-ConfigureWindowsUpdate" `
-	-Parameters @{'updateLevel'='InstallUpdatesAutomatically'; 'scheduledInstallDay'='Daily'; 'scheduledInstallTime'='22:00'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-ConfigureWindowsUpdate" `
+    -Parameters @{'updateLevel'='InstallUpdatesAutomatically'; 'scheduledInstallDay'='Daily'; 'scheduledInstallTime'='22:00'}
 ```
 
 **View command status for enabling Windows automatic update**  
@@ -419,19 +419,19 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-Details $true `
-	-CommandId $configureWindowsUpdateCommand.CommandId | Select -ExpandProperty CommandPlugins
+    -Details $true `
+    -CommandId $configureWindowsUpdateCommand.CommandId | Select -ExpandProperty CommandPlugins
 ```
 
-### Disable Windows automatic update<a name="walkthrough-powershell-enable-windows-update-disable"></a>
+### Turn off Windows automatic update<a name="walkthrough-powershell-enable-windows-update-disable"></a>
 
 The following command lowers the Windows Update notification level so the system checks for updates but doesn't automatically update the instance\.
 
 ```
 $configureWindowsUpdateCommand = Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-ConfigureWindowsUpdate" `
-	-Parameters @{'updateLevel'='NeverCheckForUpdates'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-ConfigureWindowsUpdate" `
+    -Parameters @{'updateLevel'='NeverCheckForUpdates'}
 ```
 
 **View command status for disabling Windows automatic update**  
@@ -439,8 +439,8 @@ The following command uses the `CommandId` to get the status of the command exec
 
 ```
 Get-SSMCommandInvocation `
-	-Details $true `
-	-CommandId $configureWindowsUpdateCommand.CommandId | Select -ExpandProperty CommandPlugins
+    -Details $true `
+    -CommandId $configureWindowsUpdateCommand.CommandId | Select -ExpandProperty CommandPlugins
 ```
 
 ## Manage Windows updates using Run Command<a name="walkthough-powershell-windows-updates"></a>
@@ -456,34 +456,34 @@ The following examples demonstrate how to perform the specified Windows Update m
 
 ```
 Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallWindowsUpdates" `
-	-Parameters @{'Action'='Scan'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallWindowsUpdates" `
+    -Parameters @{'Action'='Scan'}
 ```
 
 ### Install specific Windows updates<a name="walkthough-powershell-windows-updates-install-specific"></a>
 
 ```
 Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallWindowsUpdates" `
-	-Parameters @{'Action'='Install';'IncludeKbs'='kb-ID-1,kb-ID-2,kb-ID-3';'AllowReboot'='True'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallWindowsUpdates" `
+    -Parameters @{'Action'='Install';'IncludeKbs'='kb-ID-1,kb-ID-2,kb-ID-3';'AllowReboot'='True'}
 ```
 
 ### Install important missing Windows updates<a name="walkthough-powershell-windows-updates-install-missing"></a>
 
 ```
 Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallWindowsUpdates" `
-	-Parameters @{'Action'='Install';'SeverityLevels'='Important';'AllowReboot'='True'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallWindowsUpdates" `
+    -Parameters @{'Action'='Install';'SeverityLevels'='Important';'AllowReboot'='True'}
 ```
 
 ### Install missing Windows updates with specific exclusions<a name="walkthough-powershell-windows-updates-install-exclusions"></a>
 
 ```
 Send-SSMCommand `
-	-InstanceId instance-ID `
-	-DocumentName "AWS-InstallWindowsUpdates" `
-	-Parameters @{'Action'='Install';'ExcludeKbs'='kb-ID-1,kb-ID-2';'AllowReboot'='True'}
+    -InstanceId instance-ID `
+    -DocumentName "AWS-InstallWindowsUpdates" `
+    -Parameters @{'Action'='Install';'ExcludeKbs'='kb-ID-1,kb-ID-2';'AllowReboot'='True'}
 ```

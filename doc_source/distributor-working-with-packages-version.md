@@ -90,7 +90,7 @@ To add a package version, [create a package](distributor-working-with-packages-c
 
 1. For **Manifest**, choose **Extract from package** to use a manifest that you uploaded to the S3 bucket with your \.zip files\.
 
-   \(Optional\) If you did not upload your revised JSON manifest to the Amazon S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
+   \(Optional\) If you didn't upload your revised JSON manifest to the Amazon S3 bucket where you stored your \.zip files, choose **New manifest**\. You can author or paste the entire manifest in the JSON editor field\. For more information about how to create the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest)\.
 
 1. When you're finished with the manifest, choose **Add package version**\.
 

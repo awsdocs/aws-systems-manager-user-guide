@@ -17,7 +17,7 @@ The requirements and constraints for parameter names include the following:
 
   In addition, the slash character \( / \) is used to delineate hierarchies in parameter names\. For example: `/Dev/Production/East/Project-ABC/MyParameter`
 + **Valid AMI format**: When you choose `aws:ec2:image` as the data type for a `String` parameter, the ID you enter must validate for the AMI ID format `ami-12345abcdeEXAMPLE`\.
-+ **Fully qualified**: When you create or reference a parameter in a hierarchy, you must include a leading forward slash character \(/\) \. When you reference a parameter that is part of a hierarchy, you must specify the entire hierarchy path including the initial slash \(/\)\.
++ **Fully qualified**: When you create or reference a parameter in a hierarchy, include a leading forward slash character \(/\) \. When you reference a parameter that is part of a hierarchy, specify the entire hierarchy path including the initial slash \(/\)\.
   + Fully qualified parameter names: `MyParameter1`, `/MyParameter2`, `/Dev/Production/East/Project-ABC/MyParameter`
   + Not fully qualified parameter name: `MyParameter3/L1`
 + **Length**: The maximum length for a parameter name, *including the full content of the parameter Amazon Resource Name \(ARN\)*, is 1011 characters\. For example, the length of the following parameter is 65 characters, not 20 characters: 
@@ -30,8 +30,7 @@ The requirements and constraints for parameter names include the following:
   + `SSM-testparameter`
   + `/aws/testparam1`
 **Note**  
-When you specify a parameter in an SSM document, command, or script, you do include `ssm` as part of the syntax, as shown in the following examples\.   
-Valid: \{\{ssm:*parameter\-name*\}\} and \{\{ ssm:*parameter\-name* \}\}, such as `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter }}`
+When you specify a parameter in an SSM document, command, or script, include `ssm` as part of the syntax\. For example, \{\{ssm:*parameter\-name*\}\} and \{\{ ssm:*parameter\-name* \}\}, such as `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter }}.`
 + **Uniqueness**: A parameter name must be unique within an AWS Region\. For example, Systems Manager treats the following as separate parameters, if they exist in the same Region:
   + `/Test/TestParam1`
   + `/TestParam1`

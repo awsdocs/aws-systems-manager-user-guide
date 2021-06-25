@@ -26,15 +26,13 @@ Connect to your macOS instance and perform the following steps to install AWS Sy
 
 1. Check the status of the agent\.
 
-   To determine if SSM Agent is running, check the agent log at `/var/log/amazon/ssm/amazon-ssm-agent.log` 
+   To determine if SSM Agent is running, check the agent log at `/var/log/amazon/ssm/amazon-ssm-agent.log` \.
 
-1. Run the following commands if the previous command returns the message "amazon\-ssm\-agent is stopped\."
+1. Run the following command to start the service if the the agent log indicates that "amazon\-ssm\-agent is stopped\."
 
-   1. Start the service\.
-
-     ```
-     sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist && sudo launchctl start com.amazon.aws.ssm
-     ```
+   ```
+   sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist && sudo launchctl start com.amazon.aws.ssm
+   ```
 
 **Important**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
