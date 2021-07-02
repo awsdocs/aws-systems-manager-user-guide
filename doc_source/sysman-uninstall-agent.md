@@ -5,7 +5,7 @@ Use the following commands to uninstall AWS Systems Manager Agent \(SSM Agent\)\
 **Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux**
 
 ```
-sudo yum erase amazon-ssm-agent –y
+sudo yum erase amazon-ssm-agent --assumeyes
 ```
 
 **Debian Server**
