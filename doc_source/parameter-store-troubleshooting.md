@@ -28,4 +28,4 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
     For a new parameter, a `ParameterNotFound` message is returned until the parameter is validated\. For an existing parameter that you're updating, information about the new version isn't included until the parameter is validated\.
 
-  If you attempt to create or update the parameter again before the validation process completes, the system reports that validation is still in process\. If the parameter isn't created or updated, you can try again after 5 minutes have passed from the original attempt\. 
+  If you attempt to create or update the parameter again before the validation process is complete, the system reports that validation is still in process\. If the parameter isn't created or updated, you can try again after 5 minutes have passed from the original attempt\. 

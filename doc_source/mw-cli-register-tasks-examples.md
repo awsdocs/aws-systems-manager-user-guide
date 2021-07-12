@@ -1,6 +1,6 @@
 # Examples: Register tasks with a maintenance window<a name="mw-cli-register-tasks-examples"></a>
 
-You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated below\.
+You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated later in this topic\.
 
 **Note**  
 Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.

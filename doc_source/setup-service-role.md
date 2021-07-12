@@ -8,7 +8,7 @@ This topic explains the difference between a *service role* and a *service\-link
 
 The Systems Manager service\-linked role can be used for the following:
 + The Systems Manager Inventory capability uses the service\-linked role to collect inventory metadata from tags and resource groups\.
-+ The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described below\.
++ The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described later in this topic\.
 
 For more information about the service\-linked role, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 

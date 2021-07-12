@@ -1,6 +1,6 @@
 # Maintenance window scheduling and active period options<a name="maintenance-windows-schedule-options"></a>
 
-When you create a maintenance window, you must specify how often the maintenance window runs by using a [Cron or rate expression](reference-cron-and-rate-expressions.md)\. Optionally, you can specify a date range during which the maintenance window can run on its regular schedule, as well as a time zone on which to base that regular schedule\. 
+When you create a maintenance window, you must specify how often the maintenance window runs by using a [Cron or rate expression](reference-cron-and-rate-expressions.md)\. Optionally, you can specify a date range during which the maintenance window can run on its regular schedule and a time zone on which to base that regular schedule\. 
 
 Be aware, however, that the time zone option and the start date and end date options don't influence each other\. Any start date and end date times that you specify \(with or without an offset for your time zone\) determine only the *valid period* during which the maintenance window can run on its schedule\. A time zone option determines the international time zone that the maintenance window schedule is based on *during* its valid period\.
 
@@ -53,7 +53,7 @@ aws ssm create-maintenance-window ^
 
 ------
 
-This means that the first run of the maintenance window won't occur until *after* its specified start date and time, which is at 12:00 AM US Pacific Time on Friday, January 1, 2021\. \(This time zone is eight hours behind UTC time\.\) In this case, the start date and time of the window period don't represent when the maintenance windows first runs\. Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the enabled period will be on Wednesday, January 4, 2021, at 9 AM US Pacific Time\.
+This means that the first run of the maintenance window won't occur until *after* its specified start date and time, which is at 12:00 AM US Pacific Time on Friday, January 1, 2021\. \(This time zone is eight hours behind UTC time\.\) In this case, the start date and time of the window period don't represent when the maintenance windows first runs\. Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone \(represented by "America/Los Angeles" in IANA format\)\. The first execution in the allowed period will be on Wednesday, January 4, 2021, at 9 AM US Pacific Time\.
 
 ## Example 2: Specify a maintenance window start date and end date<a name="schedule-example-start-end-date"></a>
 
@@ -97,7 +97,7 @@ aws ssm create-maintenance-window ^
 
 ------
 
-The enabled period for this maintenance window begins at 3:15 AM Japan Standard Time on January 1, 2019\. The valid period for this maintenance window ends at 6:15 AM Japan Standard Time on Sunday, June 30, 2019\. \(This time zone is nine hours ahead of UTC time\.\) Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 3:15 AM every Tuesday in the Japan Standard Time Zone \(represented by "Asia/Tokyo" in IANA format\)\. This is because the maintenance window runs every seven days, and it becomes active at 3:15 AM on Tuesday, January 1st\. The last execution is at 3:15 AM Japan Standard Time on Tuesday, June 25, 2019\. This is the last Tuesday before the enabled maintenance window period ends five days later\.
+The allowed period for this maintenance window begins at 3:15 AM Japan Standard Time on January 1, 2019\. The valid period for this maintenance window ends at 6:15 AM Japan Standard Time on Sunday, June 30, 2019\. \(This time zone is nine hours ahead of UTC time\.\) Taken together, the `--schedule-timezone` and `--schedule` values mean that the maintenance window runs at 3:15 AM every Tuesday in the Japan Standard Time Zone \(represented by "Asia/Tokyo" in IANA format\)\. This is because the maintenance window runs every seven days, and it becomes active at 3:15 AM on Tuesday, January 1\. The last execution is at 3:15 AM Japan Standard Time on Tuesday, June 25, 2019\. This is the last Tuesday before the allowed maintenance window period ends five days later\.
 
 ## Example 3: Create a maintenance window that runs only once<a name="schedule-example-one-time"></a>
 
@@ -132,7 +132,7 @@ aws ssm create-maintenance-window ^
 
 ------
 
-This maintenance window runs just once, at 3:55 PM UTC time on July 7, 2020\. The maintenance window is enabled to run up to five hours, as needed, but new tasks are prevented from starting two hours before the end of the maintenance window period\.
+This maintenance window runs just once, at 3:55 PM UTC time on July 7, 2020\. The maintenance window is allowed to run up to five hours, as needed, but new tasks are prevented from starting two hours before the end of the maintenance window period\.
 
 ## Example 4: Specify the number of schedule offset days for a maintenance window<a name="schedule-example-schedule-offset"></a>
 
@@ -174,7 +174,7 @@ aws ssm create-maintenance-window ^
 
 A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\.
 
-In the example above, the CRON expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM: 
+In the preceding example, the CRON expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM: 
 
 ```
 --schedule "cron(0 30 23 ? * TUE#3 *)

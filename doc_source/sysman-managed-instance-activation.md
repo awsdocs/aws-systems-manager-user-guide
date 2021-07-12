@@ -8,10 +8,10 @@ Systems Manager immediately returns the Activation Code and ID to the console or
 **About activation expirations**  
 An *activation expiration* is a window of time when you can register on\-premises machines with Systems Manager\. An expired activation has no impact on your servers or virtual machines \(VMs\) that you previously registered with Systems Manager\. If an activation expires then you can’t register more servers or VMs with Systems Manager by using that specific activation\. You simply need to create a new one\.
 
-Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the **Managed Instances** page of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API call [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
+Every on\-premises server and VM you previously registered remains registered as a Systems Manager managed instance until you explicitly deregister it\. You can deregister a managed instance on the Fleet Manager page and **Managed Instances** tab of the Systems Manager console, by using the AWS CLI command [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html), or by using the API call [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)\.
 
 **About activation tags**  
-If you create an activation by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes optional tags\.
+If you create an activation by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell, you can specify tags\. Tags are optional metadata that you assign to a resource\. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment\. Here is an AWS CLI sample command to run on a local Linux machine that includes optional tags\.
 
 ```
 aws ssm create-activation \
@@ -54,7 +54,7 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
 
 1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. The default value is 1 instance\.
 
-1. In the ** IAM role name** section, choose a service role option that enables your servers and VMs to communicate with AWS Systems Manager in the cloud:
+1. In the ** IAM role name** section, choose a service role option that allows your servers and VMs to communicate with AWS Systems Manager in the cloud:
 
    1. Choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
 

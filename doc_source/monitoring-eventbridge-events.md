@@ -10,7 +10,7 @@ EventBridge provides support for both AWS Systems Manager events and Systems Man
 
 **Supported Systems Manager event types**  
 Among the many types of Systems Manager events that EventBridge can detect are: 
-+ A maintenance window being disabled\.
++ A maintenance window being turned off\.
 + An Automation workflow completing successfully\. Automation is a capability of AWS Systems Manager\.
 + A managed instance being out of patch compliance\.
 + A parameter value being updated\.

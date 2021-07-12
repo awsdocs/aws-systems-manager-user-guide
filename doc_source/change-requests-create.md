@@ -49,7 +49,7 @@ Choose **View Change Calendar** to check for any blocking events for the time yo
 
    1. Choose **Add approver**, and then select one or more users or groups from the lists of available reviewers\.
 **Note**  
-One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't enabled, the template you have chosen doesn't allow additional reviewers to be added to requests\.
+One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't turned on, the template you have chosen doesn't allow additional reviewers to be added to requests\.
 
    1. Under **SNS topic to notify approvers**, choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications to the approvers you are adding to this change request\.
 **Note**  

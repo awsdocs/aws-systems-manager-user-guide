@@ -13,7 +13,7 @@ You can configure OpsCenter to send notifications to an Amazon Simple Notificati
 + [Task 1: Create and subscribe to an Amazon SNS topic](#OpsCenter-getting-started-sns-create-topic)
 + [Task 2: Update the Amazon SNS access policy](#OpsCenter-getting-started-sns-encryption-policy)
 + [Task 3: Update the AWS KMS access policy \(optional\)](#OpsCenter-getting-started-sns-KMS-policy)
-+ [Task 4: Enable default OpsItems rules to send notifications for new OpsItems](#OpsCenter-getting-started-sns-default-rules)
++ [Task 4: Turn on default OpsItems rules to send notifications for new OpsItems](#OpsCenter-getting-started-sns-default-rules)
 
 ### Task 1: Create and subscribe to an Amazon SNS topic<a name="OpsCenter-getting-started-sns-create-topic"></a>
 
@@ -59,7 +59,7 @@ If you configured the Amazon SNS topic with an AWS Key Management Service \(AWS 
 
 ### Task 3: Update the AWS KMS access policy \(optional\)<a name="OpsCenter-getting-started-sns-KMS-policy"></a>
 
-If you enabled AWS KMS server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
+If you turned on AWS KMS server\-side encryption for your Amazon SNS topic, then you must also update the access policy of the AWS KMS key you chose when you configured the topic\. Use the following procedure to update the access policy so that Systems Manager can publish OpsItem notifications to the Amazon SNS topic you created in task 1\.
 
 **Note**  
 OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic configured with an AWS managed key\.
@@ -95,7 +95,7 @@ OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic configured 
 
 1. Choose **Save changes**\.
 
-### Task 4: Enable default OpsItems rules to send notifications for new OpsItems<a name="OpsCenter-getting-started-sns-default-rules"></a>
+### Task 4: Turn on default OpsItems rules to send notifications for new OpsItems<a name="OpsCenter-getting-started-sns-default-rules"></a>
 
 Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for Amazon SNS notifications\. Use the following procedure to edit a rule in EventBridge and enter a `notifications` block\. 
 

@@ -56,7 +56,7 @@ Type: String
 Required: No
 
 NoReboot  
-A boolean literal\.  
+A Boolean literal\.  
 By default, Amazon Elastic Compute Cloud \(Amazon EC2\) attempts to shut down and reboot the instance before creating the image\. If the **No Reboot** option is set to `true`, Amazon EC2 doesn't shut down the instance before creating the image\. When this option is used, file system integrity on the created image can't be guaranteed\.   
 If you don't want the instance to run after you create an AMI from it, first use the [`aws:changeInstanceState` – Change or assert instance state](automation-action-changestate.md) action to stop the instance, and then use this `aws:createImage` action with the **NoReboot** option set to `true`\.  
 Type: Boolean  

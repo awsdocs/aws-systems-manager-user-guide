@@ -92,13 +92,13 @@ The server or VM is now a managed instance\. These instances are now identified 
 
 ## Setting up private key auto rotation<a name="ssm-agent-hybrid-private-key-rotation-windows"></a>
 
-To strengthen your security posture, you can configure AWS Systems Manager Agent \(SSM Agent\) to rotate the hybrid environment private key automatically\. You can access this feature using SSM Agent version 3\.0\.1031\.0 or later\. Turn on this feature using the procedure below\.
+To strengthen your security posture, you can configure AWS Systems Manager Agent \(SSM Agent\) to rotate the hybrid environment private key automatically\. You can access this feature using SSM Agent version 3\.0\.1031\.0 or later\. Turn on this feature using the following procedure\.
 
 **To configure SSM Agent to rotate the hybrid environment private key**
 
 1. Navigate to `/etc/amazon/ssm/` on a Linux machine or `C:\Program Files\Amazon\SSM` for a Windows machine\.
 
-1. Copy the contents of `amazon-ssm-agent.json.template` to a new file named `amazon-ssm-agent.json`\. Save `amazon-ssm-agent.json` in the same folder where `amazon-ssm-agent.json.template` is located\.
+1. Copy the contents of `amazon-ssm-agent.json.template` to a new file named `amazon-ssm-agent.json`\. Save `amazon-ssm-agent.json` in the same directory where `amazon-ssm-agent.json.template` is located\.
 
 1. Find `Profile`, `KeyAutoRotateDays`\. Enter the number of days that you want between automatic private key rotations\. 
 
@@ -114,7 +114,7 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 
 `aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
-You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance reappears in the list of managed instances\.
+You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance are displayed again in the list of managed instances\.
 
 **To reregister a managed instance on a Windows hybrid machine**
 

@@ -5,5 +5,5 @@ AWS Systems Manager offers a standard\-instances tier and an advanced\-instances
 As long as your AWS account and Region has fewer than 1,000 on\-premises instances in your hybrid environment, you can revert back to the standard\-instances tier at any time\. 
 
 **Topics**
-+ [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)
++ [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)
 + [Reverting from the advanced\-instances tier to the standard\-instances tier](systems-manager-managed-instances-advanced-reverting.md)

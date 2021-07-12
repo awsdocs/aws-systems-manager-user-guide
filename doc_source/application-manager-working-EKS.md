@@ -1,6 +1,6 @@
 # Working with Amazon EKS in Application Manager<a name="application-manager-working-EKS"></a>
 
-Application Manager, a capability of AWS Systems Manager, integrates with [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) \(Amazon EKS\) to provide information about the health of your Amazon EKS cluster infrastructure as well as a component runtime view of the compute, networking, and storage resources in a cluster\.
+Application Manager, a capability of AWS Systems Manager, integrates with [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) \(Amazon EKS\) to provide information about the health of your Amazon EKS cluster infrastructure and a component runtime view of the compute, networking, and storage resources in a cluster\.
 
 **Note**  
 You can't manage or view operations information about your Amazon EKS pods or containers in Application Manager\. You can only manage and view operations information about the infrastructure hosting your Amazon EKS resources\.

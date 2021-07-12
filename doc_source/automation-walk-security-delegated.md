@@ -9,7 +9,7 @@ You can specify a service role at runtime when you run an automation, or you can
 **Note**  
 You must specify a service role for automation that you expect to run longer than 12 hours\. If you start a long\-running automation in the context of a user, the user's temporary session expires after 12 hours\.
 
-Delegated administration ensures elevated security and control of your AWS resources\. It also enables an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
+Delegated administration ensures elevated security and control of your AWS resources\. It also allows an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
 
 To properly illustrate how delegated administration can work in an organization, this topic describes the following tasks as though these tasks were performed by three different people in an organization:
 + Create a test IAM user account called AutomationRestrictedOperator \(Administrator\)\.
@@ -17,7 +17,7 @@ To properly illustrate how delegated administration can work in an organization,
 + Create a simple runbook \(based on a preexisting runbook\) that specifies the service role \(Runbook Author\)\.
 + Run the automation as the test user \(Restricted Operator\)\.
 
-In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here shows how delegated administration enables enhanced security in complex organizations\.
+In some organizations, all three of these tasks are performed by the same person, but identifying the different roles here shows how delegated administration allows enhanced security in complex organizations\.
 
 **Important**  
 As a security best practice, we recommend that you always use a service role to run automations, even if you're an administrator who performs all of these tasks\.
@@ -68,7 +68,7 @@ This section describes how to create an IAM test user account with restricted pe
 
 The following procedure links to other topics to help you create the service role and to configure Automation to trust this role\.
 
-**To create the service role and enable Automation to trust it**
+**To create the service role and allow Automation to trust it**
 
 1. Create the Automation service role\. For information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
 
@@ -132,7 +132,7 @@ This section describes how to create a custom runbook that restarts EC2 instance
 
 ## Run the custom runbook<a name="automation-walk-security-execute"></a>
 
-The following procedure describes how to run the runbook you just created using the restricted operator role you created earlier in this topic\. The user can run the runbook you created earlier because their IAM account permissions enable them to see and run the runbook\. The user can't, however, log on to the instances that you will restart with this automation\.
+The following procedure describes how to run the runbook you just created using the restricted operator role you created earlier in this topic\. The user can run the runbook you created earlier because their IAM account permissions allow them to see and run the runbook\. The user can't, however, log on to the instances that you will restart with this automation\.
 
 1. In the [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/), copy the instance IDs for one or more instances that you want to restart by using the following automation\.
 

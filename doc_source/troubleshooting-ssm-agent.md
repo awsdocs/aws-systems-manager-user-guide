@@ -14,10 +14,10 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 
 ## View SSM Agent log files<a name="systems-manager-ssm-agent-log-files"></a>
 
-SSM Agent logs information in the following files\. The information in these files can also help you troubleshoot problems\. For more information about SSM Agent log files, including how to enable debug logging, see [Viewing SSM Agent logs](sysman-agent-logs.md)\.
+SSM Agent logs information in the following files\. The information in these files can also help you troubleshoot problems\. For more information about SSM Agent log files, including how to turn on debug logging, see [Viewing SSM Agent logs](sysman-agent-logs.md)\.
 
 **Note**  
-If you choose to view these logs by using Windows File Explorer, be sure to enable the viewing of hidden files and system files in Folder Options\.
+If you choose to view these logs by using Windows File Explorer, be sure to allow the viewing of hidden files and system files in Folder Options\.
 
 **On Windows**
 + `%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
@@ -60,4 +60,4 @@ SSM Agent must be able to connect to the following endpoints:
 + `ssmmessages.region.amazonaws.com`
 + `ec2messages.region.amazonaws.com`
 
-SSM Agent won't work if it can't communicate with the above endpoints, even if you use AWS provided Amazon Machine Images \(AMIs\) such as Amazon Linux or Amazon Linux 2\. Your network configuration must have open internet access or you must have custom virtual private cloud \(VPC\) endpoints configured\. If you don't plan on creating a custom VPC endpoint, check your internet gateways or NAT gateways\. For more information about how to manage VPC endpoints, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
+SSM Agent won't work if it can't communicate with the preceding endpoints, even if you use AWS provided Amazon Machine Images \(AMIs\) such as Amazon Linux or Amazon Linux 2\. Your network configuration must have open internet access or you must have custom virtual private cloud \(VPC\) endpoints configured\. If you don't plan on creating a custom VPC endpoint, check your internet gateways or NAT gateways\. For more information about how to manage VPC endpoints, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.

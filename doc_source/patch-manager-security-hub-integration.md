@@ -1,4 +1,4 @@
-# Integration with AWS Security Hub<a name="security-hub-integration"></a>
+# Integration with AWS Security Hub<a name="patch-manager-security-hub-integration"></a>
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS\. Security Hub collects security data from across AWS accounts, AWS services, and supported third\-party partner products\. With Security Hub, you can check your environment against security industry standards and best practices\. Security Hub helps you to analyze your security trends and identify the highest priority security issues\.
 
@@ -11,7 +11,7 @@ By using the integration between Patch Manager, a capability of AWS Systems Mana
   + [Retrying when Security Hub isn't available](#securityhub-integration-retry-send)
   + [Updating existing findings in Security Hub](#securityhub-integration-finding-updates)
 + [Typical finding from Patch Manager](#securityhub-integration-finding-example)
-+ [Enabling and configuring the integration](#securityhub-integration-enable)
++ [Turning on and configuring the integration](#securityhub-integration-enable)
 + [How to stop sending findings](#securityhub-integration-disable)
 
 ## How Patch Manager sends findings to Security Hub<a name="securityhub-integration-sending-findings"></a>
@@ -112,11 +112,11 @@ Here is an example of a typical finding from Patch Manager\.
 }
 ```
 
-## Enabling and configuring the integration<a name="securityhub-integration-enable"></a>
+## Turning on and configuring the integration<a name="securityhub-integration-enable"></a>
 
-To use the Patch Manager integration with Security Hub, you must enable Security Hub\. For information about how to enable Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+To use the Patch Manager integration with Security Hub, you must turn on Security Hub\. For information about how to turn on Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
 
-The following procedure describes how to integrate Patch Manager and Security Hub when Security Hub is already active but Patch Manager integration is disabled\. You only need to complete this procedure if integration was manually disabled\.
+The following procedure describes how to integrate Patch Manager and Security Hub when Security Hub is already active but Patch Manager integration is turned off\. You only need to complete this procedure if integration was manually turned off\.
 
 **To add Patch Manager to Security Hub integration**
 

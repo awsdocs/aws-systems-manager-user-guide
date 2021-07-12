@@ -91,7 +91,7 @@ Because of a known issue with Snap, you might see a `Maximum timeout exceeded` e
      ```
      sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
      ```
-On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to  any configuration files in this directory, then you must copy these files from the `/snap` folder to the `/etc/amazon/ssm/` folder\. Log and library files haven't changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
+On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to  any configuration files in this directory, then you must copy these files from the `/snap` directory to the `/etc/amazon/ssm/` directory\. Log and library files haven't changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
 On Ubuntu Server 20\.10 STR & 20\.04 and 18\.04 LTS, we recommend you only use Snaps\. Also verify that only one instance of the agent is installed and running on your instances\. If you want to use SSM Agent without Snaps, uninstall the SSM Agent\. Then install the SSM Agent as a debian package and ensure you don't have any Snaps installed that overlap with the list of packages you want managed as debian packages\.
 On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent provides support for the arm64 processor architecture\.
 On Ubuntu Server 16\.04, SSM Agent is installed using either Snaps or deb installation packages, depending on the version of the 16\.04 AMI\.
@@ -242,7 +242,7 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
 ------
 
 **Note**  
-If you're unable to download the agent from the AWS Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
 Intel 64\-bit \(x86\_64\)  
 
   ```

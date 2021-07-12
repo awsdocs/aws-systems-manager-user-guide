@@ -75,7 +75,7 @@ The system returns information like the following\.
 
 ### Create a patch baseline with custom repositories for different OS versions<a name="patch-manager-cli-commands-create-patch-baseline-mult-sources"></a>
 
-Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository enabled by default on Amazon Linux 2017\.09, but it could be adapted to a different source repository that you have configured for an instance\.
+Applies to Linux instances only\. The following command shows how to specify the patch repository to use for a particular version of the Amazon Linux operating system\. This sample uses a source repository allowed by default on Amazon Linux 2017\.09, but it could be adapted to a different source repository that you have configured for an instance\.
 
 **Note**  
 To better demonstrate this more complex command, we're using the `--cli-input-json` option with additional options stored an external JSON file\.

@@ -27,7 +27,7 @@ Use the following procedure to configure Compliance as the target of an EventBri
 
    A rule can't have the same name as another rule in the same AWS Region and on the same event bus\.
 
-1. For **Define pattern**, choose **Event pattern**\. **Event pattern** lets you build a rule that generates events for specific actions in AWS services\.
+1. For **Define pattern**, choose **Event pattern**\. Use **Event pattern** to build a rule that generates events for specific actions in AWS services\.
 
 1. Choose **Pre\-defined pattern by service**\.
 

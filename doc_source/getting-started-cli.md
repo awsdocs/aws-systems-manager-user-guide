@@ -11,7 +11,7 @@ As an alternative to running commands from your local machine, you can use AWS C
 
 ## Installing or upgrading and then configuring the AWS CLI<a name="getting-started-aws-cli"></a>
 
-The AWS CLI is an open source tool that enables you to interact with AWS services using commands in your command\-line shell\. With minimal configuration, the AWS CLI enables you to start running commands that implement functionality equivalent to that provided by the browser\-based AWS Management Console from the command prompt in your terminal program\.
+The AWS CLI is an open source tool that allows you to interact with AWS services using commands in your command\-line shell\. With minimal configuration, the AWS CLI allows you to start running commands that implement functionality equivalent to that provided by the browser\-based AWS Management Console from the command prompt in your terminal program\.
 
 For more information about the AWS CLI, see the *[AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)*\.
 
@@ -49,7 +49,7 @@ When you configure the AWS CLI, you're prompted to specify an AWS Region\. Choos
 
 ## Installing or upgrading and then configuring the AWS Tools for PowerShell<a name="getting-started-twp"></a>
 
-The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell enable you to script operations on your AWS resources from the PowerShell command line\. The cmdlets provide an idiomatic PowerShell experience for specifying parameters and handling results even though they are implemented using the various AWS service HTTP query APIs\.
+The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell allow you to script operations on your AWS resources from the PowerShell command line\. The cmdlets provide an idiomatic PowerShell experience for specifying parameters and handling results even though they are implemented using the various AWS service HTTP query APIs\.
 
  For information about the Tools for Windows PowerShell, see the *[AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)*\.
 

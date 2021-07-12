@@ -8,7 +8,7 @@ Fleet Manager uses Run Command and Session Manager, capabilities of AWS Systems 
 ## Create a user or group<a name="fleet-user-management-create"></a>
 
 **Note**  
-Fleet Manager uses Session Manager to set passwords for new users\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be turned on in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+Fleet Manager uses Session Manager to set passwords for new users\. The instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing instance profile](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be turned on in your session preferences to use Fleet Manager features\. For more information about enabling AWS KMS encryption for Session Manager, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 **To create an OS user account with Fleet Manager**
 

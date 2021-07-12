@@ -99,9 +99,9 @@ If you paste this block after the last block in the policy, be sure to separate 
 1. Choose **Create policy**\.
 
 **Important**  
-When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role enables AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
-**Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy enables communication between AWS Glue and Systems Manager Inventory\.
-`AWSGlueServiceRole`: This is an AWS managed policy that enables access to AWS Glue\.
+When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role allows AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
+**Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy allows communication between AWS Glue and Systems Manager Inventory\.
+`AWSGlueServiceRole`: This is an AWS managed policy that allows access to AWS Glue\.
 If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy isn't attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ## Querying data on the inventory detailed view page<a name="systems-manager-inventory-query-detail-view"></a>

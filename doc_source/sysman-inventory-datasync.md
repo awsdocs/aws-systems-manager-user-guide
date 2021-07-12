@@ -27,7 +27,10 @@ You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in 
 
 ## Before you begin<a name="sysman-inventory-datasync-before-you-begin"></a>
 
-Before you create a resource data sync, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
+Before you create a resource data sync, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that allows Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
+
+**Note**  
+Systems Manager Inventory can't add data to a specified Amazon S3 bucket if that bucket is configured to use Object Lock\. Verify that the Amazon S3 bucket you create or choose for resource data sync isn't configured to use Amazon S3 Object Lock\. For more information, see [How Amazon S3 Object Lock works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html) in the *Amazon Simple Storage Service Console User Guide*\.
 
 **To create and configure an Amazon S3 bucket for resource data sync**
 
@@ -39,7 +42,7 @@ Before you create a resource data sync, use the following procedure to create a 
 
 1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *account\-id* with the name of the S3 bucket you created and a valid AWS account ID\.
 
-   To enable multiple AWS accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
+   To allow multiple AWS accounts to send inventory data to the central Amazon S3 bucket, specify each account in the policy as shown in the following `Resource` sample:
 
    ```
    "Resource": [
@@ -146,7 +149,7 @@ Also, be aware that you must create the organization\-based resource data sync f
 
 ### Creating a central Amazon S3 bucket<a name="sysman-inventory-datasync-before-you-begin"></a>
 
-Use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that enables Systems Manager to write inventory data to the bucket from your AWS Organizations account ID\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
+Use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that allows Systems Manager to write inventory data to the bucket from your AWS Organizations account ID\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
 
 **To create and configure an Amazon S3 bucket for resource data sync for multiple accounts defined in AWS Organizations**
 

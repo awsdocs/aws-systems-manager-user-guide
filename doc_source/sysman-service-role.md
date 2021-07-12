@@ -55,11 +55,11 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 
 ------
 
-1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to enable the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
+1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to allow the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 **Note**  
 The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-   \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
+   \(Required\) Run the following command to allow a managed instance to use AWS Systems Manager service core functionality\.
 
 ------
 #### [ Linux & macOS ]
@@ -81,7 +81,7 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-   If you created a custom S3 bucket policy for your service role, run the following command to enable AWS Systems Manager SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
+   If you created a custom S3 bucket policy for your service role, run the following command to allow AWS Systems Manager Agent \(SSM Agent\) to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
 
 ------
 #### [ Linux & macOS ]
@@ -161,11 +161,11 @@ The policies you add for a service profile for managed instances in a hybrid env
        -AssumeRolePolicyDocument (Get-Content -raw SSMService-Trust.json)
    ```
 
-1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to enable the service role you created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
+1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to allow the service role you created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 **Note**  
 The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-   \(Required\) Run the following command to enable a managed instance to use AWS Systems Manager service core functionality\.
+   \(Required\) Run the following command to allow a managed instance to use AWS Systems Manager service core functionality\.
 
    ```
    Register-IAMRolePolicy `
@@ -173,7 +173,7 @@ The policies you add for a service profile for managed instances in a hybrid env
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
    ```
 
-   If you created a custom S3 bucket policy for your service role, run the following command to enable SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
+   If you created a custom S3 bucket policy for your service role, run the following command to allow SSM Agent to access the buckets you specified in the policy\. Replace *account\-id* and *my\-bucket\-policy\-name* with your AWS account ID and your bucket name\. 
 
    ```
    Register-IAMRolePolicy `

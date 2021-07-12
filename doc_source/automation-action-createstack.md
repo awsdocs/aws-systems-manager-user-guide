@@ -87,7 +87,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 128\.
 Pattern: \[a\-zA\-Z0\-9\]\[\-a\-zA\-Z0\-9\]\*
 
 DisableRollback  
-Set to `true` to disable rollback of the stack if stack creation failed\.  
+Set to `true` to turn off rollback of the stack if stack creation failed\.  
 Conditional: You can specify either the `DisableRollback` parameter or the `OnFailure` parameter, but not both\.   
 Default: `false`  
 Type: Boolean  

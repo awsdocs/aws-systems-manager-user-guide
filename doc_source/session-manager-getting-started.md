@@ -9,5 +9,5 @@ Before you use AWS Systems Manager Session Manager to connect to the Amazon Elas
 + [Step 4: Configure session preferences](session-manager-getting-started-configure-preferences.md)
 + [Step 5: \(Optional\) Restrict access to commands in a session](session-manager-restrict-command-access.md)
 + [Step 6: \(Optional\) Use AWS PrivateLink to set up a VPC endpoint for Session Manager](session-manager-getting-started-privatelink.md)
-+ [Step 7: \(Optional\) Disable or enable ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)
-+ [Step 8: \(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)
++ [Step 7: \(Optional\) Turn on or turn off ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)
++ [Step 8: \(Optional\) Allow SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)

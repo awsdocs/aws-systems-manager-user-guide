@@ -70,7 +70,7 @@ You must ensure the function defined in the handler has two parameters, `events`
        \-or\-
      + For **Attachment**, choose either **Stored on my machine** or **Upload S3 File URL**\.
 
-       If you choose **Stored on my machine**: For Amazon S3 URL, enter the location of an S3 bucket in your account where you want to store the upload attachment, and then choose **Upload** to browse to and select the file\.
+       If you choose **Stored on my machine**: For Amazon S3 URL, enter the location of an S3 bucket in your account where you want to store the upload attachment, and then choose **Upload** to navigate to and select the file\.
 
        If you choose **Upload S3 File URL**, provide the following information:
        + **S3 file url**: Enter the location in an S3 bucket in your account where the file is stored\.

@@ -42,7 +42,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. \(Optional\) In the **Manage tags** area, apply one or more tag key name/value pairs to the maintenance window\.
 
-   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a maintenance window to identify the type of tasks it runs, the types of targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
+   Tags are optional metadata that you assign to a resource\. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a maintenance window to identify the type of tasks it runs, the types of targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
    + `Key=TaskType,Value=AgentUpdate`
    + `Key=OS,Value=Windows`
    + `Key=Environment,Value=Production`

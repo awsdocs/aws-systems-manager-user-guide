@@ -1,6 +1,6 @@
 # Viewing association histories<a name="sysman-state-assoc-history"></a>
 
-You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API operation\. This operation lets you to see the status, detailed status, results, last execution time, and more information for a State Manager association\. State Manager is a capability of AWS Systems Manager\. This API operation also includes filters to help you locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view executions processed after the specified date and time\.
+You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API operation\. Use this operation to see the status, detailed status, results, last execution time, and more information for a State Manager association\. State Manager is a capability of AWS Systems Manager\. This API operation also includes filters to help you locate associations according to the criteria you specify\. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view executions processed after the specified date and time\.
 
 If, for example, an association execution failed, you can drill down into the details of a specific execution by using the [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html) API operation\. This operation shows you the resources, such as instance IDs, where the association ran and the various association statuses\. You can then see which resource or instance failed to run an association\. With the resource ID you can then view the command execution details to see which step in a command failed\.
 
@@ -23,17 +23,15 @@ Use the following procedure to view the execution history for a specific associa
 1. Choose the **Execution history** tab\.
 
 1. Choose an association for which you want to view resource\-level execution details\. For example, choose an association that shows a status of **Failed**\. You can then view the execution details for the instances that failed to run the association\.
-**Note**  
-Use the search box filters to locate the execution for which you want to view details\.  
 
+   Use the search box filters to locate the execution for which you want to view details\.  
 ![\[Filtering the list of State Manager association executions.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
 
 1. Choose an execution ID\. The **Association execution targets** page opens\. This page shows all the resources that ran the association\.
 
 1. Choose a resource ID to view specific information about that resource\.
-**Note**  
-Use the search box filters to locate the resource for which you want to view details\.  
 
+   Use the search box filters to locate the resource for which you want to view details\.  
 ![\[Filtering the list of State Manager association executions targets.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
 
 1. If you're investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation\. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb\.

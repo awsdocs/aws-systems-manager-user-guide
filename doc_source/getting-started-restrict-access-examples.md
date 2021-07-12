@@ -79,7 +79,7 @@ You can restrict access to instances based on specific Amazon EC2 tags\. In the 
 }
 ```
 
-You can create IAM policies that enable a user to start sessions to instances that are tagged with multiple tags\. The following policy enables the user to start sessions to instances that have both the specified tags applied to them\. If a user sends a command to an instance that isn't tagged with both of these tags, the command result will include `AccessDenied`\.
+You can create IAM policies that allow a user to start sessions to instances that are tagged with multiple tags\. The following policy allows the user to start sessions to instances that have both the specified tags applied to them\. If a user sends a command to an instance that isn't tagged with both of these tags, the command result will include `AccessDenied`\.
 
 ```
 {
@@ -116,7 +116,7 @@ Session Manager provides two methods to control which sessions a user in your AW
 
 ### Method 1: Grant TerminateSession privileges using the variable `{aws:username}`<a name="restrict-access-example-user-sessions-username"></a>
 
-The following IAM policy lets a user view the IDs of all sessions in your account\. However, users can interact with instances only through sessions they started\. A user who is assigned the following policy can't connect to or end other users' sessions\. The policy uses the variable `{aws:username}` to achieve this\.
+The following IAM policy allows a user to view the IDs of all sessions in your account\. However, users can interact with instances only through sessions they started\. A user who is assigned the following policy can't connect to or end other users' sessions\. The policy uses the variable `{aws:username}` to achieve this\.
 
 **Note**  
 This method doesn't work for accounts that grant access to AWS using federated IDs\.
@@ -157,7 +157,7 @@ When a user in your AWS account starts a session, Session Manager applies two re
 Session Manager doesn’t support custom tags for this IAM access control policy\. You must use the resource tags supplied by AWS, described below\. 
 
  **`aws:ssmmessages:target-id`**   
-With this tag key, you include the instance ID as the value in policy\. In the following policy block, the condition statement lets a user end only the instance i\-02573cafcfEXAMPLE\.  
+With this tag key, you include the instance ID as the value in policy\. In the following policy block, the condition statement allows a user to end only the instance i\-02573cafcfEXAMPLE\.  
 
 ```
 {
@@ -235,7 +235,7 @@ To retrieve the role ID for a role in your AWS account, use the `get-caller-iden
 If a user tries to end a session for which they haven’t been granted this `TerminateSession` permission, they receive an `AccessDeniedException` error\.
 
 **`aws:ssmmessages:target-id`** and **`aws:ssmmessages:session-id`**  
-You can also create IAM policies that enable a user to end sessions that are tagged with both system tags, as shown in this example\.  
+You can also create IAM policies that allow a user to end sessions that are tagged with both system tags, as shown in this example\.  
 
 ```
 {

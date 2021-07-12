@@ -14,7 +14,7 @@ For **Container clusters**, the list includes the following:
 + Amazon ECS clusters
 + Amazon EKS clusters
 
-After import completes, you can view operations information for an application or a specific resource in these predefined categories\. Or, if you want to provide more context about a collection of resources, you can manually create an application in Application Manager\. You can then add resources or groups of resources into that application\. After you create an application in Application Manager, you can view operations information about your resource in the context of an application\. 
+After import is complete, you can view operations information for an application or a specific resource in these predefined categories\. Or, if you want to provide more context about a collection of resources, you can manually create an application in Application Manager\. You can then add resources or groups of resources into that application\. After you create an application in Application Manager, you can view operations information about your resource in the context of an application\. 
 
 ## Creating an application in Application Manager<a name="application-manager-create-application"></a>
 

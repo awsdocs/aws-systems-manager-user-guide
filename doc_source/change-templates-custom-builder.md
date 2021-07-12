@@ -26,7 +26,7 @@ Using the Builder for change templates in Change Manager, a capability of AWS Sy
    + For **Runbook options**, specify the runbooks that users can choose from when creating a change request\. You can add a single runbook or multiple runbooks\. Alternatively, you can allow requesters to specify which runbook to use\. In any of these cases, only one runbook can be included in the change request\.
    + For **Runbook**, select the names of the runbooks and the versions of those runbooks that users can choose from for their change requests\. No matter how many runbooks you add to the change template, only one can be selected per change request\.
 
-     You don't specify a runbook if you chose **Any runbook can be used **above\.
+     You don't specify a runbook if you chose **Any runbook can be used** earlier\.
 **Tip**  
 Select a runbook and runbook version, and then choose **View** to examine the contents of the runbook in the Systems Manager Documents interface\.
 

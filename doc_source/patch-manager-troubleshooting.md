@@ -159,7 +159,7 @@ For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usag
 + You selected a valid product family and product pair but then removed the product family selection\.
 + You chose a product from the **Obsolete or mismatched options** sublist instead of the **Available and matching options** sublist\. 
 
-  Items in the product **Obsolete or mismatched options** sublist might have been entered in error through an SDK or AWS Command Line Interface \(AWS CLI\) `create-patch-baseline` command\. This could mean a typo was introduced or a product was assigned to the wrong product family\. A product also appears in the **Obsolete or mismatched options** sublist if it was specified for a previous patch baseline but has no patches available from Microsoft\. 
+  Items in the product **Obsolete or mismatched options** sublist might have been entered in error through an SDK or AWS Command Line Interface \(AWS CLI\) `create-patch-baseline` command\. This could mean a typo was introduced or a product was assigned to the wrong product family\. A product is also included in the **Obsolete or mismatched options** sublist if it was specified for a previous patch baseline but has no patches available from Microsoft\. 
 
 **Solution**: To avoid this issue in the console, always choose options from the **Currently available options** sublists\.
 
@@ -310,7 +310,7 @@ failed to run commands: exit status 4294967295
 
 **Problem**: `AWS-RunPatchbaseline` completed successfully, but there are some missing patches\.
 
-Below are some common causes and their solutions\.
+The following are some common causes and their solutions\.
 
 **Cause 1**: The baseline isn't effective\.
 

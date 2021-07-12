@@ -45,7 +45,7 @@ If you selected targets by specifying tags applied to managed instances or by sp
 
 1. In the ** IAM service role** area, choose the Maintenance Windows service role that has `iam:PassRole` permissions to the SNS role\.
 **Note**  
-Add `iam:PassRole` permissions to the Maintenance Windows role to enable Systems Manager to pass the SNS role to Amazon SNS\. If you haven't added `iam:PassRole` permissions, see Task 5 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+Add `iam:PassRole` permissions to the Maintenance Windows role to allow Systems Manager to pass the SNS role to Amazon SNS\. If you haven't added `iam:PassRole` permissions, see Task 5 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  

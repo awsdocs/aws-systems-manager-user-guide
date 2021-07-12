@@ -48,10 +48,10 @@ Use the following procedure to configure Systems Manager Inventory for all manag
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
 
 1. In the **Managed instances with inventory enabled** card, choose **Click here to enable inventory on all instances**\.  
-![\[Enabling Systems Manager Inventory on all instances in the current AWS account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
+![\[Turning on Systems Manager Inventory on all instances in the current AWS account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
 
    If successful, the console displays the following message\.  
-![\[Enabling Systems Manager Inventory on all instances in the current AWS account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
+![\[Turning on Systems Manager Inventory on all instances in the current AWS account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
 
    Depending on the number of managed instances in your account, it can take several minutes for the global inventory association to be applied\. Wait a few minutes and then refresh the page\. Verify that the graphic changes to reflect that inventory is configured on all of your managed instances\.
 
@@ -73,14 +73,14 @@ This section includes information about how to configure Systems Manager Invento
 
 1. In the **Targets** section, identify the instances where you want to run this operation by choosing one of the following\.
    + **Selecting all managed instances in this account** \- This option selects all managed instances for which there is no existing inventory association\. If you choose this option, instances that already had inventory associations are skipped during inventory collection, and shown with a status of **Skipped** in inventory results\. For more information, see [Inventory all managed instances in your AWS account](#inventory-management-inventory-all)\. 
-   + **Specifying a tag** \- This option lets you specify a single tag to identify instances in your account from which you want to collect inventory\. If you use a tag, any instances created in the future with the same tag will also report inventory\. If there is an existing inventory association with all instances, using a tag to select specific instances as a target for a different inventory overrides instance membership in the **All managed instances** target group\. Instances with the specified tag are skipped on future inventory collection from **All managed instances**\.
-   + **Manually selecting instances** \- This option lets you choose specific managed instances in your account\. Explicitly choosing specific instances by using this option overrides inventory associations on the **All managed instances** target\. The instance is skipped on future inventory collection from **All managed instances**\.
+   + **Specifying a tag** \- Use this option to specify a single tag to identify instances in your account from which you want to collect inventory\. If you use a tag, any instances created in the future with the same tag will also report inventory\. If there is an existing inventory association with all instances, using a tag to select specific instances as a target for a different inventory overrides instance membership in the **All managed instances** target group\. Instances with the specified tag are skipped on future inventory collection from **All managed instances**\.
+   + **Manually selecting instances** \- Use this option to choose specific managed instances in your account\. Explicitly choosing specific instances by using this option overrides inventory associations on the **All managed instances** target\. The instance is skipped on future inventory collection from **All managed instances**\.
 **Note**  
 If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Schedule** section, choose how often you want the system to collect inventory metadata from your instances\.
 
-1. In the **Parameters** section, use the lists to enable or disable different types of inventory collection\. See the following samples if you want to create an inventory search for **Files** or the **Windows Registry**\.
+1. In the **Parameters** section, use the lists to turn on or turn off different types of inventory collection\. See the following samples if you want to create an inventory search for **Files** or the **Windows Registry**\.
 
 **Files**
    + On Linux and macOS, collect metadata of \.sh files in the `/home/ec2-user` directory, excluding all subdirectories\.
@@ -110,7 +110,7 @@ If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting A
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon","Recursive": true}]
      ```
-   + Collect all keys and values for a specific path \(recursive search disabled\)\.
+   + Collect all keys and values for a specific path \(recursive search turned off\)\.
 
      ```
      [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Intel\PSIS\PSIS_DECODER", "Recursive": false}]

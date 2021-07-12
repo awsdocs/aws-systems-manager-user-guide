@@ -1,6 +1,6 @@
 # AWS Systems Manager Session Manager<a name="session-manager"></a>
 
-Session Manager is a fully managed AWS Systems Manager capability that lets you manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\) through an interactive one\-click browser\-based shell or through the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your managed instances\.
+Session Manager is a fully managed AWS Systems Manager capability that allows you to manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises instances, and virtual machines \(VMs\) through an interactive one\-click browser\-based shell or through the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable instance management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end users with simple one\-click cross\-platform access to your managed instances\.
 
 ## How can Session Manager benefit my organization?<a name="session-manager-benefits"></a>
 
@@ -27,23 +27,23 @@ Session Manager offers these benefits:
   Logging and auditing capabilities are provided through integration with the following AWS services:
   + **AWS CloudTrail** – AWS CloudTrail captures information about Session Manager API calls made in your AWS account and writes it to log files that are stored in an Amazon Simple Storage Service \(Amazon S3\) bucket you specify\. One bucket is used for all CloudTrail logs for your account\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\. 
   + **Amazon Simple Storage Service** – You can choose to store session log data in an Amazon S3 bucket of your choice for debugging and troubleshooting purposes\. Log data can be sent to your Amazon S3 bucket with or without encryption using your AWS KMS key\. For more information, see [Logging session data using Amazon S3 \(console\)](session-manager-logging.md#session-manager-logging-s3)\.
-  + **Amazon CloudWatch Logs** – CloudWatch Logs lets you monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for debugging and troubleshooting purposes\. Log data can be sent to your log group with or without AWS KMS encryption using your KMS key\. For more information, see [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging.md#session-manager-logging-cloudwatch-logs)\.
-  + **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge lets you set up rules to detect when changes happen to AWS resources that you specify\. You can create a rule to detect when a user in your organization starts or stops a session, and then receive a notification through Amazon SNS \(for example, a text or email message\) about the event\. You can also configure a CloudWatch event to initiate other responses\. For more information, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\.
+  + **Amazon CloudWatch Logs** – CloudWatch Logs allows you to monitor, store, and access log files from various AWS services\. You can send session log data to a CloudWatch Logs log group for debugging and troubleshooting purposes\. Log data can be sent to your log group with or without AWS KMS encryption using your KMS key\. For more information, see [Logging session data using Amazon CloudWatch Logs \(console\)](session-manager-logging.md#session-manager-logging-cloudwatch-logs)\.
+  + **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge allows you to set up rules to detect when changes happen to AWS resources that you specify\. You can create a rule to detect when a user in your organization starts or stops a session, and then receive a notification through Amazon SNS \(for example, a text or email message\) about the event\. You can also configure a CloudWatch event to initiate other responses\. For more information, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\.
 **Note**  
 Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 ## Who should use Session Manager?<a name="session-manager-who"></a>
 + Any AWS customer who wants to improve their security and audit posture, reduce operational overhead by centralizing access control on instances, and reduce inbound instance access\. 
-+ Information Security experts who want to monitor and track instance access and activity, close down inbound ports on instances, or enable connections to instances that don't have a public IP address\. 
++ Information Security experts who want to monitor and track instance access and activity, close down inbound ports on instances, or allow connections to instances that don't have a public IP address\. 
 + Administrators who want to grant and revoke access from a single location, and who want to provide one solution to users for Linux, macOS, and Windows Server instances\.
 + Users who want to connect to an instance with just one click from the browser or AWS CLI without having to provide SSH keys\.
 
 ## What are the main features of Session Manager?<a name="session-manager-features"></a>
 + **Support for Windows Server, Linux and macOS instances**
 
-  Session Manager lets you establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
+  Session Manager enables you to establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, on\-premises instances, and virtual machines \(VMs\)\. For a list of supported operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 +  **Console, CLI, and SDK access to Session Manager capabilities** 
 
   You can work with Session Manager in the following ways:
@@ -56,7 +56,7 @@ Session Manager support for on\-premises servers is provided for the advanced\-i
 **Note**  
 To use the AWS CLI to run session commands, you must be using version 1\.16\.12 of the CLI \(or later\), and you must have installed the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
-  The **Session Manager SDK** consists of libraries and sample code that enables application developers to build front\-end applications, such as custom shells or self\-service portals for internal users that natively use Session Manager to connect to instances\. Developers and partners can integrate Session Manager into their client\-side tooling or Automation workflows using the Session Manager APIs\. You can even build custom solutions\.
+  The **Session Manager SDK** consists of libraries and sample code that allows application developers to build front\-end applications, such as custom shells or self\-service portals for internal users that natively use Session Manager to connect to instances\. Developers and partners can integrate Session Manager into their client\-side tooling or Automation workflows using the Session Manager APIs\. You can even build custom solutions\.
 +  **IAM access control** 
 
   Through the use of IAM policies, you can control which members of your organization can initiate sessions to instances and which instances they can access\. You can also provide temporary access to your instances\. For example, you might want to give an on\-call engineer \(or a group of on\-call engineers\) access to production servers only for the duration of their rotation\.
@@ -65,7 +65,7 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
   Session Manager provide you with options for auditing and logging session histories in your AWS account through integration with a number of other AWS services\. For more information, see [Auditing session activity](session-manager-auditing.md) and [Logging session activity](session-manager-logging.md)\.
 + **Configurable shell profiles**
 
-  Session Manager provides you with options to configure preferences within sessions\. These customizable profiles enable you to define preferences such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
+  Session Manager provides you with options to configure preferences within sessions\. These customizable profiles allow you to define preferences such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.
 +  **Customer key data encryption support** 
 
   You can configure Session Manager to encrypt the session data logs that you send to an Amazon Simple Storage Service \(Amazon S3\) bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your instances during your sessions\. For information, see [Logging session activity](session-manager-logging.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
@@ -81,7 +81,7 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
 
 ## What is a session?<a name="what-is-a-session"></a>
 
-A session is a connection made to an instance using Session Manager\. Sessions are based on a secure bi\-directional communication channel between the client \(you\) and the remote managed instance that streams inputs and outputs for commands\. Traffic between a client and a managed instance is encrypted using TLS 1\.2, and requests to create the connection are signed using Sigv4\. This two\-way communication enables interactive bash and PowerShell access to instances\. You can also use an AWS Key Management Service \(AWS KMS\) key to further encrypt data beyond the default TLS encryption\.
+A session is a connection made to an instance using Session Manager\. Sessions are based on a secure bi\-directional communication channel between the client \(you\) and the remote managed instance that streams inputs and outputs for commands\. Traffic between a client and a managed instance is encrypted using TLS 1\.2, and requests to create the connection are signed using Sigv4\. This two\-way communication allows interactive bash and PowerShell access to instances\. You can also use an AWS Key Management Service \(AWS KMS\) key to further encrypt data beyond the default TLS encryption\.
 
 For example, say that John is an on\-call engineer in your IT department\. He receives notification of an issue that requires him to remotely connect to an instance, such as a failure that requires troubleshooting or a directive to change a simple configuration option on an instance\. Using the AWS Systems Manager console, the Amazon EC2 console, or the AWS CLI, John starts a session connecting him to the instance, runs commands on the instance needed to complete the task, and then ends the session\.
 

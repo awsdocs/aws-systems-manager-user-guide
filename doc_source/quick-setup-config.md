@@ -35,7 +35,7 @@ To set up AWS Config recording, perform the following tasks in the AWS Systems M
 
 1. In the **Schedule** section, choose how frequently you want Quick Setup to remediate changes made to resources that differ from your configuration\. The **Default** option runs once\. If you don't want Quick Setup to remediate changes made to resources that differ from your configuration, choose **Disable remediation** under **Custom**\.
 
-1. In the **Targets** section, choose whether to enable AWS Config recording for your entire organization, some of your organizational units \(OUs\), or the account you're logged in to\.
+1. In the **Targets** section, choose whether to allow AWS Config recording for your entire organization, some of your organizational units \(OUs\), or the account you're logged in to\.
 
    If you choose **Entire organization**, continue to step 12\.
 

@@ -7,7 +7,7 @@ AWS Systems Manager Automation reports detailed status information about the var
 
 ## About automation statuses<a name="automation-statuses-about"></a>
 
-Automation reports status details for individual automation actions as well as the overall automation\.
+Automation reports status details for individual automation actions in addition to the overall automation\.
 
 The overall automation status can be different than the status reported by an individual action or step as noted in the following tables\.
 

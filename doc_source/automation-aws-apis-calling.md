@@ -2,10 +2,10 @@
 
 You can invoke other AWS services and other Systems Manager capabilities by using the following automation actions in your runbooks: 
 + **`aws:executeAwsApi`**: This automation action calls and runs AWS API operations\. Most API operations are supported, although not all API operations have been tested\. For example, the following API operations are supported: [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), [Delete bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html), [RebootDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html), and [CreateGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html)\. Streaming API operations, such as the [Get Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) action, aren't supported\. 
-+ **`aws:waitForAwsResourceProperty`**: This automation action enables your automation to wait for a specific resource state or event state before continuing the automation\. For example, you can use this action with the Amazon Relational Database Service \(Amazon RDS\) [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API operation to pause an automation so that a database instance has time to start\.
-+ **`aws:assertAwsResourceProperty`**: This automation action enables you to assert a specific resource state or event state for a specific step\. For example, you can specify that a step must wait for an EC2 instance to start\. Then it will call the Amazon Elastic Compute Cloud \(Amazon EC2\) [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API operation with the DesiredValue property of `running`\. This ensures that the automation waits for a running instance and then continues when the instance is, in fact, running\.
++ **`aws:waitForAwsResourceProperty`**: This automation action allows your automation to wait for a specific resource state or event state before continuing the automation\. For example, you can use this action with the Amazon Relational Database Service \(Amazon RDS\) [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API operation to pause an automation so that a database instance has time to start\.
++ **`aws:assertAwsResourceProperty`**: This automation action allows you to assert a specific resource state or event state for a specific step\. For example, you can specify that a step must wait for an EC2 instance to start\. Then it will call the Amazon Elastic Compute Cloud \(Amazon EC2\) [DescribeInstanceStatus](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html) API operation with the DesiredValue property of `running`\. This ensures that the automation waits for a running instance and then continues when the instance is, in fact, running\.
 
-Here is a sample runbook in YAML that uses the `aws:executeAwsApi` action to disable read and write permissions on an S3 bucket\.
+Here is a sample runbook in YAML that uses the `aws:executeAwsApi` action to turn off read and write permissions on an S3 bucket\.
 
 ```
 ---
@@ -107,7 +107,7 @@ outputs:
 
 ## Working with inputs and outputs<a name="automation-aws-apis-calling-input-output"></a>
 
-Each of the previously described automation actions enables you to call a specific API operation by specifying the service namespace, the API operation name, the input parameters, and the output parameters\. Inputs are defined by the API operation that you choose\. You can view the API operations \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API operations \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
+Each of the previously described automation actions allows you to call a specific API operation by specifying the service namespace, the API operation name, the input parameters, and the output parameters\. Inputs are defined by the API operation that you choose\. You can view the API operations \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API operations \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
 
 You can view the schema for each automation action in the following locations:
 + [`aws:assertAwsResourceProperty` – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
@@ -170,7 +170,7 @@ A JSONPath expression is a string beginning with "$\." that is used to select on
 + **Deep\-scan \(\.\.\)**: Use with a JSON element\. This operator scans the JSON element level by level and selects a list of values with the specific key\. The return type of this operator is always a JSON array\. In the context of an automation action output type, the operator can be either StringList or MapList\.
 + **Array\-Index \(\[ \]\)**: Use with a JSON array\. This operator gets the value of a specific index\.
 
-To better understand JSONPath operators, review the following JSON response from the ec2 `DescribeInstances` API operation\. Below this response are several examples that show different results by applying different JSONPath expressions to the response from the `DescribeInstances` API operation\.
+To better understand JSONPath operators, review the following JSON response from the ec2 `DescribeInstances` API operation\. Following this response are several examples that show different results by applying different JSONPath expressions to the response from the `DescribeInstances` API operation\.
 
 ```
 {
@@ -320,7 +320,7 @@ Type: MapList
 ```
 
 **Important**  
-If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can enable permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
 
 ## Sample walkthrough: Start an Amazon RDS instance from a Systems Manager Automation runbook<a name="automation-aws-apis-calling-sample"></a>
 
@@ -352,7 +352,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
    1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
-   1. Determine which Amazon RDS API operation enables you to view the status of a database instance\. You can view the API operations \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
+   1. Determine which Amazon RDS API operation allows you to view the status of a database instance\. You can view the API operations \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
    1. Specify one or more request parameters for the DescribeDBInstances API operation\. For example, this action uses the `DBInstanceIdentifier` request parameter\.
 
@@ -530,12 +530,12 @@ Systems Manager Automation includes the following predefined runbooks that invok
 |  [https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description)  |  Reboot an Amazon RDS instance\.  | 
 |  [https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
 |  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Enable logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Disable read and write permissions on an S3 bucket by using a private ACL\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Enable or suspend versioning on an S3 bucket\.   | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Allow logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Turn off read and write permissions on an S3 bucket by using a private ACL\.  | 
+|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Allow or suspend versioning on an S3 bucket\.   | 
 |  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB table backup\.   | 
 
-Either choose the links in the table above, or use the following procedure to view more details about these runbooks in the Systems Manager console\.
+Either choose the links in the preceding table, or use the following procedure to view more details about these runbooks in the Systems Manager console\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

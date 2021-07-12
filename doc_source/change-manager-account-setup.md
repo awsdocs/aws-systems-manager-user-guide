@@ -2,7 +2,7 @@
 
 The tasks in this section must be performed whether you're using Change Manager, a capability of AWS Systems Manager, across an organization or in a single AWS account\.
 
-If you're using Change Manager for an organization, you can perform the following tasks in either your delegated administrator account or any account in an organization unit that you have enabled for use with Change Manager\.
+If you're using Change Manager for an organization, you can perform the following tasks in either your delegated administrator account or any account in an organization unit that you have allowed for use with Change Manager\.
 
 **Topics**
 + [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1)
@@ -37,7 +37,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. For **User identity management**, choose one of the following\.
    + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts and groups\.
-   + **AWS Single Sign\-On \(AWS SSO\)** – Enable [AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
+   + **AWS Single Sign\-On \(AWS SSO\)** – Allow [AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
 
 1. In the **Template reviewer notification** section, specify the Amazon Simple Notification Service \(Amazon SNS\) topics to use to notify template reviewers that a new change template or change template version is ready for review\. Ensure that the Amazon SNS topic you choose is configured to send notifications to your template reviewers\. 
 
@@ -69,7 +69,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 ## Task 2: Configuring Change Manager change freeze event approvers and best practices<a name="cm-configure-account-task-2"></a>
 
-After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1), you can designate extra reviewers for change requests during *change freeze events* and specify which available best practices you want to enable for your Change Manager operations\.
+After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1), you can designate extra reviewers for change requests during *change freeze events* and specify which available best practices you want to allow for your Change Manager operations\.
 
 A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they don't, the change won't be processed until the calendar state is again OPEN\.
 
@@ -85,7 +85,7 @@ A change freeze event means that restrictions are in place in the current change
 
 1. In the **Approvers for change freeze events** section, select the users in your organization or account who can approve changes to run even when the calendar in use in Change Calendar is currently CLOSED\.
 **Note**  
-To enable change freeze reviews, you must enable the **Check Change Calendar for restricted change events** option in **Best practices**\.
+To allow change freeze reviews, you must turn on the **Check Change Calendar for restricted change events** option in **Best practices**\.
 
    Select approvers for change freeze events by doing the following:
 
@@ -95,7 +95,7 @@ To enable change freeze reviews, you must enable the **Check Change Calendar for
 
    1. Choose **Add approvers**\.
 
-1. In the **Best practices** section near the bottom of the page, enable the best practices you want to enforce for each of the following options\.
+1. In the **Best practices** section near the bottom of the page, turn on the best practices you want to enforce for each of the following options\.
    + Option: **Check Change Calendar for restricted change events**
 
      To specify that Change Manager checks a calendar in Change Calendar to make sure changes aren't blocked by scheduled events, first select the **Enabled** check box, and then select the calendar to check for restricted events from the **Change Calendar** list\.

@@ -4,7 +4,7 @@ The tasks in this topic apply if you're using Change Manager, a capability of AW
 
 Perform the tasks in this section in an AWS account that is serving as the *management account* in Organizations\. For information about the management account and other Organizations concepts, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\.
 
-If you need to enable Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](url-ao-user;orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
+If you need to turn on Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](url-ao-user;orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
 
 **Note**  
 This setup process can't be performed in the following AWS Regions:  
@@ -149,4 +149,4 @@ After the system finishes setting up Change Manager for your organization, it di
 **Note**  
 Quick Setup uses AWS CloudFormation StackSets to deploy your configurations\. You can also view information about a completed deployment configuration in the AWS CloudFormation console\. For information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.
 
-Your next step is to configure additional Change Manager options\. You can complete this task in either your delegated administrator account or any account in an organization unit that you have enabled for use with Change Manager\. You configure options such as choosing a user identity management option, specifying which users can review and approve or reject change templates and change requests, and choosing which best practice options to enable for your organization\. For information, see [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
+Your next step is to configure additional Change Manager options\. You can complete this task in either your delegated administrator account or any account in an organization unit that you have allowed for use with Change Manager\. You configure options such as choosing a user identity management option, specifying which users can review and approve or reject change templates and change requests, and choosing which best practice options to allow for your organization\. For information, see [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.

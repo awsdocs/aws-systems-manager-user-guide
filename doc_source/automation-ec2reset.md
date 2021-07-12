@@ -203,7 +203,7 @@ The following automation stops the instance\. Stopping the instance can result i
 
    1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the instance you specified\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
 **Note**  
-If you don't see the option to specify a subnet ID, verify that you're using the latest **Default** version of the runbook\.
+If you don't see the option to specify a subnet ID, verify that you are using the latest **Default** version of the runbook\.
 
    1. For **EC2RescueInstanceType**, specify an instance type for the EC2Rescue instance\. The default instance type is `t2.small`\.
 

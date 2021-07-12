@@ -4,7 +4,7 @@ To create a package, prepare your installable software or assets, one file per o
 
 Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you're creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
-When you create a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+When you create a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document allows you to deploy the package to managed instances\.
 
 For demonstration purposes only, an example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts don't contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you don't zip installable assets in the **Simple** workflow\.
 
@@ -19,7 +19,7 @@ This section describes how to create a package in Distributor by choosing the **
 When you use the Simple method to create a package, Distributor creates `install` and `uninstall` scripts for you\. However, when you create a package for an in\-place update, you must provide your own `update` script content on the **Update script** tab\. When you add input commands for an `update` script, Distributor includes this script in the \.zip package it creates for you, along with the `install` and `uninstall` scripts\.
 
 **Note**  
-The `In-place` update option lets you add new or updated files to an existing package installation without taking the associated application offline\.
+Use the `In-place` update option to add new or updated files to an existing package installation without taking the associated application offline\.
 
 **To create a package \(simple\)**
 
@@ -35,9 +35,9 @@ The `In-place` update option lets you add new or updated files to an existing pa
 
 1. For **Location**, choose a bucket by using the bucket name and prefix or by using the bucket URL\.
 
-1. For **Upload software**, choose **Add software**, and then browse for installable software files with `.rpm`, `.msi`, or `.deb` extensions\. If the file name contains spaces, the upload fails\. You can upload more than one software file in a single action\.
+1. For **Upload software**, choose **Add software**, and then navigate to installable software files with `.rpm`, `.msi`, or `.deb` extensions\. If the file name contains spaces, the upload fails\. You can upload more than one software file in a single action\.
 
-1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the drop\-down list\.
+1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the dropdown list\.
 
    For the **Simple** package creation workflow, because you upload each installable file only once, extra steps are required to instruct Distributor to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to target the same software at both Amazon Linux and Ubuntu operating systems\. When targeting multiple platforms, do one of the following\.
    + Use the **Advanced** workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Create a package \(advanced\)](#distributor-working-with-packages-create-adv)\.
@@ -45,7 +45,7 @@ The `In-place` update option lets you add new or updated files to an existing pa
 
 1. For **Platform version**, verify that the operating system platform version shown is either **\_any**, a major release version followed by a wildcard \(7\.\*\), or the exact operating system release version to which you want your software to apply\. For more information about specifying an operating system platform version, see step 4 in [Step 2: Create the JSON package manifest](#packages-manifest)\.
 
-1. For **Architecture**, choose the correct processor architecture for each installable file from the drop\-down list\. For more information about supported processor architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
+1. For **Architecture**, choose the correct processor architecture for each installable file from the dropdown list\. For more information about supported processor architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
 1. \(Optional\) Expand **Scripts**, and review the scripts that Distributor generates for your installable software\.
 
@@ -69,7 +69,7 @@ If Distributor can't upload any of the software installable files, it displays a
 
 In this section, learn about how advanced users can create a package in Distributor after uploading installable assets zipped with installation and uninstallation scripts, and a JSON manifest file, to an Amazon S3 bucket\.
 
-To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder, and the manifest is populated with correct values, upload your package to an S3 bucket\.
+To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder or directory, and the manifest is populated with correct values, upload your package to an S3 bucket\.
 
 An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
@@ -397,13 +397,13 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 1. Create a bucket or choose an existing bucket\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. For more information about how to run an AWS CLI command to create a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) in the *AWS CLI Command Reference*\.
 
-1. Upload the folder to the bucket\. For more information, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, don't upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
+1. Upload the folder or directory to the bucket\. For more information, see [Add an Object to a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/PuttingAnObjectInABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If you plan to paste your JSON manifest into the AWS Systems Manager console, don't upload the manifest\. For more information about how to run an AWS CLI command to upload files to a bucket, see [https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html](https://docs.aws.amazon.com/cli/latest/reference/s3/mv.html) in the *AWS CLI Command Reference*\.
 
-1. On the bucket's home page, choose the folder that you uploaded\. If you uploaded your files to a subfolder in a bucket, be sure to note the subfolder \(also known as a *prefix*\)\. You need the prefix to add your package to Distributor\.
+1. On the bucket's home page, choose the folder or directory that you uploaded\. If you uploaded your files to a subfolder in a bucket, be sure to note the subfolder \(also known as a *prefix*\)\. You need the prefix to add your package to Distributor\.
 
 ### Step 4: Add a package to Distributor<a name="distributor-working-with-packages-add"></a>
 
-You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document lets you deploy the package to managed instances\.
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document allows you to deploy the package to managed instances\.
 
 **Topics**
 + [Adding a package \(console\)](#create-pkg-console)

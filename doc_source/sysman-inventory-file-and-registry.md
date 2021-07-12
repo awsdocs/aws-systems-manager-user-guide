@@ -1,6 +1,6 @@
 # Working with file and Windows registry inventory<a name="sysman-inventory-file-and-registry"></a>
 
-AWS Systems Manager Inventory enables you to search and inventory files on Windows, Linux, and macOS operating systems\. You can also search and inventory the Windows Registry\.
+AWS Systems Manager Inventory allows you to search and inventory files on Windows, Linux, and macOS operating systems\. You can also search and inventory the Windows Registry\.
 
 **Files**: You can collect metadata information about files, including file names, the time files were created, the time files were last modified and accessed, and file sizes, to name a few\. To start collecting file inventory, you specify a file path where you want to perform the inventory, one or more patterns that define the types of files you want to inventory, and if the path should be traversed recursively\. Systems Manager inventories all file metadata for files in the specified path that match the pattern\. File inventory uses the following parameter input\.
 
@@ -64,7 +64,7 @@ Here are some examples of how to specify the parameters when performing an inven
   ```
   [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon","Recursive": true}]
   ```
-+ Collect all keys and values for a specific path \(recursive search disabled\)\.
++ Collect all keys and values for a specific path \(recursive search turned off\)\.
 
   ```
   [{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Intel\PSIS\PSIS_DECODER", "Recursive": false}]

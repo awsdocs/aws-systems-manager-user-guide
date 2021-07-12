@@ -191,6 +191,6 @@ For information about creating a custom SSM document, see [Creating SSM document
 
 The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run after the instance reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify instance health after the patching operation completes\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the instance\. 
+The SSM document you specify is run after the instance reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify instance health after the patching operation is complete\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the instance\. 
 
 For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 

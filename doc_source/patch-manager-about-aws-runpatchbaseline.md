@@ -82,7 +82,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 **Usage**: Optional\.
 
-`InstallOverrideList` lets you specify an https URL or an Amazon S3 path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
+Using `InstallOverrideList`, you specify an https URL or an Amazon S3 path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 

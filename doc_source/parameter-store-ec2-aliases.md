@@ -2,7 +2,7 @@
 
 When you create a `String` parameter, you can specify the *data type* as `aws:ec2:image` to ensure that the parameter value you enter is a valid Amazon Machine Image \(AMI\) ID format\. 
 
-Support for AMI ID formats lets you avoid updating all your scripts and templates with a new ID each time the AMI that you want to use in your processes changes\. You can create a parameter with the data type `aws:ec2:image`, and for its value, enter the ID of an AMI\. This is the AMI you want to create new instances from\. You then reference this parameter in your templates, commands, and scripts\. 
+Support for AMI ID formats allows you to avoid updating all your scripts and templates with a new ID each time the AMI that you want to use in your processes changes\. You can create a parameter with the data type `aws:ec2:image`, and for its value, enter the ID of an AMI\. This is the AMI you want to create new instances from\. You then reference this parameter in your templates, commands, and scripts\. 
 
 For example, you can specify the parameter that contains your preferred AMI ID when you run the Amazon Elastic Compute Cloud \(Amazon EC2\) `run-instances` command\.
 

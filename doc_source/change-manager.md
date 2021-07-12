@@ -50,7 +50,7 @@ Benefits of Change Manager include the following:
   During different business periods, you can implement different change management requirements\. For example, during end\-of\-month reporting, tax season, or other critical business periods, you can block changes or require director\-level approval for changes that could introduce unnecessary operational risks\.
 + **Centrally manage changes across accounts**
 
-  Through its integration with Organizations, Change Manager makes it possible for you to manage changes throughout all of your organizational units \(OUs\) from a single delegated administrator account\. You can enable Change Manager for use with your entire organization or with only some of your OUs\.
+  Through its integration with Organizations, Change Manager makes it possible for you to manage changes throughout all of your organizational units \(OUs\) from a single delegated administrator account\. You can turn on Change Manager for use with your entire organization or with only some of your OUs\.
 
 ## Who should use Change Manager?<a name="change-manager-who"></a>
 
@@ -65,14 +65,14 @@ Change Manager is appropriate for the following AWS customers and organizations:
 Primary features of Change Manager include the following:
 + **Integrated support for change management best practices**
 
-  With Change Manager, you can apply select change management best practices to your operations\. You can choose to enable the following options:
+  With Change Manager, you can apply select change management best practices to your operations\. You can choose to turn on the following options:
   + Check Change Calendar to see if events are currently restricted so changes are made only during open calendar periods\.
   + Allow changes during restricted events with extra approvals from change freeze approvers\.
   + Require CloudWatch alarms to be specified for all change templates\.
   + Require all change templates created in your account to be reviewed and approved before they can be used to create change requests\.
 + **Different approval paths for closed calendar periods and emergency change requests**
 
-  You can enable an option to check Change Calendar for restricted events and block approved change requests until the event completes\. However, you can also designate a second group of approvers, change freeze approvers, who can permit the change to be made even if the calendar is closed\. You can also create emergency change templates\. Change requests created from an emergency change template still require regular approvals but aren't subject to calendar restrictions and don't require change freeze approvals\.
+  You can allow an option to check Change Calendar for restricted events and block approved change requests until the event is complete\. However, you can also designate a second group of approvers, change freeze approvers, who can permit the change to be made even if the calendar is closed\. You can also create emergency change templates\. Change requests created from an emergency change template still require regular approvals but aren't subject to calendar restrictions and don't require change freeze approvals\.
 + **Control how and when runbook workflows are started**
 
   Runbook workflows can be started according to a schedule, or as soon as approvals are complete \(subject to calendar restriction rules\)\.

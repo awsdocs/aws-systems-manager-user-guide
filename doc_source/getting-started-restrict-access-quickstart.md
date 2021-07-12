@@ -177,7 +177,7 @@ Use this sample policy to provider users with the ability to start and resume se
 
 ------
 
-**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom Session document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Enable SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+**1** `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences\. You can create a custom Session document and specify it in this policy instead\. You can also specify the AWS\-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH\. For information about configuration steps needed to support sessions using SSH, see [\(Optional\) Allow SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 
 **2** If you specify the condition element, `ssm:SessionDocumentAccessCheck`, as `true`, the system checks that a user has explicit access to the defined Session document, in this example `SSM-SessionManagerRunShell`, before a session is established\. For more information, see [Enforce a session document permission check for the AWS CLI](getting-started-sessiondocumentaccesscheck.md)\.
 
@@ -194,7 +194,7 @@ Use this sample policy to provider users with the ability to start and resume se
         }
 ```
 
-For information about using AWS KMS for encrypting session data, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+For information about using AWS KMS for encrypting session data, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 **4** The permission for [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) is needed for cases where a user attempts to start a session from the Amazon EC2 console, but a command must be sent to update SSM Agent first\.
 

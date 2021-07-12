@@ -33,7 +33,7 @@ Specifying alternative repositories doesn't mean specifying *additional* reposit
 For example, on Amazon Linux 2 instances, the default repositories are `amzn-main` and `amzn-update`\. If you want to include the Extra Packages for Enterprise Linux \(EPEL\) repository in your patching operations, you must specify all three repositories as alternative repositories\.
 
 **Note**  
-Running a custom patch baseline that specifies alternative patch repositories for an instance doesn't make those repositories the new default repositories\. After the patching operation completes, the repositories previously defined as the defaults remain the default repository configured for the instance\.
+Running a custom patch baseline that specifies alternative patch repositories for an instance doesn't make those repositories the new default repositories\. After the patching operation is complete, the repositories previously defined as the defaults remain the default repository configured for the instance\.
 
 **Patching behavior for YUM\-based distributions depends on the updateinfo\.xml manifest**  
 When you specify alternative patch repositories for YUM\-based distributions, such as Amazon Linux or Amazon Linux 2, Red Hat Enterprise Linux, or CentOS, patching behavior depends on whether the repository includes an update manifest in the form of a complete and correctly formatted `updateinfo.xml` file\. This file specifies the release date, classifications, and severities of the various packages\. Any of the following will affect the patching behavior:

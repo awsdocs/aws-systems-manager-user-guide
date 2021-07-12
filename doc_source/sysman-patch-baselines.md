@@ -57,7 +57,7 @@ When you specify an auto\-approval cutoff date, Patch Manager automatically appl
 
 You can also specify a compliance severity level\. If an approved patch is reported as missing, `Compliance Level` is the severity of the compliance violation\. 
 
-By using multiple patch baselines with different auto\-approval delays or cutoff dates, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines, auto\-approval delays, andcutoff dates for development and production environments\. This enables you to test patches in your development environment before they get deployed in your production environment\. 
+By using multiple patch baselines with different auto\-approval delays or cutoff dates, you can deploy patches at different rates to different instances\. For example, you can create separate patch baselines, auto\-approval delays, andcutoff dates for development and production environments\. This allows you to test patches in your development environment before they get deployed in your production environment\. 
 
 Keep the following in mind when you create a patch baseline:
 + Patch Manager provides one predefined patch baseline for each supported operating system\. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type\. 

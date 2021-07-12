@@ -16,7 +16,7 @@ Use the following procedure to create a custom IAM instance profile with a polic
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button appears, choose it, and then choose **Create Policy**\.\)
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button is displayed, choose it, and then choose **Create Policy**\.\)
 
 1. Choose the **JSON** tab\.
 
@@ -59,7 +59,7 @@ Use the following procedure to create a custom IAM instance profile with a polic
 For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 **About 'kms:Decrypt'**  
-In this policy, the `kms:Decrypt` permission enables customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
+In this policy, the `kms:Decrypt` permission turns on customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
 
    If you won't use AWS KMS encryption for your session data, you can remove the following content from the policy\.
 
@@ -74,7 +74,7 @@ In this policy, the `kms:Decrypt` permission enables customer key encryption and
            }
    ```
 
-   For information about using a KMS key to encrypt session data, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+   For information about using a KMS key to encrypt session data, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 1. Choose **Review policy**\.
 
@@ -110,7 +110,7 @@ For information about specifying preferences for storing session logs, see [Logg
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button appears, choose it, and then choose **Create Policy**\.\)
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button is displayed, choose it, and then choose **Create Policy**\.\)
 
 1. Choose the **JSON** tab\.
 

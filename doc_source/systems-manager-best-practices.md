@@ -25,7 +25,7 @@ The title of each section here is an active link to the corresponding section in
 
 **[Patch Manager](systems-manager-patch.md)**
 + Use Patch Manager, a capability of AWS Systems Manager, to roll out patches at scale and increase fleet compliance visibility across your instances\.
-+  [Integrate Patch Manager with AWS Security Hub](security-hub-integration.md) to receive alerts when instances in your fleet go out of compliance and monitor the patching status of your fleets from a security point of view\. There is a charge to use Security Hub\. For more information, see [Pricing](https://aws.amazon.com/security-hub/pricing/)\.
++  [Integrate Patch Manager with AWS Security Hub](patch-manager-security-hub-integration.md) to receive alerts when instances in your fleet go out of compliance and monitor the patching status of your fleets from a security point of view\. There is a charge to use Security Hub\. For more information, see [Pricing](https://aws.amazon.com/security-hub/pricing/)\.
 
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
@@ -44,7 +44,7 @@ For more information, see [Encrypting CloudTrail Log Files with AWS KMS–Manage
 + [Log session data in your AWS account using Amazon CloudWatch Logs or Amazon S3](session-manager-logging.md)\.
 + [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 + [Restrict access to commands in a session](session-manager-restrict-command-access.md)\.
-+ [Disable or enable ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)\.
++ [Turn off or turn on ssm\-user account administrative permissions](session-manager-getting-started-ssm-user-permissions.md)\.
 
 **[State Manager](systems-manager-state.md)**
 + [Update SSM Agent at least once a month using the pre\-configured `AWS-UpdateSSMAgent` document](sysman-state-cli.md)\.

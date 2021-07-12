@@ -206,7 +206,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
    aws ssm list-resource-data-sync --region us-west-1
    ```
 
-1. After the sync configuration is created successfully, browse the target bucket in Amazon S3\. Inventory data should appear within a few minutes\.
+1. After the sync configuration is created successfully, examine the target bucket in Amazon S3\. Inventory data should be displayed within a few minutes\.
 
 **Working with the Data in Amazon Athena**
 

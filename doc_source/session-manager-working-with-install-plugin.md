@@ -16,7 +16,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install the Session Manager plugin on Ubuntu Server](#install-plugin-debian)
 + [Verify the Session Manager plugin installation](#install-plugin-verify)
 + [Session Manager plugin on GitHub](#plugin-github)
-+ [\(Optional\) Enable Session Manager plugin logging](#install-plugin-configure-logs)
++ [\(Optional\) Turn on Session Manager plugin logging](#install-plugin-configure-logs)
 + [Session Manager plugin latest version and release history](#plugin-version-history)
 
 ## Install the Session Manager plugin on Windows<a name="install-plugin-windows"></a>
@@ -207,17 +207,17 @@ aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
 
 The source code for Session Manager plugin is available on [GitHub](https://github.com/aws/session-manager-plugin) so that you can adapt the plugin to meet your needs\. We encourage you to submit [pull requests](https://github.com/aws/session-manager-plugin/blob/mainline/CONTRIBUTING.md) for changes that you would like to have included\. However, Amazon Web Services doesn't provide support for running modified copies of this software\.
 
-## \(Optional\) Enable Session Manager plugin logging<a name="install-plugin-configure-logs"></a>
+## \(Optional\) Turn on Session Manager plugin logging<a name="install-plugin-configure-logs"></a>
 
-The Session Manager plugin includes an option to enable logging for sessions that you run\. By default, logging is disabled\.
+The Session Manager plugin includes an option to allow logging for sessions that you run\. By default, logging is turned off\.
 
-If you enable logging, the Session Manager plugin creates log files for both application activity \(`session-manager-plugin.log`\) and errors \(`errors.log`\) on your local machine\.
+If you allow logging, the Session Manager plugin creates log files for both application activity \(`session-manager-plugin.log`\) and errors \(`errors.log`\) on your local machine\.
 
 **Topics**
-+ [Enable logging for the Session Manager plugin \(Windows\)](#configure-logs-windows)
++ [Turn on logging for the Session Manager plugin \(Windows\)](#configure-logs-windows)
 + [Enable logging for the Session Manager plugin \(Linux and macOS\)](#configure-logs-linux)
 
-### Enable logging for the Session Manager plugin \(Windows\)<a name="configure-logs-windows"></a>
+### Turn on logging for the Session Manager plugin \(Windows\)<a name="configure-logs-windows"></a>
 
 1. Locate the `seelog.xml.template` file for the plugin\. 
 
@@ -236,9 +236,9 @@ By default, log entries about opening a data channel and reconnecting sessions a
 Don't change the file names or logging won't work correctly\.
 
      ```
-     <rollingfile type="size" filename="C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\Logs\session-manager-plugin.log" maxsize="30000000" maxrolls="5"/>
+     <rollingfile type="size" filename="C:\Program Files\Amazon\SessionManagerPlugin\Logs\session-manager-plugin.log" maxsize="30000000" maxrolls="5"/>
      <filter levels="error,critical" formatid="fmterror">
-     <rollingfile type="size" filename="C:\%PROGRAMDATA%\Amazon\SessionManagerPlugin\Logs\errors.log" maxsize="10000000" maxrolls="5"/>
+     <rollingfile type="size" filename="C:\Program Files\Amazon\SessionManagerPlugin\Logs\errors.log" maxsize="10000000" maxrolls="5"/>
      ```
 
 1. Save the file\.

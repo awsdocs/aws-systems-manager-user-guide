@@ -2,7 +2,7 @@
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices\. Security Hub collects security data from across AWS accounts, services, and supported third\-party partner products and helps you to analyze your security trends and identify the highest priority security issues\.
 
-The AWS Systems Manager OpsCenter integration with Security Hub enables you to receive findings from Security Hub in OpsCenter\. Security Hub findings provide security information that you can use in OpsCenter to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
+The AWS Systems Manager OpsCenter integration with Security Hub allows you to receive findings from Security Hub in OpsCenter\. Security Hub findings provide security information that you can use in OpsCenter to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
 
 You can automatically create operational issues \(OpsItems\) in OpsCenter for diagnosis and remediation of critical and high severity findings\. To help you with the diagnosis, the OpsItem includes relevant information, such as AWS resource ID and type, and findings details\. You can also use Systems Manager Automation runbooks within OpsCenter to run predefined workflows to help remediate common security issues with AWS resources\. 
 
@@ -20,7 +20,7 @@ To receive the findings from Security Hub, OpsCenter takes advantage of the Secu
 
 ### Types of findings that OpsCenter receives<a name="opscenter-securityhub-integration-finding-types-received"></a>
 
- OpsItems are automatically created for Critical and High severity findings\. You can configure OpsCenter to display Medium and Low severity findings as described later in [Enabling and configuring the integration](#opscenter-securityhub-integration-receive-enable)\. You can configure OpsCenter and Explorer to create OpsItems for all findings except Informational severity findings\. For more information about the severity of Security Hub findings, see [Severity](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-integration-types.html#securityhub-cwe-integration-types-all-findings) in the *AWS Security Hub User Guide*\.
+ OpsItems are automatically created for Critical and High severity findings\. You can configure OpsCenter to display Medium and Low severity findings as described later in [Turning on and configuring the integration](#opscenter-securityhub-integration-receive-enable)\. You can configure OpsCenter and Explorer to create OpsItems for all findings except Informational severity findings\. For more information about the severity of Security Hub findings, see [Severity](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-integration-types.html#securityhub-cwe-integration-types-all-findings) in the *AWS Security Hub User Guide*\.
 
 ### How long does it take to receive findings from Security Hub?<a name="opscenter-securityhub-integration-receive-finding-latency"></a>
 
@@ -30,9 +30,9 @@ When Security Hub creates a new finding, it's usually visible in OpsCenter withi
 
 Data from Security Hub is retained in OpsCenter for up to 7 days to retry if there is a system outage\. Security Hub also refreshes every 12 hours on all Security Hub standard rules\. 
 
-## Enabling and configuring the integration<a name="opscenter-securityhub-integration-receive-enable"></a>
+## Turning on and configuring the integration<a name="opscenter-securityhub-integration-receive-enable"></a>
 
-To use the integration with Security Hub, you must enable Security Hub\. For information on how to enable Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
+To use the integration with Security Hub, you must activate Security Hub\. For information on how to turn on Security Hub, see [Setting up Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *AWS Security Hub User Guide*\.
 
 The following procedure describes how to start receiving and configure Security Hub findings\.
 
@@ -46,7 +46,7 @@ The following procedure describes how to start receiving and configure Security 
 
 1. In the **Security Hub findings** section, select **Edit\.**
 
-1. Select the **Disabled** slider to enable Security Hub findings to automatically create OpsItems\.
+1. Select the **Disabled** slider to allow Security Hub findings to automatically create OpsItems\.
 
    Critical and High security findings create OpsItems by default\. To also create OpsItems for Medium and Low security findings, select the **Disabled** slider next to **Medium,Low**\.
 
@@ -78,4 +78,4 @@ The following procedure describes how to stop receiving Security Hub findings\.
 
 1. In the **Security Hub findings** section, select **Edit\.**
 
-1. Select the **Enable** slider to disable Security Hub findings from automatically creating OpsItems\. Then select **Save**\.
+1. Select the **Enable** slider to turn off Security Hub findings from automatically creating OpsItems\. Then select **Save**\.

@@ -196,7 +196,7 @@ The following automation stops the unreachable instance\. Stopping the instance 
 
    1. For **SubnetId**, specify a subnet in an existing VPC in the same availability zone as the unreachable instance\. By default, Systems Manager creates a new VPC, but you can specify a subnet in an existing VPC if you want\.
 **Note**  
-If you don't see the option to specify a bucket or a subnet ID, verify that you're using the latest **Default** version of the runbook\.
+If you don't see the option to specify a bucket or a subnet ID, verify that you are using the latest **Default** version of the runbook\.
 
 1. \(Optional\) In the **Tags** area, apply one or more tag key name/value pairs to help identify the automation, for example `Key=Purpose,Value=EC2Rescue`\.
 

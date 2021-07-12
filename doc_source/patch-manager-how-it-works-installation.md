@@ -87,7 +87,7 @@ On Debian Server instances, the patch installation workflow is as follows:
 
    1. An `apt-get` operation is run to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
 
-   1. After the installation process completes, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
+   1. After the installation process is complete, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
 
    The next time Patch Manager updates the system, the same process is repeated\.
 
@@ -126,7 +126,7 @@ On macOS instances, the patch installation workflow is as follows:
 
    For `softwareupdate`, the response to the CLI commands includes the package name \(`display name`\), `version`, and `date`, but only the package name and version are used by Patch Manager\.
 
-   For Brew and Brew Cask, Homebrew doesn't support its commands running under the root user\. As a result, Patch Manager queries for and runs Homebrew commands as either the owner of the Homebrew folder or as a valid user belonging to the Homebrew folder’s owner group\. The commands are similar to `softwareupdate` and `installer` and are run through a Python subprocess to gather package data, and the output is parsed to identify package names and versions\.
+   For Brew and Brew Cask, Homebrew doesn't support its commands running under the root user\. As a result, Patch Manager queries for and runs Homebrew commands as either the owner of the Homebrew directory or as a valid user belonging to the Homebrew directory’s owner group\. The commands are similar to `softwareupdate` and `installer` and are run through a Python subprocess to gather package data, and the output is parsed to identify package names and versions\.
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 

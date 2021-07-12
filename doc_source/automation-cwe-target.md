@@ -22,7 +22,7 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 
    A rule can't have the same name as another rule in the same Region and on the same event bus\.
 
-1. For **Define pattern**, choose either **Event pattern** or **Schedule**\. **Event pattern** lets you build a rule that generates events for specific actions in AWS services\. **Schedule** lets you build a rule that generates events according to a schedule that you specify by using the cron format\.
+1. For **Define pattern**, choose either **Event pattern** or **Schedule**\. Use **Event pattern** to build a rule that generates events for specific actions in AWS services\. Use **Schedule** to build a rule that generates events according to a schedule that you specify by using the cron format\.
 
 1. Choose the remaining options for the rule you want to create, and then choose **Add target**\.
 

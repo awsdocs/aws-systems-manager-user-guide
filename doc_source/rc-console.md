@@ -72,7 +72,7 @@ Systems Manager includes two options to help you rerun a command from the **Run 
 The following procedure describes how to update the SSM Agent running on your Windows Server, and Linux instances\. You can update to either the latest version or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
 
 **Note**  
-Below are some details about automatically updating SSM Agent:  
+Following are some details about automatically updating SSM Agent:  
 Beginning September 21, 2020, autoupdate installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3\.0](ssm-agent-v3.md)\.
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub\.
 

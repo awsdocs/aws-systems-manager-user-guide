@@ -17,7 +17,7 @@ By using the latest schema version for `Command` and `Policy` documents, you can
 |  Automatic versioning  |  Any update to a document creates a new version\. This isn't a schema version, but a version of the document\.  | 
 |  Default version  |  If you have multiple versions of a document, you can specify which version is the default document\.  | 
 |  Sequencing  |  Plugins or *steps* in a document run in the order that you specified\.  | 
-|  Cross\-platform support  |  Cross\-platform support enables you to specify different operating systems for different plugins within the same SSM document\. Cross\-platform support uses the `precondition` parameter within a step\.   | 
+|  Cross\-platform support  |  Cross\-platform support allows you to specify different operating systems for different plugins within the same SSM document\. Cross\-platform support uses the `precondition` parameter within a step\.   | 
 
 **Note**  
 You must keep AWS Systems Manager SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
@@ -29,7 +29,7 @@ The following table lists the differences between major schema versions\.
 
 | Version 1\.2 | Version 2\.2 \(latest version\) | Details | 
 | --- | --- | --- | 
-|  runtimeConfig  |  mainSteps  |  In version 2\.2, the `mainSteps` section replaces `runtimeConfig`\. The `mainSteps` section enables Systems Manager to run steps in sequence\.  | 
+|  runtimeConfig  |  mainSteps  |  In version 2\.2, the `mainSteps` section replaces `runtimeConfig`\. The `mainSteps` section allows Systems Manager to run steps in sequence\.  | 
 |  properties  |  inputs  |  In version 2\.2, the `inputs` section replaces the `properties` section\. The `inputs` section accepts parameters for steps\.  | 
 |  commands  |  runCommand  |  In version 2\.2, the `inputs` section takes the `runCommand` parameter instead of the `commands` parameter\.  | 
 |  id  |  action  |  In version 2\.2, `Action` replaces `ID`\. This is just a name change\.  | 
@@ -157,7 +157,7 @@ mainSteps:
 ------
 
 **Schema version 2\.2 precondition parameter examples**  
-Schema version 2\.2 provides cross\-platform support\. This means that within a single SSM document you can specify different operating systems for different plugins\. Cross\-platform support uses the `precondition` parameter within a step, as shown in the following example\. You can also use the `precondition` parameter to validate input parameters you've defined in your SSM document\. You can see this in the second example below\.
+Schema version 2\.2 provides cross\-platform support\. This means that within a single SSM document you can specify different operating systems for different plugins\. Cross\-platform support uses the `precondition` parameter within a step, as shown in the following example\. You can also use the `precondition` parameter to validate input parameters you've defined in your SSM document\. You can see this in the second of the following examples\.
 
 ------
 #### [ YAML ]

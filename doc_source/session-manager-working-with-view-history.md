@@ -6,7 +6,7 @@ You can use the AWS Systems Manager console or the AWS Command Line Interface \(
 + The ID of the instance
 + When the session began and ended
 + The status of the session
-+ The location specified for storing session logs \(if enabled\)
++ The location specified for storing session logs \(if turned on\)
 
 Using the AWS CLI, you can view a list of sessions in your account, but not the additional details that are available in the console\.
 

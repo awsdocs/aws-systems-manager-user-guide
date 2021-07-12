@@ -5,7 +5,7 @@ Patch Manager, a capability of AWS Systems Manager, automates the process of pat
 **Important**  
 AWS doesn't test patches for Windows Server or Linux before making them available in Patch Manager\. Also, Patch Manager doesn't support upgrading major versions of operating systems, such as Windows Server 2016 to Windows Server 2019, or SUSE Linux Enterprise Server \(SLES\) 12\.0 to SLES 15\.0\.
 
-Patch Manager uses *patch baselines*, which include rules for auto\-approving patches within days of their release, as well as a list of approved and rejected patches\. You can install patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task\. You can also install patches individually or to large groups of instances by using Amazon EC2 tags\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can add tags to your patch baselines themselves when you create or update them\. 
+Patch Manager uses *patch baselines*, which include rules for auto\-approving patches within days of their release, in addition to a list of approved and rejected patches\. You can install patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task\. You can also install patches individually or to large groups of instances by using Amazon EC2 tags\. \(Tags are keys that help identify and sort your resources within your organization\.\) You can add tags to your patch baselines themselves when you create or update them\. 
 
 Patch Manager provides options to scan your instances and report compliance on a schedule, install available patches on a schedule, and patch or scan instances on demand whenever you need to\. You can also generate patch compliance reports that are sent to an Amazon Simple Storage Service \(Amazon S3\) bucket of your choice\. You can generate one\-time reports, or generate reports on a regular schedule\. For a single instance, reports include details of all patches for the instance\. For a report on all instances, only a summary of how many patches are missing is provided\.
 
@@ -23,7 +23,7 @@ For information about using EventBridge to monitor Systems Manager events, see [
 + [Remediating out\-of\-compliance instances with Patch Manager](patch-compliance-remediation.md)
 + [Working with Patch Manager \(console\)](sysman-patch-working.md)
 + [Use Kernel Live Patching on Amazon Linux 2 instances](kernel-live-patching.md)
-+ [Integration with AWS Security Hub](security-hub-integration.md)
++ [Integration with AWS Security Hub](patch-manager-security-hub-integration.md)
 + [Working with Patch Manager \(AWS CLI\)](patch-manager-cli-commands.md)
 + [AWS Systems Manager Patch Manager walkthroughs](patch-walkthroughs.md)
 + [Troubleshooting Patch Manager](patch-manager-troubleshooting.md)

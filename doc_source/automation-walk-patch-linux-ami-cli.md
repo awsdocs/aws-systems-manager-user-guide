@@ -20,7 +20,7 @@ The `AWS-UpdateLinuxAmi` runbook accepts the following input parameters\.
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest ID of an Amazon EC2 AMI for Linux by using a AWS Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Amazon Linux AMI IDs using AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)\.  | 
 |  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The runbook uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the automation\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Setting up Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in a runbook\. For this parameter, the complete ARN must be specified\.  | 
-|  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it's created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
+|  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by Region\. The default type is t2\.micro\.  | 
 |  PreUpdateScript  |  String  |  \(Optional\) URL of a script to run before updates are applied\. Default \(\\"none\\"\) is to not run a script\.  | 
 |  PostUpdateScript  |  String  |  \(Optional\) URL of a script to run after package updates are applied\. Default \(\\"none\\"\) is to not run a script\.  | 
@@ -31,7 +31,7 @@ The `AWS-UpdateLinuxAmi` runbook accepts the following input parameters\.
 The `AWS-UpdateLinuxAmi` runbook includes the following steps, by default\.
 
 **Step 1: launchInstance \(`aws:runInstances` action\) **  
-This step launches an instance using Amazon Elastic Compute Cloud \(Amazon EC2\) userdata and an IAM instance profile role\. Userdata installs the appropriate SSM Agent, based on the operating system\. Installing SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
+This step launches an instance using Amazon Elastic Compute Cloud \(Amazon EC2\) user data and an IAM instance profile role\. User data installs the appropriate SSM Agent, based on the operating system\. Installing SSM Agent enables you to utilize Systems Manager capabilities such as Run Command, State Manager, and Inventory\.
 
 **Step 2: updateOSSoftware \(`aws:runCommand` action\) **  
 This step runs the following commands on the launched instance:  

@@ -67,7 +67,7 @@ The following procedure describes how to use the Systems Manager console to crea
 **Note**  
 The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-   Below are the minimal permissions required to turn on Amazon S3 output for an association\. You might further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
+   Following are the minimal permissions required to turn on Amazon S3 output for an association\. You might further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
 
    ```
    {

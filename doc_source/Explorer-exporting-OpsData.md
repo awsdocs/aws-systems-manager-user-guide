@@ -1,11 +1,11 @@
 # Exporting OpsData from Systems Manager Explorer<a name="Explorer-exporting-OpsData"></a>
 
-When you select a link in AWS Systems Manager Explorer, some pages display OpsData in a list\. These pages include an **Export** button that enables you to export up to 5,000 OpsData items as a comma separated value \(\.csv\) file to an Amazon Simple Storage Service \(Amazon S3\) bucket\. Before you can export data from Explorer pages, you must configure data export as described in this topic\.
+When you select a link in AWS Systems Manager Explorer, some pages display OpsData in a list\. These pages include an **Export** button that allows you to export up to 5,000 OpsData items as a comma separated value \(\.csv\) file to an Amazon Simple Storage Service \(Amazon S3\) bucket\. Before you can export data from Explorer pages, you must configure data export as described in this topic\.
 
 ![\[Exporting OpsData from Systems Manager Explorer\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-data-export.png)
 
 **Before You Begin**  
-When you configure data export, you must specify an Amazon Simple Notification Service \(Amazon SNS\) topic that exists in the same AWS Region where you want to export the data\. Systems Manager sends a notification to the Amazon SNS topic when an export completes\. For information about creating an Amazon SNS topic, see [Tutorial: Creating an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-topic.html)\.
+When you configure data export, you must specify an Amazon Simple Notification Service \(Amazon SNS\) topic that exists in the same AWS Region where you want to export the data\. Systems Manager sends a notification to the Amazon SNS topic when an export is complete\. For information about creating an Amazon SNS topic, see [Tutorial: Creating an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-topic.html)\.
 
 Also, be aware that when you export Explorer data, Systems Manager creates an AWS Identity and Access Management \(IAM\) role named `AmazonSSMExplorerExportRole`\. This role uses the following IAM policy\.
 
@@ -103,7 +103,7 @@ The role includes the following trust entity\.
 
 1. To upload the data export file to an existing S3 bucket, choose **Select an existing S3 bucket** and then choose the bucket from the list\. To upload the data export file to a new S3 bucket, choose **Create a new S3 bucket**, and then enter the name you want to use for the new bucket\.
 
-1. Use the **Select an Amazon SNS topic ARN** list to choose the topic you want to notify when the export completes\.
+1. Use the **Select an Amazon SNS topic ARN** list to choose the topic you want to notify when the export is complete\.
 
 1. Choose **Create**\.
 

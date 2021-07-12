@@ -27,9 +27,9 @@ You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Ma
 
 
 Three Systems Manager capabilities use the service\-linked role: 
-+ The Inventory capability requires a service\-linked role\. The role enables the system to collect Inventory metadata from tags and resource groups\.
-+ The Maintenance Windows capability can optionally use the service\-linked role\. The role enables the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
-+ The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
++ The Inventory capability requires a service\-linked role\. The role allows the system to collect Inventory metadata from tags and resource groups\.
++ The Maintenance Windows capability can optionally use the service\-linked role\. The role allows the Maintenance Windows service to run maintenance tasks on target instances\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
++ The Explorer capability uses the service\-linked role to allow viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you turn on Security Hub as a data source from Explorer or OpsCenter\.
 
 
 
@@ -518,7 +518,7 @@ View details about updates to AWS managed policies for Systems Manager since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you enable Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before enabling OpsData\.  | April 27, 2021 | 
+|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you turn on Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before allowing OpsData\.  | April 27, 2021 | 
 |  [AWSServiceRoleForSystemsManagerOpsDataSyncPolicy](#security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy) – New policy\.  |  Systems Manager added a new policy to create and update OpsItems and OpsData from Security Hub findings in Explorer and OpsCenter\.  | April 27, 2021 | 
 |  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and AWS Regions in Explorer\.  | March 24, 2021 | 
 |  Systems Manager started tracking changes  |  Systems Manager started tracking changes for its AWS managed policies\.  | March 12, 2021 | 

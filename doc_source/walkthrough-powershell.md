@@ -414,8 +414,8 @@ $configureWindowsUpdateCommand = Send-SSMCommand `
     -Parameters @{'updateLevel'='InstallUpdatesAutomatically'; 'scheduledInstallDay'='Daily'; 'scheduledInstallTime'='22:00'}
 ```
 
-**View command status for enabling Windows automatic update**  
-The following command uses the `CommandId` to get the status of the command execution for enabling Windows automatic update\.
+**View command status for allowing Windows automatic update**  
+The following command uses the `CommandId` to get the status of the command execution for allowing Windows automatic update\.
 
 ```
 Get-SSMCommandInvocation `
@@ -434,8 +434,8 @@ $configureWindowsUpdateCommand = Send-SSMCommand `
     -Parameters @{'updateLevel'='NeverCheckForUpdates'}
 ```
 
-**View command status for disabling Windows automatic update**  
-The following command uses the `CommandId` to get the status of the command execution for disabling Windows automatic update\.
+**View command status for turning off Windows automatic update**  
+The following command uses the `CommandId` to get the status of the command execution for turning off Windows automatic update\.
 
 ```
 Get-SSMCommandInvocation `

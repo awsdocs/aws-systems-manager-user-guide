@@ -79,7 +79,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 #### [ Linux & macOS ]
 
    ```
-   aws ssm describe-ops-item \
+   aws ssm describe-ops-items \
    --cli-input-json file://filename.json
    ```
 
@@ -87,7 +87,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 #### [ Windows ]
 
    ```
-   aws ssm describe-ops-item ^
+   aws ssm describe-ops-items ^
    --cli-input-json file://filename.json
    ```
 

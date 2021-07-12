@@ -1,4 +1,4 @@
-# Enabling the advanced\-instances tier<a name="systems-manager-managedinstances-advanced"></a>
+# Turning on the advanced\-instances tier<a name="systems-manager-managedinstances-advanced"></a>
 
 AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and virtual machines \(VMs\) in your hybrid environment\. The standard\-instances tier allows you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can activate as many managed instances in a hybrid environment as you like in the advanced\-instances tier\. However, all instances configured for Systems Manager using the managed\-instance activation process described earlier in [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md) are made available on a pay\-per\-use basis\. This also applies to Amazon Elastic Compute Cloud \(Amazon EC2\) instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
 
@@ -92,7 +92,7 @@ Administrators can specify read\-only permission by assigning the following inli
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
-## Enabling the advanced\-instances tier \(console\)<a name="systems-manager-managedinstances-advanced-enabling"></a>
+## Turning on the advanced\-instances tier \(console\)<a name="systems-manager-managedinstances-advanced-enabling"></a>
 
 The following procedure shows you how to use the Systems Manager console to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and AWS Region, to use the advanced\-instances tier\.
 
@@ -128,7 +128,7 @@ The system can take several minutes to complete the process of moving all instan
 **Note**  
 For information about changing back to the standard\-instances tier, see [Reverting from the advanced\-instances tier to the standard\-instances tier](systems-manager-managed-instances-advanced-reverting.md)\.
 
-## Enabling the advanced\-instances tier \(AWS CLI\)<a name="systems-manager-managedinstances-advanced-enabling-cli"></a>
+## Turning on the advanced\-instances tier \(AWS CLI\)<a name="systems-manager-managedinstances-advanced-enabling-cli"></a>
 
 The following procedure shows you how to use the AWS Command Line Interface to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and AWS Region, to use the advanced\-instances tier\.
 
@@ -196,7 +196,7 @@ The following procedure describes how to change an account\-level setting\. This
    }
    ```
 
-## Enabling the advanced\-instances tier \(PowerShell\)<a name="systems-manager-managedinstances-advanced-enabling-ps"></a>
+## Turning on the advanced\-instances tier \(PowerShell\)<a name="systems-manager-managedinstances-advanced-enabling-ps"></a>
 
 The following procedure shows you how to use the AWS Tools for Windows PowerShell to change *all* on\-premises servers and VMs that were added using managed\-instance activation, in the specified AWS account and AWS Region, to use the advanced\-instances tier\.
 

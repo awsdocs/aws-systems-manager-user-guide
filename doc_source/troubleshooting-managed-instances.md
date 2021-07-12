@@ -2,7 +2,7 @@
 
 For several AWS Systems Manager operations, you can choose to manually select the instances on which you want to run the operation\. Examples include running an Run Command command, specifying maintenance window targets, installing Distributor packages, and connecting to the instance using Session Manager, a capability of AWS Systems Manager\. In cases like these, after you specify that you want to choose instances manually, a list is displayed of managed instances you can choose to run the operation on\.
 
-This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* doesn't appear in your lists of managed instances in Systems Manager\. 
+This topic provides information to help you diagnose why an Amazon Elastic Compute Cloud \(Amazon EC2\) instance *that you have confirmed is running* isn't included in your lists of managed instances in Systems Manager\. 
 
 In order for an EC2 instance to be managed by Systems Manager and available in lists of managed instances, it must meet three primary requirements:
 + SSM Agent must be installed and running on an instance with a supported operating system\.

@@ -16,7 +16,7 @@ For **Container clusters**, the list includes the following:
 + Amazon ECS clusters
 + Amazon EKS clusters
 
-After import completes, you can view operations information about your resources in these predefined categories\. Or, if you want to provide more context about a collection of resources, you can manually create an application in Application Manager and move resources or groups of resources into that application\. This enables you to view operations information in the context of an application\. 
+After import is complete, you can view operations information about your resources in these predefined categories\. Or, if you want to provide more context about a collection of resources, you can manually create an application in Application Manager and move resources or groups of resources into that application\. This allows you to view operations information in the context of an application\. 
 
 After you [set up](https://docs.aws.amazon.com/systems-manager/latest/userguide/application-manager-getting-started-related-services.html) and configure AWS services and Systems Manager capabilities, Application Manager displays the following types of information about your resources:
 + Alarms provided by Amazon CloudWatch
@@ -39,6 +39,9 @@ Application Manager includes the following features:
 + **Import your AWS resources automatically**
 
   During initial setup, you can choose to have Application Manager automatically import and display resources in your AWS account that are based on CloudFormation stacks, AWS Resource Groups, Launch Wizard deployments, AppRegistry applications, and Amazon ECS and Amazon EKS clusters\. The system displays these resources in predefined application or cluster categories\. Thereafter, whenever new resources of these types are added to your AWS account, Application Manager automatically displays the new resources in the predefined application and cluster categories\. 
++ **Create or edit CloudFormation stacks and templates**
+
+  Application Manager helps you provision and manage resources for your applications by integrating with [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)\. You can create, edit, and delete AWS CloudFormation templates and stacks in Application Manager\. Application Manager also includes a template library where you can clone, create, and store templates\. Application Manager and CloudFormation display the same information about the current status of a stack\. Templates and template updates are stored in Systems Manager until you provision the stack, at which time the changes are also displayed in CloudFormation\.
 + **View operational metrics and alarms for an application or cluster**
 
   Application Manager integrates with [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) to provide real\-time operational metrics and alarms for an application or cluster\. You can drill down into your application tree to view alarms at each component level, or view alarms for an individual cluster\.
@@ -47,13 +50,13 @@ Application Manager includes the following features:
   Application Manager integrates with [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to provide log data in the context of your application without having to leave Systems Manager\.
 + **View and manage OpsItems for an application or cluster** 
 
-  Application Manager integrates with [AWS Systems Manager OpsCenter](OpsCenter.md) to provide a list of operational work items \(OpsItems\) for your applications and clusters\. The list reflects automatically generated and manually created OpsItems\. You can view details about the resource that created an OpsItem, as well as the OpsItem status, source, and severity\. 
+  Application Manager integrates with [AWS Systems Manager OpsCenter](OpsCenter.md) to provide a list of operational work items \(OpsItems\) for your applications and clusters\. The list reflects automatically generated and manually created OpsItems\. You can view details about the resource that created an OpsItem and the OpsItem status, source, and severity\. 
 + **View resource compliance data for an application or cluster** 
 
   Application Manager integrates with [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) to provide compliance and history details about your AWS resources according to rules you specify\. Application Manager also integrates with [AWS Systems Manager State Manager](systems-manager-state.md) to provide compliance information about the state you want to maintain for your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. 
 + **View Amazon ECS and Amazon EKS cluster infrastructure information**
 
-  Application Manager integrates with [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) and [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to provide information about the health of your cluster infrastructures as well as a component runtime view of the compute, networking, and storage resources in a cluster\.
+  Application Manager integrates with [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) and [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to provide information about the health of your cluster infrastructures and a component runtime view of the compute, networking, and storage resources in a cluster\.
 
   However, you can't manage or view operations information about your Amazon EKS pods or containers in Application Manager\. You can only manage and view operations information about the infrastructure that is hosting your Amazon EKS resources\.
 + **View detailed resource information in one console**
@@ -75,15 +78,7 @@ Application Manager is available at no additional charge\.
 
 ## Resource quotas for Application Manager<a name="application-manager-learn-more-quotas"></a>
 
-Application Manager has the resource quotas shown in the following table\.
-
-
-****  
-
-| Resource | Default limit | 
-| --- | --- | 
-|  Maximum number of applications in Application Manager  |  100 When you add an application in Application Manager, Systems Manager automatically creates a resource group to organize all of the resources for that application\. The maximum number of applications is based on the underlying quota for AWS Resource Groups\.  | 
-|  Maximum number of AWS resources you can assign to an application  |  For applications based on AWS CloudFormation stacks: 200 For applications based on AWS Resource Groups: Unlimited  | 
+You can view quotas for all Systems Manager capabilities in the [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. Unless otherwise noted, each quota is Region specific\.
 
 **Topics**
 + [Benefits of using Application Manager](#application-manager-learn-more-benefits)

@@ -68,7 +68,7 @@ Amazon Machine Images \(AMIs\) that include SSM Agent by default can take up to 
 
 ## SSM Agent rolling updates by AWS Regions<a name="rolling-updates"></a>
 
-After an SSM Agent update is made available in its GitHub repository, it can take up to two weeks until the updated version is rolled out to all AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" or "updating amazon\-ssm\-agent to an older version, please enable allow downgrade to proceed" error when trying to deploy a new version of SSM Agent in a Region\.
+After an SSM Agent update is made available in its GitHub repository, it can take up to two weeks until the updated version is rolled out to all AWS Regions at different times\. For this reason, you might receive the "Unsupported on current platform" or "updating amazon\-ssm\-agent to an older version, please turn on allow downgrade to proceed" error when trying to deploy a new version of SSM Agent in a Region\.
 
 To determine the version of SSM Agent available to you, you can run a `curl` command\.
 

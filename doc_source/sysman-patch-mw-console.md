@@ -110,7 +110,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Register run command task**\.
 
-After the maintenance window task completes, you can view patch compliance details in the Systems Manager console on the **Managed Instances** page\. In the filter bar, use the `AWS:PatchSummary` and `AWS:PatchCompliance` filters\. 
+After the maintenance window task is complete, you can view patch compliance details in the Systems Manager console on the **Managed Instances** page\. In the filter bar, use the `AWS:PatchSummary` and `AWS:PatchCompliance` filters\. 
 
 **Note**  
 You can save your query by bookmarking the URL after you specify the filters\.

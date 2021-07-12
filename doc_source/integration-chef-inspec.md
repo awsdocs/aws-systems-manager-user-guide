@@ -1,6 +1,6 @@
 # Using Chef InSpec profiles with Systems Manager Compliance<a name="integration-chef-inspec"></a>
 
-AWS Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that enables you to create human\-readable profiles to store in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Compliance, a capability of AWS Systems Manager:
+AWS Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InSpec is an open\-source testing framework that allows you to create human\-readable profiles to store in GitHub or Amazon Simple Storage Service \(Amazon S3\)\. Then you can use Systems Manager to run compliance scans and view compliant and noncompliant instances\. A *profile* is a security, compliance, or policy requirement for your computing environment\. For example, you can create profiles that perform the following checks when you scan your instances with Compliance, a capability of AWS Systems Manager:
 + Check if specific ports are open or closed\.
 + Check if specific applications are running\.
 + Check if certain packages are installed\.

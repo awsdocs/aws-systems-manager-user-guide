@@ -5,7 +5,7 @@ You can start an automation by creating a State Manager association with a runbo
 + Enforce desired ingress and egress rules for a security group\.
 + Create or delete Amazon DynamoDB backups\.
 + Create or delete Amazon Elastic Block Store \(Amazon EBS\) snapshots\.
-+ Disable read and write permissions on Amazon Simple Storage Service \(Amazon S3\) buckets\.
++ Turn off read and write permissions on Amazon Simple Storage Service \(Amazon S3\) buckets\.
 + Start, restart, or stop managed instances and Amazon Relational Database Service \(Amazon RDS\) instances\.
 + Apply patches to Linux, macOS, and Window AMIs\.
 
@@ -63,7 +63,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. Choose **Simple execution** to run the automation on one or more targets by specifying the resource ID for those targets\. Choose **Rate control** to run the automation across a fleet of AWS resources by specifying a targeting option such as tags or AWS Resource Groups\. You can also control the operation of the automation across your resources by specifying concurrency and error thresholds\.
 
-   If you chose **Rate control**, the **Targets** section appears\.
+   If you chose **Rate control**, the **Targets** section is displayed\.
 
 1. In the **Targets** section, choose a method for targeting resources\.
 

@@ -7,7 +7,7 @@ macOS isn't supported for Systems Manager hybrid environments\.
 
 If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
 
-Configuring your hybrid environment for Systems Manager enables you to do the following: 
+Configuring your hybrid environment for Systems Manager allows you to do the following: 
 + Create a consistent and secure way to remotely manage your hybrid workloads from one location using the same tools or scripts\.
 + Centralize access control for actions that can be performed on your servers and VMs by using AWS Identity and Access Management \(IAM\)\.
 + Centralize auditing and your view into the actions performed on your servers and VMs by recording all actions in AWS CloudTrail\.
@@ -20,10 +20,10 @@ Configuring your hybrid environment for Systems Manager enables you to do the fo
 **About managed instances**  
 After you finish configuring your servers and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed instances*\. Amazon EC2 instances configured for Systems Manager are also described as managed instances\. In the console, however, the IDs of your hybrid instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\. Amazon EC2 instance IDs use the prefix "i\-"\.
 
-For more information, see [AWS Systems Manager Managed Instances](managed_instances.md)\.
+For more information, see [Managed Instances](managed_instances.md)\.
 
 **About instance tiers**  
-Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier enables you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. Advanced instances also allow you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\.
+Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier allows you to register a maximum of 1,000 on\-premises servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 on\-premises servers or VMs in a single account and Region, then use the advanced\-instances tier\. Advanced instances also allow you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\.
 
 For more information, see [Configuring instance tiers](systems-manager-managed-instances-tiers.md)\.
 

@@ -141,7 +141,7 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
 ------
 
 **Note**  
-If you're unable to download the agent from the AWS Region you specify, use one of the global URLs below\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
 Intel 64\-bit \(x86\_64\)  
 
   ```

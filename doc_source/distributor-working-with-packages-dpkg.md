@@ -55,7 +55,7 @@ You can use your preferred command line tool to delete a package from Distributo
        --name "package-name"
    ```
 
-1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
+1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't be included in the list\.
 
    ```
    aws ssm list-documents \
@@ -81,7 +81,7 @@ You can use your preferred command line tool to delete a package from Distributo
        --name "package-name"
    ```
 
-1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
+1. Run the list\-documents command again to verify that the package was deleted\. The package you deleted shouldn't be included in the list\.
 
    ```
    aws ssm list-documents ^
@@ -111,7 +111,7 @@ You can use your preferred command line tool to delete a package from Distributo
        -Name "package-name"
    ```
 
-1. Run the Get\-SSMDocumentList command again to verify that the package was deleted\. The package you deleted shouldn't appear in the list\.
+1. Run the Get\-SSMDocumentList command again to verify that the package was deleted\. The package you deleted shouldn't be included in the list\.
 
    ```
    $filter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter

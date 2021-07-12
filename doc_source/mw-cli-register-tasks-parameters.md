@@ -105,4 +105,4 @@ The following list describes the pseudo parameters that you can specify using th
 `RESOURCE_ID` isn't supported for Run Command tasks\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-register-tasks-parameters.html)
 **Note**  
-If the AWS resource group you specify includes resource types that don't yield a `RESOURCE_ID` value, and aren't listed in the table above, then the `RESOURCE_ID` parameter isn't populated\. An execution invocation will still occur for that resource\. In these cases, use the `TARGET_ID` pseudo parameter instead, which will be replaced with the full ARN of the resource\.
+If the AWS resource group you specify includes resource types that don't yield a `RESOURCE_ID` value, and aren't listed in the preceding table, then the `RESOURCE_ID` parameter isn't populated\. An execution invocation will still occur for that resource\. In these cases, use the `TARGET_ID` pseudo parameter instead, which will be replaced with the full ARN of the resource\.

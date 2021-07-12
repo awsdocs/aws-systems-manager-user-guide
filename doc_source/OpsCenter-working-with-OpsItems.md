@@ -114,7 +114,7 @@ In the **Related OpsItems** section, you can specify a maximum of 10 IDs for oth
 
 ![\[Viewing related OpsItems.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_4.png)
 
-To help you organize OpsItems, you can associate one OpsItem with another so that it appears in the **Related OpsItems** section\.
+To help you organize OpsItems, you can associate one OpsItem with another so that it is displayed in the **Related OpsItems** section\.
 
 **To add a related OpsItem**
 

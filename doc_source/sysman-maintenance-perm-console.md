@@ -45,7 +45,7 @@ A custom service role isn't required if you choose to use a Systems Manager serv
 
 1. Choose the **Trust relationships** tab, and then choose **Edit trust relationship**\.
 
-1. Verify that the following policy appears in the **Policy Document** field\.
+1. Verify that the following policy is displayed in the **Policy Document** field\.
 
    ```
    {

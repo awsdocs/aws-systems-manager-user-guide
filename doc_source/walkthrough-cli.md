@@ -126,7 +126,9 @@ aws ssm describe-document ^
 
 ## Step 3: Send simple commands using the `AWS-RunShellScript` document<a name="walkthrough-cli-example-1"></a>
 
-Run the following command to get IP information for an instance\.
+Run the following command to get IP information for a Linux instance\.
+
+If the operating system type of your target instance is a Windows Server, change the `document-name` to `AWS-RunPowerShellScript` and change the `command` from `ifconfig` to `ipconfig`\.
 
 ------
 #### [ Linux & macOS ]
@@ -140,9 +142,6 @@ aws ssm send-command \
     --output text
 ```
 
-**Note**  
-If the operating system type of your target instance is Windows Server, change the command from `ifconfig` to `ipconfig`\.
-
 ------
 #### [ Windows ]
 
@@ -154,9 +153,6 @@ aws ssm send-command ^
     --parameters commands=ifconfig ^
     --output text
 ```
-
-**Note**  
-If the operating system type of your target instance is Windows Server, change the command from `ifconfig` to `ipconfig`\.
 
 ------
 

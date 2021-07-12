@@ -7,7 +7,7 @@ If you're using Change Manager with an organization, begin with the topic [Setti
 If you're using Change Manager with a single account, proceed directly to [Configuring Change Manager options and best practices](change-manager-account-setup.md)\.
 
 **Note**  
-If you begin using Change Manager with a single account, but that account is later added to an organizational unit for which Change Manager is enabled, your single account settings are disregarded\.
+If you begin using Change Manager with a single account, but that account is later added to an organizational unit for which Change Manager is allowed, your single account settings are disregarded\.
 
 **Topics**
 + [Setting up Change Manager for an organization \(management account\)](change-manager-organization-setup.md)

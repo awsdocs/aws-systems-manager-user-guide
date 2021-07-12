@@ -11,16 +11,16 @@ For Windows Server, three predefined patch baselines are provided\. The patch ba
 You can also create a custom patch baseline to update applications released by Microsoft on Windows Server machines\.
 
 **Support for patching applications released by Microsoft on virtual machines \(VMs\) and on\-premises instances**  
-To patch applications released by Microsoft on virtual machines \(VMs\) and on\-premises instances, you must enable the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+To patch applications released by Microsoft on virtual machines \(VMs\) and on\-premises instances, you must turn on the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 **Windows update option for "other Microsoft products"**  
-In order for Patch Manager to be able to patch applications released by Microsoft on your Windows Server managed instances, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be enabled on the instance\.
+In order for Patch Manager to be able to patch applications released by Microsoft on your Windows Server managed instances, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be activated on the instance\.
 
-For information about enabling this option on a single instance, see [Update Office with Microsoft Update](https://support.microsoft.com/en-us/office/update-office-with-microsoft-update-f59d3f9d-bd5d-4d3b-a08e-1dd659cf5282) on the Microsoft Support website\.
+For information about allowing this option on a single instance, see [Update Office with Microsoft Update](https://support.microsoft.com/en-us/office/update-office-with-microsoft-update-f59d3f9d-bd5d-4d3b-a08e-1dd659cf5282) on the Microsoft Support website\.
 
-For a fleet of instances running Windows Server 2016 and later, you can use a Group Policy Object \(GPO\) to enable the setting\. In the Group Policy Management Editor, go to **Computer Configuration**, **Administrative Templates**, **Windows Components**, **Windows Updates**, and choose **Install updates for other Microsoft products**\.
+For a fleet of instances running Windows Server 2016 and later, you can use a Group Policy Object \(GPO\) to turn on the setting\. In the Group Policy Management Editor, go to **Computer Configuration**, **Administrative Templates**, **Windows Components**, **Windows Updates**, and choose **Install updates for other Microsoft products**\.
 
-For a fleet of instances running Windows Server 2012 or 2012 R2 , you can enable the option by using a script, as described in [Enabling and Disabling Microsoft Update in Windows 7 via Script](https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script) on the Microsoft Docs Blog website\. For example, you could do the following:
+For a fleet of instances running Windows Server 2012 or 2012 R2 , you can turn on the option by using a script, as described in [Enabling and Disabling Microsoft Update in Windows 7 via Script](https://docs.microsoft.com/en-us/archive/blogs/technet/danbuche/enabling-and-disabling-microsoft-update-in-windows-7-via-script) on the Microsoft Docs Blog website\. For example, you could do the following:
 
 1. Save the script from the blog post in a file\.
 

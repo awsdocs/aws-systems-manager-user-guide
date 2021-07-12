@@ -9,14 +9,14 @@ Before you can reset the password on an instance, the following requirements mus
 + The instance you want to change a password on must be a Systems Manager managed instance\. This means that the SSM Agent is installed on the instance\. \(SSM Agent Version 2\.3\.668\.0 or later is required for changing passwords\.\) For information about installing or updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 + The password reset functionality uses the Session Manager configuration that is set up for your account to connect to the instance\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current AWS Region\. For more information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
-Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+Session Manager support for on\-premises servers is provided for the advanced\-instances tier only\. For information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 + The AWS user who is changing the password must have the `ssm:SendCommand` permission for the instance\. For information, see [Restricting Run Command access based on instance tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
 
 **Restricting access**  
 You can limit a user's ability to reset passwords to specific instances\. This is done by using identity\-based policies for the Session Manager `ssm:StartSession` operation with the `AWS-PasswordReset` SSM document\. For more information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
 **Encrypting data**  
-Turn on AWS Key Management Service \(AWS KMS\) complete encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Enable KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+Turn on AWS Key Management Service \(AWS KMS\) complete encryption for Session Manager data to use the password reset option for managed instances\. For more information, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
 ## Reset a password on a managed instance<a name="managed-instance-reset-a-password"></a>
 
@@ -85,14 +85,14 @@ Many password reset issues can be resolved by ensuring that you have completed t
 **Topics**
 + [Instance not available](#password-reset-troubleshooting-instances)
 + [SSM Agent not up\-to\-date \(console\)](#password-reset-troubleshooting-ssmagent-console)
-+ [Password reset options don't appear \(AWS CLI\)](#password-reset-troubleshooting-ssmagent-cli)
++ [Password reset options aren't provided \(AWS CLI\)](#password-reset-troubleshooting-ssmagent-cli)
 + [No authorization to run `ssm:SendCommand`](#password-reset-troubleshooting-sendcommand)
 + [Session Manager error message](#password-reset-troubleshooting-session-manager)
 
 ### Instance not available<a name="password-reset-troubleshooting-instances"></a>
 
 **Problem**: You want to reset the password for an EC2 instance on the **Managed instances** console page, but the instance isn't in the list\.
-+ **Solution**: The instance you want to connect to might not be configured to use with the Systems Manager service\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
++ **Solution**: The instance you want to connect to might not be configured to use with the Systems Manager service\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. To use an on\-premises server or virtual machine \(VM\) that you have activated for use with Systems Manager, create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
 
 ### SSM Agent not up\-to\-date \(console\)<a name="password-reset-troubleshooting-ssmagent-console"></a>
 
@@ -101,9 +101,9 @@ Many password reset issues can be resolved by ensuring that you have completed t
 
   An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
-### Password reset options don't appear \(AWS CLI\)<a name="password-reset-troubleshooting-ssmagent-cli"></a>
+### Password reset options aren't provided \(AWS CLI\)<a name="password-reset-troubleshooting-ssmagent-cli"></a>
 
-**Problem**: You connect successfully to an instance using the AWS CLI `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` command\. You specified the SSM Document `AWS-PasswordReset` and provided a valid user name, but prompts to change the password don't appear\.
+**Problem**: You connect successfully to an instance using the AWS CLI `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` command\. You specified the SSM Document `AWS-PasswordReset` and provided a valid user name, but prompts to change the password aren't displayed\.
 + **Solution**: The version of SSM Agent on the instance isn't up\-to\-date\. Version 2\.3\.668\.0 or later is required to perform password resets\. 
 
   An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.

@@ -2,7 +2,7 @@
 
 Creating an Amazon Machine Image \(AMI\) of an instance is a common process used in backup and recovery\. You might also choose to copy an AMI to another AWS Region as part of a disaster recovery architecture\. Automating common maintenance tasks can reduce downtime if an issue requires failover\. AWS Systems Manager Automation actions can help you accomplish this\. Automation is a capability of AWS Systems Manager\.
 
-The following sample AWS Systems Manager runbook below performs these actions: 
+The following sample AWS Systems Manager runbook performs these actions:
 + Uses the `aws:executeAwsApi` automation action to create an AMI\.
 + Uses the `aws:waitForAwsResourceProperty` automation action to confirm the availability of the AMI\.
 + Uses the `aws:executeScript` automation action to copy the AMI to the destination Region\.

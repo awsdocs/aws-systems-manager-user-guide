@@ -48,7 +48,7 @@ All updates are downloaded from the remote repos configured on the instance\. Th
 
 CentOS 6 and 7 instances use Yum as the package manager\. CentOS 8 instances use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. 
 
-However, CentOS default repos aren't configured with an update notice\. This means that Patch Manager doesn't detect packages on a default CentOS repo\. To enable Patch Manager to process packages that aren't contained in an update notice, you must enable the `EnableNonSecurity` flag in the patch baseline rules\.
+However, CentOS default repos aren't configured with an update notice\. This means that Patch Manager doesn't detect packages on a default CentOS repo\. To allow Patch Manager to process packages that aren't contained in an update notice, you must turn on the `EnableNonSecurity` flag in the patch baseline rules\.
 
 **Note**  
 CentOS update notices are supported\. Repos with update notices can be downloaded after launch\.
@@ -158,7 +158,7 @@ Packages are then filtered from `codename-security` repos, where the codename is
 
 On Microsoft Windows operating systems, Patch Manager retrieves a list of available updates that Microsoft publishes to Microsoft Update and are automatically available to Windows Server Update Services \(WSUS\)\.
 
-Patch Manager continuously monitors for new updates in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. When the patch information from Microsoft is processed, Patch Manager removes updates that were replaced by later updates from its patch list \. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
+Patch Manager continually monitors for new updates in every AWS Region\. The list of available updates is refreshed in each Region at least once per day\. When the patch information from Microsoft is processed, Patch Manager removes updates that were replaced by later updates from its patch list \. Therefore, only the most recent update is displayed and made available for installation\. For example, if `KB4012214` replaces `KB3135456`, only `KB4012214` is made available as an update in Patch Manager\.
 
 **Note**  
 Patch Manager only makes available patches for Windows Server operating system versions that are supported for Patch Manager\. For example, Patch Manager can't be used to patch Windows RT\.

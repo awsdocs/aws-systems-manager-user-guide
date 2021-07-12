@@ -8,7 +8,7 @@ When you create a State Manager association, you choose which instances to confi
 
 ![\[Different options for targeting instances when creating a State Manager association\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-targets.png)
 
-If you create an association by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), then you specify the `targets` parameter\. Targeting instances lets you configure tens, hundreds, or thousands of instances with an association without having to specify or choose individual instance IDs\. 
+If you create an association by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), then you specify the `targets` parameter\. Targeting instances allows you to configure tens, hundreds, or thousands of instances with an association without having to specify or choose individual instance IDs\. 
 
 **Note**  
 You can only target Systems Manager managed instances\. So, before you create an association, set up and configure your instances for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\. 

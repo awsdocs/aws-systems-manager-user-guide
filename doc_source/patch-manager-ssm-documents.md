@@ -41,11 +41,11 @@ The following five SSM documents are recommended for use in your managed instanc
 
 ### `AWS-ConfigureWindowsUpdate`<a name="patch-manager-ssm-documents-recommended-AWS-ConfigureWindowsUpdate"></a>
 
-Supports configuring basic Windows Update functions and using them to install updates automatically \(or to disable automatic updates\)\. Available in all AWS Regions\.
+Supports configuring basic Windows Update functions and using them to install updates automatically \(or to turn off automatic updates\)\. Available in all AWS Regions\.
 
 This SSM document prompts Windows Update to download and install the specified updates and reboot instances as needed\. Use this document with State Manager, a capability of AWS Systems Manager, to ensure Windows Update maintains its configuration\. You can also run it manually using Run Command, a capability of AWS Systems Manager, to change the Windows Update configuration\. 
 
-The available parameters in this document support specifying a category of updates to install \(or whether to disable automatic updates\), as well as specifying the day of the week and time of day to run patching operations\. This SSM document is most useful if you don't need strict control over Windows updates and don't need to collect compliance information\. 
+The available parameters in this document support specifying a category of updates to install \(or whether to turn off automatic updates\), as well as specifying the day of the week and time of day to run patching operations\. This SSM document is most useful if you don't need strict control over Windows updates and don't need to collect compliance information\. 
 
 **Replaces legacy SSM documents: **
 + *None*
@@ -67,7 +67,7 @@ The three legacy documents perform different functions, but you can achieve the 
 
 Installs patches on your instances or scans instances to determine whether any qualified patches are missing\. Available in all AWS Regions\.
 
-`AWS-RunPatchBaseline` enables you to control patch approvals using the patch baseline specified as the "default" for an operating system type\. Reports patch compliance information that you can view using the Systems Manager Compliance tools\. These tools provide you with insights on the patch compliance state of your instances, such as which instances are missing patches and what those patches are\. When you use `AWS-RunPatchBaseline`, patch compliance information is recorded using the `PutInventory` API command\. For Linux operating systems, compliance information is provided for patches from both the default source repository configured on an instance and from any alternative source repositories you specify in a custom patch baseline\. For more information about alternative source repositories, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\. For more information about the Systems Manager Compliance tools, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
+`AWS-RunPatchBaseline` allows you to control patch approvals using the patch baseline specified as the "default" for an operating system type\. Reports patch compliance information that you can view using the Systems Manager Compliance tools\. These tools provide you with insights on the patch compliance state of your instances, such as which instances are missing patches and what those patches are\. When you use `AWS-RunPatchBaseline`, patch compliance information is recorded using the `PutInventory` API command\. For Linux operating systems, compliance information is provided for patches from both the default source repository configured on an instance and from any alternative source repositories you specify in a custom patch baseline\. For more information about alternative source repositories, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\. For more information about the Systems Manager Compliance tools, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 
  **Replaces legacy documents:**
 + `AWS-ApplyPatchBaseline`

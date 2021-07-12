@@ -44,7 +44,7 @@ Before you complete the following procedure, you must either have administrator 
 
    For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
 
-1. Choose **Create maintenance window**\. The system returns you to the maintenance window page\. The maintenance window you just created is in the Enabled state\.
+1. Choose **Create maintenance window**\. The system returns you to the maintenance window page\. The maintenance window you just created is in the **Enabled** state\.
 
 ## Step 2: Register maintenance window targets \(console\)<a name="mw-walkthrough-console-register-target"></a>
 
@@ -123,7 +123,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
 
-1. In the **SNS notifications** section, you can optionally enable Systems Manager to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\)\. If you choose to enable this option, you need to specify the following:
+1. In the **SNS notifications** section, you can optionally allow Systems Manager to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\)\. If you choose to turn on this option, you need to specify the following:
 
    1. The IAM role to start Amazon SNS notifications\.
 

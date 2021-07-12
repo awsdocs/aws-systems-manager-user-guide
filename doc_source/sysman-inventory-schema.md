@@ -3,8 +3,7 @@
 The following sample shows the complete list of metadata collected by each AWS Systems Manager Inventory plugin\.
 
 ```
-[
-  {
+{
     "typeName": "AWS:InstanceInformation",
     "version": "1.0",
     "attributes":[
@@ -17,7 +16,9 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "PlatformName",                           "dataType" : "STRING"},
       { "name": "PlatformType",                           "dataType" : "STRING"},
       { "name": "PlatformVersion",                        "dataType" : "STRING"},
-      { "name": "ResourceType",                           "dataType" : "STRING"}
+      { "name": "ResourceType",                           "dataType" : "STRING"},
+      { "name": "AgentStatus",                            "dataType" : "STRING"},
+      { "name": "InstanceStatus",                         "dataType" : "STRING"}
     ]
   },
   {
@@ -28,13 +29,13 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "ApplicationType",    "dataType": "STRING"},
       { "name": "Publisher",          "dataType": "STRING"},
       { "name": "Version",            "dataType": "STRING"},
+      { "name": "Release",            "dataType": "STRING"},
+      { "name": "Epoch",              "dataType": "STRING"},
       { "name": "InstalledTime",      "dataType": "STRING"},
       { "name": "Architecture",       "dataType": "STRING"},
       { "name": "URL",                "dataType": "STRING"},
       { "name": "Summary",            "dataType": "STRING"},
-      { "name": "PackageId",          "dataType": "STRING"},
-      { "name": "Release",            "dataType": "STRING"},
-      { "name": "Epoch",              "dataType": "STRING"}
+      { "name": "PackageId",          "dataType": "STRING"}
     ]
   },
   {
@@ -42,7 +43,7 @@ The following sample shows the complete list of metadata collected by each AWS S
     "version": "1.0",
     "attributes":[
       { "name": "Name",               "dataType": "STRING"},
-      { "name": "Size",               "dataType": "STRING"},
+      { "name": "Size",    	      "dataType": "STRING"},
       { "name": "Description",        "dataType": "STRING"},
       { "name": "FileVersion",        "dataType": "STRING"},
       { "name": "InstalledDate",      "dataType": "STRING"},
@@ -52,7 +53,40 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "InstalledDir",       "dataType": "STRING"},
       { "name": "ProductLanguage",    "dataType": "STRING"},
       { "name": "CompanyName",        "dataType": "STRING"},
-      { "name": "ProductVersion",     "dataType": "STRING"}
+      { "name": "ProductVersion",       "dataType": "STRING"}
+    ]
+  },
+  {
+    "typeName" : "AWS:Certificate",
+    "version": "1.0",
+    "attributes":[
+      { "name": "Name",               "dataType": "STRING"},
+      { "name": "SignatureAlgorithm", "dataType": "STRING"},
+      { "name": "KeyAlgorithm",       "dataType": "STRING"},
+      { "name": "SerialNumber",       "dataType": "STRING"},
+      { "name": "Issuer",             "dataType": "STRING"},
+      { "name": "ValidityFrom",       "dataType": "STRING"},
+      { "name": "ValidityTo",         "dataType": "STRING"},
+      { "name": "Subject",            "dataType": "STRING"}
+    ]
+  },
+  {
+    "typeName" : "AWS:Process",
+    "version": "1.0",
+    "attributes":[
+      { "name": "StartTime",          "dataType": "STRING"},
+      { "name": "CommandLine",        "dataType": "STRING"},
+      { "name": "User",               "dataType": "STRING"},
+      { "name": "FileName",           "dataType": "STRING"},
+      { "name": "FileVersion",        "dataType": "STRING"},
+      { "name": "FileDescription",    "dataType": "STRING"},
+      { "name": "FileSize",           "dataType": "STRING"},
+      { "name": "CompanyName",        "dataType": "STRING"},
+      { "name": "ProductName",        "dataType": "STRING"},
+      { "name": "ProductVersion",     "dataType": "STRING"},
+      { "name": "InstalledDate",      "dataType": "STRING"},
+      { "name": "InstalledDir",       "dataType": "STRING"},
+      { "name": "UsageId",            "dataType": "STRING"}
     ]
   },
   {
@@ -96,28 +130,51 @@ The following sample shows the complete list of metadata collected by each AWS S
     "typeName": "AWS:PatchSummary",
     "version":"1.0",
     "attributes":[
-      { "name": "PatchGroup",                   "dataType": "STRING"},
-      { "name": "BaselineId",                   "dataType": "STRING"},
-      { "name": "SnapshotId",                   "dataType": "STRING"},
-      { "name": "OwnerInformation",             "dataType": "STRING"},
-      { "name": "InstalledCount",               "dataType": "NUMBER"},
-      { "name": "InstalledOtherCount",          "dataType": "NUMBER"},
-      { "name": "NotApplicableCount",           "dataType": "NUMBER"},
-      { "name": "MissingCount",                 "dataType": "NUMBER"},
-      { "name": "FailedCount",                  "dataType": "NUMBER"},
-      { "name": "OperationType",                "dataType": "STRING"},
-      { "name": "OperationStartTime",           "dataType": "STRING"},
-      { "name": "OperationEndTime",             "dataType": "STRING"}
+      { "name": "PatchGroup",                       "dataType": "STRING"},
+      { "name": "BaselineId",                       "dataType": "STRING"},
+      { "name": "SnapshotId",                       "dataType": "STRING"},
+      { "name": "OwnerInformation",                 "dataType": "STRING"},
+      { "name": "InstalledCount",                   "dataType": "NUMBER"},
+      { "name": "InstalledPendingRebootCount",      "dataType": "NUMBER"},
+      { "name": "InstalledOtherCount",              "dataType": "NUMBER"},
+      { "name": "InstalledRejectedCount",           "dataType": "NUMBER"},
+      { "name": "NotApplicableCount",               "dataType": "NUMBER"},
+      { "name": "UnreportedNotApplicableCount",     "dataType": "NUMBER"},
+      { "name": "MissingCount",                     "dataType": "NUMBER"},
+      { "name": "FailedCount",                      "dataType": "NUMBER"},
+      { "name": "OperationType",                    "dataType": "STRING"},
+      { "name": "OperationStartTime",               "dataType": "STRING"},
+      { "name": "OperationEndTime",                 "dataType": "STRING"},
+      { "name": "InstallOverrideList",              "dataType": "STRING"},
+      { "name": "RebootOption",                     "dataType": "STRING"},
+      { "name": "LastNoRebootInstallOperationTime", "dataType": "STRING"},
+      { "name": "ExecutionId",                      "dataType": "STRING",                 "isOptional": "true"},
+      { "name": "NonCompliantSeverity",             "dataType": "STRING",                 "isOptional": "true"},
+      { "name": "SecurityNonCompliantCount",        "dataType": "NUMBER",                 "isOptional": "true"},
+      { "name": "CriticalNonCompliantCount",        "dataType": "NUMBER",                 "isOptional": "true"},
+      { "name": "OtherNonCompliantCount",           "dataType": "NUMBER",                 "isOptional": "true"}
+    ]
+  },
+  {
+    "typeName": "AWS:PatchCompliance",
+    "version":"1.0",
+    "attributes":[
+      { "name": "Title",                        "dataType": "STRING"},
+      { "name": "KBId",                         "dataType": "STRING"},
+      { "name": "Classification",               "dataType": "STRING"},
+      { "name": "Severity",                     "dataType": "STRING"},
+      { "name": "State",                        "dataType": "STRING"},
+      { "name": "InstalledTime",                "dataType": "STRING"}
     ]
   },
   {
     "typeName": "AWS:ComplianceItem",
     "version":"1.0",
     "attributes":[
-      { "name": "ComplianceType",               "dataType": "STRING"},                 
-      { "name": "ExecutionId",                  "dataType": "STRING"},                 
-      { "name": "ExecutionType",                "dataType": "STRING"},                 
-      { "name": "ExecutionTime",                "dataType": "STRING"},                 
+      { "name": "ComplianceType",               "dataType": "STRING",                 "isContext": "true"},
+      { "name": "ExecutionId",                  "dataType": "STRING",                 "isContext": "true"},
+      { "name": "ExecutionType",                "dataType": "STRING",                 "isContext": "true"},
+      { "name": "ExecutionTime",                "dataType": "STRING",                 "isContext": "true"},
       { "name": "Id",                           "dataType": "STRING"},
       { "name": "Title",                        "dataType": "STRING"},
       { "name": "Status",                       "dataType": "STRING"},
@@ -129,7 +186,11 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "PatchSeverity",                "dataType": "STRING"},
       { "name": "PatchState",                   "dataType": "STRING"},
       { "name": "PatchGroup",                   "dataType": "STRING"},
-      { "name": "InstalledTime",                "dataType": "STRING"}
+      { "name": "InstalledTime",                "dataType": "STRING"},
+      { "name": "InstallOverrideList",          "dataType": "STRING",                 "isOptional": "true"},
+      { "name": "DetailedText",                 "dataType": "STRING",                 "isOptional": "true"},
+      { "name": "DetailedLink",                 "dataType": "STRING",                 "isOptional": "true"},
+      { "name": "CVEIds",                       "dataType": "STRING",                 "isOptional": "true"}
     ]
   },
   {
@@ -150,7 +211,6 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "CompliantLowCount",              "dataType": "NUMBER"},
       { "name": "CompliantInformationalCount",    "dataType": "NUMBER"},
       { "name": "CompliantUnspecifiedCount",      "dataType": "NUMBER"},
-      { "name": "LastComplianceStateModifiedTime","dataType": "STRING"},
       { "name": "NonCompliantCriticalCount",      "dataType": "NUMBER"},
       { "name": "NonCompliantHighCount",          "dataType": "NUMBER"},
       { "name": "NonCompliantMediumCount",        "dataType": "NUMBER"},
@@ -211,8 +271,30 @@ The following sample shows the complete list of metadata collected by each AWS S
         { "name": "ServerComponentDescriptor",    "dataType": "STRING"},
         { "name": "Parent",                       "dataType": "STRING"}
       ]
+    },
+    {
+      "typeName": "AWS:Tag",
+      "version":"1.0",
+      "attributes":[
+        { "name": "Key",                     "dataType": "STRING"},
+        { "name": "Value",                   "dataType": "STRING"}
+      ]
+    },
+    {
+      "typeName": "AWS:ResourceGroup",
+      "version":"1.0",
+      "attributes":[
+        { "name": "Name",                   "dataType": "STRING"},
+        { "name": "Arn",                    "dataType": "STRING"}
+      ]
+    },
+    {
+      "typeName": "AWS:BillingInfo",
+      "version": "1.0",
+      "attributes": [
+        { "name": "BillingProductId",       "dataType": "STRING"}
+      ]
     }
-]
 ```
 
 **Note**  

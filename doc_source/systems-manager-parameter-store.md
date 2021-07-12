@@ -83,7 +83,7 @@ StringList
 `CSV,TSV,CLF,ELF,JSON`
 
 SecureString  
-A `SecureString` parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plaintext, such as passwords or license keys, create those parameters using the `SecureString` datatype\.  
+A `SecureString` parameter is any sensitive data that needs to be stored and referenced in a secure manner\. If you have data that you don't want users to alter or reference in plaintext, such as passwords or license keys, create those parameters using the `SecureString` data type\.  
 Don't store sensitive data in a `String` or `StringList` parameter\. For all sensitive data that must remain encrypted, use only the `SecureString` parameter type\.  
 For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 We recommend using `SecureString` parameters for the following scenarios:  

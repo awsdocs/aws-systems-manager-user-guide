@@ -151,7 +151,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you're using\. To learn more about supported arguments, run `chef-client -h` on an instance that is running the Chef client\.
 
-1. \(Optional\) Enable **Why\-run** to show changes made to target instances if the recipes are run, without actually changing target instances\.
+1. \(Optional\) Turn on **Why\-run** to show changes made to target instances if the recipes are run, without actually changing target instances\.
 
 1. For **Compliance severity**, choose the severity of Systems Manager Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 14\)\. For more information about Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
 

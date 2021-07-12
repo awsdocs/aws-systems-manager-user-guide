@@ -16,7 +16,7 @@ The `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role trusts the
 + `opsdatasync.ssm.amazonaws.com`
 
 The role permissions policy allows Systems Manager to complete the following actions on the specified resources:
-+ Systems Manager Explorer requires that a service\-linked role grant permission to update a security finding when an OpsItem is updated, create and update an OpsItem, and disable the Security Hub data source when a SSM managed rule is deleted by customers\.
++ Systems Manager Explorer requires that a service\-linked role grant permission to update a security finding when an OpsItem is updated, create and update an OpsItem, and turn off the Security Hub data source when a SSM managed rule is deleted by customers\.
 
 The managed policy that is used to provide permissions for the `AWSServiceRoleForSystemsManagerOpsDataSync` role is `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy `\. For details about the permissions it grants, see [AWS managed policy: `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy`](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy)\. 
 
@@ -27,7 +27,7 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 You don't need to manually create a service\-linked role\. When you CompleteThisCreateActionInThisService in the AWS Management Console, the AWS CLI, or the AWS API, Systems Manager creates the service\-linked role for you\. 
 
 **Important**  
-This service\-linked role can appear in your account if you completed an action in another service that uses the features supported by this role\. Also, if you were using the Systems Manager service before January 1, 2017, when it began supporting service\-linked roles, then Systems Manager created the `AWSServiceRoleForAmazonSSM` role in your account\. To learn more, see [A New Role Appeared in My IAM Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared)\.
+This service\-linked role can be displayed in your account if you completed an action in another service that uses the features supported by this role\. Also, if you were using the Systems Manager service before January 1, 2017, when it began supporting service\-linked roles, then Systems Manager created the `AWSServiceRoleForAmazonSSM` role in your account\. To learn more, see [A New Role Appeared in My IAM Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared)\.
 
 If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you CompleteThisCreateActionInThisService, Systems Manager creates the service\-linked role for you again\. 
 

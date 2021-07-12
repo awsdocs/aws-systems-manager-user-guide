@@ -43,7 +43,7 @@ If an approved Service Pack is reported as missing, the option you choose in **C
 
 1. \(Optional\) For **Manage tags**, apply one or more tag key name/value pairs to the patch baseline\.
 
-   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For this patch baseline dedicated to updating Service Packs, you could specify key\-value pairs such as the following:
+   Tags are optional metadata that you assign to a resource\. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment\. For this patch baseline dedicated to updating Service Packs, you could specify key\-value pairs such as the following:
    + `Key=OS,Value=Windows`
    + `Key=Classification,Value=ServicePacks`
 

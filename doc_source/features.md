@@ -108,17 +108,12 @@ Systems Manager provides the following capabilities for managing your Amazon EC2
 ------
 #### [ Compliance ]
 
-Use [Compliance](systems-manager-compliance.md),a capability of AWS Systems Manager, to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
+Use [Compliance](systems-manager-compliance.md), a capability of AWS Systems Manager, to scan your fleet of managed instances for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
 
 ------
 #### [ Fleet Manager ]
 
-[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on\-premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. You can also gather data from individual instances to perform common troubleshooting and management tasks from the console\. This includes viewing folder and file contents, Windows registry management, operating system user management, and more\.
-
-------
-#### [ Managed Instances ]
-
-A [managed instance](systems-manager-setting-up.md) is any EC2 instance or on\-premises machine–a server or a virtual machine \(VM\)–in your hybrid environment that is configured for Systems Manager\. To set up managed instances, install SSM Agent on your machines \(if not installed by default\) and configure AWS Identity and Access Management \(IAM\) permissions\. On\-premises machines also require an activation code\.
+[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on\-premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. You can also gather data from individual instances to perform common troubleshooting and management tasks from the console\. This includes viewing directory and file contents, Windows registry management, operating system user management, and more\. 
 
 ------
 #### [ Inventory ]

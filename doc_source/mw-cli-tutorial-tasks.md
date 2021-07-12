@@ -135,7 +135,7 @@ When you're ready to register other task types, or use more of the available Sys
    ```
 
 **Tip**  
-After the task completes successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week\.  
+After the task runs successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week\.  
 
 ```
 aws ssm update-maintenance-window \

@@ -13,11 +13,11 @@ In the **Run a command** page, after you choose an SSM document to run and selec
 
 If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-After you create, activate, reboot, or restart a managed instance, install Run Command on an instance, or attach an AWS Identity and Access Management \(IAM\) instance profile to an instance, it can take a few minutes for the instance to appear in the list\.
+After you create, activate, reboot, or restart a managed instance, install Run Command on an instance, or attach an AWS Identity and Access Management \(IAM\) instance profile to an instance, it can take a few minutes for the instance to be added to the list\.
 
 ## A step in my script failed, but the overall status is 'succeeded'<a name="ts-exit-codes"></a>
 
-Run Command lets you define how your scripts handle exit codes\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. You can, however, include a conditional statement to exit the script if any command before the final one fails\. For information and examples, see [Managing exit codes in Run Command commands](command-exit-codes.md)\. 
+Using Run Command, you can define how your scripts handle exit codes\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. You can, however, include a conditional statement to exit the script if any command before the final one fails\. For information and examples, see [Managing exit codes in Run Command commands](command-exit-codes.md)\. 
 
 ## SSM Agent isn't running properly<a name="ts-ssmagent-linux"></a>
 

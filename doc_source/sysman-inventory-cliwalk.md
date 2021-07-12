@@ -44,7 +44,7 @@ You can quickly configure all managed instances in your AWS account and in the c
 ------
 
 **Note**  
-This command doesn't enable Inventory to collect metadata for the Windows Registry or files\. To inventory these datatypes, use the next procedure\.
+This command doesn't allow Inventory to collect metadata for the Windows Registry or files\. To inventory these datatypes, use the next procedure\.
 
 ## Manually configuring Inventory on your managed instances \(CLI\)<a name="sysman-inventory-cliwalk-manual"></a>
 

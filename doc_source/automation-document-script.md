@@ -1,6 +1,6 @@
 # Creating runbooks that run scripts<a name="automation-document-script"></a>
 
-Automation runbooks support running scripts as part of the automation\. Automation is a capability of AWS Systems Manager\. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. 
+Automation runbooks support running scripts as part of the automation\. Automation is a capability of AWS Systems Manager\. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. You can send the output from `aws:executeScript` actions in your runbooks to Amazon CloudWatch Logs\. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)\.
 
 ## Permissions for using runbooks<a name="execution-permissions"></a>
 
@@ -18,7 +18,7 @@ For more information about how to use a runbook that uses an IAM service role or
 
 ## Adding scripts to runbooks<a name="adding-scripts"></a>
 
-You can add scripts to your runbooks by including the script inline as part of a step in the runbook\. You can also attach scripts to the runbook by uploading the scripts from your local machine or by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket where the scripts are located\. After a step that runs a script completes, the output of the script is available as a JSON object, which you can then use as input for subsequent steps in your runbook\.
+You can add scripts to your runbooks by including the script inline as part of a step in the runbook\. You can also attach scripts to the runbook by uploading the scripts from your local machine or by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket where the scripts are located\. After a step that runs a script is complete, the output of the script is available as a JSON object, which you can then use as input for subsequent steps in your runbook\.
 
 ## Script constraints for runbooks<a name="script-constraints"></a>
 

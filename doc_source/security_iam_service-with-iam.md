@@ -10,7 +10,7 @@ Before you use AWS Identity and Access Management \(IAM\) to manage access to AW
 
 ## Systems Manager identity\-based policies<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-With IAM identity\-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied\. Systems Manager supports specific actions, resources, and condition keys\. To learn about all of the elements that you use in a JSON policy, see [IAM JSON Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*\.
+With IAM identity\-based policies, you can specify allowed or denied actions and resources and the conditions under which actions are allowed or denied\. Systems Manager supports specific actions, resources, and condition keys\. To learn about all of the elements that you use in a JSON policy, see [IAM JSON Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*\.
 
 ### Actions<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
@@ -113,7 +113,7 @@ The following table describes the ARN formats for the resource types supported b
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
 |  All Systems Manager resources owned by the specified AWS account in the specified AWS Region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource lets you provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource allows you to provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your instance management\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png) To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of fifteen levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
@@ -196,13 +196,13 @@ Systems Manager supports using temporary credentials\.
 
 ### Service\-linked roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\.
+[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles are listed in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\.
 
 Systems Manager supports service\-linked roles\. For details about creating or managing Systems Manager service\-linked roles, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 
 ### Service roles<a name="security_iam_service-with-iam-roles-service"></a>
 
-This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles appear in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might break the functionality of the service\.
+This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles are displayed in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might break the functionality of the service\.
 
 Systems Manager supports service roles\. 
 
@@ -223,17 +223,17 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 The following AWS managed policies, which you can attach to users in your account, are specific to Systems Manager:
 + **AmazonSSMFullAccess** – User trust policy that grants full access to the Systems Manager API and documents\.
 + **AmazonSSMReadOnlyAccess** – User trust policy that grants access to Systems Manager read\-only API operations, such as `Get*` and `List*`\.
-+ **AmazonSSMAutomationApproverAccess** – User trust policy that enables access to view automation executions and send approval decisions to automation that is waiting for approval\.
++ **AmazonSSMAutomationApproverAccess** – User trust policy that allows access to view automation executions and send approval decisions to automation that is waiting for approval\.
 + **AmazonSSMAutomationRole** – Service role policy that provides permissions for the Systems Manager Automation service to run activities defined within Automation runbooks\. Assign this policy to administrators and trusted power users\.
 + **AmazonSSMDirectoryServiceAccess** – Instance trust policy that allows SSM Agent to access AWS Directory Service on behalf of the user for requests to join the domain by the managed instance\.
 
   **AmazonSSMMaintenanceWindowRole** – Service role policy for Systems Manager Maintenance Windows\.
-+ **AmazonSSMManagedInstanceCore** – Instance trust policy that enables an instance to use Systems Manager service core functionality\.
++ **AmazonSSMManagedInstanceCore** – Instance trust policy that allows an instance to use Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by Systems Manager\.
 + **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 + **AWSSystemsManagerChangeManagementServicePolicy** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
 + **AWSServiceRoleForSystemsManagerOpsDataSyncPolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
-+ **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to enable Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  
 In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 

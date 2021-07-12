@@ -1,13 +1,13 @@
-# Step 8: \(Optional\) Enable SSH connections through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
+# Step 8: \(Optional\) Allow SSH connections through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
 
-You can enable users in your AWS account to use the AWS Command Line Interface \(AWS CLI\) to establish Secure Shell \(SSH\) connections to instances using AWS Systems Manager Session Manager\. Users who connect using SSH can also copy files between their local machines and managed instances using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to instances without opening inbound ports or maintaining bastion hosts\. You can also choose to explicitly disable SSH connections to your instances through Session Manager\.
+You can allow users in your AWS account to use the AWS Command Line Interface \(AWS CLI\) to establish Secure Shell \(SSH\) connections to instances using AWS Systems Manager Session Manager\. Users who connect using SSH can also copy files between their local machines and managed instances using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to instances without opening inbound ports or maintaining bastion hosts\. You can also choose to explicitly turn off SSH connections to your instances through Session Manager\.
 
 **Note**  
 Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
-**To enable SSH connections through Session Manager**
+**To allow SSH connections through Session Manager**
 
-1. On the managed instance to which you want to enable SSH connections, do the following:
+1. On the managed instance to which you want to allow SSH connections, do the following:
    + Ensure that SSH is running on the instance\. \(You can close inbound ports on the instance\.\)
    + Ensure that SSM Agent version 2\.3\.672\.0 or later is installed on the instance\.
 
@@ -18,13 +18,13 @@ Logging isn't available for Session Manager sessions that connect through port f
      +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
      + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 **Note**  
-To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Enabling the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+To use Session Manager with on\-premises servers and virtual machines \(VMs\) that you activated as managed instances, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 1. On the local machine from which you want to connect to a managed instance using SSH, do the following:
    + Ensure that version 1\.1\.23\.0 or later of the Session Manager plugin is installed\.
 
      For information about installing the Session Manager plugin, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
-   + Update the SSH configuration file to enable running a proxy command that starts a Session Manager session and transfer all data through the connection\.
+   + Update the SSH configuration file to allow running a proxy command that starts a Session Manager session and transfer all data through the connection\.
 
      **Linux and macOS**
 
@@ -53,7 +53,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
      ```
    + Create or verify that you have a Privacy Enhanced Mail certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed instances\. This must be a key that is already associated with the instance\. For example, for an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, the key pair file you created or selected when you created the instance\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
 
-**IAM policies to enable SSH connections through Session Manager**
+**IAM policies to allow SSH connections through Session Manager**
 + **Option 1**: Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role you want to allow to start SSH connections through Session Manager\. For example, prepare to modify the user quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy\.
 
   ```
@@ -78,7 +78,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
 
   For information, see [Adding and Removing IAM Identity Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*\.
 
-**IAM policies to disable SSH connections through Session Manager**
+**IAM policies to turn off SSH connections through Session Manager**
 + **Option 1**: Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\. In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role to block from starting Session Manager sessions\. For example, prepare to modify the user quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Add the following element to the policy, or replace any permissions that allow a user to start a session\.
 
   ```

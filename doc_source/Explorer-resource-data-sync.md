@@ -22,11 +22,11 @@ This section describes important details about multiple account and multiple Reg
 
 If you don't plan to use one of these options, you can skip this section\.
 
-When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically enables all OpsData sources in the selected Regions for all AWS accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't enabled Explorer in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
+When you create a resource data sync, if you choose one of the AWS Organizations options, then Systems Manager automatically allows all OpsData sources in the selected Regions for all AWS accounts in your organization \(or in the selected organizational units\)\. For example, even if you haven't turned Explorer on in a Region, if you select an AWS Organizations option for your resource data sync, then Systems Manager automatically collects OpsData from that Region\. 
 
 If you don't choose one of the AWS Organizations options for a resource data sync, then you must complete Integrated Setup in each account and Region where you want Explorer to access data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\.
 
-If you add a child account to your organization, Explorer automatically enables all OpsData sources for the account\. If, at a later time, you remove the child account from your organization, Explorer continues to collect OpsData from the account\. 
+If you add a child account to your organization, Explorer automatically allows all OpsData sources for the account\. If, at a later time, you remove the child account from your organization, Explorer continues to collect OpsData from the account\. 
 
 If you update an existing resource data sync that uses one of the AWS Organizations options, the system prompts you to approve collection of all OpsData sources for all accounts and Regions affected by the change\.
 
@@ -34,8 +34,8 @@ If you add a new service to your AWS account, and if Explorer collects OpsData f
 
 **Important**  
 Note the following important information about multiple account and Region resource data syncs:  
-Deleting a resource data sync doesn't disable an OpsData source in Explorer\. 
-To view OpsData and OpsItems from multiple accounts, you must have the AWS Organizations **All features** mode enabled and you must be signed into the AWS Organizations management account\.
+Deleting a resource data sync doesn't turn off an OpsData source in Explorer\. 
+To view OpsData and OpsItems from multiple accounts, you must have the AWS Organizations **All features** mode turned on and you must be signed into the AWS Organizations management account\.
 
 ## Creating a resource data sync<a name="Explorer-resource-data-sync-configuring-multi"></a>
 

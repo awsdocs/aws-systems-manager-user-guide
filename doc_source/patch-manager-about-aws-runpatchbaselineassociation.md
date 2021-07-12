@@ -67,7 +67,7 @@ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL instances use YUM\.
 Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\. 
 SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or later\.
 
-After a scan completes, or after all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to the Patch Compliance service\. 
+After a scan is complete, or after all approved and applicable updates have been installed, with reboots performed as necessary, patch compliance information is generated on an instance and reported back to the Patch Compliance service\. 
 
 **Note**  
 If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaselineAssociation` document, the instance isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-norebootoption)\.
@@ -177,7 +177,7 @@ aws ssm create-association ^
 
 **Usage**: Optional\.
 
-`InstallOverrideList` lets you specify an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
+Using `InstallOverrideList`, you specify an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL to a list of patches to be installed\. This patch installation list, which you maintain in YAML format, overrides the patches specified by the current default patch baseline\. This provides you with more granular control over which patches are installed on your instances\. 
 
 Be aware that compliance reports reflect patch states according to what’s specified in the patch baseline, not what you specify in an `InstallOverrideList` list of patches\. In other words, Scan operations ignore the `InstallOverrideList` parameter\. This is to ensure that compliance reports consistently reflect patch states according to policy rather than what was approved for a specific patching operation\. 
 

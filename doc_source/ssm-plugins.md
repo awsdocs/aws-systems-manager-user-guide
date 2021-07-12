@@ -48,7 +48,7 @@ Valid values: `exit` \| `successAndExit`
 Required: No
 
 **onSuccess**  
-If you specify this input for a plugin and the step completes successfully, the document doesn't run any remaining steps unless a `finallyStep` has been defined\.  
+If you specify this input for a plugin and the step runs successfully, the document doesn't run any remaining steps unless a `finallyStep` has been defined\.  
 Type: String  
 Valid values: `exit`  
 Required: No
@@ -268,7 +268,7 @@ You can export and monitor the following data types:
 Sends application event log data to CloudWatch Logs\.
 
 **CustomLogs**  
-Sends any text\-based log file to Amazon CloudWatch Logs\. The CloudWatch plugin creates a fingerprint for log files\. The system then associates a data offset with each fingerprint\. The plugin uploads files when there are changes, records the offset, and associates the offset with a fingerprint\. This method is used to avoid a situation where a user enables the plugin, associates the service with a directory that contains a large number of files, and the system uploads all of the files\.  
+Sends any text\-based log file to Amazon CloudWatch Logs\. The CloudWatch plugin creates a fingerprint for log files\. The system then associates a data offset with each fingerprint\. The plugin uploads files when there are changes, records the offset, and associates the offset with a fingerprint\. This method is used to avoid a situation where a user turns on the plugin, associates the service with a directory that contains a large number of files, and the system uploads all of the files\.  
 Be aware that if your application truncates or attempts to clean logs during polling, any logs specified for `LogDirectoryPath` can lose entries\. If, for example, you want to limit log file size, create a new log file when that limit is reached, and then continue writing data to the new file\.
 
 **ETW**  
@@ -418,11 +418,11 @@ The destination log stream\. If you use **\{instance\_id\}**, the default, the i
 Type: String  
 Valid values: `{instance_id}` \| `{hostname}` \| `{ip_address}` *<log\_stream\_name>*  
 If you enter a log stream name that doesn't already exist, CloudWatch Logs automatically creates it for you\. You can use a literal string or predefined variables \(**\{instance\_id\}**, **\{hostname\}**, **\{ip\_address\}**, or a combination of all three to define a log stream name\.  
-The log stream name specified in this parameter appears on the **Log Groups > Streams for *<YourLogStream>*** screen in the CloudWatch console\.  
+The log stream name specified in this parameter is displyaed on the **Log Groups > Streams for *<YourLogStream>*** screen in the CloudWatch console\.  
 Required: Yes
 
 **MetricName**  
-The CloudWatch metric that you want performance data to appear under\.  
+The CloudWatch metric that you want performance data to be included under\.  
 Don't use special characters in the name\. If you do, the metric and associated alarms might not work\.
 Type: String  
 Required: Yes
@@ -450,7 +450,7 @@ Type: String
 Required: No
 
 **startType**  
-Enable or disable CloudWatch on the instance\.  
+Turn on or turn off CloudWatch on the instance\.  
 Type: String  
 Valid values: `Enabled` \| `Disabled`  
 Required: Yes
@@ -640,7 +640,7 @@ Valid values: `Install` \| `Uninstall`
 Required: Yes
 
 **installationType**  
-The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation completes\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option isn't supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
+The type of installation to perform\. If you specify `Uninstall and reinstall`, the package is completely uninstalled, and then reinstalled\. The application is unavailable until the reinstallation is complete\. If you specify `In-place update`, only new or changed files are added to the existing installation according you instructions you provide in an update script\. The application remains available throughout the update process\. The `In-place update` option isn't supported for AWS\-published packages\. `Uninstall and reinstall` is the default value\.  
 Type: Enum  
 Valid values: `Uninstall and reinstall` \| `In-place update`  
 Required: No
@@ -872,7 +872,7 @@ Required: Yes
 + owner: The repository owner\.
 + repository: The name of the repository\.
 + path: The path to the file or directory you want to download\.
-+ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you're using the latest commit in the master branch\. If your repository was created after October 1st, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
++ getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you're using the latest commit in the master branch\. If your repository was created after October 1, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
 
   This parameter uses the following format:
   + branch:*branch\_name*

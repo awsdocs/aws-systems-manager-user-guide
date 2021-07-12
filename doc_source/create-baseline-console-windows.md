@@ -73,7 +73,7 @@ For information about accepted formats for lists of approved patches and rejecte
 
 1. \(Optional\) For **Manage tags**, apply one or more tag key name/value pairs to the patch baseline\.
 
-   Tags are optional metadata that you assign to a resource\. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies, the operating system family it applies to, and the environment type\. In this case, you could specify tags similar to the following key name/value pairs:
+   Tags are optional metadata that you assign to a resource\. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies, the operating system family it applies to, and the environment type\. In this case, you could specify tags similar to the following key name/value pairs:
    + `Key=PatchSeverity,Value=Critical`
    + `Key=OS,Value=RHEL`
    + `Key=Environment,Value=Production`

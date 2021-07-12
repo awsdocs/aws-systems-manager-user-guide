@@ -1,6 +1,6 @@
 # Editing default rules for OpsItems<a name="Explorer-using-editing-default-rules"></a>
 
-When you complete Integrated Setup, the system enables more than a dozen rules in Amazon EventBridge\. These rules automatically create OpsItems in AWS Systems Manager OpsCenter\. AWS Systems Manager Explorer then displays aggregated information about the OpsItems\.
+When you complete Integrated Setup, the system allows more than a dozen rules in Amazon EventBridge\. These rules automatically create OpsItems in AWS Systems Manager OpsCenter\. AWS Systems Manager Explorer then displays aggregated information about the OpsItems\.
 
 Each rule includes a preset **Category** and **Severity** value\. When the system creates OpsItems from an event, it automatically assigns the preset **Category** and **Severity**\.
 

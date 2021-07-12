@@ -56,7 +56,7 @@ If you send a command to multiple instances, Amazon SNS can send messages about 
 To set up Amazon SNS notifications when a command changes status, complete the following tasks\.
 
 **Note**  
-If you aren't configuring Amazon SNS notifications for your maintenance window, then you can skip Task 5 below\.
+If you aren't configuring Amazon SNS notifications for your maintenance window, then you can skip Task 5 later in this topic\.
 
 **Topics**
 + [Command summary Amazon SNS notifications](#monitoring-sns-configure-summary)
@@ -88,7 +88,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button appears, choose it, and then choose **Create Policy**\.\)
+1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button is shown, choose it, and then choose **Create Policy**\.\)
 
 1. Choose the **JSON** tab\.
 

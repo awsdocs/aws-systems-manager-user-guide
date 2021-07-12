@@ -42,7 +42,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 1. Choose the type of instance to launch, such as **t2\.micro**, and then choose **Next: Configure Instance Details**\.
 
-1. On the **Configure Instance Details** page, in the **IAM role** drop\-down list, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+1. On the **Configure Instance Details** page, in the **IAM role** dropdown list, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. For other options on the page, make selections that meet your requirements for the instance\. For more information, choose one of the following, depending on your selected operating system type:
    + **Linux**: [Launching an Instance Using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
@@ -58,7 +58,7 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. In the navigation pane, under **Instances**, choose **Instances**\.
 
-1. Browse to and choose your EC2 instance from the list\.
+1. Navigate to and choose your EC2 instance from the list\.
 
 1. In the **Actions** menu, choose **Security**, **Modify IAM role**\.
 

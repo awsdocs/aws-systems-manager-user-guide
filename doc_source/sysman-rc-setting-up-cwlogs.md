@@ -32,7 +32,7 @@ If you're using a custom policy on your instances, update the policy on each ins
 
 To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose **CloudWatch Output** in the **Output options** section\. Optionally, you can specify the name of CloudWatch Logs group where you want to send command output\. If you don't specify a group name, Systems Manager automatically creates a log group for you\. The log group uses the following naming format: `/aws/ssm/SystemsManagerDocumentName`
 
-If you run commands by using the AWS CLI, specify the `cloud-watch-output-config` section in your command\. This section enables you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example\.
+If you run commands by using the AWS CLI, specify the `cloud-watch-output-config` section in your command\. This section allows you to specify the `CloudWatchOutputEnabled` parameter, and optionally, the `CloudWatchLogGroupName` parameter\. Here is an example\.
 
 ------
 #### [ Linux & macOS ]
@@ -71,7 +71,7 @@ Output from the execution is uploaded every 30 seconds or when the buffer exceed
 **Note**  
 Log streams are only created when output data is available\. For example, if there is no error data for an execution, the stderr stream isn't created\.
 
-Here is an example of the command output as it appears in CloudWatch Logs\.
+Here is an example of the command output as it is displayed in CloudWatch Logs\.
 
 ```
 Group - /aws/ssm/AWS-RunShellScript

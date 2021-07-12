@@ -1,6 +1,6 @@
 # Block public sharing for SSM documents<a name="ssm-share-block"></a>
 
-Unless your use case requires public sharing to be enabled, we recommend turning on the block public sharing setting for your AWS Systems Manager \(SSM\) documents\. Turning on this setting prevents unwanted access to your SSM documents\. The block public sharing setting is an account level setting that can differ for each AWS Region\. Complete the following tasks to block public sharing for your SSM documents\.
+Unless your use case requires public sharing to be turned on, we recommend turning on the block public sharing setting for your AWS Systems Manager \(SSM\) documents\. Turning on this setting prevents unwanted access to your SSM documents\. The block public sharing setting is an account level setting that can differ for each AWS Region\. Complete the following tasks to block public sharing for your SSM documents\.
 
 ## Block public sharing \(console\)<a name="share-block-console"></a>
 

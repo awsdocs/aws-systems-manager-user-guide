@@ -40,9 +40,9 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. For **S3 key prefix**, enter the subfolder of the bucket where your installable assets are stored\.
 
-1. For **Upload software**, browse for the installable software files that you want to attach to the new version\. Installable files from existing versions aren't automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
+1. For **Upload software**, navigate to the installable software files that you want to attach to the new version\. Installable files from existing versions aren't automatically copied over to a new version; you must upload any installable files from older versions of the package if you want any of the same installable files to be part of the new version\. You can upload more than one software file in a single action\.
 
-1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the drop\-down list\.
+1. For **Target platform**, verify that the target operating system platform shown for each installable file is correct\. If the operating system shown isn't correct, choose the correct operating system from the dropdown list\.
 
    In the **Simple** versioning workflow, because you upload each installable file only once, extra steps are required to target a single file at multiple operating systems\. For example, if you upload an installable software file named `Logtool_v1.1.1.rpm`, you must change some defaults in the **Simple** workflow to instruct Distributor to target the same software at both Amazon Linux and Ubuntu operating systems\. You can do one of the following to work around this limitation\.
    + Use the **Advanced** versioning workflow instead, zip each installable file into a \.zip file before you begin, and manually author the manifest so that one installable file can be targeted at multiple operating system platforms or versions\. For more information, see [Adding a package version \(advanced\)](#add-pkg-version-adv)\.

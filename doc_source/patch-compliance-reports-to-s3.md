@@ -10,7 +10,7 @@ After a report is generated, you can use a tool like Amazon QuickSight to import
 You can also specify an Amazon Simple Notification Service \(Amazon SNS\) topic to use for sending notifications when a report is generated\.
 
 **Service roles for generating patch compliance reports**  
-The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` lets Amazon EventBridge start an automation using the runbook [AWS\-ExportPatchReportToS3 ](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportpatchreporttos3)\.
+The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` enables Amazon EventBridge to start an automation using the runbook [AWS\-ExportPatchReportToS3 ](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportpatchreporttos3)\.
 
 We recommend against attempting to modify these policies and roles\. Doing so could cause patch compliance report generation to fail\. For more information, see [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting)\.
 
@@ -127,7 +127,7 @@ Use the following procedure to generate a patch summary report for a single inst
 
 1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
 **Important**  
-If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
+If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were turned off by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
@@ -167,7 +167,7 @@ Use the following procedure to generate a patch summary report for all instances
 
 1. For **Bucket name**, select the name of an S3 bucket where you want to store the \.csv report files\.
 **Important**  
-If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were disabled by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
+If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were turned off by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
 1. \(Optional\) To send notifications when report the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 

@@ -103,12 +103,12 @@ Type: String
 Required: No
 
 DisableApiTermination  
-Enables or disables instance API termination\.  
+Turns on or turns off instance API termination\.  
 Type: Boolean  
 Required: No
 
 EbsOptimized  
-Enables or disabled Amazon Elastic Block Store \(Amazon EBS\) optimization\.  
+Turns on or turns off Amazon Elastic Block Store \(Amazon EBS\) optimization\.  
 Type: Boolean  
 Required: No
 
@@ -148,7 +148,7 @@ Type: Integer
 Required: No
 
 Monitoring  
-Enables or disables detailed monitoring\.  
+Turns on or turns off detailed monitoring\.  
 Type: Boolean  
 Required: No
 

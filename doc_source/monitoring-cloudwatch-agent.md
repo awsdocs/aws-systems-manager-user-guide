@@ -1,6 +1,6 @@
 # Sending instance logs to CloudWatch Logs \(CloudWatch agent\)<a name="monitoring-cloudwatch-agent"></a>
 
-You can configure and use the Amazon CloudWatch agent to collect metrics and logs from your instances instead of using AWS Systems Manager Agent \(SSM Agent\) for these tasks\. The CloudWatch agent enables you to gather more metrics on EC2 instances than are available using SSM Agent\. In addition, you can gather metrics from on\-premises servers using the CloudWatch agent\. 
+You can configure and use the Amazon CloudWatch agent to collect metrics and logs from your instances instead of using AWS Systems Manager Agent \(SSM Agent\) for these tasks\. The CloudWatch agent allows you to gather more metrics on EC2 instances than are available using SSM Agent\. In addition, you can gather metrics from on\-premises servers using the CloudWatch agent\. 
 
 You can also store agent configuration settings in the Systems Manager Parameter Store for use with the CloudWatch agent\. Parameter Store is a capability of AWS Systems Manager\.
 
@@ -44,7 +44,7 @@ We recommend testing the migration on a limited number of instances before migra
 In the following cases, you won’t be able to migrate to the CloudWatch agent using the steps described in this topic:  
 The existing configuration for SSM Agent specifies multiple Regions\.
 The existing configuration for SSM Agent specifies multiple sets of access/secret key credentials\.
-In these cases, it will be necessary to disable log collection in SSM Agent and install the CloudWatch agent without a migration process\. For more information, see the following topics:  
+In these cases, it will be necessary to turn off log collection in SSM Agent and install the CloudWatch agent without a migration process\. For more information, see the following topics:  
 [Install the CloudWatch agent on an EC2 instance](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html)
 [Install the CloudWatch agent on an on\-premises server](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-premise.html)
 
@@ -158,7 +158,7 @@ After the migration, this entry maps to a domain, such as ip\-11\-1\-1\-11\.prod
   .\\amazon-cloudwatch-agent-config-wizard.exe --isNonInteractiveWindowsMigration
   ```
 
-  *\{Env:ProgramFiles\}* represents the location where the Amazon folder containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+  *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
 
 **Three: To configure and start the CloudWatch agent \(console\)**
 
@@ -180,11 +180,11 @@ After the migration, this entry maps to a domain, such as ip\-11\-1\-1\-11\.prod
    .\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c file:config.json -s
    ```
 
-   *\{Env:ProgramFiles\}* represents the location where the Amazon folder containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+   *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
 
 1. Choose **Run**\.
 
-**Four: To disable log collection in SSM Agent \(console\)**
+**Four: To turn off log collection in SSM Agent \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -212,7 +212,7 @@ If you ran the wizard but didn't choose the option to save the settings as a par
 ${Env:ProgramFiles}\Amazon\AmazonCloudWatchAgent\config.json
 ```
 
-*\{Env:ProgramFiles\}* represents the location where the Amazon folder containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+*\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
 
 We recommend keeping a backup of the JSON in this file on a location other than the instance itself\.
 
@@ -232,7 +232,7 @@ If you want to return to using SSM Agent for log collection, follow these steps\
    ${Env:ProgramFiles}\\Amazon\\SSM\\Plugins\\awsCloudWatch\\AWS.EC2.Windows.CloudWatch.json
    ```
 
-   *\{Env:ProgramFiles\}* represents the location where the `Amazon` folder can be found, typically *C:\\Program Files*\. 
+   *\{Env:ProgramFiles\}* represents the location where the `Amazon` directory can be found, typically *C:\\Program Files*\. 
 
 1. Copy this data into a text file for use in a later step\. 
 
@@ -254,7 +254,7 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 1. Choose **Run**\.
 
-**Three: To re\-enable log collection in SSM Agent \(console\)**
+**Three: To turn log collection back on in SSM Agent \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 

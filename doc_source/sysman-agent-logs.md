@@ -26,20 +26,20 @@ You can view SSM Agent logs on instances in the following locations\.
 
 For Linux instances, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm`\.
 
-For information about enabling SSM Agent debug logging, see [Enabling SSM Agent debug logging](#ssm-agent-debug-log-files)\.
+For information about allowing SSM Agent debug logging, see [Allowing SSM Agent debug logging](#ssm-agent-debug-log-files)\.
 
 For more information about `cihub/seelog` configuration, see the [Seelog Wiki](https://github.com/cihub/seelog/wiki) on GitHub\. For examples of `cihub/seelog` configurations, see the [cihub/seelog examples](https://github.com/cihub/seelog-examples) repository on GitHub\. 
 
-## Enabling SSM Agent debug logging<a name="ssm-agent-debug-log-files"></a>
+## Allowing SSM Agent debug logging<a name="ssm-agent-debug-log-files"></a>
 
-Use the following procedure to enable SSM Agent debug logging on your managed instances\.
+Use the following procedure to allow SSM Agent debug logging on your managed instances\.
 
 ------
 #### [ Linux and macOS ]
 
-**To enable SSM Agent debug logging on Linux and macOS instances**
+**To allow SSM Agent debug logging on Linux and macOS instances**
 
-1. Either use Session Manager, a capability of AWS Systems Manager, to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager, a capability of AWS Systems Manager, to connect to the instance where you want to allow debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Locate the **seelog\.xml\.template** file\.
 
@@ -86,9 +86,9 @@ On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.x
 ------
 #### [ Windows ]
 
-**To enable SSM Agent debug logging on Windows Server instances**
+**To allow SSM Agent debug logging on Windows Server instances**
 
-1. Either use Session Manager to connect to the instance where you want to enable debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager to connect to the instance where you want to allow debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 

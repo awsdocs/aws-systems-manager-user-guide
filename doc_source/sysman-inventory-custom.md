@@ -85,9 +85,9 @@ An inventory type is also called an inventory schema\.
 
 The `SchemaDeleteOption` parameter includes the following options:
 + **DeleteSchema**: This option deletes the specified custom type and all data associated with it\. You can recreate the schema later, if you want\.
-+ **DisableSchema**: If you choose this option, the system disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. You can enable this inventory type again by calling the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the disabled version\.
++ **DisableSchema**: If you choose this option, the system turns off the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the turned off version\. You can allow this inventory type again by calling the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) action for a version greater than the turned off version\.
 
-**To delete or disable custom inventory by using the AWS CLI**
+**To delete or turn off custom inventory by using the AWS CLI**
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
 
@@ -160,7 +160,7 @@ The output of this command doesn't show the deletion progress\. For this reason,
 
    The system deletes all data for the specified custom inventory type from the Systems Manager Inventory service\. 
 
-1. Run the following command\. The command performs the following actions for the current version of the inventory type: disables the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the disabled version\. 
+1. Run the following command\. The command performs the following actions for the current version of the inventory type: turns off the current version, deletes all data for it, and ignores all new data if the version is less than or equal to the turned off version\. 
 
    ```
    aws ssm delete-inventory --type-name "Custom:custom_type_name" --schema-delete-option "DisableSchema"
@@ -191,7 +191,7 @@ The output of this command doesn't show the deletion progress\. For this reason,
    }
    ```
 
-   You can view a disabled inventory type by using the following command\.
+   You can view a turned off inventory type by using the following command\.
 
    ```
    aws ssm get-inventory-schema --type-name Custom:custom_type_name
@@ -469,7 +469,7 @@ The system returns information like the following\.
 You can configure Amazon EventBridge to create an event anytime a user deletes custom inventory\. EventBridge offers three types of events for custom inventory delete operations:
 + **Delete action for an instance**: If the custom inventory for a specific managed instance was successfully deleted or not\. 
 + **Delete action summary**: A summary of the delete action\.
-+ **Warning for disabled custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation for a custom inventory type version that was previously\-disabled\.
++ **Warning for turned off custom inventory type**: A warning event if a user called the [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation for a custom inventory type version that was previously turned off\.
 
 Here are examples of each event:
 
@@ -523,7 +523,7 @@ Here are examples of each event:
 }
 ```
 
-**Warning for disabled custom inventory type**
+**Warning for turned off custom inventory type**
 
 ```
 {
