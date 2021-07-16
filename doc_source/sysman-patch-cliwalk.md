@@ -5,7 +5,7 @@ The following procedure describes how to patch a server environment by using a c
 **Before you begin**
 + Install or update the SSM Agent on your instances\. To patch Linux instances, your instances must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
 + Configure roles and permissions for Maintenance Windows, a capability of AWS Systems Manager\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
-+ Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
++ Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

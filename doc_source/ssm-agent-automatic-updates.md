@@ -32,4 +32,6 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
 
 1. Choose the **Settings** tab, and then choose **Auto update SSM Agent** under **Agent auto update**\.
 
+To change the version of SSM Agent your fleet updates to, choose **Edit** under **Agent auto update** on the **Settings** tab\. Then enter the version number of SSM Agent you want to update to in **Version** under **Parameters**\. If not specified, the agent updates to the latest version\. 
+
 To stop automatically deploying updated versions of SSM Agent to all managed instances in your account, choose **Delete** under **Agent auto update** on the **Settings** tab\. This action deletes the State Manager association that automatically updates SSM Agent on your instances\.

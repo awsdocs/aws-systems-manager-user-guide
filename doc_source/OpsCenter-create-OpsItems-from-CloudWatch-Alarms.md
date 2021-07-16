@@ -8,7 +8,7 @@ This feature is available in all AWS Regions where Systems Manager is available\
 + CloudWatch can create OpsItems in OpsCenter for metric and composite alarms\.
 + Alarms must use the default `aws` namespace, such as `AWS/EC2` \(metric alarms only\)\.
 + CloudWatch automatically creates a new service\-linked role in AWS Identity and Access Management \(IAM\) when you configure an alarm to create OpsItems\. The new role is named `AWSServiceRoleForCloudWatchAlarms_ActionSSM`\. For more information about CloudWatch service\-linked roles, see [Using Service\-Linked Roles for CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-service-linked-roles.html) in the *Amazon CloudWatch User Guide*\. 
-+ OpsCenter uses a deduplication feature to prohibit a single alarm from creating multiple OpsItems\. For more information, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\.
++ OpsCenter uses a deduplication feature to prohibit a single alarm from creating multiple OpsItems\. For more information, see [Reducing duplicate OpsItems](OpsCenter-working-deduplication.md)\.
 
 For information about how to create a new alarm that automatically creates OpsItems in OpsCenter, see [Create a CloudWatch alarm based on a static threshold](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ConsoleAlarms.html) in the *Amazon CloudWatch User Guide*\. In Step 8 of that procedure, choose **Systems Manager OpsCenter action** and then complete the procedure\. 
 
@@ -100,7 +100,7 @@ Use the following command to configure an existing alarm to create OpsItems by u
 
 **To configure an existing alarm to create OpsItems**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

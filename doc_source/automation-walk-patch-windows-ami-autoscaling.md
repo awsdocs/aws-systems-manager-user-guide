@@ -50,9 +50,9 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. In the **Function name** field, enter **Automation\-UpdateAsg**\.
 
-1. In the **Runtime** list, choose **Python 2\.7**\.
+1. In the **Runtime** list, choose **Python 3\.7**\.
 
-1. Expand **Choose or create an execution role** and then, in the **Execution role** list, verify that **Use an existing role** is selected\.
+1. Expand **Change default execution role** under **Permissions**, verify that **Use an existing role** is selected\.
 
 1. In the **Existing role** list, choose the role you created earlier\.
 
@@ -60,7 +60,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Make no changes in the **Designer** section\.
 
-1. In the **Function code** section, delete the pre\-populated code in the **lambda\_function** field, and then paste the following code sample\.  
+1. In the **Code source** section, delete the pre\-populated code in the **lambda\_function** field, and then paste the following code sample\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb.png)
 
    ```
@@ -108,6 +108,8 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Save**\.
 
+1. Choose **Deploy**\.
+
 1. Choose **Test**\.
 
 1. In the **Configure test event** page, verify that **Create new test event** is selected\.
@@ -143,7 +145,7 @@ Use the following procedure to create and run a runbook that patches the AMI you
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. Choose **Create automation**\.
+1. In the **Create document** dropdown, choose **Automation**\.
 
 1. In the **Name** field, enter **PatchAmiandUpdateAsg**\.
 
@@ -264,11 +266,13 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
    }
    ```
 
-1. Choose **Create document** to save the document\.
+1. Choose **Create automation** to save the runbook\.
 
-1. Choose **Automations**, and then choose **Execute automation**\.
+1. Choose **Automation**, and then choose **Execute automation**\.
 
 1. In the **Automation document** list, choose **PatchAmiandUpdateAsg**\.
+
+1. Choose **Next**\.
 
 1. In the **Document details** section, verify that **Document version** is set to **1**\.
 
@@ -278,7 +282,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
 
 1. Specify a Windows AMI ID for **sourceAMIid**, your Auto Scaling group name for **targetASG**, and a value for the **subnetId** input parameter\.
 
-1. Choose **Execute automation**\.
+1. Choose **Execute**\.
 
 1. After automation completes, in the Amazon EC2 console, choose **Auto Scaling**, and then choose **Launch Configurations**\. Verify that you see the new launch configuration, and that it uses the new AMI ID\.
 

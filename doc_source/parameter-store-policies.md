@@ -109,7 +109,7 @@ Use the following procedure to add policies to an existing parameter by using th
 
 **To add policies to an existing parameter**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

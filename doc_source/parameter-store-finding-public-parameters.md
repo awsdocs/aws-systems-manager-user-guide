@@ -11,7 +11,6 @@ The following is a list of some services which provide public parameters:
 + canonical
 + datasync
 + debian
-+ ec2windows
 + ecs
 + global\-infrastructure
 + redhat

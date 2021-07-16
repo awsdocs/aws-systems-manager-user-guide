@@ -4,7 +4,7 @@ The following procedure walks you through the process of using the AWS Systems M
 
 **To assign custom inventory metadata to an instance**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

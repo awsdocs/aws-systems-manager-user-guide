@@ -32,7 +32,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 **To review and approve or reject a change request**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

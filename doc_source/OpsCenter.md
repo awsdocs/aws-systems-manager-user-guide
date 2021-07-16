@@ -6,6 +6,25 @@ OpsCenter is integrated with Amazon EventBridge and Amazon CloudWatch\. This mea
 
 To help you diagnose issues, each OpsItem includes contextually relevant information such as the name and ID of the AWS resource that generated the OpsItem, alarm or event details, alarm history, and an alarm timeline graph\.
 
+For the AWS resource, OpsCenter aggregates information from AWS Config, AWS CloudTrail logs, and Amazon CloudWatch Events, so you don't have to navigate across multiple console pages during your investigation\.
+
+The following list includes types of AWS resources and metrics for which customers configure CloudWatch alarms that create OpsItems\.
++ Amazon DynamoDB: database read and write actions reach a threshold
++ Amazon EC2: CPU utilization reaches a threshold
++ AWS billing: estimated charges reach a threshold
++ Amazon EC2: an instance fails a status check
++ Amazon Elastic Block Store \(EBS\): disk space utilization reaches a threshold
+
+The following list includes types of EventBridge rules customer configure to create OpsItems\.
++ AWS Security Hub: security alert issued
++ DynamoDB: a throttling event
++ Amazon EC2 Auto Scaling: failure to launch an instance
++ Systems Manager: failure to run an automation
++ AWS Health: an alert for scheduled maintenance
++ EC2: instance state change from `Running` to `Stopped`
+
+OpsCenter is also integrated with Amazon CloudWatch Application Insights for \.NET and SQL Server\. This means you can automatically create OpsItems for problems detected in your applications\. You can also integrate OpsCenter with AWS Security Hub to aggregate and take action on your security, performance, and operational issues in Systems Manager\. 
+
 Operations engineers and IT professionals can create, view, and edit OpsItems by using the OpsCenter page in the AWS Systems Manager console, public API operations, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. OpsCenter public API operations also allows you to integrate OpsCenter with your case management systems and health dashboards\. 
 
 ## OpsCenter integration<a name="OpsCenter-integration"></a>
@@ -50,7 +69,7 @@ More specifically, OpsCenter offers the following benefits for operations engine
   + **Searchable and private operational data**: Operational data is custom data that provides useful reference details about the OpsItem\. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data\. You enter operational data as key\-value pairs\. The key has a maximum length of 128 characters\. The value has a maximum size of 20 KB\.
 
     This custom data is searchable, but with restrictions\. For the **Searchable operational data** feature, all users with access to the OpsItem Overview page \(as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API operation\) can view and search on the specified data\. For the **Private operational data** feature, the data is only viewable by users who have access to the OpsItem \(as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API operation\)\.
-  + **Deduplication**: By specifying related resources, OpsCenter uses built\-in logic to help you avoid creating duplicate OpsItems\. Additionally, OpsItems that are automatically created from an event in EventBridge include a deduplication string to reduce the number of duplicate OpsItems\. For more information, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
+  + **Deduplication**: By specifying related resources, OpsCenter uses built\-in logic to help you avoid creating duplicate OpsItems\. OpsCenter also includes a feature called **Operational insights**, which displays information about duplicate OpsItems\. To further limit the number of duplicate OpsItems in your account, you can manually specify a deduplication string for an EventBridge event rule\. For more information, see [Reducing duplicate OpsItems](OpsCenter-working-deduplication.md)\. 
 + **Easy remediation using runbooks**
 
   Each OpsItem includes a **Runbooks** section with a list of Systems Manager Automation runbooks that you can use to automatically remediate common issues with AWS resources\. If you open an OpsItem, choose an AWS resource for that OpsItem, and then choose the **Run automation** button in the console, then OpsCenter provides a list of Automation runbooks that you can run on the AWS resource that generated the OpsItem\. After you run an Automation runbook from an OpsItem, the runbook is automatically associated with the related resource of the OpsItem for future reference\. Additionally, if you automatically set up OpsItem rules in EventBridge by using OpsCenter, then EventBridge automatically associates runbooks for common events\. OpsCenter keeps a 30\-day record of Automation runbooks run for a specific OpsItem\. For more information, see [Remediating OpsItem issues using Systems Manager Automation](OpsCenter-remediating.md)\.
@@ -115,6 +134,7 @@ You can view quotas for all Systems Manager capabilities in the [Systems Manager
 + [Getting started with OpsCenter](OpsCenter-getting-started.md)
 + [Creating OpsItems](OpsCenter-creating-OpsItems.md)
 + [Working with OpsItems](OpsCenter-working-with-OpsItems.md)
++ [Reducing duplicate OpsItems](OpsCenter-working-deduplication.md)
 + [Working with Incident Manager incidents in OpsCenter](OpsCenter-create-OpsItems-for-Incident-Manager.md)
 + [Remediating OpsItem issues using Systems Manager Automation](OpsCenter-remediating.md)
 + [Viewing OpsCenter summary reports](OpsCenter-reports.md)

@@ -29,7 +29,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. Choose **Edit association**\. Configure the association to meet your current requirements\.
 
@@ -54,56 +54,68 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Use the following format to create a command to edit and create a new version of an existing State Manager association\.
+**Important**  
+To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` \(`-ScheduleExpression` for Powershell\) when updating, the new association version won't have a schedule expression\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm update-association \
-     --association-id b85ccafe-9f02-4812-9b81-01234EXAMPLE \
-     --association-name association_name \
-     --parameters (if any) \
-     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' \
-     --scheduleexpression "cron_or_rate_expression" \
-     --calendar-names calendar_names
+       --name document_name \
+       --document-version version_of_document_applied \
+       --instance-id instances_to_apply_association_on \
+       --parameters (if any) \
+       --targets target_options \
+       --schedule "cron_or_rate_expression" \
+       --output-location s3_bucket_to_store_output_details \
+       --association-name association_name \
+       --max-errors a_number_of_errors_or_a_percentage_of_target_set \
+       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
+       --compliance-severity severity_level \
+       --calendar-names change_calendar_names \
+       --target-locations aws_region_or_account
    ```
-
-**Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version won't have a schedule expression\.
 
 ------
 #### [ Windows ]
 
    ```
    aws ssm update-association ^
-     --association-id b85ccafe-9f02-4812-9b81-01234EXAMPLE ^
-     --association-name association_name ^
-     --parameters (if any) ^
-     --output-location S3Location='{OutputS3Region=region,OutputS3BucketName=DOC-EXAMPLE-BUCKET,OutputS3KeyPrefix=keyprefix}' ^
-     --scheduleexpression "cron_or_rate_expression" ^
-     --calendar-names calendar_names
+       --name document_name ^
+       --document-version version_of_document_applied ^
+       --instance-id instances_to_apply_association_on ^
+       --parameters (if any) ^
+       --targets target_options ^
+       --schedule "cron_or_rate_expression" ^
+       --output-location s3_bucket_to_store_output_details ^
+       --association-name association_name ^
+       --max-errors a_number_of_errors_or_a_percentage_of_target_set ^
+       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
+       --compliance-severity severity_level ^
+       --calendar-names change_calendar_names ^
+       --target-locations aws_region_or_account
    ```
-
-**Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameter values when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `--schedule-expression` when updating, the new association version won't have a schedule expression\.
 
 ------
 #### [ PowerShell ]
 
    ```
    Update-SSMAssociation `
-     -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
-     -AssociationName document_name `
-     -Parameter (if any) `
-     -S3Location_OutputS3BucketName DOC-EXAMPLE-BUCKET `
-     -S3Location_OutputS3KeyPrefix key_prefix `
-     -S3Location_OutputS3Region region `
-     -ScheduleExpression "cron_or_rate_expression" `
-     -CalendarNames calendar_names
+       -Name document_name `
+       -DocumentVersion version_of_document_applied `
+       -InstanceId instances_to_apply_association_on `
+       -Parameters (if any) `
+       -Target target_options `
+       -ScheduleExpression "cron_or_rate_expression" `
+       -OutputLocation s3_bucket_to_store_output_details `
+       -AssociationName association_name `
+       -MaxError  a_number_of_errors_or_a_percentage_of_target_set
+       -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
+       -ComplianceSeverity severity_level `
+       -CalendarNames change_calendar_names `
+       -TargetLocations aws_region_or_account
    ```
-
-**Important**  
-To retain existing parameter values of your association, such as association name or compliance severity, specify these values when you update the association\. If you don't specify these parameters when you update an association, the new association version uses no values\. For example, if your existing association has a cron schedule but you don't specify `-ScheduleExpression` when updating, the new association version won't have a schedule expression\.
 
 ------
 

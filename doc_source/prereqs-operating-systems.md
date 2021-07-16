@@ -32,11 +32,11 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 6\.x¹ | ✓ | ✓ | ✓ | 
+| 6\.x¹ | ✓ | ✓ |  | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
 | 8\.0, 8\.1, and 8\.2 versions |  | ✓ | ✓ | 
 
-**¹** 
+**¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of CentOS\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for CentOS 6\.
 
 
 **Debian Server**  
@@ -81,7 +81,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | 8\.2 |  | ✓ | ✓ | 
 | 8\.3 |  | ✓ | ✓ | 
 
-**¹** 
+**¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  
@@ -109,6 +109,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | --- | --- | --- | --- | 
 | 10\.14\.x \(Mojave\) |  | ✓ |  | 
 | 10\.15\.x \(Catalina\) |  | ✓ |  | 
+| 11\.x \(BigSur\) |  | ✓ |  | 
 
 **Note**  
 macOS support is limited to the following AWS Regions:  
@@ -128,6 +129,10 @@ For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac ins
 | --- | --- | 
 | Jessie | ✓ | 
 | Stretch | ✓ | 
+
+**Related content**
+
+[Manage Raspberry Pi devices using AWS Systems Manager](http://aws.amazon.com/blogs/mt/manage-raspberry-pi-devices-using-aws-systems-manager/)
 
 ## Windows Server<a name="prereqs-os-windows-server"></a>
 

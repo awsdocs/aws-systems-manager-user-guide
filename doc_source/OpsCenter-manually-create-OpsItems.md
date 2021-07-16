@@ -34,7 +34,7 @@ You can't edit the **Source** field after you create the OpsItem\.
 
 1. For **Description**, enter information about this OpsItem including \(if applicable\) steps for reproducing the issue\. 
 
-1. For **Deduplication string**, enter words the system should use to check for duplicate OpsItems\. For more information about deduplication strings, see [Reducing duplicate OpsItems](OpsCenter-working-with-OpsItems.md#OpsCenter-working-deduplication)\. 
+1. For **Deduplication string**, enter words the system should use to check for duplicate OpsItems\. For more information about deduplication strings, see [Reducing duplicate OpsItems](OpsCenter-working-deduplication.md)\. 
 
 1. \(Optional\) For **Notifications**, specify the Amazon SNS topic ARN where you want notifications sent when this OpsItem is updated\. You must specify an Amazon SNS ARN that is in the same AWS Region as the OpsItem\.
 

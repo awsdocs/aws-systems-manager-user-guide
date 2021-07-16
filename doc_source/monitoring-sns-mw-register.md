@@ -119,13 +119,15 @@ To better manage your task options, this procedure uses the command option `--cl
 
    You can also restore options we've omitted from this example if you want to use them\. For example, you can save command output to an S3 bucket\. 
 
-   For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html)\.
+   For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html) in the *AWS CLI Command Reference*\.
 
 1. Save the file\.
 
 1. In the directory on your local machine where you saved the file, run the following command\.
 
-   `aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json`
+   ```
+   aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json
+   ```
 **Important**  
 Be sure to include `file://` before the file name\. It's required in this command\.
 
@@ -139,4 +141,4 @@ Be sure to include `file://` before the file name\. It's required in this comman
 
 1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
 
-For more information about registering tasks for a maintenance window from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+For more information about registering tasks for a maintenance window from the command line, see [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md)\.

@@ -10,7 +10,7 @@ Provide the Maintenance Windows service with the AWS Identity and Access Managem
 You specify one of these roles as part of the configuration when you create a maintenance window task\. This allows Systems Manager to run tasks in maintenance windows on your behalf\.
 
 **Note**  
-A service\-linked role for Systems Manager might already have been created in your AWS account\. The service\-linked role also provides permissions for the Inventory capability\.
+A service\-linked role for Systems Manager might already have been created in your account\. Currently, the service\-linked role also provides permissions for Systems Manager Inventory and Systems Manager Explorer\. For more information, see [Using roles to collect inventory, run maintenance window tasks, and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)\.
 
 To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)\.
 

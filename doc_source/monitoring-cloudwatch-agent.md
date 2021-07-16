@@ -44,7 +44,7 @@ We recommend testing the migration on a limited number of instances before migra
 In the following cases, you won’t be able to migrate to the CloudWatch agent using the steps described in this topic:  
 The existing configuration for SSM Agent specifies multiple Regions\.
 The existing configuration for SSM Agent specifies multiple sets of access/secret key credentials\.
-In these cases, it will be necessary to turn off log collection in SSM Agent and install the CloudWatch agent without a migration process\. For more information, see the following topics:  
+In these cases, it will be necessary to turn off log collection in SSM Agent and install the CloudWatch agent without a migration process\. For more information, see the following topics in the *Amazon CloudWatch User Guide*:  
 [Install the CloudWatch agent on an EC2 instance](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html)
 [Install the CloudWatch agent on an on\-premises server](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-premise.html)
 
@@ -158,7 +158,7 @@ After the migration, this entry maps to a domain, such as ip\-11\-1\-1\-11\.prod
   .\\amazon-cloudwatch-agent-config-wizard.exe --isNonInteractiveWindowsMigration
   ```
 
-  *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+  *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically `C:\Program Files`\. 
 
 **Three: To configure and start the CloudWatch agent \(console\)**
 
@@ -180,7 +180,7 @@ After the migration, this entry maps to a domain, such as ip\-11\-1\-1\-11\.prod
    .\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c file:config.json -s
    ```
 
-   *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+   *\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically `C:\Program Files`\. 
 
 1. Choose **Run**\.
 
@@ -212,7 +212,7 @@ If you ran the wizard but didn't choose the option to save the settings as a par
 ${Env:ProgramFiles}\Amazon\AmazonCloudWatchAgent\config.json
 ```
 
-*\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically *C:\\Program Files*\. 
+*\{Env:ProgramFiles\}* represents the location where the Amazon directory containing the CloudWatch agent can be found, typically `C:\Program Files`\. 
 
 We recommend keeping a backup of the JSON in this file on a location other than the instance itself\.
 
@@ -226,13 +226,11 @@ If you want to return to using SSM Agent for log collection, follow these steps\
 
 **One: To retrieve config data from SSM Agent**
 
-1. On the instance where you want to return to collecting logs with the SSM Agent, locate the contents of the SSM Agent config file\. This JSON file is typically found in the following location\.
+1. On the instance where you want to return to collecting logs with the SSM Agent, locate the contents of the SSM Agent config file\. This JSON file is typically found in the following location:
 
-   ```
-   ${Env:ProgramFiles}\\Amazon\\SSM\\Plugins\\awsCloudWatch\\AWS.EC2.Windows.CloudWatch.json
-   ```
+   `${Env:ProgramFiles}\\Amazon\\SSM\\Plugins\\awsCloudWatch\\AWS.EC2.Windows.CloudWatch.json`
 
-   *\{Env:ProgramFiles\}* represents the location where the `Amazon` directory can be found, typically *C:\\Program Files*\. 
+   *\{Env:ProgramFiles\}* represents the location where the `Amazon` directory can be found, typically `C:\Program Files`\. 
 
 1. Copy this data into a text file for use in a later step\. 
 

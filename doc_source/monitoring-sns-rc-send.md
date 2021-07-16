@@ -91,4 +91,4 @@ Specify parameters in the following command to target managed instances using ta
 
 1. Check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take several minutes to send the email message\.
 
-For more information about configuring Run Command from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+For more information, see [send\-command](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-command.html) in the *AWS CLI Command Reference*\.

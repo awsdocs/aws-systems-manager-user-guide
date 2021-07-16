@@ -79,7 +79,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` runboo
 
 **To create a patched Windows AMI by using Automation**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

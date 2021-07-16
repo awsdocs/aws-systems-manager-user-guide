@@ -7,7 +7,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 ## Create a parameter \(console\)<a name="param-create-console"></a>
 
-The following procedure walks you through the process of creating a parameter in the Parameter Store console\. You can create `String`, `StringList`, and `SecureString` parameter types in the console\.
+The following procedure walks you through the process of creating a parameter in the Parameter Store console\. You can create `String`, `StringList` parameter types from the console\.
 
 **To create a parameter**
 
