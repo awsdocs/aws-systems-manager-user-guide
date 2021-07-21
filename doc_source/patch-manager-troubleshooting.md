@@ -146,7 +146,7 @@ For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usag
 + [Issue: `AWS-RunPatchBaseline` output returns an `HRESULT` \(Windows Server\)](#patch-manager-troubleshooting-hresult)
 + [Issue: Instance doesn't have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access)
 + [Issue: PatchBaselineOperations PowerShell module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable)
-+ [Issue: missing patches](#patch-manager-troubleshooting-module-not-downloadable)
++ [Issue: missing patches](#patch-manager-troubleshooting-windows-missing-patches)
 
 ### Issue: mismatched product family/product pairs<a name="patch-manager-troubleshooting-product-family-mismatch"></a>
 
@@ -306,7 +306,7 @@ failed to run commands: exit status 4294967295
 
 **Solution**: Check the instance connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The instance's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\. The instance must communicate with the Amazon S3 endpoint via Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
 
-### Issue: missing patches<a name="patch-manager-troubleshooting-module-not-downloadable"></a>
+### Issue: missing patches<a name="patch-manager-troubleshooting-windows-missing-patches"></a>
 
 **Problem**: `AWS-RunPatchbaseline` completed successfully, but there are some missing patches\.
 
