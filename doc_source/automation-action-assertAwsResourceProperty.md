@@ -4,9 +4,6 @@ The `aws:assertAwsResourceProperty` action allows you to assert a specific resou
 
 For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
-**Note**  
-The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:assertAwsResourceProperty` step\.
-
 **Input**  
 Inputs are defined by the API operation that you choose\. 
 

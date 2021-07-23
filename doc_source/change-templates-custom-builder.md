@@ -40,7 +40,7 @@ Toggle between **Hide preview** and **Show preview** to see what your content lo
 
 1. In the **Change request approvers** section, do the following to add mandatory first\-level approvers:
    + Choose **Add approver**, and then choose from the following:
-     + **Template specified approvers** – Choose one or more users from your account to approve change requests created from this change template\. Any change requests that are created using this template must be reviewed and approved by each approver you specify\.
+     + **Template specified approvers** – Choose one or more users, groups, or AWS Identity and Access Management \(IAM\) roles from your account to approve change requests created from this change template\. Any change requests that are created using this template must be reviewed and approved by each approver you specify\.
      + **Request specified approvers** – The user who makes the change request specifies reviewers at the time they make the request and can choose from a list of users in your account\. 
 
        The number you enter in the **Required** column determines how many reviewers must be specified by a change request that uses this change template\. 

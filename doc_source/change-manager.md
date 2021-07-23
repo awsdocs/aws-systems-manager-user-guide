@@ -18,7 +18,7 @@ Change Manager complements the safety controls of your [continuous integration](
 
 When the need for a standard or emergency operational change is identified, someone in the organization creates a change request that is based on one of the change templates created for use in your organization or account\.
 
-If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user or user group who must approve requests for changes to managed instances, and another user or group for database changes\. 
+If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user, user group, or AWS Identity and Access Management \(IAM\) role who must approve requests for changes to managed instances, and another user, group, or IAM role for database changes\. 
 
 For each change template, you can add up to five levels of approvers\. For example, you might require technical reviewers to approve a change request created from a change template first, and then require a second level of approvals from one or more managers\.
 

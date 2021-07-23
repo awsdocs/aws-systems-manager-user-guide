@@ -42,7 +42,7 @@ When a user creates a change request, they first select a change template\. This
   You can use Change Manager with all the member accounts in all your organizational units that are set up in Organizations, and in all the AWS Regions they operate in\. If you prefer, you can instead use Change Manager with only some of your organizational units\.
 
 **Important**  
-We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you're making and the permissions you're granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users or user groups, they're being granted only the permissions you intend for them to have\.  
+We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you're making and the permissions you're granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users, user groups, or IAM roles, they're being granted only the permissions you intend for them to have\.  
 As a best practice, begin by setting up the delegated administrator account using the login for an AWS account administrator\. Then configure job functions and their permissions after you have created change templates and identified the runbooks that each one uses\.
 
 To set up Change Manager for use with an organization, perform the following task in the Quick Setup area of the Systems Manager console\.
@@ -144,7 +144,7 @@ We recommend that you use the IAM policy editor to construct your policy and the
 
 1. Choose **Create**\.
 
-After the system finishes setting up Change Manager for your organization, it displays a summary of your deployments\. This summary information includes the name of the permissions policy that was created for the job function you configured\. For example, `AWS-QuickSetup-SSMChangeMgr-DBAdminInvocationRole`\. Make a note of this policy name and attach it to the IAM user or groups who will perform this job function\. For information about attaching IAM policies, see [Changing permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
+After the system finishes setting up Change Manager for your organization, it displays a summary of your deployments\. This summary information includes the name of the permissions policy that was created for the job function you configured\. For example, `AWS-QuickSetup-SSMChangeMgr-DBAdminInvocationRole`\. Make a note of this policy name and attach it to the users, groups, or IAM roles who will perform this job function\. For information about attaching IAM policies, see [Changing permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
 
 **Note**  
 Quick Setup uses AWS CloudFormation StackSets to deploy your configurations\. You can also view information about a completed deployment configuration in the AWS CloudFormation console\. For information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.

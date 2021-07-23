@@ -47,7 +47,7 @@ Choose **View Change Calendar** to check for any blocking events for the time yo
 
 1. In the **Change request approvers** section, do the following:
 
-   1. Choose **Add approver**, and then select one or more users or groups from the lists of available reviewers\.
+   1. Choose **Add approver**, and then select one or more users, groups, or AWS Identity and Access Management \(IAM\) roles from the lists of available reviewers\.
 **Note**  
 One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't turned on, the template you have chosen doesn't allow additional reviewers to be added to requests\.
 
@@ -63,7 +63,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 1. Choose **Next**\.
 
-1. For **IAM role**, select an AWS Identity and Access Management \(IAM\) role *in your current account * that has the permissions needed to run the runbooks that are specified for this change request\.
+1. For **IAM role**, select an IAM role *in your current account * that has the permissions needed to run the runbooks that are specified for this change request\.
 
    This role is also referred to as the service role, or assume role, for Automation\. For more information about this role, see [Setting up Automation](automation-setup.md)\.
 
