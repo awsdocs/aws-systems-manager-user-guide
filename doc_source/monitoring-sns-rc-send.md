@@ -36,9 +36,9 @@ If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting A
 If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
 1. In the **SNS Notifications** section, choose **Enable SNS notifications**\.
 
@@ -46,9 +46,9 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. In the **SNS topic** field, enter the Amazon SNS topic ARN to be used\.
 
-1. In the **Notify me on** field, choose the events for which you want to receive notifications\.
+1. For **Event notifications**, choose the events for which you want to receive notifications\.
 
-1. In the **Notify me for** field, choose to receive notifications for each copy of a command sent to multiple instances \(invocations\) or the command summary\.
+1. For **Change notifications**, choose to receive notifications for each copy of a command sent to multiple instances \(invocations\) or the command summary\.
 
 1. Choose **Run**\.
 

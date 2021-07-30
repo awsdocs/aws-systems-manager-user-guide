@@ -69,6 +69,7 @@ This example demonstrates two levels of approvals\. You can specify up to five l
      - name: AWS-HelloWorld
        version: '1'
    emergencyChange: false
+   autoApprovable: false
    mainSteps:
      - name: ApproveAction1
        action: 'aws:approve'
@@ -136,6 +137,7 @@ This example demonstrates two levels of approvals\. You can specify up to five l
          }
       ],
       "emergencyChange": false,
+      "autoApprovable": false,
       "mainSteps": [
          {
             "name": "ApproveAction1",

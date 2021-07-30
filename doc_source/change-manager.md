@@ -9,6 +9,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 + The Amazon CloudWatch alarm that is used to monitor the runbook workflow\.
 + The Amazon SNS topic that is used to send notifications about status changes for change requests that are created using the change template\.
 + The tags to apply to the change template for use in categorizing and filtering your change templates\.
++ Whether change requests created from the change template can be run without an approval step \(auto\-approved requests\)\.
 
 Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS Single Sign\-On helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
@@ -18,7 +19,7 @@ Change Manager complements the safety controls of your [continuous integration](
 
 When the need for a standard or emergency operational change is identified, someone in the organization creates a change request that is based on one of the change templates created for use in your organization or account\.
 
-If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user, user group, or AWS Identity and Access Management \(IAM\) role who must approve requests for changes to managed instances, and another user, group, or IAM role for database changes\. 
+If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user, user group, or AWS Identity and Access Management \(IAM\) role who must approve requests for changes to managed instances, and another user, group, or IAM role for database changes\. If the change template allows auto\-approvals, and a requester's IAM user policy doesn't prohibit it, the user can also choose to run the Automation runbook for their request without a review step \(with the exception of change freeze events\)\.
 
 For each change template, you can add up to five levels of approvers\. For example, you might require technical reviewers to approve a change request created from a change template first, and then require a second level of approvals from one or more managers\.
 

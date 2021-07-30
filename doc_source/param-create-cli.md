@@ -1,6 +1,6 @@
 # Create a Systems Manager parameter \(AWS CLI\)<a name="param-create-cli"></a>
 
-You can use the AWS Command Line Interface \(AWS CLI\) to create `String`, `StringList`, and `SecureString` parameter types\.
+You can use the AWS Command Line Interface \(AWS CLI\) to create `String`, `StringList`, and `SecureString` parameter types\. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name\.
 
 Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
 

@@ -131,7 +131,7 @@ arn:aws:us-east-2:111122223333:session/session-1a2b3c4sEXAMPLE
 
 For more information about the format of ARNs, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
-For a list of Systems Manager resource types and their ARNs, see [Resources Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.
+For a list of Systems Manager resource types and their ARNs, see [Resources Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.<a name="policy-conditions"></a>
 
 ### Condition keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
@@ -232,7 +232,7 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by Systems Manager\.
 + **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 + **AWSSystemsManagerChangeManagementServicePolicy** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
-+ **AWSServiceRoleForSystemsManagerOpsDataSyncPolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
++ **AWSSystemsManagerOpsDataSyncServiceRolePolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
 + **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  

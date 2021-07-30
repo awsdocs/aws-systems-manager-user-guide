@@ -45,7 +45,15 @@ Markdown is a markup language that allows you to add wiki\-style descriptions to
 Choose **View Change Calendar** to check for any blocking events for the time you specify\.
    + **Run the operation as soon as possible after approval** – If the change request is approved, the runbook workflow runs as soon as there is a non\-restricted period when changes can be made\.
 
-1. In the **Change request approvers** section, do the following:
+1. In the **Change request approvals** section, do the following:
+
+   1. If **Approval type** options are presented, choose one of the following:
+      + **Automatic approval **– The change template you selected is configured to allow change requests to run automatically without review by any approvers\. Continue to Step 11\.
+**Note**  
+The permissions specified in the IAM policies that govern your use of Systems Manager must not restrict you from submitting auto\-approval change requests in order for them to run automatically\.
+      + **Specify approvers** – You must add one or more users, groups, or IAM roles to review and approve this change request\.
+**Note**  
+You can choose to specify reviewers even if the permissions specified in the IAM policies that govern your use of Systems Manager allow you to run auto\-approval change requests\.
 
    1. Choose **Add approver**, and then select one or more users, groups, or AWS Identity and Access Management \(IAM\) roles from the lists of available reviewers\.
 **Note**  

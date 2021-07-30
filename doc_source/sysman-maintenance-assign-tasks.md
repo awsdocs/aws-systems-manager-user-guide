@@ -24,17 +24,17 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
    + **Register Step Functions task**
    + **Register Lambda task**
 
-1. For **Name**, enter a name for the task\.
+1. \(Optional\) For **Name**, enter a name for the task\.
 
-1. For **Description**, enter a description\.
+1. \(Optional\) For **Description**, enter a description\.
 
-1. For **Document**, choose the Systems Manager Command document \(SSM document\) or Automation runbook that defines the tasks to run\.
+1. In the **Command document** list, choose the Systems Manager Command document \(SSM document\) or Automation runbook that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
 
 1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
-1. In the **Targets** section, choose one of the following:
+1. In the **Targets** area, choose one of the following:
    + **Selecting registered target groups**: Select one or more maintenance window targets you have registered with the current maintenance window\.
    + **Selecting unregistered targets**: Choose available resources one by one as targets for the task\.
 
@@ -68,6 +68,16 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. In the **Input Parameters** section, specify parameters for the document\. For Automation runbooks, the system auto\-populates some of the values\. You can keep or replace these values\.
+1. \(Optional\) For **Output options**, do one of the following:
+   + Select the **Enable writing to S3** check box to save the command output to a file\. Enter the bucket and prefix \(folder\) names in the boxes\.
+**Note**  
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+   + Select the **CloudWatch output** check box to write complete output to Amazon CloudWatch Logs\. Enter the name of a CloudWatch Logs log group\.
+
+1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
+
+   For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+
+1. In the **Parameters** area, specify parameters for the document\. For Automation runbooks, the system auto\-populates some of the values\. You can keep or replace these values\.
 
 1. Complete the wizard\.

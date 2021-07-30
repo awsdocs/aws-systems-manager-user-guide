@@ -12,7 +12,7 @@ The terminal status values for commands for which you can track metrics include 
 
 1. In the navigation pane, choose **Metrics**\.
 
-1. Select the **SSM Run Command** tile\.
+1. Choose **SSM\-Run Command**\.
 
 **To view metrics using the AWS CLI**  
 Open a command prompt, and use the following command\.
@@ -24,7 +24,7 @@ aws cloudwatch list-metrics --namespace "AWS/SSM-RunCommand"
 To list all available metrics, use the following command\.
 
 ```
-aws cloudwatch list-metrics --namespace "AWS/SSM-RunCommand"
+aws cloudwatch list-metrics
 ```
 
 ## Systems Manager Run Command metrics and dimensions<a name="metrics-and-dimensions"></a>

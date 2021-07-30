@@ -1,4 +1,4 @@
-# Systems Manager target type examples<a name="monitoring-systems-manager-targets"></a>
+# Amazon EventBridge target examples for Systems Manager<a name="monitoring-systems-manager-targets"></a>
 
 When you specify the target to invoke in an Amazon EventBridge rule, you can choose from over 20 target types and add up to five targets to each rule\.
 

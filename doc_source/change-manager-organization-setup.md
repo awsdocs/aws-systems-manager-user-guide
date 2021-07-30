@@ -63,7 +63,7 @@ You repeat this task for each job function you want to create for your organizat
 
 1. Choose **Change Manager**, and then choose **Next**\.
 
-1. For **Delegated administrator account**, enter the account ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
+1. For **Delegated administrator account**, enter the ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
 
    If you have previously specified a delegated administrator account for Systems Manager, its ID is already reported in this field\. 
 **Important**  
@@ -93,7 +93,12 @@ Granting users full administrative permissions should be done sparingly, and onl
 **Tip**  
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
-   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
+**Sample policy: DynamoDB database management**  
+For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+
+   The policy also includes permission for the [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) operation, which is required for creating a change request in Change Calendar\. 
+**Note**  
+This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
 
    ```
    {
@@ -102,15 +107,15 @@ We recommend that you use the IAM policy editor to construct your policy and the
            {
                "Effect": "Allow",
                "Action": [
-                   "ssm:ListDocumentVersions",
+                   "ssm:CreateDocument",
                    "ssm:DescribeDocument",
-                   "ssm:UpdateDocumentDefaultVersion",
-                   "ssm:ModifyDocumentPermission",
                    "ssm:DescribeDocumentParameters",
-                   "ssm:GetDocument",
                    "ssm:DescribeDocumentPermission",
+                   "ssm:GetDocument",
+                   "ssm:ListDocumentVersions",
+                   "ssm:ModifyDocumentPermission",
                    "ssm:UpdateDocument",
-                   "ssm:CreateDocument"
+                   "ssm:UpdateDocumentDefaultVersion"
                ],
                "Resource": [
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-CreateDynamoDbBackup",
@@ -120,13 +125,18 @@ We recommend that you use the IAM policy editor to construct your policy and the
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnableEncryptionOnDynamoDbTable",
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnablePITRForDynamoDbTable",
                    "arn:aws:ssm:us-east-2:123456789012:document/MyFirstDBChangeTemplate",
-                   "arn:aws:ssm:us-east-2:123456789012:document/MySecondDBChangeTemplate"                              
+                   "arn:aws:ssm:us-east-2:123456789012:document/MySecondDBChangeTemplate"
                ]
            },
            {
                "Effect": "Allow",
                "Action": "ssm:ListDocuments",
                "Resource": "*"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "ssm:StartChangeRequestExecution",
+               "Resource": "arn:aws:ssm:us-east-2:123456789012:automation-definition/*:*"
            }
        ]
    }

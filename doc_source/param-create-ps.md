@@ -1,6 +1,6 @@
 # Create a Systems Manager parameter \(Tools for Windows PowerShell\)<a name="param-create-ps"></a>
 
-You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\.
+You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString` parameter types\. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name\.
 
 Parameters can't be referenced or nested in the values of other parameters\. You can't include `{{}}` or `{{ssm:parameter-name}}` in a parameter value\.
 
@@ -29,7 +29,15 @@ Parameters are only available in the AWS Region where they were created\.
 
    \-or\-
 
-   Run the following command to create a parameter that contains an Amazon Machine Image \(AMI\) ID as the parameter value\. 
+   Run the following command to create a parameter that contains an Amazon Machine Image \(AMI\) ID as the parameter value\.
+**Note**  
+To create a parameter with a tag, create the service\.model\.tag before hand as a variable\. Here is an example\.  
+
+   ```
+   $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
+   $tag.Key = "tag-key"
+   $tag.Value = "tag-value"
+   ```
 
    ```
    Write-SSMParameter `
@@ -37,7 +45,7 @@ Parameters are only available in the AWS Region where they were created\.
        -Value "an-AMI-id" `
        -Type "String" `
        -DataType "aws:ec2:image" `
-       -Tags "Key=tag-key,Value=tag-value"
+       -Tags $tag
    ```
 
    The `-DataType` option must be specified only if you are creating a parameter that contains an AMI ID\. For all other parameters, the default data type is `text`\. For more information, see [Native parameter support for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)\.
@@ -49,7 +57,7 @@ Parameters are only available in the AWS Region where they were created\.
        -Name "/IAD/Web/SQL/IPaddress" `
        -Value "99.99.99.999" `
        -Type "String" `
-       -Tags "Key=Region,Value=IAD"
+       -Tags $tag
    ```
 
 1. Run the following command to verify the details of the parameter\.
@@ -65,13 +73,21 @@ Parameters are only available in the AWS Region where they were created\.
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a StringList parameter\.
+**Note**  
+To create a parameter with a tag, create the service\.model\.tag before hand as a variable\. Here is an example\.   
+
+   ```
+   $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
+   $tag.Key = "tag-key"
+   $tag.Value = "tag-value"
+   ```
 
    ```
    Write-SSMParameter `
        -Name "parameter-name" `
        -Value "a-comma-separated-list-of-values" `
        -Type "StringList" `
-       -Tags "Key=tag-key,Value=tag-value"
+       -Tags $tag
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -82,7 +98,8 @@ Parameters are only available in the AWS Region where they were created\.
    Write-SSMParameter `
        -Name "stringlist-parameter" `
        -Value "Milana,Mariana,Mark,Miguel" `
-       -Type "StringList"
+       -Type "StringList" `
+       -Tags $tag
    ```
 **Note**  
 Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
@@ -105,6 +122,14 @@ Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/k
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create a parameter\.
+**Note**  
+To create a parameter with a tag, create the service\.model\.tag before hand as a variable\. Here is an example\.   
+
+   ```
+   $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
+   $tag.Key = "tag-key"
+   $tag.Value = "tag-value"
+   ```
 
    ```
    Write-SSMParameter `
@@ -112,7 +137,7 @@ Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/k
        -Value "parameter-value" `
        -Type "SecureString"  `
        -KeyId "an AWS KMS key ID, an AWS KMS key ARN, an alias name, or an alias ARN" `
-       --tags "Key=tag-key,Value=tag-value"
+       -Tags $tag
    ```
 
    If successful, the command returns the version number of the parameter\.
@@ -125,7 +150,8 @@ To use the AWS managed AWS KMS key assigned to your account, remove the `-KeyId`
    Write-SSMParameter `
        -Name "/Finance/Payroll/3l3vat3131" `
        -Value "P@sSwW)rd" `
-       -Type "SecureString"
+       -Type "SecureString"`
+       -Tags $tag
    ```
 
 1. Run the following command to verify the details of the parameter\.

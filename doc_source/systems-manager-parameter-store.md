@@ -14,6 +14,7 @@ Parameter Store offers these benefits:
 + Improve your security posture by separating your data from your code\.
 + Store configuration data and encrypted strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.
++ Store parameters reliably because Parameter Store is hosted in multiple Availability Zones in an AWS Region\.
 
 ## Who should use Parameter Store?<a name="parameter-store-who"></a>
 + Any AWS customer who wants to have a centralized way to manage configuration data\.

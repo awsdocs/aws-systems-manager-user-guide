@@ -14,13 +14,13 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. Choose **Create a maintenance window**\.
 
-1. For **Name**, enter a descriptive name to help you identify this maintenance window as a test maintenance window\.
+1. For **Name**, enter a descriptive name to help you identify this maintenance window\.
 
 1. For **Description**, enter a description\.
 
 1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you haven't registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
 
-   If you don't choose this option, then you must choose previously\-registered targets when you register a task with the maintenance window\.
+   If you don't choose this option, then you must choose previously registered targets when you register a task with the maintenance window\.
 
 1. Specify a schedule for the maintenance window by using one of the three scheduling options\.
 
@@ -32,11 +32,11 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. For **Stop initiating tasks**, enter the number of hours before the end of the maintenance window that the system should stop scheduling new tasks to run\.
 
-1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become active\. This allows you to delay activation of the maintenance window until the specified future date\.
+1. \(Optional\) For **Window start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become active\. This allows you to delay activation of the maintenance window until the specified future date\.
 
-1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
+1. \(Optional\) For **Window end date \- *optional***, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
 
-1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+1. \(Optional\) For **Schedule time zone \- *optional***, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
    For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
 

@@ -14,7 +14,7 @@ You can update a maintenance window to change its name, description, and schedul
 
 1. In the navigation pane, choose **Maintenance Windows**\. 
 
-1. Choose the maintenance window that you want to update or delete, and then do one of the following:
+1. Select the button next to the maintenance window that you want to update or delete, and then do one of the following:
    + Choose **Delete**\. The system prompts you to confirm your actions\. 
    + Choose **Edit**\. On the **Edit maintenance window** page, change the values and options that you want, and then choose **Edit maintenance window**\.
 
@@ -32,11 +32,7 @@ You can update or delete the targets of a maintenance window\. If you choose to 
 
 1. Choose the name of the maintenance window that you want to update, and then do one of the following:
    + To update targets, choose **Edit**\.
-   + To delete targets, choose Deregister targets, and then choose the **Targets** tab\.
-
-     Choose the target to delete, and then choose **Deregister target**\. In the **Deregister maintenance windows target** window, leave the **Safely deregister target** option selected if you want the system to check if the target is referenced by any tasks before deleting it\. If the target is referenced by a task, the system returns an error and doesn't delete the target\. Clear the **Safely deregister target** option if you want the system to delete the target even if it's referenced by a task\.
-
-     Choose **Deregister**\.
+   + To delete targets, choose the **Targets** tab, select the button next to the target to deregister, and then choose **Deregister targets**\. In the **Deregister maintenance windows target** dialog box, choose **Deregister**\.
 
 ## Update or delete maintenance window tasks \(console\)<a name="sysman-maintenance-update-tasks"></a>
 
@@ -52,6 +48,6 @@ You can update or delete the tasks of a maintenance window\. If you choose to up
 
 1. Choose the **Tasks** tab\.
 
-1. If you want to delete a task, choose the small **x** button next to **Edit**\. If you want to edit the task, choose **Edit**\.
-
-1. Change the values and options that you want, and then choose **Edit Task**\. The system returns you to the maintenance window page\.
+1. Do one of the following:
+   + To delete a task, choose **Delete**\.
+   + To edit the task, choose **Edit**\. Change the values and options that you want, and then choose **Save changes**\.
