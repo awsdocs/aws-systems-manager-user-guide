@@ -103,3 +103,17 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 1. Decrease the default value of the `SessionLogsRetentionDurationHours` value in the `SSM` property, and save the file\.
 
 1. Restart the SSM Agent\.
+
+## Plugin with name Standard_Stream not found
+
+**Problem**:  Your instance returns the error message `Your session has been terminated for the following reasons: Plugin with name Standard_Stream not found. Step name: Standard_Stream` when trying to connect via the AWS console.  SSM Agent is up to date and restarting the service reveals a ""No space left on the device" error message.  The disk is not full and inodes are not at maximum.
+
+**Solution**: Update filesytem setting for max_user_watches and reboot.
+
+**Configure the max_user_watches setting for post reboot**
+
+1. At a bash prompt or via SSM Run Command execute the following command:
+
+```bash
+sudo echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf
+```
